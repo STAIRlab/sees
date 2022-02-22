@@ -4,13 +4,13 @@ import matplotlib.pyplot as plt
 
 def show(): plt.show()
 
-def section(s):
-    return MplPlotter().plot_section(s)
+def section(s, **kwds):
+    return MplPlotter().plot_section(s, **kwds)
 
 class MplPlotter:
     def __init__(self, **kwds):
         pass
-    def get_section_layers(self, section):
+    def get_section_layers(self, section, **kwds):
         import matplotlib.collections
         import matplotlib.lines as lines
         collection = []
@@ -18,12 +18,12 @@ class MplPlotter:
             if hasattr(layer, "plot_opts"):
                 options = layer.plot_opts
             else:
-                options = dict(linestyle="--", color="k")
+                options = dict(linestyle="--", color="k", **kwds)
             collection.append(
                 lines.Line2D(*np.asarray(layer.vertices).T, **options))
         return collection
 
-    def get_section_patches(self, section):
+    def get_section_patches(self, section, **kwds):
         import matplotlib.collections
         import matplotlib.patches as mplp
         collection = []
@@ -68,7 +68,9 @@ class MplPlotter:
             fig = plt.figure(constrained_layout=True)
             gs = fig.add_gridspec(1,5)
             axp = fig.add_subplot(gs[0,3:-1])
-            label = "\n".join(["${}$:\t\t{:0.4}".format(k,v) for k,v in self.properties().items()])
+            label = "\n".join([
+                "${}$:\t\t{:0.4}".format(k,v) for k,v in self.properties().items()
+            ])
             axp.annotate(label, (0.1, 0.5), xycoords='axes fraction', va='center')
             axp.set_autoscale_on(True)
             axp.axis("off")
@@ -90,8 +92,8 @@ class MplPlotter:
         #ax.set_ylim( y_min, y_max)
         ax.axis("off")
         # add shapes
-        ax.add_collection(self.get_section_patches(section,**kwds))
-        for l in self.get_section_layers(section):
+        ax.add_collection(self.get_section_patches(section))
+        for l in self.get_section_layers(section, **kwds):
             ax.add_line(l)
         # show centroid
         #ax.scatter(*section.centroid)

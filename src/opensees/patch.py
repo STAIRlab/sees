@@ -10,7 +10,7 @@ _eps = 0.00001
 _huge = sys.float_info.max
 _tiny = sys.float_info.min
  
-def rayintersectseg(p, edge):
+def rayintersectseg(p, edge)->bool:
     """
     takes a point p=Pt() and an edge of two endpoints a,b=Pt() of a line segment returns boolean
     https://rosettacode.org/wiki/Ray-casting_algorithm#Python
@@ -42,6 +42,9 @@ def rayintersectseg(p, edge):
 
 
 class _Polygon:
+    def __init__(self, vertices):
+        self.vertices = vertices
+
     @property
     def area(self):
         x,y = np.asarray(self.vertices).T
@@ -66,8 +69,7 @@ class _Polygon:
         x,y = (np.asarray(self.vertices) - np.asarray(reference)).T
 
         area = area or self.area
-        alpha = x * np.roll(y, -1) - \
-            np.roll(x, -1) * y
+        alpha = x * np.roll(y, -1) - np.roll(x, -1) * y
         # planar moment of inertia wrt horizontal axis
         ixx = np.sum((y**2 + y * np.roll(y, -1) +
                       np.roll(y, -1)**2)*alpha)/12.00
@@ -86,6 +88,22 @@ class _Polygon:
 
         return {'ixx': ixx, 'iyy': iyy,
                 'ixy': ixy, 'ir': ir, 'ir_mass': ir_mass}
+    @property
+    def ixx(self):
+        return self.moi(self.centroid)["ixx"]
+
+    @property
+    def iyy(self):
+        return self.moi(self.centroid)["iyy"]
+    
+    @property
+    def ixy(self):
+        return self.moi(self.centroid)["ixy"]
+
+    @property
+    def iyx(self):
+        return self.moi(self.centroid)["ixy"]
+
 
     def __contains__(self, p:tuple) -> bool:
         v = np.asarray(self.vertices)
@@ -156,7 +174,7 @@ class circ:
                                  "the circumferential direction (number of wedges)"),
       Int("numSubdivRad",  about="number of subdivisions (fibers) in the radial direction (number of rings)"),
       Grp("center",    args=[Num("yCenter"), Num("zCenter")],
-          about="y & z-coordinates of the center of the circle"),
+          about="y & z-coordinates of the center of the circle", default=[0.0, 0.0]),
       Num("intRad",    about="internal radius", default=0.0),
       Num("extRad",    about="external radius"),
       Num("startAng",  about="starting angle", default=0.0),
@@ -198,8 +216,17 @@ class circ:
     def centroid(self):
         return np.asarray(self.center)
 
-    def moi(self, reference):
-        return np.array([0.5 * self.area * self.extRad ** 2])
+    @property
+    def ixx(self):
+        return 0.25 * np.pi * (self.extRad ** 4 - self.intRad ** 4)
+
+    @property
+    def iyy(self):
+        return 0.25 * np.pi * (self.extRad ** 4 - self.intRad ** 4)
+
+    @property
+    def ixy(self):
+        return 0.0
 
 layer = LibCmd("layer", {
   "circ": [
@@ -235,12 +262,13 @@ class line:
       ])
     ]
     def __contains__(self, point):
-        vertices = np.asarray(self.vertices)
-        return all([
-            point[0] > min(vertices[:,0]),
-            point[0] < max(vertices[:,0])
-        ])
+        a,b = np.asarray(self.vertices)
+        p = np.asarray(point)
+        return np.isclose(_distance(a,p) + _distance(p,b), _distance(a,b))
 
+
+def _distance(a,b):
+    return np.linalg.norm(a-b)
 
 
 
