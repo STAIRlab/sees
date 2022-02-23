@@ -1,10 +1,10 @@
+
 def _to_list(val, fmt):
     if isinstance(val, (int,float)):
         return val
     elif isinstance(val, (Int,Num)):
         return val.to_str(fmt)
     elif isinstance(val,list) or hasattr(val,"__array__"):
-        #return "[" + ",".join(_to_lo
         return None
 
 class Parameter:
@@ -43,8 +43,7 @@ class Arg:
 
     def init(self): pass
 
-    def c_decl(self):
-        pass
+    def c_decl(self): pass
 
     def c_test_argv(self, argidx):
         return f"""(strcmp(argv[{argidx}], "{self.flag}") == 0)"""
@@ -84,8 +83,8 @@ class Arg:
         if isinstance(value,bool):
             return str(value).lower()
 
-
 class Flg(Arg):
+    "Flag-like argument"
     def init(self):
         if "enum" in self.kwds:
             self.enum = self.kwds["enum"]
@@ -101,7 +100,6 @@ class Flg(Arg):
     
     def c_read_argv(self, struct, argidx):
         return f"{struct}->{self.field} = true;\n"
-
 
     def as_tcl_list(self, value=None): 
         value = self.value if value is None else value
@@ -144,8 +142,8 @@ class Ref(Arg):
         return self.flag + [value]
 
 class Ary(Arg): pass
-class Sub(Arg): pass
 
+class Sub(Arg): pass
 
 class Grp(Arg):
     """Argument grouping"""
@@ -166,7 +164,6 @@ class Grp(Arg):
                 value = [None]*self.num
             else:
                 return []
-                #value = [None]*self.num
         return self.flag + [a for arg,v in zip(self.args,value) for a in arg.as_tcl_list(v)]
 
 class One(Arg): pass
