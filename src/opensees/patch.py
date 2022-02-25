@@ -1,3 +1,4 @@
+# Claudio Perez
 import sys
 from .ast import *
 from opensees.obj import LibCmd, Mat
@@ -139,6 +140,7 @@ class rect(_Polygon):
 
 @_patch
 class quad(_Polygon):
+    _img  = "quadPatch.svg"
     _args = [
        Ref("matTag",      field="material", 
            about="tag of previously defined material (`UniaxialMaterial` "\
@@ -166,6 +168,7 @@ def rhom(center, height, width, slope=None, divs=(0,0)):
 
 @_patch
 class circ:
+    _img  = "circPatch.svg"
     _args = [
       Ref("matTag", about="tag of previously defined material ("\
                           "`UniaxialMaterial` tag for a `FiberSection` "\

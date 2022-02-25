@@ -1,6 +1,6 @@
 ---
 site_name: G3
-site_dir:  out/web
+site_dir:  site/
 docs_dir:  docs/
 site_url:  "https://claudioperez.github.io/pyg3"
 #repo_url: "https://www.github.com/claudioperez/anabel"
