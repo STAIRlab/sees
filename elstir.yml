@@ -1,0 +1,47 @@
+---
+site_name: G3
+site_dir:  out/web
+docs_dir:  docs/
+site_url:  "https://claudioperez.github.io/pyg3"
+#repo_url: "https://www.github.com/claudioperez/anabel"
+#repo_name: claudioperez/pyg3
+repo_url: https://github.com/claudioperez/pyg3
+
+copyright: 'Berkeley, CA'
+pandoc:    etc/doc-config/pandoc-web.yaml
+#extra_templates:
+#  - events.jinja
+
+plugins: 
+- search
+  #- mkdocstrings
+
+theme:
+  name: material
+# name: odette
+  palette:
+    primary: white
+  features:
+  - navigation.tabs
+  - navigation.indexes
+  - navigation.top
+  custom_dir: etc/doc-config
+
+extra:
+  generator: false # remove theme watermark in footer
+
+markdown_extensions: [toc]
+
+sidebar:
+  min_depth: -1
+  max_depth: 10
+
+extra_javascript: 
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+  # nav:
+  #   - Libraries: libraries/
+  #   - Users: user/
+  #   - Developer: developer
+  #   - Gallery: gallery
+
