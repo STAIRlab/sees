@@ -1,5 +1,11 @@
 # OpenSees Python Bindings
 
+## Install
+
+```shell
+pip install opensees
+```
+
 
 ## Documentation
 
