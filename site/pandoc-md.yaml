@@ -1,0 +1,33 @@
+#to: markdown+implicit_figures+raw_html-markdown_in_html_blocks+raw_attribute+inline_code_attributes
+from: markdown+implicit_figures+raw_html-markdown_in_html_blocks+raw_attribute+inline_code_attributes+shortcut_reference_links+link_attributes
+to: markdown+implicit_figures+raw_html-markdown_in_html_blocks+raw_attribute+inline_code_attributes+shortcut_reference_links+link_attributes
+
+metadata:
+  institute: University of California, Berkeley
+  geometry:
+    - margin=1truein
+
+variables:
+  fontsize: 11pt
+  urlcolor: blue
+  # Front matter
+  lof: true # list of figures
+  lot: true
+  toc: true # table of contents
+  # HTML
+  monofont: inconsolata
+  html-math-method:
+    method: mathjax
+    url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    # none, references, or javascript
+
+#citeproc: true
+
+# standalone: true
+#filters:
+#   - ipynb_meta.lua
+#  - image_center.lua
+#    - ipynb_html_output.lua
+atx-headers: true
+# extract-media: img
+#
