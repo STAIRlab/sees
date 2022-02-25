@@ -1,5 +1,5 @@
 # Claudio Perez
-from .arg import *
+from .ast import *
 from .obj import *
 
 Dof = Int
@@ -152,21 +152,6 @@ LinearTransform = Trf("LinearTransform",
 RigidBeamLink = Lnk("RigidBeamLink",
     "beam", [Tag(), Grp("nodes", type=Ref, num=2)]
 )
-
-
-#FiberSection = Sec("FiberSection",
-#    "fiber",
-#    args = [
-#        Tag(),
-#        Num("GJ", flag="-GJ", field="torsional_stiffness", optional=True, 
-#            about="linear-elastic torsional stiffness assigned to the section (optional, default = no torsional stiffness)"),
-#        Blk("fibers", type=Cmd, defn=dict(
-#           fiber=LibCmd("fiber"),
-#           layer=LibCmd("layer")
-#          )
-#        )
-#    ]
-#)
 
 redirect = Cmd("redirect",[
       Blk("commands"),

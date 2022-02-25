@@ -1,6 +1,6 @@
 from math import pi, sin, cos, sqrt
 from opensees.obj import LibCmd, Cmd
-from opensees.arg import *
+from opensees.ast import *
 from . import patch, layer
 
 _section = LibCmd("section")

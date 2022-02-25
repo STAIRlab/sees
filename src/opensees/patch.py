@@ -1,5 +1,5 @@
 import sys
-from .arg import *
+from .ast import *
 from opensees.obj import LibCmd, Mat
 import numpy as np
 
