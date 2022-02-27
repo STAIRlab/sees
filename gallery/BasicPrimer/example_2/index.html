@@ -297,6 +297,8 @@
         
           
         
+          
+        
       
       
         
@@ -326,7 +328,22 @@
   
     <li class="md-nav__item">
       <a href="../../../api/element/" class="md-nav__link">
-        `opensees.lib`
+        element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/layer/" class="md-nav__link">
+        layer
 
       </a>
     </li>
@@ -356,7 +373,7 @@
   
     <li class="md-nav__item">
       <a href="../../../api/patch/" class="md-nav__link">
-        `patch`
+        patch
 
       </a>
     </li>
@@ -371,7 +388,7 @@
   
     <li class="md-nav__item">
       <a href="../../../api/section/" class="md-nav__link">
-        `section`
+        section
 
       </a>
     </li>
@@ -5911,14 +5928,14 @@
 </ol>
 <p>The model consists of two nodes and a ZeroLengthSection element. A depiction of the element geometry is shown in figure <a href="#zerolength" data-reference-type="ref" data-reference="zerolength">[zerolength]</a>. The drawing on the left of figure <a href="#zerolength" data-reference-type="ref" data-reference="zerolength">[zerolength]</a> shows an edge view of the element where the local z-axis, as seen on the right side of the figure and in figure <a href="#rcsection0" data-reference-type="ref" data-reference="rcsection0">[rcsection0]</a>, is coming out of the page. Node 1 is completely restrained, while the applied loads act on node 2. A compressive axial load, P, of 180 kips is applied to the section during the moment-curvature analysis.</p>
 <div class="center">
-<p><img src="../fig_files/ZeroLengthSection.svg" style="margin:auto; display: block; max-width: 75%" alt="Geometry of the zero-length element" /> </p>
+<p><img src="../../..../fig_files/ZeroLengthSection.svg" style="margin:auto; display: block; max-width: 75%" alt="Geometry of the zero-length element" /> </p>
 </div>
 <p>For the zero length element, a section discretized by concrete and steel is created to represent the resultant behavior. UniaxialMaterial objects are created to define the fiber stress-strain relationships: confined concrete in the column core, unconfined concrete in the column cover, and reinforcing steel.</p>
 <p>The dimensions of the fiber section are shown in figure <a href="#rcsection0" data-reference-type="ref" data-reference="rcsection0">[rcsection0]</a>. The section depth is 24 inches, the width is 15 inches, and there are 1.5 inches of cover around the entire section. Strong axis bending is about the section z-axis. In fact, the section z-axis is the strong axis of bending for all fiber sections in planar problems. The section is separated into confined and unconfined concrete regions, for which separate fiber discretizations will be generated. Reinforcing steel bars will be placed around the boundary of the confined and unconfined regions. The fiber discretization for the section is shown in figure <a href="#rcsection4" data-reference-type="ref" data-reference="rcsection4">[rcsection4]</a>.</p>
 <div class="center">
-<p><img src="../fig_files/RCsection0.svg" id="fig:rcsection0" style="margin:auto; display: block; max-width: 75%" alt="Dimensions of the RC section." /> </p>
+<p><img src="../../..../fig_files/RCsection0.svg" id="fig:rcsection0" style="margin:auto; display: block; max-width: 75%" alt="Dimensions of the RC section." /> </p>
 </div>
-<p>::: {.center}  <img src="../fig_files/RCsection4.svg" id="fig:rcsection4" style="margin:auto; display: block; max-width: 75%" alt="Fiber section discretization" /> :::</p>
+<p>::: {.center}  <img src="../../..../fig_files/RCsection4.svg" id="fig:rcsection4" style="margin:auto; display: block; max-width: 75%" alt="Fiber section discretization" /> :::</p>
 <p>The section analysis is performed by the Tcl procedure MomentCurvature defined in the file MomentCurvature.tcl. The arguments to the procedure are the tag of the section to be analyzed, the axial load applied to the section, the maximum curvature, and the number of displacement increments to reach the maximum curvature.</p>
 <p>The output for the moment-curvature analysis will be the section forces and deformations, stored in the file section1.out. In addition, an estimate of the section yield curvature is printed to the screen.</p>
 <p>In the script below variables, are set and can then be used with the syntax of <code>$variable</code>. Expressions can be evaluated, although the Tcl syntax at first appears cumbersome. An expression is given by an expr command enclosed in square brackets <code>[]</code>’s. Typically, the result of an expression is then set to another variable. A simple example to add <code>2.0</code> to a parameter is shown below:</p>

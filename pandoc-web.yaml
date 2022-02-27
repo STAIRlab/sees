@@ -26,6 +26,7 @@ filters:
 - include.lua
 - include-code-files.lua
 - pygmentize
+- elstir.lua
 
 # method is plain, webtex, gladtex, mathml, mathjax, katex
 # you may specify a url with webtex, mathjax, katex

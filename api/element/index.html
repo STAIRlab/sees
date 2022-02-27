@@ -15,7 +15,7 @@
     
     
       
-        <title>`opensees.lib` - OpenSees</title>
+        <title>element - OpenSees</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              `opensees.lib`
+              element
 
             
           </span>
@@ -299,6 +299,8 @@
         
           
         
+          
+        
       
       
         
@@ -335,10 +337,25 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        `opensees.lib`
+        element
 
       </a>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layer/" class="md-nav__link">
+        layer
+
+      </a>
     </li>
   
 
@@ -366,7 +383,7 @@
   
     <li class="md-nav__item">
       <a href="../patch/" class="md-nav__link">
-        `patch`
+        patch
 
       </a>
     </li>
@@ -381,7 +398,7 @@
   
     <li class="md-nav__item">
       <a href="../section/" class="md-nav__link">
-        `section`
+        section
 
       </a>
     </li>
@@ -5899,11 +5916,18 @@
 </a>
 
 
-<h1 id="opensees.lib"><code>opensees.lib</code></h1>
+<style>
+h1 {
+    font-family: var(--md-code-font-family);
+    color: var(--md-code-fg-color) !important;
+    font-feature-settings: "kern";
+}
+</style>
+<h1 id="element">element</h1>
 <article style="width: 90%; padding-left: 10%">
 <blockquote>
 <pre><!-- <code class="python"> -->
-    <span style="color:#900">ZeroLength3D</span>(name, nodes, materials, dofs, orientation, do_rayleigh, **kwds)
+    <span style="color:#900">ZeroLength3D</span>(name, Nodes, materials, dofs, orientation, do_rayleigh, **kwds)
 <!-- </code> --> </pre>
 <table>
 <colgroup>
@@ -5923,7 +5947,7 @@ name
 </tr>
 <tr>
 <td>
-nodes
+Nodes
 </td>
 <td>
 <code>[iNode,jNode]</code>
@@ -5935,7 +5959,7 @@ nodes
 iNode
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(Node)</code>
 </td>
 <td>
 </tr>
@@ -5944,7 +5968,7 @@ iNode
 jNode
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(Node)</code>
 </td>
 <td>
 </tr>
@@ -5964,7 +5988,7 @@ materials
 materials1
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(uniaxial)</code>
 </td>
 <td>
 </tr>
@@ -5973,7 +5997,7 @@ materials1
 materials2
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(uniaxial)</code>
 </td>
 <td>
 </tr>
@@ -5982,7 +6006,7 @@ materials2
 materials3
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(uniaxial)</code>
 </td>
 <td>
 </tr>
@@ -5991,7 +6015,7 @@ materials3
 materials4
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(uniaxial)</code>
 </td>
 <td>
 </tr>
@@ -6000,7 +6024,7 @@ materials4
 materials5
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(uniaxial)</code>
 </td>
 <td>
 </tr>
@@ -6009,7 +6033,7 @@ materials5
 materials6
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(uniaxial)</code>
 </td>
 <td>
 </tr>
@@ -6181,7 +6205,7 @@ do_rayleigh
 </blockquote>
 <blockquote>
 <pre><!-- <code class="python"> -->
-    <span style="color:#900">ElasticBeamColumn3D</span>(name, nodes, area, elastic_modulus, shear_modulus, torsion_modulus, iyy, ixx, transform, mass_density, consistent_mass, material, section, **kwds)
+    <span style="color:#900">ElasticBeamColumn3D</span>(name, Nodes, area, elastic_modulus, shear_modulus, torsion_modulus, iyy, ixx, transform, mass_density, consistent_mass, material, section, **kwds)
 <!-- </code> --> </pre>
 <table>
 <colgroup>
@@ -6201,7 +6225,7 @@ name
 </tr>
 <tr>
 <td>
-nodes
+Nodes
 </td>
 <td>
 <code>[iNode,jNode]</code>
@@ -6213,7 +6237,7 @@ nodes
 iNode
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(Node)</code>
 </td>
 <td>
 </tr>
@@ -6222,7 +6246,7 @@ iNode
 jNode
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(Node)</code>
 </td>
 <td>
 </tr>
@@ -6233,18 +6257,20 @@ jNode
 A
 </td>
 <td>
-<code>Area</code>
+<code>Num</code>
 </td>
 <td>
+cross-sectional area
 </tr>
 <tr>
 <td>
 E
 </td>
 <td>
-<code>Yng</code>
+<code>Num</code>
 </td>
 <td>
+Young’s modulus of elasticity
 </tr>
 <tr>
 <td>
@@ -6287,7 +6313,7 @@ Iz
 geom
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(geomTransf)</code>
 </td>
 <td>
 </tr>

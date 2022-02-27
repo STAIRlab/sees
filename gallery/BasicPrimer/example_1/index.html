@@ -297,6 +297,8 @@
         
           
         
+          
+        
       
       
         
@@ -326,7 +328,22 @@
   
     <li class="md-nav__item">
       <a href="../../../api/element/" class="md-nav__link">
-        `opensees.lib`
+        element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/layer/" class="md-nav__link">
+        layer
 
       </a>
     </li>
@@ -356,7 +373,7 @@
   
     <li class="md-nav__item">
       <a href="../../../api/patch/" class="md-nav__link">
-        `patch`
+        patch
 
       </a>
     </li>
@@ -371,7 +388,7 @@
   
     <li class="md-nav__item">
       <a href="../../../api/section/" class="md-nav__link">
-        `section`
+        section
 
       </a>
     </li>
@@ -5911,7 +5928,7 @@
 <p>The model consists of four nodes, three truss elements, a single load pattern with a nodal load acting at node 4, and constraints at the three support nodes. Since the truss elements have the same elastic material, a single Elastic material object is created.</p>
 <div class="center">
 <figure>
-<img src="../fig_files/Example1.svg" style="margin:auto; display: block; max-width: 75%" alt="Example 1.1" /><figcaption aria-hidden="true">Example 1.1</figcaption>
+<img src="../../..../fig_files/Example1.svg" style="margin:auto; display: block; max-width: 75%" alt="Example 1.1" /><figcaption aria-hidden="true">Example 1.1</figcaption>
 </figure>
 </div>
 <p>The model is linear, so we use a solution Algorithm of type <code>Linear</code>. Even though the solution is linear, we have to select a procedure for applying the load, which is called an <code>Integrator</code>. For this problem, a <code>LoadControl</code> integrator advances the solution. The equations are formed using a banded system, so the System is <code>BandSPD</code> (banded, symmetric positive definite). This is a good choice for most moderate size models. The equations have to be numbered, so typically an RCM numberer object is used (for Reverse Cuthill-McKee). The constraints are most easily represented with a <code>Plain</code> constraint handler.</p>

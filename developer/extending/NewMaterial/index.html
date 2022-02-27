@@ -297,6 +297,8 @@
         
           
         
+          
+        
       
       
         
@@ -326,7 +328,22 @@
   
     <li class="md-nav__item">
       <a href="../../../api/element/" class="md-nav__link">
-        `opensees.lib`
+        element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/layer/" class="md-nav__link">
+        layer
 
       </a>
     </li>
@@ -356,7 +373,7 @@
   
     <li class="md-nav__item">
       <a href="../../../api/patch/" class="md-nav__link">
-        `patch`
+        patch
 
       </a>
     </li>
@@ -371,7 +388,7 @@
   
     <li class="md-nav__item">
       <a href="../../../api/section/" class="md-nav__link">
-        `section`
+        section
 
       </a>
     </li>
@@ -6011,7 +6028,7 @@
 <h2 id="class-implementation">Class Implementation</h2>
 <p>The HardeningMaterial class interface is shown below. Here, no methods are virtual since this class provides implementations for the corresponding methods inherited from the UniaxialMaterial class.</p>
 <div class="center">
-<p><img src="../Material.svg" style="margin:auto; display: block; max-width: 75%" /> </p>
+<p><img src="../../..../Material.svg" style="margin:auto; display: block; max-width: 75%" /> </p>
 </div>
 <p>Note, three additional methods not declared in the UniaxialMaterial interface, <code>sendSelf()</code>, <code>recvSelf()</code>, and <code>Print()</code>, must be defined in implementations of UniaxialMaterial. These methods are inherited from higher level classes in the OpenSees framework, particularly, TaggedObject and MovableObject. An explanation of these methods is provided in what follows.</p>
 <div class="highlight"><pre><span></span><span class="c1">#include &lt;UniaxialMaterial.h&gt;</span><span class="w"></span>
@@ -6428,7 +6445,7 @@
 <h2 id="fedeasmaterial-implementation-in-opensees">FedeasMaterial Implementation in OpenSees</h2>
 <p>This section presents an implementation of UniaxialMaterial capable of wrapping any subroutine that conforms to the FEDEAS interface described in the previous section. This implementation, FedeasMaterial, manages the data arrays sent to the FEDEAS subroutine, i.e., FedeasMaterial is responsible for storing the material parameters and history variables, as well as for swapping trial and committed history variables.</p>
 <div class="center">
-<p><img src="../FedeasMaterial.svg" style="margin:auto; display: block; max-width: 75%" /> </p>
+<p><img src="../../..../FedeasMaterial.svg" style="margin:auto; display: block; max-width: 75%" /> </p>
 </div>
 <p>FedeasMaterial is a subclass of UniaxialMaterial, as shown in figure <a href="#fig:Fedeas" data-reference-type="ref" data-reference="fig:Fedeas">[fig:Fedeas]</a>. Subclasses of FedeasMaterial are responsible for defining constructors which take the appropriate material parameters. All other functionality (state determination, swapping of history variables, etc.) is common to all subclasses of FedeasMaterial. Therefore, this functionality is defined in the base class, FedeasMaterial.</p>
 <p>The FedeasMaterial class interface is shown below. All methods are declared as virtual so they may be overridden by subclasses of FedeasMaterial.</p>
@@ -6774,7 +6791,7 @@
 <p>The material data array defined in FedeasMaterial is populated by its subclasses. As an example, consider the case where the uniaxial hardening material is coded in a FORTRAN subroutine. In order to link this subroutine with OpenSees, a subclass of FedeasMaterial, FedeasHardeningMaterial, must be created (see figure <a href="#fig:FedeasHardening" data-reference-type="ref" data-reference="fig:FedeasHardening">fig:FedeasHardening</a>). The functionality of this subclass is to populate the material parameter array and to determine the number of history variables required for analysis.</p>
 <div class="center">
 <figure>
-<img src="../FedeasHardeningMaterial.svg" id="fig:FedeasHardening" style="margin:auto; display: block; max-width: 75%" alt="Fedeas hardening material" /><figcaption aria-hidden="true">Fedeas hardening material</figcaption>
+<img src="../../..../FedeasHardeningMaterial.svg" id="fig:FedeasHardening" style="margin:auto; display: block; max-width: 75%" alt="Fedeas hardening material" /><figcaption aria-hidden="true">Fedeas hardening material</figcaption>
 </figure>
 </div>
 <p>As additional FEDEAS subroutines are added to OpenSees, new subclasses of FedeasMaterial must be added in order to populate the data array. This is all that need be done in the derived class as the base class, FedeasMaterial, contains all the computational code and keeps track of path dependent behavior. This functionality is inherited from the FedeasMaterial base class. However, the FedeasMaterial class must be modified such that the appropriate subroutine is called during state determination from the method <code>invokeSubroutine()</code>.</p>
