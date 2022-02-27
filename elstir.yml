@@ -1,20 +1,16 @@
 ---
-site_name: G3
+site_name: OpenSees
 site_dir:  site/
 docs_dir:  docs/
-site_url:  "https://claudioperez.github.io/pyg3"
-#repo_url: "https://www.github.com/claudioperez/anabel"
-#repo_name: claudioperez/pyg3
-repo_url: https://github.com/claudioperez/pyg3
+site_url:  "https://claudioperez.github.io/opensees-python"
+# repo_name: claudioperez/opensees-python
+repo_url: https://github.com/claudioperez/opensees-python
 
 copyright: 'Berkeley, CA'
 pandoc:    etc/doc-config/pandoc-web.yaml
-#extra_templates:
-#  - events.jinja
 
 plugins: 
 - search
-  #- mkdocstrings
 
 theme:
   name: material
@@ -36,6 +32,8 @@ sidebar:
   min_depth: -1
   max_depth: 10
 
+extra_css: 
+  - math.css
 extra_javascript: 
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 

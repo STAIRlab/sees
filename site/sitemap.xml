@@ -6,42 +6,47 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/api/constraint/</loc>
+         <loc>https://claudioperez.github.io/opensees-python/api/a/</loc>
          <lastmod>2022-02-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/api/core/</loc>
+         <loc>https://claudioperez.github.io/opensees-python/api/modeling/constraint/</loc>
          <lastmod>2022-02-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/api/element/</loc>
+         <loc>https://claudioperez.github.io/opensees-python/api/modeling/core/</loc>
          <lastmod>2022-02-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/api/layer/</loc>
+         <loc>https://claudioperez.github.io/opensees-python/api/modeling/element/</loc>
          <lastmod>2022-02-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/api/patch/</loc>
+         <loc>https://claudioperez.github.io/opensees-python/api/modeling/layer/</loc>
          <lastmod>2022-02-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/api/section/</loc>
+         <loc>https://claudioperez.github.io/opensees-python/api/modeling/patch/</loc>
          <lastmod>2022-02-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/api/uniaxial/</loc>
+         <loc>https://claudioperez.github.io/opensees-python/api/modeling/section/</loc>
          <lastmod>2022-02-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/api/units/</loc>
+         <loc>https://claudioperez.github.io/opensees-python/api/modeling/uniaxial/</loc>
+         <lastmod>2022-02-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/api/utilities/units/</loc>
          <lastmod>2022-02-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1012,6 +1017,11 @@
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/BasicPrimer/example_8/</loc>
+         <lastmod>2022-02-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/gallery/advanced/section_building/</loc>
          <lastmod>2022-02-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
