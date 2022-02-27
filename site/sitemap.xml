@@ -11,6 +11,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://claudioperez.github.io/opensees-python/api/layer/</loc>
+         <lastmod>2022-02-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://claudioperez.github.io/opensees-python/api/lib/</loc>
          <lastmod>2022-02-27</lastmod>
          <changefreq>daily</changefreq>

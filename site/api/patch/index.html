@@ -15,7 +15,7 @@
     
     
       
-        <title>`patch` - OpenSees</title>
+        <title>patch - OpenSees</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              `patch`
+              patch
 
             
           </span>
@@ -299,6 +299,8 @@
         
           
         
+          
+        
       
       
         
@@ -328,7 +330,22 @@
   
     <li class="md-nav__item">
       <a href="../element/" class="md-nav__link">
-        `opensees.lib`
+        element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layer/" class="md-nav__link">
+        layer
 
       </a>
     </li>
@@ -365,7 +382,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        `patch`
+        patch
 
       </a>
       
@@ -381,7 +398,7 @@
   
     <li class="md-nav__item">
       <a href="../section/" class="md-nav__link">
-        `section`
+        section
 
       </a>
     </li>
@@ -5899,7 +5916,14 @@
 </a>
 
 
-<h1 id="patch"><code>patch</code></h1>
+<style>
+h1 {
+    font-family: var(--md-code-font-family);
+    color: var(--md-code-fg-color) !important;
+    font-feature-settings: "kern";
+}
+</style>
+<h1 id="patch">patch</h1>
 <article style="width: 90%; padding-left: 10%">
 <p>All patches have the following attributes:</p>
 <dl>
@@ -5930,7 +5954,7 @@ Second moment of inertia of the patch about its <span class="math inline">\(y\)<
 </dl>
 <blockquote>
 <pre><!-- <code class="python"> -->
-    <span style="color:#900">rect</span>(material, numSubdivIJ, numSubdivJK, vertices, **kwds)
+    <span style="color:#900">rect</span>(material, divs, vertices, **kwds)
 <!-- </code> --> </pre>
 <table>
 <colgroup>
@@ -5944,14 +5968,23 @@ Second moment of inertia of the patch about its <span class="math inline">\(y\)<
 matTag
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(Material)</code>
 </td>
 <td>
 tag of previously defined material (<code>UniaxialMaterial</code>tag for a <code>FiberSection</code> or <code>NDMaterial</code> tag for use in an <code>NDFiberSection</code>)
 </tr>
 <tr>
 <td>
-numSubdivIJ
+divs
+</td>
+<td>
+<code>[ij,jk]</code>
+</td>
+<td>
+<table>
+<tr>
+<td>
+ij
 </td>
 <td>
 <code>Int</code>
@@ -5961,13 +5994,15 @@ number of subdivisions (fibers) in the IJ direction.
 </tr>
 <tr>
 <td>
-numSubdivJK
+jk
 </td>
 <td>
 <code>Int</code>
 </td>
 <td>
 number of subdivisions (fibers) in the JK direction.
+</tr>
+</table>
 </tr>
 <tr>
 <td>
@@ -5986,7 +6021,7 @@ vertices
 <code>Grp</code>
 </td>
 <td>
-y &amp; z-coordinates of vertex I (local coordinate system)
+<span class="math inline">\(y\)</span> &amp; <span class="math inline">\(z\)</span>-coordinates of vertex I (local coordinate system)
 <table>
 <tr>
 <td>
@@ -6016,7 +6051,7 @@ zI
 <code>Grp</code>
 </td>
 <td>
-y &amp; z-coordinates of vertex J (local coordinate system)
+<span class="math inline">\(y\)</span> &amp; <span class="math inline">\(z\)</span>-coordinates of vertex J (local coordinate system)
 <table>
 <tr>
 <td>
@@ -6046,7 +6081,7 @@ zJ
 <code>Grp</code>
 </td>
 <td>
-y &amp; z-coordinates of vertex K (local coordinate system)
+<span class="math inline">\(y\)</span> &amp; <span class="math inline">\(z\)</span>-coordinates of vertex K (local coordinate system)
 <table>
 <tr>
 <td>
@@ -6076,7 +6111,7 @@ zK
 <code>Grp</code>
 </td>
 <td>
-y &amp; z-coordinates of vertex L (local coordinate system)
+<span class="math inline">\(y\)</span> &amp; <span class="math inline">\(z\)</span>-coordinates of vertex L (local coordinate system)
 <table>
 <tr>
 <td>
@@ -6107,7 +6142,7 @@ zL
 <pre><!-- <code class="python"> -->
     <span style="color:#900">quad</span>(material, divs, vertices, **kwds)
 <!-- </code> --> </pre>
-<p><img src="/figures/quadPatch.svg" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../figures/quadPatch.svg" style="margin:auto; display: block; max-width: 75%" /></p>
 <table>
 <colgroup>
 <col style="width: 10%" >
@@ -6120,7 +6155,7 @@ zL
 matTag
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(Material)</code>
 </td>
 <td>
 tag of previously defined material (<code>UniaxialMaterial</code> tag for a <code>FiberSection</code> or <code>NDMaterial</code> tag for use in an <code>NDFiberSection</code>)
@@ -6130,13 +6165,13 @@ tag of previously defined material (<code>UniaxialMaterial</code> tag for a <cod
 divs
 </td>
 <td>
-<code>[numSubdivIJ,numSubdivJK]</code>
+<code>[ij,jk]</code>
 </td>
 <td>
 <table>
 <tr>
 <td>
-numSubdivIJ
+ij
 </td>
 <td>
 <code>Int</code>
@@ -6146,7 +6181,7 @@ number of subdivisions (fibers) in the IJ direction.
 </tr>
 <tr>
 <td>
-numSubdivJK
+jk
 </td>
 <td>
 <code>Int</code>
@@ -6294,7 +6329,7 @@ zL
 <pre><!-- <code class="python"> -->
     <span style="color:#900">circ</span>(matTag, divs, center, intRad, extRad, startAng, endAng, **kwds)
 <!-- </code> --> </pre>
-<p><img src="/figures/circPatch.svg" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../figures/circPatch.svg" style="margin:auto; display: block; max-width: 75%" /></p>
 <table>
 <colgroup>
 <col style="width: 10%" >
@@ -6307,7 +6342,7 @@ zL
 matTag
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(Material)</code>
 </td>
 <td>
 tag of previously defined material (<code>UniaxialMaterial</code> tag for a <code>FiberSection</code> or <code>NDMaterial</code> tag for use in an <code>NDFiberSection</code>)
@@ -6317,13 +6352,13 @@ tag of previously defined material (<code>UniaxialMaterial</code> tag for a <cod
 divs
 </td>
 <td>
-<code>[numSubdivCirc,numSubdivRad]</code>
+<code>[circ,rad]</code>
 </td>
 <td>
 <table>
 <tr>
 <td>
-numSubdivCirc
+circ
 </td>
 <td>
 <code>Int</code>
@@ -6333,7 +6368,7 @@ number of subdivisions (fibers) in the circumferential direction (number of wedg
 </tr>
 <tr>
 <td>
-numSubdivRad
+rad
 </td>
 <td>
 <code>Int</code>
@@ -6420,6 +6455,7 @@ ending angle
 <pre><!-- <code class="python"> -->
     <span style="color:#900">line</span>(matTag, numFibers, areaFiber, vertices, **kwds)
 <!-- </code> --> </pre>
+<p><img src="../../figures/straightLayer.svg" style="margin:auto; display: block; max-width: 75%" /></p>
 <table>
 <colgroup>
 <col style="width: 10%" >
@@ -6432,7 +6468,7 @@ ending angle
 matTag
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(Material)</code>
 </td>
 <td>
 material tag of previously created material (<code>UniaxialMaterial</code> tag for a <code>FiberSection</code> or <code>NDMaterial</code> tag for use in an <code>NDFiberSection</code>)

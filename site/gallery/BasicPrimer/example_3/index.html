@@ -297,6 +297,8 @@
         
           
         
+          
+        
       
       
         
@@ -326,7 +328,22 @@
   
     <li class="md-nav__item">
       <a href="../../../api/element/" class="md-nav__link">
-        `opensees.lib`
+        element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../api/layer/" class="md-nav__link">
+        layer
 
       </a>
     </li>
@@ -356,7 +373,7 @@
   
     <li class="md-nav__item">
       <a href="../../../api/patch/" class="md-nav__link">
-        `patch`
+        patch
 
       </a>
     </li>
@@ -371,7 +388,7 @@
   
     <li class="md-nav__item">
       <a href="../../../api/section/" class="md-nav__link">
-        `section`
+        section
 
       </a>
     </li>
@@ -5911,7 +5928,7 @@
 <p>A nonlinear model of the portal frame shown in figure <a href="#example3" data-reference-type="ref" data-reference="example3">[example3]</a> is created. The model consists of four nodes, two nonlinear beam-column elements, 1 and 2, to model the columns and an elastic beam element, 3, to model the beam. For the column elements a section, identical to the section used in Example 2, is created using steel and concrete fibers.</p>
 <div class="center">
 <figure>
-<img src="../fig_files/Example2.svg" id="fig:example3" style="margin:auto; display: block; max-width: 75%" alt="Example 3.1" /><figcaption aria-hidden="true">Example 3.1</figcaption>
+<img src="../../..../fig_files/Example2.svg" id="fig:example3" style="margin:auto; display: block; max-width: 75%" alt="Example 3.1" /><figcaption aria-hidden="true">Example 3.1</figcaption>
 </figure>
 </div>
 <p>A single load pattern with a linear time series, two vertical nodal loads acting at nodes 3 and 4, and single point constraints to constrain nodes 1 and 2 are created.</p>
@@ -6246,7 +6263,7 @@
 <p>In addition to what is displayed on the screen, the file node32.out and ele32.out have been created by the script. Each line of node32.out contains the time, DX, DY and RZ for node 3 and DX, DY and RZ for node 4 at the end of an iteration. Each line of eleForce.out contains the time, and the element end forces in the local coordinate system. A plot of the load-displacement relationship at node 3 is shown in figure <a href="#lateral32" data-reference-type="ref" data-reference="lateral32">[lateral32]</a>.</p>
 <div class="center">
 <figure>
-<img src="../fig_files/ExampleOut3.2.svg" id="fig:lateral32" style="margin:auto; display: block; max-width: 75%" alt="Load displacement curve for node 3" /><figcaption aria-hidden="true">Load displacement curve for node 3</figcaption>
+<img src="../../..../fig_files/ExampleOut3.2.svg" id="fig:lateral32" style="margin:auto; display: block; max-width: 75%" alt="Load displacement curve for node 3" /><figcaption aria-hidden="true">Load displacement curve for node 3</figcaption>
 </figure>
 </div>
 <h2 id="example-3.3">Example 3.3</h2>
@@ -6440,12 +6457,12 @@
 <p>In addition to the contents displayed on the screen, three files have been created. Each line of nodeTransient.out contains the domain time, and DX, DY and RZ for node 3. Plotting the first and second columns of this file the lateral displacement versus time for node 3 can be obtained as shown in figure <a href="#lateral33" data-reference-type="ref" data-reference="lateral33">[lateral33]</a>. Each line of the files ele1secForce.out and ele1secDef.out contain the domain time and the forces and deformations for section 1 (the base section) of element 1. These can be used to generate the moment-curvature time history of the base section of column 1 as shown in figure <a href="#element1MK" data-reference-type="ref" data-reference="element1MK">[element1MK]</a>.</p>
 <div class="center">
 <figure>
-<img src="../fig_files/newNode3.3.svg" id="fig:element1MK" style="margin:auto; display: block; max-width: 75%" alt="Lateral displacement at node 3" /><figcaption aria-hidden="true">Lateral displacement at node 3</figcaption>
+<img src="../../..../fig_files/newNode3.3.svg" id="fig:element1MK" style="margin:auto; display: block; max-width: 75%" alt="Lateral displacement at node 3" /><figcaption aria-hidden="true">Lateral displacement at node 3</figcaption>
 </figure>
 </div>
 <div class="center">
 <figure>
-<img src="../fig_files/newElement1MK.svg" id="fig:element1MK" style="margin:auto; display: block; max-width: 75%" alt="Column section moment-curvature results" /><figcaption aria-hidden="true">Column section moment-curvature results</figcaption>
+<img src="../../..../fig_files/newElement1MK.svg" id="fig:element1MK" style="margin:auto; display: block; max-width: 75%" alt="Column section moment-curvature results" /><figcaption aria-hidden="true">Column section moment-curvature results</figcaption>
 </figure>
 </div>
 

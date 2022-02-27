@@ -15,7 +15,7 @@
     
     
       
-        <title>`section` - OpenSees</title>
+        <title>section - OpenSees</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              `section`
+              section
 
             
           </span>
@@ -299,6 +299,8 @@
         
           
         
+          
+        
       
       
         
@@ -328,7 +330,22 @@
   
     <li class="md-nav__item">
       <a href="../element/" class="md-nav__link">
-        `opensees.lib`
+        element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../layer/" class="md-nav__link">
+        layer
 
       </a>
     </li>
@@ -358,7 +375,7 @@
   
     <li class="md-nav__item">
       <a href="../patch/" class="md-nav__link">
-        `patch`
+        patch
 
       </a>
     </li>
@@ -380,7 +397,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        `section`
+        section
 
       </a>
       
@@ -5899,7 +5916,14 @@
 </a>
 
 
-<h1 id="section"><code>section</code></h1>
+<style>
+h1 {
+    font-family: var(--md-code-font-family);
+    color: var(--md-code-fg-color) !important;
+    font-feature-settings: "kern";
+}
+</style>
+<h1 id="section">section</h1>
 <article style="width: 90%; padding-left: 10%">
 <p>This module provides constructors for <code>SectionForceDeformation</code> objects which represent force-deformation (or resultant stress-strain) relationships at beam-column and plate sample points.</p>
 <blockquote>
@@ -5948,9 +5972,9 @@ elements
 </blockquote>
 <blockquote>
 <pre><!-- <code class="python"> -->
-    <span style="color:#900">SectionAggregator</span>(name, section, **kwds)
+    <span style="color:#900">SectionAggregator</span>(name, materials, section, **kwds)
 <!-- </code> --> </pre>
-<p><img src="/figures/SectionAggregator.gif" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../figures/SectionAggregator.gif" style="margin:auto; display: block; max-width: 75%" /></p>
 <table>
 <colgroup>
 <col style="width: 10%" >
@@ -5969,10 +5993,41 @@ name
 </tr>
 <tr>
 <td>
+materials
+</td>
+<td>
+<code>{dof : material …}</code>
+</td>
+<td>
+the force-deformation quantity to be modeled by this section object.
+<table>
+<tr>
+<td>
+dof
+</td>
+<td>
+<code>Flg</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+material
+</td>
+<td>
+<code>Ref(uniaxial)</code>
+</td>
+<td>
+tags of previously-defined <code>UniaxialMaterial</code> objects
+</tr>
+</table>
+</tr>
+<tr>
+<td>
 section
 </td>
 <td>
-<code>Ref</code>
+<code>Ref(section)</code>
 </td>
 <td>
 tag of previously-defined Section object to which the UniaxialMaterial objects are aggregated as additional force-deformation relationships
