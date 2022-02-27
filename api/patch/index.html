@@ -301,6 +301,8 @@
         
           
         
+          
+        
       
       
         
@@ -329,6 +331,36 @@
   
   
     <li class="md-nav__item">
+      <a href="../constraint/" class="md-nav__link">
+        constraint
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/" class="md-nav__link">
+        lib
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../element/" class="md-nav__link">
         element
 
@@ -346,21 +378,6 @@
     <li class="md-nav__item">
       <a href="../layer/" class="md-nav__link">
         layer
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../lib/" class="md-nav__link">
-        `opensees.lib`
 
       </a>
     </li>
@@ -413,7 +430,7 @@
   
     <li class="md-nav__item">
       <a href="../uniaxial/" class="md-nav__link">
-        `uniaxial`
+        uniaxial
 
       </a>
     </li>
@@ -5924,7 +5941,7 @@ h1 {
 }
 </style>
 <h1 id="patch">patch</h1>
-<article style="width: 90%; padding-left: 10%">
+<p>A patch command is used to generate a number of fibers over a cross-sectional area. Currently there are three types of patches that fibers can be generated over: quadrilateral, rectangular and circular.</p>
 <p>All patches have the following attributes:</p>
 <dl>
 <dt>
@@ -5952,10 +5969,12 @@ Second moment of inertia of the patch about its <span class="math inline">\(x\)<
 Second moment of inertia of the patch about its <span class="math inline">\(y\)</span> axis
 </dd>
 </dl>
+<div style="width: 90%; padding-left: 10%">
+
 <blockquote>
 <pre><!-- <code class="python"> -->
     <span style="color:#900">rect</span>(material, divs, vertices, **kwds)
-<!-- </code> --> </pre>
+</pre>
 <table>
 <colgroup>
 <col style="width: 10%" >
@@ -6141,7 +6160,7 @@ zL
 <blockquote>
 <pre><!-- <code class="python"> -->
     <span style="color:#900">quad</span>(material, divs, vertices, **kwds)
-<!-- </code> --> </pre>
+</pre>
 <p><img src="../../figures/quadPatch.svg" style="margin:auto; display: block; max-width: 75%" /></p>
 <table>
 <colgroup>
@@ -6328,7 +6347,7 @@ zL
 <blockquote>
 <pre><!-- <code class="python"> -->
     <span style="color:#900">circ</span>(matTag, divs, center, intRad, extRad, startAng, endAng, **kwds)
-<!-- </code> --> </pre>
+</pre>
 <p><img src="../../figures/circPatch.svg" style="margin:auto; display: block; max-width: 75%" /></p>
 <table>
 <colgroup>
@@ -6454,7 +6473,7 @@ ending angle
 <blockquote>
 <pre><!-- <code class="python"> -->
     <span style="color:#900">line</span>(matTag, numFibers, areaFiber, vertices, **kwds)
-<!-- </code> --> </pre>
+</pre>
 <p><img src="../../figures/straightLayer.svg" style="margin:auto; display: block; max-width: 75%" /></p>
 <table>
 <colgroup>
@@ -6567,7 +6586,7 @@ zEnd
 </tbody>
 </table>
 </blockquote>
-</article>
+</div>
 
 
               
