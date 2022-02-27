@@ -40,6 +40,8 @@
       
     
     
+      <link rel="stylesheet" href="../../math.css">
+    
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -293,6 +295,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -313,6 +319,21 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../element/" class="md-nav__link">
+        `opensees.lib`
+
+      </a>
+    </li>
+  
+
             
           
             
@@ -345,7 +366,7 @@
   
     <li class="md-nav__item">
       <a href="../patch/" class="md-nav__link">
-        `opensees.patch`
+        `patch`
 
       </a>
     </li>
@@ -360,7 +381,22 @@
   
     <li class="md-nav__item">
       <a href="../section/" class="md-nav__link">
-        `opensees.section`
+        `section`
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uniaxial/" class="md-nav__link">
+        `uniaxial`
 
       </a>
     </li>
@@ -5864,6 +5900,7 @@
 
 
 <h1 id="opensees.lib"><code>opensees.lib</code></h1>
+<article style="width: 90%; padding-left: 10%">
 <blockquote>
 <pre><!-- <code class="python"> -->
     <span style="color:#900">Nde</span>(name, crd, mass, **kwds)
@@ -6251,419 +6288,6 @@ tension softening stiffness (absolute value) (slope of the linear tension soften
 </blockquote>
 <blockquote>
 <pre><!-- <code class="python"> -->
-    <span style="color:#900">ZeroLength3D</span>(name, nodes, materials, dofs, orientation, do_rayleigh, **kwds)
-<!-- </code> --> </pre>
-<table>
-<colgroup>
-<col style="width: 10%" >
-<col style="width: 30%" >
-<col style="width: 60%" >
-</colgroup>
-<tbody>
-<tr>
-<td>
-name
-</td>
-<td>
-<code>Tag</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-nodes
-</td>
-<td>
-<code>[iNode,jNode]</code>
-</td>
-<td>
-<table>
-<tr>
-<td>
-iNode
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-jNode
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-</table>
-</tr>
-<tr>
-<td>
-materials
-</td>
-<td>
-<code>[materials1,materials2,materials3,materials4,materials5,materials6]</code>
-</td>
-<td>
-<table>
-<tr>
-<td>
-materials1
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-materials2
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-materials3
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-materials4
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-materials5
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-materials6
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-</table>
-</tr>
-<tr>
-<td>
-dofs = [‘<span class="math inline">\(dx&#39;, &#39;\)</span>dy’, ‘<span class="math inline">\(dz&#39;, &#39;\)</span>rx’, ‘<span class="math inline">\(ry&#39;, &#39;\)</span>rz’]
-</td>
-<td>
-<code>[dofs1,dofs2,dofs3,dofs4,dofs5,dofs6]</code>
-</td>
-<td>
-<table>
-<tr>
-<td>
-dofs1
-</td>
-<td>
-<code>Int</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-dofs2
-</td>
-<td>
-<code>Int</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-dofs3
-</td>
-<td>
-<code>Int</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-dofs4
-</td>
-<td>
-<code>Int</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-dofs5
-</td>
-<td>
-<code>Int</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-dofs6
-</td>
-<td>
-<code>Int</code>
-</td>
-<td>
-</tr>
-</table>
-</tr>
-<tr>
-<td>
-orientation
-</td>
-<td>
-<code>[[x1,x2,x3],[yp1,yp2,yp3]]</code>
-</td>
-<td>
-<table>
-<tr>
-<td>
-x
-</td>
-<td>
-<code>[x1,x2,x3]</code>
-</td>
-<td>
-<table>
-<tr>
-<td>
-x1
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-x2
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-x3
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-</tr>
-</table>
-</tr>
-<tr>
-<td>
-yp
-</td>
-<td>
-<code>[yp1,yp2,yp3]</code>
-</td>
-<td>
-<table>
-<tr>
-<td>
-yp1
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-yp2
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-yp3
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-</tr>
-</table>
-</tr>
-</table>
-</tr>
-<tr>
-<td>
-do_rayleigh
-</td>
-<td>
-<code>Int</code>
-</td>
-<td>
-</tr>
-</tbody>
-</table>
-</blockquote>
-<blockquote>
-<pre><!-- <code class="python"> -->
-    <span style="color:#900">ElasticBeamColumn3D</span>(name, nodes, area, elastic_modulus, shear_modulus, torsion_modulus, Iy, Ix, transform, mass_density, consistent_mass, material, section, **kwds)
-<!-- </code> --> </pre>
-<table>
-<colgroup>
-<col style="width: 10%" >
-<col style="width: 30%" >
-<col style="width: 60%" >
-</colgroup>
-<tbody>
-<tr>
-<td>
-name
-</td>
-<td>
-<code>Tag</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-nodes
-</td>
-<td>
-<code>[iNode,jNode]</code>
-</td>
-<td>
-<table>
-<tr>
-<td>
-iNode
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-jNode
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-</table>
-</tr>
-<tr>
-<td>
-A
-</td>
-<td>
-<code>Area</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-E
-</td>
-<td>
-<code>Yng</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-G
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-J
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-Iy
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-Iz
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-geom
-</td>
-<td>
-<code>Ref</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-mass_density
-</td>
-<td>
-<code>Num</code>
-</td>
-<td>
-element mass per unit length
-</tr>
-<tr>
-<td>
-cMass
-</td>
-<td>
-<code>Flg</code>
-</td>
-<td>
-Flag indicating whether to use consistent mass matrix.
-</tr>
-</tbody>
-</table>
-</blockquote>
-<blockquote>
-<pre><!-- <code class="python"> -->
     <span style="color:#900">LinearTransform</span>(name, vecxz, joint_offsets, **kwds)
 <!-- </code> --> </pre>
 <table>
@@ -6862,6 +6486,7 @@ nodes2
 </tbody>
 </table>
 </blockquote>
+</article>
 
 
               

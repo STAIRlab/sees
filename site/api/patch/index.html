@@ -15,7 +15,7 @@
     
     
       
-        <title>`opensees.patch` - OpenSees</title>
+        <title>`patch` - OpenSees</title>
       
     
     
@@ -39,6 +39,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../math.css">
     
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -92,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              `opensees.patch`
+              `patch`
 
             
           </span>
@@ -293,6 +295,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -313,6 +319,21 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../element/" class="md-nav__link">
+        `opensees.lib`
+
+      </a>
+    </li>
+  
+
             
           
             
@@ -344,7 +365,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        `opensees.patch`
+        `patch`
 
       </a>
       
@@ -360,7 +381,22 @@
   
     <li class="md-nav__item">
       <a href="../section/" class="md-nav__link">
-        `opensees.section`
+        `section`
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uniaxial/" class="md-nav__link">
+        `uniaxial`
 
       </a>
     </li>
@@ -5863,7 +5899,35 @@
 </a>
 
 
-<h1 id="opensees.patch"><code>opensees.patch</code></h1>
+<h1 id="patch"><code>patch</code></h1>
+<article style="width: 90%; padding-left: 10%">
+<p>All patches have the following attributes:</p>
+<dl>
+<dt>
+<code>area</code>
+</dt>
+<dd>
+Total area of the patch.
+</dd>
+<dt>
+<code>moic</code>
+</dt>
+<dd>
+Second moment of area matrix of the patch about its centroidal axis
+</dd>
+<dt>
+<code>ixc</code>
+</dt>
+<dd>
+Second moment of inertia of the patch about its <span class="math inline">\(x\)</span> axis
+</dd>
+<dt>
+<code>iyc</code>
+</dt>
+<dd>
+Second moment of inertia of the patch about its <span class="math inline">\(y\)</span> axis
+</dd>
+</dl>
 <blockquote>
 <pre><!-- <code class="python"> -->
     <span style="color:#900">rect</span>(material, numSubdivIJ, numSubdivJK, vertices, **kwds)
@@ -6228,7 +6292,7 @@ zL
 </blockquote>
 <blockquote>
 <pre><!-- <code class="python"> -->
-    <span style="color:#900">circ</span>(matTag, numSubdivCirc, numSubdivRad, center, intRad, extRad, startAng, endAng, **kwds)
+    <span style="color:#900">circ</span>(matTag, divs, center, intRad, extRad, startAng, endAng, **kwds)
 <!-- </code> --> </pre>
 <p><img src="/figures/circPatch.svg" style="margin:auto; display: block; max-width: 75%" /></p>
 <table>
@@ -6250,6 +6314,15 @@ tag of previously defined material (<code>UniaxialMaterial</code> tag for a <cod
 </tr>
 <tr>
 <td>
+divs
+</td>
+<td>
+<code>[numSubdivCirc,numSubdivRad]</code>
+</td>
+<td>
+<table>
+<tr>
+<td>
 numSubdivCirc
 </td>
 <td>
@@ -6267,6 +6340,8 @@ numSubdivRad
 </td>
 <td>
 number of subdivisions (fibers) in the radial direction (number of rings)
+</tr>
+</table>
 </tr>
 <tr>
 <td>
@@ -6456,6 +6531,7 @@ zEnd
 </tbody>
 </table>
 </blockquote>
+</article>
 
 
               
