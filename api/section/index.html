@@ -15,7 +15,7 @@
     
     
       
-        <title>`opensees.section` - OpenSees</title>
+        <title>`section` - OpenSees</title>
       
     
     
@@ -39,6 +39,8 @@
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="../../math.css">
     
     <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -92,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              `opensees.section`
+              `section`
 
             
           </span>
@@ -293,6 +295,10 @@
         
           
         
+          
+        
+          
+        
       
       
         
@@ -321,6 +327,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../element/" class="md-nav__link">
+        `opensees.lib`
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../lib/" class="md-nav__link">
         `opensees.lib`
 
@@ -337,7 +358,7 @@
   
     <li class="md-nav__item">
       <a href="../patch/" class="md-nav__link">
-        `opensees.patch`
+        `patch`
 
       </a>
     </li>
@@ -359,10 +380,25 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        `opensees.section`
+        `section`
 
       </a>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uniaxial/" class="md-nav__link">
+        `uniaxial`
+
+      </a>
     </li>
   
 
@@ -5863,10 +5899,12 @@
 </a>
 
 
-<h1 id="opensees.section"><code>opensees.section</code></h1>
+<h1 id="section"><code>section</code></h1>
+<article style="width: 90%; padding-left: 10%">
+<p>This module provides constructors for <code>SectionForceDeformation</code> objects which represent force-deformation (or resultant stress-strain) relationships at beam-column and plate sample points.</p>
 <blockquote>
 <pre><!-- <code class="python"> -->
-    <span style="color:#900">FiberSection</span>(name, torsional_stiffness, fibers, **kwds)
+    <span style="color:#900">FiberSection</span>(name, torsional_stiffness, elements, **kwds)
 <!-- </code> --> </pre>
 <table>
 <colgroup>
@@ -5896,7 +5934,7 @@ linear-elastic torsional stiffness assigned to the section (optional, default = 
 </tr>
 <tr>
 <td>
-fibers
+elements
 </td>
 <td>
 <code>[]</code>
@@ -5908,6 +5946,41 @@ fibers
 </tbody>
 </table>
 </blockquote>
+<blockquote>
+<pre><!-- <code class="python"> -->
+    <span style="color:#900">SectionAggregator</span>(name, section, **kwds)
+<!-- </code> --> </pre>
+<p><img src="/figures/SectionAggregator.gif" style="margin:auto; display: block; max-width: 75%" /></p>
+<table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
+<tbody>
+<tr>
+<td>
+name
+</td>
+<td>
+<code>Tag</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+section
+</td>
+<td>
+<code>Ref</code>
+</td>
+<td>
+tag of previously-defined Section object to which the UniaxialMaterial objects are aggregated as additional force-deformation relationships
+</tr>
+</tbody>
+</table>
+</blockquote>
+</article>
 
 
               
