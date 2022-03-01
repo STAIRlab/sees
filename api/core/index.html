@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://claudioperez.github.io/opensees-python/api/a/">
+        <link rel="canonical" href="https://claudioperez.github.io/opensees-python/api/core/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-, mkdocs-material-8.1.4">
     
     
       
-        <title>OpenSees</title>
+        <title>lib - OpenSees</title>
       
     
     
@@ -94,7 +94,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              lib
+
             
           </span>
         </div>
@@ -328,7 +329,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
+        lib
+
       </a>
       
     </li>
@@ -6071,14 +6073,292 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/claudioperez/opensees-python/edit/master/docs/api/a.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/claudioperez/opensees-python/edit/master/docs/api/core.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-  <h1>OpenSees</h1>
+<style>
+h1 {
+    font-family: var(--md-code-font-family);
+    color: var(--md-code-fg-color) !important;
+    font-feature-settings: "kern";
+}
+</style>
+<h1 id="lib">lib</h1>
+<div style="width: 90%; padding-left: 10%">
 
-<p>ia</p>
+<blockquote>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">Node</span>(name, crd, mass, **kwds) </span></p>
+<table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
+<tbody>
+<tr>
+<td>
+name
+</td>
+<td>
+<code>Tag</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+crd
+</td>
+<td>
+<code>[x,y,z]</code>
+</td>
+<td>
+<table>
+<tr>
+<td>
+x
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+y
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+z
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+</table>
+</tr>
+<tr>
+<td>
+mass = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+</td>
+<td>
+<code>[x,y,z,x,y,z]</code>
+</td>
+<td>
+<table>
+<tr>
+<td>
+x
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+y
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+z
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+x
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+y
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+z
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+</table>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<blockquote>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">LinearTransform</span>(name, vecxz, joint_offsets, **kwds) </span></p>
+<table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
+<tbody>
+<tr>
+<td>
+name
+</td>
+<td>
+<code>Tag</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+vecxz
+</td>
+<td>
+<code>[vecxz1,vecxz2,vecxz3]</code>
+</td>
+<td>
+<table>
+<tr>
+<td>
+vecxz1
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+vecxz2
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+vecxz3
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+</table>
+</tr>
+<tr>
+<td>
+joint_offsets
+</td>
+<td>
+<code>[[None1,None2,None3],[None1,None2,None3]]</code>
+</td>
+<td>
+<table>
+<tr>
+<td>
+<code>[None1,None2,None3]</code> = [0.0, 0.0, 0.0]
+</td>
+<td>
+<code>Grp</code>
+</td>
+<td>
+<table>
+<tr>
+<td>
+None1
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+None2
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+None3
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+</table>
+</tr>
+<tr>
+<td>
+<code>[None1,None2,None3]</code> = [0.0, 0.0, 0.0]
+</td>
+<td>
+<code>Grp</code>
+</td>
+<td>
+<table>
+<tr>
+<td>
+None1
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+None2
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+None3
+</td>
+<td>
+<code>Num</code>
+</td>
+<td>
+</tr>
+</table>
+</tr>
+</table>
+</tr>
+</tbody>
+</table>
+</blockquote>
+</div>
 
 
               
