@@ -76,10 +76,11 @@ def cmd(cls, cmd, args, refs=[], **ops):
 
 class LibCmd(Cmd):
     cmd = None
-    def __init__(self, cmd , subs={}, args=None, rels=None, defs=None):
-        self.cmd = cmd
+    def __init__(self, cmd , subs={}, args=None, rels=None, about="", defs=None):
+        self.__name__ = self.cmd = cmd
         self.args = [] if args is None else args
         self.rels = [] if rels is None else rels
+        self.about = about
 
         for sub in subs:
             setattr(self, sub, self(sub.title(), sub, args=subs[sub]))

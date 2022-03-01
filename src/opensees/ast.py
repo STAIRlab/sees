@@ -84,7 +84,7 @@ class Arg:
             return str(value).lower()
 
 class Flg(Arg):
-    "Flag-like argument"
+    "A `Flg` is a flag-like argument"
     def init(self):
         if "enum" in self.kwds:
             self.enum = self.kwds["enum"]
@@ -92,9 +92,9 @@ class Flg(Arg):
                 self.type = str
 
         self.default = False
-        if self.field == self.name:
-            self.field = self.name[1:]
         if "-" in self.name:
+            if self.field == self.name:
+                self.field = self.name[1:]
             self.flag = self.name
             self.name = self.name[1:]
     
@@ -121,8 +121,17 @@ class Chr(Arg):
     def init(self): self.type = chr
 
 class Ref(Arg):
+    """A `Ref` is a reference to another object.
+
+    ## Extra parameters
+
+    `attr="name"`: referenced attribute
+
+    """
     def init(self):
         if "attr" not in self.kwds: self.kwds["attr"] = "name"
+        self.__name__ = f"Ref({self.type.__class__.__name__})"
+
     def __call__(self, *args,**kwds):
         return Ref(*args, type=self.type, attr=self.kwds["attr"], **kwds)
 
@@ -145,12 +154,35 @@ class Ary(Arg): pass
 
 class Sub(Arg): pass
 
+class Map(Arg):
+    def  init(self):
+        self.key_type = self.kwds["key"]
+        self.val_type = self.kwds["val"]
+        self.tcl_rev_kv = self.kwds.get("tcl_rev_kv", False)
+        #self.__name__ = f"Map({self.key_type.__class__.__name__} : {self.val_type.__class__.__name__})"
+        self.__name__ = f"{{{self.key_type.name} : {self.val_type.name} ...}}"
+
+    def as_tcl_list(self, value=None):
+        value = self._get_value(None,value)
+        if value is None:
+            if self.reqd:
+                value = [None]*self.num
+            else:
+                return []
+        vals = []
+        i, j = (1, 0) if self.tcl_rev_kv else (0, 1)
+        for arg, kv in zip(arg,value.items()):
+            kv = kv[0], arg.as_tcl_list(kv[1])
+            vals = vals + [kv[i], kv[j]]
+        return self.flag + vals
+
 class Grp(Arg):
     """Argument grouping"""
     def init(self):
-        if "num" in self.kwds:
+        num = self.kwds.get("num", self.kwds.get("min", None))
+        if num:
             self.args = [
-                self.type(f"{self.name}{i+1}") for i in range(self.kwds["num"])
+                self.type(f"{self.name}{i+1}") for i in range(num)
             ]
         else:
             assert isinstance(self.kwds["args"],list)

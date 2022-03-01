@@ -321,8 +321,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../a/" class="md-nav__link">
-        
+      <a href="../../core/" class="md-nav__link">
+        lib
+
       </a>
     </li>
   
@@ -6090,9 +6091,7 @@ h1 {
 <div style="width: 90%; padding-left: 10%">
 
 <blockquote>
-<pre><!-- <code class="python"> -->
-    <span style="color:#900">circ</span>(matTag, numFiber, areaFiber, center, radius, arc, **kwds)
-</pre>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">circ</span>(matTag, divs, fiber_area, center, radius, arc, **kwds) </span></p>
 <table>
 <colgroup>
 <col style="width: 10%" >
@@ -6112,7 +6111,7 @@ material tag of previously created material (UniaxialMaterial tag for a FiberSec
 </tr>
 <tr>
 <td>
-numFiber
+divs
 </td>
 <td>
 <code>Int</code>
@@ -6135,14 +6134,14 @@ area of each fiber
 center
 </td>
 <td>
-<code>[yCenter,zCenter]</code>
+<code>[y,z]</code>
 </td>
 <td>
-y and z-coordinates of center of circular arc
+<span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span>-coordinates of center of circular arc
 <table>
 <tr>
 <td>
-yCenter
+y
 </td>
 <td>
 <code>Num</code>
@@ -6151,7 +6150,7 @@ yCenter
 </tr>
 <tr>
 <td>
-zCenter
+z
 </td>
 <td>
 <code>Num</code>
@@ -6205,9 +6204,7 @@ ending angle (optional, default = 360.0 - 360/$numFiber)
 </table>
 </blockquote>
 <blockquote>
-<pre><!-- <code class="python"> -->
-    <span style="color:#900">line</span>(matTag, numFibers, areaFiber, vertices, **kwds)
-</pre>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">line</span>(matTag, numFibers, areaFiber, vertices, **kwds) </span></p>
 <p><img src="../../../figures/straightLayer.svg" style="margin:auto; display: block; max-width: 75%" /></p>
 <table>
 <colgroup>
@@ -6263,7 +6260,7 @@ start
 <code>[yStart,zStart]</code>
 </td>
 <td>
-y and z-coordinates of first fiber in line (local coordinate system)
+<span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span>-coordinates of first fiber in line (local coordinate system)
 <table>
 <tr>
 <td>
@@ -6293,7 +6290,7 @@ end
 <code>[yEnd,zEnd]</code>
 </td>
 <td>
-y and z-coordinates of last fiber in line (local coordinate system)
+<span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span>-coordinates of last fiber in line (local coordinate system)
 <table>
 <tr>
 <td>

@@ -4,21 +4,13 @@ from .obj import *
 
 Dof = Int
 
-class Yng(Num):
-    """Young's elastic modulus."""
-    def init(self):
-        super().init()
-        self.name = "E"
-        self.field = "elastic_modulus"
+def Yng(**kwds):
+    return Num("E", field="elastic_modulus", about="Young's modulus of elasticity", **kwds)
 
-class Area(Num):
-    def init(self):
-        super().init()
-        self.name = "A"
-        self.field = "area"
+def Area(**kwds):
+    return Num("A", field="area", about="cross-sectional area", **kwds)
 
-
-Nde = cmd("Node", "node", [
+Node = cmd("Node", "Node", [
     Tag(),
     Grp("crd", type=Num, args=[Num("x"),Num("y"), Num("z")]),
     Grp("mass", flag="-mass", reqd=False, default=[0.0]*6, args=[
@@ -26,116 +18,123 @@ Nde = cmd("Node", "node", [
     ]),
 ])
 
-ElasticSpring = Uni("ElasticUniaxialMaterial",
-    "Elastic",
-    args = [
-        Tag(),
-        Yng(),
-        Num("eta",  field="damp_tangent",     reqd=False, default=0.0, about="damping tangent"),
-        Num("Eneg", field="negative_modulus", reqd=False),
-        Num("G",    field="shear_modulus",    reqd=False),
-    ]
-)
+class uniaxial:
+    """
+    `UniaxialMaterial` object library.
 
-Steel02 = Uni("Steel02",
-    "Steel02",
-    args = [
-      Tag(),
-      Num("Fy", about="yield strength"),
-      Num("E0", about="initial elastic tangent"),
-      Num("b", about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"),
-
-        # params (list (float)) parameters to control the transition from 
-        # elastic to plastic branches. params=[R0,cR1,cR2].
-        # Recommended values: R0=between 10 and 20, cR1=0.925, cR2=0.15"),
-
-      Grp("a", about="isotropic hardening parameters", args=[
-        Num("a1", about="""
-                  increase of compression yield envelope as proportion
-                  of yield strength after a plastic strain of `a2∗(Fy/E0)`"""
-        ),
-        Num("a2", about="see explanation under `a1`."),
-        Num("a3", about="""
-                  increase of tension yield envelope as proportion
-                  of yield strength after a plastic strain of `a4∗(Fy/E0)`"""
-        ),
-        Num("a4", about="see explanation under `a3`."),
-      ]),
-    ],
-    about="""
-    This command is used to construct a uniaxial 
-    Giuffre-Menegotto-Pinto steel material object 
-    with isotropic strain hardening."""
-)
-
-
-Concrete02 = Uni("Concrete02",
-    "Concrete02",
-    args=[
-      Tag(about="integer tag identifying material"),
-      Num("fpc",   about="concrete compressive strength at 28 days (compression is negative)"),
-      Num("epsc0", about="concrete strain at maximum strength"),
-      Num("fpcu",  about="concrete crushing strength"),
-      Num("epsU",  about="concrete strain at crushing strength"),
-      Num("lamda", about="ratio between unloading slope at `epscu` and initial slope"),
-      Num("ft",    about="tensile strength"),
-      Num("Ets",   about="tension softening stiffness (absolute value) " +
-                       "(slope of the linear tension softening branch)"),
-    ],
-    about="""This command is used to construct a uniaxial Kent-Scott-Park
-        concrete material object with degraded linear unloading/reloading
-        stiffness according to the work of Karsan-Jirsa and no tensile
-        strength. (REF: Fedeas)."""
+    A `UniaxialMaterial` object typically represents a pair of work conjugate
+    scalars such as axial stress/strain, moment/cuvature, or force/deformation.
+    """
+    ElasticSpring = Uni("ElasticUniaxialMaterial",
+        "Elastic",
+        args = [
+            Tag(),
+            Yng(),
+            Num("eta",  field="damp_tangent",     reqd=False, default=0.0, about="damping tangent"),
+            Num("Eneg", field="negative_modulus", reqd=False),
+            Num("G",    field="shear_modulus",    reqd=False),
+        ]
     )
 
-ZeroLength3D = Ele("ZeroLength3D",
-    "zeroLength",
-    args = [
-        Tag(),
-        Grp("nodes", args=[
-            Ref("iNode", type=Nde,  attr="name", about=""),
-            Ref("jNode", type=Nde,  attr="name", about=""),
-        ]),
-        Grp("materials", flag="-mat", type=Ref(type=Uni, attr="name"), num=6),
-        Grp("dofs",      flag="-dir", type=Dof, num=6, default=[
-              "$dx", "$dy", "$dz", "$rx", "$ry", "$rz"
-        ]),
-        Grp("orientation", reqd=False, flag="-orient", args=[
-            Grp("x",  type=Num, num=3),
-            Grp("yp", type=Num, num=3)
-        ]),
-        Int("do_rayleigh", flag="-doRayleigh", default=0)
-    ],
-    refs=["materials"]
-)
+    Steel02 = Uni("Steel02",
+        "Steel02",
+        args = [
+          Tag(),
+          Num("Fy", about="yield strength"),
+          Num("E0", about="initial elastic tangent"),
+          Num("b", about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"),
 
-ElasticBeamColumn3D = Ele("ElasticBeamColumn3D",
-    "elasticBeamColumn",
-    args = [
-        Tag(),
-        Grp("nodes", args=[
-          Ref("iNode", type=Nde,  attr="name", about=""),
-          Ref("jNode", type=Nde,  attr="name", about=""),
-        ]),
-        Area(alt="section"),
-        Yng( alt="material"),
-        Num("G",    field="shear_modulus",   about="", alt="material"),
-        Num("J",    field="torsion_modulus", about="", alt="section"),
-        #Grp("moi", ctype="struct", args=[
-          Num("Iy",                about="", alt="section"),
-          Num("Iz", field="Ix",    about="", alt="section"),
-        #]),
-        Ref("geom",  field="transform",    type=Trf, attr="name"),
-        Num("mass_density", flag="-mass", default=0.0, reqd=False, about="element mass per unit length"),
-        Flg("-cMass", field="consistent_mass",
-            about="Flag indicating whether to use consistent mass matrix.")
-    ],
-    refs=["transform"],
-    alts=[
-        Ref("material", type=Mat),
-        Ref("section",  type=Sec)
-    ]
-)
+            # params (list (float)) parameters to control the transition from 
+            # elastic to plastic branches. params=[R0,cR1,cR2].
+            # Recommended values: R0=between 10 and 20, cR1=0.925, cR2=0.15"),
+
+          Grp("a", about="isotropic hardening parameters", args=[
+            Num("a1", about="""
+                      increase of compression yield envelope as proportion
+                      of yield strength after a plastic strain of `a2∗(Fy/E0)`"""
+            ),
+            Num("a2", about="see explanation under `a1`."),
+            Num("a3", about="""
+                      increase of tension yield envelope as proportion
+                      of yield strength after a plastic strain of `a4∗(Fy/E0)`"""
+            ),
+            Num("a4", about="see explanation under `a3`."),
+          ]),
+        ],
+        about="""
+        This command is used to construct a uniaxial 
+        Giuffre-Menegotto-Pinto steel material object 
+        with isotropic strain hardening."""
+    )
+
+    Concrete02 = Uni("Concrete02",
+        "Concrete02",
+        args=[
+          Tag(about="integer tag identifying material"),
+          Num("fpc",   about="concrete compressive strength at 28 days (compression is negative)"),
+          Num("epsc0", about="concrete strain at maximum strength"),
+          Num("fpcu",  about="concrete crushing strength"),
+          Num("epsU",  about="concrete strain at crushing strength"),
+          Num("lamda", about="ratio between unloading slope at `epscu` and initial slope"),
+          Num("ft",    about="tensile strength"),
+          Num("Ets",   about="tension softening stiffness (absolute value) " +
+                           "(slope of the linear tension softening branch)"),
+        ],
+        about="""This command is used to construct a uniaxial Kent-Scott-Park
+            concrete material object with degraded linear unloading/reloading
+            stiffness according to the work of Karsan-Jirsa and no tensile
+            strength. (REF: Fedeas)."""
+        )
+
+class element:
+    ZeroLength3D = Ele("ZeroLength3D",
+        "zeroLength",
+        args = [
+            Tag(),
+            Grp("nodes", args=[
+                Ref("iNode", type=Node,  attr="name", about=""),
+                Ref("jNode", type=Node,  attr="name", about=""),
+            ]),
+            Grp("materials", flag="-mat", type=Ref(type=uniaxial, attr="name"), num=6),
+            Grp("dofs",      flag="-dir", type=Dof, num=6, default=[
+                  "$dx", "$dy", "$dz", "$rx", "$ry", "$rz"
+            ]),
+            Grp("orientation", reqd=False, flag="-orient", args=[
+                Grp("x",  type=Num, num=3),
+                Grp("yp", type=Num, num=3)
+            ]),
+            Int("do_rayleigh", flag="-doRayleigh", default=0)
+        ],
+        refs=["materials"]
+    )
+
+    ElasticBeamColumn3D = Ele("ElasticBeamColumn3D",
+        "elasticBeamColumn",
+        args = [
+            Tag(),
+            Grp("nodes", args=[
+              Ref("iNode", type=Node,  attr="name", about=""),
+              Ref("jNode", type=Node,  attr="name", about=""),
+            ]),
+            Area(alt="section"),
+            Yng( alt="material"),
+            Num("G",    field="shear_modulus",   about="", alt="material"),
+            Num("J",    field="torsion_modulus", about="", alt="section"),
+            #Grp("moi", ctype="struct", args=[
+              Num("Iy", field="iyy",  about="", alt="section"),
+              Num("Iz", field="ixx",  about="", alt="section"),
+            #]),
+            Ref("geom",  field="transform",    type=Trf, attr="name"),
+            Num("mass_density", flag="-mass", default=0.0, reqd=False, about="element mass per unit length"),
+            Flg("-cMass", field="consistent_mass",
+                about="Flag indicating whether to use consistent mass matrix.")
+        ],
+        refs=["transform"],
+        alts=[
+            Ref("material", type=Mat),
+            Ref("section",  type=Sec)
+        ]
+    )
 
 LinearTransform = Trf("LinearTransform",
   "Linear",
@@ -149,9 +148,10 @@ LinearTransform = Trf("LinearTransform",
   ],
 )
 
-RigidBeamLink = Lnk("RigidBeamLink",
-    "beam", [Tag(), Grp("nodes", type=Ref, num=2)]
-)
+class constraint:
+    RigidBeamLink = Lnk("RigidBeamLink",
+        "beam", [Tag(), Grp("nodes", type=Ref(type=uniaxial), num=2)]
+    )
 
 redirect = Cmd("redirect",[
       Blk("commands"),
@@ -174,21 +174,22 @@ redirect = Cmd("redirect",[
 #     nodes, unless the `-eleOnly` option is used in which case only elements are
 #     included. If nodes are specified, the region includes these nodes and all
 #     elements of which all nodes are prescribed to be in the region, unless the
-#     `-nodeOnly` option is used in which case only the nodes are included. 
+#     `-NodeOnly` option is used in which case only the nodes are included. 
 #     """,
 #     #region $regTag <-ele ($ele1 $ele2 ...)> 
 #     #               <-eleOnly ($ele1 $ele2 ...)> 
 #     #               <-eleRange $startEle $endEle> 
 #     #               <-eleOnlyRange $startEle $endEle> 
-#     #               <-node ($node1 $node2...)> 
-#     #               <-nodeOnly ($node1 $node2 ...)> 
+#     #
+#     #               <-node ($Node1 $Node2...)> 
+#     #               <-nodeOnly ($Node1 $Node2 ...)> 
 #     #               <-nodeRange $startNode $endNode>
 #     #               <-nodeOnlyRange $startNode $endNode> 
 #     #               <-node all> 
 #     #               <-rayleigh $alphaM $betaK $betaKinit $betaKcomm>
 # 
 #     # region 1 -ele 1 5 -eleRange 10 15
-#     # region 2 -node 2 4 6 -nodeRange 9 12 
+#     # region 2 -Node 2 4 6 -NodeRange 9 12 
 #     args=[
 #     Tag(),
 #     Grp(flag="-ele",
@@ -196,10 +197,10 @@ redirect = Cmd("redirect",[
 #     Grp(flag="-eleRange",
 #         args=[Ref("startEle"), Ref("endEle")],
 #         about="tag for start and end elements -- range of selected elements in domain"),
-#     Grp(flag="-node",
+#     Grp(flag="-Node",
 #         optional=True,
 #         about="tags of selected nodes in domain to be included in region (optional, default: omitted)"),
-#     Grp(flag="-nodeRange",
+#     Grp(flag="-NodeRange",
 #         optional=True,
 #         args=[Ref("startNode"), Ref("endNode")], 
 #         about="tag for start and end nodes -- range of nodes in domain"),

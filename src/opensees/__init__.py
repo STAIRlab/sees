@@ -5,10 +5,10 @@ from .patch import layer
 # Imports for this module
 import math
 import fnmatch
-from .lib import Nde
+from .lib import Node, uniaxial, element
 from .obj import *
 
-class Model:
+class _Model:
     def __init__(self, ndm, ndf, nodes, elems):
         self.m_nodes = nodes
         self.m_elems = elems
@@ -35,8 +35,7 @@ class Model:
     def materials(self):
         return set(a[0] for a in self.refs)
 
-class Node:
-    __slots__ = []
+
 
 class Assembly:
     def __init__(self, ndm, ndf, assm={}, partials={}, units="metric", **kwds):
@@ -90,7 +89,7 @@ class Assembly:
 
     
     def node(self, tag, *coords, **kwds):
-        self.m_nodes.update({tag: Nde(**{
+        self.m_nodes.update({tag: Node(**{
             "name": tag,
             "crd": coords, 
             "boun": [0 for i in range(self.ndf)],
@@ -149,7 +148,7 @@ class Assembly:
                 self.m_nodes.pop(boun["nodes"][-1].name)
                 self.fix(boun["nodes"][0].name)
 
-        mod = Model(self.ndm, self.ndf, self.m_nodes, elems)
+        mod = _Model(self.ndm, self.ndf, self.m_nodes, elems)
         mod.dof_names = self.dof_names
         mod.partials = partials
         return mod

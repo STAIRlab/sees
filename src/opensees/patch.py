@@ -1,8 +1,33 @@
 # Claudio Perez
+"""
+A patch command is used to generate a number of fibers over a cross-sectional area. 
+Currently there are three types of patches that fibers can be generated over: 
+quadrilateral, rectangular and circular.
+
+All patches have the following attributes:
+
+<dl>
+ <dt><code>area</code></dt>
+ <dd>Total area of the patch.</dd>
+
+ <dt><code>moic</code></dt>
+ <dd>Second moment of area matrix of the patch about its centroidal axis</dd>
+
+ <dt><code>ixc</code></dt>
+ <dd>Second moment of inertia of the patch about its $x$ axis</dd>
+
+ <dt><code>iyc</code></dt>
+ <dd>Second moment of inertia of the patch about its $y$ axis</dd>
+
+</dl>
+
+"""
 import sys
 from .ast import *
-from opensees.obj import LibCmd, Mat
+from .obj import LibCmd
 import numpy as np
+
+class Material: pass
 
 _patch = LibCmd("patch")
 
@@ -44,15 +69,24 @@ def rayintersectseg(p, edge)->bool:
 
 class _Polygon:
     def __init__(self, vertices):
-        self.vertices = vertices
+        self.vertices = np.asarray(vertices)
+        self._moic = None
+        self._moig = None
+        self._area = None
+
+    def __contains__(self, p:tuple) -> bool:
+        v = np.asarray(self.vertices)
+        edges = np.array(
+            [[v[i-1], v[i]] for i in range(len(v))]
+        )
+        return 1 == sum(rayintersectseg(p, edge) for edge in edges)%2
 
     @property
     def area(self):
-        x,y = np.asarray(self.vertices).T
-        return np.sum(x * np.roll(y, -1) - np.roll(x, -1) * y)/2.00
-
-    def boundary(self):
-        pass
+        if self._area is None:
+            x,y = np.asarray(self.vertices).T
+            self._area = np.sum(x*np.roll(y, -1) - np.roll(x, -1)*y)*0.5
+        return self._area
 
     @property
     def centroid(self):
@@ -78,84 +112,92 @@ class _Polygon:
         iyy = np.sum((x**2 + x * np.roll(x, -1) +
                       np.roll(x, -1)**2)*alpha)/12.00
 
+        # product of inertia
         ixy = np.sum((x*np.roll(y, -1)
                       + 2.0*x*y
                       + 2.0*np.roll(x, -1) * np.roll(y, -1)
                       + np.roll(x, -1) * y)*alpha)/24.
-        # polar (torsional) moment of inertia
-        ir = ixx + iyy
-        # mass moment of inertia wrt in-plane rotation
-        ir_mass = (ixx + iyy) / area
 
-        return {'ixx': ixx, 'iyy': iyy,
-                'ixy': ixy, 'ir': ir, 'ir_mass': ir_mass}
-    @property
-    def ixx(self):
-        return self.moi(self.centroid)["ixx"]
+        return np.array([[ixx, ixy],[ixy,iyy]])
+        # # polar moment of inertia
+        # ir = ixx + iyy
+        # # mass moment of inertia wrt in-plane rotation
+        # ir_mass = (ixx + iyy) / area
+        # return {'ixx': ixx, 'iyy': iyy,
+        #         'ixy': ixy, 'ir': ir, 'ir_mass': ir_mass}
 
     @property
-    def iyy(self):
-        return self.moi(self.centroid)["iyy"]
-    
-    @property
-    def ixy(self):
-        return self.moi(self.centroid)["ixy"]
+    def moic(self):
+        if self._moic is None:
+            self._moic = self.moi(self.centroid)
+        return self._moic
 
     @property
-    def iyx(self):
-        return self.moi(self.centroid)["ixy"]
+    def ixc(self):
+        return self.moic[0,0]
 
+    @property
+    def iyc(self):
+        return self.moic[1,1]
 
-    def __contains__(self, p:tuple) -> bool:
-        v = np.asarray(self.vertices)
-        edges = np.array(
-            [[v[i-1], v[i]] for i in range(len(v))]
-        )
-        return 1 == sum(rayintersectseg(p, edge) for edge in edges)%2
 
 
 @_patch
 class rect(_Polygon):
     _args = [
-       Ref("matTag", field="material", 
+       Ref("matTag", type=Material, field="material", 
            about="tag of previously defined material (`UniaxialMaterial`"\
                  "tag for a `FiberSection` or `NDMaterial` tag for use "\
                  "in an `NDFiberSection`)"),
-       Int("numSubdivIJ", about="number of subdivisions (fibers) in the IJ direction."),
-       Int("numSubdivJK", about="number of subdivisions (fibers) in the JK direction."),
+       Grp("divs", args=[
+           Int("ij", about="number of subdivisions (fibers) in the IJ direction."),
+           Int("jk", about="number of subdivisions (fibers) in the JK direction."),
+       ]),
        Grp("vertices", args=[
-         Grp(args=[Num("yI"), Num("zI")],  about="y & z-coordinates of vertex I (local coordinate system)"),
-         Grp(args=[Num("yJ"), Num("zJ")],  about="y & z-coordinates of vertex J (local coordinate system)"),
-         Grp(args=[Num("yK"), Num("zK")],  about="y & z-coordinates of vertex K (local coordinate system)"),
-         Grp(args=[Num("yL"), Num("zL")],  about="y & z-coordinates of vertex L (local coordinate system)"),
+         Grp(args=[Num("yI"), Num("zI")],  about="$y$ & $z$-coordinates of vertex I (local coordinate system)"),
+         Grp(args=[Num("yJ"), Num("zJ")],  about="$y$ & $z$-coordinates of vertex J (local coordinate system)"),
+         Grp(args=[Num("yK"), Num("zK")],  about="$y$ & $z$-coordinates of vertex K (local coordinate system)"),
+         Grp(args=[Num("yL"), Num("zL")],  about="$y$ & $z$-coordinates of vertex L (local coordinate system)"),
       ])
     ]
     def init(self):
+        self._moic = None
+        self._moig = None
+        self._area = None
+
         if len(self.vertices) == 2:
             ll, ur = self.vertices
             self.vertices = [
-                #ll, [ll[0], ur[1]], ur, [ll[0], ur[1]]
                 ll, [ur[0], ll[1]], ur, [ll[0], ur[1]]
             ]
 
 @_patch
 class quad(_Polygon):
+    """A quadrilateral shaped patch.
+    The geometry of the patch is defined by four vertices: I J K L. 
+    The coordinates of each of the four vertices is specified in *counter counter* sequence
+    """
     _img  = "quadPatch.svg"
     _args = [
-       Ref("matTag",      field="material", 
+       Ref("matTag", type=Material, field="material", 
            about="tag of previously defined material (`UniaxialMaterial` "\
                  "tag for a `FiberSection` or `NDMaterial` tag for use in an `NDFiberSection`)"),
        Grp("divs", args=[
-         Int("numSubdivIJ", about="number of subdivisions (fibers) in the IJ direction."),
-         Int("numSubdivJK", about="number of subdivisions (fibers) in the JK direction."),
+         Int("ij", about="number of subdivisions (fibers) in the IJ direction."),
+         Int("jk", about="number of subdivisions (fibers) in the JK direction."),
        ]),
        Grp("vertices", args=[
-         Grp(args=[Num("yI"), Num("zI")],  about="y & z-coordinates of vertex I (local coordinate system)"),
-         Grp(args=[Num("yJ"), Num("zJ")],  about="y & z-coordinates of vertex J (local coordinate system)"),
-         Grp(args=[Num("yK"), Num("zK")],  about="y & z-coordinates of vertex K (local coordinate system)"),
-         Grp(args=[Num("yL"), Num("zL")],  about="y & z-coordinates of vertex L (local coordinate system)"),
+         Grp(args=[Num("yI"), Num("zI")],  about="$y$ & $z$-coordinates of vertex I (local coordinate system)"),
+         Grp(args=[Num("yJ"), Num("zJ")],  about="$y$ & $z$-coordinates of vertex J (local coordinate system)"),
+         Grp(args=[Num("yK"), Num("zK")],  about="$y$ & $z$-coordinates of vertex K (local coordinate system)"),
+         Grp(args=[Num("yL"), Num("zL")],  about="$y$ & $z$-coordinates of vertex L (local coordinate system)"),
       ])
     ]
+
+    def init(self):
+        self._moic = None
+        self._moig = None
+        self._area = None
 
 def rhom(center, height, width, slope=None, divs=(0,0)):
     vertices = [
@@ -170,14 +212,16 @@ def rhom(center, height, width, slope=None, divs=(0,0)):
 class circ:
     _img  = "circPatch.svg"
     _args = [
-      Ref("matTag", about="tag of previously defined material ("\
+      Ref("matTag", type=Material, about="tag of previously defined material ("\
                           "`UniaxialMaterial` tag for a `FiberSection` "\
                           "or `NDMaterial` tag for use in an `NDFiberSection`)"),
-      Int("numSubdivCirc", about="number of subdivisions (fibers) in "\
-                                 "the circumferential direction (number of wedges)"),
-      Int("numSubdivRad",  about="number of subdivisions (fibers) in the radial direction (number of rings)"),
-      Grp("center",    args=[Num("yCenter"), Num("zCenter")],
-          about="y & z-coordinates of the center of the circle", default=[0.0, 0.0]),
+      Grp("divs", args=[
+          Int("circ", about="number of subdivisions (fibers) in "\
+                                     "the circumferential direction (number of wedges)"),
+          Int("rad",  about="number of subdivisions (fibers) in the radial direction (number of rings)"),
+      ]),
+      Grp("center",    args=[Num("y"), Num("z")],
+          about="$y$ & $z$-coordinates of the center of the circle", default=[0.0, 0.0]),
       Num("intRad",    about="internal radius", default=0.0),
       Num("extRad",    about="external radius"),
       Num("startAng",  about="starting angle", default=0.0),
@@ -198,16 +242,6 @@ class circ:
         return all(inside)
 
     @property
-    def Ix(self):
-        """Moment of inertia"""
-        return 0.25 * self.extRad**4 * np.pi
-    
-    @property
-    def Iy(self):
-        """Moment of inertia"""
-        return 0.25 * self.extRad**4 * np.pi
-
-    @property
     def J(self):
         return 0.5 * self.area * self.extRad ** 2
 
@@ -220,48 +254,50 @@ class circ:
         return np.asarray(self.center)
 
     @property
-    def ixx(self):
+    def ixc(self):
         return 0.25 * np.pi * (self.extRad ** 4 - self.intRad ** 4)
 
     @property
-    def iyy(self):
+    def iyc(self):
         return 0.25 * np.pi * (self.extRad ** 4 - self.intRad ** 4)
 
-    @property
-    def ixy(self):
-        return 0.0
 
-layer = LibCmd("layer", {
-  "circ": [
-    Ref("matTag",  about="material tag of previously created material "\
-                         "(UniaxialMaterial tag for a FiberSection or "\
-                         "NDMaterial tag for use in an NDFiberSection)"),
-    Int("numFiber",  about="number of fibers along arc"),
-    Num("areaFiber", about="area of each fiber"),
-    Grp("center", args=[Num("yCenter"), Num("zCenter")],
-        about="y and z-coordinates of center of circular arc"),
-    Num("radius", about="radius of circular arc"),
-    Grp("arc", args=[
-      Num("startAng",  about="starting angle (optional, default = 0.0)"),
-      Num("endAng",  about="ending angle (optional, default = 360.0 - 360/$numFiber)"),
-    ])
-  ]
-})
+layer = LibCmd("layer", 
+        {
+          "circ": [
+            Ref("matTag",  type=Material,
+                           about="material tag of previously created material "\
+                                 "(UniaxialMaterial tag for a FiberSection or "\
+                                 "NDMaterial tag for use in an NDFiberSection)"),
+            Int("divs",  about="number of fibers along arc"),
+            Num("areaFiber", field="fiber_area", about="area of each fiber"),
+            Grp("center", args=[Num("y"), Num("z")],
+                about="$y$ and $z$-coordinates of center of circular arc"),
+            Num("radius", about="radius of circular arc"),
+            Grp("arc", args=[
+              Num("startAng",  about="starting angle (optional, default = 0.0)"),
+              Num("endAng",    about="ending angle (optional, default = 360.0 - 360/$numFiber)"),
+            ])
+          ]
+        },
+        about="The layer command is used to generate a number of fibers along a line or a circular arc.",
+)
 
 @layer
 class line:
+    _img = "straightLayer.svg"
     _args = [
-      Ref("matTag", about="""material tag of previously created material 
+      Ref("matTag", type=Material, about="""material tag of previously created material 
                 (`UniaxialMaterial` tag for a `FiberSection` or `NDMaterial` 
                 tag for use in an `NDFiberSection`)"""),
       Int("numFibers", about="number of fibers along line"),
       Num("areaFiber", about="area of each fiber"),
       Grp("vertices", typ=Grp, args=[
           Grp("start",args=[Num("yStart"), Num("zStart")], 
-              about="""y and z-coordinates of first fiber
+              about="""$y$ and $z$-coordinates of first fiber
                        in line (local coordinate system)"""),
-          Grp("end", args=[Num("yEnd"), Num("zEnd")],
-              about="y and z-coordinates of last fiber in line (local coordinate system)")
+          Grp("end", args=[Num("yEnd"), Num("zEnd")], type=Num,
+              about="$y$ and $z$-coordinates of last fiber in line (local coordinate system)")
       ])
     ]
     def __contains__(self, point):
