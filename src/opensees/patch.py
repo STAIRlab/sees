@@ -79,7 +79,9 @@ class _Polygon:
         edges = np.array(
             [[v[i-1], v[i]] for i in range(len(v))]
         )
-        return 1 == sum(rayintersectseg(p, edge) for edge in edges)%2
+        inside = 1 == sum(rayintersectseg(p, edge) for edge in edges)%2
+        #if inside: print(p)
+        return inside
 
     @property
     def area(self):

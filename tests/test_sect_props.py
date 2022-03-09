@@ -35,9 +35,15 @@ def test():
     assert sect.ixc == 2 * (4*16**3/12 + 1.2**2*(16*4)) + (8*4**3/12 + 4*8*4.8**2)
 
 
-
+def test_polygon():
+    import math
+    Re, Ri = 20, 15
+    for n in 4, 6, 7, 8:
+        A = section.RegularPolygon(n,Re).area - section.RegularPolygon(n,Ri).area
+        assert math.isclose(section.PolygonRing(n, Re, Ri).area, A)
 
 
 if __name__ == "__main__":
     test()
+    test_polygon()
 
