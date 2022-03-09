@@ -36,7 +36,7 @@ Public Methods\
 \
 
 \
-A unique class tag (defined in $<$classTags.h$>$) is passed to the
+A unique class tag (defined in  `<classTags.h>`) is passed to the
 ProfileSPDLinSolver constructor.
 
 \

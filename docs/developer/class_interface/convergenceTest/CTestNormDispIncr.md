@@ -57,13 +57,13 @@ LinearSOE object and a user specified tolerance value.
 
 
 The integer *CLASS_TAGS_CTestNormDispIncr*, defined in
-$<$classTags.h$>$, is passed to the ConvergenceTest constructor. Sets
+ `<classTags.h>`, is passed to the ConvergenceTest constructor. Sets
 the tolerance used in `test()` to be *tol*, the max number of iterations
 to be performed to *maxNumIter* and the print flag used to determine
 what, if anything, is printed on each test to *printFlag*.
 
 To be used by the FEM_ObjectBroker object in parallel programs. The
-integer *CLASS_TAGS_CTestNormDispIncr*, defined in $<$classTags.h$>$, is
+integer *CLASS_TAGS_CTestNormDispIncr*, defined in  `<classTags.h>`, is
 passed to the ConvergenceTest constructor. Sets the tolerance used in
 `test()` to be *0.0* and *maxNumIter* to be $0$. These will be set when
 `recvSelf()` is invoked on the object.

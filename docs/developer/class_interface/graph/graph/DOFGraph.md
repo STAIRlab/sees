@@ -1,6 +1,6 @@
 \
 
-\#include $<$DOFGraph.h$>$\
+\#include  `<DOFGraph.h>`\
 
 class DOFGraph: public ArrayGraph\
 

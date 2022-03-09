@@ -51,8 +51,8 @@ SOME THEORY.
 
 \
 
-The integer INTEGRATOR_TAGS_DisplacementControl (defined in
-$<$classTags.h$>$) is passed to the StaticIntegrator classes
+The integer `INTEGRATOR_TAGS_DisplacementControl` (defined in
+ `<classTags.h>`) is passed to the StaticIntegrator classes
 constructor. $\delta Uc_1$ is the load factor used in the first step.
 The arguments $Jd$, $\delta Uc_{min}$, and $\delta
 Uc_{max}$ are used in the determination of the increment in the load

@@ -51,7 +51,7 @@ elastic modulus of $E$, a second moment of area about the local z-axis,
 $I_z$, a second moment of area about the local y-axis, $I_y$, a polar
 moment of intertia of $J$, a section area of $A$, an elastic shear
 modulus of $G$, and a shape factor of $\alpha$. The integers *tag* and
-MAT_TAG_ElasticSection3D, defined in $<$classTags.h$>$, are passed to
+MAT_TAG_ElasticSection3D, defined in  `<classTags.h>`, are passed to
 the SectionForceDeformation class constructor.
 
 Constructs a blank ElasticSection3D object.

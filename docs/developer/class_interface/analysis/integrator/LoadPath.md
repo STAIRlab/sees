@@ -50,12 +50,12 @@ $$\R(\U_{n}) = \lambda_n^{(i)} \P
 
 \
 
-The integer INTEGRATOR_TAGS_LoadPath (defined in $<$classTags.h$>$) is
+The integer `INTEGRATOR_TAGS_LoadPath` (defined in  `<classTags.h>`) is
 passed to the StaticIntegrator classes constructor. A vector object
 *path* is created which is a copy of *loadPath* and an index into this
 vector is set to $0$.
 
-The integer INTEGRATOR_TAGS_LoadPath (defined in $<$classTags.h$>$) is
+The integer `INTEGRATOR_TAGS_LoadPath` (defined in  `<classTags.h>`) is
 passed to the StaticIntegrator classes constructor. No vector object is
 created. Provided for the FEM_ObjectBroker to create a blank object,
 `recvSelf()` should be invoked on this object.

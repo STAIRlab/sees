@@ -33,7 +33,7 @@ constraints by modifying the tangent matrix and residual vector.
 \
 
 The integer *HANDLER_TAG_LagrangeConstraintHandler* (defined in
-$<$classTags.h$>$) is passed to the LagrangeConstraintHandler
+ `<classTags.h>`) is passed to the LagrangeConstraintHandler
 constructor. Stores *alphaSP* and *alphaMP* which are needed to
 construct the LagrangeSP_FE and LagrangeMP_FE objects in `handle()`.
 

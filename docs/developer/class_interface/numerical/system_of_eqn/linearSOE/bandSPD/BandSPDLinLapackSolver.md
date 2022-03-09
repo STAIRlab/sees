@@ -13,7 +13,7 @@ BandSPDLinSolver\
 A BandSPDLinLapackSolver object can be constructed to solve a
 BandSPDLinSOE object. It obtains the solution by making calls on the the
 LAPACK library. The class is defined to be a friend of the BandSPDLinSOE
-class (see $<$BandSPDLinSOE.h$>$).
+class (see  `<BandSPDLinSOE.h>`).
 
 // Constructor\
 
@@ -28,7 +28,7 @@ class (see $<$BandSPDLinSOE.h$>$).
 \
 
 \
-A unique class tag (defined in $<$classTags.h$>$) is passed to the
+A unique class tag (defined in  `<classTags.h>`) is passed to the
 BandSPDLinSolver constructor.
 
 \

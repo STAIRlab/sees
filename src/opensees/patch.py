@@ -217,7 +217,7 @@ class circ:
                           "or `NDMaterial` tag for use in an `NDFiberSection`)"),
       Grp("divs", args=[
           Int("circ", about="number of subdivisions (fibers) in "\
-                                     "the circumferential direction (number of wedges)"),
+                            "the circumferential direction (number of wedges)"),
           Int("rad",  about="number of subdivisions (fibers) in the radial direction (number of rings)"),
       ]),
       Grp("center",    args=[Num("y"), Num("z")],
@@ -238,7 +238,6 @@ class circ:
             (angl > self.startAng),
             (angl < self.endAng),
         ]
-
         return all(inside)
 
     @property
@@ -265,12 +264,12 @@ class circ:
 layer = LibCmd("layer", 
         {
           "circ": [
-            Ref("matTag",  type=Material,
+            Ref("material",  type=Material,
                            about="material tag of previously created material "\
                                  "(UniaxialMaterial tag for a FiberSection or "\
                                  "NDMaterial tag for use in an NDFiberSection)"),
             Int("divs",  about="number of fibers along arc"),
-            Num("areaFiber", field="fiber_area", about="area of each fiber"),
+            Num("area", field="fiber_area", about="area of each fiber"),
             Grp("center", args=[Num("y"), Num("z")],
                 about="$y$ and $z$-coordinates of center of circular arc"),
             Num("radius", about="radius of circular arc"),
@@ -287,11 +286,11 @@ layer = LibCmd("layer",
 class line:
     _img = "straightLayer.svg"
     _args = [
-      Ref("matTag", type=Material, about="""material tag of previously created material 
-                (`UniaxialMaterial` tag for a `FiberSection` or `NDMaterial` 
-                tag for use in an `NDFiberSection`)"""),
-      Int("numFibers", about="number of fibers along line"),
-      Num("areaFiber", about="area of each fiber"),
+      Ref("matTag", type=Material, about="""Reference to previously created material 
+                (`UniaxialMaterial` for a `FiberSection` or `NDMaterial` 
+                for use in an `NDFiberSection`)"""),
+      Int("divs", about="number of fibers along line"),
+      Num("area", field="fiber_area", about="area of each fiber"),
       Grp("vertices", typ=Grp, args=[
           Grp("start",args=[Num("yStart"), Num("zStart")], 
               about="""$y$ and $z$-coordinates of first fiber

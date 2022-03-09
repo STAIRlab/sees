@@ -64,14 +64,14 @@ are all declared as friend classes.
 
 \
 
-The *solver* and a unique class tag (defined in $<$classTags.h$>$) are
+The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $0$ and
 the matrix $A$ is marked as not having been factored. Invokes
 *setLinearSOE(\*this)* on the *theSolver*. No memory is allocated for
 the 3 1d arrays.
 *BandGenLinSOE(int N, int numSuperDiagonals, int numSubDiagonal,
 BandGenLinSolver &theSolver);* \
-The *solver* and a unique class tag (defined in $<$classTags.h$>$) are
+The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. Sets the size of the system to $N$,
 the number of superdiagonals to *numSuperDiagonals* and number of
 subdiagonals to *numSubDiagonals*. Allocates memory for the arrays; if

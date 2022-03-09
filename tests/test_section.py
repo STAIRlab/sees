@@ -1,3 +1,4 @@
+from opensees import section
 
 section.Fiber(1 , elements=[
     # Create the concrete core fibers
@@ -10,7 +11,8 @@ section.Fiber(1 , elements=[
     patch.rect(2, [ 2, 1], y1-cover, cover-z1,       y1, z1-cover),
 
     # Create the reinforcing fibers (left, middle, right)
-    layer.straight( [3, 3], As, y1-cover, z1-cover, y1-cover, cover-z1),
-    layer.straight( [3, 2], As,      0.0, z1-cover,      0.0, cover-z1),
-    layer.straight( [3, 3], As, cover-y1, z1-cover, cover-y1, cover-z1),
+    layer.straight(3, 3, As, y1-cover, z1-cover, y1-cover, cover-z1),
+    layer.straight(3, 2, As,      0.0, z1-cover,      0.0, cover-z1),
+    layer.straight(3, 3, As, cover-y1, z1-cover, cover-y1, cover-z1),
 ])
+

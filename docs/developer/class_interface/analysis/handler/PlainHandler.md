@@ -32,7 +32,7 @@ arrays.
 
 \
 
-The integer *HANDLER_TAG_PlainHandler* (defined in $<$classTags.h$>$) is
+The integer *HANDLER_TAG_PlainHandler* (defined in  `<classTags.h>`) is
 passed to the PlainHandler constructor.
 
 \

@@ -211,7 +211,7 @@ A method to multiply each component of the current Vector by fact.
 A method which will divide each component of the current Vector by
 *fact*. If *fact* is equal to zero an warning message is printed and the
 components of the Vector are set to VECTOR_VERY_LARGE_VALUE (defined in
-$<$Vector.h$>$).
+ `<Vector.h>`).
 
 A method to return a new Vector whose components are equal to the
 components of the current Vector plus the value *fact*. A new Vector is

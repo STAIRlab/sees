@@ -62,7 +62,7 @@ t}^{(i-1)}\right)$$\
 
 \
 
-The integer INTEGRATOR_TAGS_HHT is passed to the TransientIntegrator
+The integer `INTEGRATOR_TAGS_HHT` is passed to the TransientIntegrator
 constructor. $\alpha$, $\beta$ and $\gamma$ are set to 0.0. This
 constructor should only be invoked by an FEM_ObjectBroker.
 

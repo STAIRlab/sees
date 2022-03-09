@@ -37,8 +37,8 @@ SOME THEORY.
 
 \
 
-The integer INTEGRATOR_TAGS_MinUnbalDispNorm (defined in
-$<$classTags.h$>$) is passed to the StaticIntegrator classes
+The integer `INTEGRATOR_TAGS_MinUnbalDispNorm` (defined in
+ `<classTags.h>`) is passed to the StaticIntegrator classes
 constructor.
 
 

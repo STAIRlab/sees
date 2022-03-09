@@ -252,7 +252,7 @@ performance can be improved by avoiding having to call the overloaded
 A method which will divide each component of the current Matrix by
 *fact*. If *fact* is equal to zero, an error message is printed and the
 contents of the Matrix are set to MATRIX_VERY_LARGE_VALUE (defined in
-$<$Matrix.h$>$). The method tests for the type of the current Matrix, to
+ `<Matrix.h>`). The method tests for the type of the current Matrix, to
 see whether the performance can be improved by avoiding having to call
 the overloaded (i,j) operators, if the current Matrix is of type
 genMatrix.

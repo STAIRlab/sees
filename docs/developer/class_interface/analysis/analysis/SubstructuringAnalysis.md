@@ -1,5 +1,5 @@
 \
-\#include $<$/analysis/analysis/SubstructuringAnalysis.h$>$\
+\#include  `</analysis/analysis/SubstructuringAnalysis.h>`\
 
 class SubstructuringAnalysis: public DomainDecompositionAnalysis;\
 

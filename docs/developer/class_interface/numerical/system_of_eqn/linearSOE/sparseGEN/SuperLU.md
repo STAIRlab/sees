@@ -34,7 +34,7 @@ the factorization and a number of ordering schemes are provided.
 \
 
 \
-A unique class tag (defined in $<$classTags.h$>$) is passed to the
+A unique class tag (defined in  `<classTags.h>`) is passed to the
 SparseGenColLinSolver constructor. Saves the values for the arguments
 *permSpec*, *panelSize*, *relax* and *thresh* that will be used when
 calling the SuperLU routines in `solve()` and `setSize()`.

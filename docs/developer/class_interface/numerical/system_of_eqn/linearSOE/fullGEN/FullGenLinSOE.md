@@ -60,13 +60,13 @@ are all declared as friend classes.
 
 \
 
-The *solver* and a unique class tag (defined in $<$classTags.h$>$) are
+The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $0$ and
 the matrix $A$ is marked as not having been factored. Invokes
 *setLinearSOE(\*this)* on the *solver*. No memory is allocated for the 3
 1d arrays.
 *FullGenLinSOE(int N, FullGenLinSolver &solver);* \
-The *solver* and a unique class tag (defined in $<$classTags.h$>$) are
+The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $N$ and
 the matrix $A$ is marked as not having been factored. Obtains memory
 from the heap for the 1d arrays storing the data for $A$, $x$ and $b$

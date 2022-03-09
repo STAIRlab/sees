@@ -276,4 +276,47 @@ def _filter_nodes_by_coords(x, y, z):
         return match
     return f
 
+if __name__=="__main__":
+    import opensees.tcl
+    PROMPT = "\033\\[01;32mopensees\033\\[0m > "
+
+# Path to Tcl script which loads commands
+    INIT_TCL = ""
+
+    TCL_MAIN = f"""
+
+    set cmd ""
+    set repl_flag true
+    proc exit {{}} {{upvar repl_flag flag; set flag false}}
+    while {{ $repl_flag }} {{
+      puts -nonewline "{PROMPT}"
+      flush stdout
+      if {{[gets stdin line] < 0 }} break
+      append cmd $line "\\n"
+      if {{![info complete $cmd]}} {{
+        set prompt ""
+        continue
+      }}
+      set prompt "{PROMPT}"
+
+      if {{[catch $cmd msg]}} {{
+        puts stderr "Error: $msg"
+      }} elseif {{$msg ne ""}} {{
+        puts $msg
+      }}
+
+      set cmd ""
+    }}
+    """
+
+
+    import sys
+    tcl = opensees.tcl.TclInterpreter()
+    if len(sys.argv) == 1:
+        tcl.eval(TCL_MAIN)
+    else:
+        for filename in sys.argv[1:]:
+            tcl.eval(open(filename).read())
+
+
 

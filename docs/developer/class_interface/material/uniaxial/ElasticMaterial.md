@@ -41,7 +41,7 @@ equation $\sigma = E * \epsilon$.
 To construct an ElasticMaterial with an integer identifier *tag*, an
 elastic tangent modulus of $E$ and a current strain $\epsilon$ of $0.0$.
 The integers *tag* and MAT_TAG_ElasticMaterial, defined in
-$<$classTags.h$>$, are passed to the UniaxialMaterial classes
+ `<classTags.h>`, are passed to the UniaxialMaterial classes
 constructor.
 
 \

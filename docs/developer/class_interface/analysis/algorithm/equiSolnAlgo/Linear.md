@@ -41,7 +41,7 @@ response quantities are chosen as approximate solution quantities.
 
 \
 
-The integer *EquiALGORITHM_TAGS_Linear* (defined in $<$classTags.h$>$)
+The integer *EquiALGORITHM_TAGS_Linear* (defined in  `<classTags.h>`)
 is passed to the EquiSolnAlgo classes constructor.
 
 \

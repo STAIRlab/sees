@@ -13,7 +13,7 @@ BandGenLinSolver\
 A BandGenLinLapackSolver object can be constructed to solve a
 BandGenLinSOE object. It obtains the solution by making calls on the the
 LAPACK library. The class is defined to be a friend of the BandGenLinSOE
-class (see $<$BandGenLinSOE.h$>$).
+class (see  `<BandGenLinSOE.h>`).
 
 // Constructor\
 
@@ -28,7 +28,7 @@ class (see $<$BandGenLinSOE.h$>$).
 \
 
 \
-A unique class tag (defined in $<$classTags.h$>$) is passed to the
+A unique class tag (defined in  `<classTags.h>`) is passed to the
 BandGenLinSolver constructor. Sets the size of *iPiv* to $0$, *iPiv*
 being an integer array needed by the LAPACK routines.
 

@@ -131,7 +131,7 @@ We now rewrite the constraint equation based on two conditions:
 \
 
 \
-The integer INTEGRATOR_TAGS_ArcLength (defined in $<$classTags.h$>$) is
+The integer `INTEGRATOR_TAGS_ArcLength` (defined in  `<classTags.h>`) is
 passed to the StaticIntegrator classes constructor. The value of
 $\alpha$ is set to *alpha* and $\Delta s$ to *dS*.
 

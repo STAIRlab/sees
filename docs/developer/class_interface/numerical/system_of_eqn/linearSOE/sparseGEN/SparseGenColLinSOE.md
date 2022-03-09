@@ -82,14 +82,14 @@ length $n$.
 
 \
 
-The *solver* and a unique class tag (defined in $<$classTags.h$>$) are
+The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $0$ and
 the matrix $A$ is marked as not having been factored. Invokes
 *setLinearSOE(\*this)* on the *solver*. No memory is allocated for the 3
 1d arrays.
 *SparseGenColLinSOE(int N, int NNZ, int \*colStartA, int \*rowA,
 SparseGenColLinSolver &theSolver);* \
-The *solver* and a unique class tag (defined in $<$classTags.h$>$) are
+The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $N$, the
 number of non-zeros is set to $NNZ$ and the matrix $A$ is marked as not
 having been factored. Obtains memory from the heap for the 1d arrays

@@ -61,7 +61,7 @@ The $X$ and $B$ vectors are stored in 1d double arrays of length $N$.
 
 \
 
-The *solver* and a unique class tag (defined in $<$classTags.h$>$) are
+The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $0$ and
 the matrix $A$ is marked as not having been factored. Invokes
 *setLinearSOE(\*this)* on the *solver*. No memory is allocated for the 3
@@ -71,7 +71,7 @@ the matrix $A$ is marked as not having been factored. Invokes
 BandSPDLinSOE(int N, int ku, BandSPDLinSolver &theSolver);
 ```
 
-The *solver* and a unique class tag (defined in $<$classTags.h$>$) are
+The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. Sets the size of the system to $N$,
 the number of superdiagonals to *ku*. Allocates memory for the arrays;
 if not enough memory is available a warning message is printed and the

@@ -40,7 +40,7 @@ load acting on this Node object as a result of the NodalLoad.
 
 To create a NodalLoad object with tag *tag* acting on Node *node* with a
 reference load given by *load*. *tag* and *LOAD_TAG_NodalLoad* (defined
-in $<$classTags.h$>$)are passed to the Load constructor. A new vector
+in  `<classTags.h>`)are passed to the Load constructor. A new vector
 object is created using the vector *load* as the argument. (THIS MAY
 CHANGE - may associate the load Vector with *load*, allowing identical
 loads on diff nodes to be created without the need for each to have its

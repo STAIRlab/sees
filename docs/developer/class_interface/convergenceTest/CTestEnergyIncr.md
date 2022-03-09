@@ -57,13 +57,13 @@ rhs Vectors, and a user specified tolerance value.
 
 
 
-The integer *CLASS_TAGS_CTestEnergyIncr*, defined in $<$classTags.h$>$,
+The integer *CLASS_TAGS_CTestEnergyIncr*, defined in  `<classTags.h>`,
 is passed to the ConvergenceTest constructor. Sets the tolerance used in
 `test()` to be *tol* and the max number of iterations to be performed to
 *maxNumIter*.
 
 To be used by the FEM_ObjectBroker object in parallel programs. The
-integer *CLASS_TAGS_CTestEnergyIncr*, defined in $<$classTags.h$>$, is
+integer *CLASS_TAGS_CTestEnergyIncr*, defined in  `<classTags.h>`, is
 passed to the ConvergenceTest constructor. Sets the tolerance used in
 `test()` to be *0.0* and *maxNumIter* to be $0$. These will be set when
 `recvSelf()` is invoked on the object.

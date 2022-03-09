@@ -1,6 +1,6 @@
 MODIFY INTERFACE TO OFFER USER DEFINED STORAGE TYPE.
 
-\#include $<$/analysis/model/AnalysisModel.h$>$\
+\#include  `</analysis/model/AnalysisModel.h>`\
 
 class AnalysisModel : public MovableObject\
 

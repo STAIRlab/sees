@@ -77,7 +77,7 @@ $$\U_{t + \Delta t} = \U_t + \Delta t\Ud_t + \frac{\Delta t^2}{6}\left(
 
 \
 
-The integer INTEGRATOR_TAGS_WilsonTheta is passed to the
+The integer `INTEGRATOR_TAGS_WilsonTheta` is passed to the
 TransientIntegrator constructor. $\Theta$ is set to 0.0. This
 constructor should only be invoked by an FEM_ObjectBroker.
 

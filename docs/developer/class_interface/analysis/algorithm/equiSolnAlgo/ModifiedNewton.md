@@ -54,7 +54,7 @@ determines if convergence has been achieved.
 The constructor takes as an argument the ConvregenceTest object
 *theTest*, the object which is used at the end of each iteration to
 determine if convergence has been obtained. The integer
-*EquiALGORITHM_TAGS_ModifiedNewton* (defined in $<$classTags.h$>$) is
+*EquiALGORITHM_TAGS_ModifiedNewton* (defined in  `<classTags.h>`) is
 passed to the EquiSolnAlgo classes constructor.
 
 Provided for FEM_ObjectBroker to instantiate a blank object with a class

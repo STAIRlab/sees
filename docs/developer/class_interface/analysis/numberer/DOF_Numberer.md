@@ -40,7 +40,7 @@ DOF_Group objects directly.
 \
 
 \
-The integer *NUMBERER_TAG_DOF_Numberer* (defined in $<$classtags.h$>$)
+The integer *NUMBERER_TAG_DOF_Numberer* (defined in  `<classtags.h>`)
 is passed to the MovableObject classes constructor. Sets the
 GraphNumberer to be used in the numbering to `theGraphNumberer()`.
 
@@ -48,7 +48,7 @@ Provided for subclasses. The integer *classTag* is passed to the
 MovableObject classes constructor.
 
 Provided for FEM_ObjectBroker. The integer *NUMBERER_TAG_DOF_Numberer*
-(defined in $<$classtags.h$>$) is passed to the MovableObject classes
+(defined in  `<classtags.h>`) is passed to the MovableObject classes
 constructor. Sets the GraphNumberer to be used in the numbering to be
 $0$, the GraphNumberer object is created and linked in a `recvSelf()`
 method invocation.

@@ -35,7 +35,7 @@ moifying the tangent matrix and residual vector.
 
 \
 The integer *HANDLER_TAG_TransformationConstraintHandler* (defined in
-$<$classTags.h$>$) is passed to the TransformationConstraintHandler
+ `<classTags.h>`) is passed to the TransformationConstraintHandler
 constructor.
 
 

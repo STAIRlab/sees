@@ -81,13 +81,127 @@ class FiberSection(_FiberCollection):
 
 
 
-def ConfinedOctagon(
+def PolygonRing(extRad, intRad, n):
+    """
+    Create a polygon annulus.
+    """
+    psi = 2*pi/n
+    phi = psi
+    collection = []
+    cover_divs = 1,2      # divisions in each slice of the cover
+    iR1, iR2 = [intRad/cos(pi/n)]*2
+    oR1, oR2 = [extRad/cos(pi/n)]*2
+    j = 0
+    for i in range(n):
+        startAngle =  (i - 1/2)*psi
+        sita1  =  startAngle + j*phi   # Slice start angle
+        sita2  =  sita1 + phi          # Slice end angle
+        # Cover Patch connects the circular core to the polygonal cover
+        collection.append(
+          patch.quad(None, cover_divs,
+            vertices = [
+              [   iR1*cos(sita1),    iR1*sin(sita1)],
+              [   oR1*cos(sita1),    oR1*sin(sita1)],
+              [   oR2*cos(sita2),    oR2*sin(sita2)],
+              [   iR2*cos(sita2),    iR2*sin(sita2)],
+            ]
+        ))
+    sect = FiberSection(areas=collection)
+    sect.extRad = extRad
+    sect.intRad = intRad
+    return sect
+
+def RegularPolygon(n, Rcol):
+    phi =  2*pi/n
+    R = Rcol/cos(phi/2)
+    vertices = [
+        [R*cos(i*phi-phi/2),  R*sin(i*phi-phi/2)]
+        for i in range(n)
+    ]
+    poly = patch._Polygon(vertices)
+    return poly
+
+def _oct_outline(Rcol):
+    n = 8
+    phi =  2*pi/n
+    R = Rcol/cos(phi/2)
+    region = [
+        layer.line(vertices=[
+            [R*cos(i*phi-phi/2),  R*sin(i*phi-phi/2)],
+            [R*cos(i*phi+phi/2),  R*sin(i*phi+phi/2)]
+        ]) for i in range(n)
+    ]
+    sect = FiberSection(areas=region)
+    sect.extRad = Rcol
+    sect.intRad = 0.0
+    return sect
+
+def _oct_ring(Rcol, Rcore):
+    collection = []
+    numSlices  =  1       # Num. slices in each of the 8 sections of the octagon
+    cover_divs = 1,2      # divisions in each slice of the cover
+    for i in range(8):
+        phi =  pi/4/numSlices
+        startAngle =  i*pi/4 - pi/8
+        for j in range(numSlices):
+            sita1  =  startAngle + j*phi   # Slice start angle
+            sita2  =  sita1 +  phi         # Slice end angle
+            oR1    =  Rcol/cos(pi/8 -  j*phi)
+            oR2    =  Rcol/cos(pi/8 - (j+1)*phi)
+            # Cover Patch connects the circular core to the octagonal cover
+            collection.append(
+              patch.quad(None, cover_divs,
+                vertices = [
+                  [Rcore*cos(sita2), Rcore*sin(sita2)],
+                  [Rcore*cos(sita1), Rcore*sin(sita1)],
+                  [  oR1*cos(sita1),   oR1*sin(sita1)],
+                  [  oR2*cos(sita2),   oR2*sin(sita2)]
+                ]
+            ))
+    sect = FiberSection(areas=collection)
+    sect.extRad = Rcol
+    sect.intRad = Rcore
+    return sect
+    
+def ConfiningPolygon(extRad, intRad, n, s=1):
+    psi = 2*pi/n
+    phi = psi/s
+    collection = []
+    cover_divs = 1,2      # divisions in each slice of the cover
+    iR1, iR2 = [intRad]*2
+
+    for i in range(n):
+        startAngle =  (i - 1/2)*psi
+        for j in range(s):
+            sita1  =  startAngle + j*phi   # Slice start angle
+            sita2  =  sita1 + phi          # Slice end angle
+            oR1    =  extRad/cos(pi/n -  j*phi)
+            oR2    =  extRad/cos(pi/n - (j+1)*phi)
+            # iR1    =  intRad/cos(pi/n -  j*phi)
+            # iR2    =  intRad/cos(pi/n - (j+1)*phi)
+            # Cover Patch connects the circular core to the polygonal cover
+            collection.append(
+              patch.quad(None, cover_divs,
+                vertices = [
+                  [   iR1*cos(sita1),    iR1*sin(sita1)],
+                  [   oR1*cos(sita1),    oR1*sin(sita1)],
+                  [   oR2*cos(sita2),    oR2*sin(sita2)],
+                  [   iR2*cos(sita2),    iR2*sin(sita2)],
+                ]
+            ))
+    sect = FiberSection(areas=collection)
+    sect.extRad = extRad
+    sect.intRad = intRad
+    return sect
+
+def ConfinedPolygon(
     extRad,
-    intRad=0.0, 
+    intRad     = None, 
     DLbar=4,
     core_conc  = None,
     cover_conc = None,
-    ColMatTag   = None,
+    ColMatTag  = None,
+    units      = None,
 ):
     """
     Dcol     :     Width of octagonal column (to flat sides)
@@ -100,15 +214,17 @@ def ConfinedOctagon(
     #
     if intRad == extRad:
         return _oct_outline(extRad)
-    elif intRad > 0.0:
-        return _oct_ring(extRad, intRad)
+    if intRad is None:
+        intRad = extRad - 2.0
 
-    inch = 1.0
+    # assert intRad == 0.0 and extRad > 0.0
 
+    inch    = 1.0
     Dcol    =  2*extRad
-    tcover  =  2.0*inch           # 2 inch cover width
+    # tcover  =  2.0*inch           # 2 inch cover width
     Rcol    =  Dcol/2.0           # Radius of octagonal column (to flat sides)
-    Dcore   =  Dcol - 2.0*tcover  # Diameter of circular core
+    Dcore   =  2*intRad
+   #Dcore   =  Dcol - 2*tcover    # Diameter of circular core
     Rcore   =  Dcore/2.0          # Radius of circular core
     # Along   =  pi*DLbar**2/4.0    # Area of longitudinal reinforcement bar
     DTbar   =  0.625*inch         # Diameter of transverse spiral bar (#5 Rebar)
@@ -137,72 +253,13 @@ def ConfinedOctagon(
         patch.circ(core_conc, [cdivs, 10], [0., 0.], Rcore/2, Rcore,   0.0, 2*pi)
     ])
 
-    for i in range(8):    # For each of the 8 sections of the octagon
-        phi =  pi/4/numSlices
-        startAngle =  i*pi/4 - pi/8
-        for j in range(numSlices):
-            sita1  =  startAngle + j*phi   # Slice start angle
-            sita2  =  sita1 +  phi         # Slice end angle
-            oR1    =  Rcol/cos(pi/8 -  j*phi)
-            oR2    =  Rcol/cos(pi/8 - (j+1)*phi)
-            # Cover Patch connects the circular core to the octagonal cover
-            sect.add_patch(
-              patch.quad(cover_conc, cover_divs,
-                vertices = [
-                  [Rcore*cos(sita2), Rcore*sin(sita2)],
-                  [Rcore*cos(sita1), Rcore*sin(sita1)],
-                  [  oR1*cos(sita1),   oR1*sin(sita1)],
-                  [  oR2*cos(sita2),   oR2*sin(sita2)]
-                ]
-            ))
+    sect.add_patches(ConfiningPolygon(extRad, intRad, 8, numSlices).patches)
+
     #layer circ  long_steel  nLbar  Along 0. 0.  Rlong; # Longitudinal Bars
-    return sect 
+    sect.extRad = extRad
+    sect.intRad = intRad
+    return sect
 
-
-def RegularPolygon(n, Rcol):
-    phi =  2*pi/n
-    R = Rcol/cos(phi/2)
-    vertices = [
-        [R*cos(i*phi-phi/2),  R*sin(i*phi-phi/2)]
-        for i in range(n)
-    ]
-    return patch._Polygon(vertices)
-
-def _oct_outline(Rcol):
-    n = 8
-    phi =  2*pi/n
-    R = Rcol/cos(phi/2)
-    region = [
-        layer.line(vertices=[
-            [R*cos(i*phi-phi/2),  R*sin(i*phi-phi/2)],
-            [R*cos(i*phi+phi/2),  R*sin(i*phi+phi/2)]
-        ]) for i in range(n)
-    ]
-    return FiberSection(areas=region)
-
-def _oct_ring(Rcol, Rcore):
-    collection = []
-    numSlices  =  1       # Num. slices in each of the 8 sections of the octagon
-    cover_divs = 1,2      # divisions in each slice of the cover
-    for i in range(8):
-        phi =  pi/4/numSlices
-        startAngle =  i*pi/4 - pi/8
-        for j in range(numSlices):
-            sita1  =  startAngle + j*phi   # Slice start angle
-            sita2  =  sita1 +  phi         # Slice end angle
-            oR1    =  Rcol/cos(pi/8 -  j*phi)
-            oR2    =  Rcol/cos(pi/8 - (j+1)*phi)
-            # Cover Patch connects the circular core to the octagonal cover
-            collection.append(
-              patch.quad(None, cover_divs,
-                vertices = [
-                  [Rcore*cos(sita2), Rcore*sin(sita2)],
-                  [Rcore*cos(sita1), Rcore*sin(sita1)],
-                  [  oR1*cos(sita1),   oR1*sin(sita1)],
-                  [  oR2*cos(sita2),   oR2*sin(sita2)]
-                ]
-            ))
-    return FiberSection(areas=collection)
 
 @_section
 class SectionAggregator:

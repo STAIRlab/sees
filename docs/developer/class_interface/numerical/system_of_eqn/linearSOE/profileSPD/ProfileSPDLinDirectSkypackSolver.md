@@ -34,11 +34,11 @@ Public Methods\
 \
 
 \
-A unique class tag (defined in $<$classTags.h$>$) is passed to the
+A unique class tag (defined in  `<classTags.h>`) is passed to the
 ProfileSPDLinSolver constructor. Sets *mCols* and *mRows* equal to $0$
 and does not try and allocate any memory for the work arrays.
 
-A unique class tag (defined in $<$classTags.h$>$) is passed to the
+A unique class tag (defined in  `<classTags.h>`) is passed to the
 ProfileSPDLinSolver constructor. Sets *mCols* and *mRows* and allocates
 space in memory for the work arrays *rw*, *tw* and *index*. If not
 enough memory is available in memory, *mCols* and *mRows* is set equal

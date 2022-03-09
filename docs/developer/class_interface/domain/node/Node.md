@@ -1,7 +1,7 @@
 NEW METHOD POSSIBLY NEEDED TO SPECIFY THE NUMBER OF PREVIOUSLY COMMITTED
 RESPONSES TO KEEP .. NEEDED FOR EXPLICIT DYNAMIC INTEGRATORS\
 
-\#include $<$/domain/node/Node.h$>$\
+\#include  `</domain/node/Node.h>`\
 
 class Node: public DomainComponent\
 

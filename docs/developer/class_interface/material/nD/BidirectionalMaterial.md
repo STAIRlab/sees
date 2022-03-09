@@ -47,11 +47,11 @@ NDMaterials in the domain is given by *tag*. Sets the elastic modulus to
 *E*, initial yield stress to *fy*, and isotropic and kinematic hardening
 moduli to *Hiso* and *Hkin*, respectively. Sets all committed history
 variables to $0.0$. The integers *tag* and ND_TAG_Bidirectional, defined
-in $<$classTags.h$>$, are passed to the NDMaterial constructor.
+in  `<classTags.h>`, are passed to the NDMaterial constructor.
 
 Constructs a BidirectionalMaterial with tag 0. All material parameters
 and committed history variables are set to $0.0$. The integers 0 and
-ND_TAG_Bidirectional, defined in $<$classTags.h$>$, are passed to the
+ND_TAG_Bidirectional, defined in  `<classTags.h>`, are passed to the
 NDMaterial constructor.
 
 \

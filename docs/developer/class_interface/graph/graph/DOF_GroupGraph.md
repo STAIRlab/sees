@@ -1,6 +1,6 @@
 \
 
-\#include $<$DOF_GroupGraph.h$>$\
+\#include  `<DOF_GroupGraph.h>`\
 
 class DOF_GroupGraph: public ArrayGraph\
 

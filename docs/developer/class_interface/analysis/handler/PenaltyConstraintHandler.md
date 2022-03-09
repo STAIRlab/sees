@@ -33,7 +33,7 @@ matrix and residual vector.
 \
 
 The integer *HANDLER_TAG_PenaltyConstraintHandler* (defined in
-$<$classTags.h$>$) is passed to the PenaltyConstraintHandler
+ `<classTags.h>`) is passed to the PenaltyConstraintHandler
 constructor. Stores *alphaSP* and *alphaMP* which are needed to
 construct the PenaltySP_FE and PenaltyMP_FE objects in `handle()`.
 

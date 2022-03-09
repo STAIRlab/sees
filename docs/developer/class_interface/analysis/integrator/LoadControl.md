@@ -61,7 +61,7 @@ $$\R(\U_{n}) = \lambda_n^{(i)} \P
 \
 
 \
-The integer INTEGRATOR_TAGS_LoadControl (defined in $<$classTags.h$>$)
+The integer `INTEGRATOR_TAGS_LoadControl` (defined in  `<classTags.h>`)
 is passed to the StaticIntegrator classes constructor.
 $\delta \lambda_1$ is the load factor used in the first step. The
 arguments $Jd$, $\delta \lambda_{min}$, and $\delta

@@ -1,6 +1,6 @@
 \
 
-\#include $<$DummyNode.h$>$\
+\#include  `<DummyNode.h>`\
 
 class DummyNode: public DomainComponent\
 
