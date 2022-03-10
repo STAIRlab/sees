@@ -81,7 +81,7 @@ class FiberSection(_FiberCollection):
 
 
 
-def PolygonRing(extRad, intRad, n):
+def PolygonRing(n, extRad, intRad):
     """
     Create a polygon annulus.
     """
@@ -163,7 +163,7 @@ def _oct_ring(Rcol, Rcore):
     sect.intRad = Rcore
     return sect
     
-def ConfiningPolygon(extRad, intRad, n, s=1):
+def ConfiningPolygon(n, extRad, intRad, s=1):
     psi = 2*pi/n
     phi = psi/s
     collection = []
@@ -195,13 +195,14 @@ def ConfiningPolygon(extRad, intRad, n, s=1):
     return sect
 
 def ConfinedPolygon(
-    extRad,
-    intRad     = None, 
+    n:      int,
+    extRad: float,
+    intRad: float = None, 
     DLbar=4,
-    core_conc  = None,
-    cover_conc = None,
-    ColMatTag  = None,
-    units      = None,
+    core_conc     = None,
+    cover_conc    = None,
+    ColMatTag     = None,
+    units         = None,
 ):
     """
     Dcol     :     Width of octagonal column (to flat sides)
@@ -253,7 +254,7 @@ def ConfinedPolygon(
         patch.circ(core_conc, [cdivs, 10], [0., 0.], Rcore/2, Rcore,   0.0, 2*pi)
     ])
 
-    sect.add_patches(ConfiningPolygon(extRad, intRad, 8, numSlices).patches)
+    sect.add_patches(ConfiningPolygon(n, extRad, intRad, numSlices).patches)
 
     #layer circ  long_steel  nLbar  Along 0. 0.  Rlong; # Longitudinal Bars
     sect.extRad = extRad

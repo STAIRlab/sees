@@ -4,12 +4,13 @@ import matplotlib.pyplot as plt
 
 def show(): plt.show()
 
-def section(s, **kwds):
-    return MplPlotter().plot_section(s, **kwds)
+def section(s, ax=None, **kwds):
+    return MplPlotter(ax=ax).plot_section(s, **kwds)
 
 class MplPlotter:
-    def __init__(self, **kwds):
-        pass
+    def __init__(self, ax=None, **kwds):
+        self.ax = ax
+        self.kwds = kwds
     def get_section_layers(self, section, **kwds):
         import matplotlib.collections
         import matplotlib.lines as lines
@@ -23,7 +24,7 @@ class MplPlotter:
                 lines.Line2D(*np.asarray(layer.vertices).T, **options))
         return collection
 
-    def get_section_patches(self, section, **kwds):
+    def get_section_patches(self, section, facecolor="grey", edgecolor="grey", **kwds):
         import matplotlib.collections
         import matplotlib.patches as mplp
         collection = []
@@ -44,8 +45,8 @@ class MplPlotter:
                 collection.append(mplp.Polygon(np.asarray(patch.vertices)))
         return matplotlib.collections.PatchCollection(
             collection,
-            facecolor="grey",
-            edgecolor="grey",
+            facecolor=facecolor,
+            edgecolor=edgecolor,
             alpha=0.3
         )
 
@@ -61,6 +62,7 @@ class MplPlotter:
         **kwds
     ):
         """Plot a composite cross section."""    
+        
         if plain:
             show_properties = show_quad = show_dims = False
 
@@ -76,11 +78,12 @@ class MplPlotter:
             axp.axis("off")
 
             ax = fig.add_subplot(gs[0,:3])
+        elif self.ax is not None:
+            ax = self.ax
+            fig = ax.figure
         else:
             fig, ax = plt.subplots()
 
-        if ax is None:
-            fig, ax = plt.subplots()
         ax.set_autoscale_on(True)
         ax.set_aspect(1)
 
@@ -92,7 +95,7 @@ class MplPlotter:
         #ax.set_ylim( y_min, y_max)
         ax.axis("off")
         # add shapes
-        ax.add_collection(self.get_section_patches(section))
+        ax.add_collection(self.get_section_patches(section, **kwds))
         for l in self.get_section_layers(section, **kwds):
             ax.add_line(l)
         # show centroid
