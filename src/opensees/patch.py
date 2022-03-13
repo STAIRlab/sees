@@ -1,6 +1,6 @@
 # Claudio Perez
 """
-A patch command is used to generate a number of fibers over a cross-sectional area. 
+A patch is used to generate a number of fibers over a cross-sectional area. 
 Currently there are three types of patches that fibers can be generated over: 
 quadrilateral, rectangular and circular.
 
@@ -24,10 +24,23 @@ All patches have the following attributes:
 """
 import sys
 from .ast import *
-from .obj import LibCmd
+from .obj import LibCmd, cmd
 import numpy as np
 
 class Material: pass
+
+fiber = Fiber = cmd("Fiber","fiber",
+    # fiber $yLoc $zLoc $A $material
+    about="This command allows the user to construct a single fiber "\
+          "and add it to the enclosing `FiberSection` or `NDFiberSection`.",
+    args=[
+        Grp("coord", args=[Num("y"), Num("z")],
+            about="$y$ and $z$ coordinate of the fiber in the section "\
+                  "(local coordinate system)"),
+        Num("area", about="area of the fiber."),
+        Ref("material",type=Material, about="material tag associated with this fiber (UniaxialMaterial tag for a FiberSection and NDMaterial tag for use in an NDFiberSection)."),
+    ]
+)
 
 _patch = LibCmd("patch")
 
@@ -142,12 +155,10 @@ class _Polygon:
     def iyc(self):
         return self.moic[1,1]
 
-
-
 @_patch
 class rect(_Polygon):
     _args = [
-       Ref("matTag", type=Material, field="material", 
+       Ref("material", type=Material, field="material", 
            about="tag of previously defined material (`UniaxialMaterial`"\
                  "tag for a `FiberSection` or `NDMaterial` tag for use "\
                  "in an `NDFiberSection`)"),
@@ -172,6 +183,8 @@ class rect(_Polygon):
             self.vertices = [
                 ll, [ur[0], ll[1]], ur, [ll[0], ur[1]]
             ]
+    def discretize(self):
+        pass
 
 @_patch
 class quad(_Polygon):
@@ -181,7 +194,7 @@ class quad(_Polygon):
     """
     _img  = "quadPatch.svg"
     _args = [
-       Ref("matTag", type=Material, field="material", 
+       Ref("material", type=Material, field="material", 
            about="tag of previously defined material (`UniaxialMaterial` "\
                  "tag for a `FiberSection` or `NDMaterial` tag for use in an `NDFiberSection`)"),
        Grp("divs", args=[
@@ -212,9 +225,22 @@ def rhom(center, height, width, slope=None, divs=(0,0)):
 
 @_patch
 class circ:
+    """
+    Create a circular patch.
+
+    ## Examples
+
+    >>> patch.circ()
+    """
+    _signature = [
+        "radius", "sector", "divs", "quadrature", "material",
+        "center"
+    ]
+    _docsigs = [
+    ]
     _img  = "circPatch.svg"
     _args = [
-      Ref("matTag", type=Material, about="tag of previously defined material ("\
+      Ref("material", type=Material, about="tag of previously defined material ("\
                           "`UniaxialMaterial` tag for a `FiberSection` "\
                           "or `NDMaterial` tag for use in an `NDFiberSection`)"),
       Grp("divs", args=[
@@ -224,10 +250,10 @@ class circ:
       ]),
       Grp("center",    args=[Num("y"), Num("z")],
           about="$y$ & $z$-coordinates of the center of the circle", default=[0.0, 0.0]),
-      Num("intRad",    about="internal radius", default=0.0),
-      Num("extRad",    about="external radius"),
-      Num("startAng",  about="starting angle", default=0.0),
-      Num("endAng",    about="ending angle", default=np.pi*2),
+      Num("intRad",   about="internal radius", default=0.0),
+      Num("extRad",   about="external radius"),
+      Num("startAng", about="starting angle", default=0.0),
+      Num("endAng",   about="ending angle", default=np.pi*2),
     ]
     def __contains__(self, point):
         origin = np.asarray(self.center)
@@ -242,26 +268,50 @@ class circ:
         ]
         return all(inside)
 
+    def init(self):
+        self._moic = None
+        self._moig = None
+        self._area = None
+    
     @property
-    def J(self):
-        return 0.5 * self.area * self.extRad ** 2
+    def moic(self):
+        if self._moic is None:
+            r2,r1 = self.extRad, self.intRad
+            a2,a1 = self.endAng, self.startAng
+            dsin  = np.sin(2*a2) - np.sin(2*a1)
+            self._moic = np.array([
+                [(a2-a1 - 0.5*dsin), 0],
+                [0, (a2-a1 + 0.5*dsin)],
+            ])*(r2**4 - r1**4)*0.125 + self.area*self.centroid**2
+        return self._moic
 
     @property
     def area(self):
-        return np.pi*(self.extRad**2 - self.intRad**2)
+        r2,r1 = self.extRad, self.intRad
+        a2,a1 = self.endAng, self.startAng
+        return 0.5*(r2**2 - r1**2)*(a2 - a1)
 
     @property
     def centroid(self):
-        return np.asarray(self.center)
+        r2,r1 = self.extRad, self.intRad
+        a2,a1 = self.endAng, self.startAng
+        return np.array([
+            np.sin(a2) - np.sin(a1),
+            - np.cos(a2) + np.cos(a1)
+        ])*(r2**3 - r1**3)/(3*self.area)
+
 
     @property
     def ixc(self):
-        return 0.25 * np.pi * (self.extRad ** 4 - self.intRad ** 4)
+        return self.moic[0,0]
 
     @property
     def iyc(self):
-        return 0.25 * np.pi * (self.extRad ** 4 - self.intRad ** 4)
+        return self.moic[1,1]
 
+    @property
+    def J(self):
+        return 0.5 * self.area * self.extRad ** 2
 
 layer = LibCmd("layer", 
         {
@@ -288,16 +338,16 @@ layer = LibCmd("layer",
 class line:
     _img = "straightLayer.svg"
     _args = [
-      Ref("matTag", type=Material, about="""Reference to previously created material 
+      Ref("material", type=Material, about="""Reference to previously created material 
                 (`UniaxialMaterial` for a `FiberSection` or `NDMaterial` 
                 for use in an `NDFiberSection`)"""),
       Int("divs", about="number of fibers along line"),
       Num("area", field="fiber_area", about="area of each fiber"),
       Grp("vertices", typ=Grp, args=[
-          Grp("start",args=[Num("yStart"), Num("zStart")], 
+          Grp("start",args=[Num("y"), Num("z")], 
               about="""$y$ and $z$-coordinates of first fiber
                        in line (local coordinate system)"""),
-          Grp("end", args=[Num("yEnd"), Num("zEnd")], type=Num,
+          Grp("end", args=[Num("y"), Num("z")],
               about="$y$ and $z$-coordinates of last fiber in line (local coordinate system)")
       ])
     ]

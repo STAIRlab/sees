@@ -36,8 +36,23 @@ class uniaxial:
         ]
     )
 
+    ElasticPP = Uni("ElasticPP", "ElasticPP",
+        # uniaxialMaterial ElasticPP $matTag $E $epsyP <$epsyN $eps0>
+        about="This command is used to construct an elastic perfectly-plastic uniaxial material object.",
+        args=[
+            Tag(),
+            Yng(),
+            Num("epsyP",  about="strain or deformation at which material reaches plastic state in tension"),
+            Num("epsyN",  about="strain or deformation at which material reaches plastic state in compression. (optional, default is tension value)"),
+            Num("eps0",   about="initial strain (optional, default: zero)")
+    ])
+
     Steel02 = Uni("Steel02",
         "Steel02",
+        about="""
+        This command is used to construct a uniaxial 
+        Giuffre-Menegotto-Pinto steel material object 
+        with isotropic strain hardening.""",
         args = [
           Tag(),
           Num("Fy", about="yield strength"),
@@ -61,10 +76,6 @@ class uniaxial:
             Num("a4", about="see explanation under `a3`."),
           ]),
         ],
-        about="""
-        This command is used to construct a uniaxial 
-        Giuffre-Menegotto-Pinto steel material object 
-        with isotropic strain hardening."""
     )
 
     Concrete02 = Uni("Concrete02",
@@ -108,6 +119,23 @@ class element:
         refs=["materials"]
     )
 
+    DispBeamColumn = Ele("DispBeamColumn", "dispBeamColumn",
+        #, eleTag, *eleNodes, transfTag, integrationTag, '-cMass', '-mass', mass=0.0)
+        about="Create a dispBeamColumn element.",
+        args=[
+            Tag(),
+            Grp("nodes", args=[
+              Ref("iNode", type=Node,  attr="name", about=""),
+              Ref("jNode", type=Node,  attr="name", about=""),
+            ]),
+            Ref("geom",  field="transform", type=Trf, attr="name"),
+            Ref("integration", type="", alt="quadrature"),
+            Flg("-cMass", field="consistent_mass",
+                about="Flag indicating whether to use consistent mass matrix."),
+            Num("mass",field="mass_density", flag="-mass", default=0.0, reqd=False, 
+                about="element mass per unit length"),
+    ])
+
     ElasticBeamColumn3D = Ele("ElasticBeamColumn3D",
         "elasticBeamColumn",
         args = [
@@ -125,7 +153,8 @@ class element:
               Num("Iz", field="ixx",  about="", alt="section"),
             #]),
             Ref("geom",  field="transform",    type=Trf, attr="name"),
-            Num("mass_density", flag="-mass", default=0.0, reqd=False, about="element mass per unit length"),
+            Num("mass",field="mass_density", flag="-mass", default=0.0, reqd=False, 
+                about="element mass per unit length"),
             Flg("-cMass", field="consistent_mass",
                 about="Flag indicating whether to use consistent mass matrix.")
         ],
