@@ -12,10 +12,10 @@ ProfileSPDLinSolver is an abstract class. The ProfileSPDLinSolver class
 provides access for each subclass to the ProfileSPDLinSOE object through
 the pointer *theSOE*, which is a protected pointer.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

@@ -20,10 +20,10 @@ ProfileSPDLinDirectSolver\
 A ProfileSPDLinSubstrSolver object will perform the numerical
 substructuring operations on a ProfileSPDLinSOE object. EXPAND.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

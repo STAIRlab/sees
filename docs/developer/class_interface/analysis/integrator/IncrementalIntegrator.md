@@ -20,10 +20,10 @@ for updating the response quantities at the DOFs with appropriate
 values; these values being some function of the solution to the linear
 system of equations.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

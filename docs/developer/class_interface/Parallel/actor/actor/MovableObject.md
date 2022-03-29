@@ -14,11 +14,11 @@ type. In addition when databases are being used, each MovableObject will
 have a unique database tag, it is this integer which will allow the
 objects to retrieve their own data from the database.
 
-// Constructor\
+### Constructor
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

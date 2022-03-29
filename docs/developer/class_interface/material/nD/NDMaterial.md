@@ -19,10 +19,10 @@ NDMaterial subclasses. An NDMaterial object is responsible for keeping
 track of stress, strain and the constitution for a particular point in
 the domain.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

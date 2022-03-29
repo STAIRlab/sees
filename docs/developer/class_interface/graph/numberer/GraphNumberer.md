@@ -1,16 +1,13 @@
-\
 # GraphNumberer 
 
 ```cpp
 #include <graph/numberer/GraphNumberer.h>
+
+class GraphNumberer: public MovableObject;
 ```
 
-class GraphNumberer: public MovableObject;\
-
-MovableObject\
-
-RCM\
-MinDegree\
+- [RCM]()
+- [MinDegree]()
 
 GraphNumberer is an abstract class. The GraphNumberer class defines the
 interface that all programmers must provide when introducing new
@@ -19,10 +16,9 @@ numbering the Vertices of a Graph; that is assigning a unique integer
 value ($0$ through *numVertex* $-1$) to each Vertex (uses *tmp* variable
 of Vertex) of the Graph.
 
-// Constructor\
+### Constructor
 
-\
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

@@ -20,10 +20,10 @@ unbalanced displacement norm method. In this method WHAT
 
 SOME THEORY.
 
-// Constructors\
+### Constructors
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

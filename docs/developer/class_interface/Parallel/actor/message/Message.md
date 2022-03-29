@@ -17,13 +17,13 @@ result in erroniuos data being received. Each Message object keeps a
 pointer to the data it represents and an integer outlining the data
 size. There is no copy of the data kept by the Message.
 
-// Constructors\
+### Constructors
 
 \
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Member Functions\

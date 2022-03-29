@@ -17,10 +17,10 @@ UniaxialMaterial\
 A ParallelModel object is an aggregation of UniaxialMaterial objects all
 considered acting in parallel. SOME THEORY.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

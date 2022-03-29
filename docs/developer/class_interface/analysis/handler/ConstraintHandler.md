@@ -1,16 +1,13 @@
-\
 # ConstraintHandler 
 
 ```cpp
 #include <analysis/handler/ConstraintHandler.h>
+
+class ConstraintHandler: 
+public MovableObject
 ```
 
-class ConstraintHandler: public MovableObject\
-
-MovableObject\
-
-\
-The ConstraintHandler class is an abstract base class. Its purpose is to
+The `ConstraintHandler` class is an abstract base class. Its purpose is to
 define the interface common among all subclasses. A constraint handler
 is responsible for:
 
@@ -25,10 +22,10 @@ is responsible for:
 3.  deleting the DOF_Group and FE_Element objects that it created.
 
 
-// Constructor\
+### Constructor
 
-\
-// Destructor\
+
+### Destructor
 
 \
 // Public Methods\

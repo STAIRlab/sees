@@ -1,4 +1,3 @@
-\
 # PlainHandler 
 
 ```cpp
@@ -18,10 +17,10 @@ degrees-of-freedom which are constrained are not assigned an equation
 number. Pointers to the DOF_Group and FE_Element objects are kept in two
 arrays.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

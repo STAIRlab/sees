@@ -12,10 +12,10 @@ relationship between the pseudo time and the load factor is defined by
 the simple relationship: factor $=$ cFactor when tStart $<=$ pseudo time
 $<=$ tFinish, otherwise factor $=0.0$.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

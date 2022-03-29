@@ -16,11 +16,11 @@ therefore must obey the requirements for adding and removing elements
 specified in the interface for Domain) by invoking the *remove..()* and
 *add\...()* methods on the subdomain.
 
-// Constructors\
+### Constructors
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Member Functions - which extend the Domain class\

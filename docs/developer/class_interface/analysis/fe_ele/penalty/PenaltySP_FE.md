@@ -1,15 +1,11 @@
-\
 # PenaltySP_FE 
 
 ```cpp
 #include <analysis/fe_ele/penalty/PenaltySP_FE.h>
+
+class PenaltySP_FE: public FE_Element;
 ```
 
-class PenaltySP_FE: public FE_Element ;\
-
-FE_Element\
-
-\
 PenaltySP_FE is a subclass of FE_Element used to enforce a single point
 constraint. It does this by adding $\alpha$ to the tangent and
 $\alpha * (U\_s - U\_t)$ to the residual at the locations corresponding
@@ -17,12 +13,10 @@ to the constrained degree-of-freedom specified by the `SP_Constraint`,
 where $U_s$ is the specified value of the constraint and $U_t$ the
 current trial displacement at the node corresponding to the constraint.
 
-// Constructor\
+### Constructor
 
-\
-// Destructor\
+### Destructor
 
-\
 // Public Methods\
 
 \

@@ -17,12 +17,12 @@ single point constraint specifies the response of a particular
 degree-of-freedom at a node. The declaration that all methods are
 virtual allows for time varying constraints to be introduced.
 
-// Constructors\
+### Constructors
 
 \
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

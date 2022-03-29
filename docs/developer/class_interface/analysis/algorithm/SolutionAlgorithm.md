@@ -6,19 +6,16 @@
 class SolutionAlgorithm: public MovableObject
 ```
 
-MovableObject
-
-
 The `SolutionAlgorithm` class is an abstract base class. Its purpose is to
 define the interface common among all its subclasses. A
 `SolutionAlgorithm` object performs the steps in the analysis by
 specifying the sequence of operations to be performed by members in the
 analysis aggregation.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

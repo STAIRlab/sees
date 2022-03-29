@@ -25,12 +25,12 @@ lies in the local x-y plane for the element. The local z-axis is the
 cross product between *x* and *yprime*, and the local y-axis is the
 cross product between the local z-axis and *x*.
 
-// Constructors\
+### Constructors
 
 \
 
 \
-// Destructor\
+### Destructor
 
 \
 // public methods to obtain information about dof & connectivity\

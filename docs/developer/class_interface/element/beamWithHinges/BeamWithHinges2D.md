@@ -20,12 +20,12 @@ formulation for its state determination. This element has material
 non-linear hinges at both ends and exhibits linear elastic behavior
 through its interior region, including linear elastic shear effects.
 
-// Constructors\
+### Constructors
 
 \
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods dealing with Nodes and dof\

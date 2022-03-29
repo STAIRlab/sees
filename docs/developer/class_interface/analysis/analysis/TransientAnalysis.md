@@ -1,42 +1,38 @@
-\
 # TransientAnalysis 
 
 ```cpp
 #include <analysis/analysis/TransientAnalysis.h>
+
+class TransientAnalysis:
+public Analysis;
 ```
 
-class TransientAnalysis: public Analysis;\
-
-Analysis\
-
-\
-The TransientAnalysis class is an abstract class. Its purpose is to
-define the interface common among all subclasses. A TransientAnalysis
+The `TransientAnalysis` class is an abstract class. Its purpose is to
+define the interface common among all subclasses. A `TransientAnalysis`
 object is responsible for performing a transient analysis on the
 domain.
 
-// Constructor\
+### Constructor
 
-// Destructor\
+### Destructor
 
-\
-// Public Methods\
 
-\
+// Public Methods
 
-// Protected Data\
 
-\
 
-\
+// Protected Data
+
+
+
 The Domain *theDomain* is passed to the Analysis classes constructor.
 Sets the starting time and finishing time for the transient analysis to
 *tStart* and *tFinish*.
 
-\
+
 Does nothing.
 
-\
+
 Invoked to perform a dynamic analysis on the model. The type of analysis
 performed, depends on the type of the objects in the analysis
 aggregation. Returns a $0$ if successful, otherwise a negative number is

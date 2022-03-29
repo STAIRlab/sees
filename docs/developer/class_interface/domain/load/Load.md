@@ -16,10 +16,10 @@ Load is an abstract base class. A Load object is used to add load to the
 domain. The Load class defines one method in its interface
 `applyLoad()`, a method all subclasses must implement.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

@@ -1,15 +1,13 @@
-\
 # LagrangeSP_FE 
 
 ```cpp
 #include <analysis/fe_ele/lagrange/LagrangeSP_FE.h>
+
+class LagrangeSP_FE:
+public FE_Element
 ```
 
-class LagrangeSP_FE: public FE_Element ;\
 
-FE_Element\
-
-\
 LagrangeSP_FE is a subclass of FE_Element used to enforce a single point
 constraint. It does this by adding to the tangent and the residual:
 $$\left[ \begin{array}{cc} 0 & \alpha \\ \alpha & 0 \end{array}
@@ -22,10 +20,10 @@ constraint, where $U_s$ is the specified value of the constraint and
 $U_t$ the current trial displacement at the node corresponding to the
 constraint.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

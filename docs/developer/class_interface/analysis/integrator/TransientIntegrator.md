@@ -1,30 +1,28 @@
-\
 # TransientIntegrator 
 
 ```cpp
 #include <analysis/integrator/TransientIntegrator.h>
+
+class TransientIntegrator: 
+   public Integrator
+          MovableObject
+          Integrator
+          IncrementalIntegrator
 ```
 
-class TransientIntegrator: public Integrator\
+- [Newmark](Newmark)
+- [HHT](HHT)
+- [Wilson-$\Theta$](WilsonTheta)
 
-MovableObject\
-Integrator\
-IncrementalIntegrator\
-
-Newmark\
-HHT\
-Wilson-$\Theta$\
-
-TransientIntegrator is an abstract subclass of IncrementalIntegrator. A
-subclass of it is used when performing a nonlinear transient analysis of
-the problem using a direct integration method. The TransientIntegrator
-class redefines the `formTangent()` method of the IncrementalIntegrator
+`TransientIntegrator` is an abstract subclass of `IncrementalIntegrator`. 
+A subclass of it is used when performing a nonlinear transient analysis of
+the problem using a direct integration method. The `TransientIntegrator`
+class redefines the `formTangent()` method of the `IncrementalIntegrator`
 class and it defines a new method `newStep()` which is invoked by the
-DirectIntegrationAnalysis class at each new time step.
-In nonlinear transient finite element problems we seek a solution ($\U$,
-$\dot \U$, $\ddot \U$) to the nonlinear vector function
+`DirectIntegrationAnalysis` class at each new time step.
+In nonlinear transient finite element problems we seek a solution ($\U$, $\dot \U$, $\ddot \U$) to the nonlinear vector function
 
-$$\R(\U,\Ud, \Udd) = \P(t) - \F_I(\Udd) - \F_R(\U, \Ud) = \zero
+$$\R(\U,\Ud, \Udd) = {\bf P}(t) - {\bf F}_I(\Udd) - {\bf F}_R(\U, \Ud) = \zero
 \label{femGenForm}$$
 
 The most widely used technique for solving the transient non-linear
@@ -35,8 +33,8 @@ scheme. In the incremental formulation, a solution to the equation is
 sought at successive time steps $\Delta
 t$ apart.
 
-$$\R(\U_{n \Delta t},\Ud_{n \Delta t}, \Udd_{n \Delta t}) = \P(n \Delta t) -
-\F_I(\Udd_{n \Delta t}) - \F_R(\U_{n \Delta t}, \Ud_{n \Delta t})
+$$\R({\bf U}_{n \Delta t},\dot{\bf U}_{n \Delta t}, \ddot{\bf U}_{n \Delta t}) = {\bf P}(n \Delta t) -
+{\bf F}_I(\ddot{\bf U}_{n \Delta t}) - {\bf F}_R({\bf U}_{n \Delta t}, \dot{\bf U}_{n \Delta t})
 \label{fullTimeForm}$$
 
 For each time step, t, the integration schemes provide two operators,
@@ -44,12 +42,12 @@ $\I_1$ and $\I_2$, to relate the velocity and accelerations at the time
 step as a function of the displacement at the time step and the response
 at previous time steps:
 
-$$\dot \U_{t} = {\I}_1 (\U_t, \U_{t-\Delta t}, \dot \U_{t-\Delta t},
-\ddot \U_{t - \Delta t}, \U_{t - 2\Delta t}, \dot \U_{t - 2 \Delta t}. ..., )
+$$\dot {\bf U}_{t} = {\I}_1 ({\bf U}_t, {\bf U}_{t-\Delta t}, \dot {\bf U}_{t-\Delta t},
+\ddot {\bf U}_{t - \Delta t}, {\bf U}_{t - 2\Delta t}, \dot {\bf U}_{t - 2 \Delta t}. ..., )
 \label{I1}$$
 
-$$\ddot \U_{t} = {\I}_2 (\U_t, \U_{t-\Delta t}, \dot \U_{t-\Delta t},
-\ddot \U_{t - \Delta t}, \U_{t - 2\Delta t}, \dot \U_{t - 2 \Delta t}. ..., )
+$$\ddot {\bf U}_{t} = {\I}_2 ({\bf U}_t, {\bf U}_{t-\Delta t}, \dot {\bf U}_{t-\Delta t},
+\ddot {\bf U}_{t - \Delta t}, {\bf U}_{t - 2\Delta t}, \dot {\bf U}_{t - 2 \Delta t}. ..., )
 \label{I2}$$
 
 These allow us to rewrite
@@ -57,37 +55,37 @@ equation [\[fullTimeForm\]](#fullTimeForm){reference-type="ref"
 reference="fullTimeForm"}, in terms of a single response quantity,
 typically the displacement:
 
-$$\R(\U_t) = \P(t) - \F_I(\Udd_t) - \F_R(\U_t, \Ud_t)
+$$\R({\bf U}_t) = {\bf P}(t) - {\bf F}_I(\ddot{\bf U}_t) - {\bf F}_R({\bf U}_t, \dot{\bf U}_t)
 \label{genForm}$$
 
 The solution of this equation is typically obtained using an iterative
-procedure, i.e. making an initial prediction for $\U_{t}$, denoted
-$\U_{t}^{(0)}$ a sequence of approximations $\U_{t}^{(i)}$, $i=1,2, ..$
-is obtained which converges (we hope) to the solution $\U_{t}$. The most
+procedure, i.e. making an initial prediction for ${\bf U}_{t}$, denoted
+${\bf U}_{t}^{(0)}$ a sequence of approximations ${\bf U}_{t}^{(i)}$, $i=1,2, ..$
+is obtained which converges (we hope) to the solution ${\bf U}_{t}$. The most
 frequently used iterative schemes, such as Newton-Raphson, modified
 Newton, and quasi Newton schemes, are based on a Taylor expansion of
 equation [\[genForm\]](#genForm){reference-type="ref"
-reference="genForm"} about $\U_{t}$:
+reference="genForm"} about ${\bf U}_{t}$:
 
-$$\R(\U_{t}) = 
-\R(\U_{t}^{(i)}) +
-\left[ {\frac{\partial \R}{\partial \U_t} \vert}_{\U_{t}^{(i)}}\right]
-\left( \U_{t} - \U_{t}^{(i)} \right)$$
+$$\R({\bf U}_{t}) = 
+\R({\bf U}_{t}^{(i)}) +
+\left[ {\frac{\partial \R}{\partial {\bf U}_t} \vert}_{{\bf U}_{t}^{(i)}}\right]
+\left( {\bf U}_{t} - {\bf U}_{t}^{(i)} \right)$$
 
-$$\R(\U_{t}) = 
- \P (t) 
- - \f_{I} \left( \ddot \U_{t}^{(i)} \right) -
-\f_{R} \left( \dot \U_{t}^{(i)}, \U_{t}^{(i)} \right)$$ $$- \left[
-   \M^{(i)} {\I}_2'
-+  \C^{(i)} {\I}_1'
-+ \K^{(i)}  \right]
- \left( \U_{t} - \U_{t}^{(i)} \right)
+$$\R({\bf U}_{t}) = 
+ {\bf P} (t) 
+ - {\bf F}_{I} \left( \ddot {\bf U}_{t}^{(i)} \right) -
+{\bf F}_{R} \left( \dot {\bf U}_{t}^{(i)}, {\bf U}_{t}^{(i)} \right)$$ $$- \left[
+   {\bf M}^{(i)} {\I}_2'
++  {\bf C}^{(i)} {\I}_1'
++ {\bf K}^{(i)}  \right]
+ \left( {\bf U}_{t} - {\bf U}_{t}^{(i)} \right)
 \label{femGenFormTaylor}$$
 
-To start the iteration scheme, trial values for $\U_{t}$, $\dot
-\U_{t}$ and $\ddot \U_{t}$ are required. These are obtained by assuming
-$\U_{t}^{(0)} = \U_{t-\Delta t}$. The $\dot \U_{t}^{(0)}$ and
-$\ddot \U_{t}^{(0)}$ can then be obtained from the operators for the
+To start the iteration scheme, trial values for ${\bf U}_{t}$, $\dot
+{\bf U}_{t}$ and $\ddot {\bf U}_{t}$ are required. These are obtained by assuming
+${\bf U}_{t}^{(0)} = {\bf U}_{t-\Delta t}$. The $\dot {\bf U}_{t}^{(0)}$ and
+$\ddot {\bf U}_{t}^{(0)}$ can then be obtained from the operators for the
 integration scheme.
 Subclasses of TransientIntegrators provide methods informing the
 FE_Element and DOF_Group objects how to build the tangent and residual
@@ -95,12 +93,12 @@ matrices and vectors. They also provide the method for updating the
 response quantities at the DOFs with appropriate values; these values
 being some function of the solution to the linear system of equations.
 
-// Constructor\
+### Constructor
 
-\
-// Destructor\
 
-\
+### Destructor
+
+
 // Public Methods\
 
 \

@@ -22,11 +22,11 @@ to from the tangent (if nodal masses in transient problem) and
 unbalanced load information, and for setting and obtaining the nodal
 trial response quantities.
 
-// Constructors\
+### Constructors
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Methods - Mapping\

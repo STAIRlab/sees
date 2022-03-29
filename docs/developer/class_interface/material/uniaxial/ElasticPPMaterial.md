@@ -20,10 +20,10 @@ by the linear equation $\sigma = E * \epsilon$ while the material is
 elastic and $| \sigma = E * \epsilon_p |$ while the material is
 undergoing plastic deformation. SOME MORE THEORY.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

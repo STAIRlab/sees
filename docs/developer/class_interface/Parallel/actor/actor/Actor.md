@@ -17,10 +17,10 @@ actor resides in this remote address space. The actor and the shadow
 both have a channel, a communication port. This allows the two to
 communicate with each other.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods for Processing Functions\

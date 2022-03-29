@@ -38,12 +38,12 @@ the constraint matrix is: $$C_{cr} =
 
 *constrainedID* = $[0$ $1]$ and *retainedID* $= [0$ $2]$.
 
-// Constructors\
+### Constructors
 
 \
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

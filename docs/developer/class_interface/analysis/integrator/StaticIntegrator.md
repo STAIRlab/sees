@@ -26,7 +26,7 @@ analysis, see the StaticAnalysis class.
 In static nonlinear finite element problems we seek a solution ($\U$,
 $\lambda$) to the nonlinear vector function
 
-$$\R(\U, \lambda) = \lambda \P - \F_R(\U) = \zero
+$$\R(\U, \lambda) = \lambda {\bf P} - {\bf F}_R(\U) = \zero
 \label{staticGenForm}$$
 
 The most widely used technique for solving the non-linear finite element
@@ -35,26 +35,26 @@ reference="femGenForm"}, is to use an incremental scheme. In the
 incremental formulation, a solution to the equation is sought at
 successive incremental steps.
 
-$$\R(\U_{n}, \lambda_n) = \lambda_n \P - \F_R(\U_{n})
+$$\R({\bf U}_{n}, \lambda_n) = \lambda_n {\bf P} - {\bf F}_R({\bf U}_{n})
 \label{staticIncForm}$$
 
 The solution of this equation is typically obtained using an iterative
-procedure, in which a sequence of approximations ($\U_{n}^{(i)}$,
+procedure, in which a sequence of approximations (${\bf U}_{n}^{(i)}$,
 $\lambda_n^{(i)}$), $i=1,2, ..$ is obtained which converges to the
-solution ($\U_n$, $\lambda_n)$. The most frequently used iterative
+solution (${\bf U}_n$, $\lambda_n)$. The most frequently used iterative
 schemes, such as Newton-Raphson, modified Newton, and quasi Newton
 schemes, are based on a Taylor expansion of
 equation [\[staticIncForm\]](#staticIncForm){reference-type="ref"
-reference="staticIncForm"} about ($\U_{n}$, $\lambda_n$):
+reference="staticIncForm"} about (${\bf U}_{n}$, $\lambda_n$):
 
-$$\R(\U_{n},\lambda_n) = \lambda_n^{(i)} \P 
- - \f_{R}\left(\U_{n}^{(i)} \right) - \left[
+$$\R({\bf U}_{n},\lambda_n) = \lambda_n^{(i)} {\bf P} 
+ - {\bf F}_{R}\left({\bf U}_{n}^{(i)} \right) - \left[
 \begin{array}{cc}
-\K_n^{(i)} & -\P \\
+{\bf K}_n^{(i)} & -{\bf P} \\
 \end{array} \right] 
 \left\{
 \begin{array}{c}
-\U_{n} - \U_{n}^{(i)}  \\ 
+{\bf U}_{n} - {\bf U}_{n}^{(i)}  \\ 
 \lambda_n - \lambda_n^{(i)} 
 \end{array} \right\}
 \label{staticFormTaylor}$$
@@ -65,10 +65,10 @@ constraint equation used depends on the static integration scheme, of
 which there are a number, for example load control, arc length, and
 displacement control.
 
-// Constructors\
+### Constructors
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

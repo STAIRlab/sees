@@ -1,15 +1,16 @@
+# EquiSolnAlgo
 
 ```cpp
 #include <analysis/algorithm/equiSolnAlgo/EquiSolnAlgo.h>
+
+
+class EquiSolnAlg: public SolutionAlgo
+
+MovableObject
+SolutionAlgorithm
 ```
 
 
-class EquiSolnAlg: public SolutionAlgo;\
-
-MovableObject\
-SolutionAlgorithm\
-
-\
 The EquiSolnAlgo class is an abstract base class. Its purpose is to
 define the interface common among all subtypes. An EquiSolnAlgo object
 defines the sequence of operations performed by the the Integrator and
@@ -17,29 +18,29 @@ the LinearSOE objects in solving the equilibrium equation $R(U) = 0$
 given the current state of the domain at each time step in a direct
 integration analysis or load increment in a static analysis.
 
-// Constructor\
+### Constructor
 
-\
-// Destructor\
 
-\
-// Public Methods\
+### Destructor
 
-\
 
-// Public Methods for Output\
+// Public Methods
 
-\
-// Public Methods for Pointers - not Protected for ConvergenceTest\
 
-\
 
-\
+// Public Methods for Output
+
+
+// Public Methods for Pointers - not Protected for ConvergenceTest
+
+
+
+
 
 The integer *classTag* is passed to the SolutionAlgorithm classes
 constructor.
 
-\
+
 Does nothing.
 
 \

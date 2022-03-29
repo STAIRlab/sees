@@ -1,4 +1,3 @@
-\
 # DOF_Numberer 
 
 ```cpp
@@ -20,12 +19,12 @@ the individual degrees-of-freedom. Subtypes may wish to implement the
 numbering in a more efficient manner by using the FE_Element and
 DOF_Group objects directly.
 
-// Constructors\
+### Constructors
 
 \
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

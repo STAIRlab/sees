@@ -13,10 +13,10 @@ A LoadBalancer is an object used to balance a PartitionedDomain. The
 LoadBalancer does this by invoking methods in the DomainPartitioner
 object with which it is associated.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

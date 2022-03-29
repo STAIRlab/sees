@@ -16,10 +16,10 @@ DomainSolver is an abstract class. DomainSolver objects are responsible
 for performing the numerical operations required for the domain
 decomposition methods.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

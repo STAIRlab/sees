@@ -18,9 +18,9 @@ any UniaxialMaterial may be used to model section response. The design
 of this class follows the Object Adapter pattern in *Design Patterns* by
 Gamma et al.
 
-// Constructor\
+### Constructor
 
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

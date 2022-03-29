@@ -1,15 +1,15 @@
+# PenaltyConstraintHandler
 
 ```cpp
 #include <analysis/handler/PenaltyConstraintHandler.h>
+
+
+class PenaltyConstraintHandler: 
+public ConstraintHandler
+MovableObject
+ConstraintHandler
 ```
 
-
-class PenaltyConstraintHandler: public ConstraintHandler\
-
-MovableObject\
-ConstraintHandler\
-
-\
 The PenaltyConstraintHandler class is a class which deals with both
 single and multi point constraints using the penalty method. This is
 done by, in addition to creating a DOF_Group object for each Node and an
@@ -18,10 +18,10 @@ PenaltySP_FE or a PenaltyMP_FE object for each constraint in the Domain.
 It is these objects that enforce the constraints by moifying the tangent
 matrix and residual vector.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

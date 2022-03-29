@@ -18,10 +18,10 @@ interface all concrete subclasses must provide. The interface defines
 methods to add and to remove the components, and methods to obtain
 access to the components.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Pure Virtual Public Methods\

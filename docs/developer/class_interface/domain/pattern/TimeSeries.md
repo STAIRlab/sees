@@ -10,10 +10,10 @@ The TimeSeries class is an abstract base class. A TimeSeries object is
 used in a LoadPattern to determine the current load factor to be applied
 to the loads and constraints for the time specified.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Pure Virtual Public Methods\

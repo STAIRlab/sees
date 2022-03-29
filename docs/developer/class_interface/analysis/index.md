@@ -45,10 +45,10 @@ without the need to change existing classes. In this design an
        rest of the objects the analysis aggregation the need to deal
        with the constraints.
 
-3.  **Integrator**: The **Integrator** object is responsible for
-    defining the contributions of the **FE_Element**s and **DOF_Group**s
+3.  [`Integrator`](integrator/Integrator): The `Integrator` object is responsible for
+    defining the contributions of the `FE_Element`s and `DOF_Group`s
     to the system of equations and for updating the response quantities
-    at the **DOF_Group**s with the appropriate values given the solution
+    at the `DOF_Group`s with the appropriate values given the solution
     to the system of equations.
 
 4.  **ConstraintHandler**: The **ConstraintHandler** object is

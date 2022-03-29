@@ -1,7 +1,5 @@
 UNDER CONSTRUCTION
 
-
-
 ```cpp
 #include <analysis/analysis/DomainDecompositionAnalysis.h>
 ```
@@ -56,7 +54,7 @@ such an analysis type:
 \
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

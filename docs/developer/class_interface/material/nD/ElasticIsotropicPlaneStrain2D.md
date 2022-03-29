@@ -18,10 +18,10 @@ ElasticIsotropicPlaneStrain2D provides the implementation of an elastic
 isotropic material which exhibits plane strain behavior in two
 dimensions.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

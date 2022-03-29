@@ -24,10 +24,10 @@ subclasses cannot gain access to the private member data there does not
 seem to be much point in declaring them, except for the destructor,
 virtual in this instance.**\
 
-// Constructors\
+### Constructors
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

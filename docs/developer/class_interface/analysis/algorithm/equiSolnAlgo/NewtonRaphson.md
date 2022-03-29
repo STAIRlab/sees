@@ -1,41 +1,42 @@
+# NewtonRaphson
 
 ```cpp
 #include <analysis/algorithm/equiSolnAlgo/NewtonRaphson.h>
+
+
+class NewtonRaphson: 
+public EquiSolnAlg
+        MovableObject
+        SolutionAlgorithm
+        EquiSolnAlgo
 ```
 
 
-class NewtonRaphson: public EquiSolnAlg;\
-
-MovableObject\
-SolutionAlgorithm\
-EquiSolnAlgo\
-
-\
 The NewtonRaphson class is an algorithmic class which obtains a solution
 to a non-linear system using the Newton-Raphson iteration scheme. The
 iteration scheme is based on a Taylor expansion of the non-linear system
-of equations $\R(\U) = \zero$ about an approximate solution $\U^{(i)}$:
+of equations $\R(\U) = \zero$ about an approximate solution ${\bf U}^{(i)}$:
 $$\R(\U) = 
-\R(\U^{(i)}) +
-\left[ {\frac{\partial \R}{\partial \U} \vert}_{\U^{(i)}}\right]
-\left( \U - \U^{(i)} \right)$$
+\R({\bf U}^{(i)}) +
+\left[ {\frac{\partial \R}{\partial \U} \vert}_{{\bf U}^{(i)}}\right]
+\left( {\bf U} - {\bf U}^{(i)} \right)$$
 
 which can be expressed as: $$\
-\K^{(i)}  \Delta \U^{(i)} = \R(\U^{(i)})$$ which is solved for
-$\Delta \U^{(i)}$ to give approximation for
-$\U^{(i+1)} = \U^{(i)} + \Delta \U^{(i)}$. To start the iteration
-$\U^{(1)} = \U_{trial}$, i.e. the current trial response quantities are
+{\bf K}^{(i)}  \Delta {\bf U}^{(i)} = \R({\bf U}^{(i)})$$ which is solved for
+$\Delta {\bf U}^{(i)}$ to give approximation for
+${\bf U}^{(i+1)} = {\bf U}^{(i)} + \Delta {\bf U}^{(i)}$. To start the iteration
+${\bf U}^{(1)} = {\bf U}_{trial}$, i.e. the current trial response quantities are
 chosen as initial response quantities. To stop the iteration, a test
 must be performed to see if convergence has been achieved at each
 iteration. Each NewtonRaphson object is associated with a
 ConvergenceTest object. It is this object which determines if
 convergence has been achieved.
 
-// Constructors\
+### Constructors
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Member Functions\

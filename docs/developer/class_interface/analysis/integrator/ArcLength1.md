@@ -1,16 +1,14 @@
-\
 # ArcLength1 
 
 ```cpp
 #include <analysis/integrator/ArcLength1.h>
+
+class ArcLength1: 
+public StaticIntegrator
+    MovableObject
+    Integrator
+    IncrementalIntegrator
 ```
-
-class ArcLength1: public StaticIntegrator\
-
-MovableObject\
-Integrator\
-IncrementalIntegrator\
-StaticIntegrator\
 
 \
 ArcLength1 is a subclass of StaticIntegrator, it is used to when
@@ -20,12 +18,12 @@ class, the following constraint equation is added to
 equation [\[staticFormTaylor\]](#staticFormTaylor){reference-type="ref"
 reference="staticFormTaylor"} of the StaticIntegrator class:
 
-$$\Delta \U_n^T \Delta \U_n  + \alpha^2 \Delta \lambda_n^2  = \Delta s^2$$
+$$\Delta {\bf U}_n^T \Delta {\bf U}_n  + \alpha^2 \Delta \lambda_n^2  = \Delta s^2$$
 
 where
 
-$$\Delta \U_n = \sum_{j=1}^{i} \Delta \U_n^{(j)} = \Delta \U_n^{(i)} +
-d\U^{(i)}$$
+$$\Delta {\bf U}_n = \sum_{j=1}^{i} \Delta {\bf U}_n^{(j)} = \Delta {\bf U}_n^{(i)} +
+d{\bf U}^{(i)}$$
 
 $$\Delta \lambda_n = \sum_{j=1}^{i} \Delta \lambda_n^{(j)} = \Delta \lambda_n^{(i)} +
 d\lambda^{(i)}$$
@@ -39,27 +37,27 @@ method of ??(REF). Rewriting
 equation [\[staticFormTaylor\]](#staticFormTaylor){reference-type="ref"
 reference="staticFormTaylor"} as
 
-$$\K_n^{(i)} \Delta \U_n^{(i)} = \Delta \lambda_n^{(i)} \P +
-\lambda_n^{(i)} \P - \F_R(\U_n^{(i)}) = \Delta \lambda_n^{(i)} \P + \R_n^{(i)}$$
+$${\bf K}_n^{(i)} \Delta {\bf U}_n^{(i)} = \Delta \lambda_n^{(i)} {\bf P} +
+\lambda_n^{(i)} {\bf P} - {\bf F}_R({\bf U}_n^{(i)}) = \Delta \lambda_n^{(i)} {\bf P} + {\bf R}_n^{(i)}$$
 
 The idea of ?? is to separate this into two equations:
 
-$$\K_n^{(i)} \Delta \dot{\bf U}_n^{(i)} = \P$$
+$${\bf K}_n^{(i)} \Delta \dot{\bf U}_n^{(i)} = \P$$
 
-$$\K_n^{(i)} \Delta \overline{\bf U}_n^{(i)} = \R_n^{(i)}$$
+$${\bf K}_n^{(i)} \Delta \overline{\bf U}_n^{(i)} = {\bf R}_n^{(i)}$$
 
 where now
 
-$$\Delta \U_n^{(i)} = \Delta \lambda_n^{(i)} \Delta \dot{\bf U}_n^{(i)} +
+$$\Delta {\bf U}_n^{(i)} = \Delta \lambda_n^{(i)} \Delta \dot{\bf U}_n^{(i)} +
 \Delta \overline{\bf U}_n^{(i)}  
 \label{splitForm}$$
 
 We now rewrite the constraint equation based on two conditions:
 
-1.  **$i = 1$**: assuming $\R_n^{(1)} = \zero$, i.e. the system is in
+1.  **$i = 1$**: assuming ${\bf R}_n^{(1)} = \zero$, i.e. the system is in
     equilibrium at the start of the iteration, the following is obtained
 
-    $$\Delta \U_n^{(1)} = \Delta \lambda_n^{(1)} \Delta \dot{\bf U}_n^{(1)} + \zero$$
+    $$\Delta {\bf U}_n^{(1)} = \Delta \lambda_n^{(1)} \Delta \dot{\bf U}_n^{(1)} + \zero$$
 
     $$\Delta \lambda_n^{(1)} = \begin{array}{c} + \\ - \end{array}
     \sqrt{\frac{\Delta s^2}{\dot{\bf U}^T \dot{\bf U}+ \alpha^2}}$$
@@ -72,32 +70,32 @@ We now rewrite the constraint equation based on two conditions:
 
 2.  **$i > 1$**
 
-    $$\left( \Delta \U_n^{(i)} + d\U^{(i)} \right)^T \left( \Delta \U_n^{(i)} +
-    d\U^{(i)} \right) + \alpha^2 \left( \Delta \lambda_n^{(i)} + d\lambda^{(i)}
+    $$\left( \Delta {\bf U}_n^{(i)} + d{\bf U}^{(i)} \right)^T \left( \Delta {\bf U}_n^{(i)} +
+    d{\bf U}^{(i)} \right) + \alpha^2 \left( \Delta \lambda_n^{(i)} + d\lambda^{(i)}
     \right)^2 = \Delta s^2$$
 
-    $$\Delta {\U_n^{(i)}}^T\Delta \U_n^{(i)} + 2{d\U^{(i)}}^T\Delta \U_n^{(i)} + {d\U^{(i)}}^T d\U^{(i)}
+    $$\Delta {{\bf U}_n^{(i)}}^T\Delta {\bf U}_n^{(i)} + 2{d{\bf U}^{(i)}}^T\Delta {\bf U}_n^{(i)} + {d{\bf U}^{(i)}}^T d{\bf U}^{(i)}
     + \alpha^2 \Delta {\lambda_n^{(i)}}^2
     + 2 \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)} + \alpha^2 {d\lambda^{(i)}}^2
     = \Delta s^2$$
 
     assuming the constraint equation was solved at $i-1$, i.e.
-    ${d\U^{(i)}}^T d\U^{(i)} + \alpha^2 {d\lambda^{(i)}}^2 = \Delta s^2$,
+    ${d{\bf U}^{(i)}}^T d{\bf U}^{(i)} + \alpha^2 {d\lambda^{(i)}}^2 = \Delta s^2$,
     this reduces to
 
-    $$\Delta {\U_n^{(i)}}^T\Delta \U_n^{(i)} + 2{d\U^{(i)}}^T\Delta \U_n^{(i)} + 
+    $$\Delta {{\bf U}_n^{(i)}}^T\Delta {\bf U}_n^{(i)} + 2{d{\bf U}^{(i)}}^T\Delta {\bf U}_n^{(i)} + 
     \alpha^2 \Delta {\lambda_n^{(i)}}^2
     + 2 \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)} 
     = 0$$
 
     For our ArcLength1 method we make the ADDITIONAL assumption that
-    $2{d\U^{(i)}}^T\Delta \U_n^{(i)} 
+    $2{d{\bf U}^{(i)}}^T\Delta {\bf U}_n^{(i)} 
     + 2 \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)}$ $>>$
-    $\Delta {\U_n^{(i)}}^T\Delta \U_n^{(i)} +
+    $\Delta {{\bf U}_n^{(i)}}^T\Delta {\bf U}_n^{(i)} +
     \alpha^2 \Delta {\lambda_n^{(i)}}^2$ the constraint equation at step
     $i$ reduces to
 
-    $${d\U^{(i)}}^T\Delta \U_n^{(i)} 
+    $${d{\bf U}^{(i)}}^T\Delta {\bf U}_n^{(i)} 
     + \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)} = 0$$
 
     hence if the class was to solve an $N+1$ system of equations at each
@@ -105,16 +103,16 @@ We now rewrite the constraint equation based on two conditions:
 
     $$\left[
     \begin{array}{cc}
-    \K_n^{(i)} & -\P \\
-    {d\U^{(i)}}^T & \alpha^2 d\lambda^{(i)} 
+    {\bf K}_n^{(i)} & -{\bf P} \\
+    {d{\bf U}^{(i)}}^T & \alpha^2 d\lambda^{(i)} 
     \end{array} \right] 
     \left\{
     \begin{array}{c}
-    \Delta \U_n^{(i)} \\
+    \Delta {\bf U}_n^{(i)} \\
     \Delta \lambda_n^{(i)}
     \end{array} \right\} = \left\{
     \begin{array}{c}
-    \lambda_n^{(i)} \P - \F_R(\U_n^{(i)}) \\
+    \lambda_n^{(i)} {\bf P} - {\bf F}_R({\bf U}_n^{(i)}) \\
     0
     \end{array} \right\}$$
 
@@ -122,21 +120,21 @@ We now rewrite the constraint equation based on two conditions:
     equation [\[splitForm\]](#splitForm){reference-type="ref"
     reference="splitForm"} is used to give
 
-    $${d\U^{(i)}}^T \left(\Delta \lambda_n^{(i)} \Delta \dot{\bf U}_n^{(i)} + \Delta
+    $${d{\bf U}^{(i)}}^T \left(\Delta \lambda_n^{(i)} \Delta \dot{\bf U}_n^{(i)} + \Delta
     \overline{\bf U}_n^{(i)}\right) 
     + \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)} = 0$$
 
     which knowing $\dot{\bf U}_n^{(i)}$ and $\overline{\bf U}_n^{(i)}$
     can be solved for $\Delta \lambda_n^{(i)}$
 
-    $$\Delta \lambda_n^{(i)} = -\frac{{d\U^{(i)}}^T \Delta \overline{\bf U}_n^{(i)}}{{d\U^{(i)}}^T \Delta
+    $$\Delta \lambda_n^{(i)} = -\frac{{d{\bf U}^{(i)}}^T \Delta \overline{\bf U}_n^{(i)}}{{d{\bf U}^{(i)}}^T \Delta
     \dot{\bf U}_n^{(i)} + \alpha^2 d\lambda^{(i)}}$$
 
 
-// Constructors\
+### Constructors
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\
@@ -165,8 +163,8 @@ int newStep(void);
 ```
 
 `newStep()` performs the first iteration, that is it solves for
-$\lambda_n^{(1)}$ and $\Delta \U_n^{(1)}$ and updates the model with
-$\Delta \U_n^{(1)}$ and increments the load factor by $\lambda_n^{(1)}$.
+$\lambda_n^{(1)}$ and $\Delta {\bf U}_n^{(1)}$ and updates the model with
+$\Delta {\bf U}_n^{(1)}$ and increments the load factor by $\lambda_n^{(1)}$.
 To do this it must set the rhs of the LinearSOE to $\P$, invoke
 `formTangent()` on itself and solve the LinearSOE to get
 $\Delta \dot{\bf U}_n^{(1)}$.
@@ -179,10 +177,10 @@ Note the argument $\Delta U$ should be equal to
 $\Delta \overline{\bf U}_n^{(i)}$. The object then determines
 $\Delta \dot{\bf U}_n^{(i)}$ by setting the rhs of the linear system of
 equations to be $\P$ and then solving the linearSOE. It then solves for
-$\Delta \lambda_n^{(i)}$ and $\Delta \U_n^{(i)}$ and updates the model
-with $\Delta \U_n^{(i)}$ and increments the load factor by $\Delta
+$\Delta \lambda_n^{(i)}$ and $\Delta {\bf U}_n^{(i)}$ and updates the model
+with $\Delta {\bf U}_n^{(i)}$ and increments the load factor by $\Delta
 \lambda_n^{(i)}$. Sets the vector $x$ in the LinearSOE object to be
-equal to $\Delta \U_n^{(i)}$ before returning (this is for the
+equal to $\Delta {\bf U}_n^{(i)}$ before returning (this is for the
 convergence test stuff.
 
 The object creates the Vector objects it needs. Vectors are created to

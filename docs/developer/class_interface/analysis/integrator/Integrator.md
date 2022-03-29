@@ -1,15 +1,13 @@
-\
 # Integrator 
 
 ```cpp
 #include <analysis/integrator/Integrator.h>
+
+class Integrator: 
+public MovableObject;
+       MovableObject
 ```
 
-class Integrator: public MovableObject;\
-
-MovableObject\
-
-\
 The Integrator class is an abstract base class. Its purpose is to define
 the interface common among all subclasses. An integrator method is
 responsible for defining how the system of equations are set up (this it
@@ -19,10 +17,10 @@ Analysis). It is also responsible for updating the response quantities
 at the DOFs with the appropriate values; the values are determined from
 the solution to the system of equations.
 
-// Constructor\
+### Constructor
 
-\
-// Destructor\
+
+### Destructor
 
 \
 // Public Methods\

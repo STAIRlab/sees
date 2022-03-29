@@ -1,4 +1,3 @@
-\
 # Metis 
 
 ```cpp
@@ -52,12 +51,12 @@ $$adjncy =
 
 note that there is no space allocated for the diagonal components.
 
-// Constructors\
+### Constructors
 
 \
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

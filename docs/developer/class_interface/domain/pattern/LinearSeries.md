@@ -14,10 +14,10 @@ The LinearSeries class is a concrete subclass of TimeSeries. The
 relationship between the pseudo time and the load factor is linear for
 objects of this class.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

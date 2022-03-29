@@ -17,10 +17,10 @@ objects in another processes address space. A channel in one process
 space is associated with a channel in the address space of another
 process space. The interaction is in the form of data sent between the
 two processes along the connection line.
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

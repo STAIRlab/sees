@@ -19,12 +19,12 @@ provision of time varying loads. Each NodalLoad object is associated
 with a single Node object and has a Vector object corresponding to the
 load acting on this Node object as a result of the NodalLoad.
 
-// Constructors\
+### Constructors
 
 \
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

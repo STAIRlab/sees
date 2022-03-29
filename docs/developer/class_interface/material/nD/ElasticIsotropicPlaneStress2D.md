@@ -18,10 +18,10 @@ ElasticIsotropicPlaneStress2D provides the implementation of an elastic
 isotropic material which exhibits plane stress behavior in two
 dimensions.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

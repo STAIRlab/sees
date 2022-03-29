@@ -15,10 +15,10 @@ method invoked and the integer *classTag* passed as an argument to the
 method. Once the object has been created, `recvSelf()` can be invoked on
 the object to instantiate the object with it's data.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods to get new Domain objects\

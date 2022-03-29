@@ -15,9 +15,9 @@ Material\
 SectionForceDeformation provides the interface which all
 SectionForceDeformation models must implement.
 
-// Constructor\
+### Constructor
 
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

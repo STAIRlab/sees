@@ -21,10 +21,10 @@ partial pivoting (GEPP). The columns of A may be preordered before
 factorization; the preordering for sparsity is completely separate from
 the factorization and a number of ordering schemes are provided.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

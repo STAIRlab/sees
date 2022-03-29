@@ -1,50 +1,47 @@
-\
 # CentralDifference 
 
 ```cpp
 #include <analysis/integrator/CentralDifference.h>
+
+class CentralDifference: 
+public TransientIntegrator
+    MovableObject
+    Integrator
+    IncrementalIntegrator
 ```
 
-class CentralDifference: public TransientIntegrator\
-
-MovableObject\
-Integrator\
-IncrementalIntegrator\
-TransientIntegrator\
-
-\
 CentralDifference is a subclass of TransientIntegrator which implements
 the CentralDifference method. In the CentralDifference method, to
 determine the velocities, accelerations and displacements at time
 $t + \Delta t$, the equilibrium equation (expressed for the
 TransientIntegrator) is typically solved at time $t$ for
-$\U_{t+\Delta t}$, i.e. solve:
+${\bf U}_{t+\Delta t}$, i.e. solve:
 
-$$\R (\U_{t+ \Delta t}) = \P(t) - \F_I(\Udd_{t})
-- \F_R(\Ud_{t},\U_{t})$$
+$${\bf R} ({\bf U}_{t+ \Delta t}) = {\bf P}(t) - {\bf F}_I(\ddot{\bf U}_{t})
+- {\bf F}_R(\dot{\bf U}_{t},{\bf U}_{t})$$
 
-where we use following to relate $\Ud_{t}$ and $\Udd_{t}$ to $\U_{t}$
+where we use following to relate $\dot{\bf U}_{t}$ and $\ddot{\bf U}_{t}$ to ${\bf U}_{t}$
 and the displacement quantities at times $t$ and $t - \Delta
 t$:
 
-$$\dot \U_{t} = \frac{1}{2 \Delta t} \left(
-\U_{t + \Delta t} -  \U_{t - \Delta t} \right)$$
+$$\dot {\bf U}_{t} = \frac{1}{2 \Delta t} \left(
+{\bf U}_{t + \Delta t} -  {\bf U}_{t - \Delta t} \right)$$
 
-$$\ddot \U_{t} = \frac{1}{\Delta t^2} \left(
-\U_{t + \Delta t} - 2 \U_t + \U_{t - \Delta t}\right)$$
+$$\ddot {\bf U}_{t} = \frac{1}{\Delta t^2} \left(
+{\bf U}_{t + \Delta t} - 2 {\bf U}_t + {\bf U}_{t - \Delta t}\right)$$
 
 which results in the following
 
-$$\left[ \frac{1}{\Delta t^2} \M + \frac{1}{2 \Delta t}
-\C \right] \U_{t + \Delta t} = \P(t) - F_I \left(\Udd_t^{(i-1)}
+$$\left[ \frac{1}{\Delta t^2} {\bf M} + \frac{1}{2 \Delta t}
+{\bf C} \right] {\bf U}_{t + \Delta t} = {\bf P}(t) - F_I \left(\ddot{\bf U}_t^{(i-1)}
 \right)
--F_R\left( \Ud_t^{(i-1)}, \U_t)\right)$$\
+-F_R\left( \dot{\bf U}_t^{(i-1)}, {\bf U}_t)\right)$$\
 
-// Constructors\
+### Constructors
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Methods\
@@ -73,7 +70,7 @@ acceleration to *dispFlag*.
 Invokes the destructor on the Vector objects created.
 
 \
-This tangent for each FE_Element is defined to be $\K_e = c1 \K + c2
+This tangent for each FE_Element is defined to be ${\bf K}_e = c1 {\bf K} + c2
 \D + c3 \M$, where c1,c2 and c3 were determined in the last invocation
 of the `newStep()` method. The method returns $0$ after performing the
 following operations:

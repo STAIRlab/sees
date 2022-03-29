@@ -1,15 +1,14 @@
+# LagrangeConstraintHandler
 
 ```cpp
 #include <analysis/handler/LagrangeConstraintHandler.h>
+
+class LagrangeConstraintHandler: 
+public ConstraintHandler
+       MovableObject
+       ConstraintHandler
 ```
 
-
-class LagrangeConstraintHandler: public ConstraintHandler\
-
-MovableObject\
-ConstraintHandler\
-
-\
 The LagrangeConstraintHandler class is a class which deals with both
 single and multi point constraints using the Lagrange method. This is
 done by, in addition to creating a DOF_Group object for each Node and an
@@ -18,10 +17,10 @@ object and either a LagrangeSP_FE or a LagrangeMP_FE object for each
 constraint in the Domain. It is these objects that enforce the
 constraints by modifying the tangent matrix and residual vector.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

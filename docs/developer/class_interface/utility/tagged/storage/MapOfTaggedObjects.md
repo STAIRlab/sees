@@ -19,10 +19,10 @@ tag. Each MapOfTaggedObject object also contains a
 MapOfTaggedObjectsIter object to iterate through the objects which have
 been added.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Pure Public Methods\

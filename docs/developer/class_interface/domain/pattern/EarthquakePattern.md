@@ -21,10 +21,10 @@ keeps track of the GroundMotion objects and implements the `applyLoad()`
 method. It is up to the concrete subclasses to set the appropriate
 values of *R* at each node in the model.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

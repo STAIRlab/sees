@@ -19,11 +19,11 @@ with combined linear isotropic and kinematic hardening. The yield
 surface is circular with a specified radius. A radial return map
 algorithm is used in the state determination.
 
-// Constructors\
+### Constructors
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

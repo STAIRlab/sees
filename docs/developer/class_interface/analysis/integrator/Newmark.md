@@ -17,65 +17,65 @@ Newmark is a subclass of TransientIntegrator which implements the
 Newmark method. In the Newmark method, to determine the velocities,
 accelerations and displacements at time $t + \Delta t$, the equilibrium
 equation (expressed for the TransientIntegrator) is typically solved at
-time $t + \Delta t$ for $\U_{t+\Delta t}$, i.e. solve:
+time $t + \Delta t$ for ${\bf U}_{t+\Delta t}$, i.e. solve:
 
-$$\R (\U_{t + \Delta t}) = \P(t + \Delta t) - \F_I(\Udd_{t+\Delta t})
-- \F_R(\Ud_{t + \Delta t},\U_{t + \Delta t})$$
+$${\bf R} ({\bf U}_{t + \Delta t}) = {\bf P}(t + \Delta t) - {\bf F}_I(\ddot{\bf U}_{t+\Delta t})
+- {\bf F}_R(\dot{\bf U}_{t + \Delta t},{\bf U}_{t + \Delta t})$$
 
-for $\U_{t+\Delta t}$. The following difference relations are used to
-relate $\Ud_{t + \Delta t}$ and $\Udd_{t + \Delta t}$ to
-$\U_{t + \Delta t}$ and the response quantities at time $t$:
+for ${\bf U}_{t+\Delta t}$. The following difference relations are used to
+relate $\dot{\bf U}_{t + \Delta t}$ and $\ddot{\bf U}_{t + \Delta t}$ to
+${\bf U}_{t + \Delta t}$ and the response quantities at time $t$:
 
-$$\dot \U_{t + \Delta t} = \frac{\gamma}{\beta \Delta t}
-\left( \U_{t + \Delta t} - \U_t \right)
- + \left( 1 - \frac{\gamma}{\beta}\right) \dot \U_t + \Delta t \left(1
-- \frac{\gamma}{2 \beta}\right) \ddot \U_t$$
+$$\dot {\bf U}_{t + \Delta t} = \frac{\gamma}{\beta \Delta t}
+\left( {\bf U}_{t + \Delta t} - {\bf U}_t \right)
+ + \left( 1 - \frac{\gamma}{\beta}\right) \dot {\bf U}_t + \Delta t \left(1
+- \frac{\gamma}{2 \beta}\right) \ddot {\bf U}_t$$
 
-$$\ddot \U_{t + \Delta t} = \frac{1}{\beta {\Delta t}^2}
-\left( \U_{t+\Delta t} - \U_t \right)
- - \frac{1}{\beta \Delta t} \dot \U_t + \left( 1 - \frac{1}{2
-\beta} \right) \ddot \U_t$$
+$$\ddot {\bf U}_{t + \Delta t} = \frac{1}{\beta {\Delta t}^2}
+\left( {\bf U}_{t+\Delta t} - {\bf U}_t \right)
+ - \frac{1}{\beta \Delta t} \dot {\bf U}_t + \left( 1 - \frac{1}{2
+\beta} \right) \ddot {\bf U}_t$$
 
 which results in the following
 
-$$\left[ \frac{1}{\beta \Delta t^2} \M + \frac{\gamma}{\beta \Delta t}
-\C + \K \right] \Delta \U_{t + \Delta t}^{(i)} = \P(t + \Delta t) -
-\F_I\left(\Udd_{t+\Delta  t}^{(i-1)}\right)
-- \F_R\left(\Ud_{t + \Delta t}^{(i-1)},\U_{t + \Delta t}^{(i-1)}\right)$$
+$$\left[ \frac{1}{\beta \Delta t^2} {\bf M} + \frac{\gamma}{\beta \Delta t}
+{\bf C} + {\bf K} \right] \Delta {\bf U}_{t + \Delta t}^{(i)} = {\bf P}(t + \Delta t) -
+{\bf F}_I\left(\ddot{\bf U}_{t+\Delta  t}^{(i-1)}\right)
+- {\bf F}_R\left(\dot{\bf U}_{t + \Delta t}^{(i-1)},{\bf U}_{t + \Delta t}^{(i-1)}\right)$$
 
 An alternative approach, which does not involve $\Delta t$ in the
 denumerator (useful for impulse problems), is to solve for the
 accelerations at time $t + \Delta t$
 
-$$\R (\Udd_{t + \Delta t}) = \P(t + \Delta t) - \F_I(\Udd_{t+\Delta t})
-- \F_R(\Ud_{t + \Delta t},\U_{t + \Delta t})$$
+$${\bf R} (\ddot{\bf U}_{t + \Delta t}) = {\bf P}(t + \Delta t) - {\bf F}_I(\ddot{\bf U}_{t+\Delta t})
+- {\bf F}_R(\dot{\bf U}_{t + \Delta t},{\bf U}_{t + \Delta t})$$
 
-where we use following functions to relate $\U_{t + \Delta
-t}$ and $\Ud_{t + \Delta t}$ to $\Udd_{t + \Delta t}$ and the response
+where we use following functions to relate ${\bf U}_{t + \Delta
+t}$ and $\dot{\bf U}_{t + \Delta t}$ to $\ddot{\bf U}_{t + \Delta t}$ and the response
 quantities at time $t$:
 
-$$\U_{t + \Delta t} = \U_t + \Delta t \Ud_t + \left[
-\left(\frac{1}{2} - \beta\right)\Udd_t + \beta \Udd_{t + \Delta
+$${\bf U}_{t + \Delta t} = {\bf U}_t + \Delta t \dot{\bf U}_t + \left[
+\left(\frac{1}{2} - \beta\right)\ddot{\bf U}_t + \beta \ddot{\bf U}_{t + \Delta
 t}\right] \Delta t^2$$
 
-$$\Ud_{t + \Delta t} = \Ud_t + \left[ \left(1 - \gamma\right)\Udd_t +
-\gamma\Udd_{t + \Delta t}\right] \Delta t$$
+$$\dot{\bf U}_{t + \Delta t} = \dot{\bf U}_t + \left[ \left(1 - \gamma\right)\ddot{\bf U}_t +
+\gamma\ddot{\bf U}_{t + \Delta t}\right] \Delta t$$
 
 which results in the following
 
-$$\left[ \M + \gamma \Delta t \C + \beta \Delta t^2 \K \right] \Delta
-\Udd_{t + \Delta t}^{(i)} = \P(t + \Delta t) - \F_I\left(\Udd_{t+\Delta 
+$$\left[ {\bf M} + \gamma \Delta t {\bf C} + \beta \Delta t^2 {\bf K} \right] \Delta
+\ddot{\bf U}_{t + \Delta t}^{(i)} = {\bf P}(t + \Delta t) - {\bf F}_I\left(\ddot{\bf U}_{t+\Delta 
 t}^{(i-1)}\right)
-- \F_R\left(\Ud_{t + \Delta t}^{(i-1)},\U_{t + \Delta
+- {\bf F}_R\left(\dot{\bf U}_{t + \Delta t}^{(i-1)},{\bf U}_{t + \Delta
 t}^{(i-1)}\right)$$
 
 
-// Constructors\
+### Constructors
 
 \
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\
@@ -113,7 +113,7 @@ Rayleigh damping will be used.
 Invokes the destructor on the Vector objects created.
 
 \
-This tangent for each FE_Element is defined to be $\K_e = c1 \K + c2
+This tangent for each FE_Element is defined to be ${\bf K}_e = c1 {\bf K} + c2
 \D + c3 \M$, where c1,c2 and c3 were determined in the last invocation
 of the `newStep()` method. The method returns $0$ after performing the
 following operations:
@@ -179,9 +179,9 @@ The following are performed when this method is invoked:
     to those at time $t + \Delta t$.
 
     ::: {.tabbing}
-    while w̄hile w̄hile w̄hile ̄ $\U_t = \U_{t + \Delta t}$\
-    $\Ud_t = \Ud_{t + \Delta t}$\
-    $\Udd_t = \Udd_{t + \Delta t}$
+    while w̄hile w̄hile w̄hile ̄ ${\bf U}_t = {\bf U}_{t + \Delta t}$\
+    $\dot{\bf U}_t = \dot{\bf U}_{t + \Delta t}$\
+    $\ddot{\bf U}_t = \ddot{\bf U}_{t + \Delta t}$
     :::
 
 3.  Then the velocity and accelerations approximations at time $t +
@@ -190,16 +190,16 @@ The following are performed when this method is invoked:
 
     ::: {.tabbing}
     while w̄hile w̄hile w̄hile ̄ if (displIncr == true) {\
-    $\dot \U_{t + \Delta t} = 
-     \left( 1 - \frac{\gamma}{\beta}\right) \dot \U_t + \Delta t \left(1
-    - \frac{\gamma}{2 \beta}\right) \ddot \U_t$\
-    $\ddot \U_{t + \Delta t} = 
-     - \frac{1}{\beta \Delta t} \dot \U_t + \left( 1 - \frac{1}{2
-    \beta} \right) \ddot \U_t$\
+    $\dot {\bf U}_{t + \Delta t} = 
+     \left( 1 - \frac{\gamma}{\beta}\right) \dot {\bf U}_t + \Delta t \left(1
+    - \frac{\gamma}{2 \beta}\right) \ddot {\bf U}_t$\
+    $\ddot {\bf U}_{t + \Delta t} = 
+     - \frac{1}{\beta \Delta t} \dot {\bf U}_t + \left( 1 - \frac{1}{2
+    \beta} \right) \ddot {\bf U}_t$\
     } else {\
-    $\U_{t + \Delta t} = \U_t + \Delta t \Ud_t + \frac{\Delta
-    t^2}{2}\Udd_t$\
-    $\Ud_{t + \Delta t} = \Ud_t +  \Delta t \Udd_t$\
+    ${\bf U}_{t + \Delta t} = {\bf U}_t + \Delta t \dot{\bf U}_t + \frac{\Delta
+    t^2}{2}\ddot{\bf U}_t$\
+    $\dot{\bf U}_{t + \Delta t} = \dot{\bf U}_t +  \Delta t \ddot{\bf U}_t$\
     }
     :::
 
@@ -209,8 +209,8 @@ The following are performed when this method is invoked:
 
     ::: {.tabbing}
     while w̄hile w̄hile w̄hile ̄
-    theModel-$>$setResponse$(\U_{t + \Delta t}, \Ud_{t+\Delta t},
-    \Udd_{t+\Delta t})$
+    theModel-$>$setResponse$({\bf U}_{t + \Delta t}, \dot{\bf U}_{t+\Delta t},
+    \ddot{\bf U}_{t+\Delta t})$
     :::
 
 5.  current time is obtained from the AnalysisModel, incremented by
@@ -238,17 +238,17 @@ AnalysisModel with quantities at time $t +
 
 ::: {.tabbing}
 while w̄hile w̄hile w̄hile ̄ if (displIncr == true) {\
-$\U_{t + \Delta t} += \Delta \U$\
-$\dot \U_{t + \Delta t} += \frac{\gamma}{\beta \Delta t} \Delta \U$\
-$\ddot \U_{t + \Delta t} += \frac{1}{\beta {\Delta t}^2} \Delta
+${\bf U}_{t + \Delta t} += \Delta \U$\
+$\dot {\bf U}_{t + \Delta t} += \frac{\gamma}{\beta \Delta t} \Delta \U$\
+$\ddot {\bf U}_{t + \Delta t} += \frac{1}{\beta {\Delta t}^2} \Delta
 \U$\
 } else {\
-$\Udd_{t + \Delta t} += \Delta \Udd$\
-$\U_{t + \Delta t} += \beta \Delta t^2 \Delta \Udd$\
-$\Ud_{t + \Delta t} += \gamma \Delta t \Delta \Udd$\
+$\ddot{\bf U}_{t + \Delta t} += \Delta \Udd$\
+${\bf U}_{t + \Delta t} += \beta \Delta t^2 \Delta \Udd$\
+$\dot{\bf U}_{t + \Delta t} += \gamma \Delta t \Delta \Udd$\
 }\
-theModel-$>$setResponse$(\U_{t + \Delta t}, \Ud_{t+\Delta t},
-\Udd_{t+\Delta t})$\
+theModel-$>$setResponse$({\bf U}_{t + \Delta t}, \dot{\bf U}_{t+\Delta t},
+\ddot{\bf U}_{t+\Delta t})$\
 theModel-$>$setUpdateDomain()
 :::
 

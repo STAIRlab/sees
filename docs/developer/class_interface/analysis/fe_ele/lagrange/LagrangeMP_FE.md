@@ -1,35 +1,33 @@
-\
 # LagrangeMP_FE 
 
 ```cpp
 #include <analysis/fe_ele/lagrange/LagrangeMP_FE.h>
-```
 
 class LagrangeMP_FE: public FE_Element ;\
 
-FE_Element\
+FE_Element
+```
 
-\
 LagrangeMP_FE is a subclass of FE_Element used to enforce a multi point
-constraint, of the form $\U_c = \C_{cr} \U_r$, where $\U_c$ are the
-constrained degrees-of-freedom at the constrained node, $\U_r$ are the
-retained degrees-of-freedom at the retained node and $\C_{cr}$ a matrix
+constraint, of the form ${\bf U}_c = {\bf C}_{cr} {\bf U}_r$, where ${\bf U}_c$ are the
+constrained degrees-of-freedom at the constrained node, ${\bf U}_r$ are the
+retained degrees-of-freedom at the retained node and ${\bf C}_{cr}$ a matrix
 defining the relationship between these degrees-of-freedom.
 
 To enforce the constraint the following are added to the tangent and the
 residual:
-$$\left[ \begin{array}{cc} 0 & \alpha\C^t \\ \alpha\C & 0 \end{array}
+$$\left[ \begin{array}{cc} 0 & \alpha{\bf C}^t \\ \alpha{\bf C} & 0 \end{array}
 \right] ,
 \left\{ \begin{array}{c} 0 \\ 0 \end{array} \right\}$$ at the locations
 corresponding to the constrained degree-of-freedoms specified by the
-MP_Constraint, i.e. $[\U_c$ $\U_r]$, and the lagrange multiplier
+MP_Constraint, i.e. $[{\bf U}_c$ ${\bf U}_r]$, and the lagrange multiplier
 degrees-of-freedom introduced by the LagrangeConstraintHandler for this
-constraint, $\C = [-\I$ $\C_{cr}]$. Nothing is added to the residual.
+constraint, ${\bf C} = [-\I$ ${\bf C}_{cr}]$. Nothing is added to the residual.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

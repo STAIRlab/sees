@@ -18,3 +18,15 @@ design each Vertex stores in an ID the tag of all it's adjacent
 Vertices, this may change. For graph numbering and partitioning this has
 to date proved sufficient.
 
+
+## Graph
+
+## Vertex
+
+## **GraphNumberer**
+
+### RCM
+
+## **GraphPartitioner**
+
+### Metis

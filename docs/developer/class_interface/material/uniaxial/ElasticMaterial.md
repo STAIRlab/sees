@@ -17,10 +17,10 @@ ElasticMaterial provides the abstraction of an elastic uniaxial
 material, i.e. the stress-strain relationship is given by the linear
 equation $\sigma = E * \epsilon$.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

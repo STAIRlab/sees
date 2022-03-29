@@ -20,10 +20,10 @@ by the components tag is first checked; and (3) a boolean flag is used
 to keep track of whether all objects have been stored at the location
 given by the tags.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Pure Public Methods\

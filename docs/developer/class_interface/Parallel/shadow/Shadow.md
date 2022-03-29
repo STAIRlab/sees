@@ -18,11 +18,11 @@ this remote address space. The Actor and the Shadow both have a Channel,
 a communication port. This allows the two to communicate with each
 other.
 
-// Constructors\
+### Constructors
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Protected Methods for Sending Objects to Remote Actor\

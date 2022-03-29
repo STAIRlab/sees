@@ -1,14 +1,13 @@
-\
 # GraphPartitioner 
 
 ```cpp
 #include <graph/partitioner/GraphPartitioner.h>
+
+class GraphPartitioner;
 ```
 
-class GraphPartitioner:\
 
-\
-Metis\
+- [Metis](Metis)
 
 GraphPartitioner is an abstract class. The GraphPartitioner class
 defines the interface that all programmers must provide when introducing
@@ -16,10 +15,9 @@ new GraphPartitioner subclasses. A GraphPartitioner is an algorithm for
 partitioning (coloring) the vertices of a graph; that is assigning a
 color (1 through the number of partitions) to each vertex of the graph.
 
-// Constructor\
+### Constructor
 
-\
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

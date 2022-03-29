@@ -1,16 +1,14 @@
-\
 # DirectIntegrationAnalysis 
 
 ```cpp
 #include <analysis/analysis/DirectIntegrationAnalysis.h>
+
+class DirectIntegrationAnalysis: 
+public TransientAnalysis;
+       Analysis
+       TransientAnalysis
 ```
 
-class DirectIntegrationAnalysis: public TransientAnalysis;\
-
-Analysis\
-TransientAnalysis\
-
-\
 DirectIntegrationAnalysis is a subclass of TransientAnalysis. It is used
 to perform a transient analysis using an incremental approach on the
 Domain. The following are the aggregates of such an analysis type:
@@ -44,10 +42,10 @@ Domain. The following are the aggregates of such an analysis type:
     P(U).
 
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

@@ -1,23 +1,20 @@
-\
 # Analysis 
 
 ```cpp
 #include <analysis/analysis/Analysis.h>
+
+class Analysis;
 ```
 
-class Analysis;\
-
-\
 
 The Analysis class is an abstract base class. Each Analysis object will
 be associated with a single Domain, the Domain upon which it will
 perform the analysis operations. The base Analysis class holds a pointer
 to this Domain and will return this pointer to subclasses.
 
-// Constructors\
+### Constructors
 
-\
-// Destructor\
+### Destructor
 
 \
 // Pure Virtual Public Member Functions\

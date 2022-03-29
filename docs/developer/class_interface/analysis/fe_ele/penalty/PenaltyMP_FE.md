@@ -1,29 +1,26 @@
-\
 # PenaltyMP_FE 
 
 ```cpp
 #include <analysis/fe_ele/penalty/PenaltyMP_FE.h>
+
+class PenaltyMP_FE: public FE_Element ;
 ```
 
-class PenaltyMP_FE: public FE_Element ;\
 
-FE_Element\
-
-\
 PenaltyMP_FE is a subclass of FE_Element used to enforce a multi point
-constraint, of the form $\U_c = \C_{cr} \U_r$, where $\U_c$ are the
-constrained degrees-of-freedom at the constrained node, $\U_r$ are the
-retained degrees-of-freedom at the retained node and $\C_{cr}$ a matrix
+constraint, of the form ${\bf U}_c = {\bf C}_{cr} {\bf U}_r$, where ${\bf U}_c$ are the
+constrained degrees-of-freedom at the constrained node, ${\bf U}_r$ are the
+retained degrees-of-freedom at the retained node and ${\bf C}_{cr}$ a matrix
 defining the relationship between these degrees-of-freedom.
 
-To enforce the constraint a matrix $\alpha \C^T \C$ is added to the
-tangent for the degrees-of-freedom $[\U_c$ $\U_r]$, where $\C = [-\I$
-$\C_{cr}]$. Nothing is added to the residual.
+To enforce the constraint a matrix $\alpha {\bf C}^T \C$ is added to the
+tangent for the degrees-of-freedom $[{\bf U}_c$ ${\bf U}_r]$, where ${\bf C} = [-\I$
+${\bf C}_{cr}]$. Nothing is added to the residual.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

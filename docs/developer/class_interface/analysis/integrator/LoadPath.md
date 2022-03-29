@@ -26,18 +26,18 @@ equation [\[staticFormTaylor\]](#staticFormTaylor){reference-type="ref"
 reference="staticFormTaylor"}, is reduced to $N$ unknowns and results in
 the following equation:
 
-$$\R(\U_{n}) = \lambda_n^{(i)} \P 
- - \f_{R}\left(\U_{n}^{(i)} \right) - 
-\K_n^{(i)} 
-(\U_{n} - \U_{n}^{(i)})  
+$$\R({\bf U}_{n}) = \lambda_n^{(i)} {\bf P} 
+ - {\bf F}_{R}\left({\bf U}_{n}^{(i)} \right) - 
+{\bf K}_n^{(i)} 
+({\bf U}_{n} - {\bf U}_{n}^{(i)})  
 \label{staticFormLoadPath}$$
 
 
-// Constructors\
+### Constructors
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

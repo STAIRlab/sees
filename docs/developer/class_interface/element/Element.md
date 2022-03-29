@@ -175,8 +175,8 @@ virtual Matrix &getTangentStiff(void) =0;
 To return the tangent stiffness matrix. The element is to compute its
 stiffness matrix based on the original location of the nodes and the
 current trial displacement at the nodes.
-$$\K_e = {\frac{\partial \f_{R_i}}{\partial \U}
-\vert}_{\U_{trial}}$$
+$${\bf K}_e = {\frac{\partial {\bf F}_{R_i}}{\partial \U}
+\vert}_{{\bf U}_{trial}}$$
 
 
 ```{.cpp}
@@ -195,8 +195,8 @@ virtual Matrix &getDamp(void) =0;
 To return the damping matrix. The element is to compute its damping
 matrix based on the original location of the nodes and the current trial
 response quantities at the nodes.
-$$\C_e = {\frac{\partial \f_{R_i}}{\partial \dot \U}
-\vert}_{\U_{trial}}$$
+$${\bf C}_e = {\frac{\partial {\bf F}_{R_i}}{\partial \dot \U}
+\vert}_{{\bf U}_{trial}}$$
 
 
 ```{.cpp}
@@ -206,8 +206,8 @@ virtual Matrix &getMass(void) =0;
 To return the mass matrix. The element is to compute its mass matrix
 based on the original location of the nodes and the current trial
 response quantities at the nodes.
-$$\M_e  = {\frac{\partial \f_{I_i}}{\partial \ddot \U}
-\vert}_{\U_{trial}}$$
+$${\bf M}_e  = {\frac{\partial {\bf F}_{I_i}}{\partial \ddot \U}
+\vert}_{{\bf U}_{trial}}$$
 
 
 ```{.cpp}
@@ -215,7 +215,7 @@ virtual void zeroLoad(void) =0;
 ```
 
 This is a method invoked to zero the element load contributions to the
-residual, i.e. $\P_e = \zero$
+residual, i.e. ${\bf P}_e = \zero$
 
 
 
@@ -226,8 +226,8 @@ virtual Vector &getResistingForce(void) =0;
 Returns the resisting force vector for the element. This is equal to the
 applied load due to element loads minus the loads at the nodes due to
 internal stresses in the element due to the current trial displacement,
-i.e. $$\R_e = 
-\P_{e} - \f_{R_e}(\U_{trial})$$
+i.e. $${\bf R}_e = 
+{\bf P}_{e} - {\bf F}_{R_e}({\bf U}_{trial})$$
 
 
 ```{.cpp}
@@ -238,9 +238,9 @@ Returns the resisting force vector for the element with inertia forces
 included. This is equal to the applied load due to element loads (loads
 set using `addLoad()`, minus the loads at the nodes due to internal
 stresses in the element due to the current trial response quantities,
-i.e. $$\R_e = 
-\P_e -  \f_{I_e} (\ddot \U_{trial}) - \f_{R_e}(\dot
-\U_{trial}, \U_{trial})$$
+i.e. $${\bf R}_e = 
+{\bf P}_e -  {\bf F}_{I_e} (\ddot {\bf U}_{trial}) - {\bf F}_{R_e}(\dot
+{\bf U}_{trial}, {\bf U}_{trial})$$
 
 
 `setResponse()` is a method invoked to determine if the element will

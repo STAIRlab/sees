@@ -12,10 +12,10 @@ class MachineBroker\
 MachineBrokers are objects that are used to start remote processes
 running on the parallel machine.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Member Functions\

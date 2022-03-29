@@ -19,10 +19,10 @@ also serves as a prototype for all elastic isotropic material
 implementations, as described by the Prototype pattern in *Design
 Patterns* by Gamma et al.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

@@ -13,10 +13,10 @@ FullGenLinSolver is an abstract class. The FullGEnLinSolver class
 provides access for each subclass to the FullGenLinSOE object through
 the pointer *theSOE*, which is a protected pointer.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

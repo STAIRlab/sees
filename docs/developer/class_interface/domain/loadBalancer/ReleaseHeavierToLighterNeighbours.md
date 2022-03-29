@@ -13,11 +13,11 @@ A ReleaseHeavierToLighterNeighbours is an object used to balance a
 PartitionedDomain. It does this by shedding the boundary vertices on the
 heaviest loaded partition (subdomain).
 
-// Constructors\
+### Constructors
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

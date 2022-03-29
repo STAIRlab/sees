@@ -1,4 +1,3 @@
-\
 # Graph 
 
 ```cpp
@@ -19,12 +18,12 @@ holding the vertex set and edge set. The class is responsible for:
 All the methods for the class are declared as virtual to allow
 subclasses to be introduced.
 
-// Constructors\
+### Constructors
 
 \
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

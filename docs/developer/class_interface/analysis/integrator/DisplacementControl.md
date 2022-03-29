@@ -1,19 +1,18 @@
-\
 # DisplacementControl 
+
+UNDER CONSTRUCTION.
 
 ```cpp
 #include <analysis/integrator/DisplacementControl.h>
+
+class DisplacementControl: 
+public StaticIntegrator
+    MovableObject
+    Integrator
+    IncrementalIntegrator
 ```
-UNDER CONSTRUCTION.
 
-class DisplacementControl: public StaticIntegrator\
 
-MovableObject\
-Integrator\
-IncrementalIntegrator\
-StaticIntegrator\
-
-\
 DisplacementControl is a subclass of StaticIntegrator, it is used to
 when performing a static analysis on the FE_Model using the displacement
 control method. In the displacement control method the displacement at a
@@ -34,10 +33,10 @@ $$\delta Ucn = max \left( \delta Uc{min}, min \left(
 
 SOME THEORY.
 
-// Constructors\
+### Constructors
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

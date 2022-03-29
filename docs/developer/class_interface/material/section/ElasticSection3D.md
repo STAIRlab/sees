@@ -17,11 +17,11 @@ ElasticSection3D provides the implementation of a section which exhibits
 uncoupled elastic behavior in axial, moment, shear, and torsion
 response.
 
-// Constructor\
+### Constructor
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

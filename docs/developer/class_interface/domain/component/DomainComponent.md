@@ -23,10 +23,10 @@ ElementalLoad. Each object of these types is a component of an enclosing
 Domain object. The DomainComponent class provides methods to set and
 retrieve a pointer to the enclosing Domain object.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

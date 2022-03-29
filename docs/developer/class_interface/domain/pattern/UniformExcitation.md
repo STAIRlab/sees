@@ -22,10 +22,10 @@ entries but those corresponding to the degree of freedom direction will
 be set to $0$, the value for the degree of freedom direction will be set
 to $1$.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

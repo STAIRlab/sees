@@ -1,14 +1,20 @@
- # Vertex 
+# Vertex 
 
 ```cpp
 #include <graph/graph/Vertex.h>
-```  class Vertex: public
-TaggedObject  TaggedObject   Vertex is the abstraction of a vertex in a
+
+class Vertex: public TaggedObject;
+```
+
+Vertex is the abstraction of a vertex in a
 graph. It has a color, weight and a temporary integer value associated
 with it. Also associated with it is an integer reference, which can be
 used to identify an object of some type the vertex is representing and
-in integer temporary variable for algorithms which work with graphs.  //
-Constructor   // Destructor   // Public Methods    .            To
+in integer temporary variable for algorithms which work with graphs.  
+
+// Constructor   
+
+// Destructor   // Public Methods    .            To
 construct a Vertex whose tag, reference, weight and color are as given
 by the arguments. The degree of the vertex is set to $0$. The integer
 \*tag\* is passed to the TaggedObject classes constructor.   Does

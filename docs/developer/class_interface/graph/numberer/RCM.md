@@ -1,4 +1,3 @@
-\
 # RCM 
 
 ```cpp
@@ -14,10 +13,10 @@ GraphNumberer\
 RCM is a subclass of GraphNumberer which performs the numbering using
 the reverse Cuthill-McKee numbering algorithm.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

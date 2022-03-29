@@ -1,14 +1,12 @@
-\
 # PlainNumberer 
 
 ```cpp
 #include <analysis/numberer/PlainNumberer.h>
+
+class PlainNumberer: public DOF_Numberer
+MovableObject
+DOF_Numberer
 ```
-
-class PlainNumberer: public DOF_Numberer\
-
-MovableObject\
-DOF_Numberer\
 
 \
 The PlainNumberer class is a DOF_Numberer. An object of this class
@@ -19,10 +17,10 @@ or Solver objects will impose a renumbering on the equations, which
 makes performing a complex numbering of the degrees-of-freedom a waste
 of computational effort.
 
-// Constructor\
+### Constructor
 
 \
-// Destructor\
+### Destructor
 
 \
 // Public Methods\

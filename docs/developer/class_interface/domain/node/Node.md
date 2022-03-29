@@ -18,7 +18,7 @@ node, nodal mass and the nodal participation matrix. In addition, each
 Node object keeps track of it's associated DOF_Group object. The Node
 interface provides methods to set and retrieve these quantities.
 
-// Constructors\
+### Constructors
 
 \
 
@@ -26,7 +26,7 @@ interface provides methods to set and retrieve these quantities.
 
 \
 
-// Destructor\
+### Destructor
 
 \
 // Public Methods dealing with DOF at the Node\
