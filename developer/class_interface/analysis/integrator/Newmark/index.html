@@ -2137,7 +2137,8 @@
   
     <li class="md-nav__item">
       <a href="../HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6098,45 +6099,43 @@ IncrementalIntegrator<br />
 TransientIntegrator<br />
 </p>
 <p><br />
-Newmark is a subclass of TransientIntegrator which implements the Newmark method. In the Newmark method, to determine the velocities, accelerations and displacements at time <span class="math inline">\(t + \Delta t\)</span>, the equilibrium equation (expressed for the TransientIntegrator) is typically solved at time <span class="math inline">\(t + \Delta t\)</span> for <span class="math inline">\(\U_{t+\Delta t}\)</span>, i.e. solve:</p>
-<p><span class="math display">\[\R (\U_{t + \Delta t}) = \P(t + \Delta t) - \F_I(\Udd_{t+\Delta t})
-- \F_R(\Ud_{t + \Delta t},\U_{t + \Delta t})\]</span></p>
-<p>for <span class="math inline">\(\U_{t+\Delta t}\)</span>. The following difference relations are used to relate <span class="math inline">\(\Ud_{t + \Delta t}\)</span> and <span class="math inline">\(\Udd_{t + \Delta t}\)</span> to <span class="math inline">\(\U_{t + \Delta t}\)</span> and the response quantities at time <span class="math inline">\(t\)</span>:</p>
-<p><span class="math display">\[\dot \U_{t + \Delta t} = \frac{\gamma}{\beta \Delta t}
-\left( \U_{t + \Delta t} - \U_t \right)
- + \left( 1 - \frac{\gamma}{\beta}\right) \dot \U_t + \Delta t \left(1
-- \frac{\gamma}{2 \beta}\right) \ddot \U_t\]</span></p>
-<p><span class="math display">\[\ddot \U_{t + \Delta t} = \frac{1}{\beta {\Delta t}^2}
-\left( \U_{t+\Delta t} - \U_t \right)
- - \frac{1}{\beta \Delta t} \dot \U_t + \left( 1 - \frac{1}{2
-\beta} \right) \ddot \U_t\]</span></p>
+Newmark is a subclass of TransientIntegrator which implements the Newmark method. In the Newmark method, to determine the velocities, accelerations and displacements at time <span class="math inline">\(t + \Delta t\)</span>, the equilibrium equation (expressed for the TransientIntegrator) is typically solved at time <span class="math inline">\(t + \Delta t\)</span> for <span class="math inline">\({\bf U}_{t+\Delta t}\)</span>, i.e. solve:</p>
+<p><span class="math display">\[{\bf R} ({\bf U}_{t + \Delta t}) = {\bf P}(t + \Delta t) - {\bf F}_I(\ddot{\bf U}_{t+\Delta t})
+- {\bf F}_R(\dot{\bf U}_{t + \Delta t},{\bf U}_{t + \Delta t})\]</span></p>
+<p>for <span class="math inline">\({\bf U}_{t+\Delta t}\)</span>. The following difference relations are used to relate <span class="math inline">\(\dot{\bf U}_{t + \Delta t}\)</span> and <span class="math inline">\(\ddot{\bf U}_{t + \Delta t}\)</span> to <span class="math inline">\({\bf U}_{t + \Delta t}\)</span> and the response quantities at time <span class="math inline">\(t\)</span>:</p>
+<p><span class="math display">\[\dot {\bf U}_{t + \Delta t} = \frac{\gamma}{\beta \Delta t}
+\left( {\bf U}_{t + \Delta t} - {\bf U}_t \right)
+ + \left( 1 - \frac{\gamma}{\beta}\right) \dot {\bf U}_t + \Delta t \left(1
+- \frac{\gamma}{2 \beta}\right) \ddot {\bf U}_t\]</span></p>
+<p><span class="math display">\[\ddot {\bf U}_{t + \Delta t} = \frac{1}{\beta {\Delta t}^2}
+\left( {\bf U}_{t+\Delta t} - {\bf U}_t \right)
+ - \frac{1}{\beta \Delta t} \dot {\bf U}_t + \left( 1 - \frac{1}{2
+\beta} \right) \ddot {\bf U}_t\]</span></p>
 <p>which results in the following</p>
-<p><span class="math display">\[\left[ \frac{1}{\beta \Delta t^2} \M + \frac{\gamma}{\beta \Delta t}
-\C + \K \right] \Delta \U_{t + \Delta t}^{(i)} = \P(t + \Delta t) -
-\F_I\left(\Udd_{t+\Delta  t}^{(i-1)}\right)
-- \F_R\left(\Ud_{t + \Delta t}^{(i-1)},\U_{t + \Delta t}^{(i-1)}\right)\]</span></p>
+<p><span class="math display">\[\left[ \frac{1}{\beta \Delta t^2} {\bf M} + \frac{\gamma}{\beta \Delta t}
+{\bf C} + {\bf K} \right] \Delta {\bf U}_{t + \Delta t}^{(i)} = {\bf P}(t + \Delta t) -
+{\bf F}_I\left(\ddot{\bf U}_{t+\Delta  t}^{(i-1)}\right)
+- {\bf F}_R\left(\dot{\bf U}_{t + \Delta t}^{(i-1)},{\bf U}_{t + \Delta t}^{(i-1)}\right)\]</span></p>
 <p>An alternative approach, which does not involve <span class="math inline">\(\Delta t\)</span> in the denumerator (useful for impulse problems), is to solve for the accelerations at time <span class="math inline">\(t + \Delta t\)</span></p>
-<p><span class="math display">\[\R (\Udd_{t + \Delta t}) = \P(t + \Delta t) - \F_I(\Udd_{t+\Delta t})
-- \F_R(\Ud_{t + \Delta t},\U_{t + \Delta t})\]</span></p>
-<p>where we use following functions to relate <span class="math inline">\(\U_{t + \Delta t}\)</span> and <span class="math inline">\(\Ud_{t + \Delta t}\)</span> to <span class="math inline">\(\Udd_{t + \Delta t}\)</span> and the response quantities at time <span class="math inline">\(t\)</span>:</p>
-<p><span class="math display">\[\U_{t + \Delta t} = \U_t + \Delta t \Ud_t + \left[
-\left(\frac{1}{2} - \beta\right)\Udd_t + \beta \Udd_{t + \Delta
+<p><span class="math display">\[{\bf R} (\ddot{\bf U}_{t + \Delta t}) = {\bf P}(t + \Delta t) - {\bf F}_I(\ddot{\bf U}_{t+\Delta t})
+- {\bf F}_R(\dot{\bf U}_{t + \Delta t},{\bf U}_{t + \Delta t})\]</span></p>
+<p>where we use following functions to relate <span class="math inline">\({\bf U}_{t + \Delta t}\)</span> and <span class="math inline">\(\dot{\bf U}_{t + \Delta t}\)</span> to <span class="math inline">\(\ddot{\bf U}_{t + \Delta t}\)</span> and the response quantities at time <span class="math inline">\(t\)</span>:</p>
+<p><span class="math display">\[{\bf U}_{t + \Delta t} = {\bf U}_t + \Delta t \dot{\bf U}_t + \left[
+\left(\frac{1}{2} - \beta\right)\ddot{\bf U}_t + \beta \ddot{\bf U}_{t + \Delta
 t}\right] \Delta t^2\]</span></p>
-<p><span class="math display">\[\Ud_{t + \Delta t} = \Ud_t + \left[ \left(1 - \gamma\right)\Udd_t +
-\gamma\Udd_{t + \Delta t}\right] \Delta t\]</span></p>
+<p><span class="math display">\[\dot{\bf U}_{t + \Delta t} = \dot{\bf U}_t + \left[ \left(1 - \gamma\right)\ddot{\bf U}_t +
+\gamma\ddot{\bf U}_{t + \Delta t}\right] \Delta t\]</span></p>
 <p>which results in the following</p>
-<p><span class="math display">\[\left[ \M + \gamma \Delta t \C + \beta \Delta t^2 \K \right] \Delta
-\Udd_{t + \Delta t}^{(i)} = \P(t + \Delta t) - \F_I\left(\Udd_{t+\Delta 
+<p><span class="math display">\[\left[ {\bf M} + \gamma \Delta t {\bf C} + \beta \Delta t^2 {\bf K} \right] \Delta
+\ddot{\bf U}_{t + \Delta t}^{(i)} = {\bf P}(t + \Delta t) - {\bf F}_I\left(\ddot{\bf U}_{t+\Delta 
 t}^{(i-1)}\right)
-- \F_R\left(\Ud_{t + \Delta t}^{(i-1)},\U_{t + \Delta
+- {\bf F}_R\left(\dot{\bf U}_{t + \Delta t}^{(i-1)},{\bf U}_{t + \Delta
 t}^{(i-1)}\right)\]</span></p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
 </p>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6157,7 +6156,7 @@ t}^{(i-1)}\right)\]</span></p>
 <p><br />
 Invokes the destructor on the Vector objects created.</p>
 <p><br />
-This tangent for each FE_Element is defined to be <span class="math inline">\(\K_e = c1 \K + c2 \D + c3 \M\)</span>, where c1,c2 and c3 were determined in the last invocation of the <code>newStep()</code> method. The method returns <span class="math inline">\(0\)</span> after performing the following operations:</p>
+This tangent for each FE_Element is defined to be <span class="math inline">\({\bf K}_e = c1 {\bf K} + c2 \D + c3 \M\)</span>, where c1,c2 and c3 were determined in the last invocation of the <code>newStep()</code> method. The method returns <span class="math inline">\(0\)</span> after performing the following operations:</p>
 <div class="tabbing">
 <p>while ̄ while w̄hile ̄ if (RayleighDamping == false) {<br />
 theEle-<span class="math inline">\(&gt;\)</span>zeroTang()<br />
@@ -6194,23 +6193,23 @@ theDof-<span class="math inline">\(&gt;\)</span>addMtoTang(c3 + c2 * <span class
 <li><p>First sets the values of the three constants <em>c1</em>, <em>c2</em> and <em>c3</em> depending on the flag indicating whether incremental displacements or accelerations are being solved for at each iteration. If <em>dispFlag</em> was <em>true</em>, <em>c1</em> is set to <span class="math inline">\(1.0\)</span>, <em>c2</em> to <span class="math inline">\(\gamma / (\beta \Delta t)\)</span> and <em>c3</em> to <span class="math inline">\(1/ (\beta \Delta t^2)\)</span>. If the flag is <em>false</em> <em>c1</em> is set to <span class="math inline">\(\beta \Delta t^2\)</span>, <em>c2</em> to <span class="math inline">\(\gamma \Delta t\)</span> and <em>c3</em> to <span class="math inline">\(1.0\)</span>.</p></li>
 <li><p>Then the Vectors for response quantities at time <span class="math inline">\(t\)</span> are set equal to those at time <span class="math inline">\(t + \Delta t\)</span>.</p>
 <div class="tabbing">
-<p>while w̄hile w̄hile w̄hile ̄ <span class="math inline">\(\U_t = \U_{t + \Delta t}\)</span><br />
-<span class="math inline">\(\Ud_t = \Ud_{t + \Delta t}\)</span><br />
-<span class="math inline">\(\Udd_t = \Udd_{t + \Delta t}\)</span></p>
+<p>while w̄hile w̄hile w̄hile ̄ <span class="math inline">\({\bf U}_t = {\bf U}_{t + \Delta t}\)</span><br />
+<span class="math inline">\(\dot{\bf U}_t = \dot{\bf U}_{t + \Delta t}\)</span><br />
+<span class="math inline">\(\ddot{\bf U}_t = \ddot{\bf U}_{t + \Delta t}\)</span></p>
 </div></li>
 <li><p>Then the velocity and accelerations approximations at time <span class="math inline">\(t + \Delta t\)</span> are set using the difference approximations if <em>dispFlag</em> was <em>true</em>. (displacement and velocity if <em>false</em>).</p>
 <div class="tabbing">
 <p>while w̄hile w̄hile w̄hile ̄ if (displIncr == true) {<br />
-<span class="math inline">\(\dot \U_{t + \Delta t} =  \left( 1 - \frac{\gamma}{\beta}\right) \dot \U_t + \Delta t \left(1 - \frac{\gamma}{2 \beta}\right) \ddot \U_t\)</span><br />
-<span class="math inline">\(\ddot \U_{t + \Delta t} =  - \frac{1}{\beta \Delta t} \dot \U_t + \left( 1 - \frac{1}{2 \beta} \right) \ddot \U_t\)</span><br />
+<span class="math inline">\(\dot {\bf U}_{t + \Delta t} =  \left( 1 - \frac{\gamma}{\beta}\right) \dot {\bf U}_t + \Delta t \left(1 - \frac{\gamma}{2 \beta}\right) \ddot {\bf U}_t\)</span><br />
+<span class="math inline">\(\ddot {\bf U}_{t + \Delta t} =  - \frac{1}{\beta \Delta t} \dot {\bf U}_t + \left( 1 - \frac{1}{2 \beta} \right) \ddot {\bf U}_t\)</span><br />
 } else {<br />
-<span class="math inline">\(\U_{t + \Delta t} = \U_t + \Delta t \Ud_t + \frac{\Delta t^2}{2}\Udd_t\)</span><br />
-<span class="math inline">\(\Ud_{t + \Delta t} = \Ud_t + \Delta t \Udd_t\)</span><br />
+<span class="math inline">\({\bf U}_{t + \Delta t} = {\bf U}_t + \Delta t \dot{\bf U}_t + \frac{\Delta t^2}{2}\ddot{\bf U}_t\)</span><br />
+<span class="math inline">\(\dot{\bf U}_{t + \Delta t} = \dot{\bf U}_t + \Delta t \ddot{\bf U}_t\)</span><br />
 }</p>
 </div></li>
 <li><p>The response quantities at the DOF_Group objects are updated with the new approximations by invoking <code>setResponse()</code> on the AnalysisModel with new quantities for time <span class="math inline">\(t + \Delta t\)</span>.</p>
 <div class="tabbing">
-<p>while w̄hile w̄hile w̄hile ̄ theModel-<span class="math inline">\(&gt;\)</span>setResponse<span class="math inline">\((\U_{t + \Delta t}, \Ud_{t+\Delta t}, \Udd_{t+\Delta t})\)</span></p>
+<p>while w̄hile w̄hile w̄hile ̄ theModel-<span class="math inline">\(&gt;\)</span>setResponse<span class="math inline">\(({\bf U}_{t + \Delta t}, \dot{\bf U}_{t+\Delta t}, \ddot{\bf U}_{t+\Delta t})\)</span></p>
 </div></li>
 <li><p>current time is obtained from the AnalysisModel, incremented by <span class="math inline">\(\Delta t\)</span>, and <code class="sourceCode cpp">applyLoad<span class="op">(</span>time<span class="op">,</span> <span class="fl">1.0</span><span class="op">)</span></code> is invoked on the AnalysisModel.</p></li>
 <li><p>Finally <code>updateDomain()</code> is invoked on the AnalysisModel.</p></li>
@@ -6222,15 +6221,15 @@ theDof-<span class="math inline">\(&gt;\)</span>addMtoTang(c3 + c2 * <span class
 <p>Invoked this causes the object to increment the DOF_Group response quantities at time <span class="math inline">\(t + \Delta t\)</span>. The displacement Vector is incremented by <span class="math inline">\(c1 * \Delta U\)</span>, the velocity Vector by <span class="math inline">\(c2 * \Delta U\)</span>, and the acceleration Vector by <span class="math inline">\(c3 * \Delta U\)</span>. The response at the DOF_Group objects are then updated by invoking <code>setResponse()</code> on the AnalysisModel with quantities at time <span class="math inline">\(t + \Delta t\)</span>. Finally <code>updateDomain()</code> is invoked on the AnalysisModel.</p>
 <div class="tabbing">
 <p>while w̄hile w̄hile w̄hile ̄ if (displIncr == true) {<br />
-<span class="math inline">\(\U_{t + \Delta t} += \Delta \U\)</span><br />
-<span class="math inline">\(\dot \U_{t + \Delta t} += \frac{\gamma}{\beta \Delta t} \Delta \U\)</span><br />
-<span class="math inline">\(\ddot \U_{t + \Delta t} += \frac{1}{\beta {\Delta t}^2} \Delta \U\)</span><br />
+<span class="math inline">\({\bf U}_{t + \Delta t} += \Delta \U\)</span><br />
+<span class="math inline">\(\dot {\bf U}_{t + \Delta t} += \frac{\gamma}{\beta \Delta t} \Delta \U\)</span><br />
+<span class="math inline">\(\ddot {\bf U}_{t + \Delta t} += \frac{1}{\beta {\Delta t}^2} \Delta \U\)</span><br />
 } else {<br />
-<span class="math inline">\(\Udd_{t + \Delta t} += \Delta \Udd\)</span><br />
-<span class="math inline">\(\U_{t + \Delta t} += \beta \Delta t^2 \Delta \Udd\)</span><br />
-<span class="math inline">\(\Ud_{t + \Delta t} += \gamma \Delta t \Delta \Udd\)</span><br />
+<span class="math inline">\(\ddot{\bf U}_{t + \Delta t} += \Delta \Udd\)</span><br />
+<span class="math inline">\({\bf U}_{t + \Delta t} += \beta \Delta t^2 \Delta \Udd\)</span><br />
+<span class="math inline">\(\dot{\bf U}_{t + \Delta t} += \gamma \Delta t \Delta \Udd\)</span><br />
 }<br />
-theModel-<span class="math inline">\(&gt;\)</span>setResponse<span class="math inline">\((\U_{t + \Delta t}, \Ud_{t+\Delta t}, \Udd_{t+\Delta t})\)</span><br />
+theModel-<span class="math inline">\(&gt;\)</span>setResponse<span class="math inline">\(({\bf U}_{t + \Delta t}, \dot{\bf U}_{t+\Delta t}, \ddot{\bf U}_{t+\Delta t})\)</span><br />
 theModel-<span class="math inline">\(&gt;\)</span>setUpdateDomain()</p>
 </div>
 <p>Returns <span class="math inline">\(0\)</span> if successful. A warning message is printed and a negative number returned if an error occurs: <span class="math inline">\(-1\)</span> if no associated AnalysisModel, <span class="math inline">\(-2\)</span> if the Vector objects have not been created, <span class="math inline">\(-3\)</span> if the Vector objects and <span class="math inline">\(\delta U\)</span> are of different sizes. <em>int sendSelf(int commitTag, Channel &amp;theChannel);</em><br />

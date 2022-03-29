@@ -2135,7 +2135,8 @@
   
     <li class="md-nav__item">
       <a href="../../integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6086,7 +6087,7 @@
   <h1>OpenSees</h1>
 
 <p>MODIFY INTERFACE TO OFFER USER DEFINED STORAGE TYPE.</p>
-<p>#include <span class="math inline">\(&lt;\)</span>/analysis/model/AnalysisModel.h<span class="math inline">\(&gt;\)</span><br />
+<p>#include <code>&lt;/analysis/model/AnalysisModel.h&gt;</code><br />
 </p>
 <p>class AnalysisModel : public MovableObject<br />
 </p>
@@ -6102,12 +6103,10 @@ AnalysisModel is a container class. This class is responsible for holding and pr
 <li><p>Trigger: methods which trigger events in the domain.</p></li>
 </ul>
 <p>Each subclass of AnalysisModel must have its own subclasses of FE_ELEIter and DOF_GrpIter. NOTE at the moment FE_Element and DOF_Group objects are not TaggedObjects and for this reason TaggedObjectStorage classes cannot be used for storage. This may change to allow efficient storage classes to be used.</p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
 </p>
-<p>// Destructor<br />
-</p>
+<h3 id="destructor">Destructor</h3>
 <p><br />
 // Public Methods - Population/Depopulation<br />
 </p>

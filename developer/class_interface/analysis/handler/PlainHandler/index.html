@@ -2145,7 +2145,8 @@
   
     <li class="md-nav__item">
       <a href="../../integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6097,11 +6098,9 @@ ConstraintHandler<br />
 </p>
 <p><br />
 The PlainHandler class is a class which only deals with homogeneous single point constraints. To do this it creates regular FE_Element and DOF_Group objects and enforces the constraints by specifying that degrees-of-freedom which are constrained are not assigned an equation number. Pointers to the DOF_Group and FE_Element objects are kept in two arrays.</p>
-<p>// Constructor<br />
-</p>
+<h3 id="constructor">Constructor</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6111,7 +6110,7 @@ The PlainHandler class is a class which only deals with homogeneous single point
 </p>
 <p><br />
 </p>
-<p>The integer <em>HANDLER_TAG_PlainHandler</em> (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the PlainHandler constructor.</p>
+<p>The integer <em>HANDLER_TAG_PlainHandler</em> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the PlainHandler constructor.</p>
 <p><br />
 Invokes the destructor on all the FE_Element and DOF_Group objects created in <em>handle</em>. Then invokes the destructor on the two pointer arrays.</p>
 <p><br />

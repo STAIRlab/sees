@@ -2133,7 +2133,8 @@
   
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6099,13 +6100,11 @@ Load<br />
 </p>
 <p><br />
 NodalLoads are loads acting on Nodes. The public methods are all declared as virtual to allow subclasses to be introduced for the provision of time varying loads. Each NodalLoad object is associated with a single Node object and has a Vector object corresponding to the load acting on this Node object as a result of the NodalLoad.</p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
 </p>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6118,7 +6117,7 @@ NodalLoads are loads acting on Nodes. The public methods are all declared as vir
 </p>
 <p><br />
 </p>
-<p>To create a NodalLoad object with tag <em>tag</em> acting on Node <em>node</em> with a reference load given by <em>load</em>. <em>tag</em> and <em>LOAD_TAG_NodalLoad</em> (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>)are passed to the Load constructor. A new vector object is created using the vector <em>load</em> as the argument. (THIS MAY CHANGE - may associate the load Vector with <em>load</em>, allowing identical loads on diff nodes to be created without the need for each to have its own vector) If no enough memory is available an error message is printed and the program terminates. The boolean <em>isLoadConstant</em> is used to indicate whether the value of the load applies to the Node is independent of the load factor.</p>
+<p>To create a NodalLoad object with tag <em>tag</em> acting on Node <em>node</em> with a reference load given by <em>load</em>. <em>tag</em> and <em>LOAD_TAG_NodalLoad</em> (defined in <code>&lt;classTags.h&gt;</code>)are passed to the Load constructor. A new vector object is created using the vector <em>load</em> as the argument. (THIS MAY CHANGE - may associate the load Vector with <em>load</em>, allowing identical loads on diff nodes to be created without the need for each to have its own vector) If no enough memory is available an error message is printed and the program terminates. The boolean <em>isLoadConstant</em> is used to indicate whether the value of the load applies to the Node is independent of the load factor.</p>
 <p>Provided for subclasses, which may which to provide the abstraction of time varying nodal loads. The integers <em>tag</em> and <em>classTag</em> are passed to the Load constructor.</p>
 <p>Provided so that a FEM_ObjectBroker can construct an object. <span class="math inline">\(0\)</span> and <em>classTag</em> are passed to the Load classes constructor. The data for the object is filled in when <code>recvSelf()</code> is invoked on the object.</p>
 <p><br />

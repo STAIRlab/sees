@@ -2147,7 +2147,8 @@
   
     <li class="md-nav__item">
       <a href="../../../integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6097,13 +6098,11 @@
 <p>FE_Element<br />
 </p>
 <p><br />
-PenaltyMP_FE is a subclass of FE_Element used to enforce a multi point constraint, of the form <span class="math inline">\(\U_c = \C_{cr} \U_r\)</span>, where <span class="math inline">\(\U_c\)</span> are the constrained degrees-of-freedom at the constrained node, <span class="math inline">\(\U_r\)</span> are the retained degrees-of-freedom at the retained node and <span class="math inline">\(\C_{cr}\)</span> a matrix defining the relationship between these degrees-of-freedom.</p>
-<p>To enforce the constraint a matrix <span class="math inline">\(\alpha \C^T \C\)</span> is added to the tangent for the degrees-of-freedom <span class="math inline">\([\U_c\)</span> <span class="math inline">\(\U_r]\)</span>, where <span class="math inline">\(\C = [-\I\)</span> <span class="math inline">\(\C_{cr}]\)</span>. Nothing is added to the residual.</p>
-<p>// Constructor<br />
-</p>
+PenaltyMP_FE is a subclass of FE_Element used to enforce a multi point constraint, of the form <span class="math inline">\({\bf U}_c = {\bf C}_{cr} {\bf U}_r\)</span>, where <span class="math inline">\({\bf U}_c\)</span> are the constrained degrees-of-freedom at the constrained node, <span class="math inline">\({\bf U}_r\)</span> are the retained degrees-of-freedom at the retained node and <span class="math inline">\({\bf C}_{cr}\)</span> a matrix defining the relationship between these degrees-of-freedom.</p>
+<p>To enforce the constraint a matrix <span class="math inline">\(\alpha {\bf C}^T \C\)</span> is added to the tangent for the degrees-of-freedom <span class="math inline">\([{\bf U}_c\)</span> <span class="math inline">\({\bf U}_r]\)</span>, where <span class="math inline">\({\bf C} = [-\I\)</span> <span class="math inline">\({\bf C}_{cr}]\)</span>. Nothing is added to the residual.</p>
+<h3 id="constructor">Constructor</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>

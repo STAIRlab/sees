@@ -2147,7 +2147,8 @@
   
     <li class="md-nav__item">
       <a href="../../../integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6099,17 +6100,15 @@ SolutionAlgorithm<br />
 EquiSolnAlgo<br />
 </p>
 <p><br />
-The Linear class is an algorithmic class which uses the linear solution algorithm to solve the equations. This is based on a Taylor expansion of the linear system <span class="math inline">\(\R(\U) = \zero\)</span> about an approximate solution <span class="math inline">\(\U_{a}\)</span>.</p>
+The Linear class is an algorithmic class which uses the linear solution algorithm to solve the equations. This is based on a Taylor expansion of the linear system <span class="math inline">\(\R(\U) = \zero\)</span> about an approximate solution <span class="math inline">\({\bf U}_{a}\)</span>.</p>
 <p><span class="math display">\[\R(\U) = 
-\R(\U_{a}) +
-\left[ {\frac{\partial \R}{\partial \U} \vert}_{\U_{a}}\right]
-\left( \U - \U_{a} \right)\]</span> which can be expressed as: <span class="math display">\[\
-\K_{a} \Delta \U = \R(\U_{a})\]</span> which is solved for <span class="math inline">\(\Delta \U\)</span> to give the approximation <span class="math inline">\(\U = \U_{a} + \Delta \U\)</span>. To start the iteration <span class="math inline">\(\U_a = \U_{trial}\)</span>, i.e. the current trial response quantities are chosen as approximate solution quantities.</p>
-<p>// Constructor<br />
-</p>
+\R({\bf U}_{a}) +
+\left[ {\frac{\partial \R}{\partial \U} \vert}_{{\bf U}_{a}}\right]
+\left( {\bf U} - {\bf U}_{a} \right)\]</span> which can be expressed as: <span class="math display">\[\
+{\bf K}_{a} \Delta {\bf U} = \R({\bf U}_{a})\]</span> which is solved for <span class="math inline">\(\Delta \U\)</span> to give the approximation <span class="math inline">\({\bf U} = {\bf U}_{a} + \Delta \U\)</span>. To start the iteration <span class="math inline">\({\bf U}_a = {\bf U}_{trial}\)</span>, i.e. the current trial response quantities are chosen as approximate solution quantities.</p>
+<h3 id="constructor">Constructor</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6120,16 +6119,16 @@ The Linear class is an algorithmic class which uses the linear solution algorith
 </p>
 <p><br />
 </p>
-<p>The integer <em>EquiALGORITHM_TAGS_Linear</em> (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the EquiSolnAlgo classes constructor.</p>
+<p>The integer <em>EquiALGORITHM_TAGS_Linear</em> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the EquiSolnAlgo classes constructor.</p>
 <p><br />
 </p>
 <p><br />
 This method performs the linear solution algorithm:</p>
 <div class="tabbing">
-<p>while ̄ whilewhilewhilewhilewhilewhilewhilewhilewhile ̄ theIntegrator-<span class="math inline">\(&gt;\)</span>formTangent() // form <span class="math inline">\(\K_{a}\)</span><br />
-theIntegrator-<span class="math inline">\(&gt;\)</span>formUnbalance() // form <span class="math inline">\(\R(\U_{a})\)</span><br />
+<p>while ̄ whilewhilewhilewhilewhilewhilewhilewhilewhile ̄ theIntegrator-<span class="math inline">\(&gt;\)</span>formTangent() // form <span class="math inline">\({\bf K}_{a}\)</span><br />
+theIntegrator-<span class="math inline">\(&gt;\)</span>formUnbalance() // form <span class="math inline">\(\R({\bf U}_{a})\)</span><br />
 theSOE-<span class="math inline">\(&gt;\)</span>solveX() // solve for <span class="math inline">\(\Delta \U\)</span><br />
-theIntegrator-<span class="math inline">\(&gt;\)</span>update(theSOE-<span class="math inline">\(&gt;\)</span>getX()) // set <span class="math inline">\(\U = \U_{a} + \Delta \U\)</span></p>
+theIntegrator-<span class="math inline">\(&gt;\)</span>update(theSOE-<span class="math inline">\(&gt;\)</span>getX()) // set <span class="math inline">\({\bf U} = {\bf U}_{a} + \Delta \U\)</span></p>
 </div>
 <p>The method returns a 0 if successful, otherwise warning message is printed and a negative number is returned; a <span class="math inline">\(-1\)</span> if error during <code>formTangent()</code>, a <span class="math inline">\(-2\)</span> if error during <code>formUnbalance()</code>, a <span class="math inline">\(-3\)</span> if error during <code>solve()</code>, a <span class="math inline">\(-4\)</span> if error during <code>update()</code>. If an error occurs in any of the above operations the method stops at that routine, none of the subsequent operations are invoked. A <span class="math inline">\(-5\)</span> is returned if any one of the links has not been setup.</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">sendSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">);</span><span class="w"></span>

@@ -2145,7 +2145,8 @@
   
     <li class="md-nav__item">
       <a href="../HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6098,26 +6099,24 @@ IncrementalIntegrator<br />
 TransientIntegrator<br />
 </p>
 <p><br />
-CentralDifference is a subclass of TransientIntegrator which implements the CentralDifference method. In the CentralDifference method, to determine the velocities, accelerations and displacements at time <span class="math inline">\(t + \Delta t\)</span>, the equilibrium equation (expressed for the TransientIntegrator) is typically solved at time <span class="math inline">\(t\)</span> for <span class="math inline">\(\U_{t+\Delta t}\)</span>, i.e. solve:</p>
-<p><span class="math display">\[\R (\U_{t+ \Delta t}) = \P(t) - \F_I(\Udd_{t})
-- \F_R(\Ud_{t},\U_{t})\]</span></p>
-<p>where we use following to relate <span class="math inline">\(\Ud_{t}\)</span> and <span class="math inline">\(\Udd_{t}\)</span> to <span class="math inline">\(\U_{t}\)</span> and the displacement quantities at times <span class="math inline">\(t\)</span> and <span class="math inline">\(t - \Delta t\)</span>:</p>
-<p><span class="math display">\[\dot \U_{t} = \frac{1}{2 \Delta t} \left(
-\U_{t + \Delta t} -  \U_{t - \Delta t} \right)\]</span></p>
-<p><span class="math display">\[\ddot \U_{t} = \frac{1}{\Delta t^2} \left(
-\U_{t + \Delta t} - 2 \U_t + \U_{t - \Delta t}\right)\]</span></p>
+CentralDifference is a subclass of TransientIntegrator which implements the CentralDifference method. In the CentralDifference method, to determine the velocities, accelerations and displacements at time <span class="math inline">\(t + \Delta t\)</span>, the equilibrium equation (expressed for the TransientIntegrator) is typically solved at time <span class="math inline">\(t\)</span> for <span class="math inline">\({\bf U}_{t+\Delta t}\)</span>, i.e. solve:</p>
+<p><span class="math display">\[{\bf R} ({\bf U}_{t+ \Delta t}) = {\bf P}(t) - {\bf F}_I(\ddot{\bf U}_{t})
+- {\bf F}_R(\dot{\bf U}_{t},{\bf U}_{t})\]</span></p>
+<p>where we use following to relate <span class="math inline">\(\dot{\bf U}_{t}\)</span> and <span class="math inline">\(\ddot{\bf U}_{t}\)</span> to <span class="math inline">\({\bf U}_{t}\)</span> and the displacement quantities at times <span class="math inline">\(t\)</span> and <span class="math inline">\(t - \Delta t\)</span>:</p>
+<p><span class="math display">\[\dot {\bf U}_{t} = \frac{1}{2 \Delta t} \left(
+{\bf U}_{t + \Delta t} -  {\bf U}_{t - \Delta t} \right)\]</span></p>
+<p><span class="math display">\[\ddot {\bf U}_{t} = \frac{1}{\Delta t^2} \left(
+{\bf U}_{t + \Delta t} - 2 {\bf U}_t + {\bf U}_{t - \Delta t}\right)\]</span></p>
 <p>which results in the following</p>
-<p><span class="math display">\[\left[ \frac{1}{\Delta t^2} \M + \frac{1}{2 \Delta t}
-\C \right] \U_{t + \Delta t} = \P(t) - F_I \left(\Udd_t^{(i-1)}
+<p><span class="math display">\[\left[ \frac{1}{\Delta t^2} {\bf M} + \frac{1}{2 \Delta t}
+{\bf C} \right] {\bf U}_{t + \Delta t} = {\bf P}(t) - F_I \left(\ddot{\bf U}_t^{(i-1)}
 \right)
--F_R\left( \Ud_t^{(i-1)}, \U_t)\right)\]</span><br />
+-F_R\left( \dot{\bf U}_t^{(i-1)}, {\bf U}_t)\right)\]</span><br />
 </p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
 </p>
-<p>// Destructor<br />
-</p>
+<h3 id="destructor">Destructor</h3>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6137,7 +6136,7 @@ CentralDifference is a subclass of TransientIntegrator which implements the Cent
 <p><br />
 Invokes the destructor on the Vector objects created.</p>
 <p><br />
-This tangent for each FE_Element is defined to be <span class="math inline">\(\K_e = c1 \K + c2 \D + c3 \M\)</span>, where c1,c2 and c3 were determined in the last invocation of the <code>newStep()</code> method. The method returns <span class="math inline">\(0\)</span> after performing the following operations:</p>
+This tangent for each FE_Element is defined to be <span class="math inline">\({\bf K}_e = c1 {\bf K} + c2 \D + c3 \M\)</span>, where c1,c2 and c3 were determined in the last invocation of the <code>newStep()</code> method. The method returns <span class="math inline">\(0\)</span> after performing the following operations:</p>
 <div class="tabbing">
 <p>while ̄ while w̄hile ̄ theEle-<span class="math inline">\(&gt;\)</span>zeroTang()<br />
 theEle-<span class="math inline">\(&gt;\)</span>addKtoTang(c1)<br />

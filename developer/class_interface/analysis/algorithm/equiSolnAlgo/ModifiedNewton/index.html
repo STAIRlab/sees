@@ -2147,7 +2147,8 @@
   
     <li class="md-nav__item">
       <a href="../../../integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6098,19 +6099,17 @@ EquiSolnAlgo<br />
 </p>
 <p><br />
 The ModifiedNewton class is an algorithmic class which obtains a solution to a non-linear system using the modified Newton-Raphson iteration scheme. The Newton-Rapson iteration scheme is based on a Taylor expansion of the non-linear system of equations <span class="math inline">\(\R(\U) = \zero\)</span> about an approximate solution <span class="math inline">\(\U{(i)}\)</span>: <span class="math display">\[\R(\U) = 
-\R(\U^{(i)}) +
-\left[ {\frac{\partial \R}{\partial \U} \vert}_{\U^{(i)}}\right]
-\left( \U - \U^{(i)} \right)\]</span></p>
+\R({\bf U}^{(i)}) +
+\left[ {\frac{\partial \R}{\partial \U} \vert}_{{\bf U}^{(i)}}\right]
+\left( {\bf U} - {\bf U}^{(i)} \right)\]</span></p>
 <p>which can be expressed as: <span class="math display">\[\
-\K^{(i)}  \Delta \U{(i)} = \R(\U^{(i)})\]</span> which is solved for <span class="math inline">\(\Delta \U^{(i)}\)</span> to give approximation for <span class="math inline">\(\U^{(i+1)} = \U^{(i)} + \Delta \U^{(i)}\)</span>. To start the iteration <span class="math inline">\(\U^{(1)} = \U_{trial}\)</span>, i.e. the current trial response quantities are chosen as initial response quantities. in the modified version the tangent is formed only once, i.e <span class="math display">\[\
-\K^{(1)}  \Delta \U^{(i)} = \R(\U^{(i)})\]</span></p>
+{\bf K}^{(i)}  \Delta \U{(i)} = \R({\bf U}^{(i)})\]</span> which is solved for <span class="math inline">\(\Delta {\bf U}^{(i)}\)</span> to give approximation for <span class="math inline">\({\bf U}^{(i+1)} = {\bf U}^{(i)} + \Delta {\bf U}^{(i)}\)</span>. To start the iteration <span class="math inline">\({\bf U}^{(1)} = {\bf U}_{trial}\)</span>, i.e. the current trial response quantities are chosen as initial response quantities. in the modified version the tangent is formed only once, i.e <span class="math display">\[\
+{\bf K}^{(1)}  \Delta {\bf U}^{(i)} = \R({\bf U}^{(i)})\]</span></p>
 <p>To stop the iteration, a test must be performed to see if convergence has been achieved at each iteration. Each NewtonRaphson object is associated with a ConvergenceTest object. It is this object which determines if convergence has been achieved.</p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
 </p>
-<p>// Destructor<br />
-</p>
+<h3 id="destructor">Destructor</h3>
 <p><br />
 // Public Member Functions<br />
 </p>
@@ -6122,7 +6121,7 @@ The ModifiedNewton class is an algorithmic class which obtains a solution to a n
 </p>
 <p><br />
 </p>
-<p>The constructor takes as an argument the ConvregenceTest object <em>theTest</em>, the object which is used at the end of each iteration to determine if convergence has been obtained. The integer <em>EquiALGORITHM_TAGS_ModifiedNewton</em> (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the EquiSolnAlgo classes constructor.</p>
+<p>The constructor takes as an argument the ConvregenceTest object <em>theTest</em>, the object which is used at the end of each iteration to determine if convergence has been obtained. The integer <em>EquiALGORITHM_TAGS_ModifiedNewton</em> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the EquiSolnAlgo classes constructor.</p>
 <p>Provided for FEM_ObjectBroker to instantiate a blank object with a class tag of EquiALGORITHM_TAGS_ModofiedNewton. <code>recvSelf()</code> must be invoked on this object.</p>
 <p><br />
 Does nothing.</p>

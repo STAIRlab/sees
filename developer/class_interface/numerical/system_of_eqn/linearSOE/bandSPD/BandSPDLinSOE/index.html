@@ -2133,7 +2133,8 @@
   
     <li class="md-nav__item">
       <a href="../../../../../analysis/integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6141,11 +6142,11 @@ a_{1,3} &amp; a_{2,3} &amp; a_{3,3} &amp; a_{2,4} &amp; a_{3,4} &amp; a_{4,4}\\
 </p>
 <p><br />
 </p>
-<p>The <em>solver</em> and a unique class tag (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) are passed to the LinearSOE constructor. The system size is set to <span class="math inline">\(0\)</span> and the matrix <span class="math inline">\(A\)</span> is marked as not having been factored. Invokes <em>setLinearSOE(*this)</em> on the <em>solver</em>. No memory is allocated for the 3 1d arrays.</p>
+<p>The <em>solver</em> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. The system size is set to <span class="math inline">\(0\)</span> and the matrix <span class="math inline">\(A\)</span> is marked as not having been factored. Invokes <em>setLinearSOE(*this)</em> on the <em>solver</em>. No memory is allocated for the 3 1d arrays.</p>
 <div class="highlight"><pre><span></span><span class="n">BandSPDLinSOE</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ku</span><span class="p">,</span><span class="w"> </span><span class="n">BandSPDLinSolver</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theSolver</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>The <em>solver</em> and a unique class tag (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) are passed to the LinearSOE constructor. Sets the size of the system to <span class="math inline">\(N\)</span>, the number of superdiagonals to <em>ku</em>. Allocates memory for the arrays; if not enough memory is available a warning message is printed and the system size is set to <span class="math inline">\(0\)</span>. Sets the solver to be called when solving the equations to <em>theSolver</em>. Invokes <code class="sourceCode cpp">setLinearSOE<span class="op">(</span>\<span class="op">*</span><span class="kw">this</span><span class="op">)</span></code> and <code>setSize()</code> on the <em>theSolver</em>, printing a warning message if <code>setSize()</code> returns a negative number. Also creates Vector objects for <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> using the <em>(double *,int)</em> Vector constructor.</p>
+<p>The <em>solver</em> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. Sets the size of the system to <span class="math inline">\(N\)</span>, the number of superdiagonals to <em>ku</em>. Allocates memory for the arrays; if not enough memory is available a warning message is printed and the system size is set to <span class="math inline">\(0\)</span>. Sets the solver to be called when solving the equations to <em>theSolver</em>. Invokes <code class="sourceCode cpp">setLinearSOE<span class="op">(</span>\<span class="op">*</span><span class="kw">this</span><span class="op">)</span></code> and <code>setSize()</code> on the <em>theSolver</em>, printing a warning message if <code>setSize()</code> returns a negative number. Also creates Vector objects for <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> using the <em>(double *,int)</em> Vector constructor.</p>
 <p><br />
 Calls delete on any arrays created.</p>
 <p><br />

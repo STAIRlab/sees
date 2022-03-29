@@ -2133,7 +2133,8 @@
   
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6087,7 +6088,7 @@
 
 <p>NEW METHOD POSSIBLY NEEDED TO SPECIFY THE NUMBER OF PREVIOUSLY COMMITTED RESPONSES TO KEEP .. NEEDED FOR EXPLICIT DYNAMIC INTEGRATORS<br />
 </p>
-<p>#include <span class="math inline">\(&lt;\)</span>/domain/node/Node.h<span class="math inline">\(&gt;\)</span><br />
+<p>#include <code>&lt;/domain/node/Node.h&gt;</code><br />
 </p>
 <p>class Node: public DomainComponent<br />
 </p>
@@ -6097,16 +6098,14 @@ DomainComponent<br />
 </p>
 <p><br />
 Nodes are points in space connected by the elements. Nodes have original position, trial displacement, velocity and acceleration, and committed displacement, velocity and acceleration (the last committed trial quantities). Nodes also store information about any load acting on the node, nodal mass and the nodal participation matrix. In addition, each Node object keeps track of it’s associated DOF_Group object. The Node interface provides methods to set and retrieve these quantities.</p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
 </p>
 <p><br />
 </p>
 <p><br />
 </p>
-<p>// Destructor<br />
-</p>
+<h3 id="destructor">Destructor</h3>
 <p><br />
 // Public Methods dealing with DOF at the Node<br />
 </p>

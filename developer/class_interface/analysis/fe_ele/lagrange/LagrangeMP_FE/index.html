@@ -2147,7 +2147,8 @@
   
     <li class="md-nav__item">
       <a href="../../../integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6097,15 +6098,13 @@
 <p>FE_Element<br />
 </p>
 <p><br />
-LagrangeMP_FE is a subclass of FE_Element used to enforce a multi point constraint, of the form <span class="math inline">\(\U_c = \C_{cr} \U_r\)</span>, where <span class="math inline">\(\U_c\)</span> are the constrained degrees-of-freedom at the constrained node, <span class="math inline">\(\U_r\)</span> are the retained degrees-of-freedom at the retained node and <span class="math inline">\(\C_{cr}\)</span> a matrix defining the relationship between these degrees-of-freedom.</p>
-<p>To enforce the constraint the following are added to the tangent and the residual: <span class="math display">\[\left[ \begin{array}{cc} 0 &amp; \alpha\C^t \\ \alpha\C &amp; 0 \end{array}
+LagrangeMP_FE is a subclass of FE_Element used to enforce a multi point constraint, of the form <span class="math inline">\({\bf U}_c = {\bf C}_{cr} {\bf U}_r\)</span>, where <span class="math inline">\({\bf U}_c\)</span> are the constrained degrees-of-freedom at the constrained node, <span class="math inline">\({\bf U}_r\)</span> are the retained degrees-of-freedom at the retained node and <span class="math inline">\({\bf C}_{cr}\)</span> a matrix defining the relationship between these degrees-of-freedom.</p>
+<p>To enforce the constraint the following are added to the tangent and the residual: <span class="math display">\[\left[ \begin{array}{cc} 0 &amp; \alpha{\bf C}^t \\ \alpha{\bf C} &amp; 0 \end{array}
 \right] ,
-\left\{ \begin{array}{c} 0 \\ 0 \end{array} \right\}\]</span> at the locations corresponding to the constrained degree-of-freedoms specified by the MP_Constraint, i.e. <span class="math inline">\([\U_c\)</span> <span class="math inline">\(\U_r]\)</span>, and the lagrange multiplier degrees-of-freedom introduced by the LagrangeConstraintHandler for this constraint, <span class="math inline">\(\C = [-\I\)</span> <span class="math inline">\(\C_{cr}]\)</span>. Nothing is added to the residual.</p>
-<p>// Constructor<br />
-</p>
+\left\{ \begin{array}{c} 0 \\ 0 \end{array} \right\}\]</span> at the locations corresponding to the constrained degree-of-freedoms specified by the MP_Constraint, i.e. <span class="math inline">\([{\bf U}_c\)</span> <span class="math inline">\({\bf U}_r]\)</span>, and the lagrange multiplier degrees-of-freedom introduced by the LagrangeConstraintHandler for this constraint, <span class="math inline">\({\bf C} = [-\I\)</span> <span class="math inline">\({\bf C}_{cr}]\)</span>. Nothing is added to the residual.</p>
+<h3 id="constructor">Constructor</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
