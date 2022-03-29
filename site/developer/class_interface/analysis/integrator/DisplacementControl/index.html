@@ -2145,7 +2145,8 @@
   
     <li class="md-nav__item">
       <a href="../HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6104,11 +6105,9 @@ DisplacementControl is a subclass of StaticIntegrator, it is used to when perfor
 <p>where <span class="math inline">\(\delta Uc_n\)</span> depends on <span class="math inline">\(\delta Uc_{n-1}\)</span>, the displacement increment at the previous time step, <span class="math inline">\(J_{n-1}\)</span>, the number of iterations required to achieve convergence in the previous load step, and <span class="math inline">\(Jd\)</span>, the desired number of iteraions. <span class="math inline">\(\delta Uc_n\)</span> is bounded by <span class="math inline">\(\delta Uc_{min}\)</span> and <span class="math inline">\(\delta Uc_{max}\)</span>. <span class="math display">\[\delta Ucn = max \left( \delta Uc{min}, min \left(
 \frac{Jd}{J_{n-1}} \delta Uc{n-1}, \delta Uc{max} \right) \right)\]</span></p>
 <p>SOME THEORY.</p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6121,7 +6120,7 @@ DisplacementControl is a subclass of StaticIntegrator, it is used to when perfor
 </p>
 <p><br />
 </p>
-<p>The integer INTEGRATOR_TAGS_DisplacementControl (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the StaticIntegrator classes constructor. <span class="math inline">\(\delta Uc_1\)</span> is the load factor used in the first step. The arguments <span class="math inline">\(Jd\)</span>, <span class="math inline">\(\delta Uc_{min}\)</span>, and <span class="math inline">\(\delta Uc_{max}\)</span> are used in the determination of the increment in the load factor at each step.</p>
+<p>The integer <code>INTEGRATOR_TAGS_DisplacementControl</code> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the StaticIntegrator classes constructor. <span class="math inline">\(\delta Uc_1\)</span> is the load factor used in the first step. The arguments <span class="math inline">\(Jd\)</span>, <span class="math inline">\(\delta Uc_{min}\)</span>, and <span class="math inline">\(\delta Uc_{max}\)</span> are used in the determination of the increment in the load factor at each step.</p>
 <p><br />
 Does nothing.</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">newStep</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>

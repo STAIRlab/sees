@@ -2137,7 +2137,8 @@
   
     <li class="md-nav__item">
       <a href="../HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6103,16 +6104,14 @@ LoadControl is a subclass of StaticIntegrator, it is used to when performing a s
 <p>where <span class="math inline">\(\delta \lambda_n\)</span> depends on <span class="math inline">\(\delta \lambda_{n-1}\)</span>, the load increment at the previous time step, <span class="math inline">\(J_{n-1}\)</span>, the number of iterations required to achieve convergence in the previous load step, and <span class="math inline">\(Jd\)</span>, the desired number of iteraions. <span class="math inline">\(\delta \lambda_n\)</span> is bounded by <span class="math inline">\(\delta \lambda_{min}\)</span> and <span class="math inline">\(\delta \lambda_{max}\)</span>. <span class="math display">\[\delta \lambda_n = max \left( \delta \lambda_{min}, min \left(
 \frac{Jd}{J_{n-1}} \delta \lambda_{n-1}, \delta \lambda_{max} \right) \right)\]</span></p>
 <p>Knowing <span class="math inline">\(\lambda_n^{(i)}\)</span> prior to each iteration, the <span class="math inline">\(N+1\)</span> unknowns in equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor]</a>, is reduced to <span class="math inline">\(N\)</span> unknowns and results in the following equation:</p>
-<p><span class="math display">\[\R(\U_{n}) = \lambda_n^{(i)} \P 
- - \f_{R}\left(\U_{n}^{(i)} \right) - 
-\K_n^{(i)} 
-(\U_{n} - \U_{n}^{(i)})  
+<p><span class="math display">\[\R({\bf U}_{n}) = \lambda_n^{(i)} {\bf P} 
+ - {\bf F}_{R}\left({\bf U}_{n}^{(i)} \right) - 
+{\bf K}_n^{(i)} 
+({\bf U}_{n} - {\bf U}_{n}^{(i)})  
 \label{staticFormLoadControl}\]</span></p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6126,7 +6125,7 @@ LoadControl is a subclass of StaticIntegrator, it is used to when performing a s
 <p><br />
 </p>
 <p><br />
-The integer INTEGRATOR_TAGS_LoadControl (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the StaticIntegrator classes constructor. <span class="math inline">\(\delta \lambda_1\)</span> is the load factor used in the first step. The arguments <span class="math inline">\(Jd\)</span>, <span class="math inline">\(\delta \lambda_{min}\)</span>, and <span class="math inline">\(\delta \lambda_{max}\)</span> are used in the determination of the increment in the load factor at each step.</p>
+The integer <code>INTEGRATOR_TAGS_LoadControl</code> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the StaticIntegrator classes constructor. <span class="math inline">\(\delta \lambda_1\)</span> is the load factor used in the first step. The arguments <span class="math inline">\(Jd\)</span>, <span class="math inline">\(\delta \lambda_{min}\)</span>, and <span class="math inline">\(\delta \lambda_{max}\)</span> are used in the determination of the increment in the load factor at each step.</p>
 <p><br />
 Does nothing.</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">newStep</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>

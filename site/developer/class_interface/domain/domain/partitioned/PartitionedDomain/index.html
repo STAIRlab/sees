@@ -2133,7 +2133,8 @@
   
     <li class="md-nav__item">
       <a href="../../../../analysis/integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6088,7 +6089,7 @@
   <h1>OpenSees</h1>
 
 <p>UNDER CONSTRUCTION</p>
-<p>#include <span class="math inline">\(&lt;\)</span>/domain/domain/partitioned/PartitionedDomain.h<span class="math inline">\(&gt;\)</span><br />
+<p>#include <code>&lt;/domain/domain/partitioned/PartitionedDomain.h&gt;</code><br />
 </p>
 <p>class PartitionedDomain: public Domain<br />
 </p>
@@ -6096,12 +6097,10 @@
 </p>
 <p><br />
 PartitionedDomain is an extension of Domain. A partitioned domain is an aggregation of subdomains. All elements, nodes, loadcases are added to the PartitionedDomain. The components can be moved among subdomains (keeping in mind that subdomains are themselves subclasses of domain and therefore must obey the requirements for adding and removing elements specified in the interface for Domain) by invoking the <em>remove..()</em> and <em>add...()</em> methods on the subdomain.</p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
 </p>
-<p>// Destructor<br />
-</p>
+<h3 id="destructor">Destructor</h3>
 <p><br />
 // Public Member Functions - which extend the Domain class<br />
 </p>

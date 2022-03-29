@@ -2133,7 +2133,8 @@
   
     <li class="md-nav__item">
       <a href="../../analysis/integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6088,8 +6089,8 @@
 <p>MovableObject</p>
 <p>ConvergenceTest</p>
 <p>A CTestNormDispIncr object is an object which can be used in an algorithmic class to test if convergence has been achieved. The CTestNormDispIncr class tests using the norm of the solution Vector of a LinearSOE object and a user specified tolerance value.</p>
-<p>The integer <em>CLASS_TAGS_CTestNormDispIncr</em>, defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>, is passed to the ConvergenceTest constructor. Sets the tolerance used in <code>test()</code> to be <em>tol</em>, the max number of iterations to be performed to <em>maxNumIter</em> and the print flag used to determine what, if anything, is printed on each test to <em>printFlag</em>.</p>
-<p>To be used by the FEM_ObjectBroker object in parallel programs. The integer <em>CLASS_TAGS_CTestNormDispIncr</em>, defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>, is passed to the ConvergenceTest constructor. Sets the tolerance used in <code>test()</code> to be <em>0.0</em> and <em>maxNumIter</em> to be <span class="math inline">\(0\)</span>. These will be set when <code>recvSelf()</code> is invoked on the object.</p>
+<p>The integer <em>CLASS_TAGS_CTestNormDispIncr</em>, defined in <code>&lt;classTags.h&gt;</code>, is passed to the ConvergenceTest constructor. Sets the tolerance used in <code>test()</code> to be <em>tol</em>, the max number of iterations to be performed to <em>maxNumIter</em> and the print flag used to determine what, if anything, is printed on each test to <em>printFlag</em>.</p>
+<p>To be used by the FEM_ObjectBroker object in parallel programs. The integer <em>CLASS_TAGS_CTestNormDispIncr</em>, defined in <code>&lt;classTags.h&gt;</code>, is passed to the ConvergenceTest constructor. Sets the tolerance used in <code>test()</code> to be <em>0.0</em> and <em>maxNumIter</em> to be <span class="math inline">\(0\)</span>. These will be set when <code>recvSelf()</code> is invoked on the object.</p>
 <p>Does nothing.</p>
 <p>Sets the tolerance used in <code>test()</code> to be <em>newTol</em>.</p>
 <p>It sets a pointer to <em>theAlgo</em>’s LinearSOE object. Returns <span class="math inline">\(0\)</span> if successful, a <span class="math inline">\(-1\)</span> is returned and an error message printed if no LinearSOE object has been set in <em>theAlgo</em>.</p>

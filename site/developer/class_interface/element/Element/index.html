@@ -2134,7 +2134,8 @@
   
     <li class="md-nav__item">
       <a href="../../analysis/integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6127,8 +6128,8 @@
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getTangentStiff</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To return the tangent stiffness matrix. The element is to compute its stiffness matrix based on the original location of the nodes and the current trial displacement at the nodes. <span class="math display">\[\K_e = {\frac{\partial \f_{R_i}}{\partial \U}
-\vert}_{\U_{trial}}\]</span></p>
+<p>To return the tangent stiffness matrix. The element is to compute its stiffness matrix based on the original location of the nodes and the current trial displacement at the nodes. <span class="math display">\[{\bf K}_e = {\frac{\partial {\bf F}_{R_i}}{\partial \U}
+\vert}_{{\bf U}_{trial}}\]</span></p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getSecantStiff</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
@@ -6136,28 +6137,28 @@
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getDamp</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To return the damping matrix. The element is to compute its damping matrix based on the original location of the nodes and the current trial response quantities at the nodes. <span class="math display">\[\C_e = {\frac{\partial \f_{R_i}}{\partial \dot \U}
-\vert}_{\U_{trial}}\]</span></p>
+<p>To return the damping matrix. The element is to compute its damping matrix based on the original location of the nodes and the current trial response quantities at the nodes. <span class="math display">\[{\bf C}_e = {\frac{\partial {\bf F}_{R_i}}{\partial \dot \U}
+\vert}_{{\bf U}_{trial}}\]</span></p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getMass</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To return the mass matrix. The element is to compute its mass matrix based on the original location of the nodes and the current trial response quantities at the nodes. <span class="math display">\[\M_e  = {\frac{\partial \f_{I_i}}{\partial \ddot \U}
-\vert}_{\U_{trial}}\]</span></p>
+<p>To return the mass matrix. The element is to compute its mass matrix based on the original location of the nodes and the current trial response quantities at the nodes. <span class="math display">\[{\bf M}_e  = {\frac{\partial {\bf F}_{I_i}}{\partial \ddot \U}
+\vert}_{{\bf U}_{trial}}\]</span></p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">zeroLoad</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>This is a method invoked to zero the element load contributions to the residual, i.e. <span class="math inline">\(\P_e = \zero\)</span></p>
+<p>This is a method invoked to zero the element load contributions to the residual, i.e. <span class="math inline">\({\bf P}_e = \zero\)</span></p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getResistingForce</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>Returns the resisting force vector for the element. This is equal to the applied load due to element loads minus the loads at the nodes due to internal stresses in the element due to the current trial displacement, i.e. <span class="math display">\[\R_e = 
-\P_{e} - \f_{R_e}(\U_{trial})\]</span></p>
+<p>Returns the resisting force vector for the element. This is equal to the applied load due to element loads minus the loads at the nodes due to internal stresses in the element due to the current trial displacement, i.e. <span class="math display">\[{\bf R}_e = 
+{\bf P}_{e} - {\bf F}_{R_e}({\bf U}_{trial})\]</span></p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getResistingForceIncInertia</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>Returns the resisting force vector for the element with inertia forces included. This is equal to the applied load due to element loads (loads set using <code>addLoad()</code>, minus the loads at the nodes due to internal stresses in the element due to the current trial response quantities, i.e. <span class="math display">\[\R_e = 
-\P_e -  \f_{I_e} (\ddot \U_{trial}) - \f_{R_e}(\dot
-\U_{trial}, \U_{trial})\]</span></p>
+<p>Returns the resisting force vector for the element with inertia forces included. This is equal to the applied load due to element loads (loads set using <code>addLoad()</code>, minus the loads at the nodes due to internal stresses in the element due to the current trial response quantities, i.e. <span class="math display">\[{\bf R}_e = 
+{\bf P}_e -  {\bf F}_{I_e} (\ddot {\bf U}_{trial}) - {\bf F}_{R_e}(\dot
+{\bf U}_{trial}, {\bf U}_{trial})\]</span></p>
 <p><code>setResponse()</code> is a method invoked to determine if the element will respond to a request for a certain of information. The information requested of the element is passed in the array of char pointers <em>argv</em> of length em argc. If the element does not respond to the request a <span class="math inline">\(-1\)</span> is returned. If it does respond, an integer value greater than or equal to <span class="math inline">\(0\)</span> is returned. This is the <em>responseID</em> passed in the <code>getResponse()</code> method. In addition the Element object is responsible for setting the Information object <em>eleInformation</em> with the type of the return, i.e. <em>IntType, DoubleType, MatrixType, VectorType, IDType</em>, and for creating a Matrix, Vector or ID object for the Information object, if the information to be returned is of any of these types. The information object is responsible for invoking the destructor on these objects. The base class responds to no requests and will always return <span class="math inline">\(-1\)</span>.</p>
 <p>getResponse is a method invoked to obtain information from an analysis. The method is invoked with the integer argument returned and the Information object that was prepared in a successful <code>setResponse()</code> method invocation. To return <span class="math inline">\(0\)</span> if successful, a negative number if not. The base class implementation will always return <span class="math inline">\(-1\)</span>.</p>
 

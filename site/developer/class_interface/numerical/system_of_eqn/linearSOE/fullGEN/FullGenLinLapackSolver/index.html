@@ -2133,7 +2133,8 @@
   
     <li class="md-nav__item">
       <a href="../../../../../analysis/integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6100,12 +6101,10 @@ LinearSOESolver<br />
 FullGenLinSolver<br />
 </p>
 <p><br />
-A FullGenLinLapackSolver object can be constructed to solve a FullGenLinSOE object. It obtains the solution by making calls on the the LAPACK library. The class is defined to be a friend of the FullGenLinSOE class (see <span class="math inline">\(&lt;\)</span>FullGenLinSOE.h<span class="math inline">\(&gt;\)</span>).</p>
-<p>// Constructor<br />
-</p>
+A FullGenLinLapackSolver object can be constructed to solve a FullGenLinSOE object. It obtains the solution by making calls on the the LAPACK library. The class is defined to be a friend of the FullGenLinSOE class (see <code>&lt;FullGenLinSOE.h&gt;</code>).</p>
+<h3 id="constructor">Constructor</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6114,7 +6113,7 @@ A FullGenLinLapackSolver object can be constructed to solve a FullGenLinSOE obje
 <p><br />
 </p>
 <p><br />
-A unique class tag (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the FullGenLinSolver constructor. Sets the size of <em>iPiv</em> to <span class="math inline">\(0\)</span>, <em>iPiv</em> being an integer array needed by the LAPACK routines.</p>
+A unique class tag (defined in <code>&lt;classTags.h&gt;</code>) is passed to the FullGenLinSolver constructor. Sets the size of <em>iPiv</em> to <span class="math inline">\(0\)</span>, <em>iPiv</em> being an integer array needed by the LAPACK routines.</p>
 <p><br />
 Invokes delete on <em>iPiv</em> to free the memory it was allocated.</p>
 <p><br />

@@ -2137,7 +2137,8 @@
   
     <li class="md-nav__item">
       <a href="../HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6101,17 +6102,15 @@ StaticIntegrator<br />
 LoadPath is a subclass of StaticIntegrator, it is used to when performing a static analysis on the FE_Model using a user specified load path. The load path is specified in a Vector, <em>path</em>, to the objects constructor and at each step in the analysis:</p>
 <p><span class="math display">\[\lambda_n^{(i)} - \lambda_{n-1} = path(n) - path(n-1)\]</span></p>
 <p>Knowing <span class="math inline">\(\lambda_n^{(i)} = path(n)\)</span> prior to each iteration, the <span class="math inline">\(N+1\)</span> unknowns in equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor]</a>, is reduced to <span class="math inline">\(N\)</span> unknowns and results in the following equation:</p>
-<p><span class="math display">\[\R(\U_{n}) = \lambda_n^{(i)} \P 
- - \f_{R}\left(\U_{n}^{(i)} \right) - 
-\K_n^{(i)} 
-(\U_{n} - \U_{n}^{(i)})  
+<p><span class="math display">\[\R({\bf U}_{n}) = \lambda_n^{(i)} {\bf P} 
+ - {\bf F}_{R}\left({\bf U}_{n}^{(i)} \right) - 
+{\bf K}_n^{(i)} 
+({\bf U}_{n} - {\bf U}_{n}^{(i)})  
 \label{staticFormLoadPath}\]</span></p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
 </p>
-<p>// Destructor<br />
-</p>
+<h3 id="destructor">Destructor</h3>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6123,8 +6122,8 @@ LoadPath is a subclass of StaticIntegrator, it is used to when performing a stat
 </p>
 <p><br />
 </p>
-<p>The integer INTEGRATOR_TAGS_LoadPath (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the StaticIntegrator classes constructor. A vector object <em>path</em> is created which is a copy of <em>loadPath</em> and an index into this vector is set to <span class="math inline">\(0\)</span>.</p>
-<p>The integer INTEGRATOR_TAGS_LoadPath (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the StaticIntegrator classes constructor. No vector object is created. Provided for the FEM_ObjectBroker to create a blank object, <code>recvSelf()</code> should be invoked on this object.</p>
+<p>The integer <code>INTEGRATOR_TAGS_LoadPath</code> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the StaticIntegrator classes constructor. A vector object <em>path</em> is created which is a copy of <em>loadPath</em> and an index into this vector is set to <span class="math inline">\(0\)</span>.</p>
+<p>The integer <code>INTEGRATOR_TAGS_LoadPath</code> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the StaticIntegrator classes constructor. No vector object is created. Provided for the FEM_ObjectBroker to create a blank object, <code>recvSelf()</code> should be invoked on this object.</p>
 <p><br />
 Invokes the destructor on the vector <em>path</em>.</p>
 <p><br />

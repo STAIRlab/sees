@@ -2145,7 +2145,8 @@
   
     <li class="md-nav__item">
       <a href="../../integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6096,11 +6097,9 @@ ConstraintHandler<br />
 </p>
 <p><br />
 The TransformationConstraintHandler class is a class which deals with both single and multi point constraints using the Transformation method. This is done by, in addition to creating a DOF_Group object for each Node and an FE_Element for each Element in the Domain, creating either a TransformationSP_FE or a TransformationMP_FE object for each constraint in the Domain. It is these objects that enforce the constraints by moifying the tangent matrix and residual vector.</p>
-<p>// Constructor<br />
-</p>
+<h3 id="constructor">Constructor</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6111,7 +6110,7 @@ The TransformationConstraintHandler class is a class which deals with both singl
 <p><br />
 </p>
 <p><br />
-The integer <em>HANDLER_TAG_TransformationConstraintHandler</em> (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the TransformationConstraintHandler constructor.</p>
+The integer <em>HANDLER_TAG_TransformationConstraintHandler</em> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the TransformationConstraintHandler constructor.</p>
 <p><br />
 Currently invokes <code>clearAll()</code>, this will change when <code>clearAll()</code> is rewritten.</p>
 <p><br />

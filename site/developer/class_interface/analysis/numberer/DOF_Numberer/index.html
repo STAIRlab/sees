@@ -2135,7 +2135,8 @@
   
     <li class="md-nav__item">
       <a href="../../integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6096,13 +6097,11 @@
 </p>
 <p><br />
 The DOF_Numberer class is a base class. Its purpose is to define the interface common among all subclasses. A DOF_Numberer object is responsible for assigning the equation numbers to the individual dofs in each of the DOF_Groups in the AnalysisModel. The base DOF_Numberer uses a GraphNumberer object to first number the DOF_Groups, based on the ordering of the DOF_Group objects, it assigns the equation numbers to the individual degrees-of-freedom. Subtypes may wish to implement the numbering in a more efficient manner by using the FE_Element and DOF_Group objects directly.</p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
 </p>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6116,9 +6115,9 @@ The DOF_Numberer class is a base class. Its purpose is to define the interface c
 <p><br />
 </p>
 <p><br />
-The integer <em>NUMBERER_TAG_DOF_Numberer</em> (defined in <span class="math inline">\(&lt;\)</span>classtags.h<span class="math inline">\(&gt;\)</span>) is passed to the MovableObject classes constructor. Sets the GraphNumberer to be used in the numbering to <code>theGraphNumberer()</code>.</p>
+The integer <em>NUMBERER_TAG_DOF_Numberer</em> (defined in <code>&lt;classtags.h&gt;</code>) is passed to the MovableObject classes constructor. Sets the GraphNumberer to be used in the numbering to <code>theGraphNumberer()</code>.</p>
 <p>Provided for subclasses. The integer <em>classTag</em> is passed to the MovableObject classes constructor.</p>
-<p>Provided for FEM_ObjectBroker. The integer <em>NUMBERER_TAG_DOF_Numberer</em> (defined in <span class="math inline">\(&lt;\)</span>classtags.h<span class="math inline">\(&gt;\)</span>) is passed to the MovableObject classes constructor. Sets the GraphNumberer to be used in the numbering to be <span class="math inline">\(0\)</span>, the GraphNumberer object is created and linked in a <code>recvSelf()</code> method invocation.</p>
+<p>Provided for FEM_ObjectBroker. The integer <em>NUMBERER_TAG_DOF_Numberer</em> (defined in <code>&lt;classtags.h&gt;</code>) is passed to the MovableObject classes constructor. Sets the GraphNumberer to be used in the numbering to be <span class="math inline">\(0\)</span>, the GraphNumberer object is created and linked in a <code>recvSelf()</code> method invocation.</p>
 <p><br />
 Does nothing.</p>
 <p><br />

@@ -2133,7 +2133,8 @@
   
     <li class="md-nav__item">
       <a href="../../../../../analysis/integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6101,11 +6102,9 @@ SparseGenColLinSolver<br />
 </p>
 <p><br />
 A SuperLU object can be constructed to solve a SparseGenColLinSOE object. It obtains the solution by making calls on the the SuperLU library developed at UC Berkeley by Prof. James Demmel, Xiaoye S. Li and John R. Gilbert. The SuperLU library contains a set of subroutines to solve a sparse linear system <span class="math inline">\(AX=B\)</span>. It uses Gaussian elimination with partial pivoting (GEPP). The columns of A may be preordered before factorization; the preordering for sparsity is completely separate from the factorization and a number of ordering schemes are provided.</p>
-<p>// Constructor<br />
-</p>
+<h3 id="constructor">Constructor</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6114,7 +6113,7 @@ A SuperLU object can be constructed to solve a SparseGenColLinSOE object. It obt
 <p><br />
 </p>
 <p><br />
-A unique class tag (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the SparseGenColLinSolver constructor. Saves the values for the arguments <em>permSpec</em>, <em>panelSize</em>, <em>relax</em> and <em>thresh</em> that will be used when calling the SuperLU routines in <code>solve()</code> and <code>setSize()</code>.</p>
+A unique class tag (defined in <code>&lt;classTags.h&gt;</code>) is passed to the SparseGenColLinSolver constructor. Saves the values for the arguments <em>permSpec</em>, <em>panelSize</em>, <em>relax</em> and <em>thresh</em> that will be used when calling the SuperLU routines in <code>solve()</code> and <code>setSize()</code>.</p>
 <p><em>permSpec</em> defines the ordering routine used in defining the column permutations <em>permC</em>: <span class="math inline">\(0\)</span> uses the original ordering supplied, <span class="math inline">\(1\)</span> defines a min-degree ordering based on <span class="math inline">\(A^TA\)</span> and <span class="math inline">\(2\)</span> a min-degree ordering based on <span class="math inline">\(A^T + A\)</span>. <em>relax</em> defines the min number of columns in a subtree for the subtree to be considered a single supernode. <em>thresh</em> defines the pivoting threshold: at step j of the Gaussian elimination if (abs<span class="math inline">\((A_{jj}) \ge\)</span> <em>thresh</em> (max<span class="math inline">\(i \ge j\)</span> abs(<span class="math inline">\(A_{ij}\)</span>)). A value for <em>thresh</em> of <span class="math inline">\(0.0\)</span> definines no pivoting, a value of <span class="math inline">\(1.0\)</span> classical partial pivoting. <em>panelSize</em> defines the number of consecutive columns used as a panel in the elimination. For more information on these values see the SuperLU manual.</p>
 <p><br />
 Invokes delete on <em>permR</em>, <em>permC</em> and <em>etree</em> arrays.</p>

@@ -2145,7 +2145,8 @@
   
     <li class="md-nav__item">
       <a href="../HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6099,73 +6100,71 @@ StaticIntegrator<br />
 </p>
 <p><br />
 ArcLength1 is a subclass of StaticIntegrator, it is used to when performing a static analysis on the FE_Model using a simplified form of the arc length method. In the arc length method implemented by this class, the following constraint equation is added to equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor]</a> of the StaticIntegrator class:</p>
-<p><span class="math display">\[\Delta \U_n^T \Delta \U_n  + \alpha^2 \Delta \lambda_n^2  = \Delta s^2\]</span></p>
+<p><span class="math display">\[\Delta {\bf U}_n^T \Delta {\bf U}_n  + \alpha^2 \Delta \lambda_n^2  = \Delta s^2\]</span></p>
 <p>where</p>
-<p><span class="math display">\[\Delta \U_n = \sum_{j=1}^{i} \Delta \U_n^{(j)} = \Delta \U_n^{(i)} +
-d\U^{(i)}\]</span></p>
+<p><span class="math display">\[\Delta {\bf U}_n = \sum_{j=1}^{i} \Delta {\bf U}_n^{(j)} = \Delta {\bf U}_n^{(i)} +
+d{\bf U}^{(i)}\]</span></p>
 <p><span class="math display">\[\Delta \lambda_n = \sum_{j=1}^{i} \Delta \lambda_n^{(j)} = \Delta \lambda_n^{(i)} +
 d\lambda^{(i)}\]</span></p>
 <p>this equation cannot be added directly into equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor]</a> to produce a linear system of <span class="math inline">\(N+1\)</span> unknowns. To add this equation we make some assumptions ala Yang (REF), which in so doing allows us to solve a system of <span class="math inline">\(N\)</span> unknowns using the method of ??(REF). Rewriting equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor]</a> as</p>
-<p><span class="math display">\[\K_n^{(i)} \Delta \U_n^{(i)} = \Delta \lambda_n^{(i)} \P +
-\lambda_n^{(i)} \P - \F_R(\U_n^{(i)}) = \Delta \lambda_n^{(i)} \P + \R_n^{(i)}\]</span></p>
+<p><span class="math display">\[{\bf K}_n^{(i)} \Delta {\bf U}_n^{(i)} = \Delta \lambda_n^{(i)} {\bf P} +
+\lambda_n^{(i)} {\bf P} - {\bf F}_R({\bf U}_n^{(i)}) = \Delta \lambda_n^{(i)} {\bf P} + {\bf R}_n^{(i)}\]</span></p>
 <p>The idea of ?? is to separate this into two equations:</p>
-<p><span class="math display">\[\K_n^{(i)} \Delta \dot{\bf U}_n^{(i)} = \P\]</span></p>
-<p><span class="math display">\[\K_n^{(i)} \Delta \overline{\bf U}_n^{(i)} = \R_n^{(i)}\]</span></p>
+<p><span class="math display">\[{\bf K}_n^{(i)} \Delta \dot{\bf U}_n^{(i)} = \P\]</span></p>
+<p><span class="math display">\[{\bf K}_n^{(i)} \Delta \overline{\bf U}_n^{(i)} = {\bf R}_n^{(i)}\]</span></p>
 <p>where now</p>
-<p><span class="math display">\[\Delta \U_n^{(i)} = \Delta \lambda_n^{(i)} \Delta \dot{\bf U}_n^{(i)} +
+<p><span class="math display">\[\Delta {\bf U}_n^{(i)} = \Delta \lambda_n^{(i)} \Delta \dot{\bf U}_n^{(i)} +
 \Delta \overline{\bf U}_n^{(i)}  
 \label{splitForm}\]</span></p>
 <p>We now rewrite the constraint equation based on two conditions:</p>
 <ol type="1">
-<li><p><strong><span class="math inline">\(i = 1\)</span></strong>: assuming <span class="math inline">\(\R_n^{(1)} = \zero\)</span>, i.e. the system is in equilibrium at the start of the iteration, the following is obtained</p>
-<p><span class="math display">\[\Delta \U_n^{(1)} = \Delta \lambda_n^{(1)} \Delta \dot{\bf U}_n^{(1)} + \zero\]</span></p>
+<li><p><strong><span class="math inline">\(i = 1\)</span></strong>: assuming <span class="math inline">\({\bf R}_n^{(1)} = \zero\)</span>, i.e. the system is in equilibrium at the start of the iteration, the following is obtained</p>
+<p><span class="math display">\[\Delta {\bf U}_n^{(1)} = \Delta \lambda_n^{(1)} \Delta \dot{\bf U}_n^{(1)} + \zero\]</span></p>
 <p><span class="math display">\[\Delta \lambda_n^{(1)} = \begin{array}{c} + \\ - \end{array}
 \sqrt{\frac{\Delta s^2}{\dot{\bf U}^T \dot{\bf U}+ \alpha^2}}\]</span></p>
 <p>The question now is whether <strong>+</strong> or <strong>-</strong> should be used. In this class, <span class="math inline">\(d \lambda\)</span> from the previous iteration <span class="math inline">\((n-1)\)</span> is used, if it was positive <strong>+</strong> is assumed, otherwise <strong>-</strong>. This may change. There are other ideas: ?(REF) number of negatives on diagonal of decomposed matrix, ...</p></li>
 <li><p><strong><span class="math inline">\(i &gt; 1\)</span></strong></p>
-<p><span class="math display">\[\left( \Delta \U_n^{(i)} + d\U^{(i)} \right)^T \left( \Delta \U_n^{(i)} +
-d\U^{(i)} \right) + \alpha^2 \left( \Delta \lambda_n^{(i)} + d\lambda^{(i)}
+<p><span class="math display">\[\left( \Delta {\bf U}_n^{(i)} + d{\bf U}^{(i)} \right)^T \left( \Delta {\bf U}_n^{(i)} +
+d{\bf U}^{(i)} \right) + \alpha^2 \left( \Delta \lambda_n^{(i)} + d\lambda^{(i)}
 \right)^2 = \Delta s^2\]</span></p>
-<p><span class="math display">\[\Delta {\U_n^{(i)}}^T\Delta \U_n^{(i)} + 2{d\U^{(i)}}^T\Delta \U_n^{(i)} + {d\U^{(i)}}^T d\U^{(i)}
+<p><span class="math display">\[\Delta {{\bf U}_n^{(i)}}^T\Delta {\bf U}_n^{(i)} + 2{d{\bf U}^{(i)}}^T\Delta {\bf U}_n^{(i)} + {d{\bf U}^{(i)}}^T d{\bf U}^{(i)}
 + \alpha^2 \Delta {\lambda_n^{(i)}}^2
 + 2 \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)} + \alpha^2 {d\lambda^{(i)}}^2
 = \Delta s^2\]</span></p>
-<p>assuming the constraint equation was solved at <span class="math inline">\(i-1\)</span>, i.e. <span class="math inline">\({d\U^{(i)}}^T d\U^{(i)} + \alpha^2 {d\lambda^{(i)}}^2 = \Delta s^2\)</span>, this reduces to</p>
-<p><span class="math display">\[\Delta {\U_n^{(i)}}^T\Delta \U_n^{(i)} + 2{d\U^{(i)}}^T\Delta \U_n^{(i)} + 
+<p>assuming the constraint equation was solved at <span class="math inline">\(i-1\)</span>, i.e. <span class="math inline">\({d{\bf U}^{(i)}}^T d{\bf U}^{(i)} + \alpha^2 {d\lambda^{(i)}}^2 = \Delta s^2\)</span>, this reduces to</p>
+<p><span class="math display">\[\Delta {{\bf U}_n^{(i)}}^T\Delta {\bf U}_n^{(i)} + 2{d{\bf U}^{(i)}}^T\Delta {\bf U}_n^{(i)} + 
 \alpha^2 \Delta {\lambda_n^{(i)}}^2
 + 2 \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)} 
 = 0\]</span></p>
-<p>For our ArcLength1 method we make the ADDITIONAL assumption that <span class="math inline">\(2{d\U^{(i)}}^T\Delta \U_n^{(i)} + 2 \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)}\)</span> <span class="math inline">\(&gt;&gt;\)</span> <span class="math inline">\(\Delta {\U_n^{(i)}}^T\Delta \U_n^{(i)} + \alpha^2 \Delta {\lambda_n^{(i)}}^2\)</span> the constraint equation at step <span class="math inline">\(i\)</span> reduces to</p>
-<p><span class="math display">\[{d\U^{(i)}}^T\Delta \U_n^{(i)} 
+<p>For our ArcLength1 method we make the ADDITIONAL assumption that <span class="math inline">\(2{d{\bf U}^{(i)}}^T\Delta {\bf U}_n^{(i)} + 2 \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)}\)</span> <span class="math inline">\(&gt;&gt;\)</span> <span class="math inline">\(\Delta {{\bf U}_n^{(i)}}^T\Delta {\bf U}_n^{(i)} + \alpha^2 \Delta {\lambda_n^{(i)}}^2\)</span> the constraint equation at step <span class="math inline">\(i\)</span> reduces to</p>
+<p><span class="math display">\[{d{\bf U}^{(i)}}^T\Delta {\bf U}_n^{(i)} 
 + \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)} = 0\]</span></p>
 <p>hence if the class was to solve an <span class="math inline">\(N+1\)</span> system of equations at each step, the system would be:</p>
 <p><span class="math display">\[\left[
 \begin{array}{cc}
-\K_n^{(i)} &amp; -\P \\
-{d\U^{(i)}}^T &amp; \alpha^2 d\lambda^{(i)} 
+{\bf K}_n^{(i)} &amp; -{\bf P} \\
+{d{\bf U}^{(i)}}^T &amp; \alpha^2 d\lambda^{(i)} 
 \end{array} \right] 
 \left\{
 \begin{array}{c}
-\Delta \U_n^{(i)} \\
+\Delta {\bf U}_n^{(i)} \\
 \Delta \lambda_n^{(i)}
 \end{array} \right\} = \left\{
 \begin{array}{c}
-\lambda_n^{(i)} \P - \F_R(\U_n^{(i)}) \\
+\lambda_n^{(i)} {\bf P} - {\bf F}_R({\bf U}_n^{(i)}) \\
 0
 \end{array} \right\}\]</span></p>
 <p>instead of solving an <span class="math inline">\(N+1\)</span> system, equation <a href="#splitForm" data-reference-type="ref" data-reference="splitForm">[splitForm]</a> is used to give</p>
-<p><span class="math display">\[{d\U^{(i)}}^T \left(\Delta \lambda_n^{(i)} \Delta \dot{\bf U}_n^{(i)} + \Delta
+<p><span class="math display">\[{d{\bf U}^{(i)}}^T \left(\Delta \lambda_n^{(i)} \Delta \dot{\bf U}_n^{(i)} + \Delta
 \overline{\bf U}_n^{(i)}\right) 
 + \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)} = 0\]</span></p>
 <p>which knowing <span class="math inline">\(\dot{\bf U}_n^{(i)}\)</span> and <span class="math inline">\(\overline{\bf U}_n^{(i)}\)</span> can be solved for <span class="math inline">\(\Delta \lambda_n^{(i)}\)</span></p>
-<p><span class="math display">\[\Delta \lambda_n^{(i)} = -\frac{{d\U^{(i)}}^T \Delta \overline{\bf U}_n^{(i)}}{{d\U^{(i)}}^T \Delta
+<p><span class="math display">\[\Delta \lambda_n^{(i)} = -\frac{{d{\bf U}^{(i)}}^T \Delta \overline{\bf U}_n^{(i)}}{{d{\bf U}^{(i)}}^T \Delta
 \dot{\bf U}_n^{(i)} + \alpha^2 d\lambda^{(i)}}\]</span></p></li>
 </ol>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
@@ -6179,17 +6178,17 @@ d\U^{(i)} \right) + \alpha^2 \left( \Delta \lambda_n^{(i)} + d\lambda^{(i)}
 <p><br />
 </p>
 <p><br />
-The integer INTEGRATOR_TAGS_ArcLength1 (defined in <span class="math inline">\(&lt;\)</span>classTags.h<span class="math inline">\(&gt;\)</span>) is passed to the StaticIntegrator classes constructor. The value of <span class="math inline">\(\alpha\)</span> is set to <em>alpha</em> and <span class="math inline">\(\Delta s\)</span> to <em>dS</em>.</p>
+The integer <code>INTEGRATOR_TAGS_ArcLength</code>1 (defined in <code>&lt;classTags.h&gt;</code>) is passed to the StaticIntegrator classes constructor. The value of <span class="math inline">\(\alpha\)</span> is set to <em>alpha</em> and <span class="math inline">\(\Delta s\)</span> to <em>dS</em>.</p>
 <p><br />
 Invokes the destructor on the Vector objects created in <code>domainChanged()</code>.</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">newStep</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p><code>newStep()</code> performs the first iteration, that is it solves for <span class="math inline">\(\lambda_n^{(1)}\)</span> and <span class="math inline">\(\Delta \U_n^{(1)}\)</span> and updates the model with <span class="math inline">\(\Delta \U_n^{(1)}\)</span> and increments the load factor by <span class="math inline">\(\lambda_n^{(1)}\)</span>. To do this it must set the rhs of the LinearSOE to <span class="math inline">\(\P\)</span>, invoke <code>formTangent()</code> on itself and solve the LinearSOE to get <span class="math inline">\(\Delta \dot{\bf U}_n^{(1)}\)</span>.</p>
+<p><code>newStep()</code> performs the first iteration, that is it solves for <span class="math inline">\(\lambda_n^{(1)}\)</span> and <span class="math inline">\(\Delta {\bf U}_n^{(1)}\)</span> and updates the model with <span class="math inline">\(\Delta {\bf U}_n^{(1)}\)</span> and increments the load factor by <span class="math inline">\(\lambda_n^{(1)}\)</span>. To do this it must set the rhs of the LinearSOE to <span class="math inline">\(\P\)</span>, invoke <code>formTangent()</code> on itself and solve the LinearSOE to get <span class="math inline">\(\Delta \dot{\bf U}_n^{(1)}\)</span>.</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">$</span><span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">U$</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>Note the argument <span class="math inline">\(\Delta U\)</span> should be equal to <span class="math inline">\(\Delta \overline{\bf U}_n^{(i)}\)</span>. The object then determines <span class="math inline">\(\Delta \dot{\bf U}_n^{(i)}\)</span> by setting the rhs of the linear system of equations to be <span class="math inline">\(\P\)</span> and then solving the linearSOE. It then solves for <span class="math inline">\(\Delta \lambda_n^{(i)}\)</span> and <span class="math inline">\(\Delta \U_n^{(i)}\)</span> and updates the model with <span class="math inline">\(\Delta \U_n^{(i)}\)</span> and increments the load factor by <span class="math inline">\(\Delta \lambda_n^{(i)}\)</span>. Sets the vector <span class="math inline">\(x\)</span> in the LinearSOE object to be equal to <span class="math inline">\(\Delta \U_n^{(i)}\)</span> before returning (this is for the convergence test stuff.</p>
+<p>Note the argument <span class="math inline">\(\Delta U\)</span> should be equal to <span class="math inline">\(\Delta \overline{\bf U}_n^{(i)}\)</span>. The object then determines <span class="math inline">\(\Delta \dot{\bf U}_n^{(i)}\)</span> by setting the rhs of the linear system of equations to be <span class="math inline">\(\P\)</span> and then solving the linearSOE. It then solves for <span class="math inline">\(\Delta \lambda_n^{(i)}\)</span> and <span class="math inline">\(\Delta {\bf U}_n^{(i)}\)</span> and updates the model with <span class="math inline">\(\Delta {\bf U}_n^{(i)}\)</span> and increments the load factor by <span class="math inline">\(\Delta \lambda_n^{(i)}\)</span>. Sets the vector <span class="math inline">\(x\)</span> in the LinearSOE object to be equal to <span class="math inline">\(\Delta {\bf U}_n^{(i)}\)</span> before returning (this is for the convergence test stuff.</p>
 <p>The object creates the Vector objects it needs. Vectors are created to stor <span class="math inline">\(\P\)</span>, <span class="math inline">\(\Delta \overline{\bf U}_n^{(i)}\)</span>, <span class="math inline">\(\Delta \dot{\bf U}_n^{(i)}\)</span>, <span class="math inline">\(\Delta \overline{\bf U}_n^{(i)}\)</span>, <span class="math inline">\(dU^{(i)}\)</span>. To form <span class="math inline">\(\P\)</span>, the current load factor is obtained from the model, it is incremented by <span class="math inline">\(1.0\)</span>, <code>formUnbalance()</code> is invoked on the object, and the <span class="math inline">\(b\)</span> vector is obtained from the linearSOE. This is <span class="math inline">\(\P\)</span>, the load factor on the model is then decremented by <span class="math inline">\(1.0\)</span>. <em>int sendSelf(int commitTag, Channel &amp;theChannel);</em><br />
 Places the values of <span class="math inline">\(\Delta s\)</span> and <span class="math inline">\(\alpha\)</span> in a vector of size <span class="math inline">\(2\)</span> and invokes <code>sendVector()</code> on <em>theChannel</em>. Returns <span class="math inline">\(0\)</span> if successful, a warning message is printed and a <span class="math inline">\(-1\)</span> is returned if <em>theChannel</em> fails to send the Vector. <em>int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</em><br />
 Receives in a Vector of size 2 the values of <span class="math inline">\(\Delta s\)</span> and <span class="math inline">\(\alpha\)</span>. Returns <span class="math inline">\(0\)</span> if successful, a warning message is printed, <span class="math inline">\(\delta \lambda\)</span> is set to <span class="math inline">\(0\)</span>, and a <span class="math inline">\(-1\)</span> is returned if <em>theChannel</em> fails to receive the Vector.</p>

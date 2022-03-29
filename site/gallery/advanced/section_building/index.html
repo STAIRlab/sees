@@ -2130,7 +2130,8 @@
   
     <li class="md-nav__item">
       <a href="../../../developer/class_interface/analysis/integrator/HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6133,16 +6134,10 @@
 <p><img src="../../../static/afa1e3e76c36377b86f324558633d6f390ff3b47.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
-<div class="cell code" data-execution_count="3">
-<div class="highlight"><pre><span></span><span class="c1"># from SectionLib import sees2gmsh, plot</span>
-<span class="c1"># plot(sees2gmsh(s, (10,10)))</span>
-</pre></div>
-
-</div>
 <div class="cell markdown">
 <p>Print section properties:</p>
 </div>
-<div class="cell code" data-execution_count="4">
+<div class="cell code" data-execution_count="3">
 <div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ixc</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iyc</span><span class="p">)</span>
@@ -6161,34 +6156,33 @@
 <p>Additionally, the <code>SectionLib</code> module provides convenient wrappers for building complex sections.</p>
 <p>The <code>Octagon</code> function from this library can be called in 3 ways:</p>
 <ul>
-<li><code>Octagon(radius)</code> Constructs an octagon.</li>
-<li><code>Octagon(extRad, intRad)</code> Constructs an octagonal annulus</li>
-<li><code>Octagon(extRad, extRad)</code> (ie when both arguments are equal) Constructs an octagonal boundary line.</li>
+<li><code>ConfinedPolygon(radius)</code> Constructs an octagon.</li>
+<li><code>PolygonRing(extRad, intRad, n)</code> Constructs an <code>n</code>-gon annulus <!-- - `Octagon(extRad, extRad)` (ie when both arguments are equal) Constructs an octagonal boundary line. --></li>
 </ul>
 </div>
-<div class="cell code" data-execution_count="5">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opensees.section</span> <span class="kn">import</span> <span class="n">ConfinedOctagon</span> <span class="k">as</span> <span class="n">Octagon</span>
+<div class="cell code" data-execution_count="4">
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opensees.section</span> <span class="kn">import</span> <span class="n">ConfinedPolygon</span>
 </pre></div>
 
 </div>
-<div class="cell code" data-execution_count="6" data-tags="[]">
-<div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">Octagon</span><span class="p">(</span><span class="mi">20</span><span class="p">));</span>
+<div class="cell code" data-execution_count="5" data-tags="[]">
+<div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">section</span><span class="o">.</span><span class="n">ConfinedPolygon</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">20</span><span class="p">));</span>
 </pre></div>
 
 <div class="output display_data">
 <p><img src="../../../static/f934cee962fe1af3164a0743bb6266eec86da25a.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
-<div class="cell code" data-execution_count="7">
-<div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">Octagon</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">));</span>
+<div class="cell code" data-execution_count="6">
+<div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">section</span><span class="o">.</span><span class="n">PolygonRing</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">));</span>
 </pre></div>
 
 <div class="output display_data">
-<p><img src="../../../static/0cd4901b9544f12a4792d12ecf138c5502aa1a4e.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../static/39110153d51fd033a3dec2a768c4bf9c5ec9fa7a.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
-<div class="cell code" data-execution_count="8">
-<div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">Octagon</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">));</span>
+<div class="cell code" data-execution_count="7">
+<div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">section</span><span class="o">.</span><span class="n">ConfinedPolygon</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">));</span>
 </pre></div>
 
 <div class="output display_data">
@@ -6198,95 +6192,76 @@
 <section id="define-damage-state-regions-the-get_fibers-module-2-define-damage-state-regions-the-get_fibers-module" class="cell markdown" data-tags="[]">
 <h3>2) Define damage state regions; the <code>get_fibers</code> module {#2-define-damage-state-regions-the-get_fibers-module}</h3>
 </section>
-<div class="cell code" data-execution_count="9" data-tags="[]">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">get_fibers</span> <span class="kn">import</span> <span class="n">iter_elem_fibers</span>
+<div class="cell code" data-execution_count="8" data-tags="[]">
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fiberRecorders</span> <span class="kn">import</span> <span class="n">iter_elem_fibers</span><span class="p">,</span> <span class="n">damage_states</span><span class="p">,</span> <span class="n">read_sect_xml</span>
 </pre></div>
 
 </div>
 <div class="cell markdown">
 <p>The <code>get_fibers</code> module provides the helper function <code>iter_elem_fibers</code> for iterating over a filtered collection of fibers. Fibers are filtered out by supplying a <em>damage state</em> dictionary with a required <code>"regions"</code> field, and optional <code>"material"</code> field.</p>
 </div>
-<div class="cell code" data-execution_count="10" data-tags="[]">
+<div class="cell code" data-execution_count="9" data-tags="[]">
 <div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opensees.units.english</span> <span class="kn">import</span> <span class="n">ft</span><span class="p">,</span> <span class="n">inch</span>
 </pre></div>
 
 </div>
-<div class="cell code" data-execution_count="11">
-<div class="highlight"><pre><span></span><span class="n">ft</span><span class="p">,</span> <span class="n">inch</span>
-</pre></div>
-
-<div class="output execute_result" data-execution_count="11">
-<div class="highlight"><pre><span></span>(12.000000000000002, 1.0)
-</pre></div>
-
-</div>
-</div>
-<div class="cell code" data-execution_count="12">
+<div class="cell code" data-execution_count="10">
 <div class="highlight"><pre><span></span><span class="n">Dcol</span> <span class="o">=</span> <span class="mi">7</span><span class="o">*</span><span class="n">ft</span>
 <span class="n">Rcol</span> <span class="o">=</span> <span class="n">Dcol</span><span class="o">/</span><span class="mi">2</span>
 <span class="n">cover</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">inch</span>
 </pre></div>
 
 </div>
-<div class="cell code" data-execution_count="13">
-<div class="highlight"><pre><span></span><span class="n">DS</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="c1"># Any outermost cover fiber</span>
-  <span class="s2">&quot;dsr1&quot;</span> <span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;regions&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="n">Octagon</span><span class="p">(</span><span class="n">Rcol</span><span class="p">,</span> <span class="n">Rcol</span><span class="p">)</span>
-      <span class="p">]</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;dsr2&quot;</span> <span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;regions&quot;</span><span class="p">:</span> <span class="p">[</span>
-          <span class="n">section</span><span class="o">.</span><span class="n">FiberSection</span><span class="p">(</span><span class="n">areas</span><span class="o">=</span><span class="p">[</span>
-              <span class="n">patch</span><span class="o">.</span><span class="n">circ</span><span class="p">(</span><span class="n">intRad</span><span class="o">=</span><span class="n">Rcol</span><span class="o">-</span><span class="n">cover</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">extRad</span><span class="o">=</span><span class="n">Rcol</span><span class="o">-</span><span class="n">cover</span><span class="p">)</span>
-          <span class="p">])</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;material&quot;</span><span class="p">:</span> <span class="s2">&quot;*steel*&quot;</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;dsr3&quot;</span> <span class="p">:</span> <span class="p">{</span>
-      <span class="s2">&quot;regions&quot;</span><span class="p">:</span> <span class="p">[</span>
-      <span class="c1">#             external radius      internal radius</span>
-          <span class="n">Octagon</span><span class="p">(</span><span class="n">Rcol</span><span class="o">-</span><span class="n">cover</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.75</span><span class="p">),</span> <span class="n">Rcol</span><span class="o">-</span><span class="n">cover</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.5</span><span class="p">))</span>
-      <span class="p">],</span>
-      <span class="s2">&quot;material&quot;</span><span class="p">:</span> <span class="s2">&quot;*concr*&quot;</span>
-  <span class="p">},</span>
-<span class="p">}</span>
+<div class="cell code" data-execution_count="11">
+<div class="highlight"><pre><span></span><span class="n">DS</span> <span class="o">=</span> <span class="n">damage_states</span><span class="p">(</span><span class="n">Dcol</span><span class="p">)</span>
 </pre></div>
 
 </div>
 <section id="iterating-over-fibers-3-iterating-over-fibers" class="cell markdown">
 <h3>3) Iterating over fibers {#3-iterating-over-fibers}</h3>
 </section>
-<div class="cell code" data-execution_count="14" data-tags="[]">
+<div class="cell code" data-execution_count="12" data-tags="[]">
 <div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 
 </div>
-<div class="cell code" data-execution_count="15">
+<div class="cell code" data-execution_count="13">
 <div class="highlight"><pre><span></span><span class="n">model_file</span> <span class="o">=</span> <span class="s2">&quot;modelDetails.json&quot;</span>
-<span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4020</span><span class="p">]</span>
+<span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4010</span><span class="p">]</span>
 </pre></div>
 
 </div>
-<div class="cell code" data-execution_count="16" data-tags="[]">
-<div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="cell code" data-execution_count="14" data-tags="[]">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 
 </div>
-<div class="cell code" data-execution_count="17">
-<div class="highlight"><pre><span></span><span class="n">ds1_fibers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr1&quot;</span><span class="p">])</span>
+<div class="cell markdown">
+<p>If the third argument to <code>iter_elem_fibers</code> is omitted, all fibers are returned (Underscores are used in the following cell to name unused variables).</p>
+</div>
+<div class="cell code" data-execution_count="15" data-scrolled="true" data-tags="[]">
+<div class="highlight"><pre><span></span><span class="n">all_fibers</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">__</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
+<span class="p">]</span>
+
+<span class="n">ds1_fibers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr1&quot;</span><span class="p">],</span> <span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="p">])</span>
 
 <span class="n">ds2_fibers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr2&quot;</span><span class="p">])</span>
+    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr2&quot;</span><span class="p">],</span> <span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="p">])</span>
 
 <span class="n">ds3_fibers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr3&quot;</span><span class="p">])</span>
+    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr3&quot;</span><span class="p">],</span> <span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="p">])</span>
+
+<span class="n">ds4_fibers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr3&quot;</span><span class="p">],</span> <span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="p">])</span>
 </pre></div>
 
@@ -6294,50 +6269,171 @@
 <section id="visualizing-3-visualizing" class="cell markdown">
 <h2>3) Visualizing {#3-visualizing}</h2>
 </section>
-<div class="cell markdown">
-<p>Patches can be superimposed for plotting purposes by adding them to a <code>Section</code> object like the one returned by the <code>Octagon</code> function. The <code>add_patches</code> method accepts a list of <code>Patch</code> objects; this list is constructed in the following cell by concatenating (<code>+</code> operator) the <code>patches</code> attributes of each of the previously defined damage regions.</p>
-</div>
-<div class="cell code" data-execution_count="18">
-<div class="highlight"><pre><span></span><span class="n">sect</span> <span class="o">=</span> <span class="n">Octagon</span><span class="p">(</span><span class="n">Dcol</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">sect</span><span class="o">.</span><span class="n">add_patches</span><span class="p">(</span>
-    <span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr1&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">layers</span> <span class="o">+</span>
-    <span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr2&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">patches</span> <span class="o">+</span>
-    <span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr3&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">patches</span>
-<span class="p">)</span>
+<div class="cell code" data-execution_count="16">
+<div class="highlight"><pre><span></span><span class="n">sect</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">ConfinedPolygon</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Dcol</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">sect</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr1&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr2&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;pink&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr3&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr4&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr5&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+<span class="c1"># ax.set_xlim([0, Rcol+1])</span>
+<span class="c1"># ax.set_ylim([-1, Rcol+1])</span>
 </pre></div>
 
 <div class="output display_data">
-<p><img src="../../../static/0777de62f19abb2df6391f0ac23717284df8511c.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../static/e0e4006626402ba9c58ca16fb7f0e9ed53379b2a.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
-<div class="cell code" data-execution_count="21">
+<div class="cell code" data-execution_count="17">
 <div class="highlight"><pre><span></span><span class="c1"># Create grid of points</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Create plot axis and add sections to it</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">sect</span><span class="p">)</span>
-<span class="c1"># ax.scatter(*list(zip(*ds1_fibers)), color=&quot;blue&quot;,  s=0.5)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ds2_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ds3_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>   <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr1&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr2&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;pink&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr3&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr4&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr5&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+
+<span class="c1"># add filtered fibers to plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">all_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ds1_fibers</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ds2_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span><span class="c1">#, s=0.8)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ds3_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="c1">#,  s=1)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ds4_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span><span class="c1">#,  s=1)</span>
+
+<span class="c1"># Set plot limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Rcol</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">Rcol</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="p">);</span>
 </pre></div>
 
 <div class="output display_data">
-<p><img src="../../../static/70d5ea5d9b9db9b0f86c3c87f54ab5026e58f3d9.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../static/d2d7abc516672d8a2dca6cda97819d9f1169a29b.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
-<div class="cell markdown">
-<p>If the third argument to <code>iter_elem_fibers</code> is omitted, all fibers are returned (Underscores are used in the following cell to name unused variables).</p>
-</div>
-<div class="cell code" data-execution_count="20">
-<div class="highlight"><pre><span></span><span class="n">all_fibers</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">__</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">[</span><span class="mi">4020</span><span class="p">])</span>
-<span class="p">]</span>
-
-<span class="n">ax</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">sect</span><span class="p">)</span>
+<div class="cell code" data-execution_count="18">
+<div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">sect</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">all_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
 </pre></div>
 
 <div class="output display_data">
-<p><img src="../../../static/89c78810faf03720f7a82a21cea0067af0fff401.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="../../../static/1ed6ba1ea94a349738168d1b58d6912cde6e7c05.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+</div>
+<div class="cell code" data-execution_count="19">
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fiber_strain</span><span class="p">(</span><span class="n">recorder_data</span><span class="p">,</span> <span class="n">el</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">eps</span> <span class="o">=</span> <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;eps&quot;</span><span class="p">][</span><span class="n">t</span><span class="p">]</span>
+        <span class="n">kz</span> <span class="o">=</span>  <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;kappaZ&quot;</span><span class="p">][</span><span class="n">t</span><span class="p">]</span>
+        <span class="n">ky</span> <span class="o">=</span>  <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;kappaY&quot;</span><span class="p">][</span><span class="n">t</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">eps</span> <span class="o">=</span> <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;eps&quot;</span><span class="p">]</span>
+        <span class="n">kz</span> <span class="o">=</span>  <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;kappaZ&quot;</span><span class="p">]</span>
+        <span class="n">ky</span> <span class="o">=</span>  <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;kappaY&quot;</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">eps</span> <span class="o">-</span> <span class="n">kz</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ky</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+<div class="cell code" data-execution_count="20">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="n">userHome</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">))</span>
+
+<span class="n">dataDir</span>    <span class="o">=</span> <span class="n">userHome</span><span class="o">/</span><span class="s2">&quot;brace&quot;</span><span class="o">/</span><span class="s2">&quot;Caltrans&quot;</span><span class="o">/</span><span class="s2">&quot;Caltrans.Hayward&quot;</span><span class="o">/</span><span class="s2">&quot;Procedures&quot;</span><span class="o">/</span><span class="s2">&quot;datahwd12.1&quot;</span>
+<span class="n">xmlName</span>    <span class="o">=</span> <span class="n">dataDir</span><span class="o">/</span> <span class="s2">&quot;SectionDeformationHist.xml&quot;</span>
+<span class="c1"># xmlNameFib = dataDir/ &quot;DynResponse&quot;/ &quot;LS7Top1.xml&quot;</span>
+<span class="n">jsonName</span>   <span class="o">=</span> <span class="n">dataDir</span><span class="o">/</span> <span class="s2">&quot;modelDetails.json&quot;</span>
+</pre></div>
+
+</div>
+<div class="cell code" data-execution_count="21">
+<div class="highlight"><pre><span></span><span class="n">recorder_data</span> <span class="o">=</span> <span class="n">read_sect_xml</span><span class="p">(</span><span class="n">xmlName</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">[</span><span class="mi">4020</span><span class="p">]):</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;strain&quot;</span><span class="p">:</span> <span class="n">fiber_strain</span><span class="p">(</span><span class="n">recorder_data</span><span class="p">,</span> <span class="s2">&quot;4020&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">)})</span>
+</pre></div>
+
+<div class="output error" data-ename="FileNotFoundError" data-evalue="[Errno 2] No such file or directory: &#39;C:\\Users\\16507\\brace\\Caltrans\\Caltrans.Hayward\\Procedures\\datahwd12.1\\SectionDeformationHist.xml&#39;">
+<div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span>                         <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+<span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Temp</span><span class="o">/</span><span class="n">ipykernel_33388</span><span class="o">/</span><span class="mf">555992919.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="n">recorder_data</span> <span class="o">=</span> <span class="n">read_sect_xml</span><span class="p">(</span><span class="n">xmlName</span><span class="p">)</span>
+      <span class="mi">2</span> 
+      <span class="mi">3</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="p">[</span><span class="mi">4020</span><span class="p">]):</span>
+      <span class="mi">4</span>     <span class="n">f</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;strain&quot;</span><span class="p">:</span> <span class="n">fiber_strain</span><span class="p">(</span><span class="n">recorder_data</span><span class="p">,</span> <span class="s2">&quot;4020&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="n">f</span><span class="p">)})</span>
+
+<span class="o">~</span>\<span class="n">Documents</span>\<span class="n">GitHub</span>\<span class="n">Scripts</span>\<span class="n">SectionRegions</span>\<span class="n">fiberRecorders</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span> <span class="n">read_sect_xml</span><span class="p">(</span><span class="n">xml_file</span><span class="p">)</span>
+    <span class="mi">154</span>     <span class="s2">&quot;Arpit Nema&quot;</span>
+    <span class="mi">155</span>     <span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">ET</span>
+<span class="o">--&gt;</span> <span class="mi">156</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">xml_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="mi">157</span>         <span class="n">xml_data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="mi">158</span>     <span class="n">root</span> <span class="o">=</span> <span class="n">ET</span><span class="o">.</span><span class="n">XML</span><span class="p">(</span><span class="n">xml_data</span><span class="p">)</span>  <span class="c1"># Parse XML</span>
+
+<span class="ne">FileNotFoundError</span><span class="p">:</span> <span class="p">[</span><span class="n">Errno</span> <span class="mi">2</span><span class="p">]</span> <span class="n">No</span> <span class="n">such</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">directory</span><span class="p">:</span> <span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">16507</span><span class="se">\\</span><span class="s1">brace</span><span class="se">\\</span><span class="s1">Caltrans</span><span class="se">\\</span><span class="s1">Caltrans.Hayward</span><span class="se">\\</span><span class="s1">Procedures</span><span class="se">\\</span><span class="s1">datahwd12.1</span><span class="se">\\</span><span class="s1">SectionDeformationHist.xml&#39;</span>
+</pre></div>
+
+</div>
+</div>
+<div class="cell code" data-execution_count="86">
+<div class="highlight"><pre><span></span><span class="n">regions</span> <span class="o">=</span> <span class="n">damage_states</span><span class="p">(</span><span class="mf">84.0</span><span class="p">)</span>
+<span class="n">elems</span><span class="o">=</span><span class="p">[</span><span class="mi">4020</span><span class="p">]</span>
+<span class="c1"># ds_strains = {</span>
+<span class="c1">#     # X,Y,epsRaw</span>
+<span class="c1">#     ds: tuple(zip(*(</span>
+<span class="c1">#             (</span>
+<span class="c1">#                 fib[&quot;coord&quot;][0], </span>
+<span class="c1">#                 fib[&quot;coord&quot;][1],</span>
+<span class="c1">#                  fiber_strain(recorder_data, elem[&quot;name&quot;], sec, fib)</span>
+<span class="c1">#             ) for elem, sec, fib in iter_elem_fibers(model, elems, [3], filt=regions[ds])</span>
+<span class="c1">#         )))</span>
+<span class="c1">#     for ds in [&quot;dsr1&quot;, &quot;dsr2&quot;]</span>
+<span class="c1"># }</span>
+<span class="n">regions</span> <span class="o">=</span> <span class="n">damage_states</span><span class="p">(</span><span class="mf">84.0</span><span class="p">)</span>
+<span class="n">elems</span><span class="o">=</span><span class="p">[</span><span class="mi">4020</span><span class="p">]</span>
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">epsRaw</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="n">fib</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> 
+                <span class="n">fib</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">fiber_strain</span><span class="p">(</span><span class="n">recorder_data</span><span class="p">,</span> <span class="n">elem</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">sec</span><span class="p">,</span> <span class="n">fib</span><span class="p">)</span>
+            <span class="p">)</span> <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dsr1&quot;</span><span class="p">,</span> <span class="s2">&quot;dsr2&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">elem</span><span class="p">,</span> <span class="n">sec</span><span class="p">,</span> <span class="n">fib</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elems</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">filt</span><span class="o">=</span><span class="n">regions</span><span class="p">[</span><span class="n">ds</span><span class="p">])</span>
+        <span class="p">)))</span>
+</pre></div>
+
+</div>
+<div class="cell code" data-execution_count="87">
+<div class="highlight"><pre><span></span><span class="c1"># X,Y,epsRaw = ds_strains[&quot;dsr1&quot;]</span>
+</pre></div>
+
+</div>
+<div class="cell code" data-execution_count="88">
+<div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">epsRaw</span><span class="p">)</span>
+</pre></div>
+
+<div class="output execute_result" data-execution_count="88">
+<div class="highlight"><pre><span></span>True
+</pre></div>
+
+</div>
+</div>
+<div class="cell code" data-execution_count="89">
+<div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">t</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">e</span><span class="o">.</span><span class="n">T</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">epsRaw</span><span class="p">])</span>
+</pre></div>
+
+</div>
+<div class="cell code" data-execution_count="90">
+<div class="highlight"><pre><span></span><span class="n">eps</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">t</span><span class="p">]</span>
+</pre></div>
+
+<div class="output execute_result" data-execution_count="90">
+<div class="highlight"><pre><span></span><span class="mf">1.0426353585660001e-09</span><span class="w"></span>
+</pre></div>
+
 </div>
 </div>
 <div class="cell code">

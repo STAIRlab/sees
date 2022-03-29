@@ -2137,7 +2137,8 @@
   
     <li class="md-nav__item">
       <a href="../HHT/" class="md-nav__link">
-        
+        HHT
+
       </a>
     </li>
   
@@ -6101,29 +6102,27 @@ ArcLength<br />
 DisplacementControl<br />
 </p>
 <p>StaticIntegrator is an abstract class. It is a subclass of IncrementalIntegrator provided to implement the common methods among integrator classes used in performing a static analysis on the FE_Model. The StaticIntegrator class provides an implementation of the methods to form the FE_Element and DOF_Group contributions to the tangent and residual. A pure virtual method <code>newStep()</code> is also defined in the interface, this is the method first called at each iteration in a static analysis, see the StaticAnalysis class. In static nonlinear finite element problems we seek a solution (<span class="math inline">\(\U\)</span>, <span class="math inline">\(\lambda\)</span>) to the nonlinear vector function</p>
-<p><span class="math display">\[\R(\U, \lambda) = \lambda \P - \F_R(\U) = \zero
+<p><span class="math display">\[\R(\U, \lambda) = \lambda {\bf P} - {\bf F}_R(\U) = \zero
 \label{staticGenForm}\]</span></p>
 <p>The most widely used technique for solving the non-linear finite element equation, equation <a href="#femGenForm" data-reference-type="ref" data-reference="femGenForm">[femGenForm]</a>, is to use an incremental scheme. In the incremental formulation, a solution to the equation is sought at successive incremental steps.</p>
-<p><span class="math display">\[\R(\U_{n}, \lambda_n) = \lambda_n \P - \F_R(\U_{n})
+<p><span class="math display">\[\R({\bf U}_{n}, \lambda_n) = \lambda_n {\bf P} - {\bf F}_R({\bf U}_{n})
 \label{staticIncForm}\]</span></p>
-<p>The solution of this equation is typically obtained using an iterative procedure, in which a sequence of approximations (<span class="math inline">\(\U_{n}^{(i)}\)</span>, <span class="math inline">\(\lambda_n^{(i)}\)</span>), <span class="math inline">\(i=1,2, ..\)</span> is obtained which converges to the solution (<span class="math inline">\(\U_n\)</span>, <span class="math inline">\(\lambda_n)\)</span>. The most frequently used iterative schemes, such as Newton-Raphson, modified Newton, and quasi Newton schemes, are based on a Taylor expansion of equation <a href="#staticIncForm" data-reference-type="ref" data-reference="staticIncForm">[staticIncForm]</a> about (<span class="math inline">\(\U_{n}\)</span>, <span class="math inline">\(\lambda_n\)</span>):</p>
-<p><span class="math display">\[\R(\U_{n},\lambda_n) = \lambda_n^{(i)} \P 
- - \f_{R}\left(\U_{n}^{(i)} \right) - \left[
+<p>The solution of this equation is typically obtained using an iterative procedure, in which a sequence of approximations (<span class="math inline">\({\bf U}_{n}^{(i)}\)</span>, <span class="math inline">\(\lambda_n^{(i)}\)</span>), <span class="math inline">\(i=1,2, ..\)</span> is obtained which converges to the solution (<span class="math inline">\({\bf U}_n\)</span>, <span class="math inline">\(\lambda_n)\)</span>. The most frequently used iterative schemes, such as Newton-Raphson, modified Newton, and quasi Newton schemes, are based on a Taylor expansion of equation <a href="#staticIncForm" data-reference-type="ref" data-reference="staticIncForm">[staticIncForm]</a> about (<span class="math inline">\({\bf U}_{n}\)</span>, <span class="math inline">\(\lambda_n\)</span>):</p>
+<p><span class="math display">\[\R({\bf U}_{n},\lambda_n) = \lambda_n^{(i)} {\bf P} 
+ - {\bf F}_{R}\left({\bf U}_{n}^{(i)} \right) - \left[
 \begin{array}{cc}
-\K_n^{(i)} &amp; -\P \\
+{\bf K}_n^{(i)} &amp; -{\bf P} \\
 \end{array} \right] 
 \left\{
 \begin{array}{c}
-\U_{n} - \U_{n}^{(i)}  \\ 
+{\bf U}_{n} - {\bf U}_{n}^{(i)}  \\ 
 \lambda_n - \lambda_n^{(i)} 
 \end{array} \right\}
 \label{staticFormTaylor}\]</span></p>
 <p>which a system of of <span class="math inline">\(N\)</span> equations with (<span class="math inline">\(N+1\)</span>) unknowns. Two solve this, an additional equation is required, the constraint equation. The constraint equation used depends on the static integration scheme, of which there are a number, for example load control, arc length, and displacement control.</p>
-<p>// Constructors<br />
-</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
-// Destructor<br />
-</p>
+### Destructor</p>
 <p><br />
 // Public Methods<br />
 </p>
