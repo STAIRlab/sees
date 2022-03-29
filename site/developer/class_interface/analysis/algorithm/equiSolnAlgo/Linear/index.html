@@ -15,7 +15,7 @@
     
     
       
-        <title>OpenSees</title>
+        <title>Linear - OpenSees</title>
       
     
     
@@ -94,7 +94,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Linear
+
             
           </span>
         </div>
@@ -1458,7 +1459,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
+        Linear
+
       </a>
       
     </li>
@@ -2260,7 +2262,8 @@
   
     <li class="md-nav__item">
       <a href="../../../integrator/TransientIntegrator/" class="md-nav__link">
-        
+        TransientIntegrator
+
       </a>
     </li>
   
@@ -6086,42 +6089,31 @@
 </a>
 
 
-  <h1>OpenSees</h1>
-
-<p><br />
-# Linear</p>
+<h1 id="linear">Linear</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/algorithm/equiSolnAlgo/Linear.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Linear</span><span class="o">:</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="n">EquiSolnAlg</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">MovableObject</span><span class="w"></span>
+<span class="w">       </span><span class="n">SolutionAlgorithm</span><span class="w"></span>
+<span class="w">       </span><span class="n">EquiSolnAlgo</span><span class="w"></span>
 </pre></div>
 
-<p>class Linear: public EquiSolnAlg;<br />
-</p>
-<p>MovableObject<br />
-SolutionAlgorithm<br />
-EquiSolnAlgo<br />
-</p>
-<p><br />
-The Linear class is an algorithmic class which uses the linear solution algorithm to solve the equations. This is based on a Taylor expansion of the linear system <span class="math inline">\(\R(\U) = \zero\)</span> about an approximate solution <span class="math inline">\({\bf U}_{a}\)</span>.</p>
+<p>The Linear class is an algorithmic class which uses the linear solution algorithm to solve the equations. This is based on a Taylor expansion of the linear system <span class="math inline">\(\R(\U) = \zero\)</span> about an approximate solution <span class="math inline">\({\bf U}_{a}\)</span>.</p>
 <p><span class="math display">\[\R(\U) = 
 \R({\bf U}_{a}) +
 \left[ {\frac{\partial \R}{\partial \U} \vert}_{{\bf U}_{a}}\right]
 \left( {\bf U} - {\bf U}_{a} \right)\]</span> which can be expressed as: <span class="math display">\[\
 {\bf K}_{a} \Delta {\bf U} = \R({\bf U}_{a})\]</span> which is solved for <span class="math inline">\(\Delta \U\)</span> to give the approximation <span class="math inline">\({\bf U} = {\bf U}_{a} + \Delta \U\)</span>. To start the iteration <span class="math inline">\({\bf U}_a = {\bf U}_{trial}\)</span>, i.e. the current trial response quantities are chosen as approximate solution quantities.</p>
 <h3 id="constructor">Constructor</h3>
-<p><br />
-### Destructor</p>
-<p><br />
-// Public Methods<br />
-</p>
-<p><br />
-// Public Methods for Output<br />
-</p>
+<h3 id="destructor">Destructor</h3>
+<h3 id="public-methods">Public Methods</h3>
+<p>// Public Methods for Output</p>
 <p><br />
 </p>
 <p><br />
 </p>
-<p>The integer <em>EquiALGORITHM_TAGS_Linear</em> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the EquiSolnAlgo classes constructor.</p>
-<p><br />
-</p>
+<p>The integer <code>EquiALGORITHM_TAGS_Linear</code> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the EquiSolnAlgo classes constructor.</p>
 <p><br />
 This method performs the linear solution algorithm:</p>
 <div class="tabbing">
