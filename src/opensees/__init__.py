@@ -104,8 +104,9 @@ class Assembly:
             **kwds
         }})
 
-    def boun():
-        pass
+    def elem(self,*args,**kwds):
+        return self.conn(*args, **kwds)
+
 
     def foun(self, name, typ, node):
         self.m_nodes.update({name: self.m_nodes[node](name=name,boun=[1]*self.ndf)})
@@ -133,7 +134,12 @@ class Assembly:
         for con in self.m_conns.values():
             typ = con.pop("type")
             tag = con.pop("name")
-            elem = partials[typ](**con)
+            if typ in partials:
+                elem = partials[typ](**con)
+            else:
+                elem = typ(**con)
+                # partials.update({f"elem_{id(elem)}": elem})
+                partials.update({f"{tag}": typ})
             elem.partial = typ
             elems.update({tag: elem})
 
@@ -276,47 +282,47 @@ def _filter_nodes_by_coords(x, y, z):
         return match
     return f
 
-if __name__=="__main__":
-    import opensees.tcl
-    PROMPT = "\033\\[01;32mopensees\033\\[0m > "
-
-# Path to Tcl script which loads commands
-    INIT_TCL = ""
-
-    TCL_MAIN = f"""
-
-    set cmd ""
-    set repl_flag true
-    proc exit {{}} {{upvar repl_flag flag; set flag false}}
-    while {{ $repl_flag }} {{
-      puts -nonewline "{PROMPT}"
-      flush stdout
-      if {{[gets stdin line] < 0 }} break
-      append cmd $line "\\n"
-      if {{![info complete $cmd]}} {{
-        set prompt ""
-        continue
-      }}
-      set prompt "{PROMPT}"
-
-      if {{[catch $cmd msg]}} {{
-        puts stderr "Error: $msg"
-      }} elseif {{$msg ne ""}} {{
-        puts $msg
-      }}
-
-      set cmd ""
-    }}
-    """
-
-
-    import sys
-    tcl = opensees.tcl.TclInterpreter()
-    if len(sys.argv) == 1:
-        tcl.eval(TCL_MAIN)
-    else:
-        for filename in sys.argv[1:]:
-            tcl.eval(open(filename).read())
+# if __name__=="__main__":
+#     import opensees.tcl
+#     PROMPT = "\033\\[01;32mopensees\033\\[0m > "
+# 
+# # Path to Tcl script which loads commands
+#     INIT_TCL = ""
+# 
+#     TCL_MAIN = f"""
+# 
+#     set cmd ""
+#     set repl_flag true
+#     proc exit {{}} {{upvar repl_flag flag; set flag false}}
+#     while {{ $repl_flag }} {{
+#       puts -nonewline "{PROMPT}"
+#       flush stdout
+#       if {{[gets stdin line] < 0 }} break
+#       append cmd $line "\\n"
+#       if {{![info complete $cmd]}} {{
+#         set prompt ""
+#         continue
+#       }}
+#       set prompt "{PROMPT}"
+# 
+#       if {{[catch $cmd msg]}} {{
+#         puts stderr "Error: $msg"
+#       }} elseif {{$msg ne ""}} {{
+#         puts $msg
+#       }}
+# 
+#       set cmd ""
+#     }}
+#     """
+# 
+# 
+#     import sys
+#     tcl = opensees.tcl.TclInterpreter()
+#     if len(sys.argv) == 1:
+#         tcl.eval(TCL_MAIN)
+#     else:
+#         for filename in sys.argv[1:]:
+#             tcl.eval(open(filename).read())
 
 
 

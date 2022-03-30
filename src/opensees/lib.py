@@ -10,7 +10,7 @@ def Yng(**kwds):
 def Area(**kwds):
     return Num("A", field="area", about="cross-sectional area", **kwds)
 
-Node = cmd("Node", "Node", [
+Node = cmd("Node", "node", [
     Tag(),
     Grp("crd", type=Num, args=[Num("x"),Num("y"), Num("z")]),
     Grp("mass", flag="-mass", reqd=False, default=[0.0]*6, args=[
@@ -98,6 +98,9 @@ class uniaxial:
         )
 
 class element:
+    Iyc = lambda: Num("iyc", field="iyc",  about="Centroidal moment of inertia", alt="section")
+    Ixc = lambda: Num("ixc", field="ixc",  about="", alt="section")
+
     ZeroLength3D = Ele("ZeroLength3D",
         "zeroLength",
         args = [
@@ -149,8 +152,10 @@ class element:
             Num("G",    field="shear_modulus",   about="", alt="material"),
             Num("J",    field="torsion_modulus", about="", alt="section"),
             #Grp("moi", ctype="struct", args=[
-              Num("Iy", field="iyy",  about="", alt="section"),
-              Num("Iz", field="ixx",  about="", alt="section"),
+              #Num("iyc", field="iyc",  about="Centroidal moment of inertia", alt="section"),
+              #Num("ixc", field="ixc",  about="", alt="section"),
+              Iyc(),
+              Ixc(),
             #]),
             Ref("geom",  field="transform",    type=Trf, attr="name"),
             Num("mass",field="mass_density", flag="-mass", default=0.0, reqd=False, 

@@ -216,10 +216,10 @@ class quad(_Polygon):
 
 def rhom(center, height, width, slope=None, divs=(0,0)):
     vertices = [
-        [center[0] - width/2 + 1/slope*height/2, center[1] + height/2],
-        [center[0] - width/2 - 1/slope*height/2, center[1] - height/2],
-        [center[0] + width/2 - 1/slope*height/2, center[1] - height/2],
-        [center[0] + width/2 + 1/slope*height/2, center[1] + height/2]
+        [center[0] - width/2 + slope*height/2, center[1] + height/2],
+        [center[0] - width/2 - slope*height/2, center[1] - height/2],
+        [center[0] + width/2 - slope*height/2, center[1] - height/2],
+        [center[0] + width/2 + slope*height/2, center[1] + height/2]
     ]
     return quad(vertices=vertices, div=divs)
 
