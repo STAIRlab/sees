@@ -1,3 +1,5 @@
+from math import sin, cos, pi, isclose
+
 from opensees import section, patch
 """
 This test validates section properties.
@@ -34,6 +36,24 @@ def test():
     #                           Ia        d      area         Ib
     assert sect.ixc == 2 * (4*16**3/12 + 1.2**2*(16*4)) + (8*4**3/12 + 4*8*4.8**2)
 
+def test_sector():
+    r = 20.
+    a = pi/7
+    A = a*r**2
+    ixc = ixo = r**4/4*(a - sin(a)*cos(a))
+    iyo = r**4/4*(a + sin(a)*cos(a))
+    yc = 2*r*sin(a)/(3*a)
+    iyc = ixo + A*yc**2
+
+    sect = patch.circ(extRad=r,startAng=pi/2-a,endAng=pi/2+a)
+
+    assert isclose(sect.centroid[1], yc)
+    assert isclose(sect.centroid[0], 0.)
+    assert isclose(sect.area, A), f"{sect.area, A}"
+    assert isclose(sect.ixc, ixc), f"{sect.ixc, ixc, iyc}"
+    assert isclose(sect.iyc, iyc)
+
+
 
 def test_polygon():
     import math
@@ -47,3 +67,4 @@ if __name__ == "__main__":
     test()
     test_polygon()
 
+    test_sector()

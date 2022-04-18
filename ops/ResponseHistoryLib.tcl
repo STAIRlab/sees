@@ -6,6 +6,7 @@
 
 proc quakeSeries {tag file channel args} {
     # Parse options
+    # https://stackoverflow.com/questions/31110082/how-to-create-tcl-proc-with-hyphen-flag-arguments
     array set options {-scale {} -scale 1.0 -quxwoo 1}
     while {[llength $args]} {
         switch -glob -- [lindex "$args" 0] {
@@ -59,7 +60,7 @@ proc quakeSeries {tag file channel args} {
         switch -glob -- [lindex "$args" 0] {
             UniformQuake  {
               set args [lassign $args - dof]
-              lassign [opensees::lib::quakeSeries $current_series_tag {*}$args] num_steps dt
+              lassign [ops::lib::quakeSeries $current_series_tag {*}$args] num_steps dt
               pattern UniformExcitation $current_pattern_tag $dof -accel $current_series_tag
               incr current_pattern_tag
               incr current_series_tag
