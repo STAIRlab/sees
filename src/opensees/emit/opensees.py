@@ -2,6 +2,8 @@ from .writer import ModelWriter
 
 class OpenSeesWriter(ModelWriter):
     def __init__(self, model=None):
+        if hasattr(model,"apply"):
+            model = model.apply({})
         self.model = model
         self.comment_char = "#"
 
@@ -15,7 +17,6 @@ class OpenSeesWriter(ModelWriter):
         cmds += f"lassign {{{dofs}}} {dof_keys}"
         return cmds
 
-    #@classmethod 
     def dump_elements(self, *elems, definitions={}):
         transforms = set()
         cmds = "\n".join(f"set {k} {v};" for k,v in definitions.items()) + "\n"

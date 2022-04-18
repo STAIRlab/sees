@@ -7,38 +7,11 @@ import math
 import fnmatch
 from .lib import Node, uniaxial, element
 from .obj import *
-
-class _Model:
-    def __init__(self, ndm, ndf, nodes, elems):
-        self.m_nodes = nodes
-        self.m_elems = elems
-        self.ndm = ndm
-        self.ndf = ndf
-
-    def get_node(self, tag):
-        if isinstance(tag,(str,int)):
-            return self.m_nodes[tag]
-
-    @property
-    def nodes(self):
-        return self.m_nodes.values()
-
-    @property
-    def elems(self):
-        return self.m_elems.values()
-
-    @property
-    def refs(self):
-        return set(sub for el in self.elems for sub in el.get_refs())
-
-    @property
-    def materials(self):
-        return set(a[0] for a in self.refs)
-
-
+from .model import model
 
 class Assembly:
-    def __init__(self, ndm, ndf, assm={}, partials={}, units="metric", **kwds):
+    def __init__(self, ndm, ndf, 
+            assm={}, partials={}, units="metric", **kwds):
         self._units = units
         self.meta = kwds
         self.ndm = ndm
@@ -49,22 +22,26 @@ class Assembly:
         self.m_links = {}
         self.m_nodes = {}
         self.m_bouns = {}
+        
+        #
+        # Book keeping
+        #
+        self.m_auto_assigned_conns = []
 
         if ndf == 2:
-            self.prob_type = '2d-truss'
             self.dof_names: dict = { 'x': 0, 'y': 1} # Degrees of freedom
         elif ndm == 2 and ndf ==3:
-            self.prob_type = '2d-frame'
             self.dof_names: dict = { 'x': 0, 'y': 1, 'xy':2}
         elif ndm == 3 and ndf ==3:
-            self.prob_type = '3d-truss'
             self.dof_names: dict = { 'x': 0, 'y': 1, 'z':2}
         elif ndm == 3 and ndf ==6:
-            self.prob_type = '3d-frame'
             self.dof_names: dict = { 'x': 0, 'y': 1, 'z':2, 'yz':3, 'zx':4, 'xy':5}
+
+        self.build(**kwds)
+    
     
 
-    def build(self, assm, partials):
+    def build(self, partials=None, **assm):
         self.m_nodes = {
             k: Node(*v) for k,v in assm["nodes"]
         }
@@ -78,16 +55,15 @@ class Assembly:
             ZeroLength() for k,v in assm["bound"]
         })
     
-    def get_node(self, tag):
-        if isinstance(tag,(str,int)):
-            return self.m_nodes[tag]
-
     @property
     def units(self):
         import elle.units
         return elle.units.UnitHandler(self._units)
 
-    
+    def get_node(self, tag):
+        if isinstance(tag,(str,int)):
+            return self.m_nodes[tag]
+ 
     def node(self, tag, *coords, **kwds):
         self.m_nodes.update({tag: Node(**{
             "name": tag,
@@ -96,7 +72,38 @@ class Assembly:
             **kwds,
         })})
 
-    def conn(self, tag, typ, nodes, **kwds):
+    def _new_elem_tag(self):
+        n = len(self.m_conns)
+        while n in self.m_conns:
+            n += 1
+        self.m_auto_assigned_conns.append(n)
+        return n
+
+    def conn(self, *args, **kwds):
+        """
+        elem(typ, [nodes])
+        elem(typ, [nodes], name)
+        elem(typ, name, [nodes])
+        """
+        typ = args[0]
+        if len(args) == 3:
+        # conn(typ, [nodes], name)
+        # conn(typ, name, [nodes])
+            if isinstance(args[1], (list,tuple,set)):
+                nodes = args[1]
+                tag = args[2]
+            else:
+                assert isinstance(args[2], (list,tuple,set))
+                nodes = args[2]
+                tag = args[1]
+            # TODO
+            assert tag not in self.m_auto_assigned_conns
+
+        else:
+        # conn(typ, [nodes])
+            tag = self._new_elem_tag()
+            nodes = args[1]
+
         self.m_conns.update({tag: {
             "type": typ,
             "name": tag,
@@ -189,6 +196,8 @@ class Assembly:
         """Define a fixed boundary condition at specified 
         degrees of freedom of the supplied node
 
+        > fix([nodes], dir..., x=None, y=None, z=None)
+
         Parameters
         ----------
         node: anabel.Node | Sequence[anabe.Node]
@@ -265,10 +274,40 @@ class Assembly:
             if flags[i]:
                 self.fix(node, dof)
 
+class _Model:
+    def __init__(self, ndm, ndf, nodes, elems):
+        self.m_nodes = nodes
+        self.m_elems = elems
+        self.ndm = ndm
+        self.ndf = ndf
+
+    def get_node(self, tag):
+        if isinstance(tag,(str,int)):
+            return self.m_nodes[tag]
+
+    @property
+    def nodes(self):
+        return self.m_nodes.values()
+
+    @property
+    def elems(self):
+        return self.m_elems.values()
+
+    @property
+    def refs(self):
+        return set(sub for el in self.elems for sub in el.get_refs())
+
+    @property
+    def materials(self):
+        return set(a[0] for a in self.refs)
+
+
+
 
 
 def _is_sequence(obj):
     return hasattr(type(obj), '__iter__')
+
 
 def _filter_nodes_by_coords(x, y, z):
     def f(node):
@@ -282,47 +321,6 @@ def _filter_nodes_by_coords(x, y, z):
         return match
     return f
 
-# if __name__=="__main__":
-#     import opensees.tcl
-#     PROMPT = "\033\\[01;32mopensees\033\\[0m > "
-# 
-# # Path to Tcl script which loads commands
-#     INIT_TCL = ""
-# 
-#     TCL_MAIN = f"""
-# 
-#     set cmd ""
-#     set repl_flag true
-#     proc exit {{}} {{upvar repl_flag flag; set flag false}}
-#     while {{ $repl_flag }} {{
-#       puts -nonewline "{PROMPT}"
-#       flush stdout
-#       if {{[gets stdin line] < 0 }} break
-#       append cmd $line "\\n"
-#       if {{![info complete $cmd]}} {{
-#         set prompt ""
-#         continue
-#       }}
-#       set prompt "{PROMPT}"
-# 
-#       if {{[catch $cmd msg]}} {{
-#         puts stderr "Error: $msg"
-#       }} elseif {{$msg ne ""}} {{
-#         puts $msg
-#       }}
-# 
-#       set cmd ""
-#     }}
-#     """
-# 
-# 
-#     import sys
-#     tcl = opensees.tcl.TclInterpreter()
-#     if len(sys.argv) == 1:
-#         tcl.eval(TCL_MAIN)
-#     else:
-#         for filename in sys.argv[1:]:
-#             tcl.eval(open(filename).read())
 
-
+# Model = Assembly
 

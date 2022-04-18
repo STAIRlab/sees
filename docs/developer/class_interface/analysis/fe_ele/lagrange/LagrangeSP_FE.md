@@ -8,7 +8,7 @@ public FE_Element
 ```
 
 
-LagrangeSP_FE is a subclass of FE_Element used to enforce a single point
+`LagrangeSP_FE` is a subclass of [`FE_Element`](../FE_Element) used to enforce a single point
 constraint. It does this by adding to the tangent and the residual:
 $$\left[ \begin{array}{cc} 0 & \alpha \\ \alpha & 0 \end{array}
 \right] ,
@@ -71,11 +71,13 @@ current trial displacement at the node corresponding to constrained
 degree-of-freedom. Prints a warning message and sets this contribution
 to $0$ if the specified constrained degree-of-freedom is invalid.
 Returns this residual Vector.
-*virtual const Vector &getTangForce(const Vector &disp, double fact =
-1.0);* \
-Sets the FE_Elements contribution to the residual:
+
+```cpp
+virtual const Vector &getTangForce(const Vector &disp, double fact = 1.0);
+```
+Sets the `FE_Elements` contribution to the residual:
 $$\left\{ \begin{array}{c} 0 \\ \alpha(u_s - u_t) \end{array} \right\}$$
 where $U_s$ is the specified value of the constraint and $U_t$ the
-current trial displacement in *disp* corresponding to constrained
+current trial displacement in `disp` corresponding to constrained
 degree-of-freedom. Prints a warning message and sets this contribution
 to $0$ if the specified constrained degree-of-freedom is invalid.

@@ -1,18 +1,6 @@
----
-#template: partials/card_index.html
-...
-
 # Analysis Classes
 
-To facilitate code re-use and to provide for a design which is both
-flexible and extensible, object-oriented design principles can be
-applied to the analysis algorithm. This is first done by identifying the
-main tasks performed in a finite element analysis, abstracting them into
-separate classes, and then specifying the interface for these classes.
-It is important that the interfaces specified allow the classes to work
-together to perform the analysis and allow new classes to be introduced
-without the need to change existing classes. In this design an
-**Analysis** object is an aggregation of objects of the following types:
+The **Analysis** object is an aggregation of objects of the following types:
 
 1.  [`SolnAlgorithm`](algorithm/SolutionAlgorithm): The solution algorithm object is responsible for
     orchestrating the steps performed in the analysis.
@@ -24,7 +12,7 @@ without the need to change existing classes. In this design an
        degrees-of-freedom at the **Node**s or new degrees-of-freedom
        introduced into the analysis to enforce the constraints.
 
-    2. `FE_Element`: The `FE_Element` objects represent the
+    2. [`FE_Element`](fe_ele): The `FE_Element` objects represent the
        `Elements` in the `Domain` or they are introduced to add
        stiffness and/or load to the system of equations in order to
        enforce the constraints.
@@ -58,6 +46,5 @@ without the need to change existing classes. In this design an
 5.  **DOF_Numberer**: The **DOF_Numberer** object is responsible for
     mapping equation numbers in the system of equations to the
     degrees-of-freedom in the **DOF_Group**s.
-
 
 

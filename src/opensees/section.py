@@ -111,15 +111,6 @@ def PolygonRing(n, extRad, intRad):
     sect.intRad = intRad
     return sect
 
-def RegularPolygon(n, Rcol):
-    phi =  2*pi/n
-    R = Rcol/cos(phi/2)
-    vertices = [
-        [R*cos(i*phi-phi/2),  R*sin(i*phi-phi/2)]
-        for i in range(n)
-    ]
-    poly = patch._Polygon(vertices)
-    return poly
 
 def _oct_outline(Rcol):
     n = 8
@@ -163,7 +154,7 @@ def _oct_ring(Rcol, Rcore):
     sect.intRad = Rcore
     return sect
     
-def ConfiningPolygon(n, extRad, intRad, s=1):
+def ConfiningPolygon(n, extRad=None, intRad=None, diameter=None, s=1):
     psi = 2*pi/n
     phi = psi/s
     collection = []
@@ -203,6 +194,7 @@ def ConfinedPolygon(
     cover_conc    = None,
     ColMatTag     = None,
     units         = None,
+    diameter      = None
 ):
     """
     Dcol     :     Width of octagonal column (to flat sides)

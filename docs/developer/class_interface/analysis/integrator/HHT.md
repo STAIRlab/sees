@@ -84,8 +84,8 @@ This tangent for each `FE_Element` is defined to be ${\bf K}_e = c1\alpha {\bf K
 invocation of the `newStep()` method. Returns $0$ after performing the
 following operations:
 
-```
-while ̄ while w̄hile ̄ 
+```cpp
+// while ̄ while w̄hile ̄ 
 if (RayleighDamping == false) {
     theEle->zeroTang()
     theEle->addKtoTang(c1)
@@ -93,8 +93,8 @@ if (RayleighDamping == false) {
     theEle->addMtoTang(c3)
 } else {
     theEle->zeroTang()
-    theEle->addKtoTang(c1 + c2 \* $\beta_K$)
-    theEle->addMtoTang(c3 + c2 \* $\alpha_M$)
+    theEle->addKtoTang(c1 + c2 * beta_K)
+    theEle->addMtoTang(c3 + c2 * alpha_M)
 }
 ```
 
@@ -105,31 +105,32 @@ int formNodTangent(DOF_Group \*theDof);
 
 This performs the following:
 
-::: {.tabbing}
-while ̄ while w̄hile ̄ if (RayleighDamping == false)\
-theDof-$>$addMtoTang(c3)\
-else\
-theDof-$>$addMtoTang(c3 + c2 \* $\alpha_M$)\
-:::
+```cpp
+// while ̄ while w̄hile ̄ 
+if (RayleighDamping == false)
+  theDof->addMtoTang(c3)
+else
+  theDof->addMtoTang(c3 + c2 * alpha_M)
+```
 
 
-```{.cpp}
+```cpp
 int domainChanged(void);
 ```
 
 If the size of the LinearSOE has changed, the object deletes any old
 Vectors created and then creates $8$ new Vector objects of size equal to
-*theLinearSOE-$>$getNumEqn()*. There is a Vector object created to store
+`theLinearSOE->getNumEqn()`. There is a Vector object created to store
 the current displacement, velocity and accelerations at times $t$ and
 $t + \Delta t$, and the displacement and velocity at time $t + \alpha
 \Delta t$. The response quantities at time $t + \Delta t$ are then set
-by iterating over the DOF_Group objects in the model and obtaining their
+by iterating over the `DOF_Group` objects in the model and obtaining their
 committed values. Returns $0$ if successful, otherwise a warning message
 and a negative number is returned: $-1$ if no memory was available for
 constructing the Vectors.
 
-```{.cpp}
-int newStep(double $\Delta t$);
+```cpp
+int newStep(double Δt);
 ```
 
 The following are performed when this method is invoked:
@@ -191,8 +192,8 @@ returned: $-1$ if $\gamma$ or $\beta$ are $0$, $-2$ if *dispFlag* was
 true and $\Delta t$ is $0$, and $-3$ if `domainChanged()` failed or has
 not been called.
 
-```{.cpp}
-int update(const Vector &$\Delta U$);
+```cpp
+int update(const Vector& ΔU);
 ```
 
 Invoked this first causes the object to increment the DOF_Group response
@@ -212,12 +213,14 @@ while ̄ while w̄hile ̄ ${\bf U}_{t + \Delta t} += \Delta \U$\
 $\dot {\bf U}_{t + \Delta t} += \frac{\gamma}{\beta \Delta t} \Delta \U$\
 $\ddot {\bf U}_{t + \Delta t} += \frac{1}{\beta {\Delta t}^2} \Delta \U$\
 ${\bf U}_{t + \alpha \Delta t} += \alpha \Delta \U$\
-$\dot{\bf U}_{t + \alpha \Delta t} += \frac{\alpha \gamma}{\beta \Delta t}
-\Delta \U$\
-theModel-$>$setResponse$({\bf U}_{t + \alpha \Delta t}, \dot{\bf U}_{t+\alpha
-\Delta t}, \ddot{\bf U}_{t+\Delta t})$\
-theModel-$>$updateDomain()
-:::
+$$\dot{\bf U}_{t + \alpha \Delta t} += \frac{\alpha \gamma}{\beta \Delta t}
+\Delta \U$$
+
+```cpp
+theModel->setResponse(U_t_alpha_Δt, \dot{\bf U}_{t+\alpha
+\Delta t}, \ddot{\bf U}_{t+\Delta t})
+theModel->updateDomain()
+```
 
 Returns $0$ if successful. A warning message is printed and a negative
 number returned if an error occurs: $-1$ if no associated AnalysisModel,

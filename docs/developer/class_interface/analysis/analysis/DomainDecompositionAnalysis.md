@@ -1,8 +1,9 @@
+# DomainDecompositionAnalysis
+
 UNDER CONSTRUCTION
 
 ```cpp
 #include <analysis/analysis/DomainDecompositionAnalysis.h>
-```
 
 
 class DomainDecompositionAnalysis: public Analysis, public
@@ -10,8 +11,9 @@ MovableObject;\
 
 Analysis\
 MovableObject\
+```
 
-\
+
 DomainDecompositionAnalysis is a subclass of Analysis, it is used when
 performing an analysis using the domain decomposition method to solve
 the equations. Its public member functions are all virtual to allow for

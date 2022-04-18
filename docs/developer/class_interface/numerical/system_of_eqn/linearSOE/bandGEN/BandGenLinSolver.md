@@ -1,12 +1,14 @@
-\
-\#include
-$<\tilde{ }$/system_of_eqn/linearSOE/bandGEN/BandGenLinSolver.h$>$\
+# BandGenLinSolver
+
+```cpp
+#include <~/system_of_eqn/linearSOE/bandGEN/BandGenLinSolver.h>
 
 class BandGenLinSolver: public LinearSOESolver\
 
 MovableObject\
 Solver\
 LinearSOESolver\
+```
 
 \
 BandGenLinSolver is an abstract class. The BandGenLinSolver class

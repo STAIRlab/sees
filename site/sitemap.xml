@@ -2,1027 +2,1072 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://claudioperez.github.io/opensees-python/api/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/api/core/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/api/modeling/constraint/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/api/modeling/core/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/api/modeling/element/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/api/modeling/layer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/api/modeling/patch/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/api/modeling/section/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/api/modeling/uniaxial/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/api/utilities/units/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/contrib/ConcreteCM/</loc>
+         <lastmod>2022-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/contrib/PY/</loc>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/application/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/element_api/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/element_api_c/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/developer/intro/</loc>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/ops_api/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/building/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/building/advanced/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/building/basic/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/building/dependencies/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/building/tooling/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/Parallel/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/Parallel/actor/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/Parallel/actor/actor/Actor/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/Parallel/actor/actor/MovableObject/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/Parallel/actor/message/Message/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/Parallel/actor/objectBroker/FEM_ObjectBroker/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/Parallel/actor/objectBroker/ObjectBroker/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/Parallel/channel/Channel/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/Parallel/machineBroker/MachineBroker/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/Parallel/shadow/Shadow/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/algorithm/SolutionAlgorithm/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/algorithm/equiSolnAlgo/EquiSolnAlgo/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/algorithm/equiSolnAlgo/Linear/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/algorithm/equiSolnAlgo/ModifiedNewton/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/algorithm/equiSolnAlgo/NewtonRaphson/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/analysis/Analysis/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/analysis/DirectIntegrationAnalysis/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/analysis/DomainDecompositionAnalysis/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/analysis/DomainUser/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/analysis/StaticAnalysis/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/analysis/SubstructuringAnalysis/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/analysis/TransientAnalysis/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/dof_grp/DOF_Group/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/dof_grp/TransformationDOF_Group/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/fe_ele/FE_Element/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/fe_ele/lagrange/LagrangeMP_FE/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/fe_ele/lagrange/LagrangeSP_FE/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/fe_ele/penalty/PenaltyMP_FE/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/fe_ele/penalty/PenaltySP_FE/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/handler/ConstraintHandler/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/handler/LagrangeConstraintHandler/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/handler/PenaltyConstraintHandler/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/handler/PlainHandler/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/handler/TransformationConstraintHandler/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/ArcLength/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/ArcLength1/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/CentralDifference/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/DisplacementControl/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/GeneralizedAlpha/</loc>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/HHT/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/IncrementalIntegrator/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/Integrator/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/LoadControl/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/LoadPath/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/MinUnbalDispNorm/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/Newmark/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/StaticIntegrator/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/TransientIntegrator/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/integrator/WilsonTheta/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/model/AnalysisModel/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/numberer/DOF_Numberer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/analysis/numberer/PlainNumberer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/convergenceTest/CTestEnergyIncr/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/convergenceTest/CTestNormDispIncr/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/convergenceTest/CTestNormUnbalance/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/convergenceTest/ConvergenceTest/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/convergenceTest/convergence/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/database/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/database/FE_Datastore/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/database/FileDatastore/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/database/database/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/domain/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/component/DomainComponent/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/constraints/MP_Constraint/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/constraints/SP_Constraint/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/domain/Domain/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/domain/partitioned/PartitionedDomain/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/load/Load/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/loadBalancer/LoadBalancer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/loadBalancer/ReleaseHeavierToLighterNeighbours/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/loadBalancer/ShedHeaviest/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/loadBalancer/SwapHeavierToLighterNeighbours/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/node/DummyNode/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/node/NodalLoad/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/node/Node/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/partitioner/DomainPartitioner/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/pattern/EarthquakePattern/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/pattern/LinearSeries/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/pattern/LoadPattern/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/pattern/PathSeries/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/pattern/PathTimeSeries/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/pattern/RectangularSeries/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/pattern/TimeSeries/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/domain/pattern/UniformExcitation/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/element/Element/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/element/ElementalLoad/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/element/beamWithHinges/BeamWithHinges2D/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/element/zeroLength/ZeroLength/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/element/zeroLength/ZeroLengthSection/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/</loc>
-         <lastmod>2022-03-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/graph/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/graph/ArrayGraph/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/graph/DOFGraph/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/graph/DOF_GroupGraph/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/graph/Graph/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/graph/Vermd/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/graph/Vertex/</loc>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/numberer/GraphNumberer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/numberer/RCM/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/partitioner/GraphPartitioner/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/graph/partitioner/Metis/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/Material/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/mdMaterial/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/nD/BidirectionalMaterial/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/nD/ElasticIsotropicMaterial/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/nD/ElasticIsotropicPlaneStrain2D/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/nD/ElasticIsotropicPlaneStress2D/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/nD/NDMaterial/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/section/ElasticSection3D/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/section/GenericSection1D/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/section/GenericSectionND/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/section/SectionForceDeformation/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/uniaxial/Concrete01/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/uniaxial/ElasticMaterial/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/uniaxial/ElasticPPMaterial/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/uniaxial/ParallelMaterial/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/uniaxial/Steel01/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/material/uniaxial/UniaxialMaterial/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/modelbuilder/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/modelbuilder/AllModelBuilder/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/modelbuilder/ModelBuilder/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/modelbuilder/PartitionedModelBuilder/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/modelbuilder/PlaneFrame/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/ID/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/Matrix/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/Vector/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/Vermd/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/</loc>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/Solver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/SystemOfEqn/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/system/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/eigenSOE/</loc>
+         <lastmod>2022-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/eigenSOE/ArpackSolver/</loc>
+         <lastmod>2022-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/</loc>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/DomainSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/LinearSOE/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/LinearSOESolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/bandGEN/BandGenLinLapackSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/bandGEN/BandGenLinSOE/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/bandGEN/BandGenLinSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/bandSPD/BandSPDLinLapackSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/bandSPD/BandSPDLinSOE/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/bandSPD/BandSPDLinSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/fullGEN/FullGenLinLapackSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/fullGEN/FullGenLinSOE/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/fullGEN/FullGenLinSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectBlockSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectSkypackSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectThreadSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSOE/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSubstrSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/sparseGEN/SparseGenColLinSOE/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/sparseGEN/SparseGenColLinSolver/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/numerical/system_of_eqn/linearSOE/sparseGEN/SuperLU/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/recorder/DatastoreRecorder/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/recorder/MaxNodeDispRecorder/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/recorder/Recorder/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/renderer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/renderer/AllRenderer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/renderer/ColorMap/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/renderer/Renderer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/utility/Timer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/utility/utility/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/utility/tagged/TaggedObject/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/utility/tagged/storage/ArrayOfTaggedObjects/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/utility/tagged/storage/MapOfTaggedObjects/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/class_interface/utility/tagged/storage/TaggedObjectStorage/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/extending/FeapElement/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/extending/NewElement/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/extending/NewMaterial/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/extending/compiling/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/extending/component/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/extending/element/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/developer/g3_api/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/developer/g3_api/analysis/</loc>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/BasicPrimer/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/BasicPrimer/example_1/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/BasicPrimer/example_2/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/BasicPrimer/example_3/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/BasicPrimer/example_4/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/BasicPrimer/example_5/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/BasicPrimer/example_6/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/BasicPrimer/example_7/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/BasicPrimer/example_8/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/gallery/advanced/section_building/</loc>
-         <lastmod>2022-03-29</lastmod>
+         <lastmod>2022-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/user/analysis/</loc>
+         <lastmod>2022-04-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/user/modeling/</loc>
+         <lastmod>2022-04-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

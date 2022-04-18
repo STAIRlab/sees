@@ -155,6 +155,17 @@ class _Polygon:
     def iyc(self):
         return self.moic[1,1]
 
+def RegularPolygon(n, Rcol=None, diameter=None):
+    Rcol = Rcol or diameter/2
+    phi =  2*np.pi/n
+    R = Rcol/np.cos(phi/2)
+    vertices = [
+        [R*np.cos(i*phi-phi/2),  R*np.sin(i*phi-phi/2)]
+        for i in range(n)
+    ]
+    poly = _Polygon(vertices)
+    return poly
+
 @_patch
 class rect(_Polygon):
     _args = [

@@ -1,33 +1,34 @@
-\
-\#include
-$<\tilde{ }$/system_of_eqn/linearSOE/fullGEN/FullGenLinLapackSolver.h$>$\
+# FullGenLinLapackSolver
 
-class FullGenLinLapackSolver: public FullGenLinSolver\
+```cpp
+#include<~/system_of_eqn/linearSOE/fullGEN/FullGenLinLapackSolver.h>
 
-MovableObject\
-Solver\
-LinearSOESolver\
-FullGenLinSolver\
+class FullGenLinLapackSolver: 
+public FullGenLinSolver
+    MovableObject
+    Solver
+    LinearSOESolver
+```
 
-\
+
 A FullGenLinLapackSolver object can be constructed to solve a
 FullGenLinSOE object. It obtains the solution by making calls on the the
 LAPACK library. The class is defined to be a friend of the FullGenLinSOE
-class (see  `<FullGenLinSOE.h>`).
+class (see  [`FullGenLinSOE`](FullGenLinSOE)).
 
 ### Constructor
 
-\
+
 ### Destructor
 
-\
-// Public Methods\
+
+### Public Methods
 
 \
 
 \
 
-\
+
 A unique class tag (defined in  `<classTags.h>`) is passed to the
 FullGenLinSolver constructor. Sets the size of *iPiv* to $0$, *iPiv*
 being an integer array needed by the LAPACK routines.

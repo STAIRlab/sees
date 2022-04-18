@@ -1,17 +1,11 @@
+# Vector
 
 
-
-\#include $<\tilde{}$/matrix/Vector.h$>$
-
-
+```cpp
+#include "matrix/Vector.h"
 
 class Vector:
-
-
-
-
-
-
+```
 
 The Vector class provides the vector abstraction. A vector of order
 *size* is an ordered 1d array of *size* numbers. For example a vector of
@@ -24,89 +18,6 @@ $x = [x_0$ $x_1$ $x_2$ $x_3$ $x_4]$
 In the Vector class the data is stored in a 1d double array of length
 equal to the order of the Vector. At present time none of the methods
 are declared as being virtual. THIS MAY CHANGE FOR PARALLEL.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 To construct a Vector of order $0$.

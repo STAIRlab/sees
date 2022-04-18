@@ -3,9 +3,7 @@
 ```cpp
 #include <analysis/fe_ele/lagrange/LagrangeMP_FE.h>
 
-class LagrangeMP_FE: public FE_Element ;\
-
-FE_Element
+class LagrangeMP_FE: public FE_Element ;
 ```
 
 LagrangeMP_FE is a subclass of FE_Element used to enforce a multi point
@@ -16,9 +14,12 @@ defining the relationship between these degrees-of-freedom.
 
 To enforce the constraint the following are added to the tangent and the
 residual:
+
 $$\left[ \begin{array}{cc} 0 & \alpha{\bf C}^t \\ \alpha{\bf C} & 0 \end{array}
 \right] ,
-\left\{ \begin{array}{c} 0 \\ 0 \end{array} \right\}$$ at the locations
+\left\{ \begin{array}{c} 0 \\ 0 \end{array} \right\}$$
+
+at the locations
 corresponding to the constrained degree-of-freedoms specified by the
 MP_Constraint, i.e. $[{\bf U}_c$ ${\bf U}_r]$, and the lagrange multiplier
 degrees-of-freedom introduced by the LagrangeConstraintHandler for this
@@ -26,11 +27,11 @@ constraint, ${\bf C} = [-\I$ ${\bf C}_{cr}]$. Nothing is added to the residual.
 
 ### Constructor
 
-\
+
 ### Destructor
 
-\
-// Public Methods\
+
+// Public Methods
 
 \
 
@@ -68,13 +69,15 @@ for this Node (sets corresponding ID component to $-1$ so nothing is
 added to the tangent) and $-4$ if the ID in the DOF_Group is too small
 for the Node (again setting corresponding ID component to $-1$).
 
-If the `MP_Constraint` is time-varying, from the `MP_Constraint` *theMP* it
+If the `MP_Constraint` is time-varying, from the `MP_Constraint` `theMP` it
 obtains the current $C_{cr}$ matrix; it then adds the contribution to
 the tangent matrix. Returns this tangent Matrix.
 
 
 Returns the residual, a $\zero$ Vector.
-*virtual const Vector &getTangForce(const Vector &disp, double fact =
-1.0);* \
+
+```cpp
+virtual const Vector &getTangForce(const Vector &disp, double fact = 1.0);
+```
 CURRENTLY just returns the $0$ residual. THIS WILL NEED TO CHANGE FOR
 ELE-BY-ELE SOLVERS.

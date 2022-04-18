@@ -1,15 +1,16 @@
+# Node
+
 NEW METHOD POSSIBLY NEEDED TO SPECIFY THE NUMBER OF PREVIOUSLY COMMITTED
-RESPONSES TO KEEP .. NEEDED FOR EXPLICIT DYNAMIC INTEGRATORS\
+RESPONSES TO KEEP .. NEEDED FOR EXPLICIT DYNAMIC INTEGRATORS
 
-\#include  `</domain/node/Node.h>`\
+```cpp
+#include  </domain/node/Node.h>
 
-class Node: public DomainComponent\
+class Node: public DomainComponent
+    TaggedObject
+    MovableObject
+```
 
-TaggedObject\
-MovableObject\
-DomainComponent\
-
-\
 Nodes are points in space connected by the elements. Nodes have original
 position, trial displacement, velocity and acceleration, and committed
 displacement, velocity and acceleration (the last committed trial

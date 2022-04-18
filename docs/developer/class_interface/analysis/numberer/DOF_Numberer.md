@@ -2,13 +2,11 @@
 
 ```cpp
 #include <analysis/numberer/DOF_Numberer.h>
+
+class DOF_Numberer: public MovableObject
 ```
 
-class DOF_Numberer: public MovableObject\
 
-MovableObject\
-
-\
 The DOF_Numberer class is a base class. Its purpose is to define the
 interface common among all subclasses. A DOF_Numberer object is
 responsible for assigning the equation numbers to the individual dofs in

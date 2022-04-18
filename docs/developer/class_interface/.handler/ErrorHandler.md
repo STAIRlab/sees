@@ -1,20 +1,10 @@
-
-
-
 # ErrorHandler 
 
 ```cpp
 #include <handler/ErrorHandler.h>
-```
-
-
 
 class ErrorHandler
-
-
-
-
-
+```
 
 
 The ErrorHandler class is an abstract class which is introduced to allow

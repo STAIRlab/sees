@@ -1,13 +1,14 @@
-\
+# DomainUser
 
-\#include  `<DomainUser.h>`\
+```cpp
+#include  <DomainUser.h>
 
-class DomainUser;\
+class DomainUser;
+```
 
-\
-Analysis\
-Design\
-DomainDisplay\
+Analysis
+Design
+DomainDisplay
 
 The DomainUser class is an abstract base class. Its purpose is to define
 the interface common among all subclasses. A DomainUser is a user of the

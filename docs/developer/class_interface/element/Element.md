@@ -1,28 +1,15 @@
+# Element 
+
 NEED TO ADD ADD_INERTIA_LOAD TO INTERFACE .. SEE EARTHQUAKE_PATTERN
 CLASS.
 
-# Element 
-
 ```cpp
 #include <element/Element.h>
-```
-
-
 
 class Element: public DomainComponent
-
-
-
 TaggedObject
-
-
 MovableObject
-
-
-DomainComponent
-
-
-
+```
 
 
 
@@ -30,80 +17,7 @@ Element is an abstract class, i.e. no instances of Element will exist.
 The element class provides the interface that all element writers must
 provide when introducing new element classes.
 
-// Constructor
-
-
-
-
-
-
-// Destructor
-
-
-
-
-
-
-// Public Methods dealing with Nodes and dof
-
-
-
-
-
-
-
-
-
-
-// Public Methods dealing with State
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Public Methods for obtaining Linearized Stiffness, Mass and Damping
-Matrices
-
-
-
-
-
-
-
-
-
-
-
-// Public Methods for obtaining Resisting Forces
-
-
-
-
-
-
-
-
-
-
-// methods for obtaining information specific to an element
-
-
-
-
-
-
-
-
-
+### Constructor & Destructor
 
 To construct an element whose unique integer among elements in the
 domain is given by *tag*, and whose class identifier is given by
@@ -111,11 +25,34 @@ domain is given by *tag*, and whose class identifier is given by
 constructor.
 
 
-
-
 The destructor. Declared as virtual to allow subclass destructors to be
 invoked.
 
+
+
+
+
+### Public Methods dealing with Nodes and dof
+
+
+
+
+### Public Methods dealing with State
+
+
+
+
+
+### Public Methods for obtaining Linearized Stiffness, Mass and Damping Matrices
+
+
+
+
+### Public Methods for obtaining Resisting Forces
+
+
+
+### methods for obtaining information specific to an element
 
 
 
@@ -175,6 +112,7 @@ virtual Matrix &getTangentStiff(void) =0;
 To return the tangent stiffness matrix. The element is to compute its
 stiffness matrix based on the original location of the nodes and the
 current trial displacement at the nodes.
+
 $${\bf K}_e = {\frac{\partial {\bf F}_{R_i}}{\partial \U}
 \vert}_{{\bf U}_{trial}}$$
 
@@ -225,9 +163,9 @@ virtual Vector &getResistingForce(void) =0;
 
 Returns the resisting force vector for the element. This is equal to the
 applied load due to element loads minus the loads at the nodes due to
-internal stresses in the element due to the current trial displacement,
-i.e. $${\bf R}_e = 
-{\bf P}_{e} - {\bf F}_{R_e}({\bf U}_{trial})$$
+internal stresses in the element due to the current trial displacement, i.e. 
+
+$${\bf R}_e = {\bf P}_{e} - {\bf F}_{R_e}({\bf U}_{trial})$$
 
 
 ```{.cpp}

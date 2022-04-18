@@ -101,7 +101,7 @@ class element:
     Iyc = lambda: Num("iyc", field="iyc",  about="Centroidal moment of inertia", alt="section")
     Ixc = lambda: Num("ixc", field="ixc",  about="", alt="section")
 
-    ZeroLength3D = Ele("ZeroLength3D",
+    ZeroLength = ZeroLength3D = Ele("ZeroLength3D",
         "zeroLength",
         args = [
             Tag(),

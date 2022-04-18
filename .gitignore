@@ -1,6 +1,7 @@
 
 # Documentation
 *.fig
+*.pstex*
 docs/**/*.tex
 docs/**/*.rst
 docs/**/*.PDF

@@ -1,14 +1,16 @@
-\
-\#include
-$<\tilde{ }$/system_of_eqn/linearSOE/fullGEN/FullGenLinSOE.h$>$\
+# FullGenLinSOE
 
-class FullGenLinSOE: public LinearSOE\
+```cpp
+#include<~/system_of_eqn/linearSOE/fullGEN/FullGenLinSOE.h>
 
-MovableObject\
-SystemOfEqn\
-LinearSOE\
+class FullGenLinSOE: 
+public
+   MovableObject
+   SystemOfEqn
+   LinearSOE
+```
 
-\
+
 FullGenLinSOE is class which is used to store a full general system. The
 $A$ matrix is stored in a 1d double array with $n*n$ elements, where $n$
 is the size of the system. $A_{i,j}$ is stored at location $(i + j*(n)$,
@@ -36,27 +38,9 @@ The $x$ and $b$ vectors are stored in 1d double arrays of length $n$. To
 allow the solvers access to this data, the solvers that use this class
 are all declared as friend classes.
 
-\
 
-\
 
-\
 
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
 
 \
 
@@ -77,17 +61,36 @@ printing a warning message if `setSize()` returns a negative number.
 Also creates Vector objects for $x$ and $b$ using the *(double \*,int)*
 Vector constructor.
 
-\
+### Destructor
+
+```cpp
+~FullGenLinSOE();
+```
+
 Calls delete on any arrays created.
 
-\
+### Methods
+
+
+```cpp
+int setFullGEnSolver(FullGenLinSolver &newSolver);
+```
 Invokes `setLinearSOE(\*this)`{.cpp} on *newSolver*. If the system size is not
 equal to $0$, it also invokes `setSize()` on *newSolver*, printing a
 warning and returning $-1$ if this method returns a number less than
 $0$. Finally it returns the result of invoking the LinearSOE classes
 `setSolver()` method.
 
+
+```cpp
+int getNumEqn(void) =0;
+```
+
 A method which returns the current size of the system.
+
+```cpp
+int setSize(const Graph &theGraph);
+```
 
 The size of the system is determined by invoking `getNumVertex()` on
 *theGraph*. If the old space allocated for the 1d arrays is not big
@@ -100,17 +103,25 @@ new Vector objects for $x$ and $b$ using the `(double \*,int)`{.cpp} Vector
 constructor are created. Finally, the result of invoking `setSize()` on
 the associated Solver object is returned.
 
+
+
+```cpp
+int addA(const Matrix &M, const ID &loc, doublefact = 1.0) =0;
+```
 First tests that *loc* and *M* are of compatible sizes; if not a warning
 message is printed and a $-1$ is returned. The LinearSOE object then
 assembles *fact* times the Matrix *M* into the matrix $A$. The Matrix is
 assembled into $A$ at the locations given by the ID object *loc*, i.e.
-$a_{loc(i),loc(j)} +=
-fact * M(i,j)$. If the location specified is outside the range, i.e.
+
+$$a_{loc(i),loc(j)} += \texttt{fact} * M(i,j)$$
+.
+
+If the location specified is outside the range, i.e.
 $(-1,-1)$ the corresponding entry in *M* is not added to $A$. If *fact*
 is equal to $0.0$ or $1.0$, more efficient steps are performed. Returns
 $0$.
 
-```{.cpp}
+```cpp
 int addB(const Vector & V, const ID & loc, double fact = 1.0) =0;
 ```
 
@@ -123,7 +134,7 @@ range, e.g. $-1$, the corresponding entry in *V* is not added to $b$. If
 *fact* is equal to $0.0$, $1.0$ or $-1.0$, more efficient steps are
 performed. Returns $0$.
 
-```{.cpp}
+```cpp
 int setB(const Vector & V, double fact = 1.0) =0;
 ```
 
@@ -168,10 +179,16 @@ Returns the 2-norm of the vector $x$.
 void setX(int loc, double value) =0;
 ```
 
-If *loc* is within the range of $x$, sets $x(loc) = value$.
+If *loc* is within the range of $x$, sets $x(\texttt{loc}) = \texttt{value}$.
 
+```cpp
+int sendSelf(int commitTag, Channel &theChannel);
+```
 Returns $0$. The object does not send any data or connectivity
-information as this is not needed in the finite element design.
+information as this is not needed in the framework design.
 
+```cpp
+int recvSelf(int commitTag, Channel &theChannel, FEM_ObjectBroker
+```
 Returns $0$. The object does not receive any data or connectivity
-information as this is not needed in the finite element design.
+information as this is not needed in the framework's design.

@@ -1,6 +1,6 @@
 from .writer import ModelWriter
-from skeletal.arg import *
-from skeletal.obj import Component, LibCmd, Ele, walk_refs
+from opensees.ast import *
+from opensees.obj import Component, LibCmd, Ele, walk_refs
 
 Frm = LibCmd("ElemData",
     args = [
@@ -16,13 +16,13 @@ Frm = LibCmd("ElemData",
         }
     }
 )
-
-dict(
-    LE3dFrm = Frm("LE3dFrm",
-        "_",
-        args = [],
-    )
-)
+FIELDS = {
+    "geom": "GeomData",
+    "ixc": "Iz",
+    "iyc": "Iy",
+    "joint_offsets": "JntOff",
+    "mass": "linear_mass"
+}
 
 def fmt_val(arg,value):
     if isinstance(value, list):
@@ -123,12 +123,11 @@ class FEDEAS_Writer(ModelWriter):
                 )
                 typs = typs.union({value._cmd[0]})
             for sub_arg in value._args:
-
                 sub_val = getattr(value,sub_arg.field)
                 if sub_val is not None:
                     val_str = fmt_val(sub_arg, sub_val)
                     script += "{}'{}', {},...\n".format(
-                         ident, sub_arg.name, val_str
+                         ident, FIELDS.get(sub_arg.name, sub_arg.name), val_str
                     )
             script = script[:script.rfind(",...")]
             script += ");\n"
@@ -155,17 +154,19 @@ class FEDEAS_Writer(ModelWriter):
             for arg in elem._args:
                 field = elem_dic.get(arg,arg.field)
                 value = arg.get_value(elem,".m")
+                import sys
+                print(type(arg), id(type(arg)), id(Ref), file=sys.stderr)
+                #print(type(arg), value, arg.name, isinstance(arg, Ref), file=sys.stderr)
                 if value is None:
                     pass
                 elif isinstance(arg, Ref):
                     script += "ElemType.{}.{} = Components.{}('{}');\n".format(
-                        partial_name, arg.name, value._cmd[0], value.name
+                        partial_name, FIELDS.get(arg.name, arg.name), value._cmd[0], value.name
                     )
                 elif isinstance(arg, Grp) and Grp.type == Ref:
                     pass
-
                 else:
-                    script += "ElemType.{}.{} = {};\n".format(partial_name, arg.name, value)
+                    script += "ElemType.{}.{} = {};\n".format(partial_name, FIELDS.get(arg.name, arg.name), value)
             elem_script += f"for el={partials[partial_name]!r}, ElemName{{el}}='{elem_typ}'; ElemData{{el}} = ElemType.{partial_name}; end;\n"
             script += "\n"
 

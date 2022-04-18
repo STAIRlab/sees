@@ -139,6 +139,8 @@ if __name__ == "__main__":
             TclShell().cmdloop()
     else:
         tcl = opensees.tcl.TclInterpreter()
+        tcl.eval(f"set argc {len(sys.argv) - 2}")
+        tcl.eval(f"set argv {{{' '.join(sys.argv[2:])}}}")
         for filename in files:
             if filename == "-":
                 tcl.eval(sys.stdin.read())

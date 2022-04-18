@@ -1,16 +1,15 @@
-\
+
 # LinearSOE 
 
 ```cpp
 #include <system_of_eqn/linearSOE/LinearSOE.h>
+
+class LinearSOE: 
+    public SystmOfEqn
+           MovableObject
 ```
 
-class LinearSOE: public SystmOfEqn\
 
-MovableObject\
-SystemOfEqn\
-
-\
 LinearSOE is an abstract class. A LinearSOE object provides an
 abstraction of a system of linear equations. A linear system of equation
 of order $n$:
@@ -33,30 +32,9 @@ system of equations.
 
 \
 
-\
 
-\
 
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-The integer *classTag* is passed to the constructor for the SystemOfEqn.
+The integer `classTag` is passed to the constructor for the `SystemOfEqn`.
 The constructor sets sets the pointer for the currently associated
 LinearSOESolver object to point to *theSolver*.
 

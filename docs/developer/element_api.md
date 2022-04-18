@@ -86,7 +86,7 @@ AnalysisModel**             OPS_GetAnalysisModel(void);
 EquiSolnAlgo**              OPS_GetAlgorithm(void);
 ConstraintHandler**         OPS_GetHandler(void);
 DOF_Numberer**              OPS_GetNumberer(void);
-LinearSOE**                 OPS_GetSOE(void);
+LinearSOE**                 OPS_GetSOE(G3_Runtime*);
 EigenSOE**                  OPS_GetEigenSOE(void);
 StaticAnalysis**            OPS_GetStaticAnalysis(void);
 DirectIntegrationAnalysis** OPS_GetTransientAnalysis(void);

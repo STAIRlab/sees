@@ -1,49 +1,45 @@
 # G3 API
 
-
-
 ## Model Building
 
-```{.cpp}
-extern Domain* G3_getDomain(Tcl_Interp*);
+```cpp
+Domain* G3_getDomain(G3_Runtime*);
 ```
 
 ### Materials
-```{.cpp}
-extern UniaxialMaterial* G3_getUniaxialMaterialInstance(Tcl_Interp*, int);
+```cpp
+UniaxialMaterial* G3_getUniaxialMaterialInstance(G3_Runtime*, int);
 ```
 
-```{.cpp}
-int G3_addUniaxialMaterial(Tcl_Interp*, UniaxialMaterial*);
+```cpp
+int G3_addUniaxialMaterial(G3_Runtime*, UniaxialMaterial*);
 ```
 
 ### Loading
-```{.cpp}
-int G3_addTimeSeries(Tcl_Interp *, TimeSeries *);
+```cpp
+int G3_addTimeSeries(G3_Runtime *, TimeSeries *);
 ```
 
-```{.cpp}
-TimeSeries* G3_getTimeSeries(Tcl_Interp *, int);
+```cpp
+TimeSeries* G3_getTimeSeries(G3_Runtime *, int);
 ```
 
-```{.cpp}
-StaticAnalysis* G3_getStaticAnalysis(Tcl_Interp*);
+```cpp
+StaticAnalysis* G3_getStaticAnalysis(G3_Runtime*);
 ```
 
-```{.cpp}
-int G3_setStaticAnalysis(Tcl_Interp*, StaticAnalysis*);
+```cpp
+int G3_setStaticAnalysis(G3_Runtime*, StaticAnalysis*);
 ```
 
-```{.cpp}
-StaticIntegrator* G3_getStaticIntegrator(Tcl_Interp*);
+```cpp
+StaticIntegrator* G3_getStaticIntegrator(G3_Runtime*);
 ```
 
-```{.cpp}
-int G3_setStaticIntegrator(Tcl_Interp*, StaticIntegrator*);
+```cpp
+int G3_setStaticIntegrator(G3_Runtime*, StaticIntegrator*);
 ```
 
-```{.cpp}
-TclSafeBuilder *G3_getSafeBuilder(Tcl_Interp *);
+```cpp
+TclSafeBuilder *G3_getSafeBuilder(G3_Runtime *);
 ```
-
-

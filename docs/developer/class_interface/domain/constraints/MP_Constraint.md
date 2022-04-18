@@ -1,17 +1,15 @@
-\
 # MP_Constraint 
 
 ```cpp
 #include <domain/constraints/MP_Constraint.h>
+
+class MP_Constraint: 
+public DomainComponent
+    TaggedObject
+    MovableObject
 ```
 
-class MP_Constraint: public DomainComponent\
 
-TaggedObject\
-MovableObject\
-DomainComponent\
-
-\
 An `MP_Constraint` represents a multiple point constraint in the domain. A
 multiple point constraint imposes a relationship between the
 displacement for certain dof at two nodes in the model, typically called

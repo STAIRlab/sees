@@ -13,6 +13,7 @@ class TransientIntegrator:
 - [Newmark](Newmark)
 - [HHT](HHT)
 - [Wilson-$\Theta$](WilsonTheta)
+- [Generalized Alpha](GeneralizedAlpha)
 
 `TransientIntegrator` is an abstract subclass of `IncrementalIntegrator`. 
 A subclass of it is used when performing a nonlinear transient analysis of
@@ -22,8 +23,9 @@ class and it defines a new method `newStep()` which is invoked by the
 `DirectIntegrationAnalysis` class at each new time step.
 In nonlinear transient finite element problems we seek a solution ($\U$, $\dot \U$, $\ddot \U$) to the nonlinear vector function
 
-$$\R(\U,\Ud, \Udd) = {\bf P}(t) - {\bf F}_I(\Udd) - {\bf F}_R(\U, \Ud) = \zero
-\label{femGenForm}$$
+$${\bf R}({\bf U},\Ud, \Udd) = {\bf P}(t) - {\bf F}_I(\Udd) - {\bf F}_R(\U, \Ud) = \zero
+$$
+{#femGenForm}
 
 The most widely used technique for solving the transient non-linear
 finite element equation,
@@ -35,10 +37,11 @@ t$ apart.
 
 $$\R({\bf U}_{n \Delta t},\dot{\bf U}_{n \Delta t}, \ddot{\bf U}_{n \Delta t}) = {\bf P}(n \Delta t) -
 {\bf F}_I(\ddot{\bf U}_{n \Delta t}) - {\bf F}_R({\bf U}_{n \Delta t}, \dot{\bf U}_{n \Delta t})
-\label{fullTimeForm}$$
+$$
+{#fullTimeForm}
 
-For each time step, t, the integration schemes provide two operators,
-$\I_1$ and $\I_2$, to relate the velocity and accelerations at the time
+For each time step, $t$, the integration schemes provide two operators,
+$\operatorname{I}_1$ and $\operatorname{I}_2$, to relate the velocity and accelerations at the time
 step as a function of the displacement at the time step and the response
 at previous time steps:
 
@@ -72,10 +75,8 @@ $$\R({\bf U}_{t}) =
 \left[ {\frac{\partial \R}{\partial {\bf U}_t} \vert}_{{\bf U}_{t}^{(i)}}\right]
 \left( {\bf U}_{t} - {\bf U}_{t}^{(i)} \right)$$
 
-$$\R({\bf U}_{t}) = 
- {\bf P} (t) 
- - {\bf F}_{I} \left( \ddot {\bf U}_{t}^{(i)} \right) -
-{\bf F}_{R} \left( \dot {\bf U}_{t}^{(i)}, {\bf U}_{t}^{(i)} \right)$$ $$- \left[
+$$
+\R({\bf U}_{t}) = {\bf P} (t) - {\bf F}_{I} \left( \ddot {\bf U}_{t}^{(i)} \right) - {\bf F}_{R} \left( \dot {\bf U}_{t}^{(i)}, {\bf U}_{t}^{(i)} \right)- \left[
    {\bf M}^{(i)} {\I}_2'
 +  {\bf C}^{(i)} {\I}_1'
 + {\bf K}^{(i)}  \right]
@@ -105,14 +106,17 @@ being some function of the solution to the linear system of equations.
 
 \
 
-\
-The integer *classTag* is passed to the IncrementalIntegrator classes
+
+The integer `classTag` is passed to the `IncrementalIntegrator` classes
 constructor.
 
-\
+```cpp
+```
 Does nothing.
 
-\
+```cpp
+```
+
 Invoked to form the structure tangent matrix. The method is rewritten
 for this class to include inertia effects from the nodes. The method
 iterates over both the FE_Elements and DOF_Groups invoking methods to
@@ -120,16 +124,17 @@ form their contributions to the $A$ matrix of the LinearSOE and then
 adding these contributions to the $A$ matrix. The method performs the
 following:
 
-::: {.tabbing}
-while ̄ while w̄hile ̄ theSysOfEqn.zeroA();\
-DOF_EleIter &theDofs = theAnalysisModel.getDOFs();\
-while((dofPtr = theDofs()) $\neq$ 0)\
-dofPtr-$>$formTangent(theIntegrator);\
-theSOE.addA(dofPtr-$>$getTangent(this), dofPtr-$>$getID())\
-FE_EleIter &theEles = theAnalysisModel.getFEs();\
-while((elePtr = theEles()) $\neq$ 0)\
-theSOE.addA(elePtr-$>$getTangent(this), elePtr-$>$getID(), $1.0$)\
-:::
+```cpp
+// while ̄ while w̄hile ̄ 
+theSysOfEqn.zeroA();
+DOF_EleIter &theDofs = theAnalysisModel.getDOFs();
+while((dofPtr = theDofs()) \neq 0)
+dofPtr->formTangent(theIntegrator);
+theSOE.addA(dofPtr->getTangent(this), dofPtr->getID())
+FE_EleIter &theEles = theAnalysisModel.getFEs();
+while((elePtr = theEles()) \neq 0)
+theSOE.addA(elePtr->getTangent(this), elePtr->getID(), 1.0)
+```
 
 Returns $0$ if successful, otherwise a $-1$ if an error occurred while
 trying to add the stiffness. The two loops are introduced for the
@@ -137,31 +142,33 @@ FE_Elements, to allow for efficient parallel programming when the
 FE_Elements are associated with a ShadowSubdomain.
 
 ```{.cpp}
-virtual int formEleResidual(FE_Element \*theEle);
+virtual int formEleResidual(FE_Element *theEle);
 ```
 
 Called upon by the FE_Element *theEle* to determine it's contribution to
 the rhs of the equation. The following are invoked before $0$ is
 returned.
 
-::: {.tabbing}
-while ̄ while w̄hile ̄ theEle-$>$zeroResidual()\
-theEle-$>$addRIncInertiaToResid()\
-:::
+```cpp
+// while ̄ while w̄hile ̄ 
+theEle-$>$zeroResidual()
+theEle-$>$addRIncInertiaToResid()
+```
 
 
 ```{.cpp}
-virtual int formNodUnbalance(DOF_Group \*theDof);
+virtual int formNodUnbalance(DOF_Group *theDof);
 ```
 
-Called upon by the DOF_Group *theDof* to determine it's contribution to
+Called upon by the `DOF_Group` `theDof` to determine it's contribution to
 the rhs of the equation. The following are invoked before $0$ is
 returned.
 
-::: {.tabbing}
-while ̄ while w̄hile ̄ theDof-$>$zeroUnbalance()\
-theDof-$>$addPIncInertiaToUnbalance()\
-:::
+```cpp
+// while ̄ while w̄hile ̄ 
+theDof->zeroUnbalance()
+theDof->addPIncInertiaToUnbalance()
+```
 
 
 ```{.cpp}

@@ -1,41 +1,42 @@
+# AnalysisModel
+
 MODIFY INTERFACE TO OFFER USER DEFINED STORAGE TYPE.
 
-\#include  `</analysis/model/AnalysisModel.h>`\
+```cpp
+#include  "analysis/model/AnalysisModel.h"
 
-class AnalysisModel : public MovableObject\
+class AnalysisModel : public MovableObject
+```
 
-MovableObject\
-
-\
 AnalysisModel is a container class. This class is responsible for
-holding and providing access to the FE_Element and DOF_Group objects
-that the ConstraintHandler creates. It is also responsible for updating
-the response quantities at the DOF_Groups and for triggering methods in
+holding and providing access to the `FE_Element` and `DOF_Group` objects
+that the `ConstraintHandler` creates. It is also responsible for updating
+the response quantities at the `DOF_Groups` and for triggering methods in
 the associated Domain. It provides operations for the following:
 
--   Population: methods so that the ConstraintHandler can add the
-    FE_Element and DOF_Group objects to the analysis model.
+-   **Population**: methods so that the `ConstraintHandler` can add the
+    `FE_Element` and `DOF_Group` objects to the analysis model.
 
--   Access: methods so that other classes in the analysis aggregation
+-   **Access**: methods so that other classes in the analysis aggregation
     can access the components of the AnalysisModel.
 
--   Connectivity: methods such that the SysOfEqn can determine the
-    connectivity of the dof, which is needed for storage, sparsity, etc.
+-   **Connectivity**: methods such that the `SysOfEqn` can determine the
+    connectivity of the DOF, which is needed for storage, sparsity, etc.
 
--   Update: methods for updating the individual DOFs with the response
+-   **Update**: methods for updating the individual DOFs with the response
     quantities given by the AnalysisMethod.
 
--   Trigger: methods which trigger events in the domain.
+-   **Trigger**: methods which trigger events in the domain.
 
-Each subclass of AnalysisModel must have its own subclasses of
-FE_ELEIter and DOF_GrpIter. NOTE at the moment FE_Element and DOF_Group
+Each subclass of `AnalysisModel` must have its own subclasses of
+`FE_ELEIter` and `DOF_GrpIter`. NOTE at the moment FE_Element and DOF_Group
 objects are not TaggedObjects and for this reason TaggedObjectStorage
 classes cannot be used for storage. This may change to allow efficient
 storage classes to be used.
 
 ### Constructors
 
-\
+
 
 ### Destructor
 

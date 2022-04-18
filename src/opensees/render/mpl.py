@@ -25,6 +25,12 @@ class MplPlotter:
         return collection
 
     def get_section_patches(self, section, facecolor="grey", edgecolor="grey", **kwds):
+        """
+
+        Currently a circ must be represented by either an annulus or circle. this
+        might be a solution:
+        https://docs.bokeh.org/en/latest/docs/reference/models/glyphs/arc.html
+        """
         import matplotlib.collections
         import matplotlib.patches as mplp
         collection = []
@@ -54,11 +60,13 @@ class MplPlotter:
         section,
         show_properties=False,
         plain=True,
+        set_limits=False,
         show_quad=True,
         show_dims=True,
         annotate=True,
         ax = None,
         fig = None,
+        fix_axes=True,
         **kwds
     ):
         """Plot a composite cross section."""    
@@ -74,26 +82,37 @@ class MplPlotter:
                 "${}$:\t\t{:0.4}".format(k,v) for k,v in self.properties().items()
             ])
             axp.annotate(label, (0.1, 0.5), xycoords='axes fraction', va='center')
-            axp.set_autoscale_on(True)
             axp.axis("off")
 
             ax = fig.add_subplot(gs[0,:3])
+
         elif self.ax is not None:
             ax = self.ax
             fig = ax.figure
         else:
             fig, ax = plt.subplots()
 
-        ax.set_autoscale_on(True)
-        ax.set_aspect(1)
+        if fix_axes:
+            ax.set_autoscale_on(True)
+            ax.set_aspect(1)
+            ax.axis("off")
+            for i in 'top','right','bottom','left':
+                ax.spines[i].set_visible(False)
 
-        #x_max = 1.01 * max(v[0] for p in section.patches for v in p.vertices if hasattr(p,"vertices"))
-        #y_max = 1.05 * max(v[1] for p in section.patches for v in p.vertices if hasattr(p,"vertices"))
-        #y_min = 1.05 * min(v[1] for p in section.patches for v in p.vertices if hasattr(p,"vertices"))
+        if set_limits:
+            x_max = 1.01 * max(v[0] 
+                    for p in section.patches for v in p.vertices 
+                    if hasattr(p,"vertices"))
+            y_max = 1.05 * max(v[1] 
+                    for p in section.patches for v in p.vertices 
+                        if hasattr(p,"vertices"))
+            y_min = 1.05 * min(v[1] 
+                    for p in section.patches for v in p.vertices 
+                        if hasattr(p,"vertices"))
 
-        #ax.set_xlim(-x_max, x_max)
-        #ax.set_ylim( y_min, y_max)
-        ax.axis("off")
+            ax.set_xlim(-x_max, x_max)
+            ax.set_ylim( y_min, y_max)
+
         # add shapes
         ax.add_collection(self.get_section_patches(section, **kwds))
         for l in self.get_section_layers(section, **kwds):
@@ -101,7 +120,7 @@ class MplPlotter:
         # show centroid
         #ax.scatter(*section.centroid)
         # show origin
-        ax.scatter(0, 0)
+        # ax.scatter(0, 0)
         #plt.show()
         
         return ax

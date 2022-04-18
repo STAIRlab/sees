@@ -5,7 +5,6 @@ CLASS.
 
 ```cpp
 #include <element/BeamWithHinges2D.h>
-```
 
 class BeamWithHinges2D: public DomainComponent\
 
@@ -13,8 +12,9 @@ TaggedObject\
 MovableObject\
 DomainComponent\
 Element\
+```
 
-\
+
 BeamWithHinges2D is a beam-column element which uses the force based
 formulation for its state determination. This element has material
 non-linear hinges at both ends and exhibits linear elastic behavior
