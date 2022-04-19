@@ -1,7 +1,7 @@
 # regex for variable names
-NAME="[A-z][A-z0-9]*"
+NAME="[A-z][A-z0-9_]*"
 # regex for expressions
-EXPR='\[expr ([\(\)A-z0-9-+=/ \.\*]*)\]'
+EXPR='\[expr *([A-z0-9_\(\)-+=/ .\*]*)\]'
 RE_LOGI='[=!><]'
 #EXPR='\[expr ([A-z0-9-+/ \(\)\.\*]*)\]'
 
@@ -45,18 +45,17 @@ cat $1 | {
 } | {
   # when `incr` found inside braces, keep braces
   # so for loops can be identified later
-  $SEDE "s|{incr ($NAME) ([A-z0-9]*)}|{\1 += \2}|g"
+  $SEDE "s|{incr ($NAME) ([A-z0-9_]*)}|{\1 += \2}|g"
 } | {
-  $SEDE "s|{incr ($NAME) ([A-z0-9]*)}|{\1 += \2}|g"
+  $SEDE "s|{incr ($NAME) ([A-z0-9_]*)}|{\1 += \2}|g"
 } | {
 ## wrap words in quotes if line does not contain a " or #
   # end of line
-  $SEDE "s:([A-z'])"' ([A-z][0-9\w/.]*)$'":\1 '\2':g if /^[ A-z]/ &&"' !/"/ && !/#/'
+  $SEDE "s:([A-z'])"' ([A-z][0-9A-z_/\.]{1,})$'":\1 '\2':g if /^[ A-z]/ &&"' !/"/ && !/^ *#/'
 } | {
   # inside line
-  $SEDE "s:([A-z'])"' ([A-z][0-9\w/.]*) '":\1 '\2', :g if /^[ A-z]/ &&"' !/"/ && !/#/'
+  $SEDE "s:([!\[][A-z']*)"' ([A-z][0-9A-z_/\.]{1,}) '":\1 '\2', :g if /^[ A-z]/ &&"' !/"/ && !/^ *#/'
 } | {
-
 ## remove dollar signs
   sed 's:\$::g'
 } | {
@@ -67,9 +66,15 @@ cat $1 | {
 } | {
   $SEDE "s:set *($NAME) *$EXPR:\1 = \2:g"
 } | {
-  $SEDE "s:set *($NAME) *([0-9.]*):\1 = \2:g"
+  $SEDE 's:( *)set *([A-z0-9_]*) *\[expr ([^]]+)\]:$1$2 = $3:g'
 } | {
-  $SEDE "s:$EXPR:\1:g"
+  $SEDE "s:set *($NAME) *([-0-9.]*):\1 = \2:g"
+} | {
+  $SEDE 's: \[expr ([^]]*)\];:, $1:g'
+} | {
+  $SEDE 's: \[expr ([^]]*)\] :, ($1) :g'
+} | {
+  $SEDE 's: \[expr ([-+/* A-z0-9_()]+)\]:, ($1):g'
 } | {
 #
 # Control flow
@@ -103,7 +108,7 @@ cat $1 | {
 #
 # Flag options
 #
-  # first treat flat followed by flag as boolean
+  # first, treat flag followed by flag as boolean
   $SEDE s/" -([A-z]*) -"/' \1=True, -/g if !/"/ && !/#/'
 } | {
   # treat flags at end of line as boolean
@@ -122,13 +127,17 @@ cat $1 | {
 # Simple model commands
   $SEDE "s/(section) ([A-z 0-9-.'=,]*)"'/model.\1(${2})/g if !/"/ && !/#/'
 } | {
-  $SEDE "s/(node|mass|fixZ|fixY|fixX|geomTransf|element) ([A-z 0-9-.'=,]*)"'/model.\1(${2})/g if !/"/ && !/#/'
+  # commands that probably take the rest of their line
+  $SEDE "s/(node|mass|geomTransf|element) ([A-z \(\)0-9-.'=,*\/]*)"'/model.\1(${2})/g if !/"/ && !/^ *#/'
+} | {
+  # commands that probably dont have parenthesized expressions
+  $SEDE "s/(fix|fixZ|fixY|fixX) ([A-z 0-9-.'=,]*);*"'/model.\1(${2})/g if !/"/ && !/^ *#/'
 } | {
   # Simple analysis commands
   $SEDE "s/(system|numberer|recorder|rayleigh|analyze|loadConst|algorithm|test|timeSeries|integrator|analysis|constraints|remove) ([A-z 0-9-.'=,]*)"'/ana.\1(${2})/g if !/"/ && !/#/'
 } | {
 # spaces to commas
-  $SEDE "s/([A-z0-9'.]) {1,}([A-z0-9'.])/\1, \2/g"' if /^[A-z]/ && !/"/ && !/#/ && !/^if / && !/^def /'
+  $SEDE "s/([A-z0-9'.]) {1,}([A-z0-9'.])/\1, \2/g"' if /^[A-z]/ && !/"/ && !/^ *#/ && !/^if / && !/^def /'
 } | {
   $SEDE "s/(?=^(def) )([A-z0-9'.]) {1,}([A-z0-9'.])/\1, \2/g"
 } 

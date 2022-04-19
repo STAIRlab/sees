@@ -283,6 +283,8 @@ class circ:
         self._moic = None
         self._moig = None
         self._area = None
+        if "diameter" in self.kwds:
+            self.extRad = self.kwds["diameter"]/2
     
     @property
     def moic(self):

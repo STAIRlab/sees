@@ -182,6 +182,15 @@ def eigen(script: str, modes=1, verbose=False):
     """)
     return interp
 
+def eval(script: str):
+    interp = TclInterpreter()
+    interp.eval(f"""
+
+    {script}
+
+    """)
+    return interp
+
 def read_tcl_domain(script: str):
     interp = TclInterpreter()
     interp.eval(f"""
