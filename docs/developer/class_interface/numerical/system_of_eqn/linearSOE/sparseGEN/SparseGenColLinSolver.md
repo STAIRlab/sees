@@ -1,14 +1,14 @@
-\
-\#include
-$<\tilde{ }$/system_of_eqn/linearSOE/SparseGen/SparseGenColLinSolver.h$>$\
+# SparseGenColLinSolver
 
-class SparseGenColLinSolver: public LinearSOESolver\
+```cpp
+#include <system_of_eqn/linearSOE/SparseGen/SparseGenColLinSolver.h>
 
-MovableObject\
-Solver\
-LinearSOESolver\
+class SparseGenColLinSolver: public LinearSOESolver
+    MovableObject
+    Solver
+```
 
-\
+
 SparseGenColLinSolver is an abstract class. The SparseGenColLinSolver
 class provides access for each subclass to the SparseGenColLinSOE object
 through the pointer *theSOE*, which is a protected pointer.

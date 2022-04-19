@@ -1,17 +1,21 @@
-\
-\#include
-$<\tilde{ }$/system_of_eqn/linearSOE/bandGEN/BandGenLinLapackSolver.h$>$\
+# BandGenLinLapackSolver
+## User Interface
 
-class BandGenLinLapackSolver: public BandGenLinSolver\
+## Class Interface
 
-MovableObject\
-Solver\
-LinearSOESolver\
-BandGenLinSolver\
+```cpp
+#include <system_of_eqn/linearSOE/bandGEN/BandGenLinLapackSolver.h>
 
-\
-A BandGenLinLapackSolver object can be constructed to solve a
-BandGenLinSOE object. It obtains the solution by making calls on the the
+class BandGenLinLapackSolver:
+public BandGenLinSolver
+       MovableObject
+       Solver
+       LinearSOESolver
+```
+
+
+A `BandGenLinLapackSolver` object can be constructed to solve a
+`BandGenLinSOE` object. It obtains the solution by making calls on the the
 LAPACK library. The class is defined to be a friend of the BandGenLinSOE
 class (see  `<BandGenLinSOE.h>`).
 
