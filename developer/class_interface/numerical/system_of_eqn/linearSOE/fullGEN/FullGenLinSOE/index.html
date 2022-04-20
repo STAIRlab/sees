@@ -4714,7 +4714,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandGEN/BandGenLinSOE/" class="md-nav__link">
-        
+        BandGenLinSOE
+
       </a>
     </li>
   
@@ -4784,7 +4785,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinLapackSolver/" class="md-nav__link">
-        
+        BandSPDLinLapackSolver
+
       </a>
     </li>
   
@@ -4798,7 +4800,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinSOE/" class="md-nav__link">
-        
+        BandSPDLinSOE
+
       </a>
     </li>
   
@@ -4812,7 +4815,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinSolver/" class="md-nav__link">
-        
+        BandSPDLinSolver
+
       </a>
     </li>
   
@@ -5012,7 +5016,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinDirectThreadSolver/" class="md-nav__link">
-        
+        ProfileSPDLinDirectThreadSolver
+
       </a>
     </li>
   
@@ -5026,7 +5031,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinSOE/" class="md-nav__link">
-        
+        ProfileSPDLinSOE
+
       </a>
     </li>
   
@@ -5040,7 +5046,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSolver
+
       </a>
     </li>
   
@@ -5054,7 +5061,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinSubstrSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSubstrSolver
+
       </a>
     </li>
   
@@ -5138,7 +5146,8 @@
   
     <li class="md-nav__item">
       <a href="../../sparseGEN/SuperLU/" class="md-nav__link">
-        
+        SuperLU
+
       </a>
     </li>
   
@@ -6579,14 +6588,12 @@
 <h1 id="fullgenlinsoe">FullGenLinSOE</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;~/system_of_eqn/linearSOE/fullGEN/FullGenLinSOE.h&gt;</span><span class="cp"></span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">FullGenLinSOE</span><span class="o">:</span><span class="w"> </span>
-<span class="k">public</span><span class="w"></span>
-<span class="w">   </span><span class="n">MovableObject</span><span class="w"></span>
-<span class="w">   </span><span class="n">SystemOfEqn</span><span class="w"></span>
-<span class="w">   </span><span class="n">LinearSOE</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">FullGenLinSOE</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOE</span><span class="w"></span>
 </pre></div>
 
-<p>FullGenLinSOE is class which is used to store a full general system. The <span class="math inline">\(A\)</span> matrix is stored in a 1d double array with <span class="math inline">\(n*n\)</span> elements, where <span class="math inline">\(n\)</span> is the size of the system. <span class="math inline">\(A_{i,j}\)</span> is stored at location <span class="math inline">\((i + j*(n)\)</span>, where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> range from <span class="math inline">\(0\)</span> to <span class="math inline">\(n-1\)</span>, i.e. C notation. For example when <span class="math inline">\(n=3\)</span>:</p>
+<p>MovableObject SystemOfEqn</p>
+<p><code>FullGenLinSOE</code> is class which is used to store a full general system. The <span class="math inline">\(A\)</span> matrix is stored in a 1d double array with <span class="math inline">\(n*n\)</span> elements, where <span class="math inline">\(n\)</span> is the size of the system. <span class="math inline">\(A_{i,j}\)</span> is stored at location <span class="math inline">\((i + j*(n)\)</span>, where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> range from <span class="math inline">\(0\)</span> to <span class="math inline">\(n-1\)</span>, i.e. C notation.</p>
+<p>For example, when <span class="math inline">\(n=3\)</span>:</p>
 <p><span class="math display">\[\left[
 \begin{array}{ccc}
 a_{0,0} &amp; a_{0,1}  &amp; a_{0,2}  \\
@@ -6594,7 +6601,7 @@ a_{1,0} &amp; a_{1,1} &amp; a_{1,2}  \\
 a_{2,0} &amp; a_{2,1} &amp; a_{2,2} \\
 \end{array}
 \right]\]</span></p>
-<p>is stored in:</p>
+<p>is stored as:</p>
 <p><span class="math display">\[\left[
 \begin{array}{cccccccccccccccccccc}
 a_{0,0} &amp; a_{1,0}  &amp; a_{2,0} &amp; a_{0,1} &amp; a_{1,1} &amp; a_{2,1} &amp;
@@ -6604,13 +6611,16 @@ a_{0,2} &amp; a_{1,2} &amp; a_{2,2}  \\
 <p>The <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> vectors are stored in 1d double arrays of length <span class="math inline">\(n\)</span>. To allow the solvers access to this data, the solvers that use this class are all declared as friend classes.</p>
 <p><br />
 </p>
-<p>The <em>solver</em> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. The system size is set to <span class="math inline">\(0\)</span> and the matrix <span class="math inline">\(A\)</span> is marked as not having been factored. Invokes <em>setLinearSOE(*this)</em> on the <em>solver</em>. No memory is allocated for the 3 1d arrays. <em>FullGenLinSOE(int N, FullGenLinSolver &amp;solver);</em><br />
-The <em>solver</em> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. The system size is set to <span class="math inline">\(N\)</span> and the matrix <span class="math inline">\(A\)</span> is marked as not having been factored. Obtains memory from the heap for the 1d arrays storing the data for <span class="math inline">\(A\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> and stores the size of these arrays. If not enough memory is available for these arrays a warning message is printed and the system size is set to <span class="math inline">\(0\)</span>. Invokes <code class="sourceCode cpp">setLinearSOE<span class="op">(</span>\<span class="op">*</span><span class="kw">this</span><span class="op">)</span></code> and <code>setSize()</code> on <em>solver</em>, printing a warning message if <code>setSize()</code> returns a negative number. Also creates Vector objects for <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> using the <em>(double *,int)</em> Vector constructor.</p>
+<p>The <code>solver</code> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. The system size is set to <span class="math inline">\(0\)</span> and the matrix <span class="math inline">\(A\)</span> is marked as not having been factored. Invokes <code>setLinearSOE(*this)</code> on the <code>solver</code>. No memory is allocated for the 3 1d arrays.</p>
+<div class="highlight"><pre><span></span><span class="n">FullGenLinSOE</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="n">FullGenLinSolver</span><span class="w"> </span><span class="o">&amp;</span><span class="n">solver</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>The <code>solver</code> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. The system size is set to <span class="math inline">\(N\)</span> and the matrix <span class="math inline">\(A\)</span> is marked as not having been factored. Obtains memory from the heap for the 1d arrays storing the data for <span class="math inline">\(A\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> and stores the size of these arrays. If not enough memory is available for these arrays a warning message is printed and the system size is set to <span class="math inline">\(0\)</span>. Invokes <code class="sourceCode cpp">setLinearSOE<span class="op">(</span>\<span class="op">*</span><span class="kw">this</span><span class="op">)</span></code> and <code>setSize()</code> on <code>solver</code>, printing a warning message if <code>setSize()</code> returns a negative number. Also creates Vector objects for <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> using the <em>(double *,int)</em> Vector constructor.</p>
 <h3 id="destructor">Destructor</h3>
 <div class="highlight"><pre><span></span><span class="o">~</span><span class="n">FullGenLinSOE</span><span class="p">();</span><span class="w"></span>
 </pre></div>
 
-<p>Calls delete on any arrays created.</p>
+<p>Calls <code>delete</code> on any arrays created.</p>
 <h3 id="methods">Methods</h3>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">setFullGEnSolver</span><span class="p">(</span><span class="n">FullGenLinSolver</span><span class="w"> </span><span class="o">&amp;</span><span class="n">newSolver</span><span class="p">);</span><span class="w"></span>
 </pre></div>
@@ -6623,7 +6633,7 @@ The <em>solver</em> and a unique class tag (defined in <code>&lt;classTags.h&gt;
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">setSize</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Graph</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theGraph</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>The size of the system is determined by invoking <code>getNumVertex()</code> on <em>theGraph</em>. If the old space allocated for the 1d arrays is not big enough, it the old space is returned to the heap and new space is allocated from the heap. Prints a warning message, sets size to <span class="math inline">\(0\)</span> and returns a <span class="math inline">\(-1\)</span>, if not enough memory is available on the heap for the 1d arrays. If memory is available, the components of the arrays are zeroed and <span class="math inline">\(A\)</span> is marked as being unfactored. If the system size has increased, new Vector objects for <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> using the <code class="sourceCode cpp"><span class="op">(</span><span class="dt">double</span> \<span class="op">*,</span><span class="dt">int</span><span class="op">)</span></code> Vector constructor are created. Finally, the result of invoking <code>setSize()</code> on the associated Solver object is returned.</p>
+<p>The size of the system is determined by invoking <code>getNumVertex()</code> on <code>theGraph</code>. If the old space allocated for the 1d arrays is not big enough, it the old space is returned to the heap and new space is allocated from the heap. Prints a warning message, sets size to <span class="math inline">\(0\)</span> and returns a <span class="math inline">\(-1\)</span>, if not enough memory is available on the heap for the 1d arrays. If memory is available, the components of the arrays are zeroed and <span class="math inline">\(A\)</span> is marked as being unfactored. If the system size has increased, new Vector objects for <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> using the <code class="sourceCode cpp"><span class="op">(</span><span class="dt">double</span> \<span class="op">*,</span><span class="dt">int</span><span class="op">)</span></code> Vector constructor are created. Finally, the result of invoking <code>setSize()</code> on the associated Solver object is returned.</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">addA</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="n">doublefact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 

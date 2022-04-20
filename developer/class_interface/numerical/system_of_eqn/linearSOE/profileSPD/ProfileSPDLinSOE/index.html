@@ -15,7 +15,7 @@
     
     
       
-        <title>OpenSees</title>
+        <title>ProfileSPDLinSOE - OpenSees</title>
       
     
     
@@ -94,7 +94,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              ProfileSPDLinSOE
+
             
           </span>
         </div>
@@ -4713,7 +4714,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandGEN/BandGenLinSOE/" class="md-nav__link">
-        
+        BandGenLinSOE
+
       </a>
     </li>
   
@@ -4783,7 +4785,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinLapackSolver/" class="md-nav__link">
-        
+        BandSPDLinLapackSolver
+
       </a>
     </li>
   
@@ -4797,7 +4800,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinSOE/" class="md-nav__link">
-        
+        BandSPDLinSOE
+
       </a>
     </li>
   
@@ -4811,7 +4815,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinSolver/" class="md-nav__link">
-        
+        BandSPDLinSolver
+
       </a>
     </li>
   
@@ -5003,7 +5008,8 @@
   
     <li class="md-nav__item">
       <a href="../ProfileSPDLinDirectThreadSolver/" class="md-nav__link">
-        
+        ProfileSPDLinDirectThreadSolver
+
       </a>
     </li>
   
@@ -5024,7 +5030,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
+        ProfileSPDLinSOE
+
       </a>
       
     </li>
@@ -5039,7 +5046,8 @@
   
     <li class="md-nav__item">
       <a href="../ProfileSPDLinSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSolver
+
       </a>
     </li>
   
@@ -5053,7 +5061,8 @@
   
     <li class="md-nav__item">
       <a href="../ProfileSPDLinSubstrSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSubstrSolver
+
       </a>
     </li>
   
@@ -5137,7 +5146,8 @@
   
     <li class="md-nav__item">
       <a href="../../sparseGEN/SuperLU/" class="md-nav__link">
-        
+        SuperLU
+
       </a>
     </li>
   
@@ -6575,20 +6585,18 @@
 </a>
 
 
-  <h1>OpenSees</h1>
+<h1 id="profilespdlinsoe">ProfileSPDLinSOE</h1>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ProfileSPDLinSOE.h&quot;</span><span class="cp"></span>
 
-<p><br />
-</p>
-<p>#include <span class="math inline">\(&lt;\tilde{ }\)</span>ProfileSPDLinSOE.h<span class="math inline">\(&gt;\)</span><br />
-</p>
-<p>class ProfileSPDLinSOE: public LinearSOE<br />
-</p>
-<p>MovableObject<br />
-SystemOfEqn<br />
-LinearSOE<br />
-</p>
-<p><br />
-ProfileSPDLinSOE is class which is used to store a symmetric system of equations using a profile storage scheme. The upper triangular part of <span class="math inline">\(A\)</span> is stored in a 1d double array with the diagonals of <span class="math inline">\(A\)</span> located at positions given by an integer array <span class="math inline">\(iLoc\)</span>. For example when <span class="math inline">\(n=5\)</span> and <span class="math inline">\(A\)</span> as shown below:</p>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProfileSPDLinSOE</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOE</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>MovableObject
+SystemOfEqn
+LinearSOE
+</pre></div>
+
+<p><code>ProfileSPDLinSOE</code> is class which is used to store a symmetric system of equations using a profile storage scheme. The upper triangular part of <span class="math inline">\(A\)</span> is stored in a 1d double array with the diagonals of <span class="math inline">\(A\)</span> located at positions given by an integer array <span class="math inline">\(iLoc\)</span>. For example when <span class="math inline">\(n=5\)</span> and <span class="math inline">\(A\)</span> as shown below:</p>
 <p><span class="math display">\[\left[
 \begin{array}{ccccc}
 a_{0,0} &amp; a_{0,1}  &amp; 0 &amp; 0 &amp; a_{0,4} \\
@@ -6612,31 +6620,8 @@ a_{2,3} &amp; a_{3,3} &amp; a_{0,4} &amp; 0 &amp; a_{2,4} &amp; a_{3,4} &amp; a_
 \begin{array}{cccccccccccccccccccc}
 1 &amp; 3 &amp; 5 &amp; 8 &amp; 13 \\
 \end{array}
-\right]\]</span> Note <span class="math inline">\(iLoc\)</span> stores the diagonal locations using Fortran indexing. This is to facilitate calls to Fortran libraries, e.g. Digital’s DXML. The <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> vectors are stored in 1d double arrays of length <span class="math inline">\(N\)</span>.</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
+\right]\]</span></p>
+<p>Note <span class="math inline">\(iLoc\)</span> stores the diagonal locations using Fortran indexing. This is to facilitate calls to Fortran libraries, e.g. Digital’s DXML. The <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> vectors are stored in 1d double arrays of length <span class="math inline">\(N\)</span>.</p>
 <p>The <em>solver</em> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. The system size is set to <span class="math inline">\(0\)</span> and the matrix <span class="math inline">\(A\)</span> is marked as not having been factored. Invokes <em>setLinearSOE(*this)</em> on the <em>solver</em>. No memory is allocated for the 1d arrays. <em>ProfileSPDLinSOE(int N, int *newIloc, ProfileSPDLinSolver &amp;theSolver);</em><br />
 The <em>solver</em> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. The system size is set to <span class="math inline">\(N\)</span> and the matrix <span class="math inline">\(A\)</span> is marked as not having been factored or condensed. Obtains memory from the heap for the 1d arrays storing the data for <span class="math inline">\(A\)</span>, <span class="math inline">\(x\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(iLoc\)</span> and stores the size of these arrays. If not enough memory is available for these arrays a warning message is printed and the system size is set to <span class="math inline">\(0\)</span>. The size of <span class="math inline">\(A\)</span> is given by <span class="math inline">\(newIloc(N-1)\)</span>, if this is not a valid address in <em>newIloc</em> a segmentation fault or erronious results will result. The contents of <span class="math inline">\(iLoc\)</span> are set equal to those of <em>newIloc</em>. Invokes <em>setLinearSOE(*this)</em> and <code>setSize()</code> on <em>solver</em>, printing a warning message if <code>setSize()</code> returns a negative number. Also creates Vector objects for <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> using the <code class="sourceCode cpp"><span class="op">(</span><span class="dt">double</span> \<span class="op">*,</span><span class="dt">int</span><span class="op">)</span></code> Vector constructor.</p>
 <p><br />
