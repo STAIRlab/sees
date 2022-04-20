@@ -4718,7 +4718,8 @@
   
     <li class="md-nav__item">
       <a href="../system_of_eqn/linearSOE/bandGEN/BandGenLinSOE/" class="md-nav__link">
-        
+        BandGenLinSOE
+
       </a>
     </li>
   
@@ -4788,7 +4789,8 @@
   
     <li class="md-nav__item">
       <a href="../system_of_eqn/linearSOE/bandSPD/BandSPDLinLapackSolver/" class="md-nav__link">
-        
+        BandSPDLinLapackSolver
+
       </a>
     </li>
   
@@ -4802,7 +4804,8 @@
   
     <li class="md-nav__item">
       <a href="../system_of_eqn/linearSOE/bandSPD/BandSPDLinSOE/" class="md-nav__link">
-        
+        BandSPDLinSOE
+
       </a>
     </li>
   
@@ -4816,7 +4819,8 @@
   
     <li class="md-nav__item">
       <a href="../system_of_eqn/linearSOE/bandSPD/BandSPDLinSolver/" class="md-nav__link">
-        
+        BandSPDLinSolver
+
       </a>
     </li>
   
@@ -5006,7 +5010,8 @@
   
     <li class="md-nav__item">
       <a href="../system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectThreadSolver/" class="md-nav__link">
-        
+        ProfileSPDLinDirectThreadSolver
+
       </a>
     </li>
   
@@ -5020,7 +5025,8 @@
   
     <li class="md-nav__item">
       <a href="../system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSOE/" class="md-nav__link">
-        
+        ProfileSPDLinSOE
+
       </a>
     </li>
   
@@ -5034,7 +5040,8 @@
   
     <li class="md-nav__item">
       <a href="../system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSolver
+
       </a>
     </li>
   
@@ -5048,7 +5055,8 @@
   
     <li class="md-nav__item">
       <a href="../system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSubstrSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSubstrSolver
+
       </a>
     </li>
   
@@ -5132,7 +5140,8 @@
   
     <li class="md-nav__item">
       <a href="../system_of_eqn/linearSOE/sparseGEN/SuperLU/" class="md-nav__link">
-        
+        SuperLU
+
       </a>
     </li>
   
@@ -6572,9 +6581,10 @@
 
 <h1 id="id">ID</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;matrix/ID.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ID</span><span class="o">:</span><span class="w"></span>
 </pre></div>
 
-<p>class ID:</p>
 <p>The ID class provides the abstraction for an integer Vector. The class is introduced in addition to the Vector class, to save memory and casting when integer arrays are required. An ID of order <em>size</em> is an ordered 1d array of <em>size</em> integer values. For example an ID id of order 5:</p>
 <p><span class="math inline">\(id = [id_0\)</span> <span class="math inline">\(id_1\)</span> <span class="math inline">\(id_2\)</span> <span class="math inline">\(id_3\)</span> <span class="math inline">\(id_4]\)</span></p>
 <p>In the ID class, the data is stored in a 1d integer array of length equal to arraySize, where order &lt;= arraySize. Creating an ID with storage capacity greater than that required allows the ID object to grow without the need to deallocate and allocate more memory. At present time none of the methods are declared as being virtual. THIS MAY CHANGE.</p>

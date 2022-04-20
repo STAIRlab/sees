@@ -4713,7 +4713,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandGEN/BandGenLinSOE/" class="md-nav__link">
-        
+        BandGenLinSOE
+
       </a>
     </li>
   
@@ -4783,7 +4784,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinLapackSolver/" class="md-nav__link">
-        
+        BandSPDLinLapackSolver
+
       </a>
     </li>
   
@@ -4797,7 +4799,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinSOE/" class="md-nav__link">
-        
+        BandSPDLinSOE
+
       </a>
     </li>
   
@@ -4811,7 +4814,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinSolver/" class="md-nav__link">
-        
+        BandSPDLinSolver
+
       </a>
     </li>
   
@@ -5011,7 +5015,8 @@
   
     <li class="md-nav__item">
       <a href="../ProfileSPDLinDirectThreadSolver/" class="md-nav__link">
-        
+        ProfileSPDLinDirectThreadSolver
+
       </a>
     </li>
   
@@ -5025,7 +5030,8 @@
   
     <li class="md-nav__item">
       <a href="../ProfileSPDLinSOE/" class="md-nav__link">
-        
+        ProfileSPDLinSOE
+
       </a>
     </li>
   
@@ -5039,7 +5045,8 @@
   
     <li class="md-nav__item">
       <a href="../ProfileSPDLinSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSolver
+
       </a>
     </li>
   
@@ -5053,7 +5060,8 @@
   
     <li class="md-nav__item">
       <a href="../ProfileSPDLinSubstrSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSubstrSolver
+
       </a>
     </li>
   
@@ -5137,7 +5145,8 @@
   
     <li class="md-nav__item">
       <a href="../../sparseGEN/SuperLU/" class="md-nav__link">
-        
+        SuperLU
+
       </a>
     </li>
   
@@ -6577,19 +6586,20 @@
 
   <h1>OpenSees</h1>
 
-<p>UNDER CONSTRUCTION</p>
+<p>UNDER CONSTRUCTION # ProfileSPDLinDirectSolver</p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectSolver.h&gt;</span><span class="cp"></span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ProfileSPDLinDirectSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOESolver</span><span class="w"></span>
 </pre></div>
 
-<p>class ProfileSPDLinDirectSolver: public LinearSOESolver<br />
-</p>
-<p>MovableObject<br />
-Solver<br />
-LinearSOESolver<br />
-ProfileSPDLinSolver<br />
-</p>
-<p><br />
-A ProfileSPDLinDirectSolver object can be constructed to solve a ProfileSPDLinSOE object. It does this by direct means, using the <span class="math inline">\(LDL^t\)</span> variation of the cholesky factorization. The matrx <span class="math inline">\(A\)</span> is factored one column at a time using a left-looking approach. No BLAS or LAPACK routines are called for the factorization or subsequent substitution.</p>
+<div class="highlight"><pre><span></span>MovableObject\
+Solver\
+LinearSOESolver\
+ProfileSPDLinSolver\
+</pre></div>
+
+<p>A <code>ProfileSPDLinDirectSolver</code> object can be constructed to solve a ProfileSPDLinSOE object. It does this by direct means, using the <span class="math inline">\(LDL^t\)</span> variation of the cholesky factorization. The matrx <span class="math inline">\(A\)</span> is factored one column at a time using a left-looking approach. No BLAS or LAPACK routines are called for the factorization or subsequent substitution.</p>
 <p>Constructor<br />
 </p>
 <p><br />

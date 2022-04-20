@@ -15,7 +15,7 @@
     
     
       
-        <title>OpenSees</title>
+        <title>BandSPDLinLapackSolver - OpenSees</title>
       
     
     
@@ -94,7 +94,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              BandSPDLinLapackSolver
+
             
           </span>
         </div>
@@ -4713,7 +4714,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandGEN/BandGenLinSOE/" class="md-nav__link">
-        
+        BandGenLinSOE
+
       </a>
     </li>
   
@@ -4792,7 +4794,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
+        BandSPDLinLapackSolver
+
       </a>
       
     </li>
@@ -4807,7 +4810,8 @@
   
     <li class="md-nav__item">
       <a href="../BandSPDLinSOE/" class="md-nav__link">
-        
+        BandSPDLinSOE
+
       </a>
     </li>
   
@@ -4821,7 +4825,8 @@
   
     <li class="md-nav__item">
       <a href="../BandSPDLinSolver/" class="md-nav__link">
-        
+        BandSPDLinSolver
+
       </a>
     </li>
   
@@ -5011,7 +5016,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinDirectThreadSolver/" class="md-nav__link">
-        
+        ProfileSPDLinDirectThreadSolver
+
       </a>
     </li>
   
@@ -5025,7 +5031,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinSOE/" class="md-nav__link">
-        
+        ProfileSPDLinSOE
+
       </a>
     </li>
   
@@ -5039,7 +5046,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSolver
+
       </a>
     </li>
   
@@ -5053,7 +5061,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinSubstrSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSubstrSolver
+
       </a>
     </li>
   
@@ -5137,7 +5146,8 @@
   
     <li class="md-nav__item">
       <a href="../../sparseGEN/SuperLU/" class="md-nav__link">
-        
+        SuperLU
+
       </a>
     </li>
   
@@ -6575,25 +6585,20 @@
 </a>
 
 
-  <h1>OpenSees</h1>
+<h1 id="bandspdlinlapacksolver">BandSPDLinLapackSolver</h1>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/bandSPD/BandSPDLinLapackSolver.h&gt;</span><span class="cp"></span>
 
-<p><br />
-#include <span class="math inline">\(&lt;\tilde{ }\)</span>/system_of_eqn/linearSOE/bandSPD/BandSPDLinLapackSolver.h<span class="math inline">\(&gt;\)</span><br />
-</p>
-<p>class BandSPDLinLapackSolver: public BandSPDLinSolver<br />
-</p>
-<p>MovableObject<br />
-Solver<br />
-LinearSOESolver<br />
-BandSPDLinSolver<br />
-</p>
-<p><br />
-A BandSPDLinLapackSolver object can be constructed to solve a BandSPDLinSOE object. It obtains the solution by making calls on the the LAPACK library. The class is defined to be a friend of the BandSPDLinSOE class (see <code>&lt;BandSPDLinSOE.h&gt;</code>).</p>
+<span class="k">class</span><span class="w"> </span><span class="nc">BandSPDLinLapackSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">BandSPDLinSolver</span><span class="w"></span>
+
+<span class="n">MovableObject</span><span class="w"></span>
+<span class="n">Solver</span><span class="w"></span>
+<span class="n">LinearSOESolver</span><span class="w"></span>
+</pre></div>
+
+<p>A <code>BandSPDLinLapackSolver</code> object can be constructed to solve a <code>BandSPDLinSOE</code> object. It obtains the solution by making calls on the the LAPACK library. The class is defined to be a friend of the <a href="BandSPDLinSOE"><code>BandSPDLinSOE</code></a> class.</p>
 <h3 id="constructor">Constructor</h3>
-<p><br />
-### Destructor</p>
-<p><br />
-// Public Methods<br />
+<h3 id="destructor">Destructor</h3>
+<p>// Public Methods<br />
 </p>
 <p><br />
 </p>

@@ -15,7 +15,7 @@
     
     
       
-        <title>OpenSees</title>
+        <title>ProfileSPDLinSolver - OpenSees</title>
       
     
     
@@ -94,7 +94,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              ProfileSPDLinSolver
+
             
           </span>
         </div>
@@ -4713,7 +4714,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandGEN/BandGenLinSOE/" class="md-nav__link">
-        
+        BandGenLinSOE
+
       </a>
     </li>
   
@@ -4783,7 +4785,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinLapackSolver/" class="md-nav__link">
-        
+        BandSPDLinLapackSolver
+
       </a>
     </li>
   
@@ -4797,7 +4800,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinSOE/" class="md-nav__link">
-        
+        BandSPDLinSOE
+
       </a>
     </li>
   
@@ -4811,7 +4815,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandSPD/BandSPDLinSolver/" class="md-nav__link">
-        
+        BandSPDLinSolver
+
       </a>
     </li>
   
@@ -5003,7 +5008,8 @@
   
     <li class="md-nav__item">
       <a href="../ProfileSPDLinDirectThreadSolver/" class="md-nav__link">
-        
+        ProfileSPDLinDirectThreadSolver
+
       </a>
     </li>
   
@@ -5017,7 +5023,8 @@
   
     <li class="md-nav__item">
       <a href="../ProfileSPDLinSOE/" class="md-nav__link">
-        
+        ProfileSPDLinSOE
+
       </a>
     </li>
   
@@ -5038,7 +5045,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
+        ProfileSPDLinSolver
+
       </a>
       
     </li>
@@ -5053,7 +5061,8 @@
   
     <li class="md-nav__item">
       <a href="../ProfileSPDLinSubstrSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSubstrSolver
+
       </a>
     </li>
   
@@ -5137,7 +5146,8 @@
   
     <li class="md-nav__item">
       <a href="../../sparseGEN/SuperLU/" class="md-nav__link">
-        
+        SuperLU
+
       </a>
     </li>
   
@@ -6575,19 +6585,16 @@
 </a>
 
 
-  <h1>OpenSees</h1>
+<h1 id="profilespdlinsolver">ProfileSPDLinSolver</h1>
+<div class="highlight"><pre><span></span><span class="cp">#include $&lt;\tilde{ }$ProfileSPDLinSolver.h$&gt;$\</span>
 
-<p><br />
-</p>
-<p>#include <span class="math inline">\(&lt;\tilde{ }\)</span>ProfileSPDLinSolver.h<span class="math inline">\(&gt;\)</span><br />
-</p>
-<p>class ProfileSPDLinSolver: public LinearSOESolver<br />
-</p>
+<span class="k">class</span><span class="w"> </span><span class="nc">ProfileSPDLinSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOESolver</span><span class="w"></span>
+</pre></div>
+
 <p>Solver<br />
 LinearSOESolver<br />
 </p>
-<p><br />
-ProfileSPDLinSolver is an abstract class. The ProfileSPDLinSolver class provides access for each subclass to the ProfileSPDLinSOE object through the pointer <em>theSOE</em>, which is a protected pointer.</p>
+<p><code>ProfileSPDLinSolver</code> is an abstract class. The ProfileSPDLinSolver class provides access for each subclass to the ProfileSPDLinSOE object through the pointer <em>theSOE</em>, which is a protected pointer.</p>
 <h3 id="constructor">Constructor</h3>
 <p><br />
 ### Destructor</p>

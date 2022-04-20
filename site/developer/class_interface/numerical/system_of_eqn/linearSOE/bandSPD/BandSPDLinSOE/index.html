@@ -15,7 +15,7 @@
     
     
       
-        <title>OpenSees</title>
+        <title>BandSPDLinSOE - OpenSees</title>
       
     
     
@@ -94,7 +94,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              BandSPDLinSOE
+
             
           </span>
         </div>
@@ -4713,7 +4714,8 @@
   
     <li class="md-nav__item">
       <a href="../../bandGEN/BandGenLinSOE/" class="md-nav__link">
-        
+        BandGenLinSOE
+
       </a>
     </li>
   
@@ -4785,7 +4787,8 @@
   
     <li class="md-nav__item">
       <a href="../BandSPDLinLapackSolver/" class="md-nav__link">
-        
+        BandSPDLinLapackSolver
+
       </a>
     </li>
   
@@ -4806,7 +4809,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
+        BandSPDLinSOE
+
       </a>
       
     </li>
@@ -4821,7 +4825,8 @@
   
     <li class="md-nav__item">
       <a href="../BandSPDLinSolver/" class="md-nav__link">
-        
+        BandSPDLinSolver
+
       </a>
     </li>
   
@@ -5011,7 +5016,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinDirectThreadSolver/" class="md-nav__link">
-        
+        ProfileSPDLinDirectThreadSolver
+
       </a>
     </li>
   
@@ -5025,7 +5031,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinSOE/" class="md-nav__link">
-        
+        ProfileSPDLinSOE
+
       </a>
     </li>
   
@@ -5039,7 +5046,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSolver
+
       </a>
     </li>
   
@@ -5053,7 +5061,8 @@
   
     <li class="md-nav__item">
       <a href="../../profileSPD/ProfileSPDLinSubstrSolver/" class="md-nav__link">
-        
+        ProfileSPDLinSubstrSolver
+
       </a>
     </li>
   
@@ -5137,7 +5146,8 @@
   
     <li class="md-nav__item">
       <a href="../../sparseGEN/SuperLU/" class="md-nav__link">
-        
+        SuperLU
+
       </a>
     </li>
   
@@ -6575,19 +6585,19 @@
 </a>
 
 
-  <h1>OpenSees</h1>
+<h1 id="bandspdlinsoe">BandSPDLinSOE</h1>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/bandSPD/BandSPDLinSOE.h&gt;</span><span class="cp"></span>
 
-<p><br />
-#include <span class="math inline">\(&lt;\tilde{ }\)</span>/system_of_eqn/linearSOE/bandSPD/BandSPDLinSOE.h<span class="math inline">\(&gt;\)</span><br />
-</p>
-<p>class BandSPDLinSOE: public LinearSOE<br />
-</p>
-<p>MovableObject<br />
-SystemOfEqn<br />
-LinearSOE<br />
-</p>
-<p><br />
-BandSPDLinSOE is class which is used to store a banded symmetric system with ku superdiagonals. The <span class="math inline">\(A\)</span> matrix is stored in a 1d double array with (ku+1)*n elements, where n is the size of the system. <span class="math inline">\(A_{i,j}\)</span> is stored at location <span class="math inline">\((ku+1+i-j) + j*(ku+1)\)</span>, where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> range from <span class="math inline">\(0\)</span> to<span class="math inline">\(n-1\)</span>, i.e. C notation. For example when <span class="math inline">\(n=5\)</span>, <span class="math inline">\(ku = 2\)</span>:</p>
+<span class="k">class</span><span class="w"> </span><span class="nc">BandSPDLinSOE</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOE</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>MovableObject
+SystemOfEqn
+LinearSOE
+</pre></div>
+
+<p><code>BandSPDLinSOE</code> is class which is used to store a banded symmetric system with <code>ku</code> superdiagonals. The <span class="math inline">\(A\)</span> matrix is stored in a 1d double array with <span class="math inline">\((ku+1)n\)</span> elements, where <span class="math inline">\(n\)</span> is the size of the system. <span class="math inline">\(A_{i,j}\)</span> is stored at location <span class="math inline">\((ku+1+i-j) + j*(ku+1)\)</span>, where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> range from <span class="math inline">\(0\)</span> to<span class="math inline">\(n-1\)</span>, i.e. C notation.</p>
+<p>For example when <span class="math inline">\(n=5\)</span>, <span class="math inline">\(ku = 2\)</span>:</p>
 <p><span class="math display">\[\left[
 \begin{array}{ccccc}
 a_{0,0} &amp; a_{0,1}  &amp; a_{0,1} &amp; 0 &amp; 0 \\
@@ -6605,50 +6615,37 @@ a_{1,3} &amp; a_{2,3} &amp; a_{3,3} &amp; a_{2,4} &amp; a_{3,4} &amp; a_{4,4}\\
 \end{array}
 \right]\]</span></p>
 <p>The <span class="math inline">\(X\)</span> and <span class="math inline">\(B\)</span> vectors are stored in 1d double arrays of length <span class="math inline">\(N\)</span>.</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p>The <em>solver</em> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. The system size is set to <span class="math inline">\(0\)</span> and the matrix <span class="math inline">\(A\)</span> is marked as not having been factored. Invokes <em>setLinearSOE(*this)</em> on the <em>solver</em>. No memory is allocated for the 3 1d arrays.</p>
+<p>The <em>solver</em> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. The system size is set to <span class="math inline">\(0\)</span> and the matrix <span class="math inline">\(A\)</span> is marked as not having been factored. Invokes <code>setLinearSOE(*this)</code> on the <code>solver</code>. No memory is allocated for the 3 1d arrays.</p>
 <div class="highlight"><pre><span></span><span class="n">BandSPDLinSOE</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ku</span><span class="p">,</span><span class="w"> </span><span class="n">BandSPDLinSolver</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theSolver</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>The <em>solver</em> and a unique class tag (defined in <code>&lt;classTags.h&gt;</code>) are passed to the LinearSOE constructor. Sets the size of the system to <span class="math inline">\(N\)</span>, the number of superdiagonals to <em>ku</em>. Allocates memory for the arrays; if not enough memory is available a warning message is printed and the system size is set to <span class="math inline">\(0\)</span>. Sets the solver to be called when solving the equations to <em>theSolver</em>. Invokes <code class="sourceCode cpp">setLinearSOE<span class="op">(</span>\<span class="op">*</span><span class="kw">this</span><span class="op">)</span></code> and <code>setSize()</code> on the <em>theSolver</em>, printing a warning message if <code>setSize()</code> returns a negative number. Also creates Vector objects for <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> using the <em>(double *,int)</em> Vector constructor.</p>
 <p><br />
 Calls delete on any arrays created.</p>
-<p><br />
-Invokes <code class="sourceCode cpp">setLinearSOE<span class="op">(</span>\<span class="op">*</span><span class="kw">this</span><span class="op">)</span></code> on <em>newSolver</em>. If the system size is not equal to <span class="math inline">\(0\)</span>, it also invokes <code>setSize()</code> on <em>newSolver</em>, printing a warning and returning the returned value if this method returns a number less than <span class="math inline">\(0\)</span>. Finally it returns the result of invoking the LinearSOE classes <code>setSolver()</code> method.</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">setBandSPDSolver</span><span class="p">(</span><span class="n">BandSPDLinSolver</span><span class="w"> </span><span class="o">&amp;</span><span class="n">newSolver</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>Invokes <code class="sourceCode cpp">setLinearSOE<span class="op">(*</span><span class="kw">this</span><span class="op">)</span></code> on <code>newSolver</code>. If the system size is not equal to <span class="math inline">\(0\)</span>, it also invokes <code>setSize()</code> on <code>newSolver</code>, printing a warning and returning the returned value if this method returns a number less than <span class="math inline">\(0\)</span>. Finally it returns the result of invoking the LinearSOE classes <code>setSolver()</code> method.</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumEqn</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns the current size of the system.</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">setSize</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Graph</span><span class="w"> </span><span class="o">&amp;</span><span class="n">G</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The size of the system is determined by looking at the adjacency ID of each Vertex in the Graph object <em>G</em>. This is done by first setting <em>ku</em> equal to <span class="math inline">\(0\)</span> and then checking for each Vertex in <em>G</em>, whether any of the vertex tags in the Vertices adjacency ID results in <em>ku</em> being increased. Knowing <em>ku</em> and the size of the system (the number of Vertices in <em>G</em>, a check to see if the previously allocated 1d arrays for <span class="math inline">\(A\)</span>, <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> are large enough. If the memory portions allocated for the 1d arrays are not big enough, the old space is returned to the heap and new space is allocated from the heap. Prints a warning message if not enough memory is available on the heap for the 1d arrays and returns a <span class="math inline">\(-1\)</span>. If memory is available, the components of the arrays are zeroed and <span class="math inline">\(A\)</span> is marked as being unfactored. If the system size has increased, new Vector objects for <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> using the <em>(double *,int)</em> Vector constructor are created. Finally, the result of invoking <code>setSize()</code> on the associated Solver object is returned.</p>
-<p>First tests that <em>loc</em> and <em>M</em> are of compatible sizes; if not a warning message is printed and a <span class="math inline">\(-1\)</span> is returned. The LinearSOE object then assembles <em>fact</em> times the Matrix <em>M</em> into the matrix <span class="math inline">\(A\)</span>. The Matrix is assembled into <span class="math inline">\(A\)</span> at the locations given by the ID object <em>loc</em>, i.e. <span class="math inline">\(a_{loc(i),loc(j)} += fact * M(i,j)\)</span>. If the location specified is outside the range, i.e. <span class="math inline">\((-1,-1)\)</span> the corresponding entry in <em>M</em> is not added to <span class="math inline">\(A\)</span>. If <em>fact</em> is equal to <span class="math inline">\(0.0\)</span> or <span class="math inline">\(1.0\)</span>, more efficient steps are performed. Returns <span class="math inline">\(0\)</span>.</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">addA</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">M</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="n">doublefact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+<p>First tests that <em>loc</em> and <em>M</em> are of compatible sizes; if not a warning message is printed and a <span class="math inline">\(-1\)</span> is returned. The LinearSOE object then assembles <em>fact</em> times the Matrix <em>M</em> into the matrix <span class="math inline">\(A\)</span>. The Matrix is assembled into <span class="math inline">\(A\)</span> at the locations given by the ID object <em>loc</em>, i.e. <span class="math inline">\(a_{loc(i),loc(j)} += \texttt{fact} * M(i,j)\)</span>. If the location specified is outside the range, i.e. <span class="math inline">\((-1,-1)\)</span> the corresponding entry in <em>M</em> is not added to <span class="math inline">\(A\)</span>. If <em>fact</em> is equal to <span class="math inline">\(0.0\)</span> or <span class="math inline">\(1.0\)</span>, more efficient steps are performed. Returns <span class="math inline">\(0\)</span>.</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">addB</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>First tests that <em>loc</em> and <em>V</em> are of compatible sizes; if not a warning message is printed and a <span class="math inline">\(-1\)</span> is returned. The LinearSOE object then assembles <em>fact</em> times the Vector <em>V</em> into the vector <span class="math inline">\(b\)</span>. The Vector is assembled into <span class="math inline">\(b\)</span> at the locations given by the ID object <em>loc</em>, i.e. <span class="math inline">\(b_{loc(i)} += fact * V(i)\)</span>. If a location specified is outside the range, e.g. <span class="math inline">\(-1\)</span>, the corresponding entry in <em>V</em> is not added to <span class="math inline">\(b\)</span>. If <em>fact</em> is equal to <span class="math inline">\(0.0\)</span>, <span class="math inline">\(1.0\)</span> or <span class="math inline">\(-1.0\)</span>, more efficient steps are performed. Returns <span class="math inline">\(0\)</span>.</p>
+<p>First tests that <em>loc</em> and <em>V</em> are of compatible sizes; if not a warning message is printed and a <span class="math inline">\(-1\)</span> is returned. The <code>LinearSOE</code> object then assembles <em>fact</em> times the Vector <em>V</em> into the vector <span class="math inline">\(b\)</span>. The Vector is assembled into <span class="math inline">\(b\)</span> at the locations given by the ID object <em>loc</em>, i.e. <span class="math inline">\(b_{loc(i)} += fact * V(i)\)</span>. If a location specified is outside the range, e.g. <span class="math inline">\(-1\)</span>, the corresponding entry in <em>V</em> is not added to <span class="math inline">\(b\)</span>. If <em>fact</em> is equal to <span class="math inline">\(0.0\)</span>, <span class="math inline">\(1.0\)</span> or <span class="math inline">\(-1.0\)</span>, more efficient steps are performed. Returns <span class="math inline">\(0\)</span>.</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">setB</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">V</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>First tests that <em>V</em> and the size of the system are of compatible sizes; if not a warning message is printed and a <span class="math inline">\(-1\)</span> is returned. The LinearSOE object then sets the vector <em>b</em> to be <em>fact</em> times the Vector <em>V</em>. If <em>fact</em> is equal to <span class="math inline">\(0.0\)</span>, <span class="math inline">\(1.0\)</span> or <span class="math inline">\(-1.0\)</span>, more efficient steps are performed. Returns <span class="math inline">\(0\)</span>.</p>
+<p>First tests that <em>V</em> and the size of the system are of compatible sizes; if not a warning message is printed and a <span class="math inline">\(-1\)</span> is returned. The <code>LinearSOE</code> object then sets the vector <span class="math inline">\(b\)</span> to be <code>fact</code> times the Vector <span class="math inline">\(V\)</span>. If <code>fact</code> is equal to <span class="math inline">\(0.0\)</span>, <span class="math inline">\(1.0\)</span> or <span class="math inline">\(-1.0\)</span>, more efficient steps are performed. Returns <span class="math inline">\(0\)</span>.</p>
 <div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">zeroA</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
@@ -6673,8 +6670,11 @@ Invokes <code class="sourceCode cpp">setLinearSOE<span class="op">(</span>\<span
 </pre></div>
 
 <p>If <em>loc</em> is within the range of <span class="math inline">\(x\)</span>, sets <span class="math inline">\(x(loc) = value\)</span>.</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">sendSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Returns <span class="math inline">\(0\)</span>. The object does not send any data or connectivity information as this is not needed in the finite element design.</p>
-<p>Returns <span class="math inline">\(0\)</span>. The object does not receive any data or connectivity information as this is not needed in the finite element design.</p>
+<p>```cpp int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker); Returns <span class="math inline">\(0\)</span>. The object does not receive any data or connectivity information as this is not needed in the finite element design.</p>
 
 
               
