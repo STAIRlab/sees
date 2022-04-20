@@ -1,18 +1,10 @@
-
-
-
 # ID 
 
 ```cpp
 #include <matrix/ID.h>
-```
-
-
 
 class ID:
-
-
-
+```
 
 
 

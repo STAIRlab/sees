@@ -1,25 +1,24 @@
-\
-\#include
-$<\tilde{ }$/system_of_eqn/linearSOE/bandSPD/BandSPDLinSolver.h$>$\
+# BandSPDLinSolver
+```cpp
+#include <~/system_of_eqn/linearSOE/bandSPD/BandSPDLinSolver.h>
 
-class BandSPDLinSolver: public LinearSOESolver\
+class BandSPDLinSolver: public LinearSOESolver
 
-MovableObject\
-Solver\
-LinearSOESolver\
+MovableObject
+Solver
+```
 
-\
-BandSPDLinSolver is an abstract class. The BandSPDLinSolver class
+`BandSPDLinSolver` is an abstract class. The BandSPDLinSolver class
 provides access for each subclass to the BandSPDLinSOE object through
-the pointer *theSOE*, which is a protected pointer.
+the pointer `theSOE`, which is a protected pointer.
 
 ### Constructor
 
-\
+
 ### Destructor
 
-\
-// Public Methods\
+
+// Public Methods
 
 \
 

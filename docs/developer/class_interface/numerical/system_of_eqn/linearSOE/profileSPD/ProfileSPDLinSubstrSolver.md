@@ -1,14 +1,14 @@
-UNDER CONSTRUCTION
+# ProfileSPDLinSubstrSolver
 
+UNDER CONSTRUCTION
 
 
 ```cpp
 #include <system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSubstrSolver.h>
-```
-
 
 class ProfileSPDLinSubstrSolver: public DomainSolver, public
 ProfileSPDLinSubstrSolver\
+```
 
 MovableObject\
 Solver\
@@ -28,19 +28,9 @@ substructuring operations on a ProfileSPDLinSOE object. EXPAND.
 \
 // Public Methods\
 
-\
 
-\
 
-\
 
-\
-
-\
-
-\
-
-\
 Causes the condenser to form
 $A_{ee}^* = A_{ee} -A_{ei} A_{ii}^{-1} A_{ie}$, where $A_{ii}$ is the
 first *numInt* rows of the $A$ matrix. The original $A$ is changed as a

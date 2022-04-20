@@ -4,9 +4,10 @@
 #include <system_of_eqn/linearSOE/SparseGen/SparseGenColLinSolver.h>
 
 class SparseGenColLinSolver: public LinearSOESolver
+```
+
     MovableObject
     Solver
-```
 
 
 SparseGenColLinSolver is an abstract class. The SparseGenColLinSolver

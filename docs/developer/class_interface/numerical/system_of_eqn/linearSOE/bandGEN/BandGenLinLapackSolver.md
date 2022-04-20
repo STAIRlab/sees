@@ -1,4 +1,5 @@
 # BandGenLinLapackSolver
+
 ## User Interface
 
 ## Class Interface
@@ -6,12 +7,12 @@
 ```cpp
 #include <system_of_eqn/linearSOE/bandGEN/BandGenLinLapackSolver.h>
 
-class BandGenLinLapackSolver:
-public BandGenLinSolver
+class BandGenLinLapackSolver: public BandGenLinSolver
+```
+
        MovableObject
        Solver
        LinearSOESolver
-```
 
 
 A `BandGenLinLapackSolver` object can be constructed to solve a
@@ -40,7 +41,7 @@ being an integer array needed by the LAPACK routines.
 Invokes delete on *iPiv* to free the memory allocated to store the
 array.
 
-\
+
 The solver first copies the B vector into X and then solves the
 BandGenLinSOE system by calling the LAPACK routines `dgbsv()`, if the
 system is marked as not having been factored, and `dgbtrs()` if system

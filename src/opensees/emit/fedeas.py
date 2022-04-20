@@ -21,7 +21,8 @@ FIELDS = {
     "ixc": "Iz",
     "iyc": "Iy",
     "joint_offsets": "JntOff",
-    "mass": "linear_mass"
+    "mass": "linear_mass",
+    "materials": "MatData"
 }
 
 def fmt_val(arg,value):
@@ -141,12 +142,12 @@ class FEDEAS_Writer(ModelWriter):
         partials = defaultdict(list)
         for i, elem in enumerate(Domain.elems):
             elem.name = i+1
-            partials[elem.partial].append(elem.name)
+            partials[elem.prototype].append(elem.name)
 
         script = "% Specify element types\n"
         elem_script = ""
         script += f"\nElemData = cell({len(Domain.elems)},1);\n"
-        for partial_name, elem in Domain.partials.items():
+        for partial_name, elem in Domain.prototypes.items():
             if elem == "!fix":
                 continue
             elem_typ = elem.type if hasattr(elem, "type") else elem.__class__.__name__

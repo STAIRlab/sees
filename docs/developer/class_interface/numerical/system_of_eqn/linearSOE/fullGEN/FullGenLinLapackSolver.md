@@ -3,15 +3,15 @@
 ```cpp
 #include<~/system_of_eqn/linearSOE/fullGEN/FullGenLinLapackSolver.h>
 
-class FullGenLinLapackSolver: 
-public FullGenLinSolver
+class FullGenLinLapackSolver: public FullGenLinSolver
+```
+
     MovableObject
     Solver
     LinearSOESolver
-```
 
 
-A FullGenLinLapackSolver object can be constructed to solve a
+A `FullGenLinLapackSolver` object can be constructed to solve a
 FullGenLinSOE object. It obtains the solution by making calls on the the
 LAPACK library. The class is defined to be a friend of the FullGenLinSOE
 class (see  [`FullGenLinSOE`](FullGenLinSOE)).
@@ -23,10 +23,6 @@ class (see  [`FullGenLinSOE`](FullGenLinSOE)).
 
 
 ### Public Methods
-
-\
-
-\
 
 
 A unique class tag (defined in  `<classTags.h>`) is passed to the
@@ -47,7 +43,7 @@ returns $0$, otherwise it prints a warning message and returns INFO. The
 solve process changes $A$ and $X$.
 
 Is used to construct a 1d integer array, *iPiv* that is needed by the
-LAPACK solvers. It checks to see if current size of *iPiv* is large
+LAPACK solvers. It checks to see if current size of `iPiv` is large
 enough, if not it deletes the cold and creates a larger array. Returns
 $0$ if successful, prints a warning message and returns a $-1$ if not
 enough memory is available for this new array.

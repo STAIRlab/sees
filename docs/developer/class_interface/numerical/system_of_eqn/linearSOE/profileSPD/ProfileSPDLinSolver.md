@@ -1,14 +1,16 @@
-\
+# ProfileSPDLinSolver
 
-\#include $<\tilde{ }$ProfileSPDLinSolver.h$>$\
+```cpp
+#include $<\tilde{ }$ProfileSPDLinSolver.h$>$\
 
-class ProfileSPDLinSolver: public LinearSOESolver\
+class ProfileSPDLinSolver: public LinearSOESolver
+```
 
 Solver\
 LinearSOESolver\
 
-\
-ProfileSPDLinSolver is an abstract class. The ProfileSPDLinSolver class
+
+`ProfileSPDLinSolver` is an abstract class. The ProfileSPDLinSolver class
 provides access for each subclass to the ProfileSPDLinSOE object through
 the pointer *theSOE*, which is a protected pointer.
 

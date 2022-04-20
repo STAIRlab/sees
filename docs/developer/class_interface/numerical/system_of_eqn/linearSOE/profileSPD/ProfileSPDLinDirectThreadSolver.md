@@ -1,20 +1,22 @@
+# ProfileSPDLinDirectThreadSolver
+
 UNDER CONSTRUCTION
 
 
 
 ```cpp
 #include <system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectThreadSolver.h>
+
+
+class ProfileSPDLinDirectThreadSolver: public LinearSOESolver
 ```
 
+    MovableObject
+    Solver
+    LinearSOESolver
+    ProfileSPDLinSolver
 
-class ProfileSPDLinDirectThreadSolver: public LinearSOESolver\
 
-MovableObject\
-Solver\
-LinearSOESolver\
-ProfileSPDLinSolver\
-
-\
 A ProfileSPDLinDirectThreadSolver object can be constructed to solve a
 ProfileSPDLinSOE object. It does this in parallel using threads by
 direct means, using the $LDL^t$ variation of the cholesky factorization.

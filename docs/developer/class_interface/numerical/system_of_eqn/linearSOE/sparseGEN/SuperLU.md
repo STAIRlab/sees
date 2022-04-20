@@ -1,17 +1,18 @@
+# SuperLU
 
 ```cpp
 #include <system_of_eqn/linearSOE/fullGEN/SuperLU.h>
-```
 
 
 class SuperLU: public SparseGenColLinSolver\
+```
 
 MovableObject\
 Solver\
 LinearSOESolver\
 SparseGenColLinSolver\
 
-\
+
 A SuperLU object can be constructed to solve a SparseGenColLinSOE
 object. It obtains the solution by making calls on the the SuperLU
 library developed at UC Berkeley by Prof. James Demmel, Xiaoye S. Li and

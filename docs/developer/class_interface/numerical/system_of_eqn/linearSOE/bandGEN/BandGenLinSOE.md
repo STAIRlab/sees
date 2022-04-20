@@ -1,17 +1,19 @@
-\
-\#include
-$<\tilde{ }$/system_of_eqn/linearSOE/bandGEN/BandGenLinSOE.h$>$\
+# BandGenLinSOE
 
-class BandGenLinSOE: public LinearSOE\
+```cpp
+#include <system_of_eqn/linearSOE/bandGEN/BandGenLinSOE.h>
 
-MovableObject\
-SystemOfEqn\
-LinearSOE\
+class BandGenLinSOE: public LinearSOE
+```
 
-\
-BandGenLinSOE is class which is used to store a banded unsymmetric
+    MovableObject
+    SystemOfEqn
+    LinearSOE
+
+
+`BandGenLinSOE` is class which is used to store a banded unsymmetric
 system with kl subdiagonals and ku superdiagonals. The $A$ matrix is
-stored in a 1d double array with (kl+ku+1)\*n elements, where n is the
+stored in a 1d double array with $(kl+ku+1)*n$ elements, where n is the
 size of the system. $A_{i,j}$ is stored at location
 $(ku+1+i-j) + j*(ku+1+kl)$, where $i$ and $j$ range from $0$ to$n-1$,
 i.e. C notation. For example when $n=5$, $kl = 2$ and $ku=1$:
@@ -46,31 +48,15 @@ are all declared as friend classes.
 
 \
 
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
 The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $0$ and
 the matrix $A$ is marked as not having been factored. Invokes
-*setLinearSOE(\*this)* on the *theSolver*. No memory is allocated for
+`setLinearSOE(*this)` on the *theSolver*. No memory is allocated for
 the 3 1d arrays.
-*BandGenLinSOE(int N, int numSuperDiagonals, int numSubDiagonal,
-BandGenLinSolver &theSolver);* \
+
+```cpp
+BandGenLinSOE(int N, int numSuperDiagonals, int numSubDiagonal, BandGenLinSolver &theSolver);
+```
 The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. Sets the size of the system to $N$,
 the number of superdiagonals to *numSuperDiagonals* and number of

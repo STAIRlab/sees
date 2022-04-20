@@ -1,19 +1,23 @@
-\
-\#include
-$<\tilde{ }$/system_of_eqn/linearSOE/bandSPD/BandSPDLinSOE.h$>$\
+# BandSPDLinSOE
 
-class BandSPDLinSOE: public LinearSOE\
+```cpp
+#include <system_of_eqn/linearSOE/bandSPD/BandSPDLinSOE.h>
 
-MovableObject\
-SystemOfEqn\
-LinearSOE\
+class BandSPDLinSOE: public LinearSOE
+```
 
-\
-BandSPDLinSOE is class which is used to store a banded symmetric system
-with ku superdiagonals. The $A$ matrix is stored in a 1d double array
-with (ku+1)\*n elements, where n is the size of the system. $A_{i,j}$ is
+    MovableObject
+    SystemOfEqn
+    LinearSOE
+
+
+`BandSPDLinSOE` is class which is used to store a banded symmetric system
+with `ku` superdiagonals. The $A$ matrix is stored in a 1d double array
+with $(ku+1)n$ elements, where $n$ is the size of the system. $A_{i,j}$ is
 stored at location $(ku+1+i-j) +
 j*(ku+1)$, where $i$ and $j$ range from $0$ to$n-1$, i.e. C notation.
+
+
 For example when $n=5$, $ku = 2$:
 
 $$\left[
@@ -37,34 +41,12 @@ a_{1,3} & a_{2,3} & a_{3,3} & a_{2,4} & a_{3,4} & a_{4,4}\\
 
 The $X$ and $B$ vectors are stored in 1d double arrays of length $N$.
 
-\
 
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
 
 The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $0$ and
 the matrix $A$ is marked as not having been factored. Invokes
-*setLinearSOE(\*this)* on the *solver*. No memory is allocated for the 3
+`setLinearSOE(*this)` on the `solver`. No memory is allocated for the 3
 1d arrays.
 
 ```{.cpp}
@@ -84,15 +66,24 @@ negative number. Also creates Vector objects for $x$ and $b$ using the
 \
 Calls delete on any arrays created.
 
-\
-Invokes `setLinearSOE(\*this)`{.cpp} on *newSolver*. If the system size is not
-equal to $0$, it also invokes `setSize()` on *newSolver*, printing a
+```cpp
+int setBandSPDSolver(BandSPDLinSolver &newSolver);
+```
+
+Invokes `setLinearSOE(*this)`{.cpp} on `newSolver`. If the system size is not
+equal to $0$, it also invokes `setSize()` on `newSolver`, printing a
 warning and returning the returned value if this method returns a number
 less than $0$. Finally it returns the result of invoking the LinearSOE
 classes `setSolver()` method.
 
+```cpp
+int getNumEqn(void) =0;
+```
 A method which returns the current size of the system.
 
+```cpp
+int setSize(const Graph &G);
+```
 The size of the system is determined by looking at the adjacency ID of
 each Vertex in the Graph object *G*. This is done by first setting *ku*
 equal to $0$ and then checking for each Vertex in *G*, whether any of
@@ -109,12 +100,15 @@ increased, new Vector objects for $x$ and $b$ using the *(double
 \*,int)* Vector constructor are created. Finally, the result of invoking
 `setSize()` on the associated Solver object is returned.
 
+```cpp
+int addA(const Matrix &M, const ID & loc, doublefact = 1.0) =0;
+```
 First tests that *loc* and *M* are of compatible sizes; if not a warning
 message is printed and a $-1$ is returned. The LinearSOE object then
 assembles *fact* times the Matrix *M* into the matrix $A$. The Matrix is
 assembled into $A$ at the locations given by the ID object *loc*, i.e.
 $a_{loc(i),loc(j)} +=
-fact * M(i,j)$. If the location specified is outside the range, i.e.
+\texttt{fact} * M(i,j)$. If the location specified is outside the range, i.e.
 $(-1,-1)$ the corresponding entry in *M* is not added to $A$. If *fact*
 is equal to $0.0$ or $1.0$, more efficient steps are performed. Returns
 $0$.
@@ -122,9 +116,8 @@ $0$.
 ```{.cpp}
 int addB(const Vector & V, const ID & loc, double fact = 1.0) =0;
 ```
-
 First tests that *loc* and *V* are of compatible sizes; if not a warning
-message is printed and a $-1$ is returned. The LinearSOE object then
+message is printed and a $-1$ is returned. The `LinearSOE` object then
 assembles *fact* times the Vector *V* into the vector $b$. The Vector is
 assembled into $b$ at the locations given by the ID object *loc*, i.e.
 $b_{loc(i)} += fact * V(i)$. If a location specified is outside the
@@ -138,8 +131,8 @@ int setB(const Vector & V, double fact = 1.0) =0;
 
 First tests that *V* and the size of the system are of compatible sizes;
 if not a warning message is printed and a $-1$ is returned. The
-LinearSOE object then sets the vector *b* to be *fact* times the Vector
-*V*. If *fact* is equal to $0.0$, $1.0$ or $-1.0$, more efficient steps
+`LinearSOE` object then sets the vector $b$ to be `fact` times the Vector
+$V$. If `fact` is equal to $0.0$, $1.0$ or $-1.0$, more efficient steps
 are performed. Returns $0$.
 
 ```{.cpp}
@@ -179,8 +172,13 @@ void setX(int loc, double value) =0;
 
 If *loc* is within the range of $x$, sets $x(loc) = value$.
 
+```cpp
+int sendSelf(int commitTag, Channel &theChannel);
+```
 Returns $0$. The object does not send any data or connectivity
 information as this is not needed in the finite element design.
 
+```cpp
+int recvSelf(int commitTag, Channel &theChannel, FEM_ObjectBroker &theBroker);
 Returns $0$. The object does not receive any data or connectivity
 information as this is not needed in the finite element design.

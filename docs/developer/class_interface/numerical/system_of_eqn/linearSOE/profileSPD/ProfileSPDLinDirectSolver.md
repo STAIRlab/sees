@@ -1,21 +1,20 @@
 UNDER CONSTRUCTION
-
-
+# ProfileSPDLinDirectSolver
 
 ```cpp
 #include <system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectSolver.h>
+
+
+class ProfileSPDLinDirectSolver: public LinearSOESolver
 ```
 
+    MovableObject\
+    Solver\
+    LinearSOESolver\
+    ProfileSPDLinSolver\
 
-class ProfileSPDLinDirectSolver: public LinearSOESolver\
 
-MovableObject\
-Solver\
-LinearSOESolver\
-ProfileSPDLinSolver\
-
-\
-A ProfileSPDLinDirectSolver object can be constructed to solve a
+A `ProfileSPDLinDirectSolver` object can be constructed to solve a
 ProfileSPDLinSOE object. It does this by direct means, using the $LDL^t$
 variation of the cholesky factorization. The matrx $A$ is factored one
 column at a time using a left-looking approach. No BLAS or LAPACK

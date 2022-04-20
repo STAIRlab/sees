@@ -1,15 +1,17 @@
-\
+# ProfileSPDLinSOE
 
-\#include $<\tilde{ }$ProfileSPDLinSOE.h$>$\
+```cpp
+#include "ProfileSPDLinSOE.h"
 
-class ProfileSPDLinSOE: public LinearSOE\
+class ProfileSPDLinSOE: public LinearSOE
+```
 
-MovableObject\
-SystemOfEqn\
-LinearSOE\
+    MovableObject
+    SystemOfEqn
+    LinearSOE
 
-\
-ProfileSPDLinSOE is class which is used to store a symmetric system of
+
+`ProfileSPDLinSOE` is class which is used to store a symmetric system of
 equations using a profile storage scheme. The upper triangular part of
 $A$ is stored in a 1d double array with the diagonals of $A$ located at
 positions given by an integer array $iLoc$. For example when $n=5$ and
@@ -42,34 +44,13 @@ $$iLoc =
 \begin{array}{cccccccccccccccccccc}
 1 & 3 & 5 & 8 & 13 \\
 \end{array}
-\right]$$ Note $iLoc$ stores the diagonal locations using Fortran
+\right]$$ 
+
+Note $iLoc$ stores the diagonal locations using Fortran
 indexing. This is to facilitate calls to Fortran libraries, e.g.
 Digital's DXML. The $x$ and $b$ vectors are stored in 1d double arrays
 of length $N$.
 
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
 
 The *solver* and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $0$ and

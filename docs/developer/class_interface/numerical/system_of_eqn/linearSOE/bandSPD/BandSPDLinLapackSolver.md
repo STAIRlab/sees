@@ -1,26 +1,26 @@
-\
-\#include
-$<\tilde{ }$/system_of_eqn/linearSOE/bandSPD/BandSPDLinLapackSolver.h$>$\
+# BandSPDLinLapackSolver
 
-class BandSPDLinLapackSolver: public BandSPDLinSolver\
+```cpp
+#include <system_of_eqn/linearSOE/bandSPD/BandSPDLinLapackSolver.h>
 
-MovableObject\
-Solver\
-LinearSOESolver\
-BandSPDLinSolver\
+class BandSPDLinLapackSolver: public BandSPDLinSolver
 
-\
-A BandSPDLinLapackSolver object can be constructed to solve a
-BandSPDLinSOE object. It obtains the solution by making calls on the the
-LAPACK library. The class is defined to be a friend of the BandSPDLinSOE
-class (see  `<BandSPDLinSOE.h>`).
+MovableObject
+Solver
+LinearSOESolver
+```
+
+
+A `BandSPDLinLapackSolver` object can be constructed to solve a
+`BandSPDLinSOE` object. It obtains the solution by making calls on the the
+LAPACK library. The class is defined to be a friend of the [`BandSPDLinSOE`](BandSPDLinSOE) class.
 
 ### Constructor
 
-\
+
 ### Destructor
 
-\
+
 // Public Methods\
 
 \

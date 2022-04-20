@@ -4,14 +4,15 @@
 #include <~/system_of_eqn/linearSOE/bandGEN/BandGenLinSolver.h>
 
 class BandGenLinSolver: public LinearSOESolver
-    MovableObject
-    Solver
 ```
 
+    MovableObject
+    Solver
 
-BandGenLinSolver is an abstract class. The BandGenLinSolver class
+
+`BandGenLinSolver` is an abstract class. The BandGenLinSolver class
 provides access for each subclass to the BandGenLinSOE object through
-the pointer *theSOE*, which is a protected pointer.
+the pointer `theSOE`, which is a protected pointer.
 
 ### Constructor
 
@@ -23,12 +24,14 @@ the pointer *theSOE*, which is a protected pointer.
 
 
 
-The integer *classTag* is passed to the LinearSOESolver classes
+The integer `classTag` is passed to the LinearSOESolver classes
 constructor.
 
 \
 Does nothing, provided so the subclasses destructor will be called.
 
-\
+```cpp
+virtual int setLinearSOE(BandGenLinSOE &theSOE);
+```
 The method sets up the link between the BandGenLinSOE object and the
 BandGenLinSolver, that it is sets the pointer the subclasses use.

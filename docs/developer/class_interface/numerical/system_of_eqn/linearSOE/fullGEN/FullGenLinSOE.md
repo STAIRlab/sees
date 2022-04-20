@@ -3,19 +3,19 @@
 ```cpp
 #include<~/system_of_eqn/linearSOE/fullGEN/FullGenLinSOE.h>
 
-class FullGenLinSOE: 
-public
-   MovableObject
-   SystemOfEqn
-   LinearSOE
+class FullGenLinSOE: public LinearSOE
 ```
 
+   MovableObject
+   SystemOfEqn
 
-FullGenLinSOE is class which is used to store a full general system. The
+
+`FullGenLinSOE` is class which is used to store a full general system. The
 $A$ matrix is stored in a 1d double array with $n*n$ elements, where $n$
 is the size of the system. $A_{i,j}$ is stored at location $(i + j*(n)$,
-where $i$ and $j$ range from $0$ to $n-1$, i.e. C notation. For example
-when $n=3$:
+where $i$ and $j$ range from $0$ to $n-1$, i.e. C notation. 
+
+For example, when $n=3$:
 
 $$\left[
 \begin{array}{ccc}
@@ -25,7 +25,7 @@ a_{2,0} & a_{2,1} & a_{2,2} \\
 \end{array}
 \right]$$
 
-is stored in:
+is stored as:
 
 $$\left[
 \begin{array}{cccccccccccccccccccc}
@@ -44,19 +44,22 @@ are all declared as friend classes.
 
 \
 
-The *solver* and a unique class tag (defined in  `<classTags.h>`) are
+The `solver` and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $0$ and
 the matrix $A$ is marked as not having been factored. Invokes
-*setLinearSOE(\*this)* on the *solver*. No memory is allocated for the 3
+`setLinearSOE(*this)` on the `solver`. No memory is allocated for the 3
 1d arrays.
-*FullGenLinSOE(int N, FullGenLinSolver &solver);* \
-The *solver* and a unique class tag (defined in  `<classTags.h>`) are
+
+```cpp
+FullGenLinSOE(int N, FullGenLinSolver &solver);
+```
+The `solver` and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $N$ and
 the matrix $A$ is marked as not having been factored. Obtains memory
 from the heap for the 1d arrays storing the data for $A$, $x$ and $b$
 and stores the size of these arrays. If not enough memory is available
 for these arrays a warning message is printed and the system size is set
-to $0$. Invokes `setLinearSOE(\*this)`{.cpp} and `setSize()` on *solver*,
+to $0$. Invokes `setLinearSOE(\*this)`{.cpp} and `setSize()` on `solver`,
 printing a warning message if `setSize()` returns a negative number.
 Also creates Vector objects for $x$ and $b$ using the *(double \*,int)*
 Vector constructor.
@@ -67,7 +70,7 @@ Vector constructor.
 ~FullGenLinSOE();
 ```
 
-Calls delete on any arrays created.
+Calls `delete` on any arrays created.
 
 ### Methods
 
@@ -93,7 +96,7 @@ int setSize(const Graph &theGraph);
 ```
 
 The size of the system is determined by invoking `getNumVertex()` on
-*theGraph*. If the old space allocated for the 1d arrays is not big
+`theGraph`. If the old space allocated for the 1d arrays is not big
 enough, it the old space is returned to the heap and new space is
 allocated from the heap. Prints a warning message, sets size to $0$ and
 returns a $-1$, if not enough memory is available on the heap for the 1d
