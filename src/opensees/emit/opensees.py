@@ -75,7 +75,7 @@ class OpenSeesWriter(ModelWriter):
     def dump_connectivity(self, definitions={}):
         cmds = "\n".join(f"set {k} {v};" for k,v in definitions.items()) + "\n"
         for i,nd in enumerate(self.model.nodes):
-            nd.name = i
+            nd.name = i + 1
             cmds +=  " ".join(nd.get_cmd_str()) + "\n"
         cmds += self.dump_elements(*self.model.elems)
         return cmds

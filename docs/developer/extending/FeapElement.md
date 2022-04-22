@@ -1,14 +1,3 @@
-::: {.center}
-**How to Introduce a FEAP Element into g3**
-
-**Version 0.1 - Preliminary Draft**
-
-**December 20, 1999**
-
-**Frank McKenna and Gregory L. Fenves**
-
-**PEER, University of California at Berkeley**
-:::
 
 # Introduction
 
@@ -17,22 +6,22 @@ introduce a new Truss element, fElmt02, into g3. The new class will call
 a fortran element subroutine elmt02(), which implements a linear elastic
 truss element using the FEAP (http://www.ce.berkeley.edu/rlt/feap)
 element interface. To introduce the new class into g3, two new files are
-created, fElmt02.h and fElmt02.C, to define the class interface and
+created, `fElmt02.h` and `fElmt02.cpp`, to define the class interface and
 implementation. In addition, two existing files are modified,
-TclPlaneTruss.C and FEM_ObjectBroker.C. The new files are outlined in
+`TclPlaneTruss.cpp` and `FEM_ObjectBroker.cpp`. The new files are outlined in
 the following subsections. The changes to the two existing files are
 similar to those outlined in 'How to Introduce a New Element into g3'.
 It should be noted that some additional work may be required by the
 authors to get other feap element subroutines into g3. This is a
 consequence of the information the element routines are obtaining from
 the common blocks. The files outlined in this document can be found in
-the SRC/element/feap directory of the software distribution.
+the `SRC/element/feap` directory of the software distribution.
 
-## fElmt02.h
+## `fElmt02.h`
 
 The file `fElmt02.h` defines the class interface and details information
 about the instance variables associated with the objects of type
-fElmt02. The interface first declares that the fElmt02 class inherits
+`fElmt02`. The interface first declares that the `fElmt02` class inherits
 from the fElement class.
 
 ```cpp
@@ -76,9 +65,9 @@ There are no public or protected members defined for this class and no
 class or instance variables associated with objects of this class. The
 parent class fElement defines the methods and instance variables.
 
-## fElmt02.C
+## `fElmt02.cpp`
 
-The `fElmt02.C` file contains the implementation. This file contains the
+The `fElmt02.cpp` file contains the implementation. This file contains the
 implementation of the three constructors and the destructor defined in
 the interface. The first constructor takes as arguments the objects
 identifier, the identifiers of the two end nodes, the objects area,
@@ -262,6 +251,7 @@ When g3 is run and the commands outlined above are input by the analyst
 at the interpreter prompt, or are sourced in from a file, the following
 output is generated:
 
+
      Node: 4
             Coordinates  : 72 96 
             commitDisps: 0.530093 -0.177894 
@@ -279,6 +269,7 @@ output is generated:
 
 
 The following can be found at the end of the FEAP output file:
+
 
      Feap ** example 1                                                             
 
@@ -298,3 +289,19 @@ The following can be found at the end of the FEAP output file:
       Element:    3 type: elmt02   iNode:     3 jNode:     4
                     Area: .500E+01 Youngs Modulus: .300E+04 Rho: .000E+00
                     strain: -0.36874E-02     axial force: -0.55311E+02
+
+
+---------------------------------
+
+<b><center>
+How to Introduce a FEAP Element into g3
+
+Version 0.1 - Preliminary Draft
+
+December 20, 1999
+
+Frank McKenna and Gregory L. Fenves
+
+PEER, University of California at Berkeley
+</center></b>
+

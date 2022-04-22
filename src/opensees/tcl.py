@@ -1,10 +1,13 @@
 import sys
-# import _pyg3
-# from _pyg3 import domain, builders, analysis, Vector
+import tkinter
+import pathlib
 
-# from anabel.builders import SkeletalModel as SafeBuilder
-
-__version__ = "0.0.0"
+def TclInterpreter():
+    install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
+    interp = tkinter.Tcl()
+    # interp.eval(f"load {install_dir/'libOpenSeesCommandPackage.so'}")
+    interp.eval(f"load {install_dir/'libOpenSeesRT.so'}")
+    return interp
 
 class ScriptBuilder:
     TAB = object()
@@ -18,7 +21,6 @@ class ScriptBuilder:
         self.send(obj.get_cmd())
         self.w.close()
         self.script = self.out.getvalue()
-
 
     def writer(self):
         idnt = ""
@@ -46,16 +48,6 @@ class ScriptBuilder:
             else:
                 w.send(arg)
         print("", file=self.out)
-
-def TclInterpreter():
-    import tkinter, pathlib
-    #install_dir = pathlib.Path("/home/claudio/sees/pyg3/src/")
-    #install_dir = pathlib.Path("/home/claudio/sees/cmake-src/build/SRC/api/tclCommandPackage/")
-    install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
-    interp = tkinter.Tcl()
-    # interp.eval(f"load {install_dir/'libOpenSeesCommandPackage.so'}")
-    interp.eval(f"load {install_dir/'libOpenSeesRT.so'}")
-    return interp
 
 class TclBuilder:
     def __init__(self,  domain=None):
@@ -97,7 +89,10 @@ class TclBuilder:
         return ret if ret != "" else None
 
     def eval(self, string):
-        return self._interp.tk.eval(string)
+        try:
+            return self._interp.tk.eval(string)
+        except _tkinter.TclError as e:
+            print("ERROR:", e, file=sys.stderr)
 
     def __getattr__(self, attr):
         return self._partial(self._tcl_call, attr)
@@ -114,8 +109,7 @@ class TclBuilder:
     def add_tagged(self, objs):
         for k,v in objs.items():
             if isinstance(k, int):
-                self.eval(v.cmd)
-            
+                self.eval(v.cmd)            
 
 class BasicBuilder(TclBuilder):
     def __init__(self, ndm=None, ndf=None):
@@ -131,56 +125,6 @@ def model(typ, *args, **kwds):
     builder = TclBuilder()
     builder.model(typ, *args, **kwds)
     return builder
-
-def eigen(script: str, modes=1, verbose=False):
-    interp = TclInterpreter()
-    interp.eval(f"""
-
-    {script}
-    
-    set options(-verbose)  {int(verbose)}
-    set options(-numModes) {modes}
-    set options(-file) mm.yaml
-
-    set PI       3.1415159
-    set DOFs     {{1 2 3 4 5 6}}
-    set nodeList [getNodeTags]
-
-    """ + """
-    # Initialize variables `omega`, `f` and `T` to
-    # empty lists.
-    foreach {omega f T recorders} {{} {} {} {}} {} 
-
-    for {set k 1} {$k <= $options(-numModes)} {incr k} {
-      lappend recorders [recorder Node -node {*}$nodeList -dof {*}$DOFs "eigen $k";]
-    }
-
-    set eigenvals [eigen $options(-numModes)];
-
-    set T_scale 1.0
-    foreach eig $eigenvals {
-      lappend omega [expr sqrt($eig)];
-      lappend f     [expr sqrt($eig)/(2.0*$PI)];
-      lappend T     [expr $T_scale*(2.0*$PI)/sqrt($eig)];
-    }
-
-    # print info to `stdout`.
-    if {$options(-verbose)} {
-      puts "Angular frequency (rad/s): $omega\n";
-      puts "Frequency (Hz):            $f\n";
-      puts "Periods (sec):             $T\n";
-    }
-
-    if {$options(-file) != 0} {
-      source /home/claudio/brace/Scripts/OpenSeesScripts/brace2.tcl
-      brace2::io::write_modes $options(-file) $options(-numModes)
-    }
-
-    foreach recorder $recorders {
-      remove recorder $recorder
-    }
-    """)
-    return interp
 
 def eval(script: str):
     interp = TclInterpreter()
@@ -217,4 +161,57 @@ def dumps(model, format="tcl")->str:
     )[format.lower()](model)
 
     return writer.dump()
+
+#
+# Analysis
+#
+def eigen(script: str, modes=1, verbose=False):
+    interp = TclInterpreter()
+    interp.eval(f"""
+
+    {script}
+    
+    set options(-verbose)  {int(verbose)}
+    set options(-numModes) {modes}
+    set options(-file) /dev/stdout
+
+    set PI       3.1415159
+    set DOFs     {{1 2 3 4 5 6}}
+    set nodeList [getNodeTags]
+
+    """ + """
+    # Initialize variables `omega`, `f` and `T` to
+    # empty lists.
+    foreach {omega f T recorders} {{} {} {} {}} {} 
+
+    for {set k 1} {$k <= $options(-numModes)} {incr k} {
+      lappend recorders [recorder Node -node {*}$nodeList -dof {*}$DOFs "eigen $k";]
+    }
+
+    set eigenvals [eigen $options(-numModes)];
+
+    set T_scale 1.0
+    foreach eig $eigenvals {
+      lappend omega [expr sqrt($eig)];
+      lappend f     [expr sqrt($eig)/(2.0*$PI)];
+      lappend T     [expr $T_scale*(2.0*$PI)/sqrt($eig)];
+    }
+
+    # print info to `stdout`.
+    if {$options(-verbose)} {
+      # puts "Angular frequency (rad/s): $omega\n";
+      # puts "Frequency (Hz):            $f\n";
+      # puts "Periods (sec):             $T\n";
+    }
+
+    if {$options(-file) != 0} {
+      source /home/claudio/brace/Scripts/OpenSeesScripts/brace2.tcl
+      brace2::io::write_modes $options(-file) $options(-numModes)
+    }
+
+    foreach recorder $recorders {
+      remove recorder $recorder
+    }
+    """)
+    return interp
 

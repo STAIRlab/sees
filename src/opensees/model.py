@@ -272,7 +272,7 @@ class model:
                 self.fix(node, dof)
 
 class Model:
-    def __init__(self, ndm, ndf, nodes, elems):
+    def __init__(self, ndm, ndf, nodes, elems, **kwds):
         self.m_nodes = nodes
         self.m_elems = elems
         self.ndm = ndm

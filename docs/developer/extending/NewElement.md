@@ -4,19 +4,6 @@ title: Introducing a New Element into OpenSees
 
 # Introducing a New Element into OpenSees
 
-<b><center>
-Version 1.0
-
-August 21, 2000
-
-Frank McKenna and Gregory L. Fenves
-
-Pacific Earthquake Engineering Research Center
-
-University of California, Berkeley
-</b></center>
-
-
 ## Introduction
 
 This document is intended to demonstrate the steps necessary to
@@ -986,4 +973,17 @@ element myTruss 1 1 4 10 1
 element myTruss 2 2 4  5 1
 element myTruss 3 3 4  5 1
 ```
+
+<b><center>
+Version 1.0
+
+August 21, 2000
+
+Frank McKenna and Gregory L. Fenves
+
+Pacific Earthquake Engineering Research Center
+
+University of California, Berkeley
+</b></center>
+
 

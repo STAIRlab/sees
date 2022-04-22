@@ -6,9 +6,20 @@ __version__="0.0.0"
 
 import opensees.tcl
 
-HELP = """
-usage: opensees <file>...
+HELP = """\
+usage: opensees <file> [args]...
+                [options] <file> [args]...
+                <command> ...
 
+                -trans        Transient analysis
+                -eigen        Eigenvalue analysis returning frequencies
+                -modes        Eigenvalue analysis returning modes
+                -displ        Displacement-controlled static analysis
+                -force        Force-controled static analysis
+                -modal        Modal response history
+
+       opensees -print
+       opensees -json
 """
 
 #PROMPT = "\033\\[01;32mopensees\033\\[0m > "
@@ -28,14 +39,19 @@ def parse_args(args):
             if arg == "-h" or arg == "--help":
                 print(HELP)
                 sys.exit()
-            if arg == "--subproc":
+            elif arg == "-modes":
+                import opensees.eigen
+                opensees.eigen.modes(*argi)
+                sys.exit()
+            elif arg == "--subproc":
                 opts["subproc"] = True
-            if arg == "--version":
+            elif arg == "--version":
                 print(__version__)
                 sys.exit()
         else:
             files.append(arg)
-    return files, opts
+            break
+    return files, opts, argi
 
 
 from cmd import Cmd
@@ -131,7 +147,7 @@ class TclShell(cmd.Cmd):
 
 if __name__ == "__main__":
 
-    files, opts = parse_args(sys.argv)
+    files, opts, argi = parse_args(sys.argv)
     if len(sys.argv) == 1:
         if opts["subproc"]:
             OpenSeesShell().cmdloop()
@@ -140,7 +156,8 @@ if __name__ == "__main__":
     else:
         tcl = opensees.tcl.TclInterpreter()
         tcl.eval(f"set argc {len(sys.argv) - 2}")
-        tcl.eval(f"set argv {{{' '.join(sys.argv[2:])}}}")
+        #tcl.eval(f"set argv {{{' '.join(sys.argv[2:])}}}")
+        tcl.eval(f"set argv {{{' '.join(argi)}}}")
         for filename in files:
             if filename == "-":
                 tcl.eval(sys.stdin.read())
