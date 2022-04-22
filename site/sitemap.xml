@@ -1011,11 +1011,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://claudioperez.github.io/opensees-python/libraries/materials/ElasticMaterial/</loc>
-         <lastmod>2022-04-22</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://claudioperez.github.io/opensees-python/libraries/materials/ElasticPPMaterial/</loc>
          <lastmod>2022-04-22</lastmod>
          <changefreq>daily</changefreq>
@@ -1047,6 +1042,11 @@
     </url>
     <url>
          <loc>https://claudioperez.github.io/opensees-python/libraries/materials/nD/ElasticIsotropicPlaneStress2D/</loc>
+         <lastmod>2022-04-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://claudioperez.github.io/opensees-python/libraries/materials/uniaxial/ElasticMaterial/</loc>
          <lastmod>2022-04-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
