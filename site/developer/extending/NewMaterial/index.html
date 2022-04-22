@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://claudioperez.github.io/opensees-python/developer/extending/NewMaterial/">
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/developer/extending/NewMaterial/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-, mkdocs-material-8.1.4">
     
     
       
-        <title>Introduction - OpenSees</title>
+        <title>How to Introduce a New Material into OpenSees - OpenSees</title>
       
     
     
@@ -94,8 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Introduction
-
+              How to Introduce a New Material into OpenSees
             
           </span>
         </div>
@@ -5646,8 +5645,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Introduction
-
+        How to Introduce a New Material into OpenSees
       </a>
       
     </li>
@@ -6578,16 +6576,10 @@
 </a>
 
 
-<div class="center">
-<p><strong>How to Introduce a New Material into OpenSees</strong></p>
-<p><strong>Version 1.1</strong></p>
-<p><strong>August 21, 2001</strong></p>
-<p><strong>Michael H. Scott and Gregory L. Fenves</strong></p>
-<p><strong>PEER, University of California, Berkeley</strong></p>
-</div>
-<h1 id="introduction">Introduction</h1>
+<h1 id="how-to-introduce-a-new-material-into-opensees">How to Introduce a New Material into OpenSees</h1>
+<h2 id="introduction">Introduction</h2>
 <p>This document shows how to add a new material implementation to OpenSees. The hierarchical nature of the OpenSees software architecture allows new material models to be seamlessly added to the framework. By keeping element and material implementations separate, a new material model can be used in an existing element without modifying the element implementation, and vice versa. The programming language C++ directly supports the data encapsulation and run-time binding necessary to achieve this complete separation of material from element.</p>
-<h1 id="material-abstractions">Material Abstractions</h1>
+<h2 id="material-abstractions">Material Abstractions</h2>
 <p>Currently, there are three Material abstractions in OpenSees, each of which can be used across a wide range of element implementations:</p>
 <ol type="1">
 <li><p><strong>UniaxialMaterial</strong> - Provides the interface for all one-dimensional material models, either stress-strain or force-deformation. UniaxialMaterial models define the stress-strain response of a truss element, uniaxial fiber behavior in a beam-column section, or the force-deformation response of a beam section or zero-length element.</p></li>
@@ -6595,13 +6587,11 @@
 <li><p><strong>SectionForceDeformation</strong> - Defines the interface for stress resultant models which are used to describe both plate and beam-column force-deformation response as well as the constitutive response of more general zero-length elements, e.g., for isolator bearings.</p></li>
 </ol>
 <p>Each interface listed above is essentially the same with minor differences. The NDMaterial and SectionForceDeformation abstractions both represent multi-dimensional constitutive response. However, a distinction is made between stress and stress <em>resultant</em> response to allow for safer element implementations. Furthermore, the stress-strain equations for continuum material models can be written in terms of tensors. This is not the case for stress resultant models. Lastly, to avoid returning matrices and vectors or tensors of size one, the UniaxialMaterial abstraction is made distinct for reasons of efficiency, as scalar values describe the behavior of a one-dimensional model.</p>
-<div class="center">
-<p> </p>
-</div>
+<p>::: {.center}  <img src="../../.../Material.svg" style="margin:auto; display: block; max-width: 75%" alt="Material class hierarchy." /> {#fig:Material} :::</p>
 <p>As indicated in figure <a href="#fig:Material" data-reference-type="ref" data-reference="fig:Material">[fig:Material]</a>, each material abstraction is a subclass of Material. The Material class is a subclass of both the TaggedObject and MovableObject classes, and therefore inherits the functionality of these two classes. As a result, it can be said that a Material “is a” TaggedObject as well as a MovableObject. Furthermore, since each of UniaxialMaterial, NDMaterial, and SectionForceDeformation “is a” Material, each is also a TaggedObject and a MovableObject. The TaggedObject class provides functionality for identifying materials, through a tag, during model building; and the MovableObject class provides functionality for parallel processing and database programming.</p>
 <p>Rather than show examples of implementing a material model under each interface, only the UniaxialMaterial interface is covered herein. The basic concepts of adding a material model to OpenSees carry directly over from UniaxialMaterial to NDMaterial and SectionForceDeformation.</p>
 <p>The remainder of this document is laid out as follows. First, the UniaxialMaterial interface is listed and explained. Then, an example UniaxialMaterial implementation, HardeningMaterial, is presented. Along with the C++ implementation, it is shown how to 1) add the new model to the OpenSees Tcl model builder, and 2) make the new model “movable” for parallel processing and database programming. Finally, a FORTRAN interface for programming UniaxialMaterial models in OpenSees is described.</p>
-<h1 id="uniaxialmaterial-interface">UniaxialMaterial Interface</h1>
+<h2 id="uniaxialmaterial-interface">UniaxialMaterial Interface</h2>
 <p>Implementations of the UniaxialMaterial interface are used in several contexts within the OpenSees modeling framework. Due to their simplicity, these models can define both stress-strain and force-deformation relationships. It is up to the calling object, be it an element object or another material object, to interpret the meaning appropriately.</p>
 <p>Listed below is the UniaxialMaterial class interface. All methods in the UniaxialMaterial interface are public, there are no protected or private data or methods. Following the UniaxialMaterial class interface listing, each method in the interface is described.</p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;Material.h&gt;</span><span class="cp"></span>
@@ -6683,9 +6673,9 @@
 <p>The next set of methods deal with possible path dependent behavior of UniaxialMaterial models. All Material objects in OpenSees are responsible for keeping track of and updating their own history variables. First, the method <code>commitState()</code> is invoked to inform a UniaxialMaterial object that its current state is on the converged solution path and its internal history variables should be updated accordingly. Next, the method <code>revertToLastCommit()</code> is provided to let a UniaxialMaterial object know that it should return to its last committed state at. Finally, <code>revertToStart()</code> informs the UniaxialMaterial object to revert to its initial state, i.e., at the start of the analysis. All three of these methods are pure virtual, and thus must be implemented in all subclasses of UniaxialMaterial.</p>
 <p>The <code>getCopy()</code> method is declared so a calling object, be it an Element, Fiber, or another Material object, can obtain an exact copy of this UniaxialMaterial object. A pointer to the new object is returned by this function, and the calling object is responsible for deleting this dynamically allocated memory. This method is pure virtual because only a subclass of UniaxialMaterial knows the internal representation of its data.</p>
 <p>The final two methods, <code>setResponse()</code> and <code>getResponse()</code>, are declared for recording UniaxialMaterial state information. These methods have default implementations to record the material stress, strain, and tangent. These methods may be overridden, but their implementations are not shown in this document.</p>
-<h1 id="example-hardeningmaterial">Example – HardeningMaterial</h1>
+<h2 id="example-hardeningmaterial">Example – HardeningMaterial</h2>
 <p>In this section, it is shown how the rate-independent uniaxial hardening material model given in Simo &amp; Hughes, <em>Computational Inelasticity</em> (1998) is implemented in OpenSees. First, the class implementation is shown, followed by its inclusion in the Tcl model builder.</p>
-<h2 id="class-implementation">Class Implementation</h2>
+<h3 id="class-implementation">Class Implementation</h3>
 <p>The HardeningMaterial class interface is shown below. Here, no methods are virtual since this class provides implementations for the corresponding methods inherited from the UniaxialMaterial class.</p>
 <div class="center">
 <p><img src="../../..../Material.svg" style="margin:auto; display: block; max-width: 75%" /> </p>
@@ -6967,7 +6957,7 @@
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 
-<h2 id="tcl-model-builder">Tcl Model Builder</h2>
+<h3 id="tcl-model-builder">Tcl Model Builder</h3>
 <p>The new HardeningMaterial model must be added to the OpenSees Tcl model builder in order for it to be used by analysis models defined in Tcl script files. The general from of the uniaxialMaterial command is as follows:</p>
 <div class="highlight"><pre><span></span>   uniaxialMaterial materialType tag &lt;specific material parameters&gt;
 </pre></div>
@@ -7059,7 +7049,7 @@
 <span class="err">}</span><span class="w"></span>
 </pre></div>
 
-<h2 id="fem_objectbroker">FEM_ObjectBroker</h2>
+<h3 id="fem_objectbroker">FEM_ObjectBroker</h3>
 <p>In order for the new HardeningMaterial object to be used for parallel processing and database programming, the <code>getNewUniaxialMaterial()</code> method in the FEM_ObjectBroker class must be modified. An additional case statement should be added, as shown below. The MAT_TAG_Hardening classTag is the same pre-defined value passed to the UniaxialMaterial constructor by the HardeningMaterial constructor described earlier. The FEM_ObjectBroker simply returns a blank HardeningMaterial object, whose data can be subsequently populated by invoking <code>recvSelf()</code>.</p>
 <div class="highlight"><pre><span></span><span class="nt">UniaxialMaterial</span><span class="o">*</span><span class="w"></span>
 <span class="nt">FEM_ObjectBroker</span><span class="p">::</span><span class="nd">getNewUniaxialMaterial</span><span class="o">(</span><span class="nt">int</span><span class="w"> </span><span class="nt">classTag</span><span class="o">)</span><span class="w"></span>
@@ -7082,10 +7072,10 @@
 <span class="err">}</span><span class="w"></span>
 </pre></div>
 
-<h1 id="a-fortran-interface-for-uniaxialmaterial-models">A FORTRAN Interface for UniaxialMaterial Models</h1>
+<h2 id="a-fortran-interface-for-uniaxialmaterial-models">A FORTRAN Interface for UniaxialMaterial Models</h2>
 <p>Subclasses of UniaxialMaterial hide their implementation details from calling objects, i.e., calling objects only see the public interface defined in the UniaxialMaterial base class. How the interface is implemented is encapsulated by each subclass of UniaxialMaterial. Thus, a particular UniaxialMaterial implementation need not be written in C++ as long as the implementation conforms to the UniaxialMaterial interface.</p>
 <p>As an example, the FEDEAS uniaxial material library developed by F.C. Filippou is used as a FORTRAN interface for UniaxialMaterial models in OpenSees. This example is meant to demonstrate the process of linking OpenSees with other material libraries and is not limited to just the FEDEAS library. Material libraries with any well-defined interface, e.g. DRAIN, may be linked in a similar manner. Similar concepts carry directly over to implementing NDMaterial and SectionForceDeformation models in FORTRAN.</p>
-<h2 id="fedeas-subroutine-interface">FEDEAS subroutine interface</h2>
+<h3 id="fedeas-subroutine-interface">FEDEAS subroutine interface</h3>
 <p>The subroutine interface defined for a FEDEAS uniaxial material model named “ML1D” is shown below.</p>
 <div class="highlight"><pre><span></span>subroutine ML1D(matpar,hstvP,hstv,epsP,sigP,deps,sig,tang,ist)
 </pre></div>
@@ -7102,7 +7092,7 @@
 <li><p>tang - the tangent at the current trial state (out)</p></li>
 <li><p>ist - integer indicating the operation to be performed (in): 0 - return number of material parameters and history variables, 1 - compute stress and tangent, 2 - compute stress and secant</p></li>
 </ol>
-<h2 id="fedeasmaterial-implementation-in-opensees">FedeasMaterial Implementation in OpenSees</h2>
+<h3 id="fedeasmaterial-implementation-in-opensees">FedeasMaterial Implementation in OpenSees</h3>
 <p>This section presents an implementation of UniaxialMaterial capable of wrapping any subroutine that conforms to the FEDEAS interface described in the previous section. This implementation, FedeasMaterial, manages the data arrays sent to the FEDEAS subroutine, i.e., FedeasMaterial is responsible for storing the material parameters and history variables, as well as for swapping trial and committed history variables.</p>
 <div class="center">
 <p><img src="../../..../FedeasMaterial.svg" style="margin:auto; display: block; max-width: 75%" /> </p>
@@ -7447,7 +7437,7 @@
 <span class="err">}</span><span class="w"></span>
 </pre></div>
 
-<h2 id="example-fedeashardeningmaterial">Example – FedeasHardeningMaterial</h2>
+<h3 id="example-fedeashardeningmaterial">Example – FedeasHardeningMaterial</h3>
 <p>The material data array defined in FedeasMaterial is populated by its subclasses. As an example, consider the case where the uniaxial hardening material is coded in a FORTRAN subroutine. In order to link this subroutine with OpenSees, a subclass of FedeasMaterial, FedeasHardeningMaterial, must be created (see figure <a href="#fig:FedeasHardening" data-reference-type="ref" data-reference="fig:FedeasHardening">fig:FedeasHardening</a>). The functionality of this subclass is to populate the material parameter array and to determine the number of history variables required for analysis.</p>
 <div class="center">
 <figure>
@@ -7455,7 +7445,7 @@
 </figure>
 </div>
 <p>As additional FEDEAS subroutines are added to OpenSees, new subclasses of FedeasMaterial must be added in order to populate the data array. This is all that need be done in the derived class as the base class, FedeasMaterial, contains all the computational code and keeps track of path dependent behavior. This functionality is inherited from the FedeasMaterial base class. However, the FedeasMaterial class must be modified such that the appropriate subroutine is called during state determination from the method <code>invokeSubroutine()</code>.</p>
-<h3 id="fedeas-hardening-subroutine">FEDEAS Hardening Subroutine</h3>
+<h4 id="fedeas-hardening-subroutine">FEDEAS Hardening Subroutine</h4>
 <p>This section contains the implementation of the uniaxial hardening material coded as a FORTRAN subroutine using the FEDEAS interface. The subroutine declares local variables to store the material parameters passed through the matpar array. The committed history variables are received from hstvP, and the trial history variables are written to hstv upon return. The trial stress and tangent are also set upon return in the variables sig and tang.</p>
 <details>
 <summary>
@@ -7574,7 +7564,7 @@ FORTRAN source code
 </pre></div>
 
 </details>
-<h3 id="fedeashardeningmaterial-subclass">FedeasHardeningMaterial Subclass</h3>
+<h4 id="fedeashardeningmaterial-subclass">FedeasHardeningMaterial Subclass</h4>
 <p>As stated previously, the functionality of the FedeasHardeningMaterial class is to read in the material parameters required for the Hard_1 subroutine invoked from the FedeasMaterial method <code>invokeSubroutine()</code>. In addition, the required number of history variables must be passed to the FedeasMaterial base class.</p>
 <p>The class interface for FedeasHardeningMaterial is shown below. The constructor takes the tag and material parameters as arguments. No other methods are declared in the FedeasHardeningMaterial interface as all functionality is inherited from FedeasMaterial.</p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;FedeasMaterial.h&gt;</span><span class="cp"></span>
@@ -7593,7 +7583,7 @@ FORTRAN source code
 <span class="p">};</span><span class="w"></span>
 </pre></div>
 
-<p>The constructor takes the tag, elastic modulus, yield stress, and isotropic and kinematic hardening moduli as arguments. The FedeasMaterial class constructor is called with the tag and classTag MAT_TAG_FedeasHardening defined in classTags.h and the number of history variables and material parameters required for this particular material model. Then the material parameters are inserted into the data array. The default constructor simply invokes the base class constructor, and the destructor does nothing.</p>
+<p>The constructor takes the tag, elastic modulus, yield stress, and isotropic and kinematic hardening moduli as arguments. The FedeasMaterial class constructor is called with the tag and classTag <code>MAT_TAG_FedeasHardening</code> defined in classTags.h and the number of history variables and material parameters required for this particular material model. Then the material parameters are inserted into the data array. The default constructor simply invokes the base class constructor, and the destructor does nothing.</p>
 <div class="highlight"><pre><span></span><span class="n">FedeasHardeningMaterial</span><span class="p">::</span><span class="n">FedeasHardeningMaterial</span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"></span>
 <span class="w">                            </span><span class="n">double</span><span class="w"> </span><span class="n">E</span><span class="p">,</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="n">sigmaY</span><span class="p">,</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="n">Hiso</span><span class="p">,</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="n">Hkin</span><span class="p">):</span><span class="w"></span>
 <span class="o">//</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">history</span><span class="w"> </span><span class="n">variables</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="n">parameters</span><span class="w"></span>
@@ -7617,20 +7607,20 @@ FORTRAN source code
 <span class="p">}</span><span class="w"></span>
 </pre></div>
 
-<h3 id="important-polymorphic-note">Important Polymorphic Note</h3>
+<h4 id="important-polymorphic-note">Important Polymorphic Note</h4>
 <p>Should any method in the FedeasMaterial class need to be overridden, e.g., if a subclass does not want all of its history variables set to <span class="math inline">\(0.0\)</span> in <code>revertToStart()</code>, the <code>getCopy()</code> method must also be overridden to return a pointer to the subclass. If <code>getCopy()</code> is not overridden, the dynamic type of the returned pointer will be of the FedeasMaterial type and the overridden method, e.g., <code>revertToStart()</code>, will not be called.</p>
-<h2 id="tcl-model-builder-1">Tcl Model Builder</h2>
-<p>Adding the FedeasHardeningMaterial model to the Tcl model builder is done in exactly the same manner as for HardeningMaterial since both models have the same material parameters. Only the material allocation would change. The following line in TclModelBuilderUniaxialMaterialCommand.cpp</p>
+<h3 id="tcl-model-builder-1">Tcl Model Builder</h3>
+<p>Adding the FedeasHardeningMaterial model to the Tcl model builder is done in exactly the same manner as for HardeningMaterial since both models have the same material parameters. Only the material allocation would change. The following line in <code>TclModelBuilderUniaxialMaterialCommand.cpp</code></p>
 <div class="highlight"><pre><span></span>      // Parsing was successful, allocate the material
       theMaterial = new HardeningMaterial(tag, E, sigmaY, Hiso, Hkin); 
 </pre></div>
 
 <p>would be changed to</p>
-<div class="highlight"><pre><span></span>      // Parsing was successful, allocate the material
-      theMaterial = new FedeasHardeningMaterial(tag, E, sigmaY, Hiso, Hkin); 
+<div class="highlight"><pre><span></span><span class="c1">// Parsing was successful, allocate the material</span>
+<span class="n">theMaterial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">FedeasHardeningMaterial</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="n">E</span><span class="p">,</span><span class="w"> </span><span class="n">sigmaY</span><span class="p">,</span><span class="w"> </span><span class="n">Hiso</span><span class="p">,</span><span class="w"> </span><span class="n">Hkin</span><span class="p">);</span><span class="w"> </span>
 </pre></div>
 
-<h2 id="fem_objectbroker-1">FEM_ObjectBroker</h2>
+<h3 id="fem_objectbroker-1"><code>FEM_ObjectBroker</code></h3>
 <p>As for the HardeningMaterial class, an additional case needs to be added to the <code>getNewUniaxialMaterial()</code> method in FEM_ObjectBroker in order for the FedeasHardeningMaterial class to be used for parallel processing and database programming.</p>
 <div class="highlight"><pre><span></span><span class="nt">UniaxialMaterial</span><span class="o">*</span><span class="w"></span>
 <span class="nt">FEM_ObjectBroker</span><span class="p">::</span><span class="nd">getNewUniaxialMaterial</span><span class="o">(</span><span class="nt">int</span><span class="w"> </span><span class="nt">classTag</span><span class="o">)</span><span class="w"></span>
@@ -7655,6 +7645,15 @@ FORTRAN source code
 <span class="w">   </span><span class="p">}</span><span class="w">        </span>
 <span class="err">}</span><span class="w"></span>
 </pre></div>
+
+<strong>
+<center>
+<p>Version 1.1</p>
+<p>August 21, 2001</p>
+<p>Michael H. Scott and Gregory L. Fenves</p>
+PEER, University of California, Berkeley
+</center>
+<p></strong></p>
 
 
               
