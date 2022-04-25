@@ -1,13 +1,21 @@
+import os
 import sys
 import tkinter
 import pathlib
 
 def TclInterpreter():
-    install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
+    import tkinter, pathlib
+    #install_dir = pathlib.Path("/home/claudio/sees/pyg3/src/")
+    #install_dir = pathlib.Path("/home/claudio/sees/cmake-src/build/SRC/api/tclCommandPackage/")
+    if "OPENSEESRT_LIB" in os.environ:
+        libOpenSeesRT = os.environ["OPENSEESRT_LIB"]
+    else:
+        install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
+        libOpenSeesRT = install_dir/'libOpenSeesRT.so'
     interp = tkinter.Tcl()
-    # interp.eval(f"load {install_dir/'libOpenSeesCommandPackage.so'}")
-    interp.eval(f"load {install_dir/'libOpenSeesRT.so'}")
+    interp.eval(f"load {libOpenSeesRT}")
     return interp
+
 
 class ScriptBuilder:
     TAB = object()
