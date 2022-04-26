@@ -1011,6 +1011,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/</loc>
+         <lastmod>2022-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/</loc>
+         <lastmod>2022-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/</loc>
+         <lastmod>2022-04-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/Concrete01/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
@@ -1067,16 +1082,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/sys_of_eqn/ITPACK/</loc>
-         <lastmod>2022-04-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/user/analysis/</loc>
-         <lastmod>2022-04-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/user/modeling/</loc>
          <lastmod>2022-04-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
