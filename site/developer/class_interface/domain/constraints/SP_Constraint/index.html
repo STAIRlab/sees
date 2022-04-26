@@ -15,7 +15,7 @@
     
     
       
-        <title>OpenSees</title>
+        <title>SP_Constraint - OpenSees</title>
       
     
     
@@ -94,7 +94,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              SP_Constraint
+
             
           </span>
         </div>
@@ -2785,7 +2786,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
+        SP_Constraint
+
       </a>
       
     </li>
@@ -4287,7 +4289,8 @@
   
     <li class="md-nav__item">
       <a href="../../../numerical/Matrix/" class="md-nav__link">
-        
+        Matrix
+
       </a>
     </li>
   
@@ -4315,7 +4318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../numerical/Vermd/" class="md-nav__link">
+      <a href="../../../numerical/Vertex/" class="md-nav__link">
         
       </a>
     </li>
@@ -6601,49 +6604,47 @@
 </a>
 
 
-  <h1>OpenSees</h1>
-
-<p><br />
-# SP_Constraint</p>
+<h1 id="sp_constraint">SP_Constraint</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;domain/constraints/SP_Constraint.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SP_Constraint</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">DomainComponent</span><span class="w"></span>
 </pre></div>
 
-<p>class SP_Constraint: public DomainComponent<br />
-</p>
 <p>TaggedObject<br />
 MovableObject<br />
 DomainComponent<br />
 </p>
-<p><br />
-An SP_Constraint represents a single point constraint in the domain. A single point constraint specifies the response of a particular degree-of-freedom at a node. The declaration that all methods are virtual allows for time varying constraints to be introduced.</p>
+<p>An SP_Constraint represents a single point constraint in the domain. A single point constraint specifies the response of a particular degree-of-freedom at a node. The declaration that all methods are virtual allows for time varying constraints to be introduced.</p>
 <h3 id="constructors">Constructors</h3>
-<p><br />
-</p>
-<p><br />
-### Destructor</p>
-<p><br />
-// Public Methods<br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-// Public Methods for Output<br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
+<div class="highlight"><pre><span></span><span class="n">SP_Constraint</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">classTag</span><span class="p">);</span><span class="w">        </span>
+<span class="n">SP_Constraint</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nodeTag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ndof</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">classTag</span><span class="p">);</span><span class="w">    </span>
+<span class="n">SP_Constraint</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">nodeTag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ndof</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isConstant</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<h3 id="destructor">Destructor</h3>
+<h3 id="public-methods">Public Methods</h3>
+<div class="highlight"><pre><span></span><span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNodeTag</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getDOF_Number</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">applyConstraint</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">loadFactor</span><span class="p">);</span><span class="w">    </span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getValue</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">isHomogeneous</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setLoadPatternTag</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">loadPaternTag</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w">  </span><span class="nf">getLoadPatternTag</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+<h3 id="public-methods-for-output">Public Methods for Output</h3>
+<div class="highlight"><pre><span></span><span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sendSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">recvSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">,</span><span class="w"> </span>
+<span class="w">     </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theBroker</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To construct a single point constraint to constrain the trial displacement of the <em>ndof</em>’th dof at node <em>node</em> to the value given by <em>value</em>. The integer value <em>tag</em> is used to identify the SP_Constraint among all other SP_Constraints. If <em>value</em> is equal to <span class="math inline">\(0.0\)</span> the method <code>isHomogeneous()</code> will always return <em>true</em>, otherwise <em>false</em>.</p>
 <p>Provided for subclasses to use. The subclasses can vary the value of the imposed displacement when <code>getValue()</code> is invoked. If this constructor is used the <code>isHomogeneous()</code> method will always return <em>false</em>. The integer value <em>tag</em> is used to identify the SP_Constraint among all other SP_Constraints.</p>
 <p>Provided for the FEM_ObjectBroker to be able to instantiate an object; the data for this object will be read from a Channel object when <code>recvSelf()</code> is invoked. <span class="math inline">\(0\)</span> and <em>classTag</em> are passed to the DomainComponent constructor.</p>
-<p><br />
-Does nothing. Provided so that a subclasses destructor can be invoked.</p>
-<p><br />
-Returns the value of <em>node</em> passed in the constructor, this should be the tag of the node that is being constrained.</p>
+<p>Does nothing. Provided so that a subclasses destructor can be invoked.</p>
+<p>Returns the value of <em>node</em> passed in the constructor, this should be the tag of the node that is being constrained.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getDOF_Number</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 

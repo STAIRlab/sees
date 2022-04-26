@@ -15,7 +15,7 @@
     
     
       
-        <title>OpenSees</title>
+        <title>Matrix - OpenSees</title>
       
     
     
@@ -94,7 +94,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Matrix
+
             
           </span>
         </div>
@@ -2774,7 +2775,8 @@
   
     <li class="md-nav__item">
       <a href="../../domain/constraints/SP_Constraint/" class="md-nav__link">
-        
+        SP_Constraint
+
       </a>
     </li>
   
@@ -4284,7 +4286,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
+        Matrix
+
       </a>
       
     </li>
@@ -4313,7 +4316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Vermd/" class="md-nav__link">
+      <a href="../Vertex/" class="md-nav__link">
         
       </a>
     </li>
@@ -6599,11 +6602,14 @@
 </a>
 
 
-  <h1>OpenSees</h1>
+<h1 id="matrix">Matrix</h1>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;matrix/Matrix.h&gt;</span><span class="cp"></span>
 
-<p>#include <span class="math inline">\(&lt;\tilde{}\)</span>/matrix/Matrix.h<span class="math inline">\(&gt;\)</span></p>
-<p>class Matrix:</p>
-<p>The Matrix class provides the matrix abstraction. A matrix of order numRows X numCols is an ordered 2d array of numbers arranged in numRows rows and numCols columns. For example, a matrix <span class="math inline">\(A\)</span> of order 2 X 3: $$A = $$</p>
+<span class="k">class</span><span class="w"> </span><span class="nc">Matrix</span><span class="o">:</span><span class="w"></span>
+</pre></div>
+
+<p>The Matrix class provides the matrix abstraction. A matrix of order numRows X numCols is an ordered 2d array of numbers arranged in numRows rows and numCols columns. For example, a matrix <span class="math inline">\(A\)</span> of order 2 X 3:</p>
+<p>$$A = $$</p>
 <p>The Matrix class provides the implementation of a general unsymmetric matrix. The data for the matrix is stored in a 1d double array of size numRows*numCols with the data for <span class="math inline">\(a_{i,j}\)</span> located at j*numRows + i in the 1d array. This is similar to the ordering of a Fortran 2d array and will permit calls to numerical Fortran libraries, e.g. BLAS, for certain method calls at a future stage. At present no subclassing is permitted (THIS MAY CHANGE), the reason for this is that the Matrix objects are envisioned to be small scale matrices primarily used for the passing of data between objects in the system. To allow subclassing could reduce the efficiency of the program due to the manner in which virtual functions are implemented.</p>
 <p>To construct a Matrix with numRows = <span class="math inline">\(0\)</span>, and numCols = <span class="math inline">\(0\)</span>. No memory is allocated to store the data.</p>
 <p>To construct a Matrix with numRows = <em>nrows</em>, and numCols = <em>ncols</em> and all coefficients equal to <span class="math inline">\(0\)</span>. Allocates memory for the storage of the data. If numRows <span class="math inline">\(&lt;\)</span> <span class="math inline">\(0\)</span>, numCols <span class="math inline">\(&lt;\)</span> <span class="math inline">\(0\)</span> or not enough memory is available available, an error message is printed and a Matrix with numRows = <span class="math inline">\(0\)</span> and numCols = <span class="math inline">\(0\)</span> is returned. Before the Matrix is returned, <code>Zero()</code> is called on the Matrix.</p>
