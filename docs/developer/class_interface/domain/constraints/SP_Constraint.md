@@ -1,17 +1,16 @@
-\
 # SP_Constraint 
 
 ```cpp
 #include <domain/constraints/SP_Constraint.h>
-```
 
-class SP_Constraint: public DomainComponent\
+class SP_Constraint: public DomainComponent
+```
 
 TaggedObject\
 MovableObject\
 DomainComponent\
 
-\
+
 An SP_Constraint represents a single point constraint in the domain. A
 single point constraint specifies the response of a particular
 degree-of-freedom at a node. The declaration that all methods are
@@ -19,26 +18,38 @@ virtual allows for time varying constraints to be introduced.
 
 ### Constructors
 
-\
+```cpp
+SP_Constraint(int classTag);        
+SP_Constraint(int nodeTag, int ndof, int classTag);    
+SP_Constraint(int nodeTag, int ndof, double value, bool isConstant);
+```
 
-\
+
+
 ### Destructor
 
-\
-// Public Methods\
 
-\
+### Public Methods
 
-\
+```cpp
+  virtual int getNodeTag(void) const;
+  virtual int getDOF_Number(void) const;
+  virtual int applyConstraint(double loadFactor);    
+  virtual double getValue(void);
+  virtual bool isHomogeneous(void) const;
+  virtual void setLoadPatternTag(int loadPaternTag);
+  virtual int  getLoadPatternTag(void) const;
+``` 
 
-\
+### Public Methods for Output
 
-\
-// Public Methods for Output\
+```cpp
+  virtual int sendSelf(int commitTag, Channel &theChannel);
+  virtual int recvSelf(int commitTag, Channel &theChannel, 
+     FEM_ObjectBroker &theBroker);
 
-\
-
-\
+  virtual void Print(OPS_Stream &s, int flag =0);
+```
 
 To construct a single point constraint to constrain the trial
 displacement of the *ndof*'th dof at node *node* to the value given by
@@ -57,10 +68,10 @@ the data for this object will be read from a Channel object when
 `recvSelf()` is invoked. $0$ and *classTag* are passed to the
 DomainComponent constructor.
 
-\
+
 Does nothing. Provided so that a subclasses destructor can be invoked.
 
-\
+
 Returns the value of *node* passed in the constructor, this should be
 the tag of the node that is being constrained.
 

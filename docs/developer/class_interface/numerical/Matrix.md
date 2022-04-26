@@ -1,21 +1,16 @@
+# Matrix
 
-
-
-\#include $<\tilde{}$/matrix/Matrix.h$>$
-
-
+```cpp
+#include <matrix/Matrix.h>
 
 class Matrix:
-
-
-
-
-
+```
 
 
 The Matrix class provides the matrix abstraction. A matrix of order
 numRows X numCols is an ordered 2d array of numbers arranged in numRows
 rows and numCols columns. For example, a matrix $A$ of order 2 X 3:
+
 $$A =
 \left[
 \begin{array}{ccc}
@@ -39,102 +34,6 @@ objects are envisioned to be small scale matrices primarily used for the
 passing of data between objects in the system. To allow subclassing
 could reduce the efficiency of the program due to the manner in which
 virtual functions are implemented.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

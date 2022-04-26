@@ -1,18 +1,18 @@
-\
+
 # GenericSectionND 
 
 ```cpp
 #include <material/section/GenericSectionND.h>
-```
 
-class GenericSectionND : public SectionForceDeformation\
+class GenericSectionND : public SectionForceDeformation
+```
 
 TaggedObject\
 MovableObject\
 Material\
 SectionForceDeformation\
 
-\
+
 GenericSectionND provides a wrapper around a NDMaterial so that any
 NDMaterial may be used to model section response. The design of this
 class follows the Object Adapter pattern in *Design Patterns* by Gamma

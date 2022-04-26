@@ -1,18 +1,17 @@
-\
 # ElasticSection3D 
 
 ```cpp
 #include <material/section/ElasticSection3D.h>
-```
 
-class ElasticSection3D : public SectionForceDeformation\
+class ElasticSection3D : public SectionForceDeformation
+```
 
 TaggedObject\
 MovableObject\
 Material\
 SectionForceDeformation\
 
-\
+
 ElasticSection3D provides the implementation of a section which exhibits
 uncoupled elastic behavior in axial, moment, shear, and torsion
 response.

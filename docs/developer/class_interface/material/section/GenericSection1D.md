@@ -1,19 +1,18 @@
-\
 # GenericSection1D 
 
 ```cpp
 #include <material/section/GenericSection1D.h>
-```
 
-class GenericSection1D : public SectionForceDeformation\
+class GenericSection1D : public SectionForceDeformation
+```
 
 TaggedObject\
 MovableObject\
 Material\
 SectionForceDeformation\
 
-\
-GenericSection1D provides a wrapper around a UniaxialMaterial so that
+
+`GenericSection1D` provides a wrapper around a UniaxialMaterial so that
 any UniaxialMaterial may be used to model section response. The design
 of this class follows the Object Adapter pattern in *Design Patterns* by
 Gamma et al.

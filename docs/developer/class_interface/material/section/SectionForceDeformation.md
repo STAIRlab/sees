@@ -1,17 +1,16 @@
-\
 # SectionForceDeformation 
 
 ```cpp
 #include <material/section/SectionForceDeformation.h>
-```
 
-class SectionForceDeformation : public Material\
+class SectionForceDeformation : public Material
+```
 
 TaggedObject\
 MovableObject\
 Material\
 
-\
+
 SectionForceDeformation provides the interface which all
 SectionForceDeformation models must implement.
 
@@ -19,7 +18,7 @@ SectionForceDeformation models must implement.
 
 ### Destructor
 
-\
+
 // Public Methods\
 
 \
