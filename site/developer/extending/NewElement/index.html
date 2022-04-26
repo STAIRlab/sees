@@ -5644,7 +5644,7 @@
   
     <li class="md-nav__item">
       <a href="../FeapElement/" class="md-nav__link">
-        Introduction
+        Feap Elements
 
       </a>
     </li>
@@ -5681,7 +5681,7 @@
   
     <li class="md-nav__item">
       <a href="../NewMaterial/" class="md-nav__link">
-        How to Introduce a New Material into OpenSees
+        New Material Models
       </a>
     </li>
   
@@ -5710,7 +5710,7 @@
   
     <li class="md-nav__item">
       <a href="../component/" class="md-nav__link">
-        Simple Components
+        Compiling
 
       </a>
     </li>
@@ -5922,7 +5922,7 @@
   
     <li class="md-nav__item">
       <a href="../../../gallery/BasicPrimer/example_2/" class="md-nav__link">
-        Moment-Curvature Analysis of a Reinforced Concrete Section
+        Moment-Curvature Analysis (Reinforced Concrete)
 
       </a>
     </li>
@@ -6588,7 +6588,7 @@
 </a>
 
 
-<h1 id="introducing-a-new-element-into-opensees">Introducing a New Element into OpenSees</h1>
+<h1 id="new-elements">New Elements</h1>
 <h2 id="introduction">Introduction</h2>
 <p>This document is intended to demonstrate the steps necessary to introduce a new element into the OpenSees interpreter. OpenSees is an object-oriented framework under construction for finite element analysis. A key feature of OpenSees is the interchangeably of components and the ability to integrate existing libraries and new components into the framework (not just new element classes) without the need to change the existing code. Core components, that is the abstract base classes, define the minimal interface (minimal to make adding new component classes easier but large enough to ensure all that is required can be accommodated).</p>
 <p>The OpenSees interpreter is an extension of the Tcl scripting language. Tcl is a string based procedural command language which allows substitution, loops, mathematical expressions, and procedures. The OpenSees interpreter adds commands to Tcl to allow users to create objects from the OpenSees framework and invoke methods on those objects once they have been created. Each of these commands is associated (bound) with a C++ procedure that is provided. It is this procedure that is called upon by the interpreter to parse the command.</p>
@@ -6682,7 +6682,7 @@ playback 1
 <span class="mi">1</span><span class="w"> </span><span class="mf">0.530093</span><span class="w"> </span><span class="o">-</span><span class="mf">0.177894</span><span class="w"></span>
 </pre></div>
 
-<h2 id="introducing-a-new-element-into-opensees-1">Introducing a New Element into OpenSees</h2>
+<h2 id="introducing-a-new-element-into-opensees">Introducing a New Element into OpenSees</h2>
 <p>We will look at the C++ code that is required to introduce a new Truss element, MyTruss, into the framework and a new command myTruss into the interpreter. The new class will work in planar problems where each node has two degrees-of-freedom. The new type will be complicated by the fact that each instance will be associated with a UniaxialMaterial object, this is done to show what this entails for parallel and database processing.</p>
 <p>To introduce the new class into OpenSees three new files must be created, MyTruss.h and MyTruss.cpp, to define the class interface and implementation, and TclMyTrussCommand.cpp, to define the procedure to be invoked when the Tcl command myTruss is invoked. In addition two existing files must be modified, TclElementCommands.cpp, and FEM_ObjectBroker.C and FEM_ObjectBroker.C. The new files and modifications to existing files are outlined in the following subsections. All the files can be found in the OpenSees/EXAMPLES/ExampleNewElement directory.</p>
 <h3 id="mytruss.h">MyTruss.h</h3>
@@ -7329,11 +7329,11 @@ TclModelBuilder_MyTruss(ClientData , Tcl_Interp *,  int, char **,
 
 <b>
 <center>
-<p>Version 1.0</p>
-<p>August 21, 2000</p>
 <p>Frank McKenna and Gregory L. Fenves</p>
 <p>Pacific Earthquake Engineering Research Center</p>
-University of California, Berkeley </b>
+<p>University of California, Berkeley</p>
+<p>August 21, 2000</p>
+Version 1.0 </b>
 </center>
 
 
