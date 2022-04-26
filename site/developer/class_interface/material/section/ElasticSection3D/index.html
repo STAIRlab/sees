@@ -15,7 +15,7 @@
     
     
       
-        <title>OpenSees</title>
+        <title>ElasticSection3D - OpenSees</title>
       
     
     
@@ -94,7 +94,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              ElasticSection3D
+
             
           </span>
         </div>
@@ -3989,6 +3990,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_7_9_6">
@@ -4017,7 +4020,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
+        ElasticSection3D
+
       </a>
       
     </li>
@@ -4031,8 +4035,24 @@
   
   
     <li class="md-nav__item">
+      <a href="../FiberSection/" class="md-nav__link">
+        FiberSection
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../GenericSection1D/" class="md-nav__link">
-        
+        GenericSection1D
+
       </a>
     </li>
   
@@ -4046,7 +4066,8 @@
   
     <li class="md-nav__item">
       <a href="../GenericSectionND/" class="md-nav__link">
-        
+        GenericSectionND
+
       </a>
     </li>
   
@@ -4060,7 +4081,8 @@
   
     <li class="md-nav__item">
       <a href="../SectionForceDeformation/" class="md-nav__link">
-        
+        SectionForceDeformation
+
       </a>
     </li>
   
@@ -6580,22 +6602,18 @@
 </a>
 
 
-  <h1>OpenSees</h1>
-
-<p><br />
-# ElasticSection3D</p>
+<h1 id="elasticsection3d">ElasticSection3D</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;material/section/ElasticSection3D.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ElasticSection3D</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">SectionForceDeformation</span><span class="w"></span>
 </pre></div>
 
-<p>class ElasticSection3D : public SectionForceDeformation<br />
-</p>
 <p>TaggedObject<br />
 MovableObject<br />
 Material<br />
 SectionForceDeformation<br />
 </p>
-<p><br />
-ElasticSection3D provides the implementation of a section which exhibits uncoupled elastic behavior in axial, moment, shear, and torsion response.</p>
+<p>ElasticSection3D provides the implementation of a section which exhibits uncoupled elastic behavior in axial, moment, shear, and torsion response.</p>
 <h3 id="constructor">Constructor</h3>
 <p><br />
 </p>
