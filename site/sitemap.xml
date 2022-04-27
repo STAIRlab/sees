@@ -596,6 +596,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/ElasticIsotropicMaterial/</loc>
+         <lastmod>2022-04-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/Material/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
@@ -1047,11 +1052,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/nD/BidirectionalMaterial/</loc>
-         <lastmod>2022-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/nD/ElasticIsotropicMaterial/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
