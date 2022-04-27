@@ -1001,6 +1001,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/gallery/geotech/</loc>
+         <lastmod>2022-04-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/gallery/geotech/02_StaticPile/</loc>
+         <lastmod>2022-04-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
