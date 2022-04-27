@@ -6590,8 +6590,25 @@
 <div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>PySimple1<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$soilType</span><span class="w"> </span><span class="nv">$pult</span><span class="w"> </span><span class="nv">$Y50</span><span class="w"> </span><span class="nv">$Cd</span><span class="w"> </span><span class="o">&lt;</span><span class="nv">$c</span><span class="o">&gt;</span>
 </pre></div>
 
-<p>$matTag integer tag identifying material $soilType soilType = 1 Backbone of p-y curve approximates Matlock (1970) soft clay relation. soilType = 2 Backbone of p-y curve approximates API (1993) sand relation.</p>
-<p>$pult Ultimate capacity of the p-y material. Note that “p” or “pult” are distributed loads [force per length of pile] in common design equations, but are both loads for this uniaxialMaterial [i.e., distributed load times the tributary length of the pile]. $Y50 Displacement at which 50% of pult is mobilized in monotonic loading. $Cd Variable that sets the drag resistance within a fully-mobilized gap as Cd*pult. $c The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). (optional Default = 0.0). Nonzero c values are used to represent radiation damping effects</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: center;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>matTag</code></td>
+<td style="text-align: center;">integer tag identifying material</td>
+</tr>
+</tbody>
+</table>
+<p><code>soilType</code> soilType = 1 Backbone of p-y curve approximates Matlock (1970) soft clay relation. soilType = 2 Backbone of p-y curve approximates API (1993) sand relation.</p>
+<p><code>pult</code> Ultimate capacity of the p-y material. Note that “p” or “pult” are distributed loads [force per length of pile] in common design equations, but are both loads for this uniaxialMaterial [i.e., distributed load times the tributary length of the pile].</p>
+<p><code>Y50</code> Displacement at which 50% of pult is mobilized in monotonic loading.</p>
+<p><code>Cd</code> Variable that sets the drag resistance within a fully-mobilized gap as <code>Cd*pult</code>.</p>
+<p><code>c</code> The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). (optional Default = 0.0). Nonzero c values are used to represent radiation damping effects</p>
 <h2 id="notes">Notes</h2>
 <p>In general the HHT algorithm is preferred over a Newmark algorithm when using this material. This is due to the numerical oscillations that can develop with viscous damping forces under transient loading with certain solution algorithms and damping ratios.</p>
 <h2 id="equations-and-example-responses">EQUATIONS and EXAMPLE RESPONSES</h2>
@@ -6605,8 +6622,8 @@
 <p><span class="math display">\[p^c = 1.8 p_{\text{ult}} \left [\frac{y_{50}}{y_{50} + 50(y_o^\text{+} - y^g)} - \frac{y_{50}}{y_{50} + 50(y_o^\text{-} - y^g)} \right ] \]</span></p>
 <p>where <span class="math inline">\(y_o^+\)</span> is the memory term for the positive side of the gap, <span class="math inline">\(y_o^-\)</span>= memory term for the negative side of the gap. The initial values of <span class="math inline">\(y_o^+\)</span> and <span class="math inline">\(y_o^-\)</span> were set as <span class="math inline">\(y_{50}/100\)</span> and <span class="math inline">\(- y_{50}/100\)</span>, respectively. The factor of 1.8 brings <span class="math inline">\(p^c\)</span> up to <span class="math inline">\(p_\text{ult}\)</span> during virgin loading to <span class="math inline">\(y_o^+\)</span> (or <span class="math inline">\(y_o^-\)</span>). Gap enlargement follows logic similar to that of Matlock et al. (1978). The gap grows on the positive side when the plastic deformation occurs on the negative loading side. Consequently, the <span class="math inline">\(y_o^+\)</span> value equals the opposite value of the largest past negative value of, <span class="math inline">\(y^p + y^g + 1.5 y_{50}\)</span> where the <span class="math inline">\(1.5y_{50}\)</span> represents some rebounding of the gap. Similarly, the <span class="math inline">\(y_o^-\)</span> value equals the opposite value of the largest past positive value of <span class="math inline">\(y^p+y^g-1.5y_{50}\)</span>. This closure spring allows for a smooth transition in the load displacement behavior as the gap opens or closes.</p>
 <p>The nonlinear drag <span class="math inline">\((p^d-y^g)\)</span> spring is described by:</p>
-<p>$p^d = C_d p_{} - (C_d p_{} - p^d_o) ^n $</p>
-<p>where <span class="math inline">\(C_d =\)</span> ratio of the maximum drag force to the ultimate resistance of the p-y material, <span class="math inline">\(d^p_o =p^d\)</span> at the start of the current loading cycle, and <span class="math inline">\(y^g_o = y^g\)</span> at the start of the current loading cycle.</p>
+<p><span class="math display">\[p^d = C_d p_{\text{ult}} - (C_d p_{\text{ult}} - p^d_o) \left [\frac{y_{50}}{y_{50} + 2| y^g - y^g_o|} \right ]^n\]</span></p>
+<p>where <span class="math inline">\(C_d\)</span> is the ratio of the maximum drag force to the ultimate resistance of the p-y material, <span class="math inline">\(d^p_o =p^d\)</span> at the start of the current loading cycle, and <span class="math inline">\(y^g_o = y^g\)</span> at the start of the current loading cycle.</p>
 <p>The flexibility of the above equations can be used to approximate different p-y backbone relations. Matlock’s (1970) recommended backbone for soft clay is closely approximated using <span class="math inline">\(c = 10\)</span>, <span class="math inline">\(n = 5\)</span>, and <span class="math inline">\(C_r = 0.35\)</span>. API’s (1993) recommended backbone for drained sand is closely approximated using <span class="math inline">\(c = 0.5\)</span>, <span class="math inline">\(n = 2\)</span>, and <span class="math inline">\(C_r = 0.2\)</span>. PySimple1 is currently implemented to allow use of these two default sets of values. Values of <span class="math inline">\(p_\text{ult}\)</span>, <span class="math inline">\(y_{50}\)</span>, and <span class="math inline">\(C_d\)</span> must then be specified to define the <span class="math inline">\(p-y\)</span> material behavior.</p>
 <p>Viscous damping on the far-field (elastic) component of the p-y material is included for approximating radiation damping. For implementation in OpenSees the viscous damper is placed across the entire material, but the viscous force is calculated as proportional to the component of velocity (or displacement) that developed in the far-field elastic component of the material. For example, this correctly causes the damper force to become zero during load increments across a fully formed gap. In addition, the total force across the p-y material is restricted to pult in magnitude so that the viscous damper cannot cause the total force to exceed the near-field soil capacity. Users should also be familiar with numerical oscillations that can develop in viscous damper forces under transient loading with certain solution algorithms and damping ratios. In general, an HHT algorithm is preferred over a Newmark algorithm for reducing such oscillations in materials like PySimple1.</p>
 <p>[1]: Boulanger, R. W., Curras, C. J., Kutter, B. L., Wilson, D. W., and Abghari, A. (1999). “Seismic soil-pile-structure interaction experiments and analyses.” Journal of Geotechnical and Geoenvironmental Engineering, ASCE, 125(9): 750-759.</p>
