@@ -15,7 +15,7 @@
     
     
       
-        <title>OpenSees</title>
+        <title>ElasticIsotropicPlaneStress2D - OpenSees</title>
       
     
     
@@ -94,7 +94,8 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              ElasticIsotropicPlaneStress2D
+
             
           </span>
         </div>
@@ -3886,6 +3887,8 @@
         
           
         
+          
+        
       
       
         
@@ -3906,6 +3909,21 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/class_interface/material/ElasticIsotropicMaterial/" class="md-nav__link">
+        ElasticIsotropicMaterial
+
+      </a>
+    </li>
+  
+
             
           
             
@@ -3976,7 +3994,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_9_6" type="checkbox" id="__nav_2_7_9_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_9_7" type="checkbox" id="__nav_2_7_9_7" >
       
       
       
@@ -3993,13 +4011,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_7_9_6">
+        <label class="md-nav__link" for="__nav_2_7_9_7">
           Section
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Section" data-md-level="4">
-        <label class="md-nav__title" for="__nav_2_7_9_6">
+        <label class="md-nav__title" for="__nav_2_7_9_7">
           <span class="md-nav__icon md-icon"></span>
           Section
         </label>
@@ -6279,8 +6297,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_4_4_5">
@@ -6302,21 +6318,8 @@
   
     <li class="md-nav__item">
       <a href="../BidirectionalMaterial/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
+        BidirectionalMaterial
 
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ElasticIsotropicMaterial/" class="md-nav__link">
-        
       </a>
     </li>
   
@@ -6330,7 +6333,8 @@
   
     <li class="md-nav__item">
       <a href="../ElasticIsotropicPlaneStrain2D/" class="md-nav__link">
-        
+        ElasticIsotropicPlaneStrain2D
+
       </a>
     </li>
   
@@ -6351,7 +6355,8 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        
+        ElasticIsotropicPlaneStress2D
+
       </a>
       
     </li>
@@ -6590,15 +6595,12 @@
 </a>
 
 
-  <h1>OpenSees</h1>
-
-<p><br />
-# ElasticIsotropicPlaneStress2D</p>
+<h1 id="elasticisotropicplanestress2d">ElasticIsotropicPlaneStress2D</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;material/nD/ElasticIsotropicPlaneStress2D.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ElasticIsotropicPlaneStress2D</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ElasticIsotropicMaterial</span><span class="w"></span>
 </pre></div>
 
-<p>class ElasticIsotropicPlaneStress2D : public ElasticIsotropicMaterial<br />
-</p>
 <p>TaggedObject<br />
 MovableObject<br />
 Material<br />

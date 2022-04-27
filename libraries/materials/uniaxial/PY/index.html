@@ -3887,6 +3887,8 @@
         
           
         
+          
+        
       
       
         
@@ -3907,6 +3909,21 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/class_interface/material/ElasticIsotropicMaterial/" class="md-nav__link">
+        ElasticIsotropicMaterial
+
+      </a>
+    </li>
+  
+
             
           
             
@@ -3977,7 +3994,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_9_6" type="checkbox" id="__nav_2_7_9_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_9_7" type="checkbox" id="__nav_2_7_9_7" >
       
       
       
@@ -3994,13 +4011,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_7_9_6">
+        <label class="md-nav__link" for="__nav_2_7_9_7">
           Section
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Section" data-md-level="4">
-        <label class="md-nav__title" for="__nav_2_7_9_6">
+        <label class="md-nav__title" for="__nav_2_7_9_7">
           <span class="md-nav__icon md-icon"></span>
           Section
         </label>
@@ -6278,8 +6295,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_4_4_5">
@@ -6301,21 +6316,8 @@
   
     <li class="md-nav__item">
       <a href="../../nD/BidirectionalMaterial/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
+        BidirectionalMaterial
 
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../nD/ElasticIsotropicMaterial/" class="md-nav__link">
-        
       </a>
     </li>
   
@@ -6329,7 +6331,8 @@
   
     <li class="md-nav__item">
       <a href="../../nD/ElasticIsotropicPlaneStrain2D/" class="md-nav__link">
-        
+        ElasticIsotropicPlaneStrain2D
+
       </a>
     </li>
   
@@ -6343,7 +6346,8 @@
   
     <li class="md-nav__item">
       <a href="../../nD/ElasticIsotropicPlaneStress2D/" class="md-nav__link">
-        
+        ElasticIsotropicPlaneStress2D
+
       </a>
     </li>
   
@@ -6602,13 +6606,32 @@
 <td style="text-align: left;"><code>matTag</code></td>
 <td style="text-align: center;">integer tag identifying material</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;"><code>soilType</code></td>
+<td style="text-align: center;">soilType = 1 Backbone of p-y curve approximates Matlock (1970) soft clay relation.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;">soilType = 2 Backbone of p-y curve approximates API (1993) sand relation.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>pult</code></td>
+<td style="text-align: center;">Ultimate capacity of the p-y material. Note that “p” or “pult” are distributed loads [force per length of pile] in common design equations, but are both loads for this uniaxialMaterial [i.e., distributed load times the tributary length of the pile].</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>Y50</code></td>
+<td style="text-align: center;">Displacement at which 50% of pult is mobilized in monotonic loading.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>Cd</code></td>
+<td style="text-align: center;">Variable that sets the drag resistance within a fully-mobilized gap as <code>Cd*pult</code>.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>c</code></td>
+<td style="text-align: center;">The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). (optional Default = 0.0). Nonzero c values are used to represent radiation damping effects</td>
+</tr>
 </tbody>
 </table>
-<p><code>soilType</code> soilType = 1 Backbone of p-y curve approximates Matlock (1970) soft clay relation. soilType = 2 Backbone of p-y curve approximates API (1993) sand relation.</p>
-<p><code>pult</code> Ultimate capacity of the p-y material. Note that “p” or “pult” are distributed loads [force per length of pile] in common design equations, but are both loads for this uniaxialMaterial [i.e., distributed load times the tributary length of the pile].</p>
-<p><code>Y50</code> Displacement at which 50% of pult is mobilized in monotonic loading.</p>
-<p><code>Cd</code> Variable that sets the drag resistance within a fully-mobilized gap as <code>Cd*pult</code>.</p>
-<p><code>c</code> The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). (optional Default = 0.0). Nonzero c values are used to represent radiation damping effects</p>
 <h2 id="notes">Notes</h2>
 <p>In general the HHT algorithm is preferred over a Newmark algorithm when using this material. This is due to the numerical oscillations that can develop with viscous damping forces under transient loading with certain solution algorithms and damping ratios.</p>
 <h2 id="equations-and-example-responses">EQUATIONS and EXAMPLE RESPONSES</h2>
