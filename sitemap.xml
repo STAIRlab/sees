@@ -281,16 +281,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/GeneralizedAlpha/</loc>
-         <lastmod>2022-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/HHT/</loc>
-         <lastmod>2022-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/IncrementalIntegrator/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
@@ -312,11 +302,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/MinUnbalDispNorm/</loc>
-         <lastmod>2022-04-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/Newmark/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1026,62 +1011,77 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/time_stepping/GeneralizedAlpha/</loc>
+         <lastmod>2022-04-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/time_stepping/HHT/</loc>
+         <lastmod>2022-04-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/time_stepping/Newmark/</loc>
+         <lastmod>2022-04-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/Concrete01/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/nD/BidirectionalMaterial/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/ElasticPPMaterial/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/nD/ElasticIsotropicPlaneStrain2D/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/ParallelMaterial/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/nD/ElasticIsotropicPlaneStress2D/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/Steel01/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/Concrete01/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/nD/BidirectionalMaterial/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/ElasticMaterial/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/nD/ElasticIsotropicPlaneStrain2D/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/ElasticPPMaterial/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/nD/ElasticIsotropicPlaneStress2D/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/ParallelMaterial/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/uniaxial/ElasticMaterial/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/Steel01/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/uniaxial/ConcreteCM/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/ConcreteCM/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/materials/uniaxial/PY/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/PY/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/sys_of_eqn/ITPACK/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/ITPACK/</loc>
          <lastmod>2022-04-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
