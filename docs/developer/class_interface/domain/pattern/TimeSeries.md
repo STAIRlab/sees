@@ -1,7 +1,10 @@
-\
-\#include $<\tilde{ }$domain/pattern/TimeSeries.h$>$\
+# TimeSeries
 
-class TimeSeries: public DomainComponent\
+```cpp
+#include <domain/pattern/TimeSeries.h>
+
+class TimeSeries: public DomainComponent
+```
 
 MovableObject\
 

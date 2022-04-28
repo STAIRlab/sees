@@ -1,5 +1,6 @@
+# Feap Elements
 
-# Introduction
+## Introduction
 
 In this document we will look at the C++ code that is required to
 introduce a new Truss element, fElmt02, into g3. The new class will call
@@ -17,7 +18,7 @@ consequence of the information the element routines are obtaining from
 the common blocks. The files outlined in this document can be found in
 the `SRC/element/feap` directory of the software distribution.
 
-## `fElmt02.h`
+### `fElmt02.h`
 
 The file `fElmt02.h` defines the class interface and details information
 about the instance variables associated with the objects of type
@@ -65,7 +66,7 @@ There are no public or protected members defined for this class and no
 class or instance variables associated with objects of this class. The
 parent class fElement defines the methods and instance variables.
 
-## `fElmt02.cpp`
+### `fElmt02.cpp`
 
 The `fElmt02.cpp` file contains the implementation. This file contains the
 implementation of the three constructors and the destructor defined in
@@ -144,7 +145,7 @@ destructor does nothing (might even remove it?)
         // does nothing
     }
 
-# Example
+## Example
 
 The g3 interpreter can now be modified to include this new element. The
 modifications to allow the introduction of the new command

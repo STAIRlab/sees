@@ -1,4 +1,4 @@
-\
+
 # IncrementalIntegrator 
 
 ```cpp

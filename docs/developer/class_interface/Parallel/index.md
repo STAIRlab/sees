@@ -1,17 +1,3 @@
-::: {.center}
-G 3
-
-**C l a s s I n t e r f a c e S p e c i f i c a t i o n**
-
-**Version 0.1 - Preliminary Draft**
-
-**December 20, 1999**
-
-**Frank McKenna and Gregory L. Fenves**
-
-**PEER, University of California at Berkeley**
-:::
-
 # Parallel Classes
 
 To facilitate the development of parallel object-oriented finite element
@@ -47,4 +33,16 @@ are:
 -   **MachineBroker** - A MachineBroker is an object in a local actor
     process that is responsible for creating remote actor processes at
     the request of Shadow objects in the same local process.
+
+
+::: {.center}
+**Frank McKenna and Gregory L. Fenves**
+
+**Version 0.1 - Preliminary Draft**
+
+**December 20, 1999**
+
+
+**PEER, University of California at Berkeley**
+:::
 

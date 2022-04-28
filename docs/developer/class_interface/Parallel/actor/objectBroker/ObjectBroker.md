@@ -1,19 +1,18 @@
-\
+# ObjectBroker
 
-\#include  `<ObjectBroker.h>`\
+```cpp
+#include  <ObjectBroker.h>
 
-class ObjectBroker\
+class ObjectBroker
+```
 
-\
+
 
 ObjectBroker is an abstract class, i.e. no instances of ObjectBroker
 should exist. ObjectBrokers are objects in remote processes which create
 new objects in the remote process. It has one method
 
 
-\
-
-\
 
 
 ```{.cpp}

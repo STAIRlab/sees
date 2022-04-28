@@ -1,10 +1,12 @@
-\
+# DummyNode
 
-\#include  `<DummyNode.h>`\
+```cpp
+#include  <DummyNode.h>
 
-class DummyNode: public DomainComponent\
+class DummyNode: public DomainComponent
+```
 
-DomainComponent\
+DomainComponent
 
 \
 DummyNodes are a type of node created and used by Subdomains for their

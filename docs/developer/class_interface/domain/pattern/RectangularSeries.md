@@ -1,7 +1,10 @@
-\
-\#include $<\tilde{ }$domain/pattern/RectangularSeries.h$>$\
+# RectangularSeries
 
-class RectangularSeries: public DomainComponent\
+```cpp
+#include <domain/pattern/RectangularSeries.h>
+
+class RectangularSeries: public DomainComponent
+```
 
 MovableObject\
 TimeSeries\

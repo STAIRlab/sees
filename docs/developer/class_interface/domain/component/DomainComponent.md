@@ -1,4 +1,4 @@
-\
+
 # DomainComponent 
 
 ```cpp

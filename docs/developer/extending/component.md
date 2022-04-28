@@ -1,4 +1,4 @@
-# Simple Components
+# Compiling
 
 Inside each module-level `CMakeLists.txt` file there is a function call
 with the form:

@@ -1,4 +1,4 @@
-\
+
 # LinearSOESolver 
 
 ```cpp

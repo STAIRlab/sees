@@ -1,8 +1,10 @@
-\
+# DOFGraph
 
-\#include  `<DOFGraph.h>`\
+```cpp
+#include  <DOFGraph.h>
 
-class DOFGraph: public ArrayGraph\
+class DOFGraph: public ArrayGraph
+```
 
 Graph\
 ArrayGraph\

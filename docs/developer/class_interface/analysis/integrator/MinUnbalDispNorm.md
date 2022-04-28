@@ -1,4 +1,4 @@
-\
+
 # MinUnbalDispNorm 
 
 ```cpp

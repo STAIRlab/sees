@@ -1,8 +1,10 @@
-\
+# DOF_GroupGraph
 
-\#include  `<DOF_GroupGraph.h>`\
+```cpp
+#include  <DOF_GroupGraph.h>
 
-class DOF_GroupGraph: public ArrayGraph\
+class DOF_GroupGraph: public ArrayGraph
+```
 
 Graph\
 ArrayGraph\

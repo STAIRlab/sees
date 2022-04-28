@@ -1,9 +1,10 @@
-\
-\#include  `</actor/actor/MovableObject.h>`\
+# MovableObject
 
-class MovableObject\
+\#include  `</actor/actor/MovableObject.h>`
 
-\
+class MovableObject
+
+
 
 MovableObject is an abstract class, i.e. no instances of MovableObject
 should exist. MovableObjects are objects which are able to send/receive

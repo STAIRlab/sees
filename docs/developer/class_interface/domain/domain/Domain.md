@@ -1,9 +1,12 @@
-\
-\#include  `</domain/domain/Domain.h>`\
+# Domain
 
-class Domain\
+```cpp
+#include  <domain/domain/Domain.h>
+```
 
-\
+class Domain
+
+
 
 Domain is container class for storing and providing access to the
 components of a domain, i.e. nodes, elements, boundary conditions, and

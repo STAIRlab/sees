@@ -1,8 +1,8 @@
 ---
-title: How to Introduce a New Material into OpenSees
+title: New Material Models
 ...
 
-# How to Introduce a New Material into OpenSees
+# Material Models
 
 ## Introduction
 
@@ -1469,12 +1469,12 @@ and database programming.
 
 
 <strong><center>
-Version 1.1
-
-August 21, 2001
-
 Michael H. Scott and Gregory L. Fenves
 
 PEER, University of California, Berkeley
+
+August 21, 2001
+
+Version 1.1
 </center></strong>
 

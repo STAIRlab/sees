@@ -1,4 +1,4 @@
-\
+
 # StaticIntegrator 
 
 ```cpp
