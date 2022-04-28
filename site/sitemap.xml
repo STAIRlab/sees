@@ -161,27 +161,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/algorithm/EquiSolnAlgo/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/algorithm/SolutionAlgorithm/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/algorithm/equiSolnAlgo/EquiSolnAlgo/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/algorithm/equiSolnAlgo/Linear/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/algorithm/equiSolnAlgo/ModifiedNewton/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/algorithm/equiSolnAlgo/NewtonRaphson/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -461,37 +446,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/pattern/LinearSeries/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/pattern/LoadPattern/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/pattern/PathSeries/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/pattern/PathTimeSeries/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/pattern/RectangularSeries/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/pattern/TimeSeries/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/pattern/UniformExcitation/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1001,6 +961,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/nonlinear_solve/Linear/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/nonlinear_solve/ModifiedNewton/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/nonlinear_solve/NewtonRaphson/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/time_stepping/GeneralizedAlpha/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
@@ -1022,6 +997,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/LoadPattern/UniformExcitation/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1177,6 +1157,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/ScottHysteretic/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
