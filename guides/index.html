@@ -15,7 +15,7 @@
     
     
       
-        <title>Example Primer - OpenSees</title>
+        <title>Getting Started - OpenSees</title>
       
     
     
@@ -94,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Example Primer
+              Getting Started
 
             
           </span>
@@ -5331,7 +5331,7 @@
   
     <li class="md-nav__item">
       <a href="../gallery/BasicPrimer/example_1/" class="md-nav__link">
-        Example 1 - Truss
+        Simple Truss
 
       </a>
     </li>
@@ -5375,7 +5375,7 @@
   
     <li class="md-nav__item">
       <a href="../gallery/BasicPrimer/example_4/" class="md-nav__link">
-        Multibay Two Story Frame Example
+        Multibay Two Story Frame
 
       </a>
     </li>
@@ -5626,12 +5626,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index md-nav__link--active">
           <a href="./">Guides</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -5642,6 +5648,21 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="01_install/" class="md-nav__link">
+        Installing
+
+      </a>
+    </li>
+  
+
             
           
         </ul>
@@ -7025,85 +7046,14 @@
 </a>
 
 
-<h1 id="example-primer">Example Primer</h1>
-<p>To conduct a simulation, the user creates various objects which serve either of three main purposes:</p>
+<h1 id="getting-started">Getting Started</h1>
+<p>A simulation with <code>opensees</code> is generally configured in the following steps:</p>
 <ol type="1">
-<li><p><strong>Modeling</strong>: The user first creates a ModelBuilder object which defines the type of model, and commands available for building the model. With a ModelBuilder defined, the user then creates the Element, Node, LoadPattern and Constraint objects that define the model. In this primer, the use of a basic ModelBuilder will be demonstrated.</p></li>
-<li><p><strong>Analysis</strong>: After defined the model, the next step is to create the Analysis object for analyzing the model. This may be a simple static linear analysis or a transient non-linear analysis. In OpenSees, an Analysis object is composed of several component objects, which define how the analysis is performed. The component objects consist of the following: SolutionAlgorithm, Integrator, ConstraintHandler, DOF_Numberer, SystemOfEqn, Solver, and AnalysisModel. This approach provides a great deal of flexibility in how an analysis is conducted.</p></li>
+<li><p><strong>Modeling</strong>: This consists of defining a collection of mathematical abstractions and their relationships with the objective of representing some phenomenon. This generally includes creating <code>Element</code>, <code>Node</code>, <code>LoadPattern</code> and <code>Constraint</code> objects that define the model.</p></li>
+<li><p><strong>Analysis</strong>: Once a model is defined, the next step is to create an Analysis. This may be a simple static linear analysis or a transient non-linear analysis. This typically will consist of the following: <code>SolutionAlgorithm</code>, <code>Integrator</code>, ConstraintHandler,</p></li>
+<li><p><strong>Numeric Strategy</strong> (Optional): Selecting the right numeric strategy can be important when the computational cost of an analysis becomes prohibitive. Refinements typically consist of choosing an appropriate linear or eigenvalue solver which appropriatly accounts for the structure of a linear system. Parallelization may also be considered.</p></li>
 <li><p><strong>Post-processing</strong>: Once the model and analysis have been defined, the user has the option of specifying what is to be monitored during the analysis. This, for example, could be the displacement history at a node or internal state of an element in a transient analysis or the entire state of the model at each step in the solution procedure. Several Recorder objects are created to store what the user wants to examine.</p></li>
 </ol>
-<p>In the examples, Tcl scripts are used to create a model, analysis, and output specification. The examples are (1) simple truss structure, (2) reinforced concrete portal frame, (3) two-story multi-bay reinforced concrete frame, and (4) a three-dimensional frame. The examples are not meant to be completely realistic, but they are representative of typical structures. The analyses performed on these models consist of simple static analysis, pushover analysis and transient analysis. An example of moment-curvature analysis is also performed on a reinforced concrete section.</p>
-<div class="row">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 docutils">
-<div class="card w-100 shadow comparison-card text-center comparison-card-excel docutils">
-<img alt="img-top" class="card-img-top" 
-  src="./fig_files/Example3.svg">
-<div class="card-body docutils">
-<p class="card-text">
-…or other spreadsheet programs will find that many of the concepts are transferrable to pandas.
-</p>
-</div>
-<div class="card-footer docutils">
-<p class="card-text">
-<a class="sphinx-bs btn text-wrap btn-secondary stretched-link reference internal" href="comparison/comparison_with_spreadsheets.html#compare-with-spreadsheets"><span class="std std-ref">Learn more</span></a>
-</p>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 docutils">
-<div class="card w-100 shadow comparison-card text-center comparison-card-excel docutils">
-<img alt="img-top" class="card-img-top" 
-  src="./fig_files/Example5.svg">
-<div class="card-body docutils">
-<p class="card-text">
-…or other spreadsheet programs will find that many of the concepts are transferrable to pandas.
-</p>
-</div>
-<div class="card-footer docutils">
-<p class="card-text">
-<a class="sphinx-bs btn text-wrap btn-secondary stretched-link reference internal" href="comparison/comparison_with_spreadsheets.html#compare-with-spreadsheets"><span class="std std-ref">Learn more</span></a>
-</p>
-</div>
-</div>
-</div>
-</div>
-<style>
-.d-flex {
-    display: flex !important;
-}
-.comparison-card {
-    background: #FFF;
-    border-radius: 0;
-    padding: 30px 10px 10px 10px;
-    margin: 10px 0px;
-}
-.text-center {
-    text-align: center !important;
-}
-.w-100 {
-    width: 100% !important;
-}
-.shadow {
-    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
-}
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-}
-</style>
-<center>
-<p><b> Frank McKenna and Michael Scott</p>
-<p>Pacific Earthquake Engineering Research Center University of California, Berkeley</p>
-<p>August 20, 2001</p>
-Version 1.2 </b>
-</center>
 
 
               
