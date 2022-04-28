@@ -1,4 +1,4 @@
-# Example 1 - Truss
+# Simple Truss
 
 The first example is a simple truss structure. The purpose of this
 example is to show that model generation in OpenSees can resemble

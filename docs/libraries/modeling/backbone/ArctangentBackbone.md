@@ -17,9 +17,6 @@ class ArctangentBackbone : public HystereticBackbone
   ArctangentBackbone();
   ~ArctangentBackbone();
   
-  double getStress(double strain);
-  double getTangent(double strain);
-  double getEnergy(double strain);
   
   double getYieldStrain(void);
   

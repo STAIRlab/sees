@@ -8,9 +8,6 @@ class RaynorBackbone : public HystereticBackbone
   RaynorBackbone();
   ~RaynorBackbone();
   
-  double getStress(double strain);
-  double getTangent(double strain);
-  double getEnergy(double strain);
   
   double getYieldStrain(void);
   

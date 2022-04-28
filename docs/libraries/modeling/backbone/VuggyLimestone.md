@@ -11,9 +11,6 @@ class VuggyLimestone : public HystereticBackbone {
   VuggyLimestone();
   ~VuggyLimestone();
 
-  double getStress(double strain);
-  double getTangent(double strain);
-  double getEnergy(double strain);
 
   double getYieldStrain(void);
 

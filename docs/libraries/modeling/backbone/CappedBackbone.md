@@ -15,9 +15,6 @@ class CappedBackbone : public HystereticBackbone
   CappedBackbone();
   ~CappedBackbone();
   
-  double getStress(double strain);
-  double getTangent(double strain);
-  double getEnergy(double strain);
   
   double getYieldStrain(void);
   

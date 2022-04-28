@@ -13,9 +13,6 @@ class CementedSoil : public HystereticBackbone {
   CementedSoil();
   ~CementedSoil();
 
-  double getStress(double strain);
-  double getTangent(double strain);
-  double getEnergy(double strain);
 
   double getYieldStrain(void);
 

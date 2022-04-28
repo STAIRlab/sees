@@ -1,7 +1,0 @@
-## **ConvergenceTest**
-
-###  CTestNormUnbalance
-
-###  CTestNormDispIncr
-
-###  CTestEnergyIncr

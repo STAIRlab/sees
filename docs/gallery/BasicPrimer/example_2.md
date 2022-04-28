@@ -1,5 +1,8 @@
+---
+title: Moment-Curvature (Concrete)
+---
 
-# Moment-Curvature Analysis of a Reinforced Concrete Section
+# Moment-Curvature (Concrete)
 
 This next example covers the moment-curvature analysis of a reinforced
 concrete section. The zero-length element with a fiber discretization of
@@ -13,9 +16,9 @@ In this example, a moment-curvature analysis of the fiber section is
 undertaken. Figure [\[rcsection4\]](#rcsection4){reference-type="ref"
 reference="rcsection4"} shows the fiber discretization for the section.
 
-1.  Example2.1..tcl
+1.  `Example2.1.tcl`
 
-2.  MomentCurvature.tcl
+2.  `MomentCurvature.tcl`
 
 The model consists of two nodes and a ZeroLengthSection element. A
 depiction of the element geometry is shown in
