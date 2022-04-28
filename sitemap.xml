@@ -836,12 +836,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/guides/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/guides/01_install/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/guides/01_install/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/guides/01_starting/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/guides/02_runtime/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -852,6 +857,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/LoadPattern/UniformExcitation/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -917,11 +927,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/LoadPattern/UniformExcitation/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1011,6 +1016,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/damping/rayleigh/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/element/dispBeamColumn/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
@@ -1032,6 +1042,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/nD/ElasticIsotropicPlaneStress2D/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/transform/Corotational/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1107,6 +1122,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/Partitioner/Metis/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/utilities/quadrature/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
