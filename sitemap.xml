@@ -326,11 +326,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/WilsonTheta/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/model/AnalysisModel/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
@@ -976,17 +971,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/gallery/advanced/section_building/</loc>
-         <lastmod>2022-04-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/gallery/geotech/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/gallery/geotech/02_StaticPile/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/gallery/sections/section_building/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1016,7 +1011,107 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/time_stepping/WilsonTheta/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/ArctangentBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/CappedBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/CementedSoil/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/HystereticBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/LinearCappedBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/LiquefiedSand/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/ManderBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/MaterialBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/MultilinearBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/RaynorBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/ReeseSandBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/ReeseSoftClayBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/ReeseStiffClayAboveWS/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/ReeseStiffClayBelowWS/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/TrilinearBackbone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/VuggyLimestone/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/backbone/WeakRock/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/elements/dispBeamColumn/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/elements/zeroLength/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
