@@ -1106,6 +1106,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/constraint/rigidBeam/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/element/dispBeamColumn/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
@@ -1161,6 +1166,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/PyTzQz/</loc>
+         <lastmod>2022-04-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/PyTzQz/PySimple/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
@@ -1171,7 +1181,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/ITPACK/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/ITPACK/</loc>
          <lastmod>2022-04-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
