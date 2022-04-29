@@ -8,27 +8,13 @@ commitState is never called on the uniaxial material.
 Written: MHS
 Created: Aug 2000
 
+## C++ Interface
 
 ```cpp
 class MaterialBackbone : public HystereticBackbone
 {
  public:
   MaterialBackbone(int tag, UniaxialMaterial &material);
-  MaterialBackbone();
-  ~MaterialBackbone();
-  
-  
-  double getYieldStrain(void);
-  
-  HystereticBackbone *getCopy(void);
-  
-  void Print(OPS_Stream &s, int flag = 0);
-  
-  int setVariable(char *argv);
-  int getVariable(int varID, double &);
-  
-  int sendSelf(int commitTag, Channel &);
-  int recvSelf(int commitTag, Channel &, FEM_ObjectBroker &);
   
  private:
   UniaxialMaterial *theMaterial;

@@ -14,25 +14,10 @@ class LinearCappedBackbone : public HystereticBackbone
  public:
   LinearCappedBackbone(int tag, HystereticBackbone &backbone,
 		       double def, double slope, double resStrength);
-  LinearCappedBackbone();
-  ~LinearCappedBackbone();
-  
-  
-  double getYieldStrain(void);
-  
-  HystereticBackbone *getCopy(void);
-  
-  void Print(OPS_Stream &s, int flag = 0);
-  
+
   int setVariable(char *argv);
   int getVariable(int varID, double &theValue);
-  
-  int sendSelf(int commitTag, Channel &theChannel);  
-  int recvSelf(int commitTag, Channel &theChannel, 
-	       FEM_ObjectBroker &theBroker);    
-  
- protected:
-  
+   
  private:
   HystereticBackbone *theBackbone;
   double eCap;

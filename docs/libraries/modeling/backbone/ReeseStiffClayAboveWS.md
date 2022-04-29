@@ -4,6 +4,8 @@ Response of Stiff Clay above the water surface
 (https://ntrl.ntis.gov/NTRL/dashboard/searchResults/titleDetail/PB94108305.xhtml)
 page 336
 
+## C++ Interface
+
 ```cpp
 class ReeseStiffClayAboveWS : public HystereticBackbone {
  public:
