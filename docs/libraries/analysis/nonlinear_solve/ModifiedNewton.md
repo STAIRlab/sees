@@ -37,47 +37,42 @@ has been achieved at each iteration. Each NewtonRaphson object is
 associated with a ConvergenceTest object. It is this object which
 determines if convergence has been achieved.
 
-### Constructors
-
-
-
-### Destructor
-
-\
-// Public Member Functions\
-
-
-
-// Public Methods for Output\
+### Constructors and Destructors
 
 
 The constructor takes as an argument the ConvregenceTest object
 *theTest*, the object which is used at the end of each iteration to
 determine if convergence has been obtained. The integer
-*EquiALGORITHM_TAGS_ModifiedNewton* (defined in  `<classTags.h>`) is
+`EquiALGORITHM_TAGS_ModifiedNewton` (defined in  `<classTags.h>`) is
 passed to the EquiSolnAlgo classes constructor.
 
 Provided for FEM_ObjectBroker to instantiate a blank object with a class
 tag of EquiALGORITHM_TAGS_ModofiedNewton. `recvSelf()` must be invoked
 on this object.
 
-\
+```cpp
+~ModifiedNewton();
+```
 Does nothing.
 
-\
+### Public Methods
+
+```cpp
+int solveCurrentStep(void);
+```
 When invoked the object first sets itself as the EquiSolnAlgo object
 that the ConvergenceTest is testing and then it performs the modified
 Newton-Raphson iteration algorithm:
 
-::: {.tabbing}
-while ̄ while ̄ theTest-$>$start();\
-theIntegrator-$>$formTangent();\
-do {\
-theIntegrator-$>$formUnbalance();\
-theSOE-$>$solveX();\
-theIntegrator-$>$update(theSOE-$>$getX());\
-} while (theTest-$>$test() $==$ false)\
-:::
+```cpp
+theTest->start();
+theIntegrator->formTangent();
+do {
+  theIntegrator->formUnbalance();
+  theSOE->solveX();
+  theIntegrator->update(theSOE->getX());
+} while (theTest->test() == false)
+```
 
 The method returns a 0 if successful, otherwise a negative number is
 returned; a $-1$ if error during `formTangent()`, a $-2$ if error during

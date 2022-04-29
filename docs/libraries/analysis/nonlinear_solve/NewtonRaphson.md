@@ -1,29 +1,33 @@
 # NewtonRaphson
 
+
+## C++ Interface
+
 ```cpp
 #include <analysis/algorithm/equiSolnAlgo/NewtonRaphson.h>
 
 
-class NewtonRaphson: 
-public EquiSolnAlg
-        MovableObject
-        SolutionAlgorithm
-        EquiSolnAlgo
+class NewtonRaphson: public EquiSolnAlg;
 ```
+
+    MovableObject / SolutionAlgorithm / EquiSolnAlgo
 
 
 The NewtonRaphson class is an algorithmic class which obtains a solution
 to a non-linear system using the Newton-Raphson iteration scheme. The
 iteration scheme is based on a Taylor expansion of the non-linear system
 of equations $\R(\U) = \zero$ about an approximate solution ${\bf U}^{(i)}$:
+
 $$\R(\U) = 
 \R({\bf U}^{(i)}) +
 \left[ {\frac{\partial \R}{\partial \U} \vert}_{{\bf U}^{(i)}}\right]
 \left( {\bf U} - {\bf U}^{(i)} \right)$$
 
-which can be expressed as: $$\
-{\bf K}^{(i)}  \Delta {\bf U}^{(i)} = \R({\bf U}^{(i)})$$ which is solved for
-$\Delta {\bf U}^{(i)}$ to give approximation for
+which can be expressed as: 
+$$
+{\bf K}^{(i)}  \Delta {\bf U}^{(i)} = \R({\bf U}^{(i)})$$
+
+which is solved for $\Delta {\bf U}^{(i)}$ to give approximation for
 ${\bf U}^{(i+1)} = {\bf U}^{(i)} + \Delta {\bf U}^{(i)}$. To start the iteration
 ${\bf U}^{(1)} = {\bf U}_{trial}$, i.e. the current trial response quantities are
 chosen as initial response quantities. To stop the iteration, a test
@@ -67,16 +71,16 @@ When invoked the object first sets itself as the EquiSolnAlgo object
 that the ConvergenceTest is testing and then it performs the
 Newton-Raphson iteration algorithm:
 
-::: {.tabbing}
-while ̄ while ̄ theTest-$>$start()\
-theIntegrator-$>$formUnbalance();\
-do {\
-theIntegrator-$>$formTangent();\
-theSOE-$>$solveX();\
-theIntegrator-$>$update(theSOE-$>$getX());\
-theIntegrator-$>$formUnbalance();\
-} while (theTest-$>$test() $==$ false)
-:::
+```cpp
+theTest->start()
+theIntegrator->formUnbalance();
+do {
+  theIntegrator->formTangent();
+  theSOE->solveX();
+  theIntegrator->update(theSOE->getX());
+  theIntegrator->formUnbalance();
+} while (theTest->test() == false)
+```
 
 The method returns a 0 if successful, otherwise a negative number is
 returned; a $-1$ if error during `formTangent()`, a $-2$ if error during
@@ -103,8 +107,10 @@ database tags into this ID. It then invokes `sendVector()` on the
 Channel object *theChannel* to send the data to the remote object. It
 then invokes `sendSelf()` on *theTest*. Returns $0$ if successful, the
 channel error if not.
-*int recvSelf(int commitTag, Channel &theChannel, FEM_ObjectBroker
-&theBroker);*\
+
+```cpp
+*int recvSelf(int commitTag, Channel &theChannel, FEM_ObjectBroker &theBroker);
+```
 Creates an ID object, invokes `recvVector()` on the Channel object. Uses
 the data in the ID to create a ConvergenceTest object of appropriate
 type and sets its dbTag. It then invokes `recvSelf()` on this test
@@ -114,4 +120,5 @@ object.
 int Print(OPS_Stream &s, int flag =0);
 ```
 
-Sends the string 'NewtonRaphson' to the stream if *flag* equals $0$.
+Sends the string 'NewtonRaphson' to the stream if `flag` equals $0$.
+

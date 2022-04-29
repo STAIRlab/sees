@@ -151,27 +151,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/convergenceTest/CTestEnergyIncr/</loc>
-         <lastmod>2022-04-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/convergenceTest/CTestNormDispIncr/</loc>
-         <lastmod>2022-04-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/convergenceTest/CTestNormUnbalance/</loc>
-         <lastmod>2022-04-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/convergenceTest/ConvergenceTest/</loc>
-         <lastmod>2022-04-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/convergenceTest/convergence/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -831,6 +811,41 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/ConvergenceTest/CTestEnergyIncr/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/ConvergenceTest/CTestNormDispIncr/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/ConvergenceTest/CTestNormUnbalance/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/TransientIntegrator/GeneralizedAlpha/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/TransientIntegrator/HHT/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/TransientIntegrator/Newmark/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/TransientIntegrator/WilsonTheta/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/constraint_enforcement/Lagrange/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
@@ -862,26 +877,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/nonlinear_solve/NewtonRaphson/</loc>
-         <lastmod>2022-04-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/time_stepping/GeneralizedAlpha/</loc>
-         <lastmod>2022-04-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/time_stepping/HHT/</loc>
-         <lastmod>2022-04-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/time_stepping/Newmark/</loc>
-         <lastmod>2022-04-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/time_stepping/WilsonTheta/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1066,17 +1061,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/BandGenLinLapackSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/BandGenLapack/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/BandSPDLinLapackSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/BandSPDLapack/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/FullGenLinLapackSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/FullGenLapack/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1086,22 +1081,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/ProfileSPDLinDirectBlockSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/ProfileSPDDirectBlock/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/ProfileSPDLinDirectSkypackSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/ProfileSPDDirectSkypack/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/ProfileSPDLinDirectThreadSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/ProfileSPDDirectThread/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/SparseGenColLinSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/numerics/LinearSolve/SparseGenCol/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
