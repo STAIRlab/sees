@@ -1587,6 +1587,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -1594,10 +1598,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8">
-          Model
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../">Model</a>
+          
+            <label for="__nav_1_4_3_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Model" data-md-level="4">
         <label class="md-nav__title" for="__nav_1_4_3_8">
@@ -1605,6 +1615,8 @@
           Model
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -1630,7 +1642,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_2" type="checkbox" id="__nav_1_4_3_8_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
       
       
       
@@ -1641,13 +1653,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_3">
           Dof grp
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Dof grp" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_3">
           <span class="md-nav__icon md-icon"></span>
           Dof grp
         </label>
@@ -1660,7 +1672,7 @@
   
     <li class="md-nav__item">
       <a href="../../../dof_grp/DOF_Group/" class="md-nav__link">
-        DOF_Group
+        `DOF_Group`
 
       </a>
     </li>
@@ -1701,7 +1713,7 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4" type="checkbox" id="__nav_1_4_3_8_4" checked>
       
       
       
@@ -1714,13 +1726,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4">
           Fe ele
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Fe ele" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4">
           <span class="md-nav__icon md-icon"></span>
           Fe ele
         </label>
@@ -1752,7 +1764,7 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_2" type="checkbox" id="__nav_1_4_3_8_3_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_2" type="checkbox" id="__nav_1_4_3_8_4_2" checked>
       
       
       
@@ -1763,13 +1775,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_2">
           Lagrange
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Lagrange" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_2">
           <span class="md-nav__icon md-icon"></span>
           Lagrange
         </label>
@@ -1829,7 +1841,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_3" type="checkbox" id="__nav_1_4_3_8_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_3" type="checkbox" id="__nav_1_4_3_8_4_3" >
       
       
       
@@ -1840,13 +1852,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_3">
           Penalty
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Penalty" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_3">
           <span class="md-nav__icon md-icon"></span>
           Penalty
         </label>
@@ -7160,10 +7172,10 @@
 <h1 id="lagrangemp_fe">LagrangeMP_FE</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/fe_ele/lagrange/LagrangeMP_FE.h&gt;</span><span class="cp"></span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">LagrangeMP_FE</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">FE_Element</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LagrangeMP_FE</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="err">`</span><span class="n">FE_Element</span><span class="err">`</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>LagrangeMP_FE is a subclass of FE_Element used to enforce a multi point constraint, of the form <span class="math inline">\({\bf U}_c = {\bf C}_{cr} {\bf U}_r\)</span>, where <span class="math inline">\({\bf U}_c\)</span> are the constrained degrees-of-freedom at the constrained node, <span class="math inline">\({\bf U}_r\)</span> are the retained degrees-of-freedom at the retained node and <span class="math inline">\({\bf C}_{cr}\)</span> a matrix defining the relationship between these degrees-of-freedom.</p>
+<p>LagrangeMP_FE is a subclass of <code>FE_Element</code> used to enforce a multi point constraint, of the form <span class="math inline">\({\bf U}_c = {\bf C}_{cr} {\bf U}_r\)</span>, where <span class="math inline">\({\bf U}_c\)</span> are the constrained degrees-of-freedom at the constrained node, <span class="math inline">\({\bf U}_r\)</span> are the retained degrees-of-freedom at the retained node and <span class="math inline">\({\bf C}_{cr}\)</span> a matrix defining the relationship between these degrees-of-freedom.</p>
 <p>To enforce the constraint the following are added to the tangent and the residual:</p>
 <p><span class="math display">\[\left[ \begin{array}{cc} 0 &amp; \alpha{\bf C}^t \\ \alpha{\bf C} &amp; 0 \end{array}
 \right] ,
@@ -7177,11 +7189,11 @@
 <p><br />
 </p>
 <p><br />
-To construct a LagrangeMP_FE element to enforce the constraint specified by the <code>MP_Constraint</code> <em>theMP</em> using a default value for <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(alpha\)</span>. The FE_Element class constructor is called with the integers <span class="math inline">\(3\)</span> and the two times the size of the <em>retainedID</em> plus the size of the <em>constrainedID</em> at the <code>MP_Constraint</code> <em>theMP</em> plus . A Matrix and a Vector object are created for adding the contributions to the tangent and the residual. The residual is zeroed. If the <code>MP_Constraint</code> is not time varying, then the contribution to the tangent is determined. Links are set to the retained and constrained nodes. The DOF_Group tag ID is set using the tag of the constrained Nodes DOF_Group, the tag of the retained Node Dof_group and the tag of the LagrangeDOF_Group, <em>theGroup</em>. A warning message is printed and the program is terminated if either not enough memory is available for the Matrices and Vector or the constrained and retained Nodes of their DOF_Groups do not exist.</p>
+To construct a LagrangeMP_FE element to enforce the constraint specified by the <code>MP_Constraint</code> <em>theMP</em> using a default value for <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(alpha\)</span>. The <code>FE_Element</code> class constructor is called with the integers <span class="math inline">\(3\)</span> and the two times the size of the <em>retainedID</em> plus the size of the <em>constrainedID</em> at the <code>MP_Constraint</code> <em>theMP</em> plus . A Matrix and a Vector object are created for adding the contributions to the tangent and the residual. The residual is zeroed. If the <code>MP_Constraint</code> is not time varying, then the contribution to the tangent is determined. Links are set to the retained and constrained nodes. The <code>DOF_Group</code> tag ID is set using the tag of the constrained Nodes DOF_Group, the tag of the retained Node <code>DOF_Group</code> and the tag of the LagrangeDOF_Group, <em>theGroup</em>. A warning message is printed and the program is terminated if either not enough memory is available for the Matrices and Vector or the constrained and retained Nodes of their DOF_Groups do not exist.</p>
 <p><br />
 Invokes delete on any Matrix or Vector objects created in the constructor that have not yet been destroyed.</p>
 <p><br />
-Causes the LagrangeMP_FE to determine the mapping between it’s equation numbers and the degrees-of-freedom. This information is obtained by using the mapping information at the DOF_Group objects associated with the constrained and retained nodes and the LagrangeDOF_Group, <em>theGroup</em>. Returns <span class="math inline">\(0\)</span> if successful. Prints a warning message and returns a negative number if an error occurs: <span class="math inline">\(-2\)</span> if the Node has no associated DOF_Group, <span class="math inline">\(-3\)</span> if the constrained DOF specified is invalid for this Node (sets corresponding ID component to <span class="math inline">\(-1\)</span> so nothing is added to the tangent) and <span class="math inline">\(-4\)</span> if the ID in the DOF_Group is too small for the Node (again setting corresponding ID component to <span class="math inline">\(-1\)</span>).</p>
+Causes the LagrangeMP_FE to determine the mapping between it’s equation numbers and the degrees-of-freedom. This information is obtained by using the mapping information at the <code>DOF_Group</code> objects associated with the constrained and retained nodes and the LagrangeDOF_Group, <em>theGroup</em>. Returns <span class="math inline">\(0\)</span> if successful. Prints a warning message and returns a negative number if an error occurs: <span class="math inline">\(-2\)</span> if the Node has no associated DOF_Group, <span class="math inline">\(-3\)</span> if the constrained DOF specified is invalid for this Node (sets corresponding ID component to <span class="math inline">\(-1\)</span> so nothing is added to the tangent) and <span class="math inline">\(-4\)</span> if the ID in the <code>DOF_Group</code> is too small for the Node (again setting corresponding ID component to <span class="math inline">\(-1\)</span>).</p>
 <p>If the <code>MP_Constraint</code> is time-varying, from the <code>MP_Constraint</code> <code>theMP</code> it obtains the current <span class="math inline">\(C_{cr}\)</span> matrix; it then adds the contribution to the tangent matrix. Returns this tangent Matrix.</p>
 <p>Returns the residual, a <span class="math inline">\(\zero\)</span> Vector.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getTangForce</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disp</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>

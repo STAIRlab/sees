@@ -1595,6 +1595,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -1602,10 +1606,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8">
-          Model
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../model/">Model</a>
+          
+            <label for="__nav_1_4_3_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Model" data-md-level="4">
         <label class="md-nav__title" for="__nav_1_4_3_8">
@@ -1613,6 +1623,8 @@
           Model
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -1638,7 +1650,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_2" type="checkbox" id="__nav_1_4_3_8_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
       
       
       
@@ -1649,13 +1661,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_3">
           Dof grp
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Dof grp" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_3">
           <span class="md-nav__icon md-icon"></span>
           Dof grp
         </label>
@@ -1668,7 +1680,7 @@
   
     <li class="md-nav__item">
       <a href="../../model/dof_grp/DOF_Group/" class="md-nav__link">
-        DOF_Group
+        `DOF_Group`
 
       </a>
     </li>
@@ -1707,7 +1719,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4" type="checkbox" id="__nav_1_4_3_8_4" >
       
       
       
@@ -1720,13 +1732,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4">
           Fe ele
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Fe ele" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4">
           <span class="md-nav__icon md-icon"></span>
           Fe ele
         </label>
@@ -1756,7 +1768,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_2" type="checkbox" id="__nav_1_4_3_8_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_2" type="checkbox" id="__nav_1_4_3_8_4_2" >
       
       
       
@@ -1767,13 +1779,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_2">
           Lagrange
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Lagrange" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_2">
           <span class="md-nav__icon md-icon"></span>
           Lagrange
         </label>
@@ -1825,7 +1837,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_3" type="checkbox" id="__nav_1_4_3_8_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_3" type="checkbox" id="__nav_1_4_3_8_4_3" >
       
       
       
@@ -1836,13 +1848,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_3">
           Penalty
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Penalty" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_3">
           <span class="md-nav__icon md-icon"></span>
           Penalty
         </label>
@@ -7167,11 +7179,11 @@
 
 <p>DomainDecompositionAnalysis is a subclass of Analysis, it is used when performing an analysis using the domain decomposition method to solve the equations. Its public member functions are all virtual to allow for the generalization of the class. The following are the aggregates of such an analysis type:</p>
 <ul>
-<li><p><strong>AnalysisModel</strong> - a container class holding the FE_Element and DOF_Group objects created by the ConstraintHandler object.</p></li>
-<li><p><strong>ConstraintHandler</strong> - a class which creates the DOF_Group and FE_Element objects, the type of objects created depending on how the specified constraints in the domain are to be handled.</p></li>
+<li><p><strong>AnalysisModel</strong> - a container class holding the <code>FE_Element</code> and <code>DOF_Group</code> objects created by the ConstraintHandler object.</p></li>
+<li><p><strong>ConstraintHandler</strong> - a class which creates the <code>DOF_Group</code> and <code>FE_Element</code> objects, the type of objects created depending on how the specified constraints in the domain are to be handled.</p></li>
 <li><p><strong>DOF_Numberer</strong> - a class responsible for providing equation numbers to the individual degrees of freedom in each DOF_Group object.</p></li>
 <li><p><strong>LinearSOE</strong> - a numeric class responsible for the creation and subsequent solution of large systems of linear equations of the form <span class="math inline">\(Ax = b\)</span>, where A is a matrix, and x and b are vectors.</p></li>
-<li><p><strong>IncrementalIntegrator</strong> - an algorithmic class which provides methods which are invoked by the FE_Element to determine their current tangent and residual matrices; that is this is the class that sets up the system of equations. It also provides the <code>update()</code> method which is invoked to set up the appropriate dof response values once the solution algorithm has formed and solved the system of equations.</p></li>
+<li><p><strong>IncrementalIntegrator</strong> - an algorithmic class which provides methods which are invoked by the <code>FE_Element</code> to determine their current tangent and residual matrices; that is this is the class that sets up the system of equations. It also provides the <code>update()</code> method which is invoked to set up the appropriate dof response values once the solution algorithm has formed and solved the system of equations.</p></li>
 <li><p><strong>DomainDecompositionAlgo</strong> - an algorithmic class specifying the sequence of operations to be performed in determining the response for the external dof and placing these in the system of equations.</p></li>
 <li><p><strong>DomainSolver</strong> - an algorithmic class specifying the sequence of operations to be performed in performing the numerical operations.</p></li>
 </ul>

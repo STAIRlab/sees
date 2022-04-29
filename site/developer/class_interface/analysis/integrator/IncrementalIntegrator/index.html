@@ -1595,6 +1595,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -1602,10 +1606,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8">
-          Model
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../model/">Model</a>
+          
+            <label for="__nav_1_4_3_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Model" data-md-level="4">
         <label class="md-nav__title" for="__nav_1_4_3_8">
@@ -1613,6 +1623,8 @@
           Model
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -1638,7 +1650,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_2" type="checkbox" id="__nav_1_4_3_8_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
       
       
       
@@ -1649,13 +1661,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_3">
           Dof grp
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Dof grp" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_3">
           <span class="md-nav__icon md-icon"></span>
           Dof grp
         </label>
@@ -1668,7 +1680,7 @@
   
     <li class="md-nav__item">
       <a href="../../model/dof_grp/DOF_Group/" class="md-nav__link">
-        DOF_Group
+        `DOF_Group`
 
       </a>
     </li>
@@ -1707,7 +1719,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4" type="checkbox" id="__nav_1_4_3_8_4" >
       
       
       
@@ -1720,13 +1732,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4">
           Fe ele
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Fe ele" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4">
           <span class="md-nav__icon md-icon"></span>
           Fe ele
         </label>
@@ -1756,7 +1768,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_2" type="checkbox" id="__nav_1_4_3_8_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_2" type="checkbox" id="__nav_1_4_3_8_4_2" >
       
       
       
@@ -1767,13 +1779,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_2">
           Lagrange
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Lagrange" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_2">
           <span class="md-nav__icon md-icon"></span>
           Lagrange
         </label>
@@ -1825,7 +1837,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_3" type="checkbox" id="__nav_1_4_3_8_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_3" type="checkbox" id="__nav_1_4_3_8_4_3" >
       
       
       
@@ -1836,13 +1848,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_3">
           Penalty
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Penalty" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_3">
           <span class="md-nav__icon md-icon"></span>
           Penalty
         </label>
@@ -7163,7 +7175,7 @@
 Integrator<br />
 </p>
 <p><br />
-IncrementalIntegrator is an abstract class. A subclass of it is used when performing a static or transient analysis using an incremental displacement approach. Subclasses of IncrementalIntegrators provide methods informing the FE_Element and DOF_Group objects how to build the tangent and residual matrices and vectors. They also provide the method for updating the response quantities at the DOFs with appropriate values; these values being some function of the solution to the linear system of equations.</p>
+IncrementalIntegrator is an abstract class. A subclass of it is used when performing a static or transient analysis using an incremental displacement approach. Subclasses of IncrementalIntegrators provide methods informing the <code>FE_Element</code> and <code>DOF_Group</code> objects how to build the tangent and residual matrices and vectors. They also provide the method for updating the response quantities at the DOFs with appropriate values; these values being some function of the solution to the linear system of equations.</p>
 <h3 id="constructor">Constructor</h3>
 <p><br />
 ### Destructor</p>
@@ -7217,19 +7229,19 @@ this-<span class="math inline">\(&gt;\)</span>formNodalUnbalance()<br />
 </p>
 </div>
 <p>If an error occurs in either of these two methods or if <code>setLinks()</code> has not been called, an error message is printed and a negative number is returned. Returns <span class="math inline">\(0\)</span> if successful.</p>
-<p>To inform the FE_Element how to build its tangent matrix for addition to the system of equations. The subclasses must provide the implementation of this method.</p>
+<p>To inform the <code>FE_Element</code> how to build its tangent matrix for addition to the system of equations. The subclasses must provide the implementation of this method.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formEleResidual</span><span class="p">(</span><span class="n">FE_Element</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theEle</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To inform the FE_Element how to build its residual vector for addition to the system of equations. The subclasses must provide the implementation of this method.</p>
+<p>To inform the <code>FE_Element</code> how to build its residual vector for addition to the system of equations. The subclasses must provide the implementation of this method.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodTangent</span><span class="p">(</span><span class="n">DOF_Group</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theDof</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To inform the DOF_Group how to build its tangent matrix for addition to the system of equations. The subclasses must provide the implementation of this method. This is required in transient analysis as th Node objects have mass. THIS MAY CHANGE.</p>
+<p>To inform the <code>DOF_Group</code> how to build its tangent matrix for addition to the system of equations. The subclasses must provide the implementation of this method. This is required in transient analysis as th Node objects have mass. THIS MAY CHANGE.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodUnbalance</span><span class="p">(</span><span class="n">DOF_Group</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theDof</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To inform the DOF_Group how to build its residual vector for addition to the system of equations. The subclasses must provide the implementation of this method.</p>
+<p>To inform the <code>DOF_Group</code> how to build its residual vector for addition to the system of equations. The subclasses must provide the implementation of this method.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">$</span><span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">U$</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
@@ -7249,7 +7261,7 @@ A const member function which returns a pointer to the LinearSOE associated with
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodalUnbalance</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>The method first loops over all the DOF_Group objects telling them to form their unbalance and then adds this Vector to the <span class="math inline">\(b\)</span> vector of the LinearSOE object, i.e. it performs the following:<br />
+<p>The method first loops over all the <code>DOF_Group</code> objects telling them to form their unbalance and then adds this Vector to the <span class="math inline">\(b\)</span> vector of the LinearSOE object, i.e. it performs the following:<br />
 </p>
 <div class="tabbing">
 <p>while ̄ while w̄hile ̄ DOF_EleIter &amp;theDofs = theAnalysisModel.getDOFs();<br />

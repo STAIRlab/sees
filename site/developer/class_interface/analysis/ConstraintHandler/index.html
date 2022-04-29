@@ -1593,6 +1593,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -1600,10 +1604,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8">
-          Model
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../model/">Model</a>
+          
+            <label for="__nav_1_4_3_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Model" data-md-level="4">
         <label class="md-nav__title" for="__nav_1_4_3_8">
@@ -1611,6 +1621,8 @@
           Model
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -1636,7 +1648,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_2" type="checkbox" id="__nav_1_4_3_8_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
       
       
       
@@ -1647,13 +1659,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_3">
           Dof grp
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Dof grp" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_3">
           <span class="md-nav__icon md-icon"></span>
           Dof grp
         </label>
@@ -1666,7 +1678,7 @@
   
     <li class="md-nav__item">
       <a href="../model/dof_grp/DOF_Group/" class="md-nav__link">
-        DOF_Group
+        `DOF_Group`
 
       </a>
     </li>
@@ -1705,7 +1717,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4" type="checkbox" id="__nav_1_4_3_8_4" >
       
       
       
@@ -1718,13 +1730,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4">
           Fe ele
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Fe ele" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4">
           <span class="md-nav__icon md-icon"></span>
           Fe ele
         </label>
@@ -1754,7 +1766,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_2" type="checkbox" id="__nav_1_4_3_8_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_2" type="checkbox" id="__nav_1_4_3_8_4_2" >
       
       
       
@@ -1765,13 +1777,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_2">
           Lagrange
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Lagrange" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_2">
           <span class="md-nav__icon md-icon"></span>
           Lagrange
         </label>
@@ -1823,7 +1835,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_3" type="checkbox" id="__nav_1_4_3_8_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_3" type="checkbox" id="__nav_1_4_3_8_4_3" >
       
       
       
@@ -1834,13 +1846,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_3">
           Penalty
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Penalty" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_3">
           <span class="md-nav__icon md-icon"></span>
           Penalty
         </label>
@@ -7160,9 +7172,9 @@
 
 <p>The <code>ConstraintHandler</code> class is an abstract base class. Its purpose is to define the interface common among all subclasses. A constraint handler is responsible for:</p>
 <ol type="1">
-<li><p>creating the FE_Element and DOF_Group objects and adding them to the AnalysisModel.</p></li>
+<li><p>creating the <code>FE_Element</code> and <code>DOF_Group</code> objects and adding them to the AnalysisModel.</p></li>
 <li><p>setting the initial dof equation numbers to <span class="math inline">\(-1\)</span>, <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span>. A <span class="math inline">\(-1\)</span> indicates to the DOF_Numberer object that no equation number is to be allocated for this dof, a <span class="math inline">\(-3\)</span> that this dof is to be among the last group of dof to be numbered.</p></li>
-<li><p>deleting the DOF_Group and FE_Element objects that it created.</p></li>
+<li><p>deleting the <code>DOF_Group</code> and <code>FE_Element</code> objects that it created.</p></li>
 </ol>
 <h3 id="constructor">Constructor</h3>
 <h3 id="destructor">Destructor</h3>
@@ -7182,8 +7194,8 @@
 <p><br />
 Does nothing.</p>
 <p><br />
-Invoked to set the links that the ConstraintHandler will need. These include links to the Domain, <em>theDomain</em>, for which the ConstraintHandler object will apply the constraints and the AnalysisModel, <em>theModel</em>, to which the ConstraintHandler will add the FE_Element and DOF_Group objects.</p>
-<p>Invoked to handle the constraints imposed on the domain by the SP_Constraints and MP_Constraints. The ConstraintHandler object does this by instantiating the appropriate FE_ELement and DOF_Group objects and adding them to the AnalysisModel. For all the dofs in each DOF_Group the ConstraintHandler sets initial equation numbers as either <span class="math inline">\(-1\)</span>, <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span>: A <span class="math inline">\(-1\)</span> indicates to the DOF_Numberer object that no equation number is to be allocated for this dof, a <span class="math inline">\(-2\)</span> that an equation number is to be given for the dof, and a <span class="math inline">\(-3\)</span> that an equation number is to be allocated and that this dof is to be among the last group of dof to be numbered,i.e. all dof initially assigned a <span class="math inline">\(-3\)</span> are to be given a higher equation number than those given a <span class="math inline">\(-2\)</span>. Those dof with a <span class="math inline">\(-3\)</span> should include all those dof associated with the nodes whose tags are in <em>nodesToBeNumberedLast</em>. Returns a positive number if successfully, a negative integer if not; the positive number is to be set at the number of dof assigned a value <span class="math inline">\(-3\)</span> (this will be the number of external dof for a subdomain), the negative value of which depends on the type of ConstraintHandler. For subdomains the constraint handler is responsible for setting the FE_Element by calling <em>setFE_elementPtr</em>.</p>
+Invoked to set the links that the ConstraintHandler will need. These include links to the Domain, <em>theDomain</em>, for which the ConstraintHandler object will apply the constraints and the AnalysisModel, <em>theModel</em>, to which the ConstraintHandler will add the FE_Element and <code>DOF_Group</code> objects.</p>
+<p>Invoked to handle the constraints imposed on the domain by the SP_Constraints and MP_Constraints. The ConstraintHandler object does this by instantiating the appropriate <code>FE_Element</code> and <code>DOF_Group</code> objects and adding them to the AnalysisModel. For all the dofs in each DOF_Group the ConstraintHandler sets initial equation numbers as either <span class="math inline">\(-1\)</span>, <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span>: A <span class="math inline">\(-1\)</span> indicates to the DOF_Numberer object that no equation number is to be allocated for this dof, a <span class="math inline">\(-2\)</span> that an equation number is to be given for the dof, and a <span class="math inline">\(-3\)</span> that an equation number is to be allocated and that this dof is to be among the last group of dof to be numbered,i.e. all dof initially assigned a <span class="math inline">\(-3\)</span> are to be given a higher equation number than those given a <span class="math inline">\(-2\)</span>. Those dof with a <span class="math inline">\(-3\)</span> should include all those dof associated with the nodes whose tags are in <em>nodesToBeNumberedLast</em>. Returns a positive number if successfully, a negative integer if not; the positive number is to be set at the number of dof assigned a value <span class="math inline">\(-3\)</span> (this will be the number of external dof for a subdomain), the negative value of which depends on the type of ConstraintHandler. For subdomains the constraint handler is responsible for setting the <code>FE_Element</code> by calling <em>setFE_elementPtr</em>.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clearAll</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
