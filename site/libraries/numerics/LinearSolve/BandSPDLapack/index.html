@@ -6333,11 +6333,39 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../modeling/transform/Corotational/" class="md-nav__link">
-        Corotational
-
-      </a>
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_7_1" type="checkbox" id="__nav_4_3_7_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../modeling/transform/Corotational/">Corotational</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Corotational" data-md-level="4">
+        <label class="md-nav__title" for="__nav_4_3_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Corotational
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -7294,6 +7322,40 @@
 
 
 <h1 id="bandspdlinlapacksolver">BandSPDLinLapackSolver</h1>
+<table>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>system BandSPD</strong></td>
+</tr>
+</tbody>
+</table>
+<p>This command is used to construct a BandSPDSOE linear system of equation object. As the name implies, this class is used for symmetric positive definite matrix systems which have a banded profile. The matrix is stored as shown below in a one dimensional array of size equal to the (<code>bandwidth</code>/2) times the number of unknowns. When a solution is required, the Lapack routines <code>DPBSV</code> and <code>DPBTRS</code> are used.</p>
+<h2 id="theory">Theory</h2>
+<p>An <em>n</em>×<em>n</em> matrix <em>A</em>=(<em>a</em><sub><em>i,j</em></sub>) is a <strong>symmmetric banded matrix</strong> if all matrix elements are zero outside a diagonally bordered band whose range is determined by constants <em>k</em>:</p>
+<p><span class="math display">\[a_{i,j}=0 \quad\mbox{if}\quad j&lt;i-k \quad\mbox{ or }\quad j&gt;i+k; \quad k \ge 0.\,\]</span></p>
+<p><span class="math display">\[a_{i,j} = a_{j,i}\,\]</span></p>
+<p><span class="math display">\[y^T A y  != 0 \,\]</span> for all non-zero vectors <em>y</em> with real entries (<span class="math inline">\(y \in \mathbb{R}^n\)</span>),</p>
+<p>The <em>bandwidth</em> of the matrix is <em>k</em> + <em>k</em> + 1.</p>
+<p>For example, a symmetric 6-by-6 matrix with a right bandwidth of 2:</p>
+<p><span class="math display">\[\begin{bmatrix}
+ A_{11} &amp; A_{12} &amp; A_{13} &amp;   0  &amp; \cdots &amp; 0 \\
+      &amp; A_{22} &amp; A_{23} &amp; A_{24} &amp; \ddots &amp; \vdots \\
+      &amp;        &amp; A_{33} &amp; A_{34} &amp; A_{35} &amp; 0 \\
+      &amp;        &amp;        &amp; A_{44} &amp; A_{45} &amp; A_{46} \\
+      &amp; sym    &amp;        &amp;        &amp; A_{55} &amp; A_{56} \\
+      &amp;        &amp;        &amp;        &amp;        &amp; A_{66}
+\end{bmatrix}.\]</span> This matrix is stored as the 6-by-3 matrix:</p>
+<p><span class="math display">\[\begin{bmatrix}
+ A_{11} &amp; A_{12} &amp; A_{13} \\
+ A_{22} &amp; A_{23} &amp; A_{24} \\
+ A_{33} &amp; A_{34} &amp; A_{35} \\
+ A_{44} &amp; A_{45} &amp; A_{46} \\
+ A_{55} &amp; A_{56} &amp; 0 \\
+ A_{66} &amp; 0 &amp; 0
+\end{bmatrix}.\]</span></p>
+<hr />
+<p>Code Developed by: <span style="color:blue"> fmk </span></p>
+<h2 id="c">C++</h2>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/bandSPD/BandSPDLinLapackSolver.h&gt;</span><span class="cp"></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">BandSPDLinLapackSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">BandSPDLinSolver</span><span class="w"></span>

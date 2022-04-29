@@ -14,8 +14,8 @@ public ConstraintHandler
 
 The TransformationConstraintHandler class is a class which deals with
 both single and multi point constraints using the Transformation method.
-This is done by, in addition to creating a DOF_Group object for each
-Node and an FE_Element for each Element in the Domain, creating either a
+This is done by, in addition to creating a `DOF_Group` object for each
+Node and an `FE_Element` for each Element in the Domain, creating either a
 TransformationSP_FE or a TransformationMP_FE object for each constraint
 in the Domain. It is these objects that enforce the constraints by
 moifying the tangent matrix and residual vector.

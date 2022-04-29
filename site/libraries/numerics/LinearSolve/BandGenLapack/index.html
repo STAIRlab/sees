@@ -6333,11 +6333,39 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../modeling/transform/Corotational/" class="md-nav__link">
-        Corotational
-
-      </a>
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3_7_1" type="checkbox" id="__nav_4_3_7_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../modeling/transform/Corotational/">Corotational</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Corotational" data-md-level="4">
+        <label class="md-nav__title" for="__nav_4_3_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          Corotational
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -7294,8 +7322,30 @@
 
 
 <h1 id="bandgenlinlapacksolver">BandGenLinLapackSolver</h1>
-<h2 id="user-interface">User Interface</h2>
-<h2 id="class-interface">Class Interface</h2>
+<p>This command is used to construct a BandGeneralSOE linear system of equation object. As the name implies, this class is used for matrix systems which have a banded profile. The matrix is stored as shown below in a one-dimensional array of size equal to the bandwidth times the number of unknowns. When a solution is required, the Lapack routines DGBSV and SGBTRS are used.</p>
+<h2 id="theory">Theory</h2>
+<p>An <span class="math inline">\(n\timesn\)</span> matrix <em>A</em>=(<em>a</em><sub><em>i,j</em></sub>) is a <strong>band matrix</strong> if all matrix elements are zero outside a diagonally bordered band whose range is determined by constants <em>k</em><sub>1</sub> and <em>k</em><sub>2</sub>:</p>
+<p><span class="math display">\[a_{i,j}=0 \quad\mbox{if}\quad j&lt;i-k_1 \quad\mbox{ or }\quad j&gt;i+k_2; \quad k_1, k_2 \ge 0.\,\]</span></p>
+<p>The quantities <em>k</em><sub>1</sub> and <em>k</em><sub>2</sub> are the <em>left</em> and <em>right</em> <em>half-bandwidth</em>, respectively. The <em>bandwidth</em> of the matrix is <em>k</em><sub>1</sub> + <em>k</em><sub>2</sub> + 1 (in other words, the smallest number of adjacent diagonals to which the non-zero elements are confined).</p>
+<p>and matrices are usually stored by storing the diagonals in the band; the rest is implicitly zero.</p>
+<p>For example, 6-by-6 a matrix with bandwidth 3:</p>
+<p><span class="math display">\[\begin{bmatrix}
+ B_{11} &amp; B_{12} &amp; 0      &amp; \cdots &amp; \cdots &amp; 0 \\
+ B_{21} &amp; B_{22} &amp; B_{23} &amp; \ddots &amp; \ddots &amp; \vdots \\
+  0     &amp; B_{32} &amp; B_{33} &amp; B_{34} &amp; \ddots &amp; \vdots \\
+ \vdots &amp; \ddots &amp; B_{43} &amp; B_{44} &amp; B_{45} &amp; 0 \\
+ \vdots &amp; \ddots &amp; \ddots &amp; B_{54} &amp; B_{55} &amp; B_{56} \\
+ 0      &amp; \cdots &amp; \cdots &amp; 0      &amp; B_{65} &amp; B_{66}
+\end{bmatrix}\]</span> is stored as the 6-by-3 matrix</p>
+<p><span class="math display">\[\begin{bmatrix}
+ 0 &amp; B_{11} &amp; B_{12}\\
+ B_{21} &amp; B_{22} &amp; B_{23} \\
+ B_{32} &amp; B_{33} &amp; B_{34} \\
+ B_{43} &amp; B_{44} &amp; B_{45} \\
+ B_{54} &amp; B_{55} &amp; B_{56} \\
+ B_{65} &amp; B_{66} &amp; 0
+\end{bmatrix}.\]</span></p>
+<h2 id="c-interface">C++ Interface</h2>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/bandGEN/BandGenLinLapackSolver.h&gt;</span><span class="cp"></span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">BandGenLinLapackSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">BandGenLinSolver</span><span class="w"></span>
@@ -7325,6 +7375,8 @@ Invokes delete on <em>iPiv</em> to free the memory allocated to store the array.
 <p>Is used to construct a 1d integer array, <em>iPiv</em> that is needed by the LAPACK solvers. It checks to see if current size of <em>iPiv</em> is large enough, if not it deletes the cold and creates a larger array. Returns <span class="math inline">\(0\)</span> if successful, prints a warning message and returns a <span class="math inline">\(-1\)</span> if not enough memory is available for this new array.</p>
 <p>Does nothing but return <span class="math inline">\(0\)</span>.</p>
 <p>Does nothing but return <span class="math inline">\(0\)</span>.</p>
+<hr />
+<p>Code Developed by: <span style="color:blue"> fmk </span></p>
 
 
               

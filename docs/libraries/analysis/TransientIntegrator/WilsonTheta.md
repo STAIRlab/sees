@@ -91,7 +91,7 @@ and a flag indicating that Rayleigh damping will be used.
 Invokes the destructor on the Vector objects created.
 
 
-This tangent for each FE_Element is defined to be ${\bf K}_e = c1 \K + c2  \D + c3 \M$, where c1,c2 and c3 were determined in the last
+This tangent for each `FE_Element` is defined to be ${\bf K}_e = c1 \K + c2  \D + c3 \M$, where c1,c2 and c3 were determined in the last
 invocation of the `newStep()` method. Returns $0$ after performing the
 following operations:
 
@@ -134,7 +134,7 @@ Vectors created and then creates $6$ new Vector objects of size equal to
 the current displacement, velocity and accelerations at times $t$ and
 $t + \Delta t$ (between `newStep()` and `commit()` the $t + \Delta t$ quantities store $t + \Theta \Delta t$ quantities). The
 response quantities at time $t + \Delta t$ are then set by iterating
-over the DOF_Group objects in the model and obtaining their committed
+over the `DOF_Group` objects in the model and obtaining their committed
 values. Returns $0$ if successful, otherwise a warning message and a
 negative number is returned: $-1$ if no memory was available for
 constructing the Vectors.
@@ -167,7 +167,7 @@ The following are performed when this method is invoked:
     \dot {\bf U}_t -2 \ddot{\bf U}_t$
     :::
 
-4.  The response quantities at the DOF_Group objects are updated with
+4.  The response quantities at the `DOF_Group` objects are updated with
     the new approximations by invoking `setResponse()` on the
     AnalysisModel with quantities at time $t + \Theta \Delta t$.
 
@@ -192,11 +192,11 @@ not been called.
 int update(const Vector &$\Delta U$);
 ```
 
-Invoked this first causes the object to increment the DOF_Group response
+Invoked this first causes the object to increment the `DOF_Group` response
 quantities at time $t + \Theta \Delta t$. The displacement Vector is
 incremented by $c1 * \Delta U$, the velocity Vector by $c2 * \Delta U$,
 and the acceleration Vector by $c3 * \Delta U$. The response quantities
-at the DOF_Group objects are then updated with the new approximations by
+at the `DOF_Group` objects are then updated with the new approximations by
 invoking `setResponse()` on the AnalysisModel with displacements,
 velocities and accelerations at time $t + \Theta \Delta t$. Finally
 `updateDomain()` is invoked on the AnalysisModel.
@@ -223,7 +223,7 @@ int commit(void);
 
 First the quantities at time $t + \Delta t$ are determined using the
 quantities at time $t$ and $t + \Theta \Delta t$. Then the response
-quantities at the DOF_Group objects are updated with the new
+quantities at the `DOF_Group` objects are updated with the new
 approximations by invoking `setResponse()` on the AnalysisModel with
 displacement, velocity and accelerations at time $t +
 \Delta t$. The time is obtained from the AnalysisModel and $(\Theta - 1) \Delta t$ is subtracted from the value. The time is set in the

@@ -196,13 +196,13 @@ not been called.
 int update(const Vector& ΔU);
 ```
 
-Invoked this first causes the object to increment the DOF_Group response
+Invoked this first causes the object to increment the `DOF_Group` response
 quantities at time $t + \Delta t$. The displacement Vector is
 incremented by $c1 * \Delta U$, the velocity Vector by $c2 * \Delta U$,
 and the acceleration Vector by $c3 * \Delta U$. The displacement Vector
 at time $t + \alpha \Delta t$ is incremented by $c1 \alpha \Delta U$ and
 the velocity Vector by $c2 \alpha \Delta U$. The response quantities at
-the DOF_Group objects are then updated with the new approximations by
+the `DOF_Group` objects are then updated with the new approximations by
 invoking `setResponse()` on the AnalysisModel with displacement and
 velocity at time $t + \alpha
 \Delta t$ and the accelerations at time $t + \Delta t$. Finally
@@ -231,7 +231,7 @@ objects and $\Delta U$ are of different sizes.
 int commit(void);
 ```
 
-First the response quantities at the DOF_Group objects are updated with
+First the response quantities at the `DOF_Group` objects are updated with
 the new approximations by invoking `setResponse()` on the AnalysisModel
 with displacement, velocity and accelerations at time $t + \Delta t$. Finally `updateDomain()` and `commitDomain()` are invoked on
 the AnalysisModel. Returns $0$ if successful, a warning message and a
