@@ -1587,6 +1587,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -1594,10 +1598,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8">
-          Model
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../">Model</a>
+          
+            <label for="__nav_1_4_3_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Model" data-md-level="4">
         <label class="md-nav__title" for="__nav_1_4_3_8">
@@ -1605,6 +1615,8 @@
           Model
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -1630,7 +1642,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_2" type="checkbox" id="__nav_1_4_3_8_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
       
       
       
@@ -1641,13 +1653,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_3">
           Dof grp
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Dof grp" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_3">
           <span class="md-nav__icon md-icon"></span>
           Dof grp
         </label>
@@ -1660,7 +1672,7 @@
   
     <li class="md-nav__item">
       <a href="../../../dof_grp/DOF_Group/" class="md-nav__link">
-        DOF_Group
+        `DOF_Group`
 
       </a>
     </li>
@@ -1701,7 +1713,7 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4" type="checkbox" id="__nav_1_4_3_8_4" checked>
       
       
       
@@ -1714,13 +1726,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4">
           Fe ele
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Fe ele" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4">
           <span class="md-nav__icon md-icon"></span>
           Fe ele
         </label>
@@ -1750,7 +1762,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_2" type="checkbox" id="__nav_1_4_3_8_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_2" type="checkbox" id="__nav_1_4_3_8_4_2" >
       
       
       
@@ -1761,13 +1773,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_2">
           Lagrange
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Lagrange" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_2">
           <span class="md-nav__icon md-icon"></span>
           Lagrange
         </label>
@@ -1821,7 +1833,7 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_3" type="checkbox" id="__nav_1_4_3_8_3_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_3" type="checkbox" id="__nav_1_4_3_8_4_3" checked>
       
       
       
@@ -1832,13 +1844,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_3">
           Penalty
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Penalty" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_3">
           <span class="md-nav__icon md-icon"></span>
           Penalty
         </label>
@@ -7160,10 +7172,10 @@
 <h1 id="penaltymp_fe">PenaltyMP_FE</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/fe_ele/penalty/PenaltyMP_FE.h&gt;</span><span class="cp"></span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">PenaltyMP_FE</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">FE_Element</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PenaltyMP_FE</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="err">`</span><span class="n">FE_Element</span><span class="err">`</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>PenaltyMP_FE is a subclass of FE_Element used to enforce a multi point constraint, of the form <span class="math inline">\({\bf U}_c = {\bf C}_{cr} {\bf U}_r\)</span>, where <span class="math inline">\({\bf U}_c\)</span> are the constrained degrees-of-freedom at the constrained node, <span class="math inline">\({\bf U}_r\)</span> are the retained degrees-of-freedom at the retained node and <span class="math inline">\({\bf C}_{cr}\)</span> a matrix defining the relationship between these degrees-of-freedom.</p>
+<p>PenaltyMP_FE is a subclass of <code>FE_Element</code> used to enforce a multi point constraint, of the form <span class="math inline">\({\bf U}_c = {\bf C}_{cr} {\bf U}_r\)</span>, where <span class="math inline">\({\bf U}_c\)</span> are the constrained degrees-of-freedom at the constrained node, <span class="math inline">\({\bf U}_r\)</span> are the retained degrees-of-freedom at the retained node and <span class="math inline">\({\bf C}_{cr}\)</span> a matrix defining the relationship between these degrees-of-freedom.</p>
 <p>To enforce the constraint a matrix <span class="math inline">\(\alpha {\bf C}^T \C\)</span> is added to the tangent for the degrees-of-freedom <span class="math inline">\([{\bf U}_c\)</span> <span class="math inline">\({\bf U}_r]\)</span>, where <span class="math inline">\({\bf C} = [-\I\)</span> <span class="math inline">\({\bf C}_{cr}]\)</span>. Nothing is added to the residual.</p>
 <h3 id="constructor">Constructor</h3>
 <p><br />
@@ -7176,11 +7188,11 @@
 <p><br />
 </p>
 <p><br />
-To construct a PenaltyMP_FE element to enforce the constraint specified by the <code>MP_Constraint</code> <em>theMP</em> using a default value for <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(alpha\)</span>. The FE_Element class constructor is called with the integers <span class="math inline">\(2\)</span> and the size of the <em>retainedID</em> plus the size of the <em>constrainedID</em> at the <code>MP_Constraint</code> <em>theMP</em>. A Matrix and a Vector object are created for adding the contributions to the tangent and the residual. The residual is zeroed. A Matrix is created to store the <span class="math inline">\(C\)</span> Matrix. If the <code>MP_Constraint</code> is not time varying, the components of this Matrix are determined, then the contribution to the tangent <span class="math inline">\(\alpha C^TC\)</span> is determined and finally the <span class="math inline">\(C\)</span> matrix is destroyed. Links are set to the retained and constrained nodes. A warning message is printed and the program is terminated if either not enough memory is available for the Matrices and Vector or the constrained and retained Nodes do not exist in the Domain.</p>
+To construct a PenaltyMP_FE element to enforce the constraint specified by the <code>MP_Constraint</code> <em>theMP</em> using a default value for <span class="math inline">\(\alpha\)</span> of <span class="math inline">\(alpha\)</span>. The <code>FE_Element</code> class constructor is called with the integers <span class="math inline">\(2\)</span> and the size of the <em>retainedID</em> plus the size of the <em>constrainedID</em> at the <code>MP_Constraint</code> <em>theMP</em>. A Matrix and a Vector object are created for adding the contributions to the tangent and the residual. The residual is zeroed. A Matrix is created to store the <span class="math inline">\(C\)</span> Matrix. If the <code>MP_Constraint</code> is not time varying, the components of this Matrix are determined, then the contribution to the tangent <span class="math inline">\(\alpha C^TC\)</span> is determined and finally the <span class="math inline">\(C\)</span> matrix is destroyed. Links are set to the retained and constrained nodes. A warning message is printed and the program is terminated if either not enough memory is available for the Matrices and Vector or the constrained and retained Nodes do not exist in the Domain.</p>
 <p><br />
 Invokes delete on any Matrix or Vector objects created in the constructor that have not yet been destroyed.</p>
 <p><br />
-Causes the PenaltyMP_FE to determine the mapping between it’s equation numbers and the degrees-of-freedom. This information is obtained by using the mapping information at the DOF_Group objects associated with the constrained and retained nodes to determine the mappings between the degrees-of-freedom identified in the <em>constrainedID</em> and the <em>retainedID</em> at the <code>MP_Constraint</code> <em>theMP</em>. Returns <span class="math inline">\(0\)</span> if successful. Prints a warning message and returns a negative number if an error occurs: <span class="math inline">\(-2\)</span> if the Node has no associated DOF_Group, <span class="math inline">\(-3\)</span> if the constrained DOF specified is invalid for this Node (sets corresponding ID component to <span class="math inline">\(-1\)</span> so nothing is added to the tangent) and <span class="math inline">\(-4\)</span> if the ID in the DOF_Group is too small for the Node (again setting corresponding ID component to <span class="math inline">\(-1\)</span>).</p>
+Causes the PenaltyMP_FE to determine the mapping between it’s equation numbers and the degrees-of-freedom. This information is obtained by using the mapping information at the <code>DOF_Group</code> objects associated with the constrained and retained nodes to determine the mappings between the degrees-of-freedom identified in the <em>constrainedID</em> and the <em>retainedID</em> at the <code>MP_Constraint</code> <em>theMP</em>. Returns <span class="math inline">\(0\)</span> if successful. Prints a warning message and returns a negative number if an error occurs: <span class="math inline">\(-2\)</span> if the Node has no associated DOF_Group, <span class="math inline">\(-3\)</span> if the constrained DOF specified is invalid for this Node (sets corresponding ID component to <span class="math inline">\(-1\)</span> so nothing is added to the tangent) and <span class="math inline">\(-4\)</span> if the ID in the <code>DOF_Group</code> is too small for the Node (again setting corresponding ID component to <span class="math inline">\(-1\)</span>).</p>
 <p>If the <code>MP_Constraint</code> is time-varying, from the <code>MP_Constraint</code> <em>theMP</em> it obtains the current <span class="math inline">\(C_{cr}\)</span> matrix; it then forms the <span class="math inline">\(C\)</span> matrix and finally it sets the tangent matrix to be <span class="math inline">\(\alpha C^TC\)</span>. Returns the tangent matrix.</p>
 <p>Returns the residual, a <span class="math inline">\(\zero\)</span> Vector. <em>virtual const Vector &amp;getTangForce(const Vector &amp;disp, double fact = 1.0);</em><br />
 CURRENTLY just returns the <span class="math inline">\(0\)</span> residual. THIS WILL NEED TO CHANGE FOR ELE-BY-ELE SOLVERS.</p>

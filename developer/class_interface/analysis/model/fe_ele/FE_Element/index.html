@@ -1587,6 +1587,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -1594,10 +1598,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8">
-          Model
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Model</a>
+          
+            <label for="__nav_1_4_3_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Model" data-md-level="4">
         <label class="md-nav__title" for="__nav_1_4_3_8">
@@ -1605,6 +1615,8 @@
           Model
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -1630,7 +1642,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_2" type="checkbox" id="__nav_1_4_3_8_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
       
       
       
@@ -1641,13 +1653,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_3">
           Dof grp
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Dof grp" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_3">
           <span class="md-nav__icon md-icon"></span>
           Dof grp
         </label>
@@ -1660,7 +1672,7 @@
   
     <li class="md-nav__item">
       <a href="../../dof_grp/DOF_Group/" class="md-nav__link">
-        DOF_Group
+        `DOF_Group`
 
       </a>
     </li>
@@ -1701,7 +1713,7 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4" type="checkbox" id="__nav_1_4_3_8_4" checked>
       
       
       
@@ -1714,13 +1726,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4">
           Fe ele
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Fe ele" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4">
           <span class="md-nav__icon md-icon"></span>
           Fe ele
         </label>
@@ -1758,7 +1770,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_2" type="checkbox" id="__nav_1_4_3_8_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_2" type="checkbox" id="__nav_1_4_3_8_4_2" >
       
       
       
@@ -1769,13 +1781,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_2">
           Lagrange
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Lagrange" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_2">
           <span class="md-nav__icon md-icon"></span>
           Lagrange
         </label>
@@ -1827,7 +1839,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_3" type="checkbox" id="__nav_1_4_3_8_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_3" type="checkbox" id="__nav_1_4_3_8_4_3" >
       
       
       
@@ -1838,13 +1850,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_3">
           Penalty
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Penalty" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_3">
           <span class="md-nav__icon md-icon"></span>
           Penalty
         </label>
@@ -7176,7 +7188,7 @@
 <p>// Public Methods to allow Integrator to Build Residual</p>
 <p>// Public Methods to allow Element-by-Element strategies</p>
 <p>// Public Methods added for Domain Decomposition</p>
-<p>Constructs an empty <code>FE_Element</code> with an associated element given by <code>theElement</code>. During construction it determines the number of unknown dofs from the element. Constructs an ID for the mapping between dof’s of the element and equation numbers in the system of equation and an ID to hold the tag of the DOF_Group objects associated with each Node of the element. If the result of invoking <code>theElementPtr-&gt;isSubdomain()</code> is <code>true</code> invokes <code>setFE_Element(this)</code> on the Subdomain; if false creates a Matrix for the tangent and a Vector for the residual to be stored. An error message is printed and the program is terminated if no Domain object is associated with the Element, a Node of the Element does not exist in the Domain, each Node has not yet been associated with a DOF_Group object, or there is not enough memory for the Vectors and Matrices required.</p>
+<p>Constructs an empty <code>FE_Element</code> with an associated element given by <code>theElement</code>. During construction it determines the number of unknown dofs from the element. Constructs an ID for the mapping between dof’s of the element and equation numbers in the system of equation and an ID to hold the tag of the <code>DOF_Group</code> objects associated with each Node of the element. If the result of invoking <code>theElementPtr-&gt;isSubdomain()</code> is <code>true</code> invokes <code>setFE_Element(this)</code> on the Subdomain; if false creates a Matrix for the tangent and a Vector for the residual to be stored. An error message is printed and the program is terminated if no Domain object is associated with the Element, a Node of the Element does not exist in the Domain, each Node has not yet been associated with a DOF_Group object, or there is not enough memory for the Vectors and Matrices required.</p>
 <div class="highlight"><pre><span></span><span class="n">FE_Element</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numDOFGroup</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numDOF</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
@@ -7193,11 +7205,11 @@
 <div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">setAnalysisModel</span><span class="p">(</span><span class="n">AnalysisModel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theModel</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>To set a link to the AnalysisModel in which the FE_element resides; this link is needed in <code>setID()</code>. Is invoked by the AnalysisModel when the <code>FE_element</code> is added to the AnalysisModel.</p>
+<p>To set a link to the AnalysisModel in which the <code>FE_Element</code> resides; this link is needed in <code>setID()</code>. Is invoked by the AnalysisModel when the <code>FE_element</code> is added to the AnalysisModel.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setID</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>Causes the <code>FE_Element</code> to determine the mapping between it’s equation numbers and the degrees-of-freedom. The <span class="math inline">\(i-1\)</span> component of the ID contains the equation number that is associated with <span class="math inline">\(i\)</span>’th degree-of-freedom (a consequence of C indexing for IDs). The method is to be invoked by the DOF_Numberer after the DOF_Groups have been assigned their equation numbers. The base class uses the ID containing the tags of the DOF_Group objects to determine this by looping over the DOF_Group objects (identified in the DOF_Group ID and obtained from the AnalysisModel) and getting their mapping by invoking <code>getID()</code>. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number is returned if an error occurs: <span class="math inline">\(-1\)</span> returned if no AnalysisModel link has been set, <span class="math inline">\(-2\)</span> if a DOF_Group object does not exist in the AnalysisModel and a <span class="math inline">\(-3\)</span> if there are more dof’s in the DOF_Groups than dof’s identified for the FE_Element.</p>
+<p>Causes the <code>FE_Element</code> to determine the mapping between it’s equation numbers and the degrees-of-freedom. The <span class="math inline">\(i-1\)</span> component of the ID contains the equation number that is associated with <span class="math inline">\(i\)</span>’th degree-of-freedom (a consequence of C indexing for IDs). The method is to be invoked by the DOF_Numberer after the DOF_Groups have been assigned their equation numbers. The base class uses the ID containing the tags of the <code>DOF_Group</code> objects to determine this by looping over the DOF_Group objects (identified in the <code>DOF_Group</code> ID and obtained from the AnalysisModel) and getting their mapping by invoking <code>getID()</code>. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number is returned if an error occurs: <span class="math inline">\(-1\)</span> returned if no AnalysisModel link has been set, <span class="math inline">\(-2\)</span> if a <code>DOF_Group</code> object does not exist in the AnalysisModel and a <span class="math inline">\(-3\)</span> if there are more dof’s in the DOF_Groups than dof’s identified for the FE_Element.</p>
 <p><br />
 Causes the <code>FE_Element</code> to determine it’s contribution to the tangent matrix and to return this matrix. If the Element is a Subdomain it invokes <code>computeTangent()</code> and <code>getTang()</code> on the Subdomain. Otherwise <code>formEleTangent(this)</code> is invoked on <em>theIntegrator</em> and the new tangent matrix is returned. Subclasses must provide their own implementation. If no Element is passed in the constructor, a warning message is printed and an error Matrix of size 1X1 is returned.</p>
 <p>Causes the <code>FE_Element</code> to determine it’s contribution to the residual vector and to return this vector. If the Element is a Subdomain it invokes <code>computeResidual()</code> and <code>getResistingForce()</code> on the Subdomain. Otherwise <code>formEleResidual(this)</code> is invoked on <em>theIntegrator</em> and the resuting residual vector is returned. Subclasses must provide their own implementation. If no Element is passed in the constructor, a warning message and an error vector is returned.</p>

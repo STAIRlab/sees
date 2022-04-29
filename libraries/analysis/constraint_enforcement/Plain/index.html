@@ -1579,6 +1579,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -1586,10 +1590,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8">
-          Model
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/class_interface/analysis/model/">Model</a>
+          
+            <label for="__nav_1_4_3_8">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Model" data-md-level="4">
         <label class="md-nav__title" for="__nav_1_4_3_8">
@@ -1597,6 +1607,8 @@
           Model
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -1622,7 +1634,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_2" type="checkbox" id="__nav_1_4_3_8_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
       
       
       
@@ -1633,13 +1645,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_3">
           Dof grp
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Dof grp" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_3">
           <span class="md-nav__icon md-icon"></span>
           Dof grp
         </label>
@@ -1652,7 +1664,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../developer/class_interface/analysis/model/dof_grp/DOF_Group/" class="md-nav__link">
-        DOF_Group
+        `DOF_Group`
 
       </a>
     </li>
@@ -1691,7 +1703,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3" type="checkbox" id="__nav_1_4_3_8_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4" type="checkbox" id="__nav_1_4_3_8_4" >
       
       
       
@@ -1704,13 +1716,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4">
           Fe ele
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Fe ele" data-md-level="5">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4">
           <span class="md-nav__icon md-icon"></span>
           Fe ele
         </label>
@@ -1740,7 +1752,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_2" type="checkbox" id="__nav_1_4_3_8_3_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_2" type="checkbox" id="__nav_1_4_3_8_4_2" >
       
       
       
@@ -1751,13 +1763,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_2">
           Lagrange
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Lagrange" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_2">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_2">
           <span class="md-nav__icon md-icon"></span>
           Lagrange
         </label>
@@ -1809,7 +1821,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_3_3" type="checkbox" id="__nav_1_4_3_8_3_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_3_8_4_3" type="checkbox" id="__nav_1_4_3_8_4_3" >
       
       
       
@@ -1820,13 +1832,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__link" for="__nav_1_4_3_8_4_3">
           Penalty
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Penalty" data-md-level="6">
-        <label class="md-nav__title" for="__nav_1_4_3_8_3_3">
+        <label class="md-nav__title" for="__nav_1_4_3_8_4_3">
           <span class="md-nav__icon md-icon"></span>
           Penalty
         </label>
@@ -7161,7 +7173,7 @@
 ConstraintHandler<br />
 </p>
 <p><br />
-The PlainHandler class is a class which only deals with homogeneous single point constraints. To do this it creates regular FE_Element and DOF_Group objects and enforces the constraints by specifying that degrees-of-freedom which are constrained are not assigned an equation number. Pointers to the DOF_Group and FE_Element objects are kept in two arrays.</p>
+The PlainHandler class is a class which only deals with homogeneous single point constraints. To do this it creates regular <code>FE_Element</code> and DOF_Group objects and enforces the constraints by specifying that degrees-of-freedom which are constrained are not assigned an equation number. Pointers to the <code>DOF_Group</code> and <code>FE_Element</code> objects are kept in two arrays.</p>
 <h3 id="constructor">Constructor</h3>
 <p><br />
 ### Destructor</p>
@@ -7176,13 +7188,13 @@ The PlainHandler class is a class which only deals with homogeneous single point
 </p>
 <p>The integer <em>HANDLER_TAG_PlainHandler</em> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the PlainHandler constructor.</p>
 <p><br />
-Invokes the destructor on all the FE_Element and DOF_Group objects created in <em>handle</em>. Then invokes the destructor on the two pointer arrays.</p>
+Invokes the destructor on all the <code>FE_Element</code> and <code>DOF_Group</code> objects created in <em>handle</em>. Then invokes the destructor on the two pointer arrays.</p>
 <p><br />
-Determines the number of FE_Elements and DOF_Groups needed from the Domain (a one to one mapping between Elements and FE_Elements and Nodes and DOF_Groups) Creates two arrays of pointers to store the FE_elements and DOF_Groups, returning a warning message and a <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span> if not enough memory is available for these arrays. Then the object will iterate through the Nodes of the Domain, creating a DOF_Group for each node and setting the initial id for each dof to <span class="math inline">\(-2\)</span> if no SP_Constraint exists for the dof, or <span class="math inline">\(-1\)</span> if a SP_Constraint exists or <span class="math inline">\(-3\)</span> if the node identifier is in <em>nodesToBeNumberedLast</em>. The object then iterates through the Elements of the Domain creating a FE_Element for each Element, if the Element is a Subdomain <code>setFE_ElementPtr()</code> is invoked on the Subdomain with the new FE_Element as the argument. If not enough memory is available for any DOF_Group or FE_element a warning message is printed and a <span class="math inline">\(-4\)</span> or <span class="math inline">\(-5\)</span> is returned. If any <code>MP_Constraint</code> objects exist in the Domain a warning message is printed and <span class="math inline">\(-6\)</span> is returned. If all is successful, the method returns the number of degrees-of-freedom associated with the DOF_Groups in <em>nodesToBeNumberedLast</em>.</p>
+Determines the number of FE_Elements and DOF_Groups needed from the Domain (a one to one mapping between Elements and FE_Elements and Nodes and DOF_Groups) Creates two arrays of pointers to store the FE_elements and DOF_Groups, returning a warning message and a <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span> if not enough memory is available for these arrays. Then the object will iterate through the Nodes of the Domain, creating a <code>DOF_Group</code> for each node and setting the initial id for each dof to <span class="math inline">\(-2\)</span> if no SP_Constraint exists for the dof, or <span class="math inline">\(-1\)</span> if a SP_Constraint exists or <span class="math inline">\(-3\)</span> if the node identifier is in <em>nodesToBeNumberedLast</em>. The object then iterates through the Elements of the Domain creating a <code>FE_Element</code> for each Element, if the Element is a Subdomain <code>setFE_ElementPtr()</code> is invoked on the Subdomain with the new <code>FE_Element</code> as the argument. If not enough memory is available for any <code>DOF_Group</code> or <code>FE_Element</code> a warning message is printed and a <span class="math inline">\(-4\)</span> or <span class="math inline">\(-5\)</span> is returned. If any <code>MP_Constraint</code> objects exist in the Domain a warning message is printed and <span class="math inline">\(-6\)</span> is returned. If all is successful, the method returns the number of degrees-of-freedom associated with the DOF_Groups in <em>nodesToBeNumberedLast</em>.</p>
 <div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">clearAll</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>Currently this invokes delete on all the FE_element and DOF_Group objects created in <code>handle()</code> and the arrays used to store pointers to these objects. FOR ANALYSIS INVOLVING DYNAMIC LOAD BALANCING, RE-MESHING AND CONTACT THIS MUST CHANGE. <em>int sendSelf(int commitTag, Channel &amp;theChannel);</em><br />
+<p>Currently this invokes delete on all the <code>FE_Element</code> and DOF_Group objects created in <code>handle()</code> and the arrays used to store pointers to these objects. FOR ANALYSIS INVOLVING DYNAMIC LOAD BALANCING, RE-MESHING AND CONTACT THIS MUST CHANGE. <em>int sendSelf(int commitTag, Channel &amp;theChannel);</em><br />
 Returns <span class="math inline">\(0\)</span>. <em>int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</em><br />
 Returns <span class="math inline">\(0\)</span>.</p>
 
