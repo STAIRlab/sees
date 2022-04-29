@@ -69,7 +69,7 @@ Constructs an empty `FE_Element` with an associated element given by
 `theElement`. During construction it determines the number of unknown
 dofs from the element. Constructs an ID for the mapping between dof's of
 the element and equation numbers in the system of equation and an ID to
-hold the tag of the DOF_Group objects associated with each Node of the
+hold the tag of the `DOF_Group` objects associated with each Node of the
 element. If the result of invoking `theElementPtr->isSubdomain()` is
 `true` invokes `setFE_Element(this)` on the Subdomain; if false creates
 a Matrix for the tangent and a Vector for the residual to be stored. An
@@ -116,7 +116,7 @@ method has been called.
 void setAnalysisModel(AnalysisModel &theModel);
 ```
 
-To set a link to the AnalysisModel in which the FE_element resides; this
+To set a link to the AnalysisModel in which the `FE_Element` resides; this
 link is needed in `setID()`. Is invoked by the AnalysisModel when the
 `FE_element` is added to the AnalysisModel.
 
@@ -130,12 +130,12 @@ contains the equation number that is associated with $i$'th
 degree-of-freedom (a consequence of C indexing for IDs). The method is
 to be invoked by the DOF_Numberer after the DOF_Groups have been
 assigned their equation numbers. The base class uses the ID containing
-the tags of the DOF_Group objects to determine this by looping over the
-DOF_Group objects (identified in the DOF_Group ID and obtained from the
+the tags of the `DOF_Group` objects to determine this by looping over the
+DOF_Group objects (identified in the `DOF_Group` ID and obtained from the
 AnalysisModel) and getting their mapping by invoking `getID()`. Returns
 $0$ if successful, a warning message and a negative number is returned
 if an error occurs: $-1$ returned if no AnalysisModel link has been set,
-$-2$ if a DOF_Group object does not exist in the AnalysisModel and a
+$-2$ if a `DOF_Group` object does not exist in the AnalysisModel and a
 $-3$ if there are more dof's in the DOF_Groups than dof's identified for
 the FE_Element.
 

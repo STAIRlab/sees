@@ -12,9 +12,9 @@ interface common among all subclasses. A DOF_Numberer object is
 responsible for assigning the equation numbers to the individual dofs in
 each of the DOF_Groups in the AnalysisModel. The base DOF_Numberer uses
 a GraphNumberer object to first number the DOF_Groups, based on the
-ordering of the DOF_Group objects, it assigns the equation numbers to
+ordering of the `DOF_Group` objects, it assigns the equation numbers to
 the individual degrees-of-freedom. Subtypes may wish to implement the
-numbering in a more efficient manner by using the FE_Element and
+numbering in a more efficient manner by using the `FE_Element` and
 DOF_Group objects directly.
 
 ### Constructors
@@ -56,10 +56,10 @@ Does nothing.
 \
 Invoked to set a link to the AnalysisModel from which the DOF_Numberer
 will number (provide the equation number in the SystemOfEqn object) the
-degrees-of-freedoms in each DOF_Group objects.
+degrees-of-freedoms in each `DOF_Group` objects.
 
 Invoked to assign the equation numbers to the dofs in the DOF_Groups and
-the FE_Elements, ensuring that the dof's in the DOF_Group whose tag is
+the FE_Elements, ensuring that the dof's in the `DOF_Group` whose tag is
 given by *lastDOF_Group* are numbered last in a $-2$ or $-3$ group. The
 initial values of these equation numbers have been set by the
 ConstraintHandler object to be $-1$, $-2$ or $-3$, all dofs with a $-3$
@@ -68,10 +68,10 @@ To set the *numEqn* in the AnalysisModel and to return the number of
 equations *numEqn* if successful, a negative number if not.
 
 This base class performs the ordering by getting an ID containing the
-ordered DOF_Group tags, obtained by invoking
+ordered `DOF_Group` tags, obtained by invoking
 *number(theModel-$>$getDOFGroupGraph(), lastDOF_Group)* on the
 GraphNumberer, *theGraphNumberer*, passed in the constructor. The base
-class then makes two passes through the DOF_Group objects in the
+class then makes two passes through the `DOF_Group` objects in the
 AnalysisModel by looping through this ID; in the first pass assigning
 the equation numbers incrementally to any degree-of-freedom marked with
 a $-2$ and in the second pass assigning the equation numbers
@@ -83,7 +83,7 @@ negative number is returned if an error occurs; $-1$ is returned if
 `setLinks()` has not yet been invoked, $-2$ if no GraphNumberer was
 passed in the constructor, $-3$ if the number of *DOF_Groups* in
 AnalysisModel and size of ID returned are not the same, and a $-4$ if
-there is no DOF_Group corresponding to one of the tags given in the ID.
+there is no `DOF_Group` corresponding to one of the tags given in the ID.
 
 Invoked to assign the equation numbers to the dofs in the DOF_Groups and
 the FE_Elements, ensuring that the dof's in the DOF_Groups whose tag is

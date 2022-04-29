@@ -1,7 +1,7 @@
-NEED A GETTANGFORCE() LIKE FE_ELEMENT FOR ELE_BY_ELE SOLVERS. KEEP A
+NEED A GETTANGFORCE() LIKE `FE_Element` FOR ELE_BY_ELE SOLVERS. KEEP A
 POINTER TO LAST INTEGRATOR.
 
-# DOF_Group 
+# `DOF_Group` 
 
 ```cpp
 #include <analysis/dof_grp/DOF_Group.h>
@@ -9,14 +9,14 @@ POINTER TO LAST INTEGRATOR.
 
 class DOF_Group;\
 
-DOF_Group is a base class. An object of type DOF_Group represents an
+DOF_Group is a base class. An object of type `DOF_Group` represents an
 unconstrained node of the domain in the model. Each node in the domain
 is associated with one DOF_Group. DOF_Groups are called upon in the
 analysis to provide their contributions of unbalanced load to the system
 of equations. Subclasses are used by the constraint handler to to
 introduce new dofs into the analysis.
 
-The DOF_Group is responsible for providing operations to set and access
+The `DOF_Group` is responsible for providing operations to set and access
 the mapping betwwen equation numbers and DOFs, allowing the Integrator
 to from the tangent (if nodal masses in transient problem) and
 unbalanced load information, and for setting and obtaining the nodal
@@ -60,7 +60,7 @@ trial response quantities.
 
 \
 
-Constructs a DOF_Group with an associated node given by *theNode* and a
+Constructs a `DOF_Group` with an associated node given by *theNode* and a
 tag given by *tag*. During construction it determines the number of
 unknown dofs from the node, *numDOF*, and creates an Vector object to
 hold the unbalance information and an ID object to hold mapping between
@@ -74,7 +74,7 @@ memory, a warning message is orinted and *numDOF* set to $0$.
 DOF_Group(int tag, int numDOF);
 ```
 
-Provided for subclasses. Constructs a DOF_Group with the number of
+Provided for subclasses. Constructs a `DOF_Group` with the number of
 unknown dofs given by *numDOF* and a tag given by *tag*. No Node is
 associated with this DOF_Group. Creates a Vector of size *numDOF* to
 hold the unbalance information and an ID object to hold mapping between
@@ -161,14 +161,14 @@ one of size (numDOF,numDOF) is now created; if construction of this
 matrix fails an error is printed and an error Matrix is returned.
 Invokes `addMatrix(theNode-$>$getMass,fact)`{.cpp} on the Matrix, printing a
 warining message if this method returns a $negative$ value. If no Node
-is associated with the DOF_Group an error message is printed and nothing
+is associated with the `DOF_Group` an error message is printed and nothing
 is done.
 
 \
 To zero the unbalance vector. Invokes `Zero()` on the vector object used
 to store the unbalance information.
 *virtual void formUnbalance(Integrator \*theIntegrator);* \
-Causes the DOF_Group to form its contribution to the residual. Invokes
+Causes the `DOF_Group` to form its contribution to the residual. Invokes
 `formNodUnbalance(this)` on *theIntegrator*.
 *virtual const Vector &getUnbalance() const;* \
 Returns the vector holding the unbalance.
@@ -210,7 +210,7 @@ error message is printed and an error Vector is returned.
 This operation sets the value of the nodal trial displacement at the
 associated node. The vector *u* is of size equal to the number of
 equations in the AnalysisModel (this is not checked by the DOF_Group).
-The DOF_Group object accesses the contents of the Vector *u* using its
+The `DOF_Group` object accesses the contents of the Vector *u* using its
 assigned equation numbers. If a $-1$ exists for a DOF a $0$ value is set
 as the corresponding nodal displacement for the node. Creates a Vector
 to store the correct components of *u*, then invokes `setTrialDisp()` on
@@ -225,7 +225,7 @@ virtual int setNodeVel(const Vector &$u^{.}$);
 This operation sets the value of the nodal trial velocity at the
 associated node. The vector *$u^{.}$* is of size equal to the number of
 equations in the AnalysisModel (this is not checked by the DOF_Group).
-The DOF_Group object accesses the contents of the Vector *$u^{.}$* using
+The `DOF_Group` object accesses the contents of the Vector *$u^{.}$* using
 its assigned equation numbers. If a $-1$ exists for a DOF a $0$ value is
 set as the corresponding nodal velocity for the node. Creates a Vector
 to store the correct components of *u*, then invokes `setTrialVel()` on
@@ -239,7 +239,7 @@ virtual int setNodeAccel(const Vector &$u^{..}$);
 This operation sets the value of the nodal trial acceleration at the
 associated node. The vector *$u^{..}$* is of size equal to the number of
 equations in the AnalysisModel (this is not checked by the DOF_Group).
-The DOF_Group object accesses the contents of the Vector *$u^{..}$*
+The `DOF_Group` object accesses the contents of the Vector *$u^{..}$*
 using its assigned equation numbers. If a $-1$ exists for a DOF a $0$
 value is set as the corresponding nodal acceleration for the node. The
 return value is as outlined above for *setNodeAccel().* Creates a Vector

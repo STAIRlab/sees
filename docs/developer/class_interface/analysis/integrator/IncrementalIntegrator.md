@@ -14,7 +14,7 @@ Integrator\
 IncrementalIntegrator is an abstract class. A subclass of it is used
 when performing a static or transient analysis using an incremental
 displacement approach. Subclasses of IncrementalIntegrators provide
-methods informing the FE_Element and DOF_Group objects how to build the
+methods informing the `FE_Element` and `DOF_Group` objects how to build the
 tangent and residual matrices and vectors. They also provide the method
 for updating the response quantities at the DOFs with appropriate
 values; these values being some function of the solution to the linear
@@ -101,7 +101,7 @@ If an error occurs in either of these two methods or if `setLinks()` has
 not been called, an error message is printed and a negative number is
 returned. Returns $0$ if successful.
 
-To inform the FE_Element how to build its tangent matrix for addition to
+To inform the `FE_Element` how to build its tangent matrix for addition to
 the system of equations. The subclasses must provide the implementation
 of this method.
 
@@ -109,7 +109,7 @@ of this method.
 virtual int formEleResidual(FE_Element \*theEle) =0;
 ```
 
-To inform the FE_Element how to build its residual vector for addition
+To inform the `FE_Element` how to build its residual vector for addition
 to the system of equations. The subclasses must provide the
 implementation of this method.
 
@@ -117,7 +117,7 @@ implementation of this method.
 virtual int formNodTangent(DOF_Group \*theDof) =0;
 ```
 
-To inform the DOF_Group how to build its tangent matrix for addition to
+To inform the `DOF_Group` how to build its tangent matrix for addition to
 the system of equations. The subclasses must provide the implementation
 of this method. This is required in transient analysis as th Node
 objects have mass. THIS MAY CHANGE.
@@ -126,7 +126,7 @@ objects have mass. THIS MAY CHANGE.
 virtual int formNodUnbalance(DOF_Group \*theDof) =0;
 ```
 
-To inform the DOF_Group how to build its residual vector for addition to
+To inform the `DOF_Group` how to build its residual vector for addition to
 the system of equations. The subclasses must provide the implementation
 of this method.
 
@@ -174,7 +174,7 @@ in `setLinks()`.
 virtual int formNodalUnbalance(void);
 ```
 
-The method first loops over all the DOF_Group objects telling them to
+The method first loops over all the `DOF_Group` objects telling them to
 form their unbalance and then adds this Vector to the $b$ vector of the
 LinearSOE object, i.e. it performs the following:\
 

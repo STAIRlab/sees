@@ -28,9 +28,13 @@ A simulation with `opensees` is generally configured in the following steps:
     the solution procedure. Several Recorder objects are created to
     store what the user wants to examine.
 
-3.  **Numeric Strategy** (Optional): when the computational cost of an analysis
-    becomes prohibitive, selecting the right numeric strategy can be important.
-    Refinements typically consist of choosing an appropriate linear or eigenvalue 
-    solver which appropriatly accounts for the structure of a linear system.
-    Parallelization may also be considered.
+4.  **Runtime and Numerics**: When working on advanced problems, fine-grained
+    control over details such as the analysis runtime, parallelization, and
+    numeric strategies becomes important.
+
+  -  *Numerics*: when the computational cost of an analysis
+     becomes prohibitive, selecting the right numeric strategy can be important.
+     Refinements typically consist of choosing an appropriate linear or eigenvalue 
+     solver which appropriatly accounts for the structure of a linear system.
+     Parallelization may also be considered.
 

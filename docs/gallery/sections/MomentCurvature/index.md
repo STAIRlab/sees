@@ -34,7 +34,7 @@ load, P, of 180 kips is applied to the section during the
 moment-curvature analysis.
 
 ::: {.center}
-![Geometry of the zero-length element](../fig_files/ZeroLengthSection.svg) 
+![Geometry of the zero-length element](./ZeroLengthSection.svg) 
 :::
 
 For the zero length element, a section discretized by concrete and steel
@@ -58,11 +58,11 @@ figure [\[rcsection4\]](#rcsection4){reference-type="ref"
 reference="rcsection4"}.
 
 ::: {.center}
-![Dimensions of the RC section.](../fig_files/RCsection0.svg){#fig:rcsection0} 
+![Dimensions of the RC section.](./RCsection0.svg){#fig:rcsection0} 
 :::
 
 ::: {.center} 
-![Fiber section discretization](../fig_files/RCsection4.svg){#fig:rcsection4}
+![Fiber section discretization](./RCsection4.svg){#fig:rcsection4}
 :::
 
 The section analysis is performed by the Tcl procedure MomentCurvature

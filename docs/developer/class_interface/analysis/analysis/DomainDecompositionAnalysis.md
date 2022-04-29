@@ -20,11 +20,11 @@ the equations. Its public member functions are all virtual to allow for
 the generalization of the class. The following are the aggregates of
 such an analysis type:
 
--   **AnalysisModel** - a container class holding the FE_Element and
-    DOF_Group objects created by the ConstraintHandler object.
+-   **AnalysisModel** - a container class holding the `FE_Element` and
+    `DOF_Group` objects created by the ConstraintHandler object.
 
--   **ConstraintHandler** - a class which creates the DOF_Group and
-    FE_Element objects, the type of objects created depending on how the
+-   **ConstraintHandler** - a class which creates the `DOF_Group` and
+    `FE_Element` objects, the type of objects created depending on how the
     specified constraints in the domain are to be handled.
 
 -   **DOF_Numberer** - a class responsible for providing equation
@@ -36,7 +36,7 @@ such an analysis type:
     $Ax = b$, where A is a matrix, and x and b are vectors.
 
 -   **IncrementalIntegrator** - an algorithmic class which provides
-    methods which are invoked by the FE_Element to determine their
+    methods which are invoked by the `FE_Element` to determine their
     current tangent and residual matrices; that is this is the class
     that sets up the system of equations. It also provides the
     `update()` method which is invoked to set up the appropriate dof

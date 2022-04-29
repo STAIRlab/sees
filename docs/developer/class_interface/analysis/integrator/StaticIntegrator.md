@@ -19,7 +19,7 @@ StaticIntegrator is an abstract class. It is a subclass of
 IncrementalIntegrator provided to implement the common methods among
 integrator classes used in performing a static analysis on the FE_Model.
 The StaticIntegrator class provides an implementation of the methods to
-form the FE_Element and DOF_Group contributions to the tangent and
+form the `FE_Element` and `DOF_Group` contributions to the tangent and
 residual. A pure virtual method `newStep()` is also defined in the
 interface, this is the method first called at each iteration in a static
 analysis, see the StaticAnalysis class.

@@ -6,7 +6,7 @@
 class PenaltySP_FE: public FE_Element;
 ```
 
-PenaltySP_FE is a subclass of FE_Element used to enforce a single point
+PenaltySP_FE is a subclass of `FE_Element` used to enforce a single point
 constraint. It does this by adding $\alpha$ to the tangent and
 $\alpha * (U\_s - U\_t)$ to the residual at the locations corresponding
 to the constrained degree-of-freedom specified by the `SP_Constraint`,
@@ -26,7 +26,7 @@ current trial displacement at the node corresponding to the constraint.
 
 To construct a `PenaltySP_FE` element to enforce the constraint specified
 by the `SP_Constraint` `theSP` using a value for $\alpha$ of *alpha*
-(which, if none is specified, defaults to $1.0e8$). The FE_Element class
+(which, if none is specified, defaults to $1.0e8$). The `FE_Element` class
 constructor is called with the integers $1$ and $1$. A `Matrix` and a
 Vector object of order $1$ are created to return the tangent and
 residual contributions, with the tangent entry being set at $\alpha$. A

@@ -70,7 +70,7 @@ acceleration to *dispFlag*.
 Invokes the destructor on the Vector objects created.
 
 \
-This tangent for each FE_Element is defined to be ${\bf K}_e = c1 {\bf K} + c2
+This tangent for each `FE_Element` is defined to be ${\bf K}_e = c1 {\bf K} + c2
 \D + c3 \M$, where c1,c2 and c3 were determined in the last invocation
 of the `newStep()` method. The method returns $0$ after performing the
 following operations:
@@ -104,7 +104,7 @@ Vectors created and then creates $6$ new Vector objects of size equal to
 *theLinearSOE-$>$getNumEqn()*. There is a Vector object created to store
 the current displacement, velocity and accelerations at times $t$ and
 $t + \Delta t$. The response quantities at time $t + \Delta t$ are then
-set by iterating over the DOF_Group objects in the model and obtaining
+set by iterating over the `DOF_Group` objects in the model and obtaining
 their committed values. Returns $0$ if successful, otherwise a warning
 message and a negative number is returned: $-1$ if no memory was
 available for constructing the Vectors.
@@ -130,7 +130,7 @@ The following are performed when this method is invoked:
     \delta t$ are set using the difference approximations if *dispFlag*
     was *true*. (displacement and velocity if *false*).
 
-4.  The response quantities at the DOF_Group objects are updated with
+4.  The response quantities at the `DOF_Group` objects are updated with
     the new approximations by invoking `setResponse()` on the
     AnalysisModel with new quantities for time $t + \Delta t$.
 
@@ -149,7 +149,7 @@ not been called.
 int update(const Vector &$\Delta U$);
 ```
 
-Invoked this causes the object to increment the DOF_Group response
+Invoked this causes the object to increment the `DOF_Group` response
 quantities at time $t + \Delta t$. The displacement Vector is
 incremented by $c1 * \Delta U$, the velocity Vector by $c2 * \Delta U$,
 and the acceleration Vector by $c3 * \Delta U$. The response at the

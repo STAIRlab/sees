@@ -16,7 +16,7 @@ position, trial displacement, velocity and acceleration, and committed
 displacement, velocity and acceleration (the last committed trial
 quantities). Nodes also store information about any load acting on the
 node, nodal mass and the nodal participation matrix. In addition, each
-Node object keeps track of it's associated DOF_Group object. The Node
+Node object keeps track of it's associated `DOF_Group` object. The Node
 interface provides methods to set and retrieve these quantities.
 
 ### Constructors
@@ -129,15 +129,15 @@ Returns the number of degrees-of-freedom, *ndof*, associated with the
 node.
 
 Each node, when involved with an analysis, will be associated with a
-DOF_Group object. It is the DOF_Group that contains the ID of equation
+DOF_Group object. It is the `DOF_Group` that contains the ID of equation
 numbers. When invoked this method sets the pointer to that DOF_Group
 object.
 
 ```{.cpp}
-virtual DOF_Group \*getDOF_GroupPtr(void);
+virtual `DOF_Group` \*getDOF_GroupPtr(void);
 ```
 
-Method which returns a pointer to the DOF_Group object that was set
+Method which returns a pointer to the `DOF_Group` object that was set
 using *setDOF_GroupPtr*. If no pointer has been set a $0$ is returned.
 
 ```{.cpp}

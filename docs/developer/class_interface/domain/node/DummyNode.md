@@ -13,7 +13,7 @@ DummyNodes are a type of node created and used by Subdomains for their
 exterior nodes. They reference a real node and most methods invoked on
 them are in turn invoked by the dummy node on the real node. The calls
 asking the real node to change its current state are ignored. The calls
-involving DOF_Group are handled by the dummy node.
+involving `DOF_Group` are handled by the dummy node.
 
 \
 To construct a dummy node which is associated with the node pointed to
@@ -23,15 +23,15 @@ by *theRealNode*.
 
 \
 Each DummyNode, when involved with a StaticCondensationAnalysis
-analysis, will be associated with a DOF_Group object. It is the
+analysis, will be associated with a `DOF_Group` object. It is the
 DOF_Group that contains the ID of equation numbers. When invoked this
 method sets that link for the DummyNode object.
 
 ```{.cpp}
-virtual DOF_Group \*getDOF_GroupPtr(void);
+virtual `DOF_Group` \*getDOF_GroupPtr(void);
 ```
 
-Method which returns a pointer to the DOF_Group object that was set
+Method which returns a pointer to the `DOF_Group` object that was set
 using *setDOF_GroupPtr*. If no pointer has been set a $0$ is returned.
 
 ```{.cpp}

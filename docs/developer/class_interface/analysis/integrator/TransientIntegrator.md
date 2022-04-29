@@ -89,7 +89,7 @@ ${\bf U}_{t}^{(0)} = {\bf U}_{t-\Delta t}$. The $\dot {\bf U}_{t}^{(0)}$ and
 $\ddot {\bf U}_{t}^{(0)}$ can then be obtained from the operators for the
 integration scheme.
 Subclasses of TransientIntegrators provide methods informing the
-FE_Element and DOF_Group objects how to build the tangent and residual
+FE_Element and `DOF_Group` objects how to build the tangent and residual
 matrices and vectors. They also provide the method for updating the
 response quantities at the DOFs with appropriate values; these values
 being some function of the solution to the linear system of equations.
@@ -145,7 +145,7 @@ FE_Elements are associated with a ShadowSubdomain.
 virtual int formEleResidual(FE_Element *theEle);
 ```
 
-Called upon by the FE_Element *theEle* to determine it's contribution to
+Called upon by the `FE_Element` *theEle* to determine it's contribution to
 the rhs of the equation. The following are invoked before $0$ is
 returned.
 

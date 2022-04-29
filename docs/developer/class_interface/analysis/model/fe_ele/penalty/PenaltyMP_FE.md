@@ -3,11 +3,11 @@
 ```cpp
 #include <analysis/fe_ele/penalty/PenaltyMP_FE.h>
 
-class PenaltyMP_FE: public FE_Element ;
+class PenaltyMP_FE: public `FE_Element` ;
 ```
 
 
-PenaltyMP_FE is a subclass of FE_Element used to enforce a multi point
+PenaltyMP_FE is a subclass of `FE_Element` used to enforce a multi point
 constraint, of the form ${\bf U}_c = {\bf C}_{cr} {\bf U}_r$, where ${\bf U}_c$ are the
 constrained degrees-of-freedom at the constrained node, ${\bf U}_r$ are the
 retained degrees-of-freedom at the retained node and ${\bf C}_{cr}$ a matrix
@@ -32,7 +32,7 @@ ${\bf C}_{cr}]$. Nothing is added to the residual.
 \
 To construct a PenaltyMP_FE element to enforce the constraint specified
 by the `MP_Constraint` *theMP* using a default value for $\alpha$ of
-$alpha$. The FE_Element class constructor is called with the integers
+$alpha$. The `FE_Element` class constructor is called with the integers
 $2$ and the size of the *retainedID* plus the size of the
 *constrainedID* at the `MP_Constraint` *theMP*. A Matrix and a Vector
 object are created for adding the contributions to the tangent and the
@@ -52,7 +52,7 @@ constructor that have not yet been destroyed.
 \
 Causes the PenaltyMP_FE to determine the mapping between it's equation
 numbers and the degrees-of-freedom. This information is obtained by
-using the mapping information at the DOF_Group objects associated with
+using the mapping information at the `DOF_Group` objects associated with
 the constrained and retained nodes to determine the mappings between the
 degrees-of-freedom identified in the *constrainedID* and the
 *retainedID* at the `MP_Constraint` *theMP*. Returns $0$ if successful.
@@ -60,7 +60,7 @@ Prints a warning message and returns a negative number if an error
 occurs: $-2$ if the Node has no associated DOF_Group, $-3$ if the
 constrained DOF specified is invalid for this Node (sets corresponding
 ID component to $-1$ so nothing is added to the tangent) and $-4$ if the
-ID in the DOF_Group is too small for the Node (again setting
+ID in the `DOF_Group` is too small for the Node (again setting
 corresponding ID component to $-1$).
 
 If the `MP_Constraint` is time-varying, from the `MP_Constraint` *theMP* it

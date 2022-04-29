@@ -11,7 +11,7 @@ The `ConstraintHandler` class is an abstract base class. Its purpose is to
 define the interface common among all subclasses. A constraint handler
 is responsible for:
 
-1.  creating the FE_Element and DOF_Group objects and adding them to the
+1.  creating the `FE_Element` and `DOF_Group` objects and adding them to the
     AnalysisModel.
 
 2.  setting the initial dof equation numbers to $-1$, $-2$ or $-3$. A
@@ -19,7 +19,7 @@ is responsible for:
     to be allocated for this dof, a $-3$ that this dof is to be among
     the last group of dof to be numbered.
 
-3.  deleting the DOF_Group and FE_Element objects that it created.
+3.  deleting the `DOF_Group` and `FE_Element` objects that it created.
 
 
 ### Constructor
@@ -49,11 +49,11 @@ Invoked to set the links that the ConstraintHandler will need. These
 include links to the Domain, *theDomain*, for which the
 ConstraintHandler object will apply the constraints and the
 AnalysisModel, *theModel*, to which the ConstraintHandler will add the
-FE_Element and DOF_Group objects.
+FE_Element and `DOF_Group` objects.
 
 Invoked to handle the constraints imposed on the domain by the
 SP_Constraints and MP_Constraints. The ConstraintHandler object does
-this by instantiating the appropriate FE_ELement and DOF_Group objects
+this by instantiating the appropriate `FE_Element` and `DOF_Group` objects
 and adding them to the AnalysisModel. For all the dofs in each DOF_Group
 the ConstraintHandler sets initial equation numbers as either $-1$, $-2$
 or $-3$: A $-1$ indicates to the DOF_Numberer object that no equation
@@ -68,7 +68,7 @@ negative integer if not; the positive number is to be set at the number
 of dof assigned a value $-3$ (this will be the number of external dof
 for a subdomain), the negative value of which depends on the type of
 ConstraintHandler. For subdomains the constraint handler is responsible
-for setting the FE_Element by calling *setFE_elementPtr*.
+for setting the `FE_Element` by calling *setFE_elementPtr*.
 
 ```{.cpp}
 virtual void clearAll(void) =0;

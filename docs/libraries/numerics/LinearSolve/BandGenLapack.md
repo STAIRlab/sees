@@ -1,8 +1,49 @@
 # BandGenLinLapackSolver
 
-## User Interface
+This command is used to construct a BandGeneralSOE linear system of equation
+object. As the name implies, this class is used for matrix systems which have a
+banded profile. The matrix is stored as shown below in a one-dimensional array
+of size equal to the bandwidth times the number of unknowns. When a solution is
+required, the Lapack routines DGBSV and SGBTRS  are used.
 
-## Class Interface
+## Theory
+
+An $n\timesn$ matrix *A*=(*a*~*i,j*~) is a **band matrix** if all matrix
+elements are zero outside a diagonally bordered band whose range is
+determined by constants *k*~1~ and *k*~2~:
+
+$$a_{i,j}=0 \quad\mbox{if}\quad j<i-k_1 \quad\mbox{ or }\quad j>i+k_2; \quad k_1, k_2 \ge 0.\,$$
+
+The quantities *k*~1~ and *k*~2~ are the *left* and *right*
+*half-bandwidth*, respectively. The *bandwidth* of the matrix is
+*k*~1~ + *k*~2~ + 1 (in other words, the smallest number of adjacent
+diagonals to which the non-zero elements are confined).
+
+and matrices are usually stored by storing the diagonals in the band;
+the rest is implicitly zero.
+
+For example, 6-by-6 a matrix with bandwidth 3:
+
+$$\begin{bmatrix}
+ B_{11} & B_{12} & 0      & \cdots & \cdots & 0 \\
+ B_{21} & B_{22} & B_{23} & \ddots & \ddots & \vdots \\
+  0     & B_{32} & B_{33} & B_{34} & \ddots & \vdots \\
+ \vdots & \ddots & B_{43} & B_{44} & B_{45} & 0 \\
+ \vdots & \ddots & \ddots & B_{54} & B_{55} & B_{56} \\
+ 0      & \cdots & \cdots & 0      & B_{65} & B_{66}
+\end{bmatrix}$$ is stored as the 6-by-3 matrix
+
+$$\begin{bmatrix}
+ 0 & B_{11} & B_{12}\\
+ B_{21} & B_{22} & B_{23} \\
+ B_{32} & B_{33} & B_{34} \\
+ B_{43} & B_{44} & B_{45} \\
+ B_{54} & B_{55} & B_{56} \\
+ B_{65} & B_{66} & 0
+\end{bmatrix}.$$
+
+
+## C++ Interface
 
 ```cpp
 #include <system_of_eqn/linearSOE/bandGEN/BandGenLinLapackSolver.h>
@@ -60,3 +101,8 @@ enough memory is available for this new array.
 Does nothing but return $0$.
 
 Does nothing but return $0$.
+
+------------------------------------------------------------------------
+
+Code Developed by: `<span style="color:blue">`{=html} fmk
+`</span>`{=html}

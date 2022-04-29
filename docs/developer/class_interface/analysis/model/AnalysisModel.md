@@ -29,7 +29,7 @@ the associated Domain. It provides operations for the following:
 -   **Trigger**: methods which trigger events in the domain.
 
 Each subclass of `AnalysisModel` must have its own subclasses of
-`FE_ELEIter` and `DOF_GrpIter`. NOTE at the moment FE_Element and DOF_Group
+`FE_ELEIter` and `DOF_GrpIter`. NOTE at the moment `FE_Element` and DOF_Group
 objects are not TaggedObjects and for this reason TaggedObjectStorage
 classes cannot be used for storage. This may change to allow efficient
 storage classes to be used.
@@ -98,14 +98,14 @@ DOF_Groups and iters to access them must be provided by the subclass.
 
 \
 Is responsible for returning to memory the arrays used for storing
-pointers to the FE_Element and DOF_Groups which have been added to the
+pointers to the `FE_Element` and DOF_Groups which have been added to the
 AnalysisModel. It is not responsible for deleting the individual
-DOF_Group and FE_Element objects, that is the responsibility of the
+DOF_Group and `FE_Element` objects, that is the responsibility of the
 ConstraintHandler. If the Graphs have been requested their destructor is
 invoked.
 
 \
-Adds the FE_Element pointed to by *theElement* to the domain and invokes
+Adds the `FE_Element` pointed to by *theElement* to the domain and invokes
 *setAnalysisModel(\*this)* on the FE_Element. If the array for the
 FE_Elements is large enough, it adds this pointer to the array and
 increments the number of FE_Elements in the array. If the array is not
@@ -120,7 +120,7 @@ the method.
 virtual bool addDOF_Group(DOF_Group \*theGroup);
 ```
 
-Adds the DOF_Group pointed to by *theGroup* to the domain. If the array
+Adds the `DOF_Group` pointed to by *theGroup* to the domain. If the array
 for the DOF_Groups is large enough, it adds this pointer to the array
 and increments the number of DOF_Groups in the array. If the array is
 not large enough, a new one double in size is constructed, all the old
@@ -134,18 +134,18 @@ method.
 virtual void clearAll(void);
 ```
 
-Clears from the model all FE_Element and DOF_Group objects that have
+Clears from the model all `FE_Element` and `DOF_Group` objects that have
 been added to the analysis model using the above two methods. It does
 this by setting the components in the two arrays of pointers equal to
 $0$ and setting the number of components to $0$. If the Graphs have been
 created their destructor is invoked. Also sets *numEqn* to $0$.
 
 \
-Returns the number of DOF_Group objects that have been added to the
+Returns the number of `DOF_Group` objects that have been added to the
 model.
 
-Returns a pointer to the DOF_Group object whose tag is given by *tag*.
-It first checks to see if the DOF_Group object is at the location in the
+Returns a pointer to the `DOF_Group` object whose tag is given by *tag*.
+It first checks to see if the `DOF_Group` object is at the location in the
 array given by *tag*; if not it searches through the array to find the
 DOF_Group object. Returns a pointer to the object if found, otherwise
 $0$ is returned.
@@ -153,7 +153,7 @@ $0$ is returned.
 Returns an *FE_EleIter* for the FE_Elements of the model.
 
 ```{.cpp}
-virtual DOF_Group getDOFs(void)=0;
+virtual `DOF_Group` getDOFs(void)=0;
 ```
 
 Returns a *DOF_GrpIter* for the DOF_Groups of the model.
@@ -181,7 +181,7 @@ through and construct the Graph.
 virtual const Graph &getDOFGroupGraph(void);
 ```
 
-Returns the connectivity of the DOF_Group objects in the model. This
+Returns the connectivity of the `DOF_Group` objects in the model. This
 graph is used by the DOF_Numberer to assign equation numbers to the
 dofs. If no graph has yet been constructed it creates a new
 DOF_GroupGraph object using itself as the argument, otherwise it returns
@@ -189,15 +189,15 @@ a pointer to this graph. AGAIN WILL CHANGE.
 
 \
 The model is responsible for invoking `setDisp(disp)`, `setVel(vel)` and
-`setAccel(accel)` on each DOF_Group in the model. It does this by
-iterating over the DOF_Group objects using the iter.
+`setAccel(accel)` on each `DOF_Group` in the model. It does this by
+iterating over the `DOF_Group` objects using the iter.
 
 ```{.cpp}
 virtual void setDisp(const const Vector &disp);
 ```
 
 The model is responsible for invoking `setDisp(disp)` on each DOF_Group
-in the model. It does this by getting an iter to the DOF_Group objects
+in the model. It does this by getting an iter to the `DOF_Group` objects
 and iterating through them invoking `setNodeDisp(disp)` on each
 DOF_Group.
 
@@ -205,8 +205,8 @@ DOF_Group.
 virtual void setVel(const const Vector &vel);
 ```
 
-The model is responsible for invoking `setVel(vel)` on each DOF_Group in
-the model. It does this by getting an iter to the DOF_Group objects and
+The model is responsible for invoking `setVel(vel)` on each `DOF_Group` in
+the model. It does this by getting an iter to the `DOF_Group` objects and
 iterating through them invoking `setNodeVel(vel)` on each DOF_Group.
 
 ```{.cpp}
@@ -298,7 +298,7 @@ To set the current load factor in the Domain to be *newFactor*. If no
 Domain has been set a warning message is printed, otherwise
 `setCurrentLoadFactor(newFactor)` is invoked on the Domain.
 
-Returns $0$. Note the FE_Elements and DOF_Group objects are not sent as
+Returns $0$. Note the FE_Elements and `DOF_Group` objects are not sent as
 they are not MovableObjects. AnalysisModel objects are only sent when
 setting up a DomainDecompAnalysis on a remote process; only type info
 and whatever subclasses might need need to be sent.

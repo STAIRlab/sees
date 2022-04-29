@@ -13,11 +13,11 @@ DirectIntegrationAnalysis is a subclass of TransientAnalysis. It is used
 to perform a transient analysis using an incremental approach on the
 Domain. The following are the aggregates of such an analysis type:
 
--   **AnalysisModel** - a container class holding the FE_Element and
-    DOF_Group objects created by the ConstraintHandler object.
+-   **AnalysisModel** - a container class holding the `FE_Element` and
+    `DOF_Group` objects created by the ConstraintHandler object.
 
--   **ConstraintHandler** - a class which creates the DOF_Group and
-    FE_Element objects, the type of objects created depending on how the
+-   **ConstraintHandler** - a class which creates the `DOF_Group` and
+    `FE_Element` objects, the type of objects created depending on how the
     specified constraints in the domain are to be handled.
 
 -   **DOF_Numberer** - a class responsible for providing equation
@@ -29,7 +29,7 @@ Domain. The following are the aggregates of such an analysis type:
     $Ax = b$, where $A$ is a matrix and $x$ and $b$ are vectors.
 
 -   **TransientIntegrator** - an algorithmic class which provides
-    methods which are invoked by the FE_Element to determine their
+    methods which are invoked by the `FE_Element` to determine their
     current tangent and residual matrices; that is this is the class
     that sets up the system of equations. It also provides the
     `update()` method which is invoked to set up the appropriate dof
@@ -115,7 +115,7 @@ that the domain has changed. The method invokes the following:
     `clearAll()` on *theHandler*.
 
 2.  It then invokes `handle()` on *theHandler*. This causes the
-    constraint handler to recreate the appropriate FE_Element and
+    constraint handler to recreate the appropriate `FE_Element` and
     DOF_Groups to perform the analysis subject to the boundary
     conditions in the modified domain.
 

@@ -35,14 +35,14 @@ constraint.
 \
 To construct a LagrangeSP_FE element to enforce the constraint specified
 by the SP_Constraint *theSP* using a value for $\alpha$ of *alpha*
-(which, if none is specified, defaults to $1.0$). The FE_Element class
+(which, if none is specified, defaults to $1.0$). The `FE_Element` class
 constructor is called with the integers $2$ and $2$. A Matrix and a
 Vector object of order $2$ are created to return the tangent and
 residual contributions, with the tangent entries (0,1) and (1,0) set at
 $\alpha$. A link to the Node in the Domain corresponding to the
 SP_Constraint is also set. A warning message is printed and program
 terminates if there is not enough memory or no Node associated with the
-SP_Constraint exists in the Domain, or DOF_Group is associated with the
+SP_Constraint exists in the Domain, or `DOF_Group` is associated with the
 Node.
 
 \
@@ -52,15 +52,15 @@ constructor.
 \
 Causes the LagrangeSP_FE to determine the mapping between it's equation
 numbers and the degrees-of-freedom. From the Node object link, created
-in the constructor, the DOF_group corresponding to the Node associated
+in the constructor, the `DOF_Group` corresponding to the Node associated
 with the constraint is determined. From this *DOF_Group* object the
 mapping for the constrained degree of freedom is determined and the
 myID(0) in the base class is set. The myID(1) is determined from the
-Lagrange DOF_Group *theGroup* passed in the constructor. Returns $0$ if
+Lagrange `DOF_Group` *theGroup* passed in the constructor. Returns $0$ if
 successful. Prints a warning message and returns a negative number if an
 error occurs: $-2$ if the Node has no associated DOF_Group, $-3$ if the
 constrained DOF specified is invalid for this Node and $-4$ if the ID in
-the DOF_Group is too small for the Node.
+the `DOF_Group` is too small for the Node.
 
 Returns the tangent Matrix created in the constructor.
 

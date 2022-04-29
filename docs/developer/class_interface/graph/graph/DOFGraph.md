@@ -19,8 +19,8 @@ that fully implements the graph interface.
 \
 The constructor is responsible for constructing the graph given
 *theModel*. It creates the vertices of the graph, one for every DOF in
-the model and adds all edges based on the FE_Element connectivity. For
-this reason the model must be fully populated with the DOF_Group and
+the model and adds all edges based on the `FE_Element` connectivity. For
+this reason the model must be fully populated with the `DOF_Group` and
 FE_Element objects before the constructor is called.
 
 \

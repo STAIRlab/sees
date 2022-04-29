@@ -1,9 +1,10 @@
 # Section Building
 
-<div class="mw-parser-output"><div id="toc" class="toc"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none">
-<div class="toctitle" lang="en" dir="ltr">
+<div class="mw-parser-output">
+<!-- <div id="toc" class="toc"> -->
+<!-- <input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"> -->
+<!-- <div class="toctitle" lang="en" dir="ltr"> -->
 
-## Introduction
 For the case of the uniaxial section, moment-curvature and axial force-deformation curves are defined independently, and numerically.
 
 For the case of the fiber sections (steel and RC), uniaxial materials are defined numerically (stress-strain relationship) and are combined into a fiber section where moment-curvature and axial force-deformation characteristics and their interaction are calculated computationally.
@@ -32,20 +33,10 @@ subsequent analysis. There are two differences between the two models:
 <strong>Files</strong><ul><li><a href="./Ex9a.build.UniaxialSection2D.tcl" class="internal" title="Ex9a.build.UniaxialSection2D.tcl">Ex9a.build.UniaxialSection2D.tcl</a></li>
 <li><a href="./Ex9a.build.UniaxialSection3D.tcl" class="internal" title="Ex9a.build.UniaxialSection3D.tcl">Ex9a.build.UniaxialSection3D.tcl</a></li>
 <li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
-<!--
-<table style="width:100%; vertical-align:top;background:#white;">
-  <tbody><tr><td></td></tr></tbody>
-</table>
--->
 </td>
 
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Flexure and axial behavior are uncoupled in this type of section</li></ul>
-<!--
-<table style="width:100%; vertical-align:top;background:#white;">
-    <tbody><tr><td></td></tr></tbody>
-</table>
--->
 </td></tr></tbody></table>
 
 <table style="margin:0; background:none; border:3px solid #ccc;">
@@ -60,24 +51,17 @@ subsequent analysis. There are two differences between the two models:
  </td></tr></tbody>
 </table>
 </td>
+
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9b.build.WSection2D.tcl" class="internal" title="Ex9b.build.WSection2D.tcl">Ex9b.build.WSection2D.tcl</a></li>
 <li><a href="./Ex9b.build.WSection3D.tcl" class="internal" title="Ex9b.build.WSection3D.tcl">Ex9b.build.WSection3D.tcl</a></li>
 <li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
-<!--
-<table style="width:100%; vertical-align:top;background:#white;">
-  <tbody><tr><td></td></tr></tbody>
-</table>
--->
 </td>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li></ul>
-<!--
-<table style="width:100%; vertical-align:top;background:#white;">
-  <tbody><tr><td></td></tr></tbody>
+</td></tr></tbody>
 </table>
--->
-</td></tr></tbody></table>
+
 <table style="margin:0; background:none; border:3px solid #ccc;">
 <tbody><tr>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
@@ -101,10 +85,6 @@ subsequent analysis. There are two differences between the two models:
 </td>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li></ul>
-<!--
-<table style="width:100%; vertical-align:top;background:#white;">
-  <tbody><tr><td></td></tr></tbody></table>
--->
 </td></tr></tbody>
 </table>
 <table style="margin:0; background:none; border:3px solid #ccc;">
@@ -149,23 +129,25 @@ subsequent analysis. There are two differences between the two models:
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9e.build.RCSection.Rect2D.tcl" class="internal" title="Ex9e.build.RCSection.Rect2D.tcl">Ex9e.build.RCSection.Rect2D.tcl</a></li>
 <li><a href="./Ex9e.build.RCSection.Rect3D.tcl" class="internal" title="Ex9e.build.RCSection.Rect3D.tcl">Ex9e.build.RCSection.Rect3D.tcl</a></li>
-<li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul><table style="width:100%; vertical-align:top;background:#white;">
-
-
+<li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
+<!--
+<table style="width:100%; vertical-align:top;background:#white;">
 <tbody><tr><td></td></tr></tbody></table>
+-->
 </td>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li>
-<li>generic rectangular section</li></ul><table style="width:100%; vertical-align:top;background:#white;">
-
-
+<li>generic rectangular section</li></ul>
+<!--
+<table style="width:100%; vertical-align:top;background:#white;">
 <tbody><tr><td></td></tr></tbody></table>
+-->
 </td></tr></tbody></table>
 <table style="margin:0; background:none; border:3px solid #ccc;">
 <tbody><tr>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
-<h4><span id="Fiber_Section:_Reinforced_Concrete_Section_--_Circular_Section,_Confined_Core"></span><span class="mw-headline" id="Fiber_Section:_Reinforced_Concrete_Section_--_Circular_Section.2C_Confined_Core">Fiber Section: Reinforced Concrete Section -- Circular Section, Confined Core</span></h4><table style="width:100%; vertical-align:top;background:#white;">
-
+<h4><span id="Fiber_Section:_Reinforced_Concrete_Section_--_Circular_Section,_Confined_Core"></span><span class="mw-headline" id="Fiber_Section:_Reinforced_Concrete_Section_--_Circular_Section.2C_Confined_Core">Fiber Section: Reinforced Concrete Section -- Circular Section, Confined Core</span></h4>
+<table style="width:100%; vertical-align:top;background:#white;">
 <tbody><tr>
 <td style="color:#000;">
 <p><a href="/wiki/index.php/OpenSees_Example_9._Build_%26_Analyze_a_Section_Example" title="OpenSees Example 9. Build &amp; Analyze a Section Example"><img alt="ExampleSection RCcirc.gif" src="./ExampleSection_RCcirc.gif" width="459" height="167"></a>
@@ -175,28 +157,29 @@ subsequent analysis. There are two differences between the two models:
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9f.build.RCSection.Circ2D.tcl" class="internal" title="Ex9f.build.RCSection.Circ2D.tcl">Ex9f.build.RCSection.Circ2D.tcl</a></li>
 <li><a href="./Ex9f.build.RCSection.Circ3D.tcl" class="internal" title="Ex9f.build.RCSection.Circ3D.tcl">Ex9f.build.RCSection.Circ3D.tcl</a></li>
-<li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul><table style="width:100%; vertical-align:top;background:#white;">
-
-
+<li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
+<!--
+<table style="width:100%; vertical-align:top;background:#white;">
 <tbody><tr><td></td></tr></tbody></table>
+-->
 </td>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li>
-<li>generic circular section</li></ul><table style="width:100%; vertical-align:top;background:#white;">
-
-
+<li>generic circular section</li></ul>
+<!--
+<table style="width:100%; vertical-align:top;background:#white;">
 <tbody><tr><td></td></tr></tbody></table>
+-->
 </td></tr></tbody></table>
 <table style="margin:0; background:none; border:3px solid #ccc;">
 <tbody><tr>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
-<h4><span id="Fiber_Section:_Reinforced_Concrete_Hollow_Section_--_Symmetric_Section,_Confined_Concrete"></span><span class="mw-headline" id="Fiber_Section:_Reinforced_Concrete_Hollow_Section_--_Symmetric_Section.2C_Confined_Concrete">Fiber Section: Reinforced Concrete Hollow Section -- Symmetric Section, Confined Concrete</span></h4><table style="width:100%; vertical-align:top;background:#white;">
-
-<tbody><tr>
-<td style="color:#000;">
-<p><a href="/wiki/index.php/OpenSees_Example_9._Build_%26_Analyze_a_Section_Example" title="OpenSees Example 9. Build &amp; Analyze a Section Example"><img alt="HollowRC.png" src="./HollowRC.png" width="302" height="349"></a>
-</p>
-</td></tr></tbody></table>
+<h4><span id="Fiber_Section:_Reinforced_Concrete_Hollow_Section_--_Symmetric_Section,_Confined_Concrete"></span><span class="mw-headline" id="Fiber_Section:_Reinforced_Concrete_Hollow_Section_--_Symmetric_Section.2C_Confined_Concrete">Fiber Section: Reinforced Concrete Hollow Section -- Symmetric Section, Confined Concrete</span></h4>
+<table style="width:100%; vertical-align:top;background:#white;">
+  <tbody><tr><td style="color:#000;">
+  <p><a href="/wiki/index.php/OpenSees_Example_9._Build_%26_Analyze_a_Section_Example" title="OpenSees Example 9. Build &amp; Analyze a Section Example"><img alt="HollowRC.png" src="./HollowRC.png" width="302" height="349"></a></p>
+  </td></tr></tbody>
+</table>
 </td>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9g.build.HollowSection3D.tcl" class="internal" title="Ex9g.build.HollowSection3D.tcl">Ex9g.build.HollowSection3D.tcl</a></li>
@@ -206,10 +189,11 @@ subsequent analysis. There are two differences between the two models:
 <tbody><tr><td></td></tr></tbody></table>
 </td>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
-<strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li></ul><table style="width:100%; vertical-align:top;background:#white;">
-
-
+<strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li></ul>
+<!--
+<table style="width:100%; vertical-align:top;background:#white;">
 <tbody><tr><td></td></tr></tbody></table>
+-->
 </td></tr></tbody></table>
 <h3><span class="mw-headline" id="Moment-Curvature_Analysis">Moment-Curvature Analysis</span></h3>
 <ul><li>This example introduces the moment-curvature procedures for sections in 2D or 3D space, as built in the previous section. (the only difference between them is the degree-of-freedom corresponding to curvature).</li>
@@ -228,15 +212,18 @@ subsequent analysis. There are two differences between the two models:
 </td>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9.analyze.MomentCurvature2D.tcl" class="internal" title="Ex9.analyze.MomentCurvature2D.tcl">Ex9.analyze.MomentCurvature2D.tcl</a></li>
-<li><a href="./MomentCurvature2D.tcl" class="internal" title="MomentCurvature2D.tcl">MomentCurvature2D.tcl</a></li></ul><table style="width:100%; vertical-align:top;background:#white;">
-
-
+<li><a href="./MomentCurvature2D.tcl" class="internal" title="MomentCurvature2D.tcl">MomentCurvature2D.tcl</a></li></ul>
+<!--
+<table style="width:100%; vertical-align:top;background:#white;">
 <tbody><tr><td></td></tr></tbody></table>
+-->
 </td>
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
-<strong>Notes</strong><table style="width:100%; vertical-align:top;background:#white;">
-
+<strong>Notes</strong>
+<!--
+<table style="width:100%; vertical-align:top;background:#white;">
 <tbody><tr><td></td></tr></tbody></table>
+-->
 </td></tr></tbody></table>
 <table style="margin:0; background:none; border:3px solid #ccc;">
 <tbody><tr>
