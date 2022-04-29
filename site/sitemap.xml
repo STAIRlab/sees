@@ -736,11 +736,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/gallery/BasicPrimer/example_2/</loc>
-         <lastmod>2022-04-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/gallery/BasicPrimer/example_3/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
@@ -782,6 +777,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/gallery/sections/section_building/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/gallery/sections/MomentCurvature/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
