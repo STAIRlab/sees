@@ -781,6 +781,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/gallery/sections/section_limits/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/gallery/sections/MomentCurvature/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
@@ -1131,7 +1136,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/runtime/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/runtime/MomentCurvature/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/utilities/quadrature/</loc>
+         <lastmod>2022-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/utilities/torsion/</loc>
          <lastmod>2022-04-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
