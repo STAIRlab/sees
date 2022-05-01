@@ -15,7 +15,7 @@
     
     
       
-        <title>OpenSees Commands to Create Material Models using Template Elasto--Plastic Framework - OpenSeesRT</title>
+        <title>Template Elasto-Plastic Framework - OpenSeesRT</title>
       
     
     
@@ -94,8 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              OpenSees Commands to Create Material Models using Template
-Elasto--Plastic Framework
+              Template Elasto-Plastic Framework
 
             
           </span>
@@ -4463,6 +4462,8 @@ Elasto--Plastic Framework
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_1_6">
@@ -4514,6 +4515,21 @@ Elasto--Plastic Framework
     <li class="md-nav__item">
       <a href="../../../../developer/extending/NewMaterial/" class="md-nav__link">
         New Material Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/extending/NewRecorder/" class="md-nav__link">
+        Recorder
+
       </a>
     </li>
   
@@ -6352,7 +6368,7 @@ Elasto--Plastic Framework
   
     <li class="md-nav__item">
       <a href="../../element/Brick/" class="md-nav__link">
-        OpenSees Commands to Create Brick Elements
+        Brick?N
 
       </a>
     </li>
@@ -6511,8 +6527,7 @@ Elasto--Plastic Framework
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        OpenSees Commands to Create Material Models using Template
-Elasto--Plastic Framework
+        Template Elasto-Plastic Framework
 
       </a>
       
@@ -7609,7 +7624,7 @@ Elasto--Plastic Framework
 </a>
 
 
-<h1 id="EPTemplate_commands">OpenSees Commands to Create Material Models using Template Elasto–Plastic Framework</h1>
+<h1 id="EPTemplate_commands">Template Elasto-Plastic Framework</h1>
 <h2 id="YS_Command">Yield Surface Command</h2>
 <div class="highlight"><pre><span></span>set ys &quot;-YieldSurfaceType &lt;parameter list&gt;&quot;
 </pre></div>
@@ -7720,57 +7735,60 @@ nDMaterial Template3Dep 1 -YS $ys -PS $ps -EPS $EPS -ELS1 $ES1
 </pre></div>
 
 </div>
-<h3 id="druckerprager-model">Drucker–Prager Model</h3>
-<p> </p>
-<div class="small">
-<div class="highlight"><pre><span></span># Yield surface 
-set ys &quot;-DP&quot;
+<details>
+<summary>
+Drucker–Prager Model
+</summary>
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="c"># Yield surface </span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ys<span class="w"> </span><span class="s2">&quot;-DP&quot;</span>
 
-# Potential surface
-set ps &quot;-DP 0.1&quot;
+<span class="w">    </span><span class="c"># Potential surface</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ps<span class="w"> </span><span class="s2">&quot;-DP 0.1&quot;</span>
 
-# Scalar evolution law: linear hardening coef = 1.0
-set ES1  &quot;-Leq  1.10&quot;
+<span class="w">    </span><span class="c"># Scalar evolution law: linear hardening coef = 1.0</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ES1<span class="w">  </span><span class="s2">&quot;-Leq  1.10&quot;</span>
 
-# Initial stress
-set sts &quot;0.10 0 0  0 0.10 0  0 0 0.10&quot;
+<span class="w">    </span><span class="c"># Initial stress</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>sts<span class="w"> </span><span class="s2">&quot;0.10 0 0  0 0.10 0  0 0 0.10&quot;</span>
 
-# EPState
-#______________alpha___k
-set EPS &quot;-NOD 0 -NOS 2 0.2 0.0 -stressp $sts&quot;
-#
-# where
-#alpha = 2 sin(phi) / (3^0.5) / (3-sin(phi) ), phi is the friction angle
-# and k is the cohesion
+<span class="w">    </span><span class="c"># EPState</span>
+<span class="w">    </span><span class="c">#______________alpha___k</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>EPS<span class="w"> </span><span class="s2">&quot;-NOD 0 -NOS 2 0.2 0.0 -stressp $sts&quot;</span>
+<span class="w">    </span><span class="c">#</span>
+<span class="w">    </span><span class="c"># where</span>
+<span class="w">    </span><span class="c">#alpha = 2 sin(phi) / (3^0.5) / (3-sin(phi) ), phi is the friction angle</span>
+<span class="w">    </span><span class="c"># and k is the cohesion</span>
 
-# Creating nDMaterial using Template Elastic-Plastic Model
-nDMaterial Template3Dep 1 -YS $ys -PS $ps -EPS $EPS -ELS1 $ES1
+<span class="w">    </span><span class="c"># Creating nDMaterial using Template Elastic-Plastic Model</span>
+<span class="w">    </span><span class="nv">nDMaterial</span><span class="w"> </span>Template3Dep<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>YS<span class="w"> </span><span class="nv">$ys</span><span class="w"> </span><span class="o">-</span>PS<span class="w"> </span><span class="nv">$ps</span><span class="w"> </span><span class="o">-</span>EPS<span class="w"> </span><span class="nv">$EPS</span><span class="w"> </span><span class="o">-</span>ELS1<span class="w"> </span><span class="nv">$ES1</span>
 </pre></div>
 
-</div>
-<h3 id="cam-clay-model">Cam-clay Model</h3>
-<p> </p>
-<div class="small">
-<div class="highlight"><pre><span></span># Yield surface M = 1.2
-set ys &quot;-CC 1.2&quot;
+</details>
+ 
+<details>
+<summary>
+Cam-clay Model
+</summary>
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="c"># Yield surface M = 1.2</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ys<span class="w"> </span><span class="s2">&quot;-CC 1.2&quot;</span>
 
-# Potential surface M = 1.2
-set ps &quot;-CC 1.2&quot;
+<span class="w">    </span><span class="c"># Potential surface M = 1.2</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ps<span class="w"> </span><span class="s2">&quot;-CC 1.2&quot;</span>
 
-# Scalar evolution law___void ratio___Lamda___Kappa 
-set ES1  &quot;-NLp           0.85        0.19   0.06&quot;
+<span class="w">    </span><span class="c"># Scalar evolution law___void ratio___Lamda___Kappa </span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ES1<span class="w">  </span><span class="s2">&quot;-NLp           0.85        0.19   0.06&quot;</span>
 
-# Initial stress
-set sts &quot;0.10 0 0  0 0.10 0  0 0 0.10&quot;
+<span class="w">    </span><span class="c"># Initial stress</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>sts<span class="w"> </span><span class="s2">&quot;0.10 0 0  0 0.10 0  0 0 0.10&quot;</span>
 
-#________________po
-set EPS &quot;-NOS 1 200.1 -stressp $sts&quot;
+<span class="w">    </span><span class="c">#________________po</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>EPS<span class="w"> </span><span class="s2">&quot;-NOS 1 200.1 -stressp $sts&quot;</span>
 
-#
-nDMaterial Template3Dep 1 -YS $ys -PS $ps -EPS $EPS -ELS1 $ES1
+<span class="w">    </span><span class="c">#</span>
+<span class="w">    </span><span class="nv">nDMaterial</span><span class="w"> </span>Template3Dep<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>YS<span class="w"> </span><span class="nv">$ys</span><span class="w"> </span><span class="o">-</span>PS<span class="w"> </span><span class="nv">$ps</span><span class="w"> </span><span class="o">-</span>EPS<span class="w"> </span><span class="nv">$EPS</span><span class="w"> </span><span class="o">-</span>ELS1<span class="w"> </span><span class="nv">$ES1</span>
 </pre></div>
 
-</div>
+</details>
 
 
               

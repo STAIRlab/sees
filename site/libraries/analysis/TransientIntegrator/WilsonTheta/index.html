@@ -4462,6 +4462,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_1_6">
@@ -4513,6 +4515,21 @@
     <li class="md-nav__item">
       <a href="../../../../developer/extending/NewMaterial/" class="md-nav__link">
         New Material Models
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/extending/NewRecorder/" class="md-nav__link">
+        Recorder
+
       </a>
     </li>
   
@@ -6361,7 +6378,7 @@
   
     <li class="md-nav__item">
       <a href="../../../modeling/element/Brick/" class="md-nav__link">
-        OpenSees Commands to Create Brick Elements
+        Brick?N
 
       </a>
     </li>
@@ -6511,8 +6528,7 @@
   
     <li class="md-nav__item">
       <a href="../../../modeling/nD/Template3Dep/" class="md-nav__link">
-        OpenSees Commands to Create Material Models using Template
-Elasto--Plastic Framework
+        Template Elasto-Plastic Framework
 
       </a>
     </li>
@@ -7657,30 +7673,29 @@ t}^{(i-1)}\right)\]</span></p>
 <p><br />
 Invokes the destructor on the Vector objects created.</p>
 <p>This tangent for each <code>FE_Element</code> is defined to be <span class="math inline">\({\bf K}_e = c1 \K + c2 \D + c3 \M\)</span>, where c1,c2 and c3 were determined in the last invocation of the <code>newStep()</code> method. Returns <span class="math inline">\(0\)</span> after performing the following operations:</p>
-<div class="tabbing">
-<p>if (RayleighDamping == false) {<br />
-theEle-<span class="math inline">\(&gt;\)</span>zeroTang()<br />
-theEle-<span class="math inline">\(&gt;\)</span>addKtoTang(c1)<br />
-theEle-<span class="math inline">\(&gt;\)</span>addCtoTang(c2)<br />
-theEle-<span class="math inline">\(&gt;\)</span>addMtoTang(c3)<br />
-} else {<br />
-theEle-<span class="math inline">\(&gt;\)</span>zeroTang()<br />
-theEle-<span class="math inline">\(&gt;\)</span>addKtoTang(c1 + c2 * <span class="math inline">\(\beta_K\)</span>)<br />
-theEle-<span class="math inline">\(&gt;\)</span>addMtoTang(c3 + c2 * <span class="math inline">\(\alpha_M\)</span>)<br />
-}</p>
-</div>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodTangent</span><span class="p">(</span><span class="n">DOF_Group</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theDof</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RayleighDamping</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">zeroTang</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">addKtoTang</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">addCtoTang</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">addMtoTang</span><span class="p">(</span><span class="n">c3</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">zeroTang</span><span class="p">()</span><span class="w"></span>
+<span class="w">  </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">addKtoTang</span><span class="p">(</span><span class="n">c1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">beta_K</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">addMtoTang</span><span class="p">(</span><span class="n">c3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">alpha_M</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodTangent</span><span class="p">(</span><span class="n">DOF_Group</span><span class="w"> </span><span class="o">*</span><span class="n">theDof</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>This performs the following:</p>
 <div class="tabbing">
-<p>while ̄ while w̄hile ̄ theDof-<span class="math inline">\(&gt;\)</span>zeroUnbalance()<br />
-if (RayleighDamping == false) theDof-<span class="math inline">\(&gt;\)</span>addMtoTang(c3) else theDof-<span class="math inline">\(&gt;\)</span>addMtoTang(c3 + c2 * <span class="math inline">\(\alpha_M\)</span>)</p>
+<p>theDof-<span class="math inline">\(&gt;\)</span>zeroUnbalance() if (RayleighDamping == false) theDof-<span class="math inline">\(&gt;\)</span>addMtoTang(c3) else theDof-<span class="math inline">\(&gt;\)</span>addMtoTang(c3 + c2 * <span class="math inline">\(\alpha_M\)</span>)</p>
 </div>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">domainChanged</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>If the size of the LinearSOE has changed, the object deletes any old Vectors created and then creates <span class="math inline">\(6\)</span> new Vector objects of size equal to <em>theLinearSOE-<span class="math inline">\(&gt;\)</span>getNumEqn()</em>. There is a Vector object created to store the current displacement, velocity and accelerations at times <span class="math inline">\(t\)</span> and <span class="math inline">\(t + \Delta t\)</span> (between <code>newStep()</code> and <code>commit()</code> the <span class="math inline">\(t + \Delta t\)</span> quantities store <span class="math inline">\(t + \Theta \Delta t\)</span> quantities). The response quantities at time <span class="math inline">\(t + \Delta t\)</span> are then set by iterating over the <code>DOF_Group</code> objects in the model and obtaining their committed values. Returns <span class="math inline">\(0\)</span> if successful, otherwise a warning message and a negative number is returned: <span class="math inline">\(-1\)</span> if no memory was available for constructing the Vectors.</p>
+<p>If the size of the LinearSOE has changed, the object deletes any old Vectors created and then creates <span class="math inline">\(6\)</span> new Vector objects of size equal to <code>theLinearSOE-&gt;getNumEqn()</code>. There is a Vector object created to store the current displacement, velocity and accelerations at times <span class="math inline">\(t\)</span> and <span class="math inline">\(t + \Delta t\)</span> (between <code>newStep()</code> and <code>commit()</code> the <span class="math inline">\(t + \Delta t\)</span> quantities store <span class="math inline">\(t + \Theta \Delta t\)</span> quantities). The response quantities at time <span class="math inline">\(t + \Delta t\)</span> are then set by iterating over the <code>DOF_Group</code> objects in the model and obtaining their committed values. Returns <span class="math inline">\(0\)</span> if successful, otherwise a warning message and a negative number is returned: <span class="math inline">\(-1\)</span> if no memory was available for constructing the Vectors.</p>
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">newStep</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">$</span><span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">t$</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
@@ -7689,19 +7704,19 @@ if (RayleighDamping == false) theDof-<span class="math inline">\(&gt;\)</span>ad
 <li><p>First sets the values of the three constants <code>c1</code>, <code>c2</code> and <code>c3</code>: <code>c1</code> is set to <span class="math inline">\(1.0\)</span>, <code>c2</code> to <span class="math inline">\(3 / (\Theta \Delta t)\)</span> and <code>c3</code> to <span class="math inline">\(6 / (\Theta \Delta t)^2)\)</span>.</p></li>
 <li><p>Then the Vectors for response quantities at time <span class="math inline">\(t\)</span> are set equal to those at time <span class="math inline">\(t + \Delta t\)</span>.</p>
 <div class="tabbing">
-<p>while w̄hile w̄hile w̄hile ̄ <span class="math inline">\({\bf U}_t = {\bf U}_{t + \Delta t}\)</span><br />
+<p><span class="math inline">\({\bf U}_t = {\bf U}_{t + \Delta t}\)</span><br />
 <span class="math inline">\(\dot{\bf U}_t = \dot{\bf U}_{t + \Delta t}\)</span><br />
 <span class="math inline">\(\ddot{\bf U}_t = \ddot{\bf U}_{t + \Delta t}\)</span></p>
 </div></li>
 <li><p>Then the velocity and accelerations approximations at time <span class="math inline">\(t + \Theta \Delta t\)</span> are set using the difference approximations,</p>
 <div class="tabbing">
-<p>while w̄hile w̄hile w̄hile ̄ <span class="math inline">\({\bf U}_{t + \theta \Delta t} = {\bf U}_t\)</span><br />
+<p><span class="math inline">\({\bf U}_{t + \theta \Delta t} = {\bf U}_t\)</span><br />
 <span class="math inline">\(\dot {\bf U}_{t + \theta \Delta t} = - 2 \dot {\bf U}_t + \frac{\theta \Delta t}{2} \ddot {\bf U}_t\)</span><br />
 <span class="math inline">\(\ddot {\bf U}_{t + \theta \Delta t} = - \frac{6}{\theta \Delta t} \dot {\bf U}_t -2 \ddot{\bf U}_t\)</span></p>
 </div></li>
 <li><p>The response quantities at the <code>DOF_Group</code> objects are updated with the new approximations by invoking <code>setResponse()</code> on the AnalysisModel with quantities at time <span class="math inline">\(t + \Theta \Delta t\)</span>.</p>
 <div class="tabbing">
-<p>while w̄hile w̄hile w̄hile ̄ theModel-<span class="math inline">\(&gt;\)</span>setResponse<span class="math inline">\(({\bf U}_{t + \theta \Delta t}, \dot{\bf U}_{t+\theta \Delta t}, \ddot{\bf U}_{t+ \theta \Delta t})\)</span></p>
+<p>theModel-<span class="math inline">\(&gt;\)</span>setResponse<span class="math inline">\(({\bf U}_{t + \theta \Delta t}, \dot{\bf U}_{t+\theta \Delta t}, \ddot{\bf U}_{t+ \theta \Delta t})\)</span></p>
 </div></li>
 <li><p>current time is obtained from the AnalysisModel, incremented by <span class="math inline">\(\Theta \Delta t\)</span>, and <code class="sourceCode cpp">applyLoad<span class="op">(</span>time<span class="op">,</span> <span class="fl">1.0</span><span class="op">)</span></code> is invoked on the AnalysisModel.</p></li>
 <li><p>Finally <code>updateDomain()</code> is invoked on the AnalysisModel.</p></li>
@@ -7712,7 +7727,7 @@ if (RayleighDamping == false) theDof-<span class="math inline">\(&gt;\)</span>ad
 
 <p>Invoked this first causes the object to increment the <code>DOF_Group</code> response quantities at time <span class="math inline">\(t + \Theta \Delta t\)</span>. The displacement Vector is incremented by <span class="math inline">\(c1 * \Delta U\)</span>, the velocity Vector by <span class="math inline">\(c2 * \Delta U\)</span>, and the acceleration Vector by <span class="math inline">\(c3 * \Delta U\)</span>. The response quantities at the <code>DOF_Group</code> objects are then updated with the new approximations by invoking <code>setResponse()</code> on the AnalysisModel with displacements, velocities and accelerations at time <span class="math inline">\(t + \Theta \Delta t\)</span>. Finally <code>updateDomain()</code> is invoked on the AnalysisModel.</p>
 <div class="tabbing">
-<p>while w̄hile w̄hile w̄hile ̄ <span class="math inline">\({\bf U}_{t + \theta \Delta t} += \Delta \U\)</span><br />
+<p><span class="math inline">\({\bf U}_{t + \theta \Delta t} += \Delta \U\)</span><br />
 <span class="math inline">\(\dot {\bf U}_{t + \theta \Delta t} += \frac{3}{\theta \Delta t} \Delta \U\)</span><br />
 <span class="math inline">\(\ddot {\bf U}_{t + \theta \Delta t} += \frac{6}{\theta^2 \Delta t^2} \Delta \U\)</span><br />
 theModel-<span class="math inline">\(&gt;\)</span>setResponse<span class="math inline">\(({\bf U}_{t + \alpha \theta t}, \dot{\bf U}_{t+\theta \Delta t}, \ddot{\bf U}_{t+ \theta \Delta t})\)</span><br />
@@ -7724,7 +7739,7 @@ theModel-<span class="math inline">\(&gt;\)</span>updateDomain()</p>
 
 <p>First the quantities at time <span class="math inline">\(t + \Delta t\)</span> are determined using the quantities at time <span class="math inline">\(t\)</span> and <span class="math inline">\(t + \Theta \Delta t\)</span>. Then the response quantities at the <code>DOF_Group</code> objects are updated with the new approximations by invoking <code>setResponse()</code> on the AnalysisModel with displacement, velocity and accelerations at time <span class="math inline">\(t + \Delta t\)</span>. The time is obtained from the AnalysisModel and <span class="math inline">\((\Theta - 1) \Delta t\)</span> is subtracted from the value. The time is set in the Domain by invoking <code>setCurrentDomainTime(time)</code> on the AnalysisModel. Finally <code>updateDomain()</code> and <code>commitDomain()</code> are invoked on the AnalysisModel.</p>
 <div class="tabbing">
-<p>while w̄hile w̄hile w̄hile ̄ <span class="math inline">\(\ddot{\bf U}_{t + \Delta t} = \ddot{\bf U}_t + \frac{1}{\theta} \left( \ddot{\bf U}_{t + \theta \Delta t} - \ddot{\bf U}_t \right)\)</span><br />
+<p><span class="math inline">\(\ddot{\bf U}_{t + \Delta t} = \ddot{\bf U}_t + \frac{1}{\theta} \left( \ddot{\bf U}_{t + \theta \Delta t} - \ddot{\bf U}_t \right)\)</span><br />
 <span class="math inline">\(\dot{\bf U}_{t + \Delta t} = \dot{\bf U}_t + \frac{\Delta t}{2}\left( \ddot{\bf U}_{t + \Delta t} + \ddot{\bf U}_t \right)\)</span><br />
 <span class="math inline">\({\bf U}_{t + \Delta t} = {\bf U}_t + \Delta t\dot{\bf U}_t + \frac{\Delta t^2}{6}\left( \ddot{\bf U}_{t + \Delta t} + 2 \ddot{\bf U}_t \right)\)</span><br />
 theModel-<span class="math inline">\(&gt;\)</span>setResponse<span class="math inline">\(({\bf U}_{t + \Delta t}, \dot{\bf U}_{t+ \Delta t}, \ddot{\bf U}_{t+\Delta t})\)</span><br />
