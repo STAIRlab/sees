@@ -14,19 +14,15 @@ class MplPlotter:
     def get_section_layers(self, section, **kwds):
         import matplotlib.collections
         import matplotlib.lines as lines
-        collection = []
         for layer in section.layers:
             if hasattr(layer, "plot_opts"):
                 options = layer.plot_opts
             else:
                 options = dict(linestyle="--", color="k", **kwds)
-            collection.append(
-                lines.Line2D(*np.asarray(layer.vertices).T, **options))
-        return collection
+            yield lines.Line2D(*np.asarray(layer.vertices).T, **options)
 
     def get_section_patches(self, section, facecolor="grey", edgecolor="grey", **kwds):
         """
-
         Currently a circ must be represented by either an annulus or circle. this
         might be a solution:
         https://docs.bokeh.org/en/latest/docs/reference/models/glyphs/arc.html
@@ -95,6 +91,7 @@ class MplPlotter:
         if fix_axes:
             ax.set_autoscale_on(True)
             ax.set_aspect(1)
+            #ax.axis("equal")
             ax.axis("off")
             for i in 'top','right','bottom','left':
                 ax.spines[i].set_visible(False)
@@ -121,6 +118,7 @@ class MplPlotter:
         #ax.scatter(*section.centroid)
         # show origin
         # ax.scatter(0, 0)
+        ax.axis("equal")
         #plt.show()
         
         return ax
