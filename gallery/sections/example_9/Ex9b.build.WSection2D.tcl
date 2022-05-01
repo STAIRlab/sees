@@ -4,8 +4,8 @@
 #
 
 # SET UP ----------------------------------------------------------------------------
-wipe;				# clear memory of all past model definitions
-model BasicBuilder -ndm 2 -ndf 3;	# Define the model builder, ndm=#dimension, ndf=#dofs
+#wipe;				# clear memory of all past model definitions
+model basic -ndm 2 -ndf 3;	# Define the model builder, ndm=#dimension, ndf=#dofs
 set dataDir Data;			# set up name of data directory -- simple
 file mkdir $dataDir; 			# create data directory
 source LibUnits.tcl;			# define units
@@ -26,7 +26,7 @@ set SecTag 1
 set WSec W27x114
 
 # from Steel Manuals:
-# in × lb/ft 	Area (in2) 	d (in) 	bf (in) 	tf (in) 	tw (in) 	Ixx (in4) 	Iyy (in4)
+# in lb/ft 	Area (in2) 	d (in) 	bf (in) 	tf (in) 	tw (in) 	Ixx (in4) 	Iyy (in4)
 # W27x114  	33.5 		27.29 	10.07 	0.93 	0.57 	4090 	159
 set d [expr 27.29*$in];	 # nominal depth
 set tw [expr 0.57*$in];	 # web thickness
