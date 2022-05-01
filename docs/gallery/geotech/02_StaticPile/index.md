@@ -390,4 +390,3 @@ Under Lateral Loading. A.A. Balkema, Rotterdam, Netherlands.
 9\. Vijayvergiya, V.N. (1977). "Load-movement characteristics of piles."
 Proc., Ports 77 Conf., ASCE, New York.
 
-[ Return to OpenSees Examples Page](Examples "wikilink")

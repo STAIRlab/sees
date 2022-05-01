@@ -1,0 +1,30 @@
+<h1>Simulation Process</h1>  
+Each example script does the following:<br>
+:<h2>Build the model</h2>
+:#model dimensions and degrees-of-freedom
+:#nodal coordinates
+:#nodal constraints -- boundary conditions
+:#nodal masses
+:#elements and element connectivity
+:#recorders for output
+
+:<h2>Define & apply gravity load</h2>
+:#nodal or element load
+:#static-analysis parameters (tolerances & load increments)
+:#analyze
+:#hold gravity loads constant
+:#reset time to zero
+
+:<h2> Define and apply lateral load </h2>
+:#load pattern (nodal loads for static analysis, support ground motion for earthquake)
+:#lateral-analysis parameters (tolerances & displacement/time increments)
+:#*Static Lateral-Load Analysis
+:#**define the displacement increments and displacement path
+:#*Dynamic Lateral-Load Analysis
+:#**define the input motion and all associated parameters, such as scaling and input type
+:#**define analysis duration and time increment
+:#**define damping
+:#analyze
+ 
+
+
