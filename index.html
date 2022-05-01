@@ -8,21 +8,22 @@
       
       
       
-        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/gallery/sections/section_building/">
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/">
       
-      <link rel="icon" href="../../../assets/images/favicon.png">
+      <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-, mkdocs-material-8.1.4">
     
     
       
-        <title>Damage Monitoring Tools - OpenSeesRT</title>
+        <title>OpenSeesRT</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.bb3983ee.min.css">
+
+      <link rel="stylesheet" href="assets/stylesheets/main.bb3983ee.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
         
           
           
@@ -30,6 +31,7 @@
         
       
     
+    <link rel="stylesheet" media="screen" href="css/particles.css">
     
     
       
@@ -40,9 +42,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../math.css">
+      <link rel="stylesheet" href="math.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -75,7 +77,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="OpenSeesRT" class="md-header__button md-logo" aria-label="OpenSeesRT" data-md-component="logo">
+    <a href="." title="OpenSeesRT" class="md-header__button md-logo" aria-label="OpenSeesRT" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -94,8 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Damage Monitoring Tools
-
+              
             
           </span>
         </div>
@@ -167,10 +168,12 @@
         
   
   
+    
+  
 
 
   <li class="md-tabs__item">
-    <a href="../../.." class="md-tabs__link">
+    <a href="." class="md-tabs__link md-tabs__link--active">
       
     </a>
   </li>
@@ -185,7 +188,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../developer/" class="md-tabs__link">
+      <a href="developer/" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -194,8 +197,6 @@
       
         
   
-  
-    
   
 
 
@@ -208,7 +209,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../BasicPrimer/" class="md-tabs__link md-tabs__link--active">
+      <a href="gallery/BasicPrimer/" class="md-tabs__link">
         Gallery
       </a>
     </li>
@@ -226,7 +227,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../guides/01_install/" class="md-tabs__link">
+      <a href="guides/01_install/" class="md-tabs__link">
         Guides
       </a>
     </li>
@@ -242,7 +243,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../libraries/" class="md-tabs__link">
+      <a href="libraries/" class="md-tabs__link">
         Libraries
       </a>
     </li>
@@ -258,7 +259,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../reference/ast/" class="md-tabs__link">
+      <a href="reference/ast/" class="md-tabs__link">
         Reference
       </a>
     </li>
@@ -286,7 +287,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="OpenSeesRT" class="md-nav__button md-logo" aria-label="OpenSeesRT" data-md-component="logo">
+    <a href="." title="OpenSeesRT" class="md-nav__button md-logo" aria-label="OpenSeesRT" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -315,11 +316,19 @@
 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="." class="md-nav__link md-nav__link--active">
         
       </a>
+      
     </li>
   
 
@@ -361,7 +370,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/">Developer</a>
+          <a href="developer/">Developer</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -384,7 +393,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/application/" class="md-nav__link">
+      <a href="developer/application/" class="md-nav__link">
         Application Development
 
       </a>
@@ -399,7 +408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/intro/" class="md-nav__link">
+      <a href="developer/intro/" class="md-nav__link">
         Developer Introduction
 
       </a>
@@ -453,7 +462,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/">Class interface</a>
+          <a href="developer/class_interface/">Class interface</a>
           
             <label for="__nav_2_4">
               <span class="md-nav__icon md-icon"></span>
@@ -503,7 +512,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/Parallel/">Parallel</a>
+          <a href="developer/class_interface/Parallel/">Parallel</a>
           
             <label for="__nav_2_4_2">
               <span class="md-nav__icon md-icon"></span>
@@ -549,7 +558,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/Parallel/actor/">Actor</a>
+          <a href="developer/class_interface/Parallel/actor/">Actor</a>
           
             <label for="__nav_2_4_2_2">
               <span class="md-nav__icon md-icon"></span>
@@ -604,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/actor/actor/Actor/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/actor/actor/Actor/" class="md-nav__link">
         Actor
 
       </a>
@@ -619,7 +628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/actor/actor/MovableObject/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/actor/actor/MovableObject/" class="md-nav__link">
         MovableObject
 
       </a>
@@ -671,7 +680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/actor/message/Message/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/actor/message/Message/" class="md-nav__link">
         Message
 
       </a>
@@ -725,7 +734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/actor/objectBroker/FEM_ObjectBroker/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/actor/objectBroker/FEM_ObjectBroker/" class="md-nav__link">
         FEM_ObjectBroker
 
       </a>
@@ -740,7 +749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/actor/objectBroker/ObjectBroker/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/actor/objectBroker/ObjectBroker/" class="md-nav__link">
         ObjectBroker
 
       </a>
@@ -799,7 +808,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/channel/Channel/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/channel/Channel/" class="md-nav__link">
         Channel
 
       </a>
@@ -857,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/loadBalancer/LoadBalancer/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/loadBalancer/LoadBalancer/" class="md-nav__link">
         LoadBalancer
 
       </a>
@@ -872,7 +881,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/loadBalancer/ReleaseHeavierToLighterNeighbours/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/loadBalancer/ReleaseHeavierToLighterNeighbours/" class="md-nav__link">
         
       </a>
     </li>
@@ -886,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/loadBalancer/ShedHeaviest/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/loadBalancer/ShedHeaviest/" class="md-nav__link">
         ShedHeaviest
 
       </a>
@@ -901,7 +910,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/loadBalancer/SwapHeavierToLighterNeighbours/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/loadBalancer/SwapHeavierToLighterNeighbours/" class="md-nav__link">
         SwapHeavierToLighterNeighbours
 
       </a>
@@ -953,7 +962,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/machineBroker/MachineBroker/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/machineBroker/MachineBroker/" class="md-nav__link">
         MachineBroker
 
       </a>
@@ -1005,7 +1014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/Parallel/shadow/Shadow/" class="md-nav__link">
+      <a href="developer/class_interface/Parallel/shadow/Shadow/" class="md-nav__link">
         Shadow
 
       </a>
@@ -1065,7 +1074,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/analysis/">Analysis</a>
+          <a href="developer/class_interface/analysis/">Analysis</a>
           
             <label for="__nav_2_4_3">
               <span class="md-nav__icon md-icon"></span>
@@ -1088,7 +1097,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/ConstraintHandler/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/ConstraintHandler/" class="md-nav__link">
         ConstraintHandler
 
       </a>
@@ -1103,7 +1112,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/DOF_Numberer/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/DOF_Numberer/" class="md-nav__link">
         DOF_Numberer
 
       </a>
@@ -1150,7 +1159,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/algorithm/EquiSolnAlgo/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/algorithm/EquiSolnAlgo/" class="md-nav__link">
         EquiSolnAlgo
 
       </a>
@@ -1165,7 +1174,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/algorithm/SolutionAlgorithm/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/algorithm/SolutionAlgorithm/" class="md-nav__link">
         SolutionAlgorithm
 
       </a>
@@ -1229,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/analysis/Analysis/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/analysis/Analysis/" class="md-nav__link">
         Analysis
 
       </a>
@@ -1244,7 +1253,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/analysis/DirectIntegrationAnalysis/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/analysis/DirectIntegrationAnalysis/" class="md-nav__link">
         DirectIntegrationAnalysis
 
       </a>
@@ -1259,7 +1268,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/analysis/DomainDecompositionAnalysis/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/analysis/DomainDecompositionAnalysis/" class="md-nav__link">
         DomainDecompositionAnalysis
 
       </a>
@@ -1274,7 +1283,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/analysis/DomainUser/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/analysis/DomainUser/" class="md-nav__link">
         DomainUser
 
       </a>
@@ -1289,7 +1298,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/analysis/StaticAnalysis/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/analysis/StaticAnalysis/" class="md-nav__link">
         StaticAnalysis
       </a>
     </li>
@@ -1303,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/analysis/SubstructuringAnalysis/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/analysis/SubstructuringAnalysis/" class="md-nav__link">
         SubstructuringAnalysis
 
       </a>
@@ -1318,7 +1327,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/analysis/TransientAnalysis/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/analysis/TransientAnalysis/" class="md-nav__link">
         TransientAnalysis
 
       </a>
@@ -1370,7 +1379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/convergenceTest/ConvergenceTest/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/convergenceTest/ConvergenceTest/" class="md-nav__link">
         
       </a>
     </li>
@@ -1441,7 +1450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/ArcLength/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/ArcLength/" class="md-nav__link">
         ArcLength
 
       </a>
@@ -1456,7 +1465,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/ArcLength1/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/ArcLength1/" class="md-nav__link">
         ArcLength1
 
       </a>
@@ -1471,7 +1480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/CentralDifference/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/CentralDifference/" class="md-nav__link">
         CentralDifference
 
       </a>
@@ -1486,7 +1495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/DisplacementControl/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/DisplacementControl/" class="md-nav__link">
         DisplacementControl
 
       </a>
@@ -1501,7 +1510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/IncrementalIntegrator/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/IncrementalIntegrator/" class="md-nav__link">
         IncrementalIntegrator
 
       </a>
@@ -1516,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/Integrator/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/Integrator/" class="md-nav__link">
         Integrator
 
       </a>
@@ -1531,7 +1540,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/LoadControl/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/LoadControl/" class="md-nav__link">
         LoadControl
 
       </a>
@@ -1546,7 +1555,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/LoadPath/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/LoadPath/" class="md-nav__link">
         LoadPath
 
       </a>
@@ -1561,7 +1570,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/MinUnbalDispNorm/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/MinUnbalDispNorm/" class="md-nav__link">
         MinUnbalDispNorm
 
       </a>
@@ -1576,7 +1585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/StaticIntegrator/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/StaticIntegrator/" class="md-nav__link">
         StaticIntegrator
 
       </a>
@@ -1591,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/integrator/TransientIntegrator/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/integrator/TransientIntegrator/" class="md-nav__link">
         TransientIntegrator
 
       </a>
@@ -1636,7 +1645,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/analysis/model/">Model</a>
+          <a href="developer/class_interface/analysis/model/">Model</a>
           
             <label for="__nav_2_4_3_8">
               <span class="md-nav__icon md-icon"></span>
@@ -1659,7 +1668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/model/AnalysisModel/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/model/AnalysisModel/" class="md-nav__link">
         AnalysisModel
 
       </a>
@@ -1706,7 +1715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/model/dof_grp/DOF_Group/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/model/dof_grp/DOF_Group/" class="md-nav__link">
         `DOF_Group`
 
       </a>
@@ -1721,7 +1730,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/model/dof_grp/TransformationDOF_Group/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/model/dof_grp/TransformationDOF_Group/" class="md-nav__link">
         TransformationDOF_Group
 
       </a>
@@ -1777,7 +1786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/model/fe_ele/FE_Element/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/model/fe_ele/FE_Element/" class="md-nav__link">
         FE_Element
 
       </a>
@@ -1824,7 +1833,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/model/fe_ele/lagrange/LagrangeMP_FE/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/model/fe_ele/lagrange/LagrangeMP_FE/" class="md-nav__link">
         LagrangeMP_FE
 
       </a>
@@ -1839,7 +1848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/model/fe_ele/lagrange/LagrangeSP_FE/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/model/fe_ele/lagrange/LagrangeSP_FE/" class="md-nav__link">
         LagrangeSP_FE
 
       </a>
@@ -1893,7 +1902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/model/fe_ele/penalty/PenaltyMP_FE/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/model/fe_ele/penalty/PenaltyMP_FE/" class="md-nav__link">
         PenaltyMP_FE
 
       </a>
@@ -1908,7 +1917,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/analysis/model/fe_ele/penalty/PenaltySP_FE/" class="md-nav__link">
+      <a href="developer/class_interface/analysis/model/fe_ele/penalty/PenaltySP_FE/" class="md-nav__link">
         PenaltySP_FE
 
       </a>
@@ -1974,7 +1983,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/database/">Database</a>
+          <a href="developer/class_interface/database/">Database</a>
           
             <label for="__nav_2_4_4">
               <span class="md-nav__icon md-icon"></span>
@@ -1997,7 +2006,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/database/FE_Datastore/" class="md-nav__link">
+      <a href="developer/class_interface/database/FE_Datastore/" class="md-nav__link">
         FE_Datastore
 
       </a>
@@ -2012,7 +2021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/database/FileDatastore/" class="md-nav__link">
+      <a href="developer/class_interface/database/FileDatastore/" class="md-nav__link">
         FileDatastore
 
       </a>
@@ -2027,7 +2036,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/database/database/" class="md-nav__link">
+      <a href="developer/class_interface/database/database/" class="md-nav__link">
         
       </a>
     </li>
@@ -2081,7 +2090,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/domain/">Domain</a>
+          <a href="developer/class_interface/domain/">Domain</a>
           
             <label for="__nav_2_4_5">
               <span class="md-nav__icon md-icon"></span>
@@ -2104,7 +2113,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/domain/" class="md-nav__link">
+      <a href="developer/class_interface/domain/domain/" class="md-nav__link">
         
       </a>
     </li>
@@ -2148,7 +2157,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/component/DomainComponent/" class="md-nav__link">
+      <a href="developer/class_interface/domain/component/DomainComponent/" class="md-nav__link">
         DomainComponent
 
       </a>
@@ -2202,7 +2211,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/constraints/MP_Constraint/" class="md-nav__link">
+      <a href="developer/class_interface/domain/constraints/MP_Constraint/" class="md-nav__link">
         MP_Constraint
 
       </a>
@@ -2217,7 +2226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/constraints/SP_Constraint/" class="md-nav__link">
+      <a href="developer/class_interface/domain/constraints/SP_Constraint/" class="md-nav__link">
         SP_Constraint
 
       </a>
@@ -2271,7 +2280,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/domain/Domain/" class="md-nav__link">
+      <a href="developer/class_interface/domain/domain/Domain/" class="md-nav__link">
         Domain
 
       </a>
@@ -2316,7 +2325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/domain/partitioned/PartitionedDomain/" class="md-nav__link">
+      <a href="developer/class_interface/domain/domain/partitioned/PartitionedDomain/" class="md-nav__link">
         
       </a>
     </li>
@@ -2374,7 +2383,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/load/Load/" class="md-nav__link">
+      <a href="developer/class_interface/domain/load/Load/" class="md-nav__link">
         Load
 
       </a>
@@ -2430,7 +2439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/node/DummyNode/" class="md-nav__link">
+      <a href="developer/class_interface/domain/node/DummyNode/" class="md-nav__link">
         DummyNode
 
       </a>
@@ -2445,7 +2454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/node/NodalLoad/" class="md-nav__link">
+      <a href="developer/class_interface/domain/node/NodalLoad/" class="md-nav__link">
         NodalLoad
 
       </a>
@@ -2460,7 +2469,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/node/Node/" class="md-nav__link">
+      <a href="developer/class_interface/domain/node/Node/" class="md-nav__link">
         Node
 
       </a>
@@ -2512,7 +2521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/partitioner/DomainPartitioner/" class="md-nav__link">
+      <a href="developer/class_interface/domain/partitioner/DomainPartitioner/" class="md-nav__link">
         DomainPartitioner
 
       </a>
@@ -2568,7 +2577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/pattern/EarthquakePattern/" class="md-nav__link">
+      <a href="developer/class_interface/domain/pattern/EarthquakePattern/" class="md-nav__link">
         EarthquakePattern
 
       </a>
@@ -2583,7 +2592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/pattern/LoadPattern/" class="md-nav__link">
+      <a href="developer/class_interface/domain/pattern/LoadPattern/" class="md-nav__link">
         LoadPattern
 
       </a>
@@ -2598,7 +2607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/domain/pattern/TimeSeries/" class="md-nav__link">
+      <a href="developer/class_interface/domain/pattern/TimeSeries/" class="md-nav__link">
         TimeSeries
 
       </a>
@@ -2663,7 +2672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/element/Element/" class="md-nav__link">
+      <a href="developer/class_interface/element/Element/" class="md-nav__link">
         Element
 
       </a>
@@ -2678,7 +2687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/element/ElementalLoad/" class="md-nav__link">
+      <a href="developer/class_interface/element/ElementalLoad/" class="md-nav__link">
         ElementalLoad
 
       </a>
@@ -2723,7 +2732,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/element/beamWithHinges/BeamWithHinges2D/" class="md-nav__link">
+      <a href="developer/class_interface/element/beamWithHinges/BeamWithHinges2D/" class="md-nav__link">
         BeamWithHinges2D
 
       </a>
@@ -2777,7 +2786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/element/zeroLength/ZeroLength/" class="md-nav__link">
+      <a href="developer/class_interface/element/zeroLength/ZeroLength/" class="md-nav__link">
         ZeroLength
 
       </a>
@@ -2792,7 +2801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/element/zeroLength/ZeroLengthSection/" class="md-nav__link">
+      <a href="developer/class_interface/element/zeroLength/ZeroLengthSection/" class="md-nav__link">
         ZeroLengthSection
 
       </a>
@@ -2844,7 +2853,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/graph/">Graph</a>
+          <a href="developer/class_interface/graph/">Graph</a>
           
             <label for="__nav_2_4_7">
               <span class="md-nav__icon md-icon"></span>
@@ -2905,7 +2914,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/graph/graph/ArrayGraph/" class="md-nav__link">
+      <a href="developer/class_interface/graph/graph/ArrayGraph/" class="md-nav__link">
         ArrayGraph
 
       </a>
@@ -2920,7 +2929,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/graph/graph/DOFGraph/" class="md-nav__link">
+      <a href="developer/class_interface/graph/graph/DOFGraph/" class="md-nav__link">
         DOFGraph
 
       </a>
@@ -2935,7 +2944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/graph/graph/DOF_GroupGraph/" class="md-nav__link">
+      <a href="developer/class_interface/graph/graph/DOF_GroupGraph/" class="md-nav__link">
         DOF_GroupGraph
 
       </a>
@@ -2950,7 +2959,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/graph/graph/Graph/" class="md-nav__link">
+      <a href="developer/class_interface/graph/graph/Graph/" class="md-nav__link">
         Graph
 
       </a>
@@ -2965,7 +2974,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/graph/graph/Vertex/" class="md-nav__link">
+      <a href="developer/class_interface/graph/graph/Vertex/" class="md-nav__link">
         Vertex
 
       </a>
@@ -3017,7 +3026,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/graph/numberer/GraphNumberer/" class="md-nav__link">
+      <a href="developer/class_interface/graph/numberer/GraphNumberer/" class="md-nav__link">
         GraphNumberer
 
       </a>
@@ -3069,7 +3078,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/graph/partitioner/GraphPartitioner/" class="md-nav__link">
+      <a href="developer/class_interface/graph/partitioner/GraphPartitioner/" class="md-nav__link">
         GraphPartitioner
 
       </a>
@@ -3129,7 +3138,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/material/">Material</a>
+          <a href="developer/class_interface/material/">Material</a>
           
             <label for="__nav_2_4_8">
               <span class="md-nav__icon md-icon"></span>
@@ -3152,7 +3161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/ElasticIsotropicMaterial/" class="md-nav__link">
+      <a href="developer/class_interface/material/ElasticIsotropicMaterial/" class="md-nav__link">
         ElasticIsotropicMaterial
 
       </a>
@@ -3167,7 +3176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/HystereticBackbone/" class="md-nav__link">
+      <a href="developer/class_interface/material/HystereticBackbone/" class="md-nav__link">
         HystereticBackbone
 
       </a>
@@ -3182,7 +3191,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/Material/" class="md-nav__link">
+      <a href="developer/class_interface/material/Material/" class="md-nav__link">
         Material
 
       </a>
@@ -3197,7 +3206,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/NDMaterial/" class="md-nav__link">
+      <a href="developer/class_interface/material/NDMaterial/" class="md-nav__link">
         NDMaterial
 
       </a>
@@ -3212,7 +3221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/UniaxialMaterial/" class="md-nav__link">
+      <a href="developer/class_interface/material/UniaxialMaterial/" class="md-nav__link">
         UniaxialMaterial
 
       </a>
@@ -3227,7 +3236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/mdMaterial/" class="md-nav__link">
+      <a href="developer/class_interface/material/mdMaterial/" class="md-nav__link">
         
       </a>
     </li>
@@ -3279,7 +3288,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/section/ElasticSection3D/" class="md-nav__link">
+      <a href="developer/class_interface/material/section/ElasticSection3D/" class="md-nav__link">
         ElasticSection3D
 
       </a>
@@ -3294,7 +3303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/section/FiberSection/" class="md-nav__link">
+      <a href="developer/class_interface/material/section/FiberSection/" class="md-nav__link">
         FiberSection
 
       </a>
@@ -3309,7 +3318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/section/GenericSection1D/" class="md-nav__link">
+      <a href="developer/class_interface/material/section/GenericSection1D/" class="md-nav__link">
         GenericSection1D
 
       </a>
@@ -3324,7 +3333,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/section/GenericSectionND/" class="md-nav__link">
+      <a href="developer/class_interface/material/section/GenericSectionND/" class="md-nav__link">
         GenericSectionND
 
       </a>
@@ -3339,7 +3348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/material/section/SectionForceDeformation/" class="md-nav__link">
+      <a href="developer/class_interface/material/section/SectionForceDeformation/" class="md-nav__link">
         SectionForceDeformation
 
       </a>
@@ -3402,7 +3411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/recorder/DatastoreRecorder/" class="md-nav__link">
+      <a href="developer/class_interface/recorder/DatastoreRecorder/" class="md-nav__link">
         DatastoreRecorder
 
       </a>
@@ -3417,7 +3426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/recorder/MaxNodeDispRecorder/" class="md-nav__link">
+      <a href="developer/class_interface/recorder/MaxNodeDispRecorder/" class="md-nav__link">
         MaxNodeDispRecorder
 
       </a>
@@ -3432,7 +3441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/recorder/Recorder/" class="md-nav__link">
+      <a href="developer/class_interface/recorder/Recorder/" class="md-nav__link">
         Recorder
 
       </a>
@@ -3479,7 +3488,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/system_of_eqn/">System of eqn</a>
+          <a href="developer/class_interface/system_of_eqn/">System of eqn</a>
           
             <label for="__nav_2_4_10">
               <span class="md-nav__icon md-icon"></span>
@@ -3502,7 +3511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/Solver/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/Solver/" class="md-nav__link">
         Solver
 
       </a>
@@ -3517,7 +3526,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/SystemOfEqn/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/SystemOfEqn/" class="md-nav__link">
         SystemOfEqn
 
       </a>
@@ -3532,7 +3541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/eigenSOE/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/eigenSOE/" class="md-nav__link">
         Eigen Equation Systems
 
       </a>
@@ -3580,7 +3589,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/system_of_eqn/linearSOE/">linearSOE</a>
+          <a href="developer/class_interface/system_of_eqn/linearSOE/">linearSOE</a>
           
             <label for="__nav_2_4_10_5">
               <span class="md-nav__icon md-icon"></span>
@@ -3603,7 +3612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/DomainSolver/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/DomainSolver/" class="md-nav__link">
         DomainSolver
 
       </a>
@@ -3618,7 +3627,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/LinearSOE/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/LinearSOE/" class="md-nav__link">
         LinearSOE
 
       </a>
@@ -3633,7 +3642,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/LinearSOESolver/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/LinearSOESolver/" class="md-nav__link">
         LinearSOESolver
 
       </a>
@@ -3680,7 +3689,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/bandGEN/BandGenLinSOE/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/bandGEN/BandGenLinSOE/" class="md-nav__link">
         BandGenLinSOE
 
       </a>
@@ -3695,7 +3704,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/bandGEN/BandGenLinSolver/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/bandGEN/BandGenLinSolver/" class="md-nav__link">
         BandGenLinSolver
 
       </a>
@@ -3749,7 +3758,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/bandSPD/BandSPDLinSOE/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/bandSPD/BandSPDLinSOE/" class="md-nav__link">
         BandSPDLinSOE
 
       </a>
@@ -3764,7 +3773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/bandSPD/BandSPDLinSolver/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/bandSPD/BandSPDLinSolver/" class="md-nav__link">
         BandSPDLinSolver
 
       </a>
@@ -3818,7 +3827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/fullGEN/FullGenLinSOE/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/fullGEN/FullGenLinSOE/" class="md-nav__link">
         FullGenLinSOE
 
       </a>
@@ -3833,7 +3842,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/fullGEN/FullGenLinSolver/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/fullGEN/FullGenLinSolver/" class="md-nav__link">
         
       </a>
     </li>
@@ -3890,7 +3899,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectSolver/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectSolver/" class="md-nav__link">
         
       </a>
     </li>
@@ -3904,7 +3913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSOE/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSOE/" class="md-nav__link">
         ProfileSPDLinSOE
 
       </a>
@@ -3919,7 +3928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSolver/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSolver/" class="md-nav__link">
         ProfileSPDLinSolver
 
       </a>
@@ -3934,7 +3943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSubstrSolver/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSubstrSolver/" class="md-nav__link">
         ProfileSPDLinSubstrSolver
 
       </a>
@@ -3988,7 +3997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/sparseGEN/SparseGenColLinSOE/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/sparseGEN/SparseGenColLinSOE/" class="md-nav__link">
         
       </a>
     </li>
@@ -4002,7 +4011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/system_of_eqn/linearSOE/sparseGEN/SuperLU/" class="md-nav__link">
+      <a href="developer/class_interface/system_of_eqn/linearSOE/sparseGEN/SuperLU/" class="md-nav__link">
         SuperLU
 
       </a>
@@ -4071,7 +4080,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/class_interface/utility/">Utility</a>
+          <a href="developer/class_interface/utility/">Utility</a>
           
             <label for="__nav_2_4_11">
               <span class="md-nav__icon md-icon"></span>
@@ -4094,7 +4103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/ID/" class="md-nav__link">
+      <a href="developer/class_interface/utility/ID/" class="md-nav__link">
         ID
 
       </a>
@@ -4109,7 +4118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/Matrix/" class="md-nav__link">
+      <a href="developer/class_interface/utility/Matrix/" class="md-nav__link">
         Matrix
 
       </a>
@@ -4124,7 +4133,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/StringContainer/" class="md-nav__link">
+      <a href="developer/class_interface/utility/StringContainer/" class="md-nav__link">
         
       </a>
     </li>
@@ -4138,7 +4147,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/Timer/" class="md-nav__link">
+      <a href="developer/class_interface/utility/Timer/" class="md-nav__link">
         
       </a>
     </li>
@@ -4152,7 +4161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/Vector/" class="md-nav__link">
+      <a href="developer/class_interface/utility/Vector/" class="md-nav__link">
         Vector
 
       </a>
@@ -4167,7 +4176,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/Vertex/" class="md-nav__link">
+      <a href="developer/class_interface/utility/Vertex/" class="md-nav__link">
         
       </a>
     </li>
@@ -4181,7 +4190,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/utility/" class="md-nav__link">
+      <a href="developer/class_interface/utility/utility/" class="md-nav__link">
         Utility Classes
 
       </a>
@@ -4228,7 +4237,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/tagged/TaggedObject/" class="md-nav__link">
+      <a href="developer/class_interface/utility/tagged/TaggedObject/" class="md-nav__link">
         TaggedObject
 
       </a>
@@ -4277,7 +4286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/tagged/storage/ArrayOfTaggedObjects/" class="md-nav__link">
+      <a href="developer/class_interface/utility/tagged/storage/ArrayOfTaggedObjects/" class="md-nav__link">
         ArrayOfTaggedObjects
 
       </a>
@@ -4292,7 +4301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/tagged/storage/MapOfTaggedObjects/" class="md-nav__link">
+      <a href="developer/class_interface/utility/tagged/storage/MapOfTaggedObjects/" class="md-nav__link">
         MapOfTaggedObjects
 
       </a>
@@ -4307,7 +4316,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/class_interface/utility/tagged/storage/TaggedObjectStorage/" class="md-nav__link">
+      <a href="developer/class_interface/utility/tagged/storage/TaggedObjectStorage/" class="md-nav__link">
         TaggedObjectStorage
 
       </a>
@@ -4377,7 +4386,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/compiling/">Compiling</a>
+          <a href="developer/compiling/">Compiling</a>
           
             <label for="__nav_2_5">
               <span class="md-nav__icon md-icon"></span>
@@ -4400,7 +4409,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/compiling/advanced/" class="md-nav__link">
+      <a href="developer/compiling/advanced/" class="md-nav__link">
         Advanced Configurations with CMake
 
       </a>
@@ -4415,7 +4424,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/compiling/basic/" class="md-nav__link">
+      <a href="developer/compiling/basic/" class="md-nav__link">
         Compiling Basics
 
       </a>
@@ -4430,7 +4439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/compiling/dependencies/" class="md-nav__link">
+      <a href="developer/compiling/dependencies/" class="md-nav__link">
         Dependencies
 
       </a>
@@ -4445,7 +4454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/compiling/tooling/" class="md-nav__link">
+      <a href="developer/compiling/tooling/" class="md-nav__link">
         Tooling
 
       </a>
@@ -4511,7 +4520,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/extending/FeapElement/" class="md-nav__link">
+      <a href="developer/extending/FeapElement/" class="md-nav__link">
         Feap Elements
 
       </a>
@@ -4526,7 +4535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/extending/NewElement/" class="md-nav__link">
+      <a href="developer/extending/NewElement/" class="md-nav__link">
         Introducing a New Element into OpenSees
       </a>
     </li>
@@ -4540,7 +4549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/extending/NewMaterial/" class="md-nav__link">
+      <a href="developer/extending/NewMaterial/" class="md-nav__link">
         New Material Models
       </a>
     </li>
@@ -4554,7 +4563,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/extending/NewRecorder/" class="md-nav__link">
+      <a href="developer/extending/NewRecorder/" class="md-nav__link">
         Recorder
 
       </a>
@@ -4569,7 +4578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/extending/compiling/" class="md-nav__link">
+      <a href="developer/extending/compiling/" class="md-nav__link">
         Contributing Code
 
       </a>
@@ -4584,7 +4593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/extending/component/" class="md-nav__link">
+      <a href="developer/extending/component/" class="md-nav__link">
         Compiling
 
       </a>
@@ -4599,7 +4608,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/extending/element/" class="md-nav__link">
+      <a href="developer/extending/element/" class="md-nav__link">
         New Elements
 
       </a>
@@ -4648,7 +4657,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/g3_api/">G3 api</a>
+          <a href="developer/g3_api/">G3 api</a>
           
             <label for="__nav_2_7">
               <span class="md-nav__icon md-icon"></span>
@@ -4671,7 +4680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/g3_api/analysis/" class="md-nav__link">
+      <a href="developer/g3_api/analysis/" class="md-nav__link">
         Analysis API
 
       </a>
@@ -4686,7 +4695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/g3_api/element_api/" class="md-nav__link">
+      <a href="developer/g3_api/element_api/" class="md-nav__link">
         C API 2
 
       </a>
@@ -4701,7 +4710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/g3_api/element_api_c/" class="md-nav__link">
+      <a href="developer/g3_api/element_api_c/" class="md-nav__link">
         C API
 
       </a>
@@ -4716,7 +4725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../developer/g3_api/ops_api/" class="md-nav__link">
+      <a href="developer/g3_api/ops_api/" class="md-nav__link">
         
       </a>
     </li>
@@ -4743,14 +4752,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       
       
@@ -4814,7 +4821,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../BasicPrimer/">BasicPrimer</a>
+          <a href="gallery/BasicPrimer/">BasicPrimer</a>
           
             <label for="__nav_3_1">
               <span class="md-nav__icon md-icon"></span>
@@ -4837,7 +4844,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicPrimer/example_1/" class="md-nav__link">
+      <a href="gallery/BasicPrimer/example_1/" class="md-nav__link">
         Simple Truss
 
       </a>
@@ -4852,7 +4859,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicPrimer/example_3/" class="md-nav__link">
+      <a href="gallery/BasicPrimer/example_3/" class="md-nav__link">
         Portal Frame Examples
 
       </a>
@@ -4867,7 +4874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicPrimer/example_4/" class="md-nav__link">
+      <a href="gallery/BasicPrimer/example_4/" class="md-nav__link">
         Multibay Two Story Frame
 
       </a>
@@ -4882,7 +4889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicPrimer/example_5/" class="md-nav__link">
+      <a href="gallery/BasicPrimer/example_5/" class="md-nav__link">
         Three-Dimensional Rigid Frame
 
       </a>
@@ -4897,7 +4904,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicPrimer/example_6/" class="md-nav__link">
+      <a href="gallery/BasicPrimer/example_6/" class="md-nav__link">
         Simply Supported Beam
 
       </a>
@@ -4912,7 +4919,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicPrimer/example_7/" class="md-nav__link">
+      <a href="gallery/BasicPrimer/example_7/" class="md-nav__link">
         Dynamic Shell Analysis
 
       </a>
@@ -4927,7 +4934,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../BasicPrimer/example_8/" class="md-nav__link">
+      <a href="gallery/BasicPrimer/example_8/" class="md-nav__link">
         Cantilever Beam
 
       </a>
@@ -4970,7 +4977,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../geotech/">Geotech</a>
+          <a href="gallery/geotech/">Geotech</a>
           
             <label for="__nav_3_2">
               <span class="md-nav__icon md-icon"></span>
@@ -5010,7 +5017,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../geotech/02_StaticPile/">02 StaticPile</a>
+          <a href="gallery/geotech/02_StaticPile/">02 StaticPile</a>
           
         </div>
       
@@ -5041,16 +5048,14 @@
               
   
   
-    
-  
   
     
       
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
       
       
       
@@ -5081,20 +5086,12 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="gallery/sections/section_building/" class="md-nav__link">
         Damage Monitoring Tools
 
       </a>
-      
     </li>
   
 
@@ -5106,7 +5103,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../section_limits/" class="md-nav__link">
+      <a href="gallery/sections/section_limits/" class="md-nav__link">
         Elastic Limits
 
       </a>
@@ -5138,7 +5135,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../MomentCurvature/">MomentCurvature</a>
+          <a href="gallery/sections/MomentCurvature/">MomentCurvature</a>
           
         </div>
       
@@ -5181,7 +5178,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../example_9/">Example 9</a>
+          <a href="gallery/sections/example_9/">Example 9</a>
           
         </div>
       
@@ -5262,7 +5259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guides/01_install/" class="md-nav__link">
+      <a href="guides/01_install/" class="md-nav__link">
         Installing
 
       </a>
@@ -5277,7 +5274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guides/01_starting/" class="md-nav__link">
+      <a href="guides/01_starting/" class="md-nav__link">
         Getting Started
 
       </a>
@@ -5292,7 +5289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guides/02_runtime/" class="md-nav__link">
+      <a href="guides/02_runtime/" class="md-nav__link">
         Runtime
 
       </a>
@@ -5307,7 +5304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guides/03_simulation/" class="md-nav__link">
+      <a href="guides/03_simulation/" class="md-nav__link">
         Simulation Process
 
       </a>
@@ -5322,7 +5319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guides/cli/" class="md-nav__link">
+      <a href="guides/cli/" class="md-nav__link">
         Command Line Use
 
       </a>
@@ -5337,7 +5334,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../guides/object_oriented/" class="md-nav__link">
+      <a href="guides/object_oriented/" class="md-nav__link">
         Object oriented interfaces
 
       </a>
@@ -5389,7 +5386,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../libraries/">Libraries</a>
+          <a href="libraries/">Libraries</a>
           
             <label for="__nav_5">
               <span class="md-nav__icon md-icon"></span>
@@ -5441,7 +5438,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../libraries/analysis/">Analysis</a>
+          <a href="libraries/analysis/">Analysis</a>
           
             <label for="__nav_5_2">
               <span class="md-nav__icon md-icon"></span>
@@ -5498,7 +5495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/ConvergenceTest/CTestEnergyIncr/" class="md-nav__link">
+      <a href="libraries/analysis/ConvergenceTest/CTestEnergyIncr/" class="md-nav__link">
         CTestEnergyIncr
 
       </a>
@@ -5513,7 +5510,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/ConvergenceTest/CTestNormDispIncr/" class="md-nav__link">
+      <a href="libraries/analysis/ConvergenceTest/CTestNormDispIncr/" class="md-nav__link">
         CTestNormDispIncr
 
       </a>
@@ -5528,7 +5525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/ConvergenceTest/CTestNormUnbalance/" class="md-nav__link">
+      <a href="libraries/analysis/ConvergenceTest/CTestNormUnbalance/" class="md-nav__link">
         CTestNormUnbalance
 
       </a>
@@ -5580,7 +5577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/StaticIntegrator/EQPath/" class="md-nav__link">
+      <a href="libraries/analysis/StaticIntegrator/EQPath/" class="md-nav__link">
         EQPath
 
       </a>
@@ -5638,7 +5635,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/TransientIntegrator/GeneralizedAlpha/" class="md-nav__link">
+      <a href="libraries/analysis/TransientIntegrator/GeneralizedAlpha/" class="md-nav__link">
         GeneralizedAlpha
 
       </a>
@@ -5653,7 +5650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/TransientIntegrator/HHT/" class="md-nav__link">
+      <a href="libraries/analysis/TransientIntegrator/HHT/" class="md-nav__link">
         HHT
 
       </a>
@@ -5668,7 +5665,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/TransientIntegrator/Newmark/" class="md-nav__link">
+      <a href="libraries/analysis/TransientIntegrator/Newmark/" class="md-nav__link">
         Newmark
 
       </a>
@@ -5683,7 +5680,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/TransientIntegrator/WilsonTheta/" class="md-nav__link">
+      <a href="libraries/analysis/TransientIntegrator/WilsonTheta/" class="md-nav__link">
         WilsonTheta
 
       </a>
@@ -5741,7 +5738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/constraint_enforcement/Lagrange/" class="md-nav__link">
+      <a href="libraries/analysis/constraint_enforcement/Lagrange/" class="md-nav__link">
         Lagrange
 
       </a>
@@ -5756,7 +5753,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/constraint_enforcement/Penalty/" class="md-nav__link">
+      <a href="libraries/analysis/constraint_enforcement/Penalty/" class="md-nav__link">
         Penalty
 
       </a>
@@ -5771,7 +5768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/constraint_enforcement/Plain/" class="md-nav__link">
+      <a href="libraries/analysis/constraint_enforcement/Plain/" class="md-nav__link">
         Plain
 
       </a>
@@ -5786,7 +5783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/constraint_enforcement/Transformation/" class="md-nav__link">
+      <a href="libraries/analysis/constraint_enforcement/Transformation/" class="md-nav__link">
         Transformation
 
       </a>
@@ -5842,7 +5839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/nonlinear_solve/Linear/" class="md-nav__link">
+      <a href="libraries/analysis/nonlinear_solve/Linear/" class="md-nav__link">
         Linear
 
       </a>
@@ -5857,7 +5854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/nonlinear_solve/ModifiedNewton/" class="md-nav__link">
+      <a href="libraries/analysis/nonlinear_solve/ModifiedNewton/" class="md-nav__link">
         ModifiedNewton
 
       </a>
@@ -5872,7 +5869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/analysis/nonlinear_solve/NewtonRaphson/" class="md-nav__link">
+      <a href="libraries/analysis/nonlinear_solve/NewtonRaphson/" class="md-nav__link">
         NewtonRaphson
 
       </a>
@@ -5934,7 +5931,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../libraries/modeling/">Modeling</a>
+          <a href="libraries/modeling/">Modeling</a>
           
             <label for="__nav_5_3">
               <span class="md-nav__icon md-icon"></span>
@@ -6017,7 +6014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/ArctangentBackbone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/ArctangentBackbone/" class="md-nav__link">
         Arctangent
 
       </a>
@@ -6032,7 +6029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/CappedBackbone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/CappedBackbone/" class="md-nav__link">
         Capped
 
       </a>
@@ -6047,7 +6044,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/CementedSoil/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/CementedSoil/" class="md-nav__link">
         CementedSoil
 
       </a>
@@ -6062,7 +6059,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/LinearCappedBackbone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/LinearCappedBackbone/" class="md-nav__link">
         LinearCapped
 
       </a>
@@ -6077,7 +6074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/LiquefiedSand/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/LiquefiedSand/" class="md-nav__link">
         LiquefiedSand
 
       </a>
@@ -6092,7 +6089,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/ManderBackbone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/ManderBackbone/" class="md-nav__link">
         Mander
 
       </a>
@@ -6107,7 +6104,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/MaterialBackbone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/MaterialBackbone/" class="md-nav__link">
         Material
 
       </a>
@@ -6122,7 +6119,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/MultilinearBackbone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/MultilinearBackbone/" class="md-nav__link">
         Multilinear
 
       </a>
@@ -6137,7 +6134,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/RaynorBackbone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/RaynorBackbone/" class="md-nav__link">
         Raynor
 
       </a>
@@ -6152,7 +6149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/ReeseSandBackbone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/ReeseSandBackbone/" class="md-nav__link">
         ReeseSand
 
       </a>
@@ -6167,7 +6164,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/ReeseSoftClayBackbone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/ReeseSoftClayBackbone/" class="md-nav__link">
         ReeseSoftClay
 
       </a>
@@ -6182,7 +6179,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/ReeseStiffClayAboveWS/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/ReeseStiffClayAboveWS/" class="md-nav__link">
         ReeseStiffClayAboveWS
 
       </a>
@@ -6197,7 +6194,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/ReeseStiffClayBelowWS/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/ReeseStiffClayBelowWS/" class="md-nav__link">
         ReeseStiffClayBelowWS
 
       </a>
@@ -6212,7 +6209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/TrilinearBackbone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/TrilinearBackbone/" class="md-nav__link">
         Trilinear
 
       </a>
@@ -6227,7 +6224,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/VuggyLimestone/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/VuggyLimestone/" class="md-nav__link">
         VuggyLimestone
 
       </a>
@@ -6242,7 +6239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/backbone/WeakRock/" class="md-nav__link">
+      <a href="libraries/modeling/backbone/WeakRock/" class="md-nav__link">
         WeakRock
 
       </a>
@@ -6294,7 +6291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/constraint/rigidBeam/" class="md-nav__link">
+      <a href="libraries/modeling/constraint/rigidBeam/" class="md-nav__link">
         RigidBeam
 
       </a>
@@ -6346,7 +6343,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/damping/rayleigh/" class="md-nav__link">
+      <a href="libraries/modeling/damping/rayleigh/" class="md-nav__link">
         Rayleigh
 
       </a>
@@ -6402,7 +6399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/element/Brick/" class="md-nav__link">
+      <a href="libraries/modeling/element/Brick/" class="md-nav__link">
         Brick?N
 
       </a>
@@ -6417,7 +6414,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/element/dispBeamColumn/" class="md-nav__link">
+      <a href="libraries/modeling/element/dispBeamColumn/" class="md-nav__link">
         dispBeamColumn
 
       </a>
@@ -6432,7 +6429,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/element/zeroLength/" class="md-nav__link">
+      <a href="libraries/modeling/element/zeroLength/" class="md-nav__link">
         ZeroLength
 
       </a>
@@ -6492,7 +6489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/nD/BidirectionalMaterial/" class="md-nav__link">
+      <a href="libraries/modeling/nD/BidirectionalMaterial/" class="md-nav__link">
         BidirectionalMaterial
 
       </a>
@@ -6507,7 +6504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/nD/ElasticCrossAnisotropic/" class="md-nav__link">
+      <a href="libraries/modeling/nD/ElasticCrossAnisotropic/" class="md-nav__link">
         ElasticCrossAnisotropic
 
       </a>
@@ -6522,7 +6519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/nD/ElasticIsotropicPlaneStrain2D/" class="md-nav__link">
+      <a href="libraries/modeling/nD/ElasticIsotropicPlaneStrain2D/" class="md-nav__link">
         ElasticIsotropicPlaneStrain2D
 
       </a>
@@ -6537,7 +6534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/nD/ElasticIsotropicPlaneStress2D/" class="md-nav__link">
+      <a href="libraries/modeling/nD/ElasticIsotropicPlaneStress2D/" class="md-nav__link">
         ElasticIsotropicPlaneStress2D
 
       </a>
@@ -6552,7 +6549,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/nD/Template3Dep/" class="md-nav__link">
+      <a href="libraries/modeling/nD/Template3Dep/" class="md-nav__link">
         Template Elasto-Plastic Framework
 
       </a>
@@ -6621,7 +6618,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../libraries/modeling/transform/Corotational/">Corotational</a>
+          <a href="libraries/modeling/transform/Corotational/">Corotational</a>
           
         </div>
       
@@ -6698,7 +6695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/uniaxial/Concrete01/" class="md-nav__link">
+      <a href="libraries/modeling/uniaxial/Concrete01/" class="md-nav__link">
         Concrete01
 
       </a>
@@ -6713,7 +6710,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/uniaxial/ElasticMaterial/" class="md-nav__link">
+      <a href="libraries/modeling/uniaxial/ElasticMaterial/" class="md-nav__link">
         ElasticMaterial
 
       </a>
@@ -6728,7 +6725,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/uniaxial/ElasticPPMaterial/" class="md-nav__link">
+      <a href="libraries/modeling/uniaxial/ElasticPPMaterial/" class="md-nav__link">
         ElasticPPModel
 
       </a>
@@ -6743,7 +6740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/uniaxial/ParallelMaterial/" class="md-nav__link">
+      <a href="libraries/modeling/uniaxial/ParallelMaterial/" class="md-nav__link">
         ParallelModel
 
       </a>
@@ -6758,7 +6755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/uniaxial/Steel01/" class="md-nav__link">
+      <a href="libraries/modeling/uniaxial/Steel01/" class="md-nav__link">
         Steel01
 
       </a>
@@ -6790,7 +6787,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../libraries/modeling/uniaxial/ConcreteCM/">ConcreteCM</a>
+          <a href="libraries/modeling/uniaxial/ConcreteCM/">ConcreteCM</a>
           
         </div>
       
@@ -6835,7 +6832,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../libraries/modeling/uniaxial/PyTzQz/">PyTzQz</a>
+          <a href="libraries/modeling/uniaxial/PyTzQz/">PyTzQz</a>
           
             <label for="__nav_5_3_8_7">
               <span class="md-nav__icon md-icon"></span>
@@ -6858,7 +6855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/modeling/uniaxial/PyTzQz/PySimple/" class="md-nav__link">
+      <a href="libraries/modeling/uniaxial/PyTzQz/PySimple/" class="md-nav__link">
         PY Simple1
 
       </a>
@@ -6897,7 +6894,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../libraries/modeling/uniaxial/ScottHysteretic/">ScottHysteretic</a>
+          <a href="libraries/modeling/uniaxial/ScottHysteretic/">ScottHysteretic</a>
           
         </div>
       
@@ -6964,7 +6961,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../libraries/numerics/">Numerics</a>
+          <a href="libraries/numerics/">Numerics</a>
           
             <label for="__nav_5_4">
               <span class="md-nav__icon md-icon"></span>
@@ -7017,7 +7014,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/EigenDecomp/ArpackSolver/" class="md-nav__link">
+      <a href="libraries/numerics/EigenDecomp/ArpackSolver/" class="md-nav__link">
         ArpackSolver
 
       </a>
@@ -7083,7 +7080,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/LinearSolve/BandGenLapack/" class="md-nav__link">
+      <a href="libraries/numerics/LinearSolve/BandGenLapack/" class="md-nav__link">
         BandGenLinLapackSolver
 
       </a>
@@ -7098,7 +7095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/LinearSolve/BandSPDLapack/" class="md-nav__link">
+      <a href="libraries/numerics/LinearSolve/BandSPDLapack/" class="md-nav__link">
         BandSPDLinLapackSolver
 
       </a>
@@ -7113,7 +7110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/LinearSolve/FullGenLapack/" class="md-nav__link">
+      <a href="libraries/numerics/LinearSolve/FullGenLapack/" class="md-nav__link">
         FullGenLinLapackSolver
 
       </a>
@@ -7128,7 +7125,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/LinearSolve/ITPACK/" class="md-nav__link">
+      <a href="libraries/numerics/LinearSolve/ITPACK/" class="md-nav__link">
         ITPACK
 
       </a>
@@ -7143,7 +7140,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/LinearSolve/ProfileSPDDirectBlock/" class="md-nav__link">
+      <a href="libraries/numerics/LinearSolve/ProfileSPDDirectBlock/" class="md-nav__link">
         ProfileSPDDirectBlockSolver
 
       </a>
@@ -7158,7 +7155,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/LinearSolve/ProfileSPDDirectSkypack/" class="md-nav__link">
+      <a href="libraries/numerics/LinearSolve/ProfileSPDDirectSkypack/" class="md-nav__link">
         ProfileSPDDirectSkypack
 
       </a>
@@ -7173,7 +7170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/LinearSolve/ProfileSPDDirectThread/" class="md-nav__link">
+      <a href="libraries/numerics/LinearSolve/ProfileSPDDirectThread/" class="md-nav__link">
         ProfileSPDLinDirectThread
 
       </a>
@@ -7188,7 +7185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/LinearSolve/SparseGenCol/" class="md-nav__link">
+      <a href="libraries/numerics/LinearSolve/SparseGenCol/" class="md-nav__link">
         SparseGenColLinSolver
 
       </a>
@@ -7242,7 +7239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/Numberer/PlainNumberer/" class="md-nav__link">
+      <a href="libraries/numerics/Numberer/PlainNumberer/" class="md-nav__link">
         PlainNumberer
 
       </a>
@@ -7257,7 +7254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/Numberer/RCM/" class="md-nav__link">
+      <a href="libraries/numerics/Numberer/RCM/" class="md-nav__link">
         RCM
 
       </a>
@@ -7309,7 +7306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/numerics/Partitioner/Metis/" class="md-nav__link">
+      <a href="libraries/numerics/Partitioner/Metis/" class="md-nav__link">
         Metis
 
       </a>
@@ -7372,7 +7369,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/pattern/Plain/" class="md-nav__link">
+      <a href="libraries/pattern/Plain/" class="md-nav__link">
         Plain Pattern
 
       </a>
@@ -7387,7 +7384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/pattern/UniformExcitation/" class="md-nav__link">
+      <a href="libraries/pattern/UniformExcitation/" class="md-nav__link">
         UniformExcitation
 
       </a>
@@ -7430,7 +7427,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../libraries/runtime/">Runtime</a>
+          <a href="libraries/runtime/">Runtime</a>
           
             <label for="__nav_5_6">
               <span class="md-nav__icon md-icon"></span>
@@ -7453,7 +7450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/runtime/MomentCurvature/" class="md-nav__link">
+      <a href="libraries/runtime/MomentCurvature/" class="md-nav__link">
         
       </a>
     </li>
@@ -7510,7 +7507,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/utilities/quadrature/" class="md-nav__link">
+      <a href="libraries/utilities/quadrature/" class="md-nav__link">
         Quadrature
 
       </a>
@@ -7525,7 +7522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/utilities/torsion/" class="md-nav__link">
+      <a href="libraries/utilities/torsion/" class="md-nav__link">
         Torsion
 
       </a>
@@ -7540,7 +7537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../libraries/utilities/units/" class="md-nav__link">
+      <a href="libraries/utilities/units/" class="md-nav__link">
         units
 
       </a>
@@ -7602,7 +7599,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/ast/" class="md-nav__link">
+      <a href="reference/ast/" class="md-nav__link">
         AST Reference
 
       </a>
@@ -7617,7 +7614,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../reference/framework/" class="md-nav__link">
+      <a href="reference/framework/" class="md-nav__link">
         Framework
 
       </a>
@@ -7644,379 +7641,146 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/claudioperez/opensees-python/edit/master/docs/gallery/sections/section_building.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/claudioperez/opensees-python/edit/master/docs/index.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<section id="damage-monitoring-tools" class="cell markdown">
-<h1>Damage Monitoring Tools</h1>
-</section>
-<div class="cell markdown">
-<p>The damage monitoring toolkit consists the files <code>SectionLib.py</code> and <code>get_fibers.py</code>, and the Python package <code>opensees</code>. Currently these files have to be copied to the location from where they are executed, and the <code>opensees</code> package should be installed by running the following command:</p>
-<div class="highlight"><pre><span></span>pip install opensees
+  <h1>OpenSeesRT</h1>
+
+<style>
+.home-feature {
+  justify-content: space-between !important;
+  align-items: center !important; 
+  display: flex !important;
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+}
+</style>
+<header>
+<div class="hero position-relative overflow-hidden p-3 text-center text-dark">
+<div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-md-5 p-lg-1 mx-auto my-5&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;img</span> <span class="na">src=</span><span class="s">&quot;img/anabel.svg&quot;</span> <span class="na">alt=</span><span class="s">&quot;&quot;</span> <span class="na">width=</span><span class="s">200</span><span class="nt">&gt;&lt;h2</span> <span class="na">style=</span><span class="s">&quot;font-size:60px;font-weight:50 !important;&quot;</span><span class="nt">&gt;&lt;/img&gt;</span>anabel<span class="nt">&lt;/h2&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;lead &quot;</span><span class="nt">&gt;</span>anabel Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;btn btn-outline-primary btn-lg&quot;</span> <span class="na">href=</span><span class="s">&quot;guides/quick-start&quot;</span> <span class="na">role=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;product-device box-shadow d-none d-md-block&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;product-device product-device-2 box-shadow d-none d-md-block&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </pre></div>
 
 </div>
-<div class="cell markdown">
-<p>The toolkit can be used from either Tcl, Python, or directly at the command line.</p>
-</div>
-<div class="cell markdown">
-<p>The following example shows how the <code>get_fibers.py</code> module may be invoked from Tcl:</p>
-<div class="highlight"><pre><span></span><span class="k">proc</span><span class="w"> </span>py<span class="w"> </span><span class="k">{</span><span class="nv">args</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
-<span class="w">    </span><span class="k">eval</span><span class="w"> </span><span class="s2">&quot;[exec python.exe {*}$args]&quot;</span>
-<span class="k">}</span>
+</header>
+<main role="main">
+<div class="container marketing p-md-5">
+<hr class="featurette-divider">
+<div class="row featurette p-4">
+<div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;row text-center&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-lg-4&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;btn btn-outline-secondary&quot;</span> <span class="na">href=</span><span class="s">&quot;guides/&quot;</span> <span class="na">role=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Guides<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;lead&quot;</span><span class="nt">&gt;</span>View guides that explain the concepts and components of <span class="nt">&lt;code&gt;</span>anabel<span class="nt">&lt;/code&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span><span class="cm">&lt;!-- /.col-lg-4 --&gt;</span>
 
-<span class="k">foreach</span><span class="w"> </span>ds<span class="w"> </span><span class="k">{</span><span class="nv">dsr1</span><span class="w"> </span>dsr2<span class="w"> </span>dsr3<span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
-<span class="w">    </span><span class="nv">py</span><span class="w"> </span>get_fibers.py<span class="w"> </span>model.json<span class="w"> </span>record-<span class="err">$</span><span class="k">{</span><span class="nv">ds</span><span class="k">}</span>.txt<span class="w"> </span><span class="o">-</span>e<span class="w"> </span><span class="mi">4020</span>,3020<span class="w"> </span><span class="o">-</span>d<span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">-</span>s<span class="w"> </span><span class="nv">$ds</span>
-<span class="k">}</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-lg-4&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;btn btn-outline-secondary&quot;</span> <span class="na">href=</span><span class="s">&quot;api/latest&quot;</span> <span class="na">role=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>API Documentation<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;lead&quot;</span><span class="nt">&gt;</span>Peruse a comprehensive list of functions provided by<span class="nt">&lt;code&gt;</span>anabel<span class="nt">&lt;/code&gt;</span>, with detailed explanations of their interfaces.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span><span class="cm">&lt;!-- /.col-lg-4 --&gt;</span>
+
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-lg-4&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;p&gt;&lt;a</span> <span class="na">class=</span><span class="s">&quot;btn btn-outline-secondary&quot;</span> <span class="na">href=</span><span class="s">&quot;gallery/&quot;</span> <span class="na">role=</span><span class="s">&quot;button&quot;</span><span class="nt">&gt;</span>Gallery<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;lead&quot;</span><span class="nt">&gt;</span>Walk through some examples of the various analysis procedures that <span class="nt">&lt;code&gt;</span>anabel<span class="nt">&lt;/code&gt;</span> provides.<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span><span class="cm">&lt;!-- /.col-lg-4 --&gt;</span>
+<span class="nt">&lt;/div&gt;</span><span class="cm">&lt;!-- /.row --&gt;</span>
+<span class="nt">&lt;/div&gt;</span><span class="cm">&lt;!-- /.row-featurette --&gt;</span>
 </pre></div>
 
-<blockquote>
-<p>Note: This currently requires the <code>get_fibers.py</code> file to be visible from the current working directory of the Tcl interpreter.</p>
-</blockquote>
-</div>
-<section id="geometry-building-1-geometry-building" class="cell markdown">
-<h3>1) Geometry building {#1-geometry-building}</h3>
-<p>Damage regions are built from the same plane geometry primitives that are offered by OpenSees (e.g. the <code>patch</code> and <code>layer</code> commands).</p>
-<p>Additionally, the function <code>section</code> from the module <code>opensees.render.mpl</code> can be used to visualize components.</p>
-</section>
-<div class="cell code" data-execution_count="1">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opensees</span> <span class="kn">import</span> <span class="n">patch</span><span class="p">,</span> <span class="n">layer</span><span class="p">,</span> <span class="n">section</span>
-<span class="kn">import</span> <span class="nn">opensees.render.mpl</span> <span class="k">as</span> <span class="nn">render</span>
-</pre></div>
-
-</div>
-<div class="cell code" data-execution_count="2">
-<div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">FiberSection</span><span class="p">(</span>
-    <span class="n">areas</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="n">patch</span><span class="o">.</span><span class="n">circ</span><span class="p">(</span><span class="n">extRad</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">intRad</span><span class="o">=</span><span class="mi">18</span><span class="p">),</span>
-        <span class="n">layer</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">vertices</span><span class="o">=</span><span class="p">[[</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]),</span>
-        <span class="n">patch</span><span class="o">.</span><span class="n">rect</span><span class="p">(</span><span class="n">vertices</span><span class="o">=</span><span class="p">[[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span>
-    <span class="p">]</span>
-<span class="p">)</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-</pre></div>
-
-<div class="output display_data">
-<p><img src="/static/45d1f0c2031948d8ca68c890c1fd8da120dd840e.png" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
-</div>
-<div class="cell markdown">
-<p>Print section properties:</p>
-</div>
-<div class="cell code" data-execution_count="3">
-<div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">area</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">ixc</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">iyc</span><span class="p">)</span>
-<span class="c1"># print(s.ixc)</span>
-</pre></div>
-
-<div class="output stream stdout">
-<div class="highlight"><pre><span></span><span class="mf">838.7610416728243</span><span class="w"></span>
-<span class="mf">63215.74854278119</span><span class="w"></span>
-<span class="mf">88215.74854278119</span><span class="w"></span>
+<hr class="featurette-divider">
+<article>
+<div class="row featurette home-feature feature">
+<div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-7&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;featurette-heading&quot;</span><span class="nt">&gt;</span>Inelasticity<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;lead&quot;</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="nt">&lt;/p&gt;</span>
+  <span class="cm">&lt;!--&lt;a class=&quot;btn btn-outline-secondary&quot; href=&quot;Guides/Developing&quot; role=&quot;button&quot;&gt;Developer&#39;s Manual&lt;/a&gt;--&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-4&quot;</span> <span class="na">style=</span><span class="s">&quot;position: relative;&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">&quot;vertical-align:middle; max-width: 100%; height: auto&quot;</span> <span class="na">src=</span><span class="s">&quot;img/sections/main.svg&quot;</span> <span class="na">class=</span><span class="s">&quot;img-fluid&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 </pre></div>
 
 </div>
-</div>
-<div class="cell markdown">
-<p>Additionally, the <code>SectionLib</code> module provides convenient wrappers for building complex sections.</p>
-<p>The <code>Octagon</code> function from this library can be called in 3 ways:</p>
-<ul>
-<li><code>ConfinedPolygon(radius)</code> Constructs an octagon.</li>
-<li><code>PolygonRing(extRad, intRad, n)</code> Constructs an <code>n</code>-gon annulus <!-- - `Octagon(extRad, extRad)` (ie when both arguments are equal) Constructs an octagonal boundary line. --></li>
-</ul>
-</div>
-<div class="cell code" data-execution_count="4">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opensees.section</span> <span class="kn">import</span> <span class="n">ConfinedPolygon</span>
+</article>
+<article>
+<div class="row featurette home-feature feature">
+<div class="highlight"><pre><span></span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-4&quot;</span> <span class="na">style=</span><span class="s">&quot;position: relative;&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">&quot;vertical-align:middle; max-width: 100%; height: auto&quot;</span> <span class="na">src=</span><span class="s">&quot;img/pde-iso.svg&quot;</span> <span class="na">class=</span><span class="s">&quot;img-fluid&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-7&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;featurette-heading&quot;</span><span class="nt">&gt;</span>Partial Differential Equations<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;lead&quot;</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="nt">&lt;/p&gt;</span>
+  <span class="cm">&lt;!--&lt;a class=&quot;btn btn-outline-secondary&quot; href=&quot;Guides/Developing&quot; role=&quot;button&quot;&gt;Developer&#39;s Manual&lt;/a&gt;--&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 </pre></div>
 
 </div>
-<div class="cell code" data-execution_count="5" data-tags="[]">
-<div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">section</span><span class="o">.</span><span class="n">ConfinedPolygon</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">20</span><span class="p">));</span>
-</pre></div>
-
-<div class="output display_data">
-<p><img src="/static/897b2813113af4f569d702e4c93bce2b0f33558d.png" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
-</div>
-<div class="cell code" data-execution_count="6">
-<div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">section</span><span class="o">.</span><span class="n">PolygonRing</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">18</span><span class="p">));</span>
-</pre></div>
-
-<div class="output display_data">
-<p><img src="/static/47d4eabb86f3c2267c603b925c5a056c8b21fe1c.png" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
-</div>
-<div class="cell code" data-execution_count="7">
-<div class="highlight"><pre><span></span><span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">section</span><span class="o">.</span><span class="n">ConfinedPolygon</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">));</span>
-</pre></div>
-
-<div class="output display_data">
-<p><img src="/static/47d4eabb86f3c2267c603b925c5a056c8b21fe1c.png" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
-</div>
-<section id="define-damage-state-regions-the-get_fibers-module-2-define-damage-state-regions-the-get_fibers-module" class="cell markdown" data-tags="[]">
-<h3>2) Define damage state regions; the <code>get_fibers</code> module {#2-define-damage-state-regions-the-get_fibers-module}</h3>
-</section>
-<div class="cell code" data-execution_count="8" data-tags="[]">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fiberRecorders</span> <span class="kn">import</span> <span class="n">iter_elem_fibers</span><span class="p">,</span> <span class="n">damage_states</span><span class="p">,</span> <span class="n">read_sect_xml</span>
-</pre></div>
-
-</div>
-<div class="cell markdown">
-<p>The <code>get_fibers</code> module provides the helper function <code>iter_elem_fibers</code> for iterating over a filtered collection of fibers. Fibers are filtered out by supplying a <em>damage state</em> dictionary with a required <code>"regions"</code> field, and optional <code>"material"</code> field.</p>
-</div>
-<div class="cell code" data-execution_count="9" data-tags="[]">
-<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">opensees.units.english</span> <span class="kn">import</span> <span class="n">ft</span><span class="p">,</span> <span class="n">inch</span>
-</pre></div>
-
-</div>
-<div class="cell code" data-execution_count="10">
-<div class="highlight"><pre><span></span><span class="n">Dcol</span> <span class="o">=</span> <span class="mi">7</span><span class="o">*</span><span class="n">ft</span>
-<span class="n">Rcol</span> <span class="o">=</span> <span class="n">Dcol</span><span class="o">/</span><span class="mi">2</span>
-<span class="n">cover</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">inch</span>
-</pre></div>
-
-</div>
-<div class="cell code" data-execution_count="11">
-<div class="highlight"><pre><span></span><span class="n">DS</span> <span class="o">=</span> <span class="n">damage_states</span><span class="p">(</span><span class="n">Dcol</span><span class="p">)</span>
-</pre></div>
-
-</div>
-<section id="iterating-over-fibers-3-iterating-over-fibers" class="cell markdown">
-<h3>3) Iterating over fibers {#3-iterating-over-fibers}</h3>
-</section>
-<div class="cell code" data-execution_count="12" data-tags="[]">
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-</pre></div>
-
-</div>
-<div class="cell code" data-execution_count="13">
-<div class="highlight"><pre><span></span><span class="n">model_file</span> <span class="o">=</span> <span class="s2">&quot;modelDetails.json&quot;</span>
-<span class="n">elements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4010</span><span class="p">]</span>
-</pre></div>
-
-</div>
-<div class="cell code" data-execution_count="14" data-tags="[]">
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_file</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-</pre></div>
-
-</div>
-<div class="cell markdown">
-<p>If the third argument to <code>iter_elem_fibers</code> is omitted, all fibers are returned (Underscores are used in the following cell to name unused variables).</p>
-</div>
-<div class="cell code" data-execution_count="15" data-scrolled="true" data-tags="[]">
-<div class="highlight"><pre><span></span><span class="n">all_fibers</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">__</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
-<span class="p">]</span>
-
-<span class="n">ds1_fibers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr1&quot;</span><span class="p">],</span> <span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="p">])</span>
-
-<span class="n">ds2_fibers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr2&quot;</span><span class="p">],</span> <span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="p">])</span>
-
-<span class="n">ds3_fibers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr3&quot;</span><span class="p">],</span> <span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="p">])</span>
-
-<span class="n">ds4_fibers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
-    <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">e</span><span class="p">,</span><span class="n">s</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">,</span> <span class="n">filt</span><span class="o">=</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr3&quot;</span><span class="p">],</span> <span class="n">sections</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="p">])</span>
-</pre></div>
-
-</div>
-<section id="visualizing-3-visualizing" class="cell markdown">
-<h2>3) Visualizing {#3-visualizing}</h2>
-</section>
-<div class="cell code" data-execution_count="16">
-<div class="highlight"><pre><span></span><span class="n">sect</span> <span class="o">=</span> <span class="n">section</span><span class="o">.</span><span class="n">ConfinedPolygon</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">Dcol</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">sect</span><span class="p">)</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr1&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr2&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;pink&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr3&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr4&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr5&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
-<span class="c1"># ax.set_xlim([0, Rcol+1])</span>
-<span class="c1"># ax.set_ylim([-1, Rcol+1])</span>
-</pre></div>
-
-<div class="output display_data">
-<p><img src="/static/897b2813113af4f569d702e4c93bce2b0f33558d.png" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
-</div>
-<div class="cell code" data-execution_count="17">
-<div class="highlight"><pre><span></span><span class="c1"># Create grid of points</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1"># Create plot axis and add sections to it</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">sect</span><span class="p">)</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr1&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr2&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;pink&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr3&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr4&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
-<span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">DS</span><span class="p">[</span><span class="s2">&quot;dsr5&quot;</span><span class="p">][</span><span class="s2">&quot;regions&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
-
-<span class="c1"># add filtered fibers to plot</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">all_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ds1_fibers</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ds2_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;o&quot;</span><span class="p">)</span><span class="c1">#, s=0.8)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ds3_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span><span class="c1">#,  s=1)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">ds4_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">)</span><span class="c1">#,  s=1)</span>
-
-<span class="c1"># Set plot limits</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Rcol</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">Rcol</span><span class="o">+</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;on&quot;</span><span class="p">);</span>
-</pre></div>
-
-<div class="output display_data">
-<p><img src="/static/ddcf04fd423be96634ed614053192ed1f7d5ccde.png" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
-</div>
-<div class="cell code" data-execution_count="18">
-<div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">sect</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="o">*</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">all_fibers</span><span class="p">)),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.5</span><span class="p">);</span>
-</pre></div>
-
-<div class="output display_data">
-<p><img src="/static/0e8cee87c0ff1af3faca5c9dc9d4aa1ba427c408.png" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
-</div>
-<div class="cell code" data-execution_count="19">
-<div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">sect</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-    <span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">coord</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">sect</span><span class="o">.</span><span class="n">fibers</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;coord&quot;</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
-<span class="p">)</span>
-<span class="c1"># sect.fibers</span>
-</pre></div>
-
-<div class="output execute_result" data-execution_count="19">
-<div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f760f780a00&gt;
-</pre></div>
-
-</div>
-<div class="output display_data">
-<p><img src="/static/1b92bddf543e602d9f2463bef267f4106744c00a.png" style="margin:auto; display: block; max-width: 75%" /></p>
-</div>
-</div>
-<div class="cell code" data-execution_count="20">
-<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">fiber_strain</span><span class="p">(</span><span class="n">recorder_data</span><span class="p">,</span> <span class="n">el</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">eps</span> <span class="o">=</span> <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;eps&quot;</span><span class="p">][</span><span class="n">t</span><span class="p">]</span>
-        <span class="n">kz</span> <span class="o">=</span>  <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;kappaZ&quot;</span><span class="p">][</span><span class="n">t</span><span class="p">]</span>
-        <span class="n">ky</span> <span class="o">=</span>  <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;kappaY&quot;</span><span class="p">][</span><span class="n">t</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">eps</span> <span class="o">=</span> <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;eps&quot;</span><span class="p">]</span>
-        <span class="n">kz</span> <span class="o">=</span>  <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;kappaZ&quot;</span><span class="p">]</span>
-        <span class="n">ky</span> <span class="o">=</span>  <span class="n">recorder_data</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">el</span><span class="p">)][</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)][</span><span class="s2">&quot;kappaY&quot;</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">eps</span> <span class="o">-</span> <span class="n">kz</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ky</span> <span class="o">*</span> <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-
-</div>
-<div class="cell code" data-execution_count="21">
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="n">userHome</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">))</span>
-
-<span class="n">dataDir</span>    <span class="o">=</span> <span class="n">userHome</span><span class="o">/</span><span class="s2">&quot;brace&quot;</span><span class="o">/</span><span class="s2">&quot;Caltrans&quot;</span><span class="o">/</span><span class="s2">&quot;Caltrans.Hayward&quot;</span><span class="o">/</span><span class="s2">&quot;Procedures&quot;</span><span class="o">/</span><span class="s2">&quot;datahwd12.1&quot;</span>
-<span class="n">xmlName</span>    <span class="o">=</span> <span class="n">dataDir</span><span class="o">/</span> <span class="s2">&quot;SectionDeformationHist.xml&quot;</span>
-<span class="c1"># xmlNameFib = dataDir/ &quot;DynResponse&quot;/ &quot;LS7Top1.xml&quot;</span>
-<span class="n">jsonName</span>   <span class="o">=</span> <span class="n">dataDir</span><span class="o">/</span> <span class="s2">&quot;modelDetails.json&quot;</span>
-</pre></div>
-
-</div>
-<div class="cell code" data-execution_count="22">
-<div class="highlight"><pre><span></span><span class="c1"># recorder_data = read_sect_xml(xmlName)</span>
-
-<span class="c1"># for e,s,f in iter_elem_fibers(model, [4020]):</span>
-<span class="c1">#     f.update({&quot;strain&quot;: fiber_strain(recorder_data, &quot;4020&quot;, &quot;4&quot;, f)})</span>
-</pre></div>
-
-</div>
-<div class="cell code" data-execution_count="23">
-<div class="highlight"><pre><span></span><span class="n">regions</span> <span class="o">=</span> <span class="n">damage_states</span><span class="p">(</span><span class="mf">84.0</span><span class="p">)</span>
-<span class="n">elems</span><span class="o">=</span><span class="p">[</span><span class="mi">4020</span><span class="p">]</span>
-<span class="c1"># ds_strains = {</span>
-<span class="c1">#     # X,Y,epsRaw</span>
-<span class="c1">#     ds: tuple(zip(*(</span>
-<span class="c1">#             (</span>
-<span class="c1">#                 fib[&quot;coord&quot;][0], </span>
-<span class="c1">#                 fib[&quot;coord&quot;][1],</span>
-<span class="c1">#                  fiber_strain(recorder_data, elem[&quot;name&quot;], sec, fib)</span>
-<span class="c1">#             ) for elem, sec, fib in iter_elem_fibers(model, elems, [3], filt=regions[ds])</span>
-<span class="c1">#         )))</span>
-<span class="c1">#     for ds in [&quot;dsr1&quot;, &quot;dsr2&quot;]</span>
-<span class="c1"># }</span>
-<span class="n">regions</span> <span class="o">=</span> <span class="n">damage_states</span><span class="p">(</span><span class="mf">84.0</span><span class="p">)</span>
-<span class="n">elems</span>   <span class="o">=</span>  <span class="p">[</span><span class="mi">4020</span><span class="p">]</span>
-<span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">epsRaw</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="p">(</span>
-            <span class="p">(</span>
-                <span class="n">fib</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> 
-                <span class="n">fib</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
-                <span class="n">fiber_strain</span><span class="p">(</span><span class="n">recorder_data</span><span class="p">,</span> <span class="n">elem</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="n">sec</span><span class="p">,</span> <span class="n">fib</span><span class="p">)</span>
-            <span class="p">)</span> <span class="k">for</span> <span class="n">ds</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;dsr1&quot;</span><span class="p">,</span> <span class="s2">&quot;dsr2&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">elem</span><span class="p">,</span> <span class="n">sec</span><span class="p">,</span> <span class="n">fib</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elems</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">filt</span><span class="o">=</span><span class="n">regions</span><span class="p">[</span><span class="n">ds</span><span class="p">])</span>
-        <span class="p">)))</span>
-</pre></div>
-
-<div class="output error" data-ename="NameError" data-evalue="name &#39;recorder_data&#39; is not defined">
-<div class="highlight"><pre><span></span><span class="o">---------------------------------------------------------------------------</span><span class="w"></span>
-<span class="n">NameError</span><span class="w">                                 </span><span class="n">Traceback</span><span class="w"> </span><span class="p">(</span><span class="n">most</span><span class="w"> </span><span class="n">recent</span><span class="w"> </span><span class="k">call</span><span class="w"> </span><span class="k">last</span><span class="p">)</span><span class="w"></span>
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_7483</span><span class="o">/</span><span class="mf">3330128005.</span><span class="n">py</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">&lt;</span><span class="k">module</span><span class="o">&gt;</span><span class="w"></span>
-<span class="w">     </span><span class="mi">14</span><span class="w"> </span><span class="n">regions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">damage_states</span><span class="p">(</span><span class="mf">84.0</span><span class="p">)</span><span class="w"></span>
-<span class="w">     </span><span class="mi">15</span><span class="w"> </span><span class="n">elems</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="o">[</span><span class="n">4020</span><span class="o">]</span><span class="w"></span>
-<span class="o">---&gt;</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">epsRaw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tuple</span><span class="p">(</span><span class="n">zip</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="w"></span>
-<span class="w">     </span><span class="mi">17</span><span class="w">             </span><span class="p">(</span><span class="w"></span>
-<span class="w">     </span><span class="mi">18</span><span class="w">                 </span><span class="n">fib</span><span class="o">[</span><span class="n">&quot;coord&quot;</span><span class="o">][</span><span class="n">0</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
-
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_7483</span><span class="o">/</span><span class="mf">3330128005.</span><span class="n">py</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">&lt;</span><span class="n">genexpr</span><span class="o">&gt;</span><span class="p">(</span><span class="mf">.0</span><span class="p">)</span><span class="w"></span>
-<span class="w">     </span><span class="mi">18</span><span class="w">                 </span><span class="n">fib</span><span class="o">[</span><span class="n">&quot;coord&quot;</span><span class="o">][</span><span class="n">0</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
-<span class="w">     </span><span class="mi">19</span><span class="w">                 </span><span class="n">fib</span><span class="o">[</span><span class="n">&quot;coord&quot;</span><span class="o">][</span><span class="n">1</span><span class="o">]</span><span class="p">,</span><span class="w"></span>
-<span class="o">---&gt;</span><span class="w"> </span><span class="mi">20</span><span class="w">                 </span><span class="n">fiber_strain</span><span class="p">(</span><span class="n">recorder_data</span><span class="p">,</span><span class="w"> </span><span class="n">elem</span><span class="o">[</span><span class="n">&quot;name&quot;</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">sec</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="p">)</span><span class="w"></span>
-<span class="w">     </span><span class="mi">21</span><span class="w">             </span><span class="p">)</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ds</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;dsr1&quot;, &quot;dsr2&quot;</span><span class="o">]</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">elem</span><span class="p">,</span><span class="w"> </span><span class="n">sec</span><span class="p">,</span><span class="w"> </span><span class="n">fib</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="n">elems</span><span class="p">,</span><span class="w"> </span><span class="o">[</span><span class="n">3</span><span class="o">]</span><span class="p">,</span><span class="w"> </span><span class="n">filt</span><span class="o">=</span><span class="n">regions</span><span class="o">[</span><span class="n">ds</span><span class="o">]</span><span class="p">)</span><span class="w"></span>
-<span class="w">     </span><span class="mi">22</span><span class="w">         </span><span class="p">)))</span><span class="w"></span>
-
-<span class="nl">NameError</span><span class="p">:</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="s1">&#39;recorder_data&#39;</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">defined</span><span class="w"></span>
+</article>
+<div class="home-feature row featurette">
+<div class="col-md-7">
+<div class="highlight"><pre><span></span><span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;featurette-heading&quot;</span><span class="nt">&gt;</span>Reliability<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;lead&quot;</span><span class="nt">&gt;</span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<span class="nt">&lt;/p&gt;</span>
+<span class="cm">&lt;!-- &lt;a class=&quot;btn btn-outline-secondary&quot; href=&quot;Functions/latest/Utility_Functions/Plotting//Functions/latest/Utility_Functions/Plotting/&quot; role=&quot;button&quot;&gt;Library &lt;/a&gt; --&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;col-4&quot;</span> <span class="na">style=</span><span class="s">&quot;position: relative;&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">style=</span><span class="s">&quot;vertical-align:middle; max-width: 100%; height: auto&quot;</span> <span class="na">src=</span><span class="s">&quot;img/reliability.svg&quot;</span> <span class="na">class=</span><span class="s">&quot;img-fluid&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 </pre></div>
 
 </div>
 </div>
-<div class="cell code">
-<div class="highlight"><pre><span></span><span class="c1"># X,Y,epsRaw = ds_strains[&quot;dsr1&quot;]</span>
-</pre></div>
-
+<!-- <hr class="featurette-divider">
+<section id="supporters">
+<div class="container supporters">
+    <h2>Acknowledgements</h2>
+    <p class="lead">Development of <code>anabel</code> has been made possible through the following past and present supportorters:<p>
+    <div class="row">
+    <div class="col supporter">
+        <a href="https://ce.berkeley.edu/programs/semm"><img src="img/UCBEngineering_logo.png" alt="SEMM logo"></a>
+    </div>
+    <div class="col supporter">
+        <a href="https://www.support.link.2"><img src="_static/support_logo_2.png" alt="Support logo 2"></a>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col supporter">
+        <a href="https://www.support_link3.missing"><img src="_static/support_logo_3.png" alt="Support logo 3"></a>
+    </div>
+    <div class="col supporter">
+        <a href=""><img src="_static/nvidia_logo.png" alt="Support logo 4"></a>
+    </div>
+    </div>
 </div>
-<div class="cell code">
-<div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">epsRaw</span><span class="p">)</span>
-</pre></div>
-
-</div>
-<div class="cell code">
-<div class="highlight"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">t</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="n">eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">e</span><span class="o">.</span><span class="n">T</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">epsRaw</span><span class="p">])</span>
-</pre></div>
-
-</div>
-<div class="cell code">
-<div class="highlight"><pre><span></span><span class="n">eps</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">t</span><span class="p">]</span>
-</pre></div>
-
-</div>
-<div class="cell code">
-<div class="highlight"><pre><span></span>
-</pre></div>
-
-</div>
+</section> -->
+<!-- <hr class="featurette-divider"> -->
+<!-- </section> -->
+</main>
+<!-- <section id="ucb-fea"> -->
+<!-- <div class="container supporters">
+    <h3>Other UC Berkeley FEA tools</h3>
+    <div class="row">
+    <div class="col">
+        <a href="https://www.support.link.2"><img src="_static/support_logo_2.png" alt="FEAP"></a>
+    </div>
+    <div class="col">
+        <a href="https://www.support_link3.missing"><img src="_static/support_logo_3.png" alt="OpenSees"></a>
+    </div>
+    <div class="col">
+        <a href=""><img src="_static/logo.png" alt="SimCenter"></a>
+    </div>
+    </div>
+</div> -->
+<!-- Code highlighting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.6.0/components/prism-python.min.js"></script>
+<!-- Claudio Perez  -->
 
 
               
@@ -8032,6 +7796,26 @@
       </main>
       
         <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+      
+        
+        <a href="." class="md-footer__link md-footer__link--next" aria-label="Next: Developer" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Developer
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -8052,13 +7836,17 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.361d90f1.min.js"}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.361d90f1.min.js"}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.289a2a4b.min.js"></script>
+
+      <script src="assets/javascripts/bundle.289a2a4b.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
     
+<script src="js/particles.min.js"></script>
+<script src="js/app.js"></script>
+
   </body>
 </html>
