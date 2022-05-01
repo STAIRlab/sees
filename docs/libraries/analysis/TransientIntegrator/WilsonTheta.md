@@ -95,32 +95,32 @@ This tangent for each `FE_Element` is defined to be ${\bf K}_e = c1 \K + c2  \D 
 invocation of the `newStep()` method. Returns $0$ after performing the
 following operations:
 
-::: {.tabbing}
-while ̄ while w̄hile ̄ if (RayleighDamping == false) {\
-theEle-$>$zeroTang()\
-theEle-$>$addKtoTang(c1)\
-theEle-$>$addCtoTang(c2)\
-theEle-$>$addMtoTang(c3)\
-} else {\
-theEle-$>$zeroTang()\
-theEle-$>$addKtoTang(c1 + c2 \* $\beta_K$)\
-theEle-$>$addMtoTang(c3 + c2 \* $\alpha_M$)\
+```cpp
+if (RayleighDamping == false) {
+  theEle->zeroTang()
+  theEle->addKtoTang(c1)
+  theEle->addCtoTang(c2)
+  theEle->addMtoTang(c3)
+} else {
+  theEle->zeroTang()
+  theEle->addKtoTang(c1 + c2 * beta_K)
+  theEle->addMtoTang(c3 + c2 * alpha_M)
 }
-:::
+```
 
 
 ```{.cpp}
-int formNodTangent(DOF_Group \*theDof);
+int formNodTangent(DOF_Group *theDof);
 ```
 
 This performs the following:
 
 ::: {.tabbing}
-while ̄ while w̄hile ̄ theDof-$>$zeroUnbalance()\
+theDof-$>$zeroUnbalance()
 if (RayleighDamping == false)
-theDof-$>$addMtoTang(c3)
+  theDof-$>$addMtoTang(c3)
 else
-theDof-$>$addMtoTang(c3 + c2 \* $\alpha_M$)
+  theDof-$>$addMtoTang(c3 + c2 * $\alpha_M$)
 :::
 
 
@@ -130,7 +130,7 @@ int domainChanged(void);
 
 If the size of the LinearSOE has changed, the object deletes any old
 Vectors created and then creates $6$ new Vector objects of size equal to
-*theLinearSOE-$>$getNumEqn()*. There is a Vector object created to store
+`theLinearSOE->getNumEqn()`. There is a Vector object created to store
 the current displacement, velocity and accelerations at times $t$ and
 $t + \Delta t$ (between `newStep()` and `commit()` the $t + \Delta t$ quantities store $t + \Theta \Delta t$ quantities). The
 response quantities at time $t + \Delta t$ are then set by iterating
@@ -151,7 +151,7 @@ The following are performed when this method is invoked:
 2.  Then the Vectors for response quantities at time $t$ are set equal to those at time $t + \Delta t$.
 
     ::: {.tabbing}
-    while w̄hile w̄hile w̄hile ̄ ${\bf U}_t = {\bf U}_{t + \Delta t}$\
+    ${\bf U}_t = {\bf U}_{t + \Delta t}$\
     $\dot{\bf U}_t = \dot{\bf U}_{t + \Delta t}$\
     $\ddot{\bf U}_t = \ddot{\bf U}_{t + \Delta t}$
     :::
@@ -160,7 +160,7 @@ The following are performed when this method is invoked:
     $t + \Theta \Delta t$ are set using the difference approximations,
 
     ::: {.tabbing}
-    while w̄hile w̄hile w̄hile ̄ ${\bf U}_{t + \theta \Delta t} = {\bf U}_t$\
+    ${\bf U}_{t + \theta \Delta t} = {\bf U}_t$\
     $\dot {\bf U}_{t + \theta \Delta t} = - 2 \dot {\bf U}_t + \frac{\theta
     \Delta t}{2} \ddot {\bf U}_t$\
     $\ddot {\bf U}_{t + \theta \Delta t} = - \frac{6}{\theta \Delta t}
@@ -172,7 +172,6 @@ The following are performed when this method is invoked:
     AnalysisModel with quantities at time $t + \Theta \Delta t$.
 
     ::: {.tabbing}
-    while w̄hile w̄hile w̄hile ̄
     theModel-$>$setResponse$({\bf U}_{t + \theta \Delta t}, \dot{\bf U}_{t+\theta
     \Delta t}, \ddot{\bf U}_{t+ \theta \Delta t})$
     :::
@@ -202,7 +201,7 @@ velocities and accelerations at time $t + \Theta \Delta t$. Finally
 `updateDomain()` is invoked on the AnalysisModel.
 
 ::: {.tabbing}
-while w̄hile w̄hile w̄hile ̄ ${\bf U}_{t + \theta \Delta t} += \Delta \U$\
+${\bf U}_{t + \theta \Delta t} += \Delta \U$\
 $\dot {\bf U}_{t + \theta \Delta t} += \frac{3}{\theta \Delta t}
 \Delta \U$\
 $\ddot {\bf U}_{t + \theta \Delta t} += \frac{6}{\theta^2 \Delta
@@ -232,7 +231,6 @@ Finally `updateDomain()` and `commitDomain()` are invoked on the
 AnalysisModel.
 
 ::: {.tabbing}
-while w̄hile w̄hile w̄hile ̄
 $\ddot{\bf U}_{t + \Delta t} = \ddot{\bf U}_t + \frac{1}{\theta} \left( \ddot{\bf U}_{t +
 \theta \Delta t} - \ddot{\bf U}_t \right)$\
 $\dot{\bf U}_{t + \Delta t} = \dot{\bf U}_t + \frac{\Delta t}{2}\left( \ddot{\bf U}_{t +

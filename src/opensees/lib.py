@@ -1,6 +1,7 @@
 # Claudio Perez
 from .ast import *
 from .obj import *
+from .obj import _LineElement
 
 Dof = Int
 
@@ -10,6 +11,7 @@ def Yng(**kwds):
 def Area(**kwds):
     return Num("A", field="area", about="cross-sectional area", **kwds)
 
+
 Node = cmd("Node", "node", [
     Tag(),
     Grp("crd", type=Num, args=[Num("x"),Num("y"), Num("z")]),
@@ -17,6 +19,34 @@ Node = cmd("Node", "node", [
         Num("x"),Num("y"), Num("z"), Num("x"),Num("y"), Num("z")
     ]),
 ])
+
+class BeamInt(Arg):
+    def as_tcl_list(self, value):
+        args = []
+        for kk in ["rule", "section", "num"]:
+            k = value[kk]
+            if isinstance(k,Arg):
+                args.append(k._get_value())
+            else:
+                args.append(k)
+        #return ['"' + ' '.join(args) + '"']
+        return args
+        #return f"{self.kwds['rule']} {self.kwds['section']} {self.kwds['num']}"
+
+
+redirect = Cmd("redirect",[
+      Blk("commands"),
+      One(optional=True, enum=[
+         Str("filename", flag=">"),
+         Str("filename", flag=">>"),
+         Grp("shell_pipe", flag="|", args=[
+            Str("shell_name", optional=True),
+            Blk("shell_block", flag="|"),
+         ]),
+         Str("variable")
+      ])
+    ])
+
 
 class uniaxial:
     """
@@ -58,6 +88,8 @@ class uniaxial:
           Num("Fy", about="yield strength"),
           Num("E0", about="initial elastic tangent"),
           Num("b", about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"),
+          
+          Num("R0"), Num("cR1", default=0.925), Num("cR2", default=0.15),
 
             # params (list (float)) parameters to control the transition from 
             # elastic to plastic branches. params=[R0,cR1,cR2].
@@ -97,6 +129,11 @@ class uniaxial:
             strength. (REF: Fedeas)."""
         )
 
+
+#BeamInt = cmd("BeamInt", "beamIntegration", [
+#        Str("rule"), Ref("sect", typ="section"), Int("num")
+#    ]
+#)
 class element:
     Iyc = lambda: Num("iyc", field="iyc",  about="Centroidal moment of inertia", alt="section")
     Ixc = lambda: Num("ixc", field="ixc",  about="", alt="section")
@@ -122,7 +159,37 @@ class element:
         refs=["materials"]
     )
 
-    DispBeamColumn = Ele("DispBeamColumn", "dispBeamColumn",
+    @Ele#("ForceBeamColumn", "forceBeamColumn", [])
+    class forceBeamColumn: # = Ele("ForceBeamColumn", "forceBeamColumn",
+        #, eleTag, *eleNodes, transfTag, integrationTag, '-cMass', '-mass', mass=0.0)
+        "Create a forceBeamColumn element."
+        _args=[
+            Tag(),
+            Grp("nodes", args=[
+              Ref("iNode", type=Node,  attr="name", about=""),
+              Ref("jNode", type=Node,  attr="name", about=""),
+            ]),
+            Ref("geom",  field="transform", type=Trf, attr="name"),
+            #Grp("points",  alt="integration"),
+            #Grp("weights", alt="integration"),
+            #Ref("integration", typ=BeamInt),#, alt=("points", "weights")),
+            BeamInt("integration"),
+            #Grp("integration", args=[BeamInt("integration")]),#, typ=BeamInt),
+            Flg("-cMass", field="consistent_mass",
+                about="Flag indicating whether to use consistent mass matrix."),
+            Num("mass",field="mass_density", flag="-mass", default=0.0, reqd=False, 
+                about="element mass per unit length"),
+        ]
+        _refs=["transform", "section"]
+
+        @property
+        def section(self):
+            return self.integration["section"]
+
+        def init(self):
+            pass
+
+    DisplBeamColumn = dispBeamColumn = Ele("DispBeamColumn", "dispBeamColumn",
         #, eleTag, *eleNodes, transfTag, integrationTag, '-cMass', '-mass', mass=0.0)
         about="Create a dispBeamColumn element.",
         args=[
@@ -137,7 +204,9 @@ class element:
                 about="Flag indicating whether to use consistent mass matrix."),
             Num("mass",field="mass_density", flag="-mass", default=0.0, reqd=False, 
                 about="element mass per unit length"),
-    ])
+        ],
+        refs=["transform"],
+    )
 
     ElasticBeamColumn3D = Ele("ElasticBeamColumn3D",
         "elasticBeamColumn",
@@ -167,7 +236,8 @@ class element:
         alts=[
             Ref("material", type=Mat),
             Ref("section",  type=Sec)
-        ]
+        ],
+        inherit=[_LineElement],
     )
 
 LinearTransform = Trf("LinearTransform",
@@ -182,23 +252,63 @@ LinearTransform = Trf("LinearTransform",
   ],
 )
 
+
+
 class constraint:
     RigidBeamLink = Lnk("RigidBeamLink",
         "beam", [Tag(), Grp("nodes", type=Ref(type=uniaxial), num=2)]
     )
 
-redirect = Cmd("redirect",[
-      Blk("commands"),
-      One(optional=True, enum=[
-         Str("filename", flag=">"),
-         Str("filename", flag=">>"),
-         Grp("shell_pipe", flag="|", args=[
-            Str("shell_name", optional=True),
-            Blk("shell_block", flag="|"),
-         ]),
-         Str("variable")
-      ])
-    ])
+
+
+Backbone = LibCmd("backbone")
+
+class backbone:
+    def getStress(self,  strain: float) -> float: ...
+    def getTangent(self, strain: float) -> float: ...
+    def getEnergy(self,  strain: float) -> float: ...
+    def getYieldStrain(self) -> float: ...
+
+    #Material = Backbone("Material tag? matTag?")
+
+    Mander = Backbone("Mander",
+        args = [
+          Tag()
+        ]
+    )
+    ReeseSoftClay = Backbone("ReeseSoftClay",
+        args=[
+          Tag(), Num("pu"), Num("y50"), Num("n")
+        ]
+    )
+    ReeseSand = Backbone("ReeseSand", 
+        args=[
+          Tag(), Num("kx"), Num("ym"), Num("pm"), Num("yu"), Num("pu")
+        ]
+    )
+    ReeseStiffClayBelowWS = Backbone("ReeseStiffClayBelowWS",
+        args=[
+          Tag(), Num("Esi"), Num("y50"), Num("As"), Num("Pc")
+        ]
+    )
+    Raynor = Backbone("Raynor", 
+        args=[
+          Tag(), Num("Es"), Num("fy"), Num("fsu"), Num("Epsilonsh"), Num("Epsilonsm"), Num("C1"), Num("Ey")
+        ]
+    )
+    Backbone("Capped", 
+        args=[
+          Tag(), Ref("backbone"), Num("capTag")
+        ]
+    )
+    LinearCapped = Backbone("LinearCapped", 
+        args=[
+          Tag(), Ref("backbone",type=Backbone), Num("eCap"), Num("E"), Num("sRes")
+        ]
+    )
+
+
+
 
 # region = Cmd("region", about="""
 #     The region command is used to label a group of nodes and elements. This command

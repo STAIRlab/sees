@@ -4,17 +4,71 @@ import tkinter
 import pathlib
 
 def TclInterpreter():
-    import tkinter, pathlib
-    #install_dir = pathlib.Path("/home/claudio/sees/pyg3/src/")
-    #install_dir = pathlib.Path("/home/claudio/sees/cmake-src/build/SRC/api/tclCommandPackage/")
     if "OPENSEESRT_LIB" in os.environ:
-        libOpenSeesRT = os.environ["OPENSEESRT_LIB"]
+        libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
     else:
         install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
-        libOpenSeesRT = install_dir/'libOpenSeesRT.so'
+        libOpenSeesRT_path = install_dir/'libOpenSeesRT.so'
     interp = tkinter.Tcl()
-    interp.eval(f"load {libOpenSeesRT}")
+    interp.eval(f"load {libOpenSeesRT_path}")
     return interp
+
+
+class TclWriter:
+    def Arg(this, self, value=None)->list:
+        value = self._get_value(None, value)
+        if isinstance(value, (type(None), )):
+            if not self.reqd:
+                return []
+            else:
+                value = f"${self.name}"
+        elif isinstance(value, (Arg,)):
+            if not self.reqd:
+                return []
+            else:
+                value = f"${value.name}"
+        return self.flag + [value] 
+
+    def Flg(this, self, value=None): 
+        value = self.value if value is None else value
+        return [self.flag] if value else []
+
+    def Grp(this, self, value=None):
+        value = self._get_value(None,value)
+        if value is None:
+            if self.reqd:
+                value = [None]*self.num
+            else:
+                return []
+        return self.flag + [a for arg,v in zip(self.args,value) for a in arg.as_tcl_list(v)]
+    
+    def Ref(this, self, value=None): 
+        value = self._get_value(None, value)
+        try:
+            value = getattr(value, self.kwds["attr"])
+        except:
+            pass
+        return self.flag + [value]
+
+    def Blk(this, self, value=None):
+        value = self.value if value is None else value
+        if value is None:
+            value = [None]
+        return self.flag + [[v.get_cmd() for v in value]]
+
+    def Map(this, self, value=None):
+        value = self._get_value(None,value)
+        if value is None:
+            if self.reqd:
+                value = [None]*self.num
+            else:
+                return []
+        vals = []
+        i, j = (1, 0) if self.tcl_rev_kv else (0, 1)
+        for arg, kv in zip(arg,value.items()):
+            kv = kv[0], arg.as_tcl_list(kv[1])
+            vals = vals + [kv[i], kv[j]]
+        return self.flag + vals
 
 
 class ScriptBuilder:
@@ -57,13 +111,25 @@ class ScriptBuilder:
                 w.send(arg)
         print("", file=self.out)
 
-class TclBuilder:
-    def __init__(self,  domain=None):
+class TclRuntime:
+    def __init__(self,  model=None):
         from functools import partial
         self._partial = partial
-        #self._domain = domain
         self._c_domain = None
         self._interp = TclInterpreter()
+        if model is not None:
+            self.model(model)
+    
+    def model(self, *args, **kwds):
+        """
+        model(model: opensees.model)
+        model(ndm:int, ndf:int)
+        """
+        for arg in args:
+            if isinstance(arg, int):
+                pass
+            else:
+                self.eval(ScriptBuilder(arg).script)
 
     @property
     def _domain(self):
@@ -76,20 +142,19 @@ class TclBuilder:
     @classmethod
     def _as_tcl_arg(cls, arg):
         if isinstance(arg, list):
-            return f"{{{''.join(TclBuilder._as_tcl_arg(a) for a in arg)}}}"
+            return f"{{{''.join(TclRuntime._as_tcl_arg(a) for a in arg)}}}"
         elif isinstance(arg, dict):
             return "{\n" + "\n".join([
-              f"{cmd} " + " ".join(TclBuilder._as_tcl_arg(a) for a in val)
+              f"{cmd} " + " ".join(TclRuntime._as_tcl_arg(a) for a in val)
                   for cmd, val in kwds
         ]) + "}"
         else:
             return str(arg)
 
-
     def _tcl_call(self, arg, *args, **kwds):
-        tcl_args = [TclBuilder._as_tcl_arg(arg) for arg in args]
+        tcl_args = [TclRuntime._as_tcl_arg(arg) for arg in args]
         tcl_args += [
-          f"-{key} " + TclBuilder._as_tcl_arg(val)
+          f"-{key} " + TclRuntime._as_tcl_arg(val)
               for key, val in kwds.items()
         ]
         ret = self._interp.tk.eval(
@@ -99,7 +164,7 @@ class TclBuilder:
     def eval(self, string):
         try:
             return self._interp.tk.eval(string)
-        except _tkinter.TclError as e:
+        except tkinter._tkinter.TclError as e:
             print("ERROR:", e, file=sys.stderr)
 
     def __getattr__(self, attr):
@@ -111,26 +176,23 @@ class TclBuilder:
         for node in nodes:
             self.eval(f"fix {node} {' '.join(map(str,dofs))}")
 
-    def pattern(self, *args):
-        pass
-
     def add_tagged(self, objs):
         for k,v in objs.items():
             if isinstance(k, int):
                 self.eval(v.cmd)            
 
-class BasicBuilder(TclBuilder):
+class BasicBuilder(TclRuntime):
     def __init__(self, ndm=None, ndf=None):
         super().__init__()
         self.model("basic", "-ndm", ndm, "-ndf", ndf)
 
-class SafeBuilder(TclBuilder):
+class SafeBuilder(TclRuntime):
     def __init__(self, ndm=None, ndf=None):
         super().__init__()
         self.model("safe", "-ndm", ndm, "-ndf", ndf)
 
 def model(typ, *args, **kwds):
-    builder = TclBuilder()
+    builder = TclRuntime()
     builder.model(typ, *args, **kwds)
     return builder
 

@@ -2,6 +2,9 @@ from .opensees import OpenSeesWriter
 from .writer import ModelWriter
 from .fedeas import FEDEAS_Writer
 
+def serialize(ast):
+    pass
+
 class JSON(ModelWriter):
     def dump_from_tcl(self, definitions=None):
         import tempfile, os, json
