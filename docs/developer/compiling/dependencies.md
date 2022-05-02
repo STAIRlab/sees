@@ -1,5 +1,40 @@
 # Dependencies
 
+Try `cmake ..`; on Unix-like systems, this is often enough.
+If a dependency is missing, try one of the following options
+and run `cmake ..` again:
+  
+1. Install the missing dependency with a system package manager (see below), or
+2. Install conan and run `conan install .. --build missing` from the build
+   directory
+
+If a package was successfully installed but CMake still cannot find it,
+you can manually set one of the variables below:
+
+
+ Dependency     Default   Linker variable       Compiler include
+ ------------  --------- --------------------  -------------------
+ [BLAS]          `B`      `BLAS_LIBRARIES`
+ [LAPACK]
+ [ARPACK]        `B`      `ARPACK_LIBRARIES`    `-`
+ [Tcl]          `C/S`     `TCL_LIBRARIES`       `TCL_INCLUDE_PATH`
+ [SuperLU]       `B`
+
+: `B`: use bundled version, `S`: search operating system ( using CMake's `find_package`)
+  `C/S`: uses Conan if it has been run, otherwise searches system. 
+
+
+  OPS >>> LAPACK:  /usr/lib/liblapack.so.3
+  OPS >>> SUPERLU: /home/claudio/opensees/pyg3/libg3/OTHER//bin/SuperLU_5.1.1/libSUPERLU.a
+  OPS >>> ARPACK:  /home/claudio/opensees/pyg3/libg3/OTHER//bin/ARPACK/libARPACK.a
+  OPS >>> UMFPACK: /home/claudio/opensees/pyg3/libg3/OTHER//bin/UMFPACK/libUMFPACK.a
+  OPS >>> CSPARSE: /home/claudio/opensees/pyg3/libg3/OTHER//bin/CSPARSE/libCSPARSE.a
+  OPS >>> TCL:
+  OPS >>> AMD:     /home/claudio/opensees/pyg3/libg3/OTHER//bin/AMD/libAMD.a
+  OPS >>> BLAS
+  OPS >>> LAPACK
+  OPS >>> SUPERLU
+
 ```{=html}
 <details><summary><a>APT (Ubuntu, Debian Linux)</a></summary>
 ```

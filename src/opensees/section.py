@@ -33,6 +33,11 @@ class FiberSection(_FiberCollection):
           )
         )
     ]
+    _refs = ["materials"]
+    
+    @property
+    def materials(self):
+        return (f.material for f in self.fibers)
 
     def add_patch(self, patch):
         self.areas.append(patch)
@@ -48,6 +53,13 @@ class FiberSection(_FiberCollection):
     @property
     def layers(self):
         return [p for p in self.areas if p.get_cmd()[0] == "layer"]
+
+    @property
+    def fibers(self):
+        return [ 
+             f for a in (a.fibers if hasattr(a,"fibers") else [a] for a in self.areas)
+                for f in a
+        ]
 
     @property
     def area(self):
@@ -158,7 +170,7 @@ def ConfiningPolygon(n, extRad=None, intRad=None, diameter=None, s=1):
     psi = 2*pi/n
     phi = psi/s
     collection = []
-    cover_divs = 1,2      # divisions in each slice of the cover
+    cover_divs = 2,4      # divisions in each slice of the cover
     iR1, iR2 = [intRad]*2
 
     for i in range(n):
@@ -284,14 +296,91 @@ class SectionAggregator:
                     }
             )
         ),
-        Ref("section", type=_section, flag="-section", about="tag of previously-defined Section object to which the UniaxialMaterial objects are aggregated as additional force-deformation relationships")
+        Ref("section", type=_section, flag="-section", 
+            about="tag of previously-defined Section object to which the UniaxialMaterial objects are aggregated as additional force-deformation relationships")
     ]
+    example=""" 
+    create new section with IDtag 2, taking the existing material tag 2 to
+    represent the shear and adding it to the existing section tag 4, which
+    may be a fiber section where the interaction betweeen axial force and
+    flexure is already considered.
 
-
-    example="section Aggregator 2 2 Vy -section 4; # create new section with IDtag 2, taking the existing material tag 2 to represent the shear and adding it to the existing section tag 4, which may be a fiber section where the interaction betweeen axial force and flexure is already considered."
+    section Aggregator 2 2 Vy -section 4;
+    """
 
     reference="http://earthquakespectra.org/doi/abs/10.1193/1.4000136"
 
     authors=["Micheal H. Scott"]
 
+
+
+def sect2shapely(section):
+    """
+    Generate `shapely` geometry objects 
+    from `opensees` patches or a FiberSection.
+    """
+    import numpy as np
+    import shapely.geometry
+    from shapely.ops import unary_union
+    shapes = []
+    if hasattr(section, "patches"):
+        patches = section.patches
+    else:
+        patches = [section]
+    for patch in patches:
+        name = patch.__class__.__name__.lower()
+        if name in ["quad", "poly", "rect", "_polygon"]:
+            points = np.array(patch.vertices)
+            width,_ = points[1] - points[0]
+            _,height = points[2] - points[0]
+            shapes.append(shapely.geometry.Polygon(points))
+        else:
+            n = 64
+            x_off, y_off = 0.0, 0.0
+            # calculate location of the point
+            external = [[
+                0.5 * patch.extRad * np.cos(i*2*np.pi*1./n - np.pi/8) + x_off,
+                0.5 * patch.extRad * np.sin(i*2*np.pi*1./n - np.pi/8) + y_off
+                ] for i in range(n)
+            ]
+            if patch.intRad > 0.0:
+                internal = [[
+                    0.5 * patch.intRad * np.cos(i*2*np.pi*1./n - np.pi/8) + x_off,
+                    0.5 * patch.intRad * np.sin(i*2*np.pi*1./n - np.pi/8) + y_off
+                    ] for i in range(n)
+                ]
+                shapes.append(shapely.geometry.Polygon(external, [internal]))
+            else:
+                shapes.append(shapely.geometry.Polygon(external))
+
+    if len(shapes) > 1:
+        return unary_union(shapes)
+    else:
+        return shapes[0]
+
+def sect2gmsh(sect, size, **kwds):
+    import pygmsh
+    import numpy as np
+    if isinstance(size, int): size = [size]*2
+    shape = sect2shapely(sect)
+    with pygmsh.geo.Geometry() as geom:
+        geom.characteristic_length_min = size[0]
+        geom.characteristic_length_max = size[1]
+        coords = np.array(shape.exterior.coords)
+        holes = [
+            geom.add_polygon(np.array(h.coords)[:-1], size[0], make_surface=False).curve_loop
+            for h in shape.interiors
+        ]
+        if len(holes) == 0:
+            holes = None
+
+        poly = geom.add_polygon(coords[:-1], size[1], holes=holes)
+        # geom.set_recombined_surfaces([poly.surface])
+        mesh = geom.generate_mesh(**kwds)
+    mesh.points = mesh.points[:,:2]
+    for blk in mesh.cells:
+        blk.data = blk.data.astype(int)
+    # for cell in mesh.cells:
+    #     cell.data = np.roll(np.flip(cell.data, axis=1),3,1)
+    return mesh
 

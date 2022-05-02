@@ -20,6 +20,7 @@ usage: opensees <file> [args]...
 
        opensees -print
        opensees -json
+       opensees -emit 
 """
 
 #PROMPT = "\033\\[01;32mopensees\033\\[0m > "
@@ -100,18 +101,14 @@ class OpenSeesShell(Cmd):
         except queue.Empty:
             return outStr
 
-
     def write(self, message):
         self.process.stdin.write(f"{message.strip()}\n")#.encode("utf-8"))
         self.process.stdin.flush()
-
 
     def terminate(self):
         self.process.stdin.close()
         self.process.terminate()
         self.process.wait(timeout=0.2)
-
-
 
 
 class TclShell(cmd.Cmd):
@@ -156,7 +153,6 @@ if __name__ == "__main__":
     else:
         tcl = opensees.tcl.TclInterpreter()
         tcl.eval(f"set argc {len(sys.argv) - 2}")
-        #tcl.eval(f"set argv {{{' '.join(sys.argv[2:])}}}")
         tcl.eval(f"set argv {{{' '.join(argi)}}}")
         for filename in files:
             if filename == "-":

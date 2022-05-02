@@ -43,14 +43,6 @@ class Arg:
 
     def init(self): pass
 
-    def c_decl(self): pass
-
-    def c_test_argv(self, argidx):
-        return f"""(strcmp(argv[{argidx}], "{self.flag}") == 0)"""
-
-    def c_read_argv(self, struct, argidx):
-        return f"{struct}->{self.field} = argv[++{argidx}];\n"
-    
     def get_value(self, parent, fmt):
         val = getattr(parent, self.field, None)
         if isinstance(val,bool):
@@ -137,7 +129,9 @@ class Ref(Arg):
 
     def _get_value(self, parent, value=None):
         value = self.value if value is None else value
-        if not isinstance(value, (str,int,float,type(None))):
+        if isinstance(value, dict):
+            return self.kwds["typ"](**value)._get_value(self)
+        elif not isinstance(value, (str,int,float,type(None))):
             return getattr(value, self.kwds["attr"])
         else:
             return value
@@ -215,5 +209,4 @@ class Tag(Int):
         super().init()
         self.name = "name"
         self.field = "name"
-        type = int
 

@@ -1,4 +1,4 @@
-# Multibay Two Story Frame Example
+# Multibay Two Story Frame
 
 In this next example the use of variable substitution and the Tcl loop
 control structure for building models is demonstrated.

@@ -23,11 +23,13 @@ All patches have the following attributes:
 
 """
 import sys
+import itertools
 from .ast import *
 from .obj import LibCmd, cmd
 import numpy as np
 
 class Material: pass
+class Backbone: pass
 
 fiber = Fiber = cmd("Fiber","fiber",
     # fiber $yLoc $zLoc $A $material
@@ -38,46 +40,13 @@ fiber = Fiber = cmd("Fiber","fiber",
             about="$y$ and $z$ coordinate of the fiber in the section "\
                   "(local coordinate system)"),
         Num("area", about="area of the fiber."),
-        Ref("material",type=Material, about="material tag associated with this fiber (UniaxialMaterial tag for a FiberSection and NDMaterial tag for use in an NDFiberSection)."),
+        Ref("material", type=Material, 
+            about="material tag associated with this fiber (UniaxialMaterial tag"\
+                  "for a FiberSection and NDMaterial tag for use in an NDFiberSection)."),
     ]
 )
 
 _patch = LibCmd("patch")
-
-
-_eps = 0.00001
-_huge = sys.float_info.max
-_tiny = sys.float_info.min
- 
-def rayintersectseg(p, edge)->bool:
-    """
-    takes a point p=Pt() and an edge of two endpoints a,b=Pt() of a line segment returns boolean
-    https://rosettacode.org/wiki/Ray-casting_algorithm#Python
-    """
-    a,b = edge
-    if a[1] > b[1]:
-        a,b = b,a
-    if p[1] == a[1] or p[1] == b[1]:
-        p = np.array([p[0], p[1] + _eps])
- 
-    intersect = False
- 
-    if (p[1] > b[1] or p[1] < a[1]) or (p[0] > max(a[0], b[0])):
-        return False
- 
-    if p[0] < min(a[0], b[0]):
-        intersect = True
-    else:
-        if abs(a[0] - b[0]) > _tiny:
-            m_red = (b[1] - a[1]) / float(b[0] - a[0])
-        else:
-            m_red = _huge
-        if abs(a[0] - p[0]) > _tiny:
-            m_blue = (p[1] - a[1]) / float(p[0] - a[0])
-        else:
-            m_blue = _huge
-        intersect = m_blue >= m_red
-    return intersect
 
 
 class _Polygon:
@@ -92,8 +61,7 @@ class _Polygon:
         edges = np.array(
             [[v[i-1], v[i]] for i in range(len(v))]
         )
-        inside = 1 == sum(rayintersectseg(p, edge) for edge in edges)%2
-        #if inside: print(p)
+        inside = (1 == sum(_rayIntersectSeg(p, edge) for edge in edges)%2)
         return inside
 
     @property
@@ -120,12 +88,13 @@ class _Polygon:
 
         area = area or self.area
         alpha = x * np.roll(y, -1) - np.roll(x, -1) * y
+
         # planar moment of inertia wrt horizontal axis
         ixx = np.sum((y**2 + y * np.roll(y, -1) +
-                      np.roll(y, -1)**2)*alpha)/12.00
+                      np.roll(y, -1)**2)*alpha)/12.0
         # planar moment of inertia wrt vertical axis
         iyy = np.sum((x**2 + x * np.roll(x, -1) +
-                      np.roll(x, -1)**2)*alpha)/12.00
+                      np.roll(x, -1)**2)*alpha)/12.0
 
         # product of inertia
         ixy = np.sum((x*np.roll(y, -1)
@@ -191,11 +160,12 @@ class rect(_Polygon):
 
         if len(self.vertices) == 2:
             ll, ur = self.vertices
-            self.vertices = [
-                ll, [ur[0], ll[1]], ur, [ll[0], ur[1]]
-            ]
-    def discretize(self):
-        pass
+            self.vertices = [ll, [ur[0], ll[1]], ur, [ll[0], ur[1]]]
+
+    @property
+    def fibers(self):
+        return [Fiber([y,z], self.area, self.material)]
+
 
 @_patch
 class quad(_Polygon):
@@ -224,6 +194,28 @@ class quad(_Polygon):
         self._moic = None
         self._moig = None
         self._area = None
+        self._interp = None
+        self._rule = "mid"
+
+    @property
+    def fibers(self):
+        from opensees.quadrature import iquad
+        interp = self._interp or lq4
+        rule = self._rule
+
+        loc, wght = zip(iquad(rule=rule, n=self.divs[0]), iquad(rule=rule, n=self.divs[1]))
+
+        x,y= zip(*(
+                interp(r,s)@self.vertices
+                        for r,s in itertools.product(*loc)
+        ))
+
+        da = 0.25*np.fromiter(
+            (dx*dy*self.area  for dx,dy in itertools.product(*wght)), 
+            float, len(x)
+        )
+        #y, x, da = map(list, zip(*sorted(zip(y, x, da))))
+        return [Fiber([xi,yi], dai, self.material) for yi,xi,dai in sorted(zip(y,x,da))]
 
 def rhom(center, height, width, slope=None, divs=(0,0)):
     vertices = [
@@ -330,9 +322,9 @@ layer = LibCmd("layer",
         {
           "circ": [
             Ref("material",  type=Material,
-                           about="material tag of previously created material "\
-                                 "(UniaxialMaterial tag for a FiberSection or "\
-                                 "NDMaterial tag for use in an NDFiberSection)"),
+                 about="material tag of previously created material "\
+                       "(UniaxialMaterial tag for a FiberSection or "\
+                       "NDMaterial tag for use in an NDFiberSection)"),
             Int("divs",  about="number of fibers along arc"),
             Num("area", field="fiber_area", about="area of each fiber"),
             Grp("center", args=[Num("y"), Num("z")],
@@ -364,14 +356,92 @@ class line:
               about="$y$ and $z$-coordinates of last fiber in line (local coordinate system)")
       ])
     ]
+
+    @property
+    def fibers(self):
+        return [Fiber([y, z], self.area, self.material) 
+                for y,z in np.linspace(*self.vertices, self.divs)]
+
     def __contains__(self, point):
         a,b = np.asarray(self.vertices)
         p = np.asarray(point)
         return np.isclose(_distance(a,p) + _distance(p,b), _distance(a,b))
 
+_eps = 0.00001
+_huge = sys.float_info.max
+_tiny = sys.float_info.min
+ 
+def _rayIntersectSeg(p, edge)->bool:
+    """
+    takes a point p and an edge of two endpoints a,b of a line segment 
+    and return bool
+
+    https://rosettacode.org/wiki/Ray-casting_algorithm#Python
+    """
+    a,b = edge
+    if a[1] > b[1]:
+        a,b = b,a
+    if p[1] == a[1] or p[1] == b[1]:
+        p = np.array([p[0], p[1] + _eps])
+ 
+    intersect = False
+ 
+    if (p[1] > b[1] or p[1] < a[1]) or (p[0] > max(a[0], b[0])):
+        return False
+ 
+    if p[0] < min(a[0], b[0]):
+        intersect = True
+    else:
+        if abs(a[0] - b[0]) > _tiny:
+            m_red = (b[1] - a[1]) / float(b[0] - a[0])
+        else:
+            m_red = _huge
+        if abs(a[0] - p[0]) > _tiny:
+            m_blue = (p[1] - a[1]) / float(p[0] - a[0])
+        else:
+            m_blue = _huge
+        intersect = m_blue >= m_red
+    return intersect
+
 
 def _distance(a,b):
     return np.linalg.norm(a-b)
 
+
+#
+# Interpolation
+#
+def _Interpolant(docs, fwd, grad):
+    fwd.grad = grad
+    return fwd
+
+
+lq4 = _Interpolant("",
+    lambda r, s: 0.25*np.array([
+            (r-1)*(s-1), -(r+1)*(s-1), (r+1)*(s+1), -(r-1)*(s+1)
+    ]),
+    lambda r, s: np.array([
+            [s-1, -(s-1), (s+1), -(s+1)],
+            [r-1, -(r+1), (r+1), -(r-1)]
+    ])
+)
+
+lt6 = _Interpolant(
+    """
+    Quadratic Lagrange polynomial interpolation over a triangle.
+    """, 
+    lambda r,s: np.array([
+             (1 - r - s) - 2*r*(1 - r - s) - 2*s*(1 - r - s),
+             r - 2*r*(1 - r - s) - 2*r*s,
+             s - 2*r*s - 2*s*(1-r-s),
+             4*r*(1 - r - s), #6
+             4*r*s,
+             4*s*(1 - r - s )
+        ]),
+
+    lambda r,s: np.array([
+            [4*r + 4*s - 3, 4*r - 1, 0, -8*r - 4*s + 4, 4*s, -4*s],
+            [4*r + 4*s - 3, 0, 4*s - 1, -4*r, 4*r, -4*r - 8*s + 4]])
+)
 
 

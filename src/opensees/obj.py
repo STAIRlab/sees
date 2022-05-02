@@ -1,9 +1,28 @@
 from  .ast  import *
-from typing import get_type_hints
 
 class Component:
-    @staticmethod
-    def get_value(cls, arg, value):
+    def __enter__(self):
+        # libOpenSeesRT must be imported by Python
+        # AFTER if has been loaded by Tcl (this was done
+        # when a TclRuntime() is created) so that Tcl stubs
+        # are initialized. Otherwise there will be a segfault
+        # when a python c-binding attempts to call a Tcl
+        # C function. Users should never import libOpenSeesRT
+        # themselves
+        from .tcl import TclRuntime, dumps
+        rt = TclRuntime()
+        from . import libOpenSeesRT
+        if self._cmd[0] == "uniaxialMaterial":
+            rt.model(self)
+            self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
+            self._rt = rt
+            return self._builder.getUniaxialMaterial("1")
+
+    def __exit__(self, exception_type, exception_value, exception_traceback):
+        del self._rt
+
+
+    def get_ast(self):
         pass
 
     def get_cmd(self):
@@ -37,6 +56,7 @@ class Component:
         return partial
 
     def _init(self):
+        self._argdict = {}
         for arg in self._args:
             field = arg.field
             if getattr(self, field) is None:
@@ -50,15 +70,27 @@ class Component:
                      getattr(self, arg.kwds["alt"]), field))
                 except Exception as e: pass
 
+            self._argdict[field] = arg
+
     def get_refs(self):
-        for arg in self._args:
-            if arg.field in self._refs:
+        for ref in self._refs:
+            if ref in self._argdict:
+                arg = self._argdict[ref]
+                val = getattr(self, arg.field)
                 if isinstance(arg, Ref):
-                    yield (getattr(self, arg.field), arg.type)
+                    yield val
                 elif isinstance(arg, Grp):
                     typ = arg.type.type
-                    for i in getattr(self, arg.field):
-                        yield (i, typ)
+                    yield from val
+                    #for i in val:
+                    #    yield i
+            else:
+                val = getattr(self, ref)
+                if hasattr(val, "get_refs"):
+                    yield val
+                    yield from val.get_refs()
+                else:
+                    yield from val
 
 class Cmd:
     cmd = None
@@ -76,7 +108,17 @@ def cmd(cls, cmd, args, refs=[], **ops):
 
 class LibCmd(Cmd):
     cmd = None
-    def __init__(self, cmd , subs={}, args=None, rels=None, about="", defs=None):
+    def __init__(self, cmd , class_name=None, subs={}, args=None, rels=None, about="", defs=None):
+        if class_name is None:
+            class_name = cmd.title()
+        self.class_name = class_name
+
+        if not isinstance(cmd, str):
+            self.typ = cmd
+            cmd = cmd.__name__
+        else:
+            self.typ = None
+
         self.__name__ = self.cmd = cmd
         self.args = [] if args is None else args
         self.rels = [] if rels is None else rels
@@ -85,21 +127,30 @@ class LibCmd(Cmd):
         for sub in subs:
             setattr(self, sub, self(sub.title(), sub, args=subs[sub]))
 
-    def __call__(self, cls, name=None, args=None, refs=[], **opts):
-        if isinstance(cls,str):
-            typ = []
-        else:
+    def __call__(self, cls, name=None, args=None, refs=None, inherit=None, **opts):
+        if inherit is None: inherit = []
+        if self.typ is not None: inherit.append(self.typ)
+        if refs is None:
+            refs = []
+        
+        if not isinstance(cls, str):
+            if hasattr(cls, "_refs"):
+                refs += cls._refs
             args = cls._args
-            typ = [cls]
+            inherit.append(cls)
             cls = name = cls.__name__
 
+        if name is None:
+            name = cls
+            
         args = self.args + args
         fields = [arg.field for arg in args]
         if "alts" in opts: fields += [a.field for a in opts["alts"]]
         alts = {arg.kwds["alt"] for arg in args if "alt" in arg.kwds}
-        obj = struct(cls, fields, args, alts, refs=refs, parents=typ)
+        obj = struct(cls, fields, args, alts, refs=refs, parents=inherit)
         obj._cmd  = [self.cmd, name]
         obj.kwds = opts
+        obj._class_name = self.class_name
         setattr(self, name, obj)
         return obj
 
@@ -108,7 +159,7 @@ def struct(name, fields, args = None, alts=None, refs=[], parents=[]):
     import textwrap
     template = textwrap.dedent("""\
     class {name}({parents}):
-        __slots__ = {fields!r}
+        __slots__ = ["_argdict"] + {fields!r}
         def __init__(self, {fields_none}, **kwds):
             {self_fields} = {args}
             self.kwds = kwds
@@ -135,13 +186,6 @@ def struct(name, fields, args = None, alts=None, refs=[], parents=[]):
     d[name]._args = args
     return d[name]
 
-Mat = LibCmd("nDMaterial")
-Uni = LibCmd("uniaxialMaterial")
-Ele = LibCmd("element")
-Trf = LibCmd("geomTransf")
-Sec = LibCmd("section")
-Lnk = LibCmd("rigidLink")
-
 def walk_refs(parent):
     P, R = "", ""
     for ref in parent.get_refs():
@@ -150,4 +194,14 @@ def walk_refs(parent):
         P = p + P
         R = r + R
     return P, R
+
+class _LineElement:
+    pass
+
+Mat = LibCmd("nDMaterial")
+Uni = LibCmd("uniaxialMaterial")
+Ele = LibCmd("element")
+Trf = LibCmd("geomTransf")
+Sec = LibCmd("section")
+Lnk = LibCmd("rigidLink")
 

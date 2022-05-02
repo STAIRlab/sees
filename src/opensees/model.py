@@ -8,11 +8,12 @@ from .lib import Node, element
 
 class model:
     def __init__(self, ndm, ndf, 
-            assm={}, prototypes={}, units="metric", **kwds):
+            assm={}, prototypes=None, units="metric", **kwds):
         self._units = units
         self.meta = kwds
         self.ndm = ndm
         self.ndf = ndf
+        self.prototypes = prototypes if prototypes is not None else {}
 
         self.m_parameters = {}
         self.m_conns = {}
@@ -36,12 +37,12 @@ class model:
             self.dof_names: dict = { 'x': 0, 'y': 1, 'z':2, 'yz':3, 'zx':4, 'xy':5}
         self.dof_nums = list(self.dof_names.values())
 
-        self.build(**kwds)
+        self.add(**kwds)
 
-    def build(self, nodes = {}, zeros=[], conns=[], elems=[], prototypes=None, **assm):
+    def add(self, nodes = {}, zeros=[], conns=[], elems=[], prototypes=None, **assm):
         [self.node(k,*v) for k,v in nodes.items()]
-        [self.elem(*el) for el in elems]
-        [self.conn(*cn) for cn in conns]
+        [self.elem(*el)  for el in elems]
+        [self.conn(*cn)  for cn in conns]
         [self.fix(*args) for args in zeros]
     
     @property
@@ -64,8 +65,7 @@ class model:
     def _new_tag(self, typ):
         container = getattr(self, f"m_{typ}s")
         n = len(container)
-        while n in container:
-            n += 1
+        while n in container: n += 1
         getattr(self, f"m_auto_assigned_{typ}s").append(n)
         return n
 
@@ -77,8 +77,7 @@ class model:
         """
         typ = args[0]
         if len(args) == 3:
-        # elem(typ, [nodes], name)
-        # elem(typ, name, [nodes])
+            # elem(typ, [nodes], name) || elem(typ, name, [nodes])
             if isinstance(args[1], (list,tuple,set)):
                 nodes = args[1]
                 tag = args[2]
@@ -90,7 +89,7 @@ class model:
             assert tag not in self.m_auto_assigned_elems
 
         else:
-        # elem(typ, [nodes])
+            # elem(typ, [nodes])
             tag = self._new_tag("elem")
             nodes = args[1]
 
@@ -101,7 +100,10 @@ class model:
             **kwds
         }})
 
+    def split(self, elem, number, **kwds):
 
+        def _hook(model):
+            pass
 
     def conn(self, typ, node, dofs=(), name=None):
         if isinstance(node, (tuple,list)):
@@ -129,7 +131,10 @@ class model:
             **kwds
         }})
 
-    def apply(self,prototypes,**kwds):
+    def apply(self,prototypes=None,**kwds):
+        if prototypes is None:
+            prototypes = self.prototypes
+
         elems = {}
         for el in self.m_elems.values():
             typ = el.pop("type")
@@ -176,7 +181,10 @@ class model:
 
     def _fix_int_flags(self, node, flags):
         if len(flags) != self.ndf:
-            raise ValueError(f"`fix` method requires flags for all dofs ({self.ndf}) when working with ints.")
+            raise ValueError(
+                f"`fix` method requires flags for all dofs ({self.ndf}) "
+                f"when working with ints. Instead got flags={flags}."
+            )
         rxns = [
             self._fix_dof(node, dof) for dof, flag in zip(self.dof_names, flags)
         ]
@@ -184,8 +192,6 @@ class model:
             return rxns
         else:
             return rxns[0]
-
-
 
     def fix(self, node, *dirns, x=None, y=None, z=None):
         """Define a fixed boundary condition at specified 
@@ -244,7 +250,7 @@ class model:
         else: 
             return _fix(node, dirns)
 
-    def boun(self, node, flags: list):
+    def boun(self, node=None, flags: list=None):
         """
         Impose single-point constraints at the specified node. This 
         function is provided to give a familiar interface for users
@@ -262,8 +268,10 @@ class model:
         ```py
         model.boun(1, [0, 0, 1])
         ```
-
         """
+        if elem is not None:
+            assert node is None
+            return self._fix_by_elem(elem, dofs)
         if isinstance(node,str):
             node = self.m_nodes[node]
 
@@ -296,7 +304,7 @@ class Model:
 
     @property
     def materials(self):
-        return set(a[0] for a in self.refs)
+        return set(a for a in self.refs)
 
 
 
