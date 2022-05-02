@@ -206,11 +206,11 @@ def eigen(script: str, modes=1, verbose=False):
     }
 
     # print info to `stdout`.
-    if {$options(-verbose)} {
-      # puts "Angular frequency (rad/s): $omega\n";
-      # puts "Frequency (Hz):            $f\n";
-      # puts "Periods (sec):             $T\n";
-    }
+    #if {$options(-verbose)} {
+    #  # puts "Angular frequency (rad/s): $omega\n";
+    #  # puts "Frequency (Hz):            $f\n";
+    #  # puts "Periods (sec):             $T\n";
+    #}
 
     if {$options(-file) != 0} {
       source /home/claudio/brace/Scripts/OpenSeesScripts/brace2.tcl
