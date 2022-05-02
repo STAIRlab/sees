@@ -3,7 +3,7 @@ __version__  = "0.0.4"
 # Imports for this module
 import math
 import fnmatch
-from .lib import Node, element
+from .lib import Node
 
 
 class model:
@@ -44,6 +44,61 @@ class model:
         [self.elem(*el)  for el in elems]
         [self.conn(*cn)  for cn in conns]
         [self.fix(*args) for args in zeros]
+
+    def apply(self,prototypes=None,**kwds):
+        if prototypes is None:
+            prototypes = self.prototypes
+
+        elems = {}
+        for el in self.m_elems.values():
+            typ = el["type"]
+            tag = el["name"]
+            args = {k:v for k,v in el.items() if k not in ["type", "name", "nodes"]}
+            if typ in prototypes:
+                typ = prototypes[typ]
+                #elem = prototypes[typ](**args)
+            elif callable(typ):
+                pass
+                #elem = typ(**args)
+            else:
+                continue
+
+            nodei, nodej = el["nodes"]
+            if hasattr(typ, "mesh_interval") and typ.mesh_interval:
+                # mesh_interval should generate values in (-1, 1)
+                #import numpy as np
+                Xi = nodei["crd"]
+                dX = [j - i for j, i in zip(nodej["crd"], Xi)]
+
+                for i, x in enumerate(typ.mesh_interval):
+                    new_node = self.node(None, *(dx*(1+x)/2 + xi for dx, xi in zip(dX, Xi)))
+
+                    elem = typ(nodes=[nodei, new_node], **args)
+                    elem.prototype = typ
+                    elems.update({self._new_tag(elems): elem})
+                    nodei = new_node
+
+                #prototypes.update({f"{tag}": typ})
+            #args["nodes"][-1] = nodej
+            elem = typ(nodes=(nodei, nodej), **args)
+            elem.prototype = typ
+            elems.update({self._new_tag(elems): elem})
+
+        for conn in self.m_conns.values():
+            if prototypes[conn["type"]] != "!fix":
+                typ = conn.pop("type")
+                tag = conn.pop("name")
+                elem = prototypes[typ](**conn)
+                elem.prototype = typ
+                elems.update({tag: elem})
+            else:
+                self.m_nodes.pop(conn["nodes"][-1].name)
+                self.fix(conn["nodes"][0].name)
+
+        mod = Model(self.ndm, self.ndf, self.m_nodes, elems)
+        mod.dof_names = self.dof_names
+        mod.prototypes = prototypes
+        return mod
     
     @property
     def units(self):
@@ -55,19 +110,27 @@ class model:
             return self.m_nodes[tag]
  
     def node(self, tag, *coords, **kwds):
-        self.m_nodes.update({tag: Node(**{
+        if tag is None: tag = self._new_tag("node")
+        node = Node(**{
             "name": tag,
             "crd": coords, 
             "boun": [0 for i in range(self.ndf)],
             **kwds,
-        })})
+        })
+        self.m_nodes.update({tag: node})
+        return node
 
-    def _new_tag(self, typ):
-        container = getattr(self, f"m_{typ}s")
+    def _new_tag(self, container):
+        if isinstance(container, str):
+            typ = container
+            container = getattr(self, f"m_{typ}s")
+        else:
+            typ = None
         n = len(container)
-        while n in container: n += 1
-        getattr(self, f"m_auto_assigned_{typ}s").append(n)
-        return n
+        while str(n) in container: n += 1
+        if typ:
+            getattr(self, f"m_auto_assigned_{typ}s").append(str(n))
+        return str(n)
 
     def elem(self, *args, **kwds):
         """
@@ -131,40 +194,6 @@ class model:
             **kwds
         }})
 
-    def apply(self,prototypes=None,**kwds):
-        if prototypes is None:
-            prototypes = self.prototypes
-
-        elems = {}
-        for el in self.m_elems.values():
-            typ = el.pop("type")
-            tag = el.pop("name")
-            if typ in prototypes:
-                elem = prototypes[typ](**el)
-            elif callable(typ):
-                elem = typ(**el)
-            else:
-                continue
-                # prototypes.update({f"elem_{id(elem)}": elem})
-                prototypes.update({f"{tag}": typ})
-            elem.prototype = typ
-            elems.update({tag: elem})
-
-        for conn in self.m_conns.values():
-            if prototypes[conn["type"]] != "!fix":
-                typ = conn.pop("type")
-                tag = conn.pop("name")
-                elem = prototypes[typ](**conn)
-                elem.prototype = typ
-                elems.update({tag: elem})
-            else:
-                self.m_nodes.pop(conn["nodes"][-1].name)
-                self.fix(conn["nodes"][0].name)
-
-        mod = Model(self.ndm, self.ndf, self.m_nodes, elems)
-        mod.dof_names = self.dof_names
-        mod.prototypes = prototypes
-        return mod
 
     def _fix_dof(self, node, dof:str):
         node.kwds["boun"][self.dof_names[dof]] = 1

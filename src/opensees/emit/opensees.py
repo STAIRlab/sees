@@ -14,11 +14,13 @@ class TclWriter:
                 return []
             else:
                 value = f"${value.name}"
-        this.write(" ".join(map(str,self.flag + [value])))
+        #this.write(" ".join(map(str,self.flag + [value])))
+        this.write(self.flag, str(value))
 
     def Flg(this, self, value=None): 
         value = self.value if value is None else value
-        self.write(" ".join([self.flag] if value else []))
+        if value: this.write(self.flag)
+        #self.write(" ".join([self.flag] if value else []))
 
     def Grp(this, self, value=None):
         value = self._get_value(None,value)
@@ -43,7 +45,8 @@ class TclWriter:
         value = self.value if value is None else value
         if value is None:
             value = [None]
-        this.write(" ".join(self.flag + ["{"]))
+        #this.write(" ".join(self.flag + ["{"]))
+        this.write(self.flag, "{")
         this.endln()
         this.rshift()
         [this.parent.send(v) for v in value]
@@ -81,8 +84,6 @@ class ScriptBuilder:
             if self.newline:
                 self.newline=False
                 print(self.idnt, end="", file=self.strm)
-            print
-            # print(f"{' '.join(map(str,args))}", end=end, file=self.strm)
             for arg in args:
                 if isinstance(arg, (int,float,str)):
                     print(f"{arg}", end=end, file=self.strm)
@@ -102,6 +103,9 @@ class ScriptBuilder:
     def __init__(self):
         self.streams = [ScriptBuilder.Writer(StringIO(), self)]
 
+    def getstr(self):
+        return self.streams[0].strm.getvalue()
+
     def send(self, obj, idnt=None):
         w = self.streams[0]
         w.write(" ".join(obj._cmd))
@@ -115,6 +119,7 @@ class ScriptBuilder:
             else:
                 raise ValueError()
         w.endln();
+        return self
 
 
 class OpenSeesWriter(ModelWriter):

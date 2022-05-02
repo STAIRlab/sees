@@ -235,11 +235,11 @@ class element:
 LinearTransform = Trf("LinearTransform",
   "Linear",
   args = [
-    Tag("name", "Tag used to identify the transform object."),
+    Tag("name", about="Tag used to identify the transform object."),
     Grp("vecxz", type=Num, num=3),
     Grp("joint_offsets", reqd=False, flag="-jntOffset", type=Grp, args=[
-        Grp(type=Num,num=3, default=[0.0]*3),
-        Grp(type=Num,num=3, default=[0.0]*3)
+        Grp(type=Num, num=3, default=[0.0]*3),
+        Grp(type=Num, num=3, default=[0.0]*3)
     ])
   ],
 )
