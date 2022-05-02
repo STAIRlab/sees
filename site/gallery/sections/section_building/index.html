@@ -5234,6 +5234,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4">
@@ -5333,6 +5335,51 @@
         Object oriented interfaces
 
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../guides/BeamTheory/">BeamTheory</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="BeamTheory" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          BeamTheory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -7927,6 +7974,7 @@
 </div>
 <div class="cell code" data-execution_count="15" data-scrolled="true" data-tags="[]">
 <div class="highlight"><pre><span></span><span class="n">all_fibers</span> <span class="o">=</span> <span class="p">[</span>
+<span class="c1">#   { element   | Domain    and   predicate                  }</span>
     <span class="n">f</span><span class="p">[</span><span class="s2">&quot;coord&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span><span class="n">__</span><span class="p">,</span><span class="n">f</span> <span class="ow">in</span> <span class="n">iter_elem_fibers</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">elements</span><span class="p">)</span>
 <span class="p">]</span>
 
@@ -8005,21 +8053,21 @@
 <p><img src="/static/e258a66c32e3143aab81531c8a36996d022f965d.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
-<div class="cell code" data-execution_count="19">
+<div class="cell code" data-execution_count="26">
 <div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">render</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">sect</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
-    <span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">coord</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">sect</span><span class="o">.</span><span class="n">fibers</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;coord&quot;</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span>
+    <span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">f</span><span class="o">.</span><span class="n">coord</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">sect</span><span class="o">.</span><span class="n">fibers</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;coord&quot;</span><span class="p">)])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mf">0.1</span>
 <span class="p">)</span>
 <span class="c1"># sect.fibers</span>
 </pre></div>
 
-<div class="output execute_result" data-execution_count="19">
-<div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4db5b17cd0&gt;
+<div class="output execute_result" data-execution_count="26">
+<div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4db59dfeb0&gt;
 </pre></div>
 
 </div>
 <div class="output display_data">
-<p><img src="/static/290c46559932a9ccf35c4487ce114d6c0026bbd5.png" style="margin:auto; display: block; max-width: 75%" /></p>
+<p><img src="/static/c4c79c5dea64254ca7480f9c28846ea83a3cacf5.png" style="margin:auto; display: block; max-width: 75%" /></p>
 </div>
 </div>
 <div class="cell code" data-execution_count="20">
