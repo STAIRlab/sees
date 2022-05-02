@@ -2,8 +2,25 @@ from  .ast  import *
 
 class Component:
     def __enter__(self):
-        from .tcl import TclRuntime
-        self._rt = TclRuntime(self)
+        # libOpenSeesRT must be imported by Python
+        # AFTER if has been loaded by Tcl (this was done
+        # when a TclRuntime() is created) so that Tcl stubs
+        # are initialized. Otherwise there will be a segfault
+        # when a python c-binding attempts to call a Tcl
+        # C function. Users should never import libOpenSeesRT
+        # themselves
+        from .tcl import TclRuntime, dumps
+        rt = TclRuntime()
+        from . import libOpenSeesRT
+        if self._cmd[0] == "uniaxialMaterial":
+            rt.model(self)
+            self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
+            self._rt = rt
+            return self._builder.getUniaxialMaterial("1")
+
+    def __exit__(self, exception_type, exception_value, exception_traceback):
+        del self._rt
+
 
     def get_ast(self):
         pass

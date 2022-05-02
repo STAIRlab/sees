@@ -3,6 +3,7 @@
 
 ## Resources
 
+- [Architecture](architecture)
 - [Compiling]()
 - [Class Interface](class_interface)
 - [Runtime API]()

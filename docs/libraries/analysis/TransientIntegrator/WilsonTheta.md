@@ -115,13 +115,13 @@ int formNodTangent(DOF_Group *theDof);
 
 This performs the following:
 
-::: {.tabbing}
-theDof-$>$zeroUnbalance()
+```cpp
+theDof->zeroUnbalance()
 if (RayleighDamping == false)
-  theDof-$>$addMtoTang(c3)
+  theDof->addMtoTang(c3)
 else
-  theDof-$>$addMtoTang(c3 + c2 * $\alpha_M$)
-:::
+  theDof->addMtoTang(c3 + c2 * alpha_M)
+```
 
 
 ```{.cpp}
@@ -172,8 +172,9 @@ The following are performed when this method is invoked:
     AnalysisModel with quantities at time $t + \Theta \Delta t$.
 
     ::: {.tabbing}
-    theModel-$>$setResponse$({\bf U}_{t + \theta \Delta t}, \dot{\bf U}_{t+\theta
-    \Delta t}, \ddot{\bf U}_{t+ \theta \Delta t})$
+    $$
+    \texttt{theModel->setResponse}({\bf U}_{t + \theta \Delta t}, \dot{\bf U}_{t+\theta
+    \Delta t}, \ddot{\bf U}_{t+ \theta \Delta t})$$
     :::
 
 5.  current time is obtained from the AnalysisModel, incremented by

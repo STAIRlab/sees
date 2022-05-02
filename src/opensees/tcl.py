@@ -2,6 +2,7 @@ import os
 import sys
 import tkinter
 import pathlib
+from opensees.obj import Component
 
 def TclInterpreter():
     if "OPENSEESRT_LIB" in os.environ:
@@ -13,103 +14,14 @@ def TclInterpreter():
     interp.eval(f"load {libOpenSeesRT_path}")
     return interp
 
+def dumps(model):
+    if not isinstance(model, Component):
+        from opensees.emit import OpenSeesWriter
+        return OpenSeesWriter(model).dump()
+    else:
+        from opensees.emit.opensees import ScriptBuilder
+        return ScriptBuilder().send(model).getstr()
 
-class TclWriter:
-    def Arg(this, self, value=None)->list:
-        value = self._get_value(None, value)
-        if isinstance(value, (type(None), )):
-            if not self.reqd:
-                return []
-            else:
-                value = f"${self.name}"
-        elif isinstance(value, (Arg,)):
-            if not self.reqd:
-                return []
-            else:
-                value = f"${value.name}"
-        return self.flag + [value] 
-
-    def Flg(this, self, value=None): 
-        value = self.value if value is None else value
-        return [self.flag] if value else []
-
-    def Grp(this, self, value=None):
-        value = self._get_value(None,value)
-        if value is None:
-            if self.reqd:
-                value = [None]*self.num
-            else:
-                return []
-        return self.flag + [a for arg,v in zip(self.args,value) for a in arg.as_tcl_list(v)]
-    
-    def Ref(this, self, value=None): 
-        value = self._get_value(None, value)
-        try:
-            value = getattr(value, self.kwds["attr"])
-        except:
-            pass
-        return self.flag + [value]
-
-    def Blk(this, self, value=None):
-        value = self.value if value is None else value
-        if value is None:
-            value = [None]
-        return self.flag + [[v.get_cmd() for v in value]]
-
-    def Map(this, self, value=None):
-        value = self._get_value(None,value)
-        if value is None:
-            if self.reqd:
-                value = [None]*self.num
-            else:
-                return []
-        vals = []
-        i, j = (1, 0) if self.tcl_rev_kv else (0, 1)
-        for arg, kv in zip(arg,value.items()):
-            kv = kv[0], arg.as_tcl_list(kv[1])
-            vals = vals + [kv[i], kv[j]]
-        return self.flag + vals
-
-
-class ScriptBuilder:
-    TAB = object()
-    RET = object()
-    def __init__(self, obj=None):
-        from io import StringIO
-        self.obj = obj
-        self.out = StringIO()
-        self.w = self.writer()
-        next(self.w)
-        self.send(obj.get_cmd())
-        self.w.close()
-        self.script = self.out.getvalue()
-
-    def writer(self):
-        idnt = ""
-        asep = " "
-        while True:
-            arg = (yield)
-            if arg is self.TAB:
-                idnt += "\t"
-                print("{", file=self.out)
-            elif arg is self.RET:
-                idnt = idnt[:-1]
-                print("\n}", file=self.out)
-            else:
-                print(f"{arg}", end=asep, file=self.out)
-
-    def send(self, args, idnt=None):
-        w = self.w
-        idnt = idnt or ""
-        print(idnt,end="", file=self.out)
-        for arg in args:
-            if isinstance(arg,list) and isinstance(arg[0],list):
-                w.send(self.TAB)
-                [self.send(a,idnt+"\t") for a in arg]
-                w.send(self.RET)
-            else:
-                w.send(arg)
-        print("", file=self.out)
 
 class TclRuntime:
     def __init__(self,  model=None):
@@ -129,7 +41,8 @@ class TclRuntime:
             if isinstance(arg, int):
                 pass
             else:
-                self.eval(ScriptBuilder(arg).script)
+                self.eval("model basic 2 3")
+                self.eval(dumps(arg))
 
     @property
     def _domain(self):
@@ -215,22 +128,6 @@ def read_tcl_domain(script: str):
     builder = builders.TclModelBuilder(interp.tk.interpaddr())
     domain = builder.getDomain()
     return domain
-
-def dumps(model, format="tcl")->str:
-    """
-    Return a string representation of a model.
-    Formats:
-    - JSON
-    - Tcl
-    - pyg3 | python
-    """
-    import anabel.writers
-    writer = dict(
-        json = None,
-        tcl  = anabel.writers.OpenSeesWriter,
-    )[format.lower()](model)
-
-    return writer.dump()
 
 #
 # Analysis

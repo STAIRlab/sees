@@ -322,9 +322,9 @@ layer = LibCmd("layer",
         {
           "circ": [
             Ref("material",  type=Material,
-                         about="material tag of previously created material "\
-                               "(UniaxialMaterial tag for a FiberSection or "\
-                               "NDMaterial tag for use in an NDFiberSection)"),
+                 about="material tag of previously created material "\
+                       "(UniaxialMaterial tag for a FiberSection or "\
+                       "NDMaterial tag for use in an NDFiberSection)"),
             Int("divs",  about="number of fibers along arc"),
             Num("area", field="fiber_area", about="area of each fiber"),
             Grp("center", args=[Num("y"), Num("z")],

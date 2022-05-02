@@ -33,6 +33,11 @@ class FiberSection(_FiberCollection):
           )
         )
     ]
+    _refs = ["materials"]
+    
+    @property
+    def materials(self):
+        return (f.material for f in self.fibers)
 
     def add_patch(self, patch):
         self.areas.append(patch)

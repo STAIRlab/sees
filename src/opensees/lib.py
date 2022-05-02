@@ -96,16 +96,17 @@ class uniaxial:
             # Recommended values: R0=between 10 and 20, cR1=0.925, cR2=0.15"),
 
           Grp("a", about="isotropic hardening parameters", args=[
-            Num("a1", about="""
+            Num("a1", reqd = False, about="""
                       increase of compression yield envelope as proportion
                       of yield strength after a plastic strain of `a2∗(Fy/E0)`"""
             ),
-            Num("a2", about="see explanation under `a1`."),
-            Num("a3", about="""
+            Num("a2", about="see explanation under `a1`.", default=1.0),
+            Num("a3", default = 0.0, about="""
                       increase of tension yield envelope as proportion
                       of yield strength after a plastic strain of `a4∗(Fy/E0)`"""
             ),
-            Num("a4", about="see explanation under `a3`."),
+            Num("a4", default = 1.0, about="see explanation under `a3`."),
+            Num("sigInit", default=0.0, about="initial stress")
           ]),
         ],
     )
@@ -130,10 +131,6 @@ class uniaxial:
         )
 
 
-#BeamInt = cmd("BeamInt", "beamIntegration", [
-#        Str("rule"), Ref("sect", typ="section"), Int("num")
-#    ]
-#)
 class element:
     Iyc = lambda: Num("iyc", field="iyc",  about="Centroidal moment of inertia", alt="section")
     Ixc = lambda: Num("ixc", field="ixc",  about="", alt="section")
@@ -159,9 +156,8 @@ class element:
         refs=["materials"]
     )
 
-    @Ele#("ForceBeamColumn", "forceBeamColumn", [])
-    class forceBeamColumn: # = Ele("ForceBeamColumn", "forceBeamColumn",
-        #, eleTag, *eleNodes, transfTag, integrationTag, '-cMass', '-mass', mass=0.0)
+    @Ele
+    class forceBeamColumn:
         "Create a forceBeamColumn element."
         _args=[
             Tag(),
@@ -170,11 +166,7 @@ class element:
               Ref("jNode", type=Node,  attr="name", about=""),
             ]),
             Ref("geom",  field="transform", type=Trf, attr="name"),
-            #Grp("points",  alt="integration"),
-            #Grp("weights", alt="integration"),
-            #Ref("integration", typ=BeamInt),#, alt=("points", "weights")),
             BeamInt("integration"),
-            #Grp("integration", args=[BeamInt("integration")]),#, typ=BeamInt),
             Flg("-cMass", field="consistent_mass",
                 about="Flag indicating whether to use consistent mass matrix."),
             Num("mass",field="mass_density", flag="-mass", default=0.0, reqd=False, 
