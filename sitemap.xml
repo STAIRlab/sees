@@ -11,647 +11,647 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/application/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/intro/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/api/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/api/analysis/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/api/element_api/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/actor/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/api/element_api_c/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/actor/actor/Actor/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/api/ops_api/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/actor/actor/MovableObject/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/actor/message/Message/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/actor/objectBroker/FEM_ObjectBroker/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/actor/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/actor/objectBroker/ObjectBroker/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/actor/actor/Actor/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/channel/Channel/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/actor/actor/MovableObject/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/loadBalancer/LoadBalancer/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/actor/message/Message/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/loadBalancer/ReleaseHeavierToLighterNeighbours/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/actor/objectBroker/FEM_ObjectBroker/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/loadBalancer/ShedHeaviest/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/actor/objectBroker/ObjectBroker/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/loadBalancer/SwapHeavierToLighterNeighbours/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/channel/Channel/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/machineBroker/MachineBroker/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/loadBalancer/LoadBalancer/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/Parallel/shadow/Shadow/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/loadBalancer/ReleaseHeavierToLighterNeighbours/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/loadBalancer/ShedHeaviest/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/ConstraintHandler/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/loadBalancer/SwapHeavierToLighterNeighbours/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/DOF_Numberer/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/machineBroker/MachineBroker/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/algorithm/EquiSolnAlgo/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/shadow/Shadow/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/algorithm/SolutionAlgorithm/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/analysis/Analysis/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/ConstraintHandler/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/analysis/DirectIntegrationAnalysis/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/DOF_Numberer/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/analysis/DomainDecompositionAnalysis/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/algorithm/EquiSolnAlgo/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/analysis/DomainUser/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/algorithm/SolutionAlgorithm/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/analysis/StaticAnalysis/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/analysis/Analysis/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/analysis/SubstructuringAnalysis/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/analysis/DirectIntegrationAnalysis/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/analysis/TransientAnalysis/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/analysis/DomainDecompositionAnalysis/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/convergenceTest/ConvergenceTest/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/analysis/DomainUser/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/ArcLength/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/analysis/StaticAnalysis/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/ArcLength1/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/analysis/SubstructuringAnalysis/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/CentralDifference/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/analysis/TransientAnalysis/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/DisplacementControl/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/convergenceTest/ConvergenceTest/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/IncrementalIntegrator/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/CentralDifference/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/Integrator/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/DisplacementControl/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/LoadControl/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/IncrementalIntegrator/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/LoadPath/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/Integrator/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/MinUnbalDispNorm/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/LoadControl/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/StaticIntegrator/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/LoadPath/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/integrator/TransientIntegrator/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/MinUnbalDispNorm/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/model/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/StaticIntegrator/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/model/AnalysisModel/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/TransientIntegrator/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/model/dof_grp/DOF_Group/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/model/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/model/dof_grp/TransformationDOF_Group/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/model/AnalysisModel/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/model/fe_ele/FE_Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/model/dof_grp/DOF_Group/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/model/fe_ele/lagrange/LagrangeMP_FE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/model/dof_grp/TransformationDOF_Group/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/model/fe_ele/lagrange/LagrangeSP_FE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/model/fe_ele/FE_Element/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/model/fe_ele/penalty/PenaltyMP_FE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/model/fe_ele/lagrange/LagrangeMP_FE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/analysis/model/fe_ele/penalty/PenaltySP_FE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/model/fe_ele/lagrange/LagrangeSP_FE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/database/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/model/fe_ele/penalty/PenaltyMP_FE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/database/FE_Datastore/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/model/fe_ele/penalty/PenaltySP_FE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/database/FileDatastore/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/database/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/database/database/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/database/FE_Datastore/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/database/FileDatastore/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/domain/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/database/database/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/component/DomainComponent/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/constraints/MP_Constraint/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/domain/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/constraints/SP_Constraint/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/component/DomainComponent/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/domain/Domain/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/constraints/MP_Constraint/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/domain/partitioned/PartitionedDomain/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/constraints/SP_Constraint/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/load/Load/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/domain/Domain/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/node/DummyNode/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/domain/partitioned/PartitionedDomain/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/node/NodalLoad/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/load/Load/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/node/Node/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/node/DummyNode/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/partitioner/DomainPartitioner/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/node/NodalLoad/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/pattern/EarthquakePattern/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/node/Node/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/pattern/LoadPattern/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/partitioner/DomainPartitioner/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/domain/pattern/TimeSeries/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/pattern/EarthquakePattern/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/element/Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/pattern/LoadPattern/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/element/ElementalLoad/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/pattern/TimeSeries/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/element/beamWithHinges/BeamWithHinges2D/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/element/Element/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/element/zeroLength/ZeroLength/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/element/ElementalLoad/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/element/zeroLength/ZeroLengthSection/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/element/beamWithHinges/BeamWithHinges2D/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/graph/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/element/zeroLength/ZeroLength/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/graph/graph/ArrayGraph/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/element/zeroLength/ZeroLengthSection/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/graph/graph/DOFGraph/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/graph/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/graph/graph/DOF_GroupGraph/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/graph/graph/ArrayGraph/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/graph/graph/Graph/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/graph/graph/DOFGraph/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/graph/graph/Vertex/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/graph/graph/DOF_GroupGraph/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/graph/numberer/GraphNumberer/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/graph/graph/Graph/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/graph/partitioner/GraphPartitioner/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/graph/graph/Vertex/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/graph/numberer/GraphNumberer/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/ElasticIsotropicMaterial/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/graph/partitioner/GraphPartitioner/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/HystereticBackbone/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/Material/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/ElasticIsotropicMaterial/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/NDMaterial/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/HystereticBackbone/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/UniaxialMaterial/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/Material/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/mdMaterial/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/NDMaterial/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/section/ElasticSection3D/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/UniaxialMaterial/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/section/FiberSection/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/mdMaterial/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/section/GenericSection1D/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/section/ElasticSection3D/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/section/GenericSectionND/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/section/FiberSection/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/material/section/SectionForceDeformation/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/section/SectionForceDeformation/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/recorder/DatastoreRecorder/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/recorder/DatastoreRecorder/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/recorder/MaxNodeDispRecorder/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/recorder/MaxNodeDispRecorder/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/recorder/Recorder/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/recorder/Recorder/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/Solver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/Solver/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/SystemOfEqn/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/SystemOfEqn/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/eigenSOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/eigenSOE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/DomainSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/DomainSolver/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/LinearSOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/LinearSOE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/LinearSOESolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/LinearSOESolver/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/bandGEN/BandGenLinSOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/bandGEN/BandGenLinSOE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/bandGEN/BandGenLinSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/bandGEN/BandGenLinSolver/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/bandSPD/BandSPDLinSOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/bandSPD/BandSPDLinSOE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/bandSPD/BandSPDLinSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/bandSPD/BandSPDLinSolver/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/fullGEN/FullGenLinSOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/fullGEN/FullGenLinSOE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/fullGEN/FullGenLinSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/fullGEN/FullGenLinSolver/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectSolver/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSOE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSolver/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSubstrSolver/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/profileSPD/ProfileSPDLinSubstrSolver/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/sparseGEN/SparseGenColLinSOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/sparseGEN/SparseGenColLinSOE/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/system_of_eqn/linearSOE/sparseGEN/SuperLU/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/system_of_eqn/linearSOE/sparseGEN/SuperLU/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/ID/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/ID/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/Matrix/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/Matrix/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/StringContainer/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/StringContainer/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/Timer/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/Timer/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/Vector/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/Vector/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/Vertex/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/Vertex/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/utility/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/utility/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/tagged/TaggedObject/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/tagged/TaggedObject/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/tagged/storage/ArrayOfTaggedObjects/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/tagged/storage/ArrayOfTaggedObjects/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/tagged/storage/MapOfTaggedObjects/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/tagged/storage/MapOfTaggedObjects/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/class_interface/utility/tagged/storage/TaggedObjectStorage/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/utility/tagged/storage/TaggedObjectStorage/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -677,6 +677,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/compiling/tooling/</loc>
+         <lastmod>2022-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/contributing/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -712,31 +717,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/extending/element/</loc>
-         <lastmod>2022-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/g3_api/</loc>
-         <lastmod>2022-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/g3_api/analysis/</loc>
-         <lastmod>2022-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/g3_api/element_api/</loc>
-         <lastmod>2022-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/g3_api/element_api_c/</loc>
-         <lastmod>2022-05-02</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/g3_api/ops_api/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -862,6 +842,16 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/ConvergenceTest/CTestNormUnbalance/</loc>
+         <lastmod>2022-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/StaticIntegrator/ArcLength/</loc>
+         <lastmod>2022-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/StaticIntegrator/ArcLength1/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1062,6 +1052,16 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/nD/Template3Dep/</loc>
+         <lastmod>2022-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/section/GenericSection1D/</loc>
+         <lastmod>2022-05-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/section/GenericSectionND/</loc>
          <lastmod>2022-05-02</lastmod>
          <changefreq>daily</changefreq>
     </url>
