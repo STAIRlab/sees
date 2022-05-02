@@ -75,14 +75,14 @@ class model:
 
                     elem = typ(nodes=[nodei, new_node], **args)
                     elem.prototype = typ
-                    elems.update({self._new_tag(elems): elem})
+                    elems.update({self._new_tag("elem", elems): elem})
                     nodei = new_node
 
                 #prototypes.update({f"{tag}": typ})
             #args["nodes"][-1] = nodej
             elem = typ(nodes=(nodei, nodej), **args)
             elem.prototype = typ
-            elems.update({self._new_tag(elems): elem})
+            elems.update({self._new_tag("elem", elems): elem})
 
         for conn in self.m_conns.values():
             if prototypes[conn["type"]] != "!fix":
@@ -120,12 +120,12 @@ class model:
         self.m_nodes.update({tag: node})
         return node
 
-    def _new_tag(self, container):
-        if isinstance(container, str):
-            typ = container
-            container = getattr(self, f"m_{typ}s")
+    def _new_tag(self, typ, container=None):
+        if container is not None:
+            container = {*getattr(self, f"m_{typ}s"), *container}
         else:
-            typ = None
+            container = getattr(self, f"m_{typ}s")
+
         n = len(container)
         while str(n) in container: n += 1
         if typ:

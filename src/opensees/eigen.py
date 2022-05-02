@@ -118,6 +118,23 @@ def modes(*argv):
 
     op(script + f"ea analyze {' '.join(args)}")
 
+def eigen(num):
+    import opensees.tcl
+    opensees.tcl.eval(sys.stdin.read() + f"""
+    set PI       3.1415159
+    set eigenvals [eigen {num}];
+
+    set T_scale 1.0
+    foreach eig $eigenvals {{
+      lappend omega [expr sqrt($eig)];
+      lappend f     [expr sqrt($eig)/(2.0*$PI)];
+      lappend T     [expr $T_scale*(2.0*$PI)/sqrt($eig)];
+    }}
+
+    puts "Angular frequency (rad/s): $omega\n";
+    puts "Frequency (Hz):            $f\n";
+    puts "Periods (sec):             $T\n";
+    """)
 
 if __name__ == "__main__":
 
