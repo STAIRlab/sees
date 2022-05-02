@@ -7733,9 +7733,13 @@ Invokes the destructor on the Vector objects created.</p>
 </pre></div>
 
 <p>This performs the following:</p>
-<div class="tabbing">
-<p>theDof-<span class="math inline">\(&gt;\)</span>zeroUnbalance() if (RayleighDamping == false) theDof-<span class="math inline">\(&gt;\)</span>addMtoTang(c3) else theDof-<span class="math inline">\(&gt;\)</span>addMtoTang(c3 + c2 * <span class="math inline">\(\alpha_M\)</span>)</p>
-</div>
+<div class="highlight"><pre><span></span><span class="n">theDof</span><span class="o">-&gt;</span><span class="n">zeroUnbalance</span><span class="p">()</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RayleighDamping</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">theDof</span><span class="o">-&gt;</span><span class="n">addMtoTang</span><span class="p">(</span><span class="n">c3</span><span class="p">)</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">  </span><span class="n">theDof</span><span class="o">-&gt;</span><span class="n">addMtoTang</span><span class="p">(</span><span class="n">c3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">alpha_M</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">domainChanged</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
@@ -7760,7 +7764,9 @@ Invokes the destructor on the Vector objects created.</p>
 </div></li>
 <li><p>The response quantities at the <code>DOF_Group</code> objects are updated with the new approximations by invoking <code>setResponse()</code> on the AnalysisModel with quantities at time <span class="math inline">\(t + \Theta \Delta t\)</span>.</p>
 <div class="tabbing">
-<p>theModel-<span class="math inline">\(&gt;\)</span>setResponse<span class="math inline">\(({\bf U}_{t + \theta \Delta t}, \dot{\bf U}_{t+\theta \Delta t}, \ddot{\bf U}_{t+ \theta \Delta t})\)</span></p>
+<p><span class="math display">\[
+\texttt{theModel-&gt;setResponse}({\bf U}_{t + \theta \Delta t}, \dot{\bf U}_{t+\theta
+\Delta t}, \ddot{\bf U}_{t+ \theta \Delta t})\]</span></p>
 </div></li>
 <li><p>current time is obtained from the AnalysisModel, incremented by <span class="math inline">\(\Theta \Delta t\)</span>, and <code class="sourceCode cpp">applyLoad<span class="op">(</span>time<span class="op">,</span> <span class="fl">1.0</span><span class="op">)</span></code> is invoked on the AnalysisModel.</p></li>
 <li><p>Finally <code>updateDomain()</code> is invoked on the AnalysisModel.</p></li>
