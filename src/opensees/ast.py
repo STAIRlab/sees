@@ -1,11 +1,11 @@
 
-def _to_list(val, fmt):
-    if isinstance(val, (int,float)):
-        return val
-    elif isinstance(val, (Int,Num)):
-        return val.to_str(fmt)
-    elif isinstance(val,list) or hasattr(val,"__array__"):
-        return None
+# def _to_list(val, fmt):
+#     if isinstance(val, (int,float)):
+#         return val
+#     elif isinstance(val, (Int,Num)):
+#         return val.to_str(fmt)
+#     elif isinstance(val,list) or hasattr(val,"__array__"):
+#         return None
 
 class Parameter:
     def __init__(self, name, typ):
@@ -18,7 +18,7 @@ class Arg:
     __slots__ = ["name", "flag", "value", "field", "default", "type", "reqd"]
     def __init__(self,
         name = None,
-        help = None,
+        #help = None,
         flag = None,
         reqd = True,
         type = None,
@@ -28,7 +28,7 @@ class Arg:
         **kwds
     ):
         self.name  = name
-        self.flag  = [flag] if flag is not None else []
+        self.flag  = flag if flag is not None else ""
         self.value = None
         self.field = field if field is not None  else name
         self.type  = type
@@ -68,7 +68,7 @@ class Arg:
                 return []
             else:
                 value = f"${value.name}"
-        return self.flag + [value] 
+        return [self.flag] + [value] 
 
     def m_src(self, value=None):
         value = self._get_value(None,value)
@@ -142,7 +142,7 @@ class Ref(Arg):
             value = getattr(value, self.kwds["attr"])
         except:
             pass
-        return self.flag + [value]
+        return [self.flag] + [value]
 
 class Ary(Arg): pass
 
@@ -168,7 +168,7 @@ class Map(Arg):
         for arg, kv in zip(arg,value.items()):
             kv = kv[0], arg.as_tcl_list(kv[1])
             vals = vals + [kv[i], kv[j]]
-        return self.flag + vals
+        return [self.flag] + vals
 
 class Grp(Arg):
     """Argument grouping"""
@@ -190,7 +190,7 @@ class Grp(Arg):
                 value = [None]*self.num
             else:
                 return []
-        return self.flag + [a for arg,v in zip(self.args,value) for a in arg.as_tcl_list(v)]
+        return [self.flag] + [a for arg,v in zip(self.args,value) for a in arg.as_tcl_list(v)]
 
 class One(Arg): pass
 
@@ -202,7 +202,7 @@ class Blk(Grp):
         value = self.value if value is None else value
         if value is None:
             value = [None]
-        return self.flag + [[v.get_cmd() for v in value]]
+        return [self.flag] + [[v.get_cmd() for v in value]]
 
 class Tag(Int):
     def init(self):

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import sys
 import cmd
 import _tkinter
@@ -43,6 +45,10 @@ def parse_args(args):
             elif arg == "-modes":
                 import opensees.eigen
                 opensees.eigen.modes(*argi)
+                sys.exit()
+            elif arg == "-eigen":
+                import opensees.eigen
+                opensees.eigen.eigen(*argi)
                 sys.exit()
             elif arg == "--subproc":
                 opts["subproc"] = True

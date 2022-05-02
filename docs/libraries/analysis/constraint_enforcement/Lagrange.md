@@ -1,12 +1,46 @@
 # Lagrange
 
+This command is used to construct a `LagrangeMultiplier` constraint
+handler, which enforces the constraints by introducing Lagrange
+multiplies to the system of equation. The following is the command to
+construct a plain constraint handler:
+
+```tcl
+constraints Lagrange <$alphaS $alphaM >
+```
+
+------------------------------------------------------------------------
+
+  -------------- ------------------------------------------------------------
+  **\$alphaS**   $\alpha_S$ factor on singe points. optional, default = 1.0
+  **\$alphaM**   $\alpha_M$ factor on multi-points, optional default = 1.0;
+  -------------- ------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+NOTES:
+
+-   The Lagrange multiplier method introduces new unknowns to the system
+    of equations. The diagonal part of the system corresponding to these
+    new unknowns is 0.0. This ensure that the system IS NOT symmetric
+    positive definite.
+
+------------------------------------------------------------------------
+
+THEORY:
+
+------------------------------------------------------------------------
+
+Code Developed by: `<span style="color:blue">`{=html} fmk
+`</span>`{=html}
+
+
+## C++ Interface
+
 ```cpp
 #include <analysis/handler/LagrangeConstraintHandler.h>
 
-class LagrangeConstraintHandler: 
-public ConstraintHandler
-       MovableObject
-       ConstraintHandler
+class LagrangeConstraintHandler:  public ConstraintHandler;
 ```
 
 The LagrangeConstraintHandler class is a class which deals with both
@@ -17,30 +51,18 @@ object and either a LagrangeSP_FE or a LagrangeMP_FE object for each
 constraint in the Domain. It is these objects that enforce the
 constraints by modifying the tangent matrix and residual vector.
 
-### Constructor
 
-\
-### Destructor
 
-\
-// Public Methods\
-
-\
-
-\
-
-\
-
-The integer *HANDLER_TAG_LagrangeConstraintHandler* (defined in
+The integer `HANDLER_TAG_LagrangeConstraintHandler` (defined in
  `<classTags.h>`) is passed to the LagrangeConstraintHandler
-constructor. Stores *alphaSP* and *alphaMP* which are needed to
-construct the LagrangeSP_FE and LagrangeMP_FE objects in `handle()`.
+constructor. Stores `alphaSP` and `alphaMP` which are needed to
+construct the `LagrangeSP_FE` and `LagrangeMP_FE` objects in `handle()`.
 
-\
+### Destructor
 Currently invokes `clearAll()`, this will change when `clearAll()` is
 rewritten.
 
-\
+### Methods
 Determines the number of FE_Elements and DOF_Groups needed from the
 Domain (a one to one mappinging between Elements and FE_Elements,
 SP_Constraints and LagrangeSP_FEs, MP_Constraints and LagrangeMP_FEs and
@@ -61,21 +83,26 @@ arguments in the constructor. The object then iterates through the
 MP_Constraints of the Domain creating a LagrangeMP_FE for each
 constraint, using the Domain, the constraint and *alphaMP* as the
 arguments in the constructor. Finally the method returns the number of
-degrees-of-freedom associated with the DOF_Groups in
-*nodesToBeNumberedLast*.
+degrees-of-freedom associated with the `DOF_Groups` in
+`nodesToBeNumberedLast`.
 
 ```{.cpp}
 virtual void clearAll(void) =0;
 ```
-
 Currently this invokes delete on all the `FE_Element` and DOF_Group
 objects created in `handle()` and the arrays used to store pointers to
 these objects. FOR ANALYSIS INVOLVING DYNAMIC LOAD BALANCING, RE-MESHING
 AND CONTACT THIS MUST CHANGE.
-*int sendSelf(int commitTag, Channel &theChannel);* \
+
+```cpp
+int sendSelf(int commitTag, Channel &theChannel);
+```
 Sends in a Vector of size 2 *alphaSP* and *alphaMP*. Returns $0$ if
 successful.
-*int recvSelf(int commitTag, Channel &theChannel, FEM_ObjectBroker
-&theBroker);* \
+
+```cpp
+int recvSelf(int commitTag, Channel &theChannel, FEM_ObjectBroker &theBroker);
+```
 Receives in a Vector of size 2 the values *alphaSP* and *alphaMP*.
 Returns $0$ if successful.
+

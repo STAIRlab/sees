@@ -196,7 +196,12 @@ def walk_refs(parent):
     return P, R
 
 class _LineElement:
-    pass
+    @property
+    def mesh_interval(self):
+        if "split" in self.kwds:
+            incr = 2.0 / (self.kwds["split"])
+            return ( -1 + i * incr
+                for i in range(1, self.kwds["split"]))
 
 Mat = LibCmd("nDMaterial")
 Uni = LibCmd("uniaxialMaterial")
