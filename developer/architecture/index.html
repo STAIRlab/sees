@@ -5226,6 +5226,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_4">
@@ -5325,6 +5327,51 @@
         Object oriented interfaces
 
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_7" type="checkbox" id="__nav_4_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../guides/BeamTheory/">BeamTheory</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="BeamTheory" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_7">
+          <span class="md-nav__icon md-icon"></span>
+          BeamTheory
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -7758,7 +7805,7 @@
 <h1 id="architecture">Architecture</h1>
 <p>An OpenSees application can be decomposed into the following parts:</p>
 <ul>
-<li><p>The core framework, as originally presented in <span class="citation" data-cites="mckenna1998">(<a href="#ref-mckenna1998" role="doc-biblioref"><strong>mckenna1998?</strong></a>)</span>. This defines the core components and interfaces.</p></li>
+<li><p>The core framework, as originally presented in <span class="citation" data-cites="mckenna1997">(<a href="#ref-mckenna1997" role="doc-biblioref"><strong>mckenna1997?</strong></a>)</span> (<a href="https://opensees.berkeley.edu/OpenSees/doc/fmkdiss.pdf">link</a>). This defines the core components and interfaces.</p></li>
 <li><p>Component libraries and community-contributions; these are concrete objects such as elements, materials and solvers. These implement the interfaces described in <a href="class_interface">class_interface</a>. Most of the documentation for these is in the <em>user-space</em> side of things.</p></li>
 <li><p>Runtime (<strong>OpenSeesRT</strong>, <strong>OpenSees.exe</strong>, <strong>OpenSeesPy</strong>). A runtime is responsible for providing a mechanism to users for conducting an analysis. Runtimes have been implemented using various communication mechanisms. The classic OpenSees Tcl interpreters generally invoke class methods directly to perform analysis procedures, meanwhile <strong>OpenSeesPy</strong> leverages the interpreter framework introduced in <span class="citation" data-cites="mckenna2010">(<a href="#ref-mckenna2010" role="doc-biblioref"><strong>mckenna2010?</strong></a>)</span></p></li>
 </ul>
