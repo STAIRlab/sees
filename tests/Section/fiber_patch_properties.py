@@ -1,8 +1,8 @@
 from math import sin, cos, pi, isclose
-
 from opensees import section, patch
 """
-This test validates section properties.
+This test validates section properties computed from assemblies
+of patches layers and fibers.
 
   __ __________________ __
  4   |    |  b   |    |
@@ -17,7 +17,7 @@ This test validates section properties.
 
 """
 
-def test():
+def test_rectangles():
     sect = section.FiberSection(areas=[
         patch.rect(vertices=[[-8,  0],[-4, 16]]),
         patch.rect(vertices=[[-4, 12],[ 4, 16]]),
@@ -36,6 +36,13 @@ def test():
     #                           Ia        d      area         Ib
     assert sect.ixc == 2 * (4*16**3/12 + 1.2**2*(16*4)) + (8*4**3/12 + 4*8*4.8**2)
 
+def test_polygon():
+    import math
+    Re, Ri = 20, 15
+    for n in 4, 6, 7, 8:
+        A = section.ConfinedPolygon(n,Re,s=10).area - section.ConfinedPolygon(n,Ri,s=10).area
+        assert math.isclose(section.PolygonRing(n, Re, Ri).area, A)
+
 def test_sector():
     r = 20.
     a = pi/7
@@ -45,7 +52,7 @@ def test_sector():
     yc = 2*r*sin(a)/(3*a)
     iyc = ixo + A*yc**2
 
-    sect = patch.circ(extRad=r,startAng=pi/2-a,endAng=pi/2+a)
+    sect = patch.circ(extRad=r, startAng=pi/2-a, endAng=pi/2+a)
 
     assert isclose(sect.centroid[1], yc)
     assert isclose(sect.centroid[0], 0.)
@@ -55,17 +62,9 @@ def test_sector():
 
 
 
-def test_polygon():
-    import math
-    Re, Ri = 20, 15
-    for n in 4, 6, 7, 8:
-        A = section.ConfinedPolygon(n,Re).area - section.ConfinedPolygon(n,Ri).area
-        assert math.isclose(section.PolygonRing(n, Re, Ri).area, A)
-
 
 if __name__ == "__main__":
-    test()
-    test_polygon()
-
+    test_rectangles()
     test_sector()
+    test_polygon()
 
