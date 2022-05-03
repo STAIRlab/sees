@@ -716,6 +716,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/gallery/</loc>
+         <lastmod>2022-05-03</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/gallery/BasicPrimer/</loc>
          <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
@@ -741,17 +746,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/gallery/BasicPrimer/example_6/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/gallery/continuua/example_6/</loc>
          <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/gallery/BasicPrimer/example_7/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/gallery/continuua/example_7/</loc>
          <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/gallery/BasicPrimer/example_8/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/gallery/continuua/example_8/</loc>
          <lastmod>2022-05-03</lastmod>
          <changefreq>daily</changefreq>
     </url>
