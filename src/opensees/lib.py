@@ -129,6 +129,33 @@ class uniaxial:
             stiffness according to the work of Karsan-Jirsa and no tensile
             strength. (REF: Fedeas)."""
         )
+    
+    Concrete04 =  Uni("Concrete04", "Concrete04", args=[
+            #  "matTag" $fc $ec $ecu $Ec <$fct $et> <$beta>
+        Tag(), #"matTag"  about="integer tag identifying material"),
+        Num("fc"  ,  about="floating point values defining concrete compressive strength at 28 days (compression is negative)*"),
+        Num("ec"  ,  about="floating point values defining concrete strain at maximum strength*"),
+        Num("ecu" ,  about="floating point values defining concrete strain at crushing strength*"),
+        Num("Ec"  ,  about="floating point values defining initial stiffness**"),
+        Grp("tension", reqd=False, typ=Num, args=[
+            Num("fct" ,  about="floating point value defining the maximum tensile strength of concrete"),
+            Num("et"  ,  about="floating point value defining ultimate tensile strain of concrete"),
+        ]),
+        Num("beta",  reqd=False, about="floating point value defining the exponential curve parameter to define the residual stress (as a factor of $ft) at $etu"),
+    ])
+
+    Concrete02IS = Uni("Concrete02IS", "Concrete02IS", [
+         Tag(), 
+         Num("E0"), 
+         Num("fpc"), 
+         Num("epsc0"), 
+         Num("fpcu"), 
+         Num("epscu"), 
+         Grp("tension", reqd=False, typ=Num, args=[
+            Num("rat"), Num("ft"), Num("Ets")
+         ])
+    ])
+
 
 
 class element:
