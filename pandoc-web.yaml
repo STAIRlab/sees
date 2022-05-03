@@ -21,7 +21,7 @@ metadata:
 
 filters:
 #- pandoc-crossref
-- citeproc
+#- citeproc # commented for dev build time
 - image_center.lua
 - include.lua
 - include-code-files.lua
