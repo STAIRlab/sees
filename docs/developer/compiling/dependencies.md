@@ -24,16 +24,16 @@ you can manually set one of the variables below:
   `C/S`: uses Conan if it has been run, otherwise searches system. 
 
 
-  OPS >>> LAPACK:  /usr/lib/liblapack.so.3
-  OPS >>> SUPERLU: /home/claudio/opensees/pyg3/libg3/OTHER//bin/SuperLU_5.1.1/libSUPERLU.a
-  OPS >>> ARPACK:  /home/claudio/opensees/pyg3/libg3/OTHER//bin/ARPACK/libARPACK.a
-  OPS >>> UMFPACK: /home/claudio/opensees/pyg3/libg3/OTHER//bin/UMFPACK/libUMFPACK.a
-  OPS >>> CSPARSE: /home/claudio/opensees/pyg3/libg3/OTHER//bin/CSPARSE/libCSPARSE.a
-  OPS >>> TCL:
-  OPS >>> AMD:     /home/claudio/opensees/pyg3/libg3/OTHER//bin/AMD/libAMD.a
-  OPS >>> BLAS
-  OPS >>> LAPACK
-  OPS >>> SUPERLU
+    OPS >>> LAPACK:  /usr/lib/liblapack.so.3
+    OPS >>> SUPERLU: OTHER/bin/SuperLU_5.1.1/libSUPERLU.a
+    OPS >>> ARPACK:  OTHER/bin/ARPACK/libARPACK.a
+    OPS >>> UMFPACK: OTHER/bin/UMFPACK/libUMFPACK.a
+    OPS >>> CSPARSE: OTHER/bin/CSPARSE/libCSPARSE.a
+    OPS >>> TCL:
+    OPS >>> AMD:     OTHER//bin/AMD/libAMD.a
+    OPS >>> BLAS
+    OPS >>> LAPACK
+    OPS >>> SUPERLU
 
 ```{=html}
 <details><summary><a>APT (Ubuntu, Debian Linux)</a></summary>
