@@ -157,7 +157,8 @@ if __name__ == "__main__":
         else:
             TclShell().cmdloop()
     else:
-        tcl = opensees.tcl.TclInterpreter()
+        import time
+        tcl = opensees.tcl.TclRuntime()
         tcl.eval(f"set argc {len(sys.argv) - 2}")
         tcl.eval(f"set argv {{{' '.join(argi)}}}")
         for filename in files:
@@ -165,5 +166,6 @@ if __name__ == "__main__":
                 tcl.eval(sys.stdin.read())
             else:
                 tcl.eval(open(filename).read())
+                time.sleep(3)
 
 

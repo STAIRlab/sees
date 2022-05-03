@@ -8,15 +8,15 @@ are applied to the element.
 
 For a two-dimensional problem:
 
-  -------------------------------------------------------------------------------
-  **geomTransf Corotational \$transfTag \<-jntOffset \$dXi \$dYi \$dXj \$dYj>**
-  -------------------------------------------------------------------------------
+```tcl
+geomTransf Corotational $transfTag <-jntOffset $dXi $dYi $dXj $dYj>
+```
 
 For a three-dimensional problem:
 
-  --------------------------------------------------------------------
-  **geomTransf Corotational \$transfTag \$vecxzX \$vecxzY \$vecxzZ**
-  --------------------------------------------------------------------
+```tcl
+geomTransf Corotational $transfTag $vecxzX $vecxzY $vecxzZ
+```
 
 ------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ corresponds to the y-z axes of the element.
 
 ------------------------------------------------------------------------
 
-EXAMPLE:
+## Example
 
 ![](ElementCrossSection.png "ElementCrossSection.png")
 
@@ -76,16 +76,21 @@ EXAMPLE:
 
 ![](ElementVectors.png "ElementVectors.png")
 
-1.  Element 1 : tag 1 : vecxZ = zaxis
 
-geomTransf Corotational 1 0 0 -1
+1.  Element 1 : tag 1 : vecxZ = zaxis
+    ```tcl
+    geomTransf Corotational 1 0 0 -1
+    ```
 
 1.  Element 2 : tag 2 : vecxZ = y axis
 
-geomTransf Corotational 2 0 1 0
+    ```tcl
+    geomTransf Corotational 2 0 1 0
+    ```
 
 Code Developed by: `<span style="color:blue">`{=html} Remo Magalhaes de
 Souza `</span>`{=html}
 
 Images Developed by: `<span style="color:blue">`{=html} Silvia Mazzoni
 `</span>`{=html}
+

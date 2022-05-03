@@ -88,8 +88,8 @@ the node numbering scheme to accommodate a larger number of nodes.
 The spring nodes are created with three dimensions and three
 translational degrees-of-freedom. The input file is set up to
 automatically generate the necessary spring nodes and elements based
-upon the input geometry (pile head length, \$L1, embedded length, \$L2,
-and number of pile elements, \$nElePile). Spring nodes are only created
+upon the input geometry (pile head length, `$L1`, embedded length, `$L2`,
+and number of pile elements, `$nElePile`). Spring nodes are only created
 over the embedded length of pile.
 
 Since zero-length elements are used for the springs, the two sets of
@@ -113,12 +113,12 @@ define the p-y/t-z/Q-z behavior with depth,
 
 Several input soil properties are necessary to define these springs:
 
--   soil unit weight, \$gamma
--   soil internal friction angle, \$phi
--   soil shear modulus, \$Gsoil
+-   soil unit weight, `$gamma`
+-   soil internal friction angle, `$phi`
+-   soil shear modulus, `$Gsoil`
 
-The default values are set at \$gamma = 17 kN/m\^3, \$phi = 36 degrees,
-and \$Gsoil = 150000 kPa.
+The default values are set at `$gamma = 17` kN/m^3^, `$phi = 36` degrees,
+and `$Gsoil` = 150000 kPa.
 
 The procedure [get_pyParam.tcl](Media:get_pyParam.tcl "wikilink"), which
 defines the p-y springs, has several options which must be selected.

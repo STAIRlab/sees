@@ -95,7 +95,7 @@ class uniaxial:
             # elastic to plastic branches. params=[R0,cR1,cR2].
             # Recommended values: R0=between 10 and 20, cR1=0.925, cR2=0.15"),
 
-          Grp("a", about="isotropic hardening parameters", args=[
+          Grp("a", reqd = False, about="isotropic hardening parameters", args=[
             Num("a1", reqd = False, about="""
                       increase of compression yield envelope as proportion
                       of yield strength after a plastic strain of `a2∗(Fy/E0)`"""

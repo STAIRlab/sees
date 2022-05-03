@@ -29,11 +29,13 @@ subsequent analysis. There are two differences between the two models:
 </p>
 </td></tr></tbody></table>
 </td>
+<!--
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9a.build.UniaxialSection2D.tcl" class="internal" title="Ex9a.build.UniaxialSection2D.tcl">Ex9a.build.UniaxialSection2D.tcl</a></li>
 <li><a href="./Ex9a.build.UniaxialSection3D.tcl" class="internal" title="Ex9a.build.UniaxialSection3D.tcl">Ex9a.build.UniaxialSection3D.tcl</a></li>
 <li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
 </td>
+-->
 
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Flexure and axial behavior are uncoupled in this type of section</li></ul>
@@ -52,11 +54,13 @@ subsequent analysis. There are two differences between the two models:
 </table>
 </td>
 
+<!--
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9b.build.WSection2D.tcl" class="internal" title="Ex9b.build.WSection2D.tcl">Ex9b.build.WSection2D.tcl</a></li>
 <li><a href="./Ex9b.build.WSection3D.tcl" class="internal" title="Ex9b.build.WSection3D.tcl">Ex9b.build.WSection3D.tcl</a></li>
 <li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
 </td>
+-->
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li></ul>
 </td></tr></tbody>
@@ -73,16 +77,14 @@ subsequent analysis. There are two differences between the two models:
 </p>
 </td></tr></tbody></table>
 </td>
+<!--
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9c.build.RCSection.RectUnconfinedSymm2D.tcl" class="internal" title="Ex9c.build.RCSection.RectUnconfinedSymm2D.tcl">Ex9c.build.RCSection.RectUnconfinedSymm2D.tcl</a></li>
 <li><a href="./Ex9c.build.RCSection.RectUnconfinedSymm3D.tcl" class="internal" title="Ex9c.build.RCSection.RectUnconfinedSymm3D.tcl">Ex9c.build.RCSection.RectUnconfinedSymm3D.tcl</a></li>
 <li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
-<!--
-<table style="width:100%; vertical-align:top;background:#white;">
-  <tbody><tr><td></td></tr></tbody>
-</table>
--->
 </td>
+-->
+
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li></ul>
 </td></tr></tbody>
@@ -99,21 +101,15 @@ subsequent analysis. There are two differences between the two models:
  </td></tr></tbody>
 </table>
 </td>
+<!--
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9d.build.RCSection.RectConfinedSymm2D.tcl" class="internal" title="Ex9d.build.RCSection.RectConfinedSymm2D.tcl">Ex9d.build.RCSection.RectConfinedSymm2D.tcl</a></li>
 <li><a href="./Ex9d.build.RCSection.RectConfinedSymm3D.tcl" class="internal" title="Ex9d.build.RCSection.RectConfinedSymm3D.tcl">Ex9d.build.RCSection.RectConfinedSymm3D.tcl</a></li>
 <li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
-<!--
-<table style="width:100%; vertical-align:top;background:#white;">
- <tbody><tr><td></td></tr></tbody></table>
--->
 </td>
+-->
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li></ul>
-<!--
-<table style="width:100%; vertical-align:top;background:#white;">
-<tbody><tr><td></td></tr></tbody></table>
--->
 </td></tr></tbody></table>
 <table style="margin:0; background:none; border:3px solid #ccc;">
 <tbody><tr>
@@ -126,15 +122,14 @@ subsequent analysis. There are two differences between the two models:
 </p>
 </td></tr></tbody></table>
 </td>
+<!--
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9e.build.RCSection.Rect2D.tcl" class="internal" title="Ex9e.build.RCSection.Rect2D.tcl">Ex9e.build.RCSection.Rect2D.tcl</a></li>
 <li><a href="./Ex9e.build.RCSection.Rect3D.tcl" class="internal" title="Ex9e.build.RCSection.Rect3D.tcl">Ex9e.build.RCSection.Rect3D.tcl</a></li>
 <li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
-<!--
-<table style="width:100%; vertical-align:top;background:#white;">
-<tbody><tr><td></td></tr></tbody></table>
--->
 </td>
+-->
+
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li>
 <li>generic rectangular section</li></ul>
@@ -154,15 +149,13 @@ subsequent analysis. There are two differences between the two models:
 </p>
 </td></tr></tbody></table>
 </td>
+<!--
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Files</strong><ul><li><a href="./Ex9f.build.RCSection.Circ2D.tcl" class="internal" title="Ex9f.build.RCSection.Circ2D.tcl">Ex9f.build.RCSection.Circ2D.tcl</a></li>
 <li><a href="./Ex9f.build.RCSection.Circ3D.tcl" class="internal" title="Ex9f.build.RCSection.Circ3D.tcl">Ex9f.build.RCSection.Circ3D.tcl</a></li>
 <li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
-<!--
-<table style="width:100%; vertical-align:top;background:#white;">
-<tbody><tr><td></td></tr></tbody></table>
--->
 </td>
+-->
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li>
 <li>generic circular section</li></ul>
@@ -181,13 +174,21 @@ subsequent analysis. There are two differences between the two models:
   </td></tr></tbody>
 </table>
 </td>
+
+<!--
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
+
 <strong>Files</strong><ul><li><a href="./Ex9g.build.HollowSection3D.tcl" class="internal" title="Ex9g.build.HollowSection3D.tcl">Ex9g.build.HollowSection3D.tcl</a></li>
-<li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul><table style="width:100%; vertical-align:top;background:#white;">
+<li><a href="./LibUnits.tcl" class="internal" title="LibUnits.tcl">LibUnits.tcl</a></li></ul>
+
+<table style="width:100%; vertical-align:top;background:#white;">
 
 
 <tbody><tr><td></td></tr></tbody></table>
 </td>
+
+-->
+
 <td style="margin:0; width:25%; background:#white; vertical-align:top;">
 <strong>Notes</strong><ul><li>Coupled biaxial flexure and axial behavior</li></ul>
 <!--
