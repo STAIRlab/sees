@@ -114,6 +114,7 @@ class MplPlotter:
         ax.add_collection(self.get_section_patches(section, **kwds))
         for l in self.get_section_layers(section, **kwds):
             ax.add_line(l)
+        ax.scatter(*zip(*(f.coord for f in section.fibers)), s=0.1)
         # show centroid
         #ax.scatter(*section.centroid)
         # show origin

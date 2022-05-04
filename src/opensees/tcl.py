@@ -20,7 +20,12 @@ def dumps(model):
         return OpenSeesWriter(model).dump()
     else:
         from opensees.emit.opensees import ScriptBuilder
-        return ScriptBuilder().send(model).getstr()
+        writer = ScriptBuilder()
+        refs = {r for r in model.get_refs()}
+        for ref in refs:
+            writer.send(ref)
+
+        return writer.send(model).getstr()
 
 
 class TclRuntime:

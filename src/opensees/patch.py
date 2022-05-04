@@ -359,7 +359,7 @@ class line:
 
     @property
     def fibers(self):
-        return [Fiber([y, z], self.area, self.material) 
+        return [Fiber([y, z], self.fiber_area, self.material) 
                 for y,z in np.linspace(*self.vertices, self.divs)]
 
     def __contains__(self, point):

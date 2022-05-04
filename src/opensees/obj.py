@@ -18,6 +18,12 @@ class Component:
             self._rt = rt
             return self._builder.getUniaxialMaterial("1")
 
+        if self._cmd[0] == "section":
+            rt.model(self)
+            self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
+            self._rt = rt
+            return self._builder.getSection(str(self.name))
+
     def __exit__(self, exception_type, exception_value, exception_traceback):
         del self._rt
 

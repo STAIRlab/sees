@@ -87,14 +87,11 @@ class uniaxial:
           Tag(),
           Num("Fy", about="yield strength"),
           Num("E0", about="initial elastic tangent"),
-          Num("b", about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"),
-          
+          Num("b", about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"), 
           Num("R0"), Num("cR1", default=0.925), Num("cR2", default=0.15),
-
             # params (list (float)) parameters to control the transition from 
             # elastic to plastic branches. params=[R0,cR1,cR2].
             # Recommended values: R0=between 10 and 20, cR1=0.925, cR2=0.15"),
-
           Grp("a", reqd = False, about="isotropic hardening parameters", args=[
             Num("a1", reqd = False, about="""
                       increase of compression yield envelope as proportion
@@ -106,7 +103,7 @@ class uniaxial:
                       of yield strength after a plastic strain of `a4∗(Fy/E0)`"""
             ),
             Num("a4", default = 1.0, about="see explanation under `a3`."),
-            Num("sigInit", default=0.0, about="initial stress")
+          Num("sigInit", reqd=False, default=0.0, about="initial stress")
           ]),
         ],
     )
@@ -131,9 +128,10 @@ class uniaxial:
         )
     
     Concrete04 =  Uni("Concrete04", "Concrete04", args=[
-            #  "matTag" $fc $ec $ecu $Ec <$fct $et> <$beta>
-        Tag(), #"matTag"  about="integer tag identifying material"),
-        Num("fc"  ,  about="floating point values defining concrete compressive strength at 28 days (compression is negative)*"),
+        Tag(),
+        Num("fc"  ,  
+            about="floating point values defining concrete compressive strength "\
+                  "at 28 days (compression is negative)*"),
         Num("ec"  ,  about="floating point values defining concrete strain at maximum strength*"),
         Num("ecu" ,  about="floating point values defining concrete strain at crushing strength*"),
         Num("Ec"  ,  about="floating point values defining initial stiffness**"),
