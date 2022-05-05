@@ -12879,13 +12879,13 @@ In the vertical direction, the element is multi-linear elastic with different st
 <tr class="odd">
 <td>
 <p>
-<strong>element TripleFrictionPendulum $eleTag $iNode $jNode $frnTag1 $frnTag2 $frnTag3 $vertMatTag $rotZMatTag $rotXMatTag $rotYMatTag $L1 $L2 $L3 $d1 $d2 $d3 $W $uy $kvt $minFv <span class="math inline">\(tol&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;eleTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= unique element object tag&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>iNode <span class="math inline">\(jNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= end nodes&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>frnTag1, $frnTag2, <span class="math inline">\(frnTag2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= tags associated with previously-defined &lt;a href=&quot;http://opensees.berkeley.edu/wiki/index.php/FrictionModel_Command&quot;&gt;FrictionModels&lt;/a&gt; at the three sliding interfaces&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;vertMatTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= Pre-defined material tag for COMPRESSION behavior of the bearing&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rotZMatTag, $rotXMatTag, <span class="math inline">\(rotYMatTag&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= Pre-defined material tags for rotational behavior about 3-axis, 1-axis and 2-axis, respectively.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>L1, $L2, <span class="math inline">\(L3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= effective radii. Li = R_i - h_i (see Figure 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>d1, $d2, <span class="math inline">\(d3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= displacement limits of pendulums (Figure 1). Displacement limit of the bearing is 2\)</span>d1+<span class="math inline">\(d2+\)</span>d3+<span class="math inline">\(L1.\)</span>d3/<span class="math inline">\(L3-\)</span>L1.<span class="math inline">\(d2/\)</span>L2
+<strong>element TripleFrictionPendulum $eleTag $iNode $jNode $frnTag1 $frnTag2 $frnTag3 $vertMatTag $rotZMatTag $rotXMatTag $rotYMatTag $L1 $L2 $L3 $d1 $d2 $d3 $W $uy $kvt $minFv <span class="math inline">\(tol&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;eleTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= unique element object tag&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>iNode <span class="math inline">\(jNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= end nodes&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>frnTag1, $frnTag2, <span class="math inline">\(frnTag2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= tags associated with previously-defined &lt;a href=&quot;http://opensees.berkeley.edu/wiki/index.php/FrictionModel_Command&quot;&gt;FrictionModels&lt;/a&gt; at the three sliding interfaces&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;vertMatTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= Pre-defined material tag for COMPRESSION behavior of the bearing&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rotZMatTag, $rotXMatTag, <span class="math inline">\(rotYMatTag&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= Pre-defined material tags for rotational behavior about 3-axis, 1-axis and 2-axis, respectively.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>L1, $L2, <span class="math inline">\(L3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= effective radii. Li = R_i - h_i (see Figure 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>d1, $d2, <span class="math inline">\(d3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= displacement limits of pendulums (Figure 1). Displacement limit of the bearing is 2\)</span>d1+<span class="math inline">\(d2+\)</span>d3+<span class="math inline">\(L1.\)</span>d3/<span class="math inline">\(L3-\)</span>L1.<span class="math inline">\(d2/\)</span>L2
 </p>
 </td>
 </tr>
 <tr class="even">
 <td>
-&lt;codeclass=“parameter-table-variable”&gt;W</code>
+<code class="parameter-table-variable">W</code>
 </td>
 <td>
 <p>
@@ -12895,7 +12895,7 @@ In the vertical direction, the element is multi-linear elastic with different st
 </tr>
 <tr class="odd">
 <td>
-&lt;codeclass=“parameter-table-variable”&gt;uy</code>
+<code class="parameter-table-variable">uy</code>
 </td>
 <td>
 <p>
@@ -12905,7 +12905,7 @@ In the vertical direction, the element is multi-linear elastic with different st
 </tr>
 <tr class="even">
 <td>
-&lt;codeclass=“parameter-table-variable”&gt;kvt</code>
+<code class="parameter-table-variable">kvt</code>
 </td>
 <td>
 <p>
@@ -12927,7 +12927,7 @@ In the vertical direction, the element is multi-linear elastic with different st
 </tr>
 <tr class="even">
 <td>
-&lt;codeclass=“parameter-table-variable”&gt;tol</code>
+<code class="parameter-table-variable">tol</code>
 </td>
 <td>
 <p>

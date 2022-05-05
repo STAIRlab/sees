@@ -12856,7 +12856,7 @@ This command is used to construct a QzSimple1 uniaxial material object:
 <tbody>
 <tr class="odd">
 <td>
-&lt;codeclass=“parameter-table-variable”&gt;matTag</code>
+<code class="parameter-table-variable">matTag</code>
 </td>
 <td>
 <p>
@@ -12866,7 +12866,7 @@ integer tag identifying material
 </tr>
 <tr class="even">
 <td>
-&lt;codeclass=“parameter-table-variable”&gt;qzType</code>
+<code class="parameter-table-variable">qzType</code>
 </td>
 <td>
 <p>
@@ -12879,7 +12879,7 @@ qzType = 2 Backbone of q-z curve approximates Vijayvergiya’s (1977) relation f
 </tr>
 <tr class="odd">
 <td>
-&lt;codeclass=“parameter-table-variable”&gt;qult</code>
+<code class="parameter-table-variable">qult</code>
 </td>
 <td>
 <p>
@@ -12890,7 +12890,7 @@ Ultimate capacity of the q-z material. SEE NOTE 1.
 <tr class="even">
 <td>
 <p>
-<strong><span class="math inline">\(Z50&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Displacement at which 50% of qult is mobilized in monotonic loading. SEE NOTE 2.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;suction&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Uplift resistance is equal to suction*qult. Default = 0.0. The value of suction must be 0.0 to 0.1.*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;c&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). Default = 0.0. Nonzero c values are used to represent radiation damping effects.*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;ol&gt; &lt;li&gt;\)</span>qult: Ultimate capacity of the q-z material. Note that “q” or “qult” are stresses [force per unit area of pile tip] in common design equations, but are both loads for this uniaxialMaterial [i.e., stress times tip area].
+<strong><span class="math inline">\(Z50&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Displacement at which 50% of qult is mobilized in monotonic loading. SEE NOTE 2.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;suction&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Uplift resistance is equal to suction*qult. Default = 0.0. The value of suction must be 0.0 to 0.1.*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;c&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). Default = 0.0. Nonzero c values are used to represent radiation damping effects.*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;ol&gt; &lt;li&gt;\)</span>qult: Ultimate capacity of the q-z material. Note that “q” or “qult” are stresses [force per unit area of pile tip] in common design equations, but are both loads for this uniaxialMaterial [i.e., stress times tip area].
 </li>
 <li>
 $Y50: Displacement at which 50% of pult is mobilized in monotonic loading. Note that Vijayvergiya’s relation (qzType=2) refers to a “critical” displacement (zcrit) at which qult is fully mobilized, and that the corresponding z50 would be 0. 125zcrit.
