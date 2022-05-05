@@ -21,11 +21,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/analysis/integrator/275-General%20Commands/</loc>
-         <lastmod>2022-05-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/analysis/integrator/277-Generalized%20Alpha%20Method/</loc>
          <lastmod>2022-05-05</lastmod>
          <changefreq>daily</changefreq>
@@ -1162,6 +1157,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/recorders/517-Plot%20Recorder/</loc>
+         <lastmod>2022-05-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/reliability/275-General%20Commands/</loc>
          <lastmod>2022-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>
