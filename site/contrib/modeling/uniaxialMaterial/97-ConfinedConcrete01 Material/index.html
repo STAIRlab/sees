@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12815,8 +12854,18 @@ This  command  is  used  to  construct  an  uniaxial  material �
 <tr class="odd">
 <td>
 <p>
-<strong>uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec (&lt;-epscu $epscu&gt; OR &lt;-gamma $gamma&gt;) (&lt;-nu $nu&gt; OR &lt;-varub&gt; OR &lt;-varnoub&gt;) <span class="math inline">\(L1 (\)</span>L2) ($L3) $phis $S $fyh $Es0 $haRatio $mu $phiLon &lt;-internal $phisi $Si $fyhi $Es0i $haRatioi $mui&gt; &lt;-wrap $cover $Am $Sw $fuil $Es0w&gt; &lt;-gravel&gt; &lt;-silica&gt; &lt;-tol $tol&gt; &lt;-maxNumIter $maxNumIter&gt; &lt;-epscuLimit $epscuLimit&gt; &lt;-stRatio <span class="math inline">\(stRatio&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>tag</strong>
+<strong>uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec (&lt;-epscu $epscu&gt; OR &lt;-gamma $gamma&gt;) (&lt;-nu $nu&gt; OR &lt;-varub&gt; OR &lt;-varnoub&gt;) <span class="math inline">\(L1 (\)</span>L2) ($L3) $phis $S $fyh $Es0 $haRatio $mu $phiLon &lt;-internal $phisi $Si $fyhi $Es0i $haRatioi $mui&gt; &lt;-wrap $cover $Am $Sw $fuil $Es0w&gt; &lt;-gravel&gt; &lt;-silica&gt; &lt;-tol $tol&gt; &lt;-maxNumIter $maxNumIter&gt; &lt;-epscuLimit $epscuLimit&gt; &lt;-stRatio $stRatio&gt;</strong>
 </p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;tag</code>
 </td>
 <td>
 <p>
@@ -12826,9 +12875,17 @@ integer tag identifying material.
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;secType</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(secType&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tag for the transverse reinforcement configuration. See NOTE 1.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fpc</strong>
+tag for the transverse reinforcement configuration. See NOTE 1.
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;fpc</code>
 </td>
 <td>
 <p>
@@ -12838,9 +12895,7 @@ unconfined cylindrical strength of concrete specimen.
 </tr>
 <tr class="even">
 <td>
-<p>
-<strong>$Ec</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;Ec</code>
 </td>
 <td>
 <p>
@@ -12886,9 +12941,17 @@ additional dimensions when multiple hoops are being used. See NOTE 4.
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;phis</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(phis&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;hoop diameter. If section arrangement has multiple hoops it refers to the external hoop.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>S</strong>
+hoop diameter. If section arrangement has multiple hoops it refers to the external hoop.
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;S</code>
 </td>
 <td>
 <p>
@@ -12898,9 +12961,17 @@ hoop spacing.
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;fyh</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(fyh&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;yielding strength of the hoop steel.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Es0</strong>
+yielding strength of the hoop steel.
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Es0</code>
 </td>
 <td>
 <p>
@@ -12910,9 +12981,17 @@ elastic modulus of the hoop steel.
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;haRatio</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(haRatio&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;hardening ratio of the hoop steel.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>mu</strong>
+hardening ratio of the hoop steel.
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;mu</code>
 </td>
 <td>
 <p>
@@ -12922,9 +13001,7 @@ ductility factor of the hoop steel.
 </tr>
 <tr class="odd">
 <td>
-<p>
-<strong>$phiLon</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;phiLon</code>
 </td>
 <td>
 <p>
@@ -12951,8 +13028,17 @@ optional parameters for defining the internal transverse reinforcement. If they 
 </p>
 <p>
 <ol start="4" type="1">
-<li><strong><span class="math inline">\(L1&lt;/strong&gt; (2l), &lt;strong&gt;\)</span>L2</strong> (a) and <strong><span class="math inline">\(L3&lt;/strong&gt; (b) are required when either S4a or S4b section types is used. &lt;strong&gt;\)</span>L1</strong> (2d) and <strong><span class="math inline">\(L2&lt;/strong&gt; (2c) must be used for rectangular section.&lt;/p&gt; &lt;p&gt;5) When external stengthening is used must be specified the following parameters:&lt;/p&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>cover</strong>
+<li><strong><span class="math inline">\(L1&lt;/strong&gt; (2l), &lt;strong&gt;\)</span>L2</strong> (a) and <strong><span class="math inline">\(L3&lt;/strong&gt; (b) are required when either S4a or S4b section types is used. &lt;strong&gt;\)</span>L1</strong> (2d) and <strong>$L2</strong> (2c) must be used for rectangular section.
 </p>
+<p>
+<ol start="5" type="1">
+<li>When external stengthening is used must be specified the following parameters:
+</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;cover</code>
 </td>
 <td>
 <p>
@@ -12962,9 +13048,17 @@ cover thickness measured from the outer line of hoop.
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;Am</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(Am&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;total area of FRP wraps (number of layers x wrap thickness x wrap width).&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Sw</strong>
+total area of FRP wraps (number of layers x wrap thickness x wrap width).
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Sw</code>
 </td>
 <td>
 <p>
@@ -12974,9 +13068,17 @@ spacing of FRP wraps (if continuous wraps are used the spacing is equal to the w
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;ful</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(ful&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;ultimate strength of FRP wraps.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Es0w</strong>
+ultimate strength of FRP wraps.
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Es0w</code>
 </td>
 <td>
 <p>
@@ -13105,6 +13207,7 @@ D’Amato M., February 2009. “Analytical models for non linear analysis of RC 
 </li>
 <li>
 D’Amato, M., Braga, F., Gigliotti, R., Kunnath S., Laterza, M.,</li>
+</ol></li>
 </ol></li>
 </ol>
 <ol start="2012" type="1">

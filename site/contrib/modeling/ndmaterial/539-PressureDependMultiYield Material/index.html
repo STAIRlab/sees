@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12867,9 +12906,17 @@ PreDep_ss.png
 <tbody>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;tag</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(tag&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;A positive integer uniquely identifying the material among all nDMaterials.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>nd</strong>
+A positive integer uniquely identifying the material among all nDMaterials.
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;nd</code>
 </td>
 <td>
 <p>
@@ -12879,81 +12926,111 @@ Number of dimensions, 2 for plane-strain, and 3 for 3D analysis.
 </tr>
 <tr class="odd">
 <td>
-<p>
-<strong><span class="math inline">\(rho&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Saturated soil mass density.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>refShearModul (G&lt;sub&gt;r&lt;/sub&gt;)</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;rho</code>
 </td>
 <td>
 <p>
-Reference low-strain shear modulus, specified at a reference mean effective confining pressure refPress of p’&lt;sub&gt;r&lt;/sub&gt; (see below).
+Saturated soil mass density.
 </p>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>
 <p>
-<strong><span class="math inline">\(refBulkModul (B&amp;lt;sub&amp;gt;r&amp;lt;/sub&amp;gt;)&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Reference bulk modulus, specified at a reference mean effective confining pressure refPress of p’&amp;lt;sub&amp;gt;r&amp;lt;/sub&amp;gt; (see below).&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>frictionAng (&amp;Phi;)</strong>
+<strong><span class="math inline">\(refShearModul (G&amp;lt;sub&amp;gt;r&amp;lt;/sub&amp;gt;)&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Reference low-strain shear modulus, specified at a reference mean effective confining pressure refPress of p’&amp;lt;sub&amp;gt;r&amp;lt;/sub&amp;gt; (see below).&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>refBulkModul (B&lt;sub&gt;r&lt;/sub&gt;)</strong>
 </p>
 </td>
 <td>
 <p>
-Friction angle at peak shear strength, in degrees.
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong><span class="math inline">\(peakShearStra (&amp;amp;gamma;&amp;lt;sub&amp;gt;max&amp;lt;/sub&amp;gt;)&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;An octahedral shear strain at which the maximum shear strength is reached, specified at a reference mean effective confining pressure refPress of p’&amp;lt;sub&amp;gt;r&amp;lt;/sub&amp;gt; (see below). Octahedral shear strain is defined as:&lt;/p&gt; &lt;figure&gt; &lt;img src=&quot;PreDep_OctGamma.png‎&quot; title=&quot;PreDep_OctGamma.png‎&quot; alt=&quot;PreDep_OctGamma.png‎&quot; /&gt; &lt;figcaption aria-hidden=&quot;true&quot;&gt;PreDep_OctGamma.png‎&lt;/figcaption&gt; &lt;/figure&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>refPress (p’&lt;sub&gt;r&lt;/sub&gt;)</strong>
-</p>
-</td>
-<td>
-<p>
-Reference mean effective confining pressure at which Gr, Br, and &amp;gamma;&lt;sub&gt;max&lt;/sub&gt; are defined.
+Reference bulk modulus, specified at a reference mean effective confining pressure refPress of p’&lt;sub&gt;r&lt;/sub&gt; (see below).
 </p>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>
 <p>
-<strong><span class="math inline">\(pressDependCoe (d)&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;A positive constant defining variations of G and B as a function of instantaneous effective confinement p’:&lt;/p&gt; &lt;figure&gt; &lt;img src=&quot;PreDep_pressDepCoe.png‎&quot; title=&quot;PreDep_pressDepCoe.png‎&quot; alt=&quot;PreDep_pressDepCoe.png‎&quot; /&gt; &lt;figcaption aria-hidden=&quot;true&quot;&gt;PreDep_pressDepCoe.png‎&lt;/figcaption&gt; &lt;/figure&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>PTAng (&amp;Phi;&lt;sub&gt;PT&lt;/sub&gt;)</strong>
+<strong><span class="math inline">\(frictionAng (&amp;amp;Phi;)&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Friction angle at peak shear strength, in degrees.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>peakShearStra (&amp;gamma;&lt;sub&gt;max&lt;/sub&gt;)</strong>
 </p>
 </td>
 <td>
 <p>
-Phase transformation angle, in degrees.
+An octahedral shear strain at which the maximum shear strength is reached, specified at a reference mean effective confining pressure refPress of p’&lt;sub&gt;r&lt;/sub&gt; (see below). Octahedral shear strain is defined as:
+</p>
+<figure>
+<img src="PreDep_OctGamma.png‎" title="PreDep_OctGamma.png‎"
+alt="PreDep_OctGamma.png‎" />
+<figcaption aria-hidden="true">
+PreDep_OctGamma.png‎
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong><span class="math inline">\(refPress (p’&amp;lt;sub&amp;gt;r&amp;lt;/sub&amp;gt;)&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Reference mean effective confining pressure at which Gr, Br, and &amp;amp;gamma;&amp;lt;sub&amp;gt;max&amp;lt;/sub&amp;gt; are defined.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>pressDependCoe (d)</strong>
+</p>
+</td>
+<td>
+<p>
+A positive constant defining variations of G and B as a function of instantaneous effective confinement p’:
+</p>
+<figure>
+<img src="PreDep_pressDepCoe.png‎" title="PreDep_pressDepCoe.png‎"
+alt="PreDep_pressDepCoe.png‎" />
+<figcaption aria-hidden="true">
+PreDep_pressDepCoe.png‎
+</figcaption>
+</figure>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong><span class="math inline">\(PTAng (&amp;amp;Phi;&amp;lt;sub&amp;gt;PT&amp;lt;/sub&amp;gt;)&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Phase transformation angle, in degrees.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;contrac&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;A non-negative constant defining the rate of shear-induced volume decrease (contraction) or pore pressure buildup. A larger value corresponds to faster contraction rate.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dilat1, <span class="math inline">\(dilat2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Non-negative constants defining the rate of shear-induced volume increase (dilation). Larger values correspond to stronger dilation rate.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>liquefac1, $liquefac2, <span class="math inline">\(liquefac3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Parameters controlling the mechanism of liquefaction-induced perfectly plastic shear strain accumulation, i.e., cyclic mobility. &lt;strong&gt;Set liquefac1 = 0 to deactivate this mechanism altogether.&lt;/strong&gt; liquefac1 defines the effective confining pressure (e.g., 10 kPa in SI units or 1.45 psi in English units) below which the mechanism is in effect. Smaller values should be assigned to denser sands. Liquefac2 defines the maximum amount of perfectly plastic shear strain developed at zero effective confinement during each loading phase. Smaller values should be assigned to denser sands. Liquefac3 defines the maximum amount of biased perfectly plastic shear strain &amp;amp;gamma;&amp;lt;sub&amp;gt;b&amp;lt;/sub&amp;gt; accumulated at each loading phase under biased shear loading conditions, as &amp;amp;gamma;&amp;lt;sub&amp;gt;b&amp;lt;/sub&amp;gt;=liquefac2 x liquefac3. Typically, liquefac3 takes a value between 0.0 and 3.0. Smaller values should be assigned to denser sands. See the references listed at the end of this chapter for more information.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;noYieldSurf&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Number of yield surfaces, optional (must be less than 40, default is 20). The surfaces are generated based on the hyperbolic relation defined in Note 2 below.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>r, <span class="math inline">\(Gs&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Instead of automatic surfaces generation (Note 2), &lt;strong&gt;you can define yield surfaces directly based on desired shear modulus reduction curve.&lt;/strong&gt; To do so, add a minus sign in front of noYieldSurf, then provide noYieldSurf pairs of shear strain (&amp;amp;gamma;) and modulus ratio (G&amp;lt;sub&amp;gt;s&amp;lt;/sub&amp;gt;) values. For example, to define 10 surfaces: … -10&amp;amp;gamma;&amp;lt;sub&amp;gt;1&amp;lt;/sub&amp;gt;G&amp;lt;sub&amp;gt;s1&amp;lt;/sub&amp;gt; … &amp;amp;gamma;&amp;lt;sub&amp;gt;10&amp;lt;/sub&amp;gt;G&amp;lt;sub&amp;gt;s10&amp;lt;/sub&amp;gt; …&lt;/p&gt; &lt;p&gt;See Note 3 below for some important notes.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;e&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Initial void ratio, optional (default is 0.6).&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>cs1, $cs2, $cs3, $pa</strong>
+</p>
+</td>
+<td>
+<p>
+Parameters defining a straight critical-state line e&lt;sub&gt;c&lt;/sub&gt; in e-p’ space. If cs3=0,
+</p>
+<dl>
+<dt>
+</dt>
+<dd>
+<dl>
+<dt>
+</dt>
+<dd>
+e&lt;sub&gt;c&lt;/sub&gt; = cs1-cs2 log(p’/p&lt;sub&gt;a&lt;/sub&gt;)
+</dd>
+</dl>
+</dd>
+</dl>
+<p>
+else (Li and Wang, JGGE, 124(12)),
+</p>
+<dl>
+<dt>
+</dt>
+<dd>
+<dl>
+<dt>
+</dt>
+<dd>
+e&lt;sub&gt;c&lt;/sub&gt; = cs1-cs2(p’/p&lt;sub&gt;a&lt;/sub&gt;)&lt;sup&gt;cs3&lt;/sup&gt;
+</dd>
+</dl>
+</dd>
+</dl>
+<p>
+where p&lt;sub&gt;a&lt;/sub&gt; is atmospheric pressure for normalization (typically 101 kPa in SI units, or 14.65 psi in English units). All four constants are optional (default values: cs1=0.9, cs2=0.02, cs3=0.7, p&lt;sub&gt;a&lt;/sub&gt; =101 kPa).
 </p>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>
-<p>
-<strong><span class="math inline">\(contrac&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;A non-negative constant defining the rate of shear-induced volume decrease (contraction) or pore pressure buildup. A larger value corresponds to faster contraction rate.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dilat1, <span class="math inline">\(dilat2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Non-negative constants defining the rate of shear-induced volume increase (dilation). Larger values correspond to stronger dilation rate.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>liquefac1, $liquefac2, <span class="math inline">\(liquefac3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Parameters controlling the mechanism of liquefaction-induced perfectly plastic shear strain accumulation, i.e., cyclic mobility. &lt;strong&gt;Set liquefac1 = 0 to deactivate this mechanism altogether.&lt;/strong&gt; liquefac1 defines the effective confining pressure (e.g., 10 kPa in SI units or 1.45 psi in English units) below which the mechanism is in effect. Smaller values should be assigned to denser sands. Liquefac2 defines the maximum amount of perfectly plastic shear strain developed at zero effective confinement during each loading phase. Smaller values should be assigned to denser sands. Liquefac3 defines the maximum amount of biased perfectly plastic shear strain &amp;amp;gamma;&amp;lt;sub&amp;gt;b&amp;lt;/sub&amp;gt; accumulated at each loading phase under biased shear loading conditions, as &amp;amp;gamma;&amp;lt;sub&amp;gt;b&amp;lt;/sub&amp;gt;=liquefac2 x liquefac3. Typically, liquefac3 takes a value between 0.0 and 3.0. Smaller values should be assigned to denser sands. See the references listed at the end of this chapter for more information.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>noYieldSurf</strong>
-</p>
-</td>
-<td>
-<p>
-Number of yield surfaces, optional (must be less than 40, default is 20). The surfaces are generated based on the hyperbolic relation defined in Note 2 below.
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong>$r, <span class="math inline">\(Gs&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Instead of automatic surfaces generation (Note 2), &lt;strong&gt;you can define yield surfaces directly based on desired shear modulus reduction curve.&lt;/strong&gt; To do so, add a minus sign in front of noYieldSurf, then provide noYieldSurf pairs of shear strain (&amp;amp;gamma;) and modulus ratio (G&amp;lt;sub&amp;gt;s&amp;lt;/sub&amp;gt;) values. For example, to define 10 surfaces: … -10&amp;amp;gamma;&amp;lt;sub&amp;gt;1&amp;lt;/sub&amp;gt;G&amp;lt;sub&amp;gt;s1&amp;lt;/sub&amp;gt; … &amp;amp;gamma;&amp;lt;sub&amp;gt;10&amp;lt;/sub&amp;gt;G&amp;lt;sub&amp;gt;s10&amp;lt;/sub&amp;gt; …&lt;/p&gt; &lt;p&gt;See Note 3 below for some important notes.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>e</strong>
-</p>
-</td>
-<td>
-<p>
-Initial void ratio, optional (default is 0.6).
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong>$cs1, $cs2, $cs3, <span class="math inline">\(pa&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Parameters defining a straight critical-state line e&amp;lt;sub&amp;gt;c&amp;lt;/sub&amp;gt; in e-p’ space. If cs3=0,&lt;/p&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; e&amp;lt;sub&amp;gt;c&amp;lt;/sub&amp;gt; = cs1-cs2 log(p&#39;/p&amp;lt;sub&amp;gt;a&amp;lt;/sub&amp;gt;) &lt;/dd&gt; &lt;/dl&gt; &lt;/dd&gt; &lt;/dl&gt; &lt;p&gt;else (Li and Wang, JGGE, 124(12)),&lt;/p&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; e&amp;lt;sub&amp;gt;c&amp;lt;/sub&amp;gt; = cs1-cs2(p&#39;/p&amp;lt;sub&amp;gt;a&amp;lt;/sub&amp;gt;)&amp;lt;sup&amp;gt;cs3&amp;lt;/sup&amp;gt; &lt;/dd&gt; &lt;/dl&gt; &lt;/dd&gt; &lt;/dl&gt; &lt;p&gt;where p&amp;lt;sub&amp;gt;a&amp;lt;/sub&amp;gt; is atmospheric pressure for normalization (typically 101 kPa in SI units, or 14.65 psi in English units). All four constants are optional (default values: cs1=0.9, cs2=0.02, cs3=0.7, p&amp;lt;sub&amp;gt;a&amp;lt;/sub&amp;gt; =101 kPa).&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>c</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;c</code>
 </td>
 <td>
 <p>
