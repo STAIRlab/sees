@@ -1,0 +1,174 @@
+# J2CyclicBoundingSurface Material
+
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>J2CyclicBoundingSurface $matTag $G $K $Su $Den $h $m $h0
+$chi $beta</strong></p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>$matTag</strong></p></td>
+<td><p>integer tag identifying material</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$G</strong></p></td>
+<td><p>shear modulus</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$K</strong></p></td>
+<td><p>bulk modulus</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$su</strong></p></td>
+<td><p>undrained shear strength</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$Den</strong></p></td>
+<td><p>mass density of the material</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$h</strong></p></td>
+<td><p>hardening parameter</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$m</strong></p></td>
+<td><p>hardening exponent</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$h0</strong></p></td>
+<td><p>initial hardening parameter</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$chi</strong></p></td>
+<td><p>initial damping (viscous). chi = 2*dr_o/omega (dr_o = damping
+ratio at zero strain, omega = angular frequency)</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$beta</strong></p></td>
+<td><p>integration variable (0 = explicit, 1 = implicit, 0.5 = midpoint
+rule)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The material formulations for the J2CyclicBoundingSurface object are
+"ThreeDimensional" and "PlaneStrain"</p>
+<hr />
+<p>Code Developed by: <span style="color:blue">Alborz Ghofrani, <a
+href="http://www.ce.washington.edu/people/faculty/bios/arduino_p.html">Pedro
+Arduino, U Washington</a></span></p>
+<hr />
+<h2 id="notes">Notes</h2>
+<ul>
+<li>Valid Element Recorder queries are
+<ul>
+<li><strong>stress</strong>, <strong>strain</strong></li>
+</ul></li>
+</ul>
+<p>e.g. recorder Element -eleRange 1 $numElem -time -file stress.out
+stress</p>
+<ul>
+<li>Elastic or Elastoplastic response could be enforced by</li>
+</ul>
+<dl>
+<dt></dt>
+<dd>
+<dl>
+<dt></dt>
+<dd>
+{|
+</dd>
+</dl>
+</dd>
+</dl>
+<p>|Elastic: ||updateMaterialStage -material $matTag -stage 0 |-
+|Elastoplastic: ||updateMaterialStage -material $matTag -stage 1 |}</p>
+<h2 id="theory">Theory</h2>
+<h2 id="example">Example</h2>
+<p>This example, provides an conventional triaxial compression test
+using one 8-node SSPBrick element and J2CyclicBOundingSurface material
+model.</p>
+<p>&lt;source lang="tcl"&gt;</p>
+<ol>
+<li>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+#</li>
+<li>3D Conventional Triaxial Compression Test Using One Element #</li>
+<li>University of Washington, Department of Civil and Environmental Eng
+#</li>
+<li>Computational Geotechnics Eng Group, A. Ghofrani, P. Arduino - Dec
+2013 #</li>
+<li>Basic units are m, Ton(metric), s #</li>
+<li>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+#</li>
+</ol>
+<p>set strains {0.05}</p>
+<p>for {set ii 0} {$ii &lt; [llength $strains]} {incr ii} {</p>
+<ol>
+<li>debug material model</li>
+</ol>
+<p>wipe</p>
+<ol>
+<li>#################################</li>
+<li>build model: -ndm 3 -ndf 3</li>
+<li>#################################</li>
+</ol>
+<p>model BasicBuilder -ndm 3 -ndf 3</p>
+<ol>
+<li>create the materials</li>
+</ol>
+<p>node 1 0.00000000 0.00000000 0.00000000 node 2 0.00000000 1.00000000
+0.00000000 node 3 1.00000000 1.00000000 0.00000000 node 4 1.00000000
+0.00000000 0.00000000 node 5 0.00000000 0.00000000 1.00000000 node 6
+0.00000000 1.00000000 1.00000000 node 7 1.00000000 1.00000000 1.00000000
+node 8 1.00000000 0.00000000 1.00000000</p>
+<ol>
+<li>create the materials</li>
+</ol>
+<p>set E 20000.0 set nu 0.499 set G [expr $E / 2.0 / (1 + $nu)] set K
+[expr $E / 3.0 / (1 - 2.0 * $nu)]</p>
+<p>set R [expr 100.0] set su [expr sqrt(3.0 / 8.0) * $R]</p>
+<ol>
+<li>nDMaterial ElasticIsotropic 1 100000 0.3</li>
+<li>nDMaterial J2CyclicBoundingSurface tag? G? K? su? rho? h? m? h0?
+chi? beta? in kpa</li>
+</ol>
+<p>nDMaterial J2CyclicBoundingSurface 1 $G $K $su 1.7 $G 1.0 0.2 0.0
+0.005 0.5</p>
+<ol>
+<li>create the elements</li>
+</ol>
+<p>element SSPbrick 1 1 4 3 2 5 8 7 6 1</p>
+<ol>
+<li>create the fixities</li>
+</ol>
+<p>fix 1 1 1 1 fix 2 1 0 1 fix 3 0 0 1 fix 4 0 1 1 fix 5 1 1 0 fix 6 1 0
+0 fix 7 0 0 0 fix 8 0 1 0</p>
+<ol>
+<li>recorders</li>
+</ol>
+<p>recorder Node -file "displacement.out" -nodeRange 1 8 -dof 1 2 3 disp
+recorder Node -file "velocity.out" -nodeRange 1 8 -dof 1 2 3 vel
+recorder Node -file "reactions.out" -nodeRange 1 8 -dof 1 2 3 reaction
+recorder Element -file "stress.out" -ele 1 stress recorder Element -file
+"strain.out" -ele 1 strain</p>
+<ol>
+<li>load pattern</li>
+</ol>
+<p>pattern Plain 1 {Series -time {0.0 1.0 2.0 3.0 4.0 5.0 6.0 7.0 8.0}
+-values {0.0 1.0 0.0 -1.0 0.0 1.0 0.0 -1.0 0.0} -factor -1.0} { sp 5 3
+[lindex $strains $ii] sp 6 3 [lindex $strains $ii] sp 7 3 [lindex
+$strains $ii] sp 8 3 [lindex $strains $ii] }</p>
+<ol>
+<li>analysis</li>
+</ol>
+<p>constraints Transformation test NormDispIncr 1e-9 50 1 algorithm
+Newton numberer Plain system SparseSPD integrator LoadControl 0.004
+analysis Static</p>
+<p>analyze 2000</p>
+<p>wipe &lt;/source&gt;</p>
+<h2 id="references">References</h2>
+<p>Borja R., Amies A., "Multiaxial Cyclic Plasticity Model for Clays".
+Journal of Geotech. Engrg., 1994, 120(6):1051-1070</p>

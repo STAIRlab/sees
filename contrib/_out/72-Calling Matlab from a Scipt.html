@@ -1,0 +1,108 @@
+# Calling Matlab from a Scipt
+
+<p>It is possible to call matlab from a script to perform some
+calculation needed in the script. It is made possible by using the
+<strong>-r</strong> flag among others when invoking matlab from the
+command line (dos shell). The following is a little example
+demonstrating how this is done.</p>
+<p>The example is a simple truss example where I am trying to determine
+the value of the parameter A needed to hit a target displacement.</p>
+<ol>
+<li>I start off with setting some variables, my target displacement, a
+tolerance, and two bounding values on my parameter of interest Amin and
+Amax.</li>
+<li>I then define a proc <strong>getA()</strong>. In this procedur I
+write the two bounding values to a file, I invoke a matlab script to
+determine a new A, and then I read the result from a file.</li>
+<li>Next I create my truss model and the analysis and perform a single
+analysis step</li>
+<li>Then I iterate until i have converged on a solution or hit a
+bounding value. In the iteration I call the matlab function to determine
+a new A, set the parameter in the elements, do an analysis step to
+obtain new displacement, and check versus target dispacement</li>
+<li>Finally I print a message indicating succcess or failure</li>
+</ol>
+<p>&lt;source lang="tcl"&gt;</p>
+<ol>
+<li></li>
+<li>set some variables</li>
+<li></li>
+</ol>
+<p>set targetDisp 1.2; # target displacement set tol 0.01; #
+tolerance</p>
+<p>set Amin 1.0 set Amax 10.0</p>
+<ol>
+<li></li>
+<li>define a procedure: getA() which calls matlab script getA.m in which
+our new A is computed</li>
+<li></li>
+</ol>
+<p>proc getA {Amin Amax} {</p>
+<ol>
+<li>write current min and max values</li>
+</ol>
+<p>set fileID [open data1 w] puts $fileID "$Amin $Amax" close
+$fileID</p>
+<ol>
+<li>invoke matlab</li>
+</ol>
+<p>if {[catch {exec matlab -nosplash -nodesktop -r "getA; quit"}]} {
+puts "Ignore this $msg" }</p>
+<ol>
+<li>read matlab result</li>
+</ol>
+<p>set fileIN [open data2 r] set fileData [read $fileIN] close
+$fileIN</p>
+<ol>
+<li>cleanup</li>
+</ol>
+<p>file delete data1 file delete data2</p>
+<ol>
+<li>return result</li>
+</ol>
+<p>set lines [split $fileData "\n"] set A [lindex $lines 0] }</p>
+<p>set A [getA $Amin $Amax]</p>
+<ol>
+<li></li>
+<li>create the model &amp; perform one analysis step</li>
+<li></li>
+</ol>
+<p>model BasicBuilder -ndm 2 -ndf 2</p>
+<p>node 1 0.0 0.0 node 2 144.0 0.0 node 3 168.0 0.0 node 4 72.0 96.0</p>
+<p>fix 1 1 1 fix 2 1 1 fix 3 1 1 uniaxialMaterial Elastic 1 3000</p>
+<p>element truss 1 1 4 $A 1 element truss 2 2 4 $A 1 element truss 3 3 4
+$A 1</p>
+<p>timeSeries Constant 1 pattern Plain 1 1 { load 4 100 -50 }</p>
+<ol>
+<li>create analysis</li>
+</ol>
+<p>system BandSPD numberer RCM constraints Plain integrator LoadControl
+1.0 algorithm Linear analysis Static</p>
+<p>analyze 1</p>
+<ol>
+<li></li>
+<li>iterate until convergence is reached, or failure</li>
+<li></li>
+</ol>
+<p>set xDisp [nodeDisp 4 1] set done 0</p>
+<p>while {$done == 0} {</p>
+<p>if {$xDisp &gt; $targetDisp} { set Amin $A } else { set Amax $A }</p>
+<p>set diffA [expr $Amax-$Amin] if {$diffA &lt; $tol} { set done 2 break
+}</p>
+<p>set A [getA $Amin $Amax] setParameter -value $A -ele A</p>
+<p>analyze 1 set xDisp [nodeDisp 4 1]</p>
+<p>set diff [expr abs($xDisp - $targetDisp)] if {$diff &lt; $tol} { set
+done 1 }</p>
+<p>puts "$A $xDisp" }</p>
+<ol>
+<li></li>
+<li>print success or failure</li>
+<li></li>
+</ol>
+<p>if {$done == 1} { puts "SUCCESS: A = $A gives Displacement of $xDisp
+versus target of $targetDisp" } else { puts "FAILURE: Hit limit A = $A
+gives Displacement of $xDisp versus target of $targetDisp" }
+&lt;/source&gt;</p>
+<p>The matlab scipt contained in the file getA.m is a simple
+divide-and-conquer. &lt;source lang="matlab"&gt; load data1;
+a=(data1(1,1)+data1(1,2))/2.0; dlmwrite('data2', a); &lt;/source&gt;</p>
