@@ -1,3 +1,0 @@
-# Quad u-p Element
-
-
