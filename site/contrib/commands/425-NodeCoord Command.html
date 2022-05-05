@@ -1,0 +1,29 @@
+# NodeCoord Command
+
+<p>Returns the coordinates of a specified node.</p>
+
+```tcl
+nodeCoord $nodeTag &lt;$dim&gt;
+```
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>$nodeTag</strong></p></td>
+<td><p>integer tag identifying node</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$dim</strong></p></td>
+<td><p>specific dimension at the node (1 through ndm),
+(optional)</p></td>
+</tr>
+</tbody>
+</table>
+<p>NOTE:</p>
+<p>If optional $dim is not provided, an array containing all coordinates
+at the node is returned.</p>
+<p>EXAMPLE:</p>
+<p>set a [nodeCoord $nodeTag]</p>
+<hr />
+<p>Code Developed by: <span style="color:blue"> fmk
+</span></p>

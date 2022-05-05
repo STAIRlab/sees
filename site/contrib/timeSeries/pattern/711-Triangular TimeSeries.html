@@ -1,0 +1,49 @@
+# Triangular TimeSeries
+
+<p>This command is used to construct a TimeSeries object in which the
+load factor is some triangular function of the time in the domain.</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>'''timeSeries Triangle $tag $tStart $tEnd $period &lt;-shift
+$shift&gt; &lt;-factor $cFactor&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>$tag</strong></p></td>
+<td><p>unique tag among TimeSeries objects</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$tStart</strong></p></td>
+<td><p>starting time of non-zero load factor</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$tEnd</strong></p></td>
+<td><p>ending time of non-zero load factor</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$period</strong></p></td>
+<td><p>characteristic period of triangular wave</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$shift</strong></p></td>
+<td><p>phase shift in seconds (optional, default = 0.0)</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$cFactor</strong></p></td>
+<td><p>the load amplification factor (optional, default = 1.0)</p></td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img src="TriangularTimeSeries.png" title="TriangularTimeSeries.png"
+alt="TriangularTimeSeries.png" />
+<figcaption aria-hidden="true">TriangularTimeSeries.png</figcaption>
+</figure>
+<hr />
+<p>Code Developed by: <span style="color:blue"> Andreas
+Schellenberg, University of California, Berkeley. </span></p>

@@ -1,0 +1,45 @@
+# Talk:Corotational Truss Element
+
+<p>I removed the reference to the doRayleigh flag. That does not seem to
+be implemented in the source code.</p>
+<p>corotTruss appears to implement Rayleigh damping by default. Truss
+does not. Someone should verify these findings.</p>
+<p>I used the following (MATLAB) script for verification:</p>
+<hr />
+<p>&lt;nowiki&gt;</p>
+<p>clear all; clc %% Damp = 1; Corot = 1;</p>
+<p>fout = fopen('Tester\Driver.tcl','w');</p>
+<p>fprintf(fout,'wipe\n'); fprintf(fout,'model BasicBuilder -ndm 2 -ndf
+3\n'); fprintf(fout,'file mkdir Data/\n');</p>
+<p>fprintf(fout,'node 1 0.0 0.0\n'); fprintf(fout,'node 2 1.0 0.0\n');
+fprintf(fout,'node 3 2.0 0.0\n'); fprintf(fout,'node 4 3.0 0.0\n');
+fprintf(fout,'fix 1 1 1 1 \n'); fprintf(fout,'fix 2 0 1 1\n');
+fprintf(fout,'fix 3 0 1 1\n'); fprintf(fout,'fix 4 0 1 1\n');
+fprintf(fout,'mass 2 1.0 0.0 0.0\n'); fprintf(fout,'mass 3 1.0 0.0
+0.0\n'); fprintf(fout,'mass 4 1.0 0.0 0.0\n');</p>
+<p>fprintf(fout,'uniaxialMaterial Elastic 1 100.0\n');</p>
+<p>if Corot fprintf(fout,'element corotTruss 1 1 2 1.0 1\n');
+fprintf(fout,'element corotTruss 2 2 3 1.0 1\n'); fprintf(fout,'element
+corotTruss 3 3 4 1.0 1\n'); else fprintf(fout,'element Truss 1 1 2 1.0 1
+-doRayleigh 1 \n'); fprintf(fout,'element Truss 2 2 3 1.0 1 -doRayleigh
+1 \n'); fprintf(fout,'element Truss 3 3 4 1.0 1 -doRayleigh 1 \n');
+end</p>
+<p>if Damp fprintf(fout,'region 1 -ele 1 2 3 -rayleigh 0.0 0.1 0.0
+0.0\n'); end</p>
+<p>fprintf(fout,'timeSeries Rectangular 1 0.0 1.0 -factor 1.0e-4\n');
+fprintf(fout,'pattern UniformExcitation 1 1 -accel 1\n');</p>
+<p>fprintf(fout,'recorder Node -file Data/TestD.txt -time -nodeRange 1 4
+-dof 1 disp\n'); fprintf(fout,'recorder Element -file Data/TestF.txt
+-time -eleRange 1 3 localForce\n');</p>
+<p>fprintf(fout,'constraints Penalty 1.0e8 1.0e8\n');
+fprintf(fout,'numberer RCM\n'); fprintf(fout,'system ProfileSPD\n');
+fprintf(fout,'test EnergyIncr 1.0e-5 30 1\n'); fprintf(fout,'algorithm
+NewtonLineSearch\n');</p>
+<p>fprintf(fout,'analysis Transient\n'); fprintf(fout,'integrator
+Newmark 0.5 0.25\n'); fprintf(fout,'analyze 500 0.02\n');</p>
+<p>%% tic; cd('Tester'); !OpenSees_2_2_2 Driver.tcl toc cd ..</p>
+<p>%% Read results raw = dlmread('Tester\Data\TestD.txt',' '); time =
+raw(:,1); x = raw(:,2:end);</p>
+<p>raw = dlmread('Tester\Data\TestD.txt',' '); N = raw(:,2:end);</p>
+<p>%% Plot figure(1); %clf; plot(time,x(:,end),'LineWidth',2); hold all
+&lt;\nowiki&gt;</p>

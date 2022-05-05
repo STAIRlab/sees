@@ -19,13 +19,14 @@ metadata:
 #  - ./references/brace.bib
 
 
-filters:
+#filters:
 #- pandoc-crossref
 #- citeproc # commented for dev build time
-- image_center.lua
-- include.lua
-- include-code-files.lua
-- pygmentize
+#- image_center.lua
+#- include.lua
+#- include-code-files.lua
+#- pygmentize
+#
 #- elstir.lua
 
 # method is plain, webtex, gladtex, mathml, mathjax, katex
