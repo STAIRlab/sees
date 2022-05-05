@@ -21,28 +21,28 @@ limitCurve RotationShearCurve $crvTag $eleTag $ndI $ndJ
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$crvTag</strong></p></td>
+<td><code class="parameter-table-variable">crvTag</code></td>
 <td><p>unique limit curve object integer tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>integer element tag to define the associated beam-column element
 used to extract axial load</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ndI</strong></p></td>
+<td><code class="parameter-table-variable">ndI</code></td>
 <td><p>integer node tag to define the node at the extreme end of the
 frame member bounding the plastic hinge (L1 or D1 for bottom spring and
 L4 or D6 for top spring in Figure)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ndJ</strong></p></td>
+<td><code class="parameter-table-variable">ndJ</code></td>
 <td><p>integer node tag to define the node bounding the plastic hinge
 (L2 or D3 for bottom spring and L3 or D4 for top spring in
 Figure)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rotAxis</strong></p></td>
+<td><code class="parameter-table-variable">rotAxis</code></td>
 <td><p>integer to indicate axis of measured rotation when triggering
 lateral-strength degradation</p></td>
 </tr>
@@ -54,7 +54,7 @@ lateral-strength degradation</p></td>
 <p>rotAxis = 6 - Rotation about z-axis - 3D</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Vn</strong></p></td>
+<td><code class="parameter-table-variable">Vn</code></td>
 <td><p>floating point value to define the ultimate strength in material
 model</p></td>
 </tr>
@@ -64,7 +64,7 @@ model</p></td>
 is the input value</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Vr</strong></p></td>
+<td><code class="parameter-table-variable">Vr</code></td>
 <td><p>floating point value to define the backbone residual
 strength</p></td>
 </tr>
@@ -77,7 +77,7 @@ degradation)</p>
 <p>Vr &gt; 0 - Residual strength is the input value</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Kdeg</strong></p></td>
+<td><code class="parameter-table-variable">Kdeg</code></td>
 <td><p>floating point value to define the backbone degrading slope of
 the material model.</p></td>
 </tr>
@@ -86,7 +86,7 @@ the material model.</p></td>
 <td><p>Note: the degrading slope must be less than zero.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rotLim</strong></p></td>
+<td><code class="parameter-table-variable">rotLim</code></td>
 <td><p>floating point value to limit the rotational capacity across the
 plastic hinge (difference between $ndI and $ndJ in absolute value). When
 this value (radians) is exceeded during the analysis degrading behavior
@@ -114,26 +114,26 @@ $f'c $fy $fyt $delta</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$crvTag</strong></p></td>
+<td><code class="parameter-table-variable">crvTag</code></td>
 <td><p>unique limit curve object integer tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>integer element tag to define the associated beam-column element
 used to extract axial load</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ndI</strong></p></td>
+<td><code class="parameter-table-variable">ndI</code></td>
 <td><p>integer node tag to define the node at one end of the region for
 which limiting rotations are defined (see $defType)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ndJ</strong></p></td>
+<td><code class="parameter-table-variable">ndJ</code></td>
 <td><p>integer node tag to define the node at the other end of the
 region for which limiting rotations are defined (see $defType)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rotAxis</strong></p></td>
+<td><code class="parameter-table-variable">rotAxis</code></td>
 <td><p>integer to indicate axis of measured rotation when triggering
 lateral-strength degradation.</p></td>
 </tr>
@@ -145,7 +145,7 @@ lateral-strength degradation.</p></td>
 <p>rotAxis = 6 - Rotation about z-axis - 3D</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Vn</strong></p></td>
+<td><code class="parameter-table-variable">Vn</code></td>
 <td><p>floating point value to define the nominal shear
 strength</p></td>
 </tr>
@@ -160,7 +160,7 @@ capacity with the k factor equal to 1 (i.e., shear capacity at small
 deformations)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Vr</strong></p></td>
+<td><code class="parameter-table-variable">Vr</code></td>
 <td><p>floating point value to define the backbone residual shear
 strength</p></td>
 </tr>
@@ -173,7 +173,7 @@ material model at initiation of degradation)</p>
 <p>Vr &gt; 0 - Residual shear strength is the input value</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Kdeg</strong></p></td>
+<td><code class="parameter-table-variable">Kdeg</code></td>
 <td><p>floating point value to define the backbone degrading
 slope.</p></td>
 </tr>
@@ -183,7 +183,7 @@ slope.</p></td>
 model. Kdeg &lt; 0 - Degrading slope is the input value</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$defType</strong></p></td>
+<td><code class="parameter-table-variable">defType</code></td>
 <td><p>integer flag to define which rotation-based shear failure model
 is used</p></td>
 </tr>
@@ -208,48 +208,48 @@ separately from bar-slip induced plastic rotations in a
 lumped-plasticity model</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>floating point column width (inches)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$d</strong></p></td>
+<td><code class="parameter-table-variable">d</code></td>
 <td><p>floating point column depth (inches)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$h</strong></p></td>
+<td><code class="parameter-table-variable">h</code></td>
 <td><p>floating point column height (inches)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$L</strong></p></td>
+<td><code class="parameter-table-variable">L</code></td>
 <td><p>floating point column clear span length (inches)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$st</strong></p></td>
+<td><code class="parameter-table-variable">st</code></td>
 <td><p>floating point transverse reinforcement spacing (inches) along
 column height</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$As</strong></p></td>
+<td><code class="parameter-table-variable">As</code></td>
 <td><p>floating point total area (inches squared) of longitudinal steel
 bars in section</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Acc</strong></p></td>
+<td><code class="parameter-table-variable">Acc</code></td>
 <td><p>floating point gross confined concrete area (inches squared)
 bounded by the transverse reinforcement in column section</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ld</strong></p></td>
+<td><code class="parameter-table-variable">ld</code></td>
 <td><p>floating point development length (inches) of longitudinal bars
 using ACI 318-11 Eq. 12-1 and Eq. 12-2</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$db</strong></p></td>
+<td><code class="parameter-table-variable">db</code></td>
 <td><p>floating point diameter (inches) of longitudinal bars in column
 section</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rhot</strong></p></td>
+<td><code class="parameter-table-variable">rhot</code></td>
 <td><p>floating point transverse reinforcement ratio
 (Ast/st.db)</p></td>
 </tr>
@@ -258,15 +258,15 @@ section</p></td>
 <td><p>floating point concrete compressive strength (ksi)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fy</strong></p></td>
+<td><code class="parameter-table-variable">fy</code></td>
 <td><p>floating point longitudinal steel yield strength (ksi)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fyt</strong></p></td>
+<td><code class="parameter-table-variable">fyt</code></td>
 <td><p>floating point transverse steel yield strength (ksi)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$delta</strong></p></td>
+<td><code class="parameter-table-variable">delta</code></td>
 <td><p>floating point offset (radians) added to shear failure models to
 adjust shear failure location.</p></td>
 </tr>

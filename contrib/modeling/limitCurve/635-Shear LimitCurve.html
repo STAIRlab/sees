@@ -19,43 +19,43 @@ $delta&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$curveTag</strong></p></td>
+<td><code class="parameter-table-variable">curveTag</code></td>
 <td><p>unique LimitCurve tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>integer element tag for the associated beam-column
 element</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>transverse reinforcement ratio
 &lt;math&gt;(\frac{A_{st}}{bh})&lt;/math&gt;</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fc</strong></p></td>
+<td><code class="parameter-table-variable">fc</code></td>
 <td><p>concrete compressive strength (psi)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>column width (in.)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$h</strong></p></td>
+<td><code class="parameter-table-variable">h</code></td>
 <td><p>full column depth (in.)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$d</strong></p></td>
+<td><code class="parameter-table-variable">d</code></td>
 <td><p>effective column depth (in.)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Fsw</strong></p></td>
+<td><code class="parameter-table-variable">Fsw</code></td>
 <td><p>floating point value describing the amount of transverse
 reinforcement &lt;math&gt;(F_{sw} =
 \frac{A_{st}f_{yt}d_c}{s})&lt;/math&gt;</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Kdeg</strong></p></td>
+<td><code class="parameter-table-variable">Kdeg</code></td>
 <td><p>If positive: unloading stiffness of beam-column element (Kunload
 from Figure 4-8)</p>
 <p>if negative: slope of third branch of post-failure backbone (see
@@ -71,7 +71,7 @@ post-failure backbone (see Figure 4-6)</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p><strong>$defType</strong></p></td>
+<td><code class="parameter-table-variable">defType</code></td>
 <td><p>integer flag for type of deformation defining the abscissa of the
 limit curve</p>
 <p>1 = maximum beam-column chord rotations</p>
@@ -82,7 +82,7 @@ limit curve</p>
 <td></td>
 </tr>
 <tr class="even">
-<td><p><strong>$forType</strong></p></td>
+<td><code class="parameter-table-variable">forType</code></td>
 <td><p>integer flag for type of force defining the ordinate of the limit
 curve. See NOTES 1.</p>
 <p>0 = force in associated limit state material</p>
@@ -94,27 +94,27 @@ curve. See NOTES 1.</p>
 <td></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ndI</strong></p></td>
+<td><code class="parameter-table-variable">ndI</code></td>
 <td><p>nteger node tag for the first associated node (normally node I of
 $eleTag beam-column element)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ndJ</strong></p></td>
+<td><code class="parameter-table-variable">ndJ</code></td>
 <td><p>integer node tag for the second associated node (normally node J
 of $eleTag beam-column element)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dof</strong></p></td>
+<td><code class="parameter-table-variable">dof</code></td>
 <td><p>nodal degree of freedom to monitor for drift. See NOTES
 2</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$perpDirn</strong></p></td>
+<td><code class="parameter-table-variable">perpDirn</code></td>
 <td><p>perpendicular global direction from which length is determined to
 compute drift. See Notes 2.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$delta</strong></p></td>
+<td><code class="parameter-table-variable">delta</code></td>
 <td><p>drift (floating point value) used to shift axial limit
 curve</p></td>
 </tr>
