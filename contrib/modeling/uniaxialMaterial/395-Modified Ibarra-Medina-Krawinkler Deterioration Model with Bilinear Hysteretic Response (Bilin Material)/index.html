@@ -383,6 +383,8 @@ Hysteretic Response (Bilin Material)
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -469,8 +471,6 @@ Hysteretic Response (Bilin Material)
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -523,21 +523,6 @@ Hysteretic Response (Bilin Material)
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4750,17 +4735,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4815,7 +4854,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4824,13 +4863,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4845,7 +4884,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4866,13 +4905,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12828,9 +12867,17 @@ href="http://resslabtools.epfl.ch/">http://resslabtools.epfl.ch/</a>]. Use the m
 <tbody>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;matTag</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(matTag&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;integer tag identifying material&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>K0</strong>
+integer tag identifying material
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;K0</code>
 </td>
 <td>
 <p>
@@ -12840,9 +12887,17 @@ elastic stiffness
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;as_Plus</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(as_Plus&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;strain hardening ratio for positive loading direction&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>as_Neg</strong>
+strain hardening ratio for positive loading direction
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;as_Neg</code>
 </td>
 <td>
 <p>
@@ -12852,9 +12907,17 @@ strain hardening ratio for negative loading direction
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;My_Plus</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(My_Plus&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;effective yield strength for positive loading direction&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>My_Neg</strong>
+effective yield strength for positive loading direction
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;My_Neg</code>
 </td>
 <td>
 <p>
@@ -12864,9 +12927,17 @@ effective yield strength for negative loading direction (negative value)
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;Lamda_S</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(Lamda_S&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Cyclic deterioration parameter for strength deterioration [E_t=Lamda_S*M_y; set Lamda_S = 0 to disable this mode of deterioration]&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Lamda_C</strong>
+Cyclic deterioration parameter for strength deterioration [E_t=Lamda_S*M_y; set Lamda_S = 0 to disable this mode of deterioration]
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Lamda_C</code>
 </td>
 <td>
 <p>
@@ -12876,9 +12947,17 @@ Cyclic deterioration parameter for post-capping strength deterioration [E_t=Lamd
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;Lamda_A</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(Lamda_A&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Cyclic deterioration parameter for acceleration reloading stiffness deterioration (is not a deterioration mode for a component with Bilinear hysteretic response) [Input value is required, but not used; set Lamda_A = 0].&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Lamda_K</strong>
+Cyclic deterioration parameter for acceleration reloading stiffness deterioration (is not a deterioration mode for a component with Bilinear hysteretic response) [Input value is required, but not used; set Lamda_A = 0].
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Lamda_K</code>
 </td>
 <td>
 <p>
@@ -12888,9 +12967,17 @@ Cyclic deterioration parameter for unloading stiffness deterioration [E_t=Lamda_
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;c_S</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(c_S&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;rate of strength deterioration. The default value is 1.0.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>c_C</strong>
+rate of strength deterioration. The default value is 1.0.
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;c_C</code>
 </td>
 <td>
 <p>
@@ -12900,9 +12987,17 @@ rate of post-capping strength deterioration. The default value is 1.0.
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;c_A</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(c_A&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;rate of accelerated reloading deterioration. The default value is 1.0.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>c_K</strong>
+rate of accelerated reloading deterioration. The default value is 1.0.
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;c_K</code>
 </td>
 <td>
 <p>
@@ -12912,9 +13007,17 @@ rate of unloading stiffness deterioration. The default value is 1.0.
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;theta_p_Plus</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(theta_p_Plus&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;pre-capping rotation for positive loading direction (often noted as plastic rotation capacity)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>theta_p_Neg</strong>
+pre-capping rotation for positive loading direction (often noted as plastic rotation capacity)
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;theta_p_Neg</code>
 </td>
 <td>
 <p>
@@ -12924,9 +13027,17 @@ pre-capping rotation for negative loading direction (often noted as plastic rota
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;theta_pc_Plus</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(theta_pc_Plus&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;post-capping rotation for positive loading direction&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>theta_pc_Neg</strong>
+post-capping rotation for positive loading direction
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;theta_pc_Neg</code>
 </td>
 <td>
 <p>
@@ -12936,9 +13047,17 @@ post-capping rotation for negative loading direction (positive value)
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;Res_Pos</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(Res_Pos&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual strength ratio for positive loading direction&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Res_Neg</strong>
+residual strength ratio for positive loading direction
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Res_Neg</code>
 </td>
 <td>
 <p>
@@ -12948,9 +13067,17 @@ residual strength ratio for negative loading direction (positive value)
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;theta_u_Plus</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(theta_u_Plus&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;ultimate rotation capacity for positive loading direction&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>theta_u_Neg</strong>
+ultimate rotation capacity for positive loading direction
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;theta_u_Neg</code>
 </td>
 <td>
 <p>
@@ -12960,9 +13087,17 @@ ultimate rotation capacity for negative loading direction (positive value)
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;D_Plus</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(D_Plus&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;rate of cyclic deterioration in the positive loading direction (this parameter is used to create assymetric hysteretic behavior for the case of a composite beam). For symmetric hysteretic response use 1.0.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>D_Neg</strong>
+rate of cyclic deterioration in the positive loading direction (this parameter is used to create assymetric hysteretic behavior for the case of a composite beam). For symmetric hysteretic response use 1.0.
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;D_Neg</code>
 </td>
 <td>
 <p>
@@ -12972,9 +13107,7 @@ rate of cyclic deterioration in the negative loading direction (this parameter i
 </tr>
 <tr class="odd">
 <td>
-<p>
-<strong>$nFactor</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;nFactor</code>
 </td>
 <td>
 <p>

@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12815,31 +12854,7 @@ This command is used to construct a SSPbrick element object.
 <tr class="odd">
 <td>
 <p>
-<strong>element SSPbrick $eleTag $iNode $jNode $kNode $lNode $mNode $nNode $pNode $qNode <span class="math inline">\(matTag &amp;lt;\)</span>b1 $b2 <span class="math inline">\(b3&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>eleTag</strong>
-</p>
-</td>
-<td>
-<p>
-unique integer tag identifying element object
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong>$iNode $jNode $kNode $lNode $mNode $nNode $pNode <span class="math inline">\(qNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the eight nodes defining the element, input in counterclockwise order (same node numbering scheme as for the &lt;a href=&quot;Standard_Brick_Element&quot; title=&quot;wikilink&quot;&gt; stdBrick Element&lt;/a&gt;) (-ndm 3 -ndf 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>matTag</strong>
-</p>
-</td>
-<td>
-<p>
-unique integer tag associated with previously-defined nDMaterial object
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong>$b1 $b2 $b3</strong>
+<strong>element SSPbrick $eleTag $iNode $jNode $kNode $lNode $mNode $nNode $pNode $qNode <span class="math inline">\(matTag &amp;lt;\)</span>b1 $b2 <span class="math inline">\(b3&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;eleTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique integer tag identifying element object&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>iNode $jNode $kNode $lNode $mNode $nNode $pNode <span class="math inline">\(qNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the eight nodes defining the element, input in counterclockwise order (same node numbering scheme as for the &lt;a href=&quot;Standard_Brick_Element&quot; title=&quot;wikilink&quot;&gt; stdBrick Element&lt;/a&gt;) (-ndm 3 -ndf 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique integer tag associated with previously-defined nDMaterial object&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>b1 $b2 $b3</strong>
 </p>
 </td>
 <td>

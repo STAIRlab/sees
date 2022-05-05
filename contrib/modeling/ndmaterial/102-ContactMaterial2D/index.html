@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12815,8 +12854,17 @@ This command is used to construct a ContactMaterial2D nDMaterial object.
 <tr class="odd">
 <td>
 <p>
-<strong>nDMaterial ContactMaterial2D $matTag $mu $G $c <span class="math inline">\(t&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>matTag</strong>
+<strong>nDMaterial ContactMaterial2D $matTag $mu $G $c $t</strong>
 </p>
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;matTag</code>
 </td>
 <td>
 <p>
@@ -12826,9 +12874,17 @@ unique integer tag identifying nDMaterial object
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;mu</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(mu&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;interface frictional coefficient&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>G</strong>
+interface frictional coefficient
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;G</code>
 </td>
 <td>
 <p>
@@ -12838,9 +12894,17 @@ interface stiffness parameter
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;c</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(c&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;interface cohesive intercept&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>t</strong>
+interface cohesive intercept
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;t</code>
 </td>
 <td>
 <p>

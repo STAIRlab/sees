@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12936,9 +12975,17 @@ This command is used to construct a Prestresed Concrete Plane Stress material ob
 <tbody>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;matTag</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(matTag&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;integer tag identifying material&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rho</strong>
+integer tag identifying material
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;rho</code>
 </td>
 <td>
 <p>
@@ -12949,8 +12996,18 @@ material density
 <tr class="odd">
 <td>
 <p>
-<strong>$t1 <span class="math inline">\(t2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;material tags for uniaxial materials of type &lt;strong&gt;TendonL01&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>s1 <span class="math inline">\(s2 ..&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;material tags for uniaxial materials of type &lt;strong&gt;SteelZ01&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>c1 <span class="math inline">\(c2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;material tags for uniaxial materials of type &lt;strong&gt;ConcreteL01, ConcreteZ01&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>angle1 <span class="math inline">\(angle2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;angle of i&#39;th (steel or tendon) layer to x coordinate&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rou1 <span class="math inline">\(rou2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;steel ratio of the i&#39;th layer.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>pstrain1 <span class="math inline">\(pstrain2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;initial strain in tendons&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fpc</strong>
+<strong>$t1 <span class="math inline">\(t2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;material tags for uniaxial materials of type &lt;strong&gt;TendonL01&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>s1 <span class="math inline">\(s2 ..&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;material tags for uniaxial materials of type &lt;strong&gt;SteelZ01&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>c1 <span class="math inline">\(c2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;material tags for uniaxial materials of type &lt;strong&gt;ConcreteL01, ConcreteZ01&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>angle1 <span class="math inline">\(angle2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;angle of i&#39;th (steel or tendon) layer to x coordinate&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rou1 <span class="math inline">\(rou2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;steel ratio of the i&#39;th layer.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>pstrain1 $pstrain2</strong>
 </p>
+</td>
+<td>
+<p>
+initial strain in tendons
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;fpc</code>
 </td>
 <td>
 <p>
@@ -12960,9 +13017,17 @@ compressive strength of concrete
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;fyT</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(fyT&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;yield strength of tendons&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fy</strong>
+yield strength of tendons
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;fy</code>
 </td>
 <td>
 <p>
@@ -12972,9 +13037,17 @@ yield strength of steel
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;E0</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(E0&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;initial stiffness of steel (Young&#39;s Modulus)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>epsc0</strong>
+initial stiffness of steel (Young’s Modulus)
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;epsc0</code>
 </td>
 <td>
 <p>
@@ -13036,9 +13109,17 @@ A number of special uniaxial materials are needed for these materials. These mat
 <tbody>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;tag</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(tag&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique uniaxial integer tag identifying material&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fy</strong>
+unique uniaxial integer tag identifying material
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;fy</code>
 </td>
 <td>
 <p>
@@ -13048,9 +13129,17 @@ yield strength bare steel
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;E0</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(E0&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;initial stiffness&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fpc</strong>
+initial stiffness
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;fpc</code>
 </td>
 <td>
 <p>
@@ -13060,9 +13149,17 @@ compressive strength of concrete
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;epsc0</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(epsc0&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;strain at compressive strength&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rou</strong>
+strain at compressive strength
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;rou</code>
 </td>
 <td>
 <p>
@@ -13072,9 +13169,17 @@ steel ratio
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;epsp</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(epsp&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;prestress strain&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ac</strong>
+prestress strain
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;ac</code>
 </td>
 <td>
 <p>
@@ -13084,9 +13189,7 @@ unloading path parameter (default = 1.9)
 </tr>
 <tr class="odd">
 <td>
-<p>
-<strong>$rc</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;rc</code>
 </td>
 <td>
 <p>

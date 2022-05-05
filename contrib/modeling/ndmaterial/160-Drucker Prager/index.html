@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12825,9 +12864,17 @@ This command is used to construct an multi dimensional material object that has 
 <tbody>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;matTag</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(matTag&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;integer tag identifying material&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>k</strong>
+integer tag identifying material
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;k</code>
 </td>
 <td>
 <p>
@@ -12837,9 +12884,17 @@ bulk modulus
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;G</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(G&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;shear modulus&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>sigmaY</strong>
+shear modulus
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;sigmaY</code>
 </td>
 <td>
 <p>
@@ -12849,19 +12904,37 @@ yield stress
 </tr>
 <tr class="odd">
 <td>
-<p>
-<strong><span class="math inline">\(rho&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;frictional strength parameter&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rhoBar</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;rho</code>
 </td>
 <td>
 <p>
-controls evolution of plastic volume change, 0 &amp;le; $rhoBar &amp;le; <span class="math inline">\(rho&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Kinf</strong>
+frictional strength parameter
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;rhoBar</code>
 </td>
 <td>
 <p>
-nonlinear isotropic strain hardening parameter, <span class="math inline">\(Kinf &amp;amp;ge; 0&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Ko</strong>
+controls evolution of plastic volume change, 0 &amp;le; $rhoBar &amp;le; $rho
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Kinf</code>
+</td>
+<td>
+<p>
+nonlinear isotropic strain hardening parameter, $Kinf &amp;ge; 0
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Ko</code>
 </td>
 <td>
 <p>
@@ -12875,29 +12948,27 @@ nonlinear isotropic strain hardening parameter, <span class="math inline">\(delt
 </td>
 <td>
 <p>
-tension softening parameter, <span class="math inline">\(delta2 &amp;amp;ge; 0&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>H</strong>
+tension softening parameter, $delta2 &amp;ge; 0
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;H</code>
 </td>
 <td>
 <p>
-linear strain hardening parameter, <span class="math inline">\(H &amp;amp;ge; 0&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>theta</strong>
-</p>
-</td>
-<td>
-<p>
-controls relative proportions of isotropic and kinematic hardening, 0 &amp;le; <span class="math inline">\(theta &amp;amp;le; 1&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>density</strong>
-</p>
-</td>
-<td>
-<p>
-mass density of the material
+linear strain hardening parameter, $H &amp;ge; 0
 </p>
 </td>
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;theta</code>
+</td>
+<td>
 <p>
-<strong>&lt;$atmPressure&gt;</strong>
+controls relative proportions of isotropic and kinematic hardening, 0 &amp;le; <span class="math inline">\(theta &amp;amp;le; 1&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;density&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;mass density of the material&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;&amp;lt;\)</span>atmPressure&gt;</strong>
 </p>
 </td>
 <td>

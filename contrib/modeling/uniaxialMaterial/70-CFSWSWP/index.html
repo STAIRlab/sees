@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12821,8 +12860,18 @@ This uniaxialMaterial gives results in Newton and Meter units, for strength and 
 <tr class="odd">
 <td>
 <p>
-<strong>uniaxialMaterial CFSWSWP $tag $height $width $fut $tf $Ife $Ifi $ts $np $ds $Vs $sc $nc $type $openingArea <span class="math inline">\(openingLength&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>matTag</strong>
+<strong>uniaxialMaterial CFSWSWP $tag $height $width $fut $tf $Ife $Ifi $ts $np $ds $Vs $sc $nc $type $openingArea $openingLength</strong>
 </p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;matTag</code>
 </td>
 <td>
 <p>
@@ -12832,9 +12881,17 @@ Integer identifier used to tag the material model
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;height</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(height&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;SWP’s height (mm)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>width</strong>
+SWP’s height (mm)
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;width</code>
 </td>
 <td>
 <p>
@@ -12844,9 +12901,17 @@ SWP’s width (mm)
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;fuf</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(fuf&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Tensile strength of framing members (MPa)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>tf</strong>
+Tensile strength of framing members (MPa)
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;tf</code>
 </td>
 <td>
 <p>
@@ -12856,9 +12921,17 @@ Framing thickness (mm)
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;Ife</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(Ife&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Moment of inertia of the double end-stud (mm4)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Ifi</strong>
+Moment of inertia of the double end-stud (mm4)
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Ifi</code>
 </td>
 <td>
 <p>
@@ -12868,9 +12941,17 @@ Moment of inertia of the intermediate stud (mm4)
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;ts</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(ts&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Sheathing thickness (mm)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>np</strong>
+Sheathing thickness (mm)
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;np</code>
 </td>
 <td>
 <p>
@@ -12880,9 +12961,17 @@ Sheathing number (one or two sides sheathed)
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;ds</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(ds&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Screws diameter (mm)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Vs</strong>
+Screws diameter (mm)
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Vs</code>
 </td>
 <td>
 <p>
@@ -12892,9 +12981,17 @@ Screws shear strength (N)
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;sc</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(sc&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Screw spacing on the SWP perimeter (mm)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>nc</strong>
+Screw spacing on the SWP perimeter (mm)
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;nc</code>
 </td>
 <td>
 <p>
@@ -12904,9 +13001,17 @@ Total number of screws located on the SWP perimeter
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;type</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(type&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Integer identifier used to define wood sheathing type (DFP=1, OSB=2, CSP=3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>openingArea</strong>
+Integer identifier used to define wood sheathing type (DFP=1, OSB=2, CSP=3)
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;openingArea</code>
 </td>
 <td>
 <p>
@@ -12916,9 +13021,7 @@ Total area of openings (mm²)
 </tr>
 <tr class="even">
 <td>
-<p>
-<strong>$openingLength</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;openingLength</code>
 </td>
 <td>
 <p>

@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12815,8 +12854,17 @@ This command is used to construct a multi-dimensional Manzari-Dafalias(2004) mat
 <tr class="odd">
 <td>
 <p>
-<strong>nDmaterial ManzariDafalias $matTag $G0 $nu $e_init $Mc $c $lambda_c $e0 $ksi $P_atm $m $h0 $ch $nb $A0 $nd $z_max $cz <span class="math inline">\(Den&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>matTag</strong>
+<strong>nDmaterial ManzariDafalias $matTag $G0 $nu $e_init $Mc $c $lambda_c $e0 $ksi $P_atm $m $h0 $ch $nb $A0 $nd $z_max $cz $Den</strong>
 </p>
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;matTag</code>
 </td>
 <td>
 <p>
@@ -12826,9 +12874,17 @@ integer tag identifying material
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;G0</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(G0&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;shear modulus constant&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>nu</strong>
+shear modulus constant
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;nu</code>
 </td>
 <td>
 <p>
@@ -12838,9 +12894,17 @@ poisson ratio
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;e_init</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(e_init&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;initial void ratio&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Mc</strong>
+initial void ratio
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Mc</code>
 </td>
 <td>
 <p>
@@ -12850,9 +12914,17 @@ critical state stress ratio
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;c</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(c&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;ratio of critical state stress ratio in extension and compression&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>lambda_c</strong>
+ratio of critical state stress ratio in extension and compression
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;lambda_c</code>
 </td>
 <td>
 <p>
@@ -12862,9 +12934,17 @@ critical state line constant
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;e0</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(e0&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;critical void ratio at p = 0&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ksi</strong>
+critical void ratio at p = 0
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;ksi</code>
 </td>
 <td>
 <p>
@@ -12874,9 +12954,17 @@ critical state line constant
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;P_atm</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(P_atm&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;atmospheric pressure&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>m</strong>
+atmospheric pressure
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;m</code>
 </td>
 <td>
 <p>
@@ -12886,9 +12974,17 @@ yield surface constant (radius of yield surface in stress ratio space)
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;h0</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(h0&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;constant parameter&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ch</strong>
+constant parameter
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;ch</code>
 </td>
 <td>
 <p>
@@ -12898,14 +12994,17 @@ constant parameter
 </tr>
 <tr class="even">
 <td>
-<p>
-<strong>$nb</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;nb</code>
 </td>
 <td>
 <p>
-bounding surface parameter, <span class="math inline">\(nb &amp;amp;ge; 0&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>A0</strong>
+bounding surface parameter, $nb &amp;ge; 0
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;A0</code>
 </td>
 <td>
 <p>
@@ -12915,14 +13014,17 @@ dilatancy parameter
 </tr>
 <tr class="even">
 <td>
-<p>
-<strong>$nd</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;nd</code>
 </td>
 <td>
 <p>
-dilatancy surface parameter <span class="math inline">\(nd &amp;amp;ge; 0&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>z_max</strong>
+dilatancy surface parameter $nd &amp;ge; 0
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;z_max</code>
 </td>
 <td>
 <p>
@@ -12932,9 +13034,17 @@ fabric-dilatancy tensor parameter
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;cz</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(cz&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;fabric-dilatancy tensor parameter&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Den</strong>
+fabric-dilatancy tensor parameter
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Den</code>
 </td>
 <td>
 <p>

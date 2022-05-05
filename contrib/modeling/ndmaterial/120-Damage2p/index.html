@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12815,8 +12854,17 @@ This command is used to construct a three-dimensional material object that has a
 <tr class="odd">
 <td>
 <p>
-<strong>nDMaterial Damage2p $matTag $fcc &lt;-fct $fct&gt; &lt;-E $E&gt; &lt;-ni $ni&gt; &lt;-Gt $Gt&gt; &lt;-Gc $Gc&gt; &lt;-rho_bar $rho_bar&gt; &lt;-H $H&gt; &lt;-theta $theta&gt; &lt;-tangent <span class="math inline">\(tangent&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>matTag</strong>
+<strong>nDMaterial Damage2p $matTag $fcc &lt;-fct $fct&gt; &lt;-E $E&gt; &lt;-ni $ni&gt; &lt;-Gt $Gt&gt; &lt;-Gc $Gc&gt; &lt;-rho_bar $rho_bar&gt; &lt;-H $H&gt; &lt;-theta $theta&gt; &lt;-tangent $tangent&gt;</strong>
 </p>
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;matTag</code>
 </td>
 <td>
 <p>
@@ -12826,9 +12874,17 @@ integer tag identifying material
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;fcc</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(fcc&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;concrete compressive strength&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fct</strong>
+concrete compressive strength
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;fct</code>
 </td>
 <td>
 <p>
@@ -12838,9 +12894,17 @@ optional concrete tensile strength
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;E</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(E&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;optional Young modulus&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ni</strong>
+optional Young modulus
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;ni</code>
 </td>
 <td>
 <p>
@@ -12850,9 +12914,17 @@ optional Poisson coefficient
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;Gt</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(Gt&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;optional tension fracture energy density&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Gc</strong>
+optional tension fracture energy density
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Gc</code>
 </td>
 <td>
 <p>
@@ -12862,9 +12934,17 @@ optional compression fracture energy density
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;rho_bar</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(rho_bar&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;ptional parameter of plastic volume change&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>H</strong>
+ptional parameter of plastic volume change
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;H</code>
 </td>
 <td>
 <p>
@@ -12874,9 +12954,17 @@ optional linear hardening parameter for plasticity
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;theta</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(theta&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;optional ratio between isotropic and kinematic hardening&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>tangent</strong>
+optional ratio between isotropic and kinematic hardening
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;tangent</code>
 </td>
 <td>
 <p>
@@ -12900,14 +12988,27 @@ NOTES
 <tbody>
 <tr class="odd">
 <td>
-<p>
-<strong><span class="math inline">\(fcc&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;negative real value (positive input is changed in sign automatically)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fct</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;fcc</code>
 </td>
 <td>
 <p>
-positive real value (for concrete like materials is less than <span class="math inline">\(fcc)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Gt</strong>
+negative real value (positive input is changed in sign automatically)
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;fct</code>
+</td>
+<td>
+<p>
+positive real value (for concrete like materials is less than $fcc)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;Gt</code>
 </td>
 <td>
 <p>
@@ -12917,9 +13018,17 @@ positive real value (integral of the stress-strain envelope in tension)
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;Gc</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(Gc&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;positive real value (integral of the stress-strain envelope after the peak in compression)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rhoBar</strong>
+positive real value (integral of the stress-strain envelope after the peak in compression)
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;rhoBar</code>
 </td>
 <td>
 <p>
@@ -12929,19 +13038,17 @@ positive real value 0=rhoBar&lt;sqrt(2/3)
 </tr>
 <tr class="even">
 <td>
-<p>
-<strong>$H</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;H</code>
 </td>
 <td>
 <p>
-positive real value (usually less than <span class="math inline">\(E)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>theta</strong>
+positive real value (usually less than <span class="math inline">\(E)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;theta&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;positive real value 0=\)</span>theta=1 (with: 0 hardening kinematic only and 1 hardening isotropic only
 </p>
 </td>
+</tr>
+<tr class="even">
 <td>
-<p>
-positive real value 0=<span class="math inline">\(theta=1 (with: 0 hardening kinematic only and 1 hardening isotropic only&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>tangent</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;tangent</code>
 </td>
 <td>
 <p>
@@ -12959,9 +13066,17 @@ positive real value 0=<span class="math inline">\(theta=1 (with: 0 hardening kin
 <tbody>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;fct</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(fct&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= 0.1*abs(fcc)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>E</strong>
+= 0.1*abs(fcc)
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;E</code>
 </td>
 <td>
 <p>
@@ -12986,9 +13101,17 @@ positive real value 0=<span class="math inline">\(theta=1 (with: 0 hardening kin
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;Gc</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(Gc&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= 6250*fcc*fcc/E (from comparison with tests by Karsan and Jirsa 1969)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rhoBar</strong>
+= 6250<em>fcc</em>fcc/E (from comparison with tests by Karsan and Jirsa 1969)
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;rhoBar</code>
 </td>
 <td>
 <p>
@@ -12998,8 +13121,18 @@ positive real value 0=<span class="math inline">\(theta=1 (with: 0 hardening kin
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;H</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(H&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;= 0.25*E (from comparison with tests by Karsan and Jirsa 1969 and Gopalaratnam and Shah 1985)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;&#39;\)</span>theta</strong>
+= 0.25*E (from comparison with tests by Karsan and Jirsa 1969 and Gopalaratnam and Shah 1985)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>’$theta</strong>
 </p>
 </td>
 <td>
@@ -13010,9 +13143,7 @@ positive real value 0=<span class="math inline">\(theta=1 (with: 0 hardening kin
 </tr>
 <tr class="odd">
 <td>
-<p>
-<strong>$tangent</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;tangent</code>
 </td>
 <td>
 <p>

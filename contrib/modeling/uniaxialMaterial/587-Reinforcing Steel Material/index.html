@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12841,145 +12880,18 @@ This command is used to construct a ReinforcingSteel uniaxial material object. T
 <tr class="odd">
 <td>
 <p>
-<strong>uniaxialMaterial ReinforcingSteel $matTag $fy $fu $Es $Esh $esh $eult &lt; -GABuck $lsr $beta $r $gama &gt; &lt; -DMBuck $lsr &lt; $alpha &gt;&gt; &lt; -CMFatigue $C&lt;sub class=“subscript”&gt;f&lt;/sub&gt; $alpha <span class="math inline">\(C&amp;lt;sub class=&quot;subscript&quot;&amp;gt;d&amp;lt;/sub&amp;gt; &amp;gt; &amp;lt; -IsoHard &amp;lt;\)</span>a1 &lt;<span class="math inline">\(limit&amp;gt; &amp;gt; &amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>matTag</strong>
+<strong>uniaxialMaterial ReinforcingSteel $matTag $fy $fu $Es $Esh $esh $eult &lt; -GABuck $lsr $beta $r $gama &gt; &lt; -DMBuck $lsr &lt; $alpha &gt;&gt; &lt; -CMFatigue $C&lt;sub class=“subscript”&gt;f&lt;/sub&gt; $alpha <span class="math inline">\(C&amp;lt;sub class=&quot;subscript&quot;&amp;gt;d&amp;lt;/sub&amp;gt; &amp;gt; &amp;lt; -IsoHard &amp;lt;\)</span>a1 &lt;<span class="math inline">\(limit&amp;gt; &amp;gt; &amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;fy&lt;/code&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;fu&lt;/code&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;Es&lt;/code&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;Esh&lt;/code&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;esh&lt;/code&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;eult&lt;/code&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;-GABuck&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;&amp;lt;blockquote&amp;gt;&lt;/p&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;lsr&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Slenderness Ratio (see Figure 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;beta&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Amplification factor for the buckled stress strain curve. (see Figure 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;r&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Buckling reduction factor&lt;/p&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; r can be a real number between [0.0 and 1.0] &lt;/dd&gt; &lt;/dl&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; r=1.0 full reduction (no buckling) &lt;/dd&gt; &lt;/dl&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; r=0.0 no reduction &lt;/dd&gt; &lt;/dl&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; 0.0&amp;lt;r&amp;lt;1.0 linear interpolation between buckled and unbuckled curves &lt;/dd&gt; &lt;/dl&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;gamma&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Buckling constant (see Figures 3 and 4)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;&amp;lt;/blockquote&amp;gt;&lt;/p&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;-DMBuck&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Buckling model based on Dhakal and Maekawa (2002)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;&amp;lt;blockquote&amp;gt;&lt;/p&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;lsr&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Slenderness Ratio (see Figure 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;alpha&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Adjustment Constant usually between 0.75 and 1.0&lt;/p&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; Default: alpha=1.0, this parameter is optional. &lt;/dd&gt; &lt;/dl&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;&amp;lt;/blockquote&amp;gt;&lt;/p&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;-CMFatigue&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Coffin-Manson Fatigue and Strength Reduction&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;&amp;lt;blockquote&amp;gt;&lt;/p&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>C&lt;sub class=“subscript”&gt;f&lt;/sub&gt;</strong>
+</p>
+</td>
+<td>
+<p>
+Coffin-Manson constant C (see Figure 5)
 </p>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>
-<p>
-<strong><span class="math inline">\(fy&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fu</strong>
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong><span class="math inline">\(Es&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Esh</strong>
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong><span class="math inline">\(esh&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>eult</strong>
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong>-GABuck</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>
-&lt;blockquote&gt;
-</p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong><span class="math inline">\(lsr&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Slenderness Ratio (see Figure 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>beta</strong>
-</p>
-</td>
-<td>
-<p>
-Amplification factor for the buckled stress strain curve. (see Figure 3)
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong><span class="math inline">\(r&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Buckling reduction factor&lt;/p&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; r can be a real number between [0.0 and 1.0] &lt;/dd&gt; &lt;/dl&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; r=1.0 full reduction (no buckling) &lt;/dd&gt; &lt;/dl&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; r=0.0 no reduction &lt;/dd&gt; &lt;/dl&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; 0.0&amp;lt;r&amp;lt;1.0 linear interpolation between buckled and unbuckled curves &lt;/dd&gt; &lt;/dl&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>gamma</strong>
-</p>
-</td>
-<td>
-<p>
-Buckling constant (see Figures 3 and 4)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>
-&lt;/blockquote&gt;
-</p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>-DMBuck</strong>
-</p>
-</td>
-<td>
-<p>
-Buckling model based on Dhakal and Maekawa (2002)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>
-&lt;blockquote&gt;
-</p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong><span class="math inline">\(lsr&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Slenderness Ratio (see Figure 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>alpha</strong>
-</p>
-</td>
-<td>
-<p>
-Adjustment Constant usually between 0.75 and 1.0
-</p>
-<dl>
-<dt>
-</dt>
-<dd>
-Default: alpha=1.0, this parameter is optional.
-</dd>
-</dl>
-</td>
-</tr>
-</tbody>
-</table>
-<p>
-&lt;/blockquote&gt;
-</p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>-CMFatigue</strong>
-</p>
-</td>
-<td>
-<p>
-Coffin-Manson Fatigue and Strength Reduction
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>
-&lt;blockquote&gt;
-</p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong><span class="math inline">\(C&amp;lt;sub class=&quot;subscript&quot;&amp;gt;f&amp;lt;/sub&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Coffin-Manson constant C (see Figure 5)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>alpha</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;alpha</code>
 </td>
 <td>
 <p>
@@ -13001,20 +12913,63 @@ Hardening constant (default = 4.3)
 </tr>
 <tr class="even">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;limit</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(limit&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Limit for the reduction of the yield plateau. % of original plateau length to remain (0.01 &amp;lt; limit &amp;lt; 1.0 )&lt;/p&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; Limit =1.0, then no reduction takes place (default =0.01) &lt;/dd&gt; &lt;/dl&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;&amp;lt;/blockquote&amp;gt;&lt;/p&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;-MPCurveParams&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Menegotto and Pinto Curve Parameters see Fig 6b&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;&amp;lt;blockquote&amp;gt;&lt;/p&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>R1</strong>
+Limit for the reduction of the yield plateau. % of original plateau length to remain (0.01 &lt; limit &lt; 1.0 )
+</p>
+<dl>
+<dt>
+</dt>
+<dd>
+Limit =1.0, then no reduction takes place (default =0.01)
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+&lt;/blockquote&gt;
+</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>
+<p>
+<strong>-MPCurveParams</strong>
 </p>
 </td>
 <td>
 <p>
-(default = 0.333)
+Menegotto and Pinto Curve Parameters see Fig 6b
 </p>
 </td>
 </tr>
-<tr class="even">
+</tbody>
+</table>
+<p>
+&lt;blockquote&gt;
+</p>
+<table>
+<tbody>
+<tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(R2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;(default = 18)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>R3</strong>
+<strong><span class="math inline">\(R1&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;(default = 0.333)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>R2</strong>
+</p>
+</td>
+<td>
+<p>
+(default = 18)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<strong>$R3</strong>
 </p>
 </td>
 <td>

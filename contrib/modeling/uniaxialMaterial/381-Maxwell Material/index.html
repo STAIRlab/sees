@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12818,9 +12857,17 @@ href="http://en.wikipedia.org/wiki/Maxwell_material">Maxwell Model</a> (linear s
 <tbody>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;matTag</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(matTag&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;integer tag identifying material&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>K</strong>
+integer tag identifying material
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;K</code>
 </td>
 <td>
 <p>
@@ -12830,9 +12877,17 @@ Elastic stiffness of linear spring to model the axial flexibility of a viscous d
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;Cd</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(Cd&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Damping coefficient&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>alpha</strong>
+Damping coefficient
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;alpha</code>
 </td>
 <td>
 <p>
@@ -12842,9 +12897,17 @@ Velocity exponent
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;LGap</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(LGap&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Gap length to simulate the gap length due to the pin tolerance&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>NM</strong>
+Gap length to simulate the gap length due to the pin tolerance
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;NM</code>
 </td>
 <td>
 <p>
@@ -12854,9 +12917,17 @@ Employed adaptive numerical algorithm (default value NM = 1; 1 = Dormand-Prince5
 </tr>
 <tr class="odd">
 <td>
+&lt;codeclass=“parameter-table-variable”&gt;RelTol</code>
+</td>
+<td>
 <p>
-<strong><span class="math inline">\(RelTol&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Tolerance for absolute relative error control of the adaptive iterative algorithm (default value 10^-6)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>AbsTol</strong>
+Tolerance for absolute relative error control of the adaptive iterative algorithm (default value 10^-6)
 </p>
+</td>
+</tr>
+<tr class="even">
+<td>
+&lt;codeclass=“parameter-table-variable”&gt;AbsTol</code>
 </td>
 <td>
 <p>
@@ -12866,9 +12937,7 @@ Tolerance for absolute error control of adaptive iterative algorithm (default va
 </tr>
 <tr class="odd">
 <td>
-<p>
-<strong>$MaxHalf</strong>
-</p>
+&lt;codeclass=“parameter-table-variable”&gt;MaxHalf</code>
 </td>
 <td>
 <p>

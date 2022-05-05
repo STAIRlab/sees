@@ -382,6 +382,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2">
@@ -468,8 +470,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_1_1">
@@ -522,21 +522,6 @@
     <li class="md-nav__item">
       <a href="../../../analysis/integrator/24-Arc-Length%20Control/" class="md-nav__link">
         Arc-Length Control
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../analysis/integrator/275-General%20Commands/" class="md-nav__link">
-        General Commands
 
       </a>
     </li>
@@ -4749,17 +4734,71 @@ al. (1983)
         
           
         
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          Reliability
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reliability" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Reliability
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reliability/275-General%20Commands/" class="md-nav__link">
+        General Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        
+          
+        
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_6">
           Studies
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Studies" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_5">
+        <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           Studies
         </label>
@@ -4814,7 +4853,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
       
       
       
@@ -4823,13 +4862,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_7">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_6">
+        <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -4844,7 +4883,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6_1" type="checkbox" id="__nav_2_6_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7_1" type="checkbox" id="__nav_2_7_1" >
       
       
       
@@ -4865,13 +4904,13 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_2_6_1">
+        <label class="md-nav__link" for="__nav_2_7_1">
           Pattern
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Pattern" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_6_1">
+        <label class="md-nav__title" for="__nav_2_7_1">
           <span class="md-nav__icon md-icon"></span>
           Pattern
         </label>
@@ -12815,55 +12854,7 @@ This command is used to construct a SSPquadUP element object.
 <tr class="odd">
 <td>
 <p>
-<strong>element SSPquadUP $eleTag $iNode $jNode $kNode $lNode $matTag $thick $fBulk $fDen $k1 $k2 $void <span class="math inline">\(alpha &amp;lt;\)</span>b1 <span class="math inline">\(b2&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>eleTag</strong>
-</p>
-</td>
-<td>
-<p>
-unique integer tag identifying element object
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong>$iNode $jNode $kNode <span class="math inline">\(lNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the four nodes defining the element, input in counterclockwise order (-ndm 2 -ndf 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>matTag</strong>
-</p>
-</td>
-<td>
-<p>
-unique integer tag associated with previously-defined nDMaterial object
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong><span class="math inline">\(thick&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;thickness of the element in out-of-plane direction&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fBulk</strong>
-</p>
-</td>
-<td>
-<p>
-bulk modulus of the pore fluid
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong><span class="math inline">\(fDen&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;mass density of the pore fluid&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>k1 <span class="math inline">\(k2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;permeability coefficients in global x- and y-directions, respectively&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>void</strong>
-</p>
-</td>
-<td>
-<p>
-voids ratio
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong><span class="math inline">\(alpha&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;spatial pressure field stabilization parameter (see discussion below for more information)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>b1 <span class="math inline">\(b2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;constant body forces in global x- and y-directions, respectively (optional, default = 0.0) - &lt;strong&gt;See Note 3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;p&gt;The SSPquadUP element is an extension of the &lt;a href=&quot;SSPquad_Element&quot; title=&quot;wikilink&quot;&gt;SSPquad Element&lt;/a&gt; for use in dynamic plane strain analysis of fluid saturated porous media. A mixed displacement-pressure (u-p) formulation is used, based upon the work of Biot as extended by Zienkiewicz and Shiomi (1984).&lt;/p&gt; &lt;p&gt;The physical stabilization necessary to allow for reduced integration incorporates an assumed strain field in which the volumetric dilation and the shear strain associated with the the hourglass modes are zero, resulting in an element which is free from volumetric and shear locking. The elimination of shear locking results in greater coarse mesh accuracy in bending dominated problems, and the elimination of volumetric locking improves accuracy in nearly-incompressible problems. Analysis times are generally faster than corresponding full integration elements.&lt;/p&gt; &lt;p&gt;Equal-order interpolation is used for the displacement and pressure fields, thus, the SSPquadUP element does not inherently pass the &lt;em&gt;inf-sup&lt;/em&gt; condition, and is not fully acceptable in the incompressible-impermeable limit (the &lt;a href=&quot;http://opensees.berkeley.edu/OpenSees/manuals/usermanual/1098.htm&quot;&gt;QuadUP Element&lt;/a&gt; has the same issue). A stabilizing parameter is employed to permit the use of equal-order interpolation for the SSPquadUP element. This parameter &lt;strong&gt;\)</span>alpha</strong> can be computed as
+<strong>element SSPquadUP $eleTag $iNode $jNode $kNode $lNode $matTag $thick $fBulk $fDen $k1 $k2 $void <span class="math inline">\(alpha &amp;lt;\)</span>b1 <span class="math inline">\(b2&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;eleTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique integer tag identifying element object&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>iNode $jNode $kNode <span class="math inline">\(lNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the four nodes defining the element, input in counterclockwise order (-ndm 2 -ndf 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique integer tag associated with previously-defined nDMaterial object&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;thick&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;thickness of the element in out-of-plane direction&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;fBulk&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;bulk modulus of the pore fluid&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;fDen&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;mass density of the pore fluid&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>k1 <span class="math inline">\(k2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;permeability coefficients in global x- and y-directions, respectively&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;void&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;voids ratio&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;codeclass=&quot;parameter-table-variable&quot;&gt;alpha&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;spatial pressure field stabilization parameter (see discussion below for more information)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>b1 <span class="math inline">\(b2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;constant body forces in global x- and y-directions, respectively (optional, default = 0.0) - &lt;strong&gt;See Note 3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;p&gt;The SSPquadUP element is an extension of the &lt;a href=&quot;SSPquad_Element&quot; title=&quot;wikilink&quot;&gt;SSPquad Element&lt;/a&gt; for use in dynamic plane strain analysis of fluid saturated porous media. A mixed displacement-pressure (u-p) formulation is used, based upon the work of Biot as extended by Zienkiewicz and Shiomi (1984).&lt;/p&gt; &lt;p&gt;The physical stabilization necessary to allow for reduced integration incorporates an assumed strain field in which the volumetric dilation and the shear strain associated with the the hourglass modes are zero, resulting in an element which is free from volumetric and shear locking. The elimination of shear locking results in greater coarse mesh accuracy in bending dominated problems, and the elimination of volumetric locking improves accuracy in nearly-incompressible problems. Analysis times are generally faster than corresponding full integration elements.&lt;/p&gt; &lt;p&gt;Equal-order interpolation is used for the displacement and pressure fields, thus, the SSPquadUP element does not inherently pass the &lt;em&gt;inf-sup&lt;/em&gt; condition, and is not fully acceptable in the incompressible-impermeable limit (the &lt;a href=&quot;http://opensees.berkeley.edu/OpenSees/manuals/usermanual/1098.htm&quot;&gt;QuadUP Element&lt;/a&gt; has the same issue). A stabilizing parameter is employed to permit the use of equal-order interpolation for the SSPquadUP element. This parameter &lt;strong&gt;\)</span>alpha</strong> can be computed as
 </p>
 <p>
 alpha = 0.25<em>(h^2)/(den</em>c^2)
