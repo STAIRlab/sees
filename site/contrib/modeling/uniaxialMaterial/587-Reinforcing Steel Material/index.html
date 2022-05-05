@@ -12987,7 +12987,7 @@ Menegotto and Pinto Curve Parameters see Fig 6b
 <strong>NOTE:</strong> This simulation is based on the Chang and Mander(1994) uniaxial steel model. The simulation has incorporated additional reversal memory locations to better control stress overshooting (default is 10 branches but this can be easily modified by changing the variable “LastRule_RS” within the header file “ReinforcingSteel.h”). The cycle counting method implemented in the routine achieves the same result as rainflow counting. Fatigue parameters are based on the Coffin-Manson equation for plastic strain amplitude as indicated in Figure 6a. The buckling simulations incorporated consist of a variation on Gomes and Appleton(1997) and Dhakal and Maekawa(2002). The buckling and fatigue portions of this simulation are still being further enhanced and refined. Additional buckling and fatigue options should be available in the near future.
 </p>
 <figure>
-<img src="ReinfSteel2430.png" title="ReinfSteel2430.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2430.png" title="ReinfSteel2430.png"
 alt="ReinfSteel2430.png" />
 <figcaption aria-hidden="true">
 ReinfSteel2430.png
@@ -13009,7 +13009,7 @@ The softening region (strain greater than eult), shown in Figure 1, is a localiz
 Accumulated plastic strain is tracked within the material model for each branch, plateau adjustments are made only in the outer branches for simplicity. The plastic strain due to the backbone curve is ignored so that a monotonically loaded sample can be calibrated to a monotonic test sample more easily.
 </p>
 <figure>
-<img src="ReinfSteel2431.png" title="ReinfSteel2431.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2431.png" title="ReinfSteel2431.png"
 alt="ReinfSteel2431.png" />
 <figcaption aria-hidden="true">
 ReinfSteel2431.png
@@ -13019,7 +13019,7 @@ ReinfSteel2431.png
 Figure 2: Slenderness Defined
 </p>
 <figure>
-<img src="ReinfSteel2432.png" title="ReinfSteel2432.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2432.png" title="ReinfSteel2432.png"
 alt="ReinfSteel2432.png" />
 <figcaption aria-hidden="true">
 ReinfSteel2432.png
@@ -13032,7 +13032,7 @@ Figure 3: Buckling Parameters
 GOMES AND APPLETON BUCKLED CURVE: Figure 3 describes the use of the buckling parameters modified from Gomes and Appleton(1997). ß is an amplification factor that allows the user to scale the buckling curve. This is useful to adjust the location of the bifurcation point. The r factor is used to adjust the curve between the buckled curve and the unbuckled curve. The variable r can only be a real number between 0.0 and 1.0. The g factor is the positive stress location about which the buckling factor is initiated. This factor was introduced to avoid kinks in the reloading branch. The implementation of the g factor is shown in Figure 3. The basic idea is that the stress strain curves are reduced toward the positive stress g&lt;em class=“emphasis”&gt;f&lt;/em&gt;&lt;sub class=“subscript”&gt;su&lt;/sub&gt;. g should be between 0.0 and 1.0. A g of 0.0 will factor to the zero stress axis. This will usually produce a kink in the reloading curve at the zero stress location. Good results have been obtained using the following values for the buckling constants.
 </p>
 <p>
-<img src="ReinfSteel2433.png" title="ReinfSteel2433.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2433.png" title="ReinfSteel2433.png"
 alt="ReinfSteel2433.png" /> or <img src="ReinfSteel2434.png"
 title="ReinfSteel2434.png" alt="ReinfSteel2434.png" />
 </p>
@@ -13040,7 +13040,7 @@ title="ReinfSteel2434.png" alt="ReinfSteel2434.png" />
 Figure 4 displays the buckling behavior due to the variation of the different constants. The response shown on the upper left is the unbuckled case. In each of the other cases, buckling behavior is defined by the constants shown.
 </p>
 <figure>
-<img src="ReinfSteel2435.png" title="ReinfSteel2435.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2435.png" title="ReinfSteel2435.png"
 alt="ReinfSteel2435.png" />
 <figcaption aria-hidden="true">
 ReinfSteel2435.png
@@ -13053,7 +13053,7 @@ Figure 4: Effect of Sample Parameters in the Gomes and Appleton Buckling Model
 DHAKAL AND MAEKAWA BUCKLED CURVE: The buckling model described in this section is based on Dhakal and Maekawa(2002). This model takes two terms, lsr and a. lsr is the slenderness ratio as described in Figure 2 and a is an amplification factor. Dhakal and Maekawa suggest a value of a =1.0 for linear strain hardening and a =0.75 for elastic perfectly plastic material behavior. The material model in this implementation is neither linear strain hardening nor elastic perfectly plastic. However, since the material model does include strain hardening a=1.0 has been assumed as the default value. Figure 5 shows the unbuckled vs buckled stress strain response curves.
 </p>
 <figure>
-<img src="ReinfSteel2436.png" title="ReinfSteel2436.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2436.png" title="ReinfSteel2436.png"
 alt="ReinfSteel2436.png" />
 <figcaption aria-hidden="true">
 ReinfSteel2436.png
@@ -13066,7 +13066,7 @@ Figure 5: Effect of Suggested Parameters in the Dhakal and Maekawa Buckling Mode
 CYCLIC DEGRADATION: C&lt;sub class=“subscript”&gt;f&lt;/sub&gt; and a are factors used to relate the number of half cycles to fracture to the half cycle plastic strain amplitude (Figure 6a). Plastic strain half cycle amplitude is defined by Equation 1. The total half cycle strain amplitude,, is shown in Figure 6b as the change in strain from reversal A to reversal B. C&lt;sub class=“subscript”&gt;f&lt;/sub&gt; and a are used to define a cumulative damage factor, D, as described in Equation 2.
 </p>
 <p>
-<img src="ReinfSteel2438.png" title="ReinfSteel2438.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2438.png" title="ReinfSteel2438.png"
 alt="ReinfSteel2438.png" /><img src="ReinfSteel2439.png"
 title="ReinfSteel2439.png" alt="ReinfSteel2439.png" />
 </p>
@@ -13074,7 +13074,7 @@ title="ReinfSteel2439.png" alt="ReinfSteel2439.png" />
 Figure 6a: Coffin-Manson Constants Figure 6b: Half Cycle Terms Defined
 </p>
 <p>
-<img src="ReinfSteel2440.png" title="ReinfSteel2440.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2440.png" title="ReinfSteel2440.png"
 alt="ReinfSteel2440.png" /> (1) <img src="ReinfSteel2441.png"
 title="ReinfSteel2441.png" alt="ReinfSteel2441.png" /> (2)
 </p>
@@ -13082,7 +13082,7 @@ title="ReinfSteel2441.png" alt="ReinfSteel2441.png" /> (2)
 The cumulative damage factor is zero at no damage and 1.0 at fracture. Once a bar has been determined to have fractured, the strength is rapidly degraded to zero.
 </p>
 <figure>
-<img src="ReinfSteel2442.png" title="ReinfSteel2442.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2442.png" title="ReinfSteel2442.png"
 alt="ReinfSteel2442.png" />
 <figcaption aria-hidden="true">
 ReinfSteel2442.png
@@ -13095,21 +13095,21 @@ Figure 7: Strength Reduction
 A degrade constant, K&lt;sub class=“subscript”&gt;1&lt;/sub&gt;, is used to describe loss in strength due to damage or other phenomenon resulting in softening due to plastic reversals. The degradation is currently assumed to have a simple linear relationship with D. This is used to correlate strength degradation to the cumulative damage factor. This linear relationship is shown in Equation 3.
 </p>
 <p>
-<img src="ReinfSteel2443.png" title="ReinfSteel2443.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2443.png" title="ReinfSteel2443.png"
 alt="ReinfSteel2443.png" /> (3)
 </p>
 <p>
 Alternately this simple linear equation can be rewritten in a way that makes the strength degradation independent of the number of half cycles to failure. Keeping the failure and degradation terms independent is convenient for calibration. Equation 3 is rewritten below utilizing the strength degradation constant C&lt;sub class=“subscript”&gt;d&lt;/sub&gt;.
 </p>
 <p>
-<img src="ReinfSteel2444.png" title="ReinfSteel2444.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2444.png" title="ReinfSteel2444.png"
 alt="ReinfSteel2444.png" /> (4)
 </p>
 <p>
 The constants K&lt;sub class=“subscript”&gt;1&lt;/sub&gt;, and C&lt;sub class=“subscript”&gt;d&lt;/sub&gt; can be related as shown in Equation 5.
 </p>
 <p>
-<img src="ReinfSteel2445.png" title="ReinfSteel2445.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2445.png" title="ReinfSteel2445.png"
 alt="ReinfSteel2445.png" /> (5)
 </p>
 <p>
@@ -13137,7 +13137,7 @@ C&lt;sub class=“subscript”&gt;f&lt;/sub&gt; is the ductility constant used t
 C&lt;sub class=“subscript”&gt;d&lt;/sub&gt; is the strength reduction constant. A larger value for C&lt;sub class=“subscript”&gt;d&lt;/sub&gt; will result in a lower reduction of strength for each cycle. The four charts shown in Figure 8 demonstrate the effect that some of the variables have on the cyclic response.
 </p>
 <figure>
-<img src="ReinfSteel2446.png" title="ReinfSteel2446.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2446.png" title="ReinfSteel2446.png"
 alt="ReinfSteel2446.png" />
 <figcaption aria-hidden="true">
 ReinfSteel2446.png
