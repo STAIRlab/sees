@@ -1,0 +1,57 @@
+# Multi-Linear Velocity Dependent Friction
+
+<p>This command is used to construct a VelDepMultiLinear friction model
+object. The friction-velocity relationship is given by a multi-linear
+curve that is define by a set of points. The slope given by the last two
+specified points on the positive velocity axis is extrapolated to
+infinite positive velocities. Velocity and friction points need to be
+equal or larger than zero (no negative values should be defined). The
+number of provided velocity points needs to be equal to the number of
+provided friction points.</p>
+
+```tcl
+frictionModel VelDepMultiLinear $frnTag -vel
+        $velocityPoints -frn $frictionPoints
+```
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>$frnTag</strong></p></td>
+<td><p>unique friction model object tag</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$velocityPoints</strong></p></td>
+<td><p>array of velocity points along friction-velocity curve</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$frictionPoints</strong></p></td>
+<td><p>array of friction points along friction-velocity curve</p></td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img src="VelDepMultiLinear.png" title="VelDepMultiLinear.png"
+width="500" alt="VelDepMultiLinear.png" />
+<figcaption aria-hidden="true">VelDepMultiLinear.png</figcaption>
+</figure>
+<hr />
+<p>EXAMPLE:</p>
+<p>frictionModel VelDepMultiLinear 1 -vel 0.0 0.1 2.0 8.0 10.0 -frn
+0.163 0.085 0.150 0.163 0.163</p>
+<hr />
+<p>RELATED TO:</p>
+<ul>
+<li><a
+href="http://opensees.berkeley.edu/wiki/index.php/Flat_Slider_Bearing_Element">Flat
+Slider Bearing Element</a></li>
+<li><a
+href="http://opensees.berkeley.edu/wiki/index.php/Single_Friction_Pendulum_Bearing_Element">Single
+Friction Pendulum Bearing Element</a></li>
+<li><a
+href="http://opensees.berkeley.edu/wiki/index.php/Triple_Friction_Pendulum_Element">Triple
+Friction Pendulum Bearing Element</a></li>
+</ul>
+<hr />
+<p>Code Developed by: <span style="color:blue"> Andreas
+Schellenberg, University of California, Berkeley. </span></p>

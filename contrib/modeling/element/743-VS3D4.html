@@ -1,0 +1,53 @@
+# VS3D4
+
+<p>This command is used to construct a four-node 3D viscous-spring
+boundary quad element object based on a bilinear isoparametric
+formulation.</p>
+
+```tcl
+element VS3D4 $eleTag $node1 $node2 $node3 $node4 $E $G
+        $rho $R $alphaN $alphaT
+```
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>$eleTag</strong></p></td>
+<td><p>unique element object tag</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$node1 ..$node3</strong></p></td>
+<td><p>4 end nodes</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$E</strong></p></td>
+<td><p>Young's Modulus of element material</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$G</strong></p></td>
+<td><p>Shear Modulus of element material</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$rho</strong></p></td>
+<td><p>Mass Density of element material</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$R</strong></p></td>
+<td><p>distance from the scattered wave source to the boundary</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$alphaN</strong></p></td>
+<td><p>correction parameter in the normal direction</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$alphaT</strong></p></td>
+<td><p>correction parameter in the tangential direction</p></td>
+</tr>
+</tbody>
+</table>
+<p>Reference: Liu J, Du Y, Du X, et al. 3D viscous-spring artificial
+boundary in time domain. Earthquake Engineering and Engineering
+Vibration, 2006, 5(1):93-102</p>
+<hr />
+<p>Code Developed by: <span style="color:blue"> </span> Quan
+Gu, Yichao Gao and Zhijian Qiu</p>

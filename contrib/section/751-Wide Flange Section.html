@@ -1,0 +1,51 @@
+# Wide Flange Section
+
+<p>This command allows the user to construct a WFSection2d object, which
+is an encapsulated fiber representation of a wide flange steel section
+appropriate for plane frame analysis.</p>
+
+```tcl
+section WFSection2d $secTag $matTag $d $tw $bf $tf $Nfw $Nff
+```
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>$secTag</strong></p></td>
+<td><p>unique section tag</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$matTag</strong></p></td>
+<td><p>tag of uniaxialMaterial assigned to each fiber</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$d</strong></p></td>
+<td><p>section depth</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$tw</strong></p></td>
+<td><p>web thickness</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$bf</strong></p></td>
+<td><p>flange width</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$tf</strong></p></td>
+<td><p>flange thickness</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$Nfw</strong></p></td>
+<td><p>number of fibers in the web</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$Nff</strong></p></td>
+<td><p>number of fibers in each flange</p></td>
+</tr>
+</tbody>
+</table>
+<p>The section dimensions $d, $tw, $bf, and $tf can be found in the AISC
+steel manual.</p>
+<hr />
+<p>Code Developed by: <span style="color:blue"> Michael H. Scott,
+Oregon State University </span></p>

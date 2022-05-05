@@ -1,0 +1,77 @@
+# RC Section
+
+<p>This command allows the user to construct an RCSection2d object,
+which is an encapsulated fiber representation of a rectangular
+reinforced concrete section with core and confined regions of concrete
+and single top and bottom layers of reinforcement appropriate for plane
+frame analysis.</p>
+
+```tcl
+section RCSection2d $secTag $coreTag $coverTag $steelTag
+        $d $b $cover $Atop $Abot $Aside $Nfcore $Nfcover $Nfs
+```
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>$secTag</strong></p></td>
+<td><p>unique section tag</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$coreTag</strong></p></td>
+<td><p>tag of uniaxialMaterial assigned to each fiber in the core
+region</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$coverTag</strong></p></td>
+<td><p>tag of uniaxialMaterial assigned to each fiber in the cover
+region</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$steelTag</strong></p></td>
+<td><p>tag of uniaxialMaterial assigned to each reinforcing bar</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$d</strong></p></td>
+<td><p>section depth</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$b</strong></p></td>
+<td><p>section width</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$cover</strong></p></td>
+<td><p>cover depth (assumed uniform around perimeter)</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$Atop</strong></p></td>
+<td><p>area of reinforcing bars in top layer</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$Abot</strong></p></td>
+<td><p>area of reinforcing bars in bottom layer</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$Aside</strong></p></td>
+<td><p>area of reinforcing bars on intermediate layers</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$Nfcore</strong></p></td>
+<td><p>number of fibers through the core depth</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>$Nfcover</strong></p></td>
+<td><p>number of fibers through the cover depth</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>$Nfs</strong></p></td>
+<td><p>number of bars on the top and bottom rows of reinforcement (Nfs-2
+bars will be placed on the side rows)</p></td>
+</tr>
+</tbody>
+</table>
+<p>For more general reinforced concrete section definitions, use the <a
+href="Fiber_Section" title="wikilink">Fiber Section</a> command.</p>
+<hr />
+<p>Code Developed by: <span style="color:blue"> Michael H. Scott,
+Oregon State University </span></p>
