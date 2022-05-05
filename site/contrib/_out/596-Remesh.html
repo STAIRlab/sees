@@ -1,0 +1,60 @@
+# Remesh
+
+<p><a href="FSI" title="wikilink"> &lt; Back</a></p>
+<p><span id="pyremesh"></span>
+<strong>remesh</strong>(<em>type, alpha, numfreeregs, reg1, reg2, ...,
+numfixregs, reg1, reg2, ...[, eletype, ...]</em>) <a href="#pyremesh"
+title="wikilink">¶</a></p>
+<p>&lt;blockquote&gt;remesh based on the nodes in
+regions.&lt;/blockquote&gt;</p>
+<table>
+<thead>
+<tr class="header">
+<th><p>Parameters:</p></th>
+<th><p>* <strong>type</strong> (<em>str</em>) - a string of mesh type,
+currently 'tri'.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>* <strong>alpha</strong> (<em>float</em>) - the control parameter
+for alpha shape method. The value is usually between 1 and 2, e.g. alpha
+= 1.4.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>* <strong>numfreeregs</strong> (<em>int</em>) - number of regions
+which need to be remeshed.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>* <strong>numfixedregs</strong> (<em>int</em>) - number of
+regions which need not to be remeshed but used to form elements between
+free regions.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>* <strong>reg1, reg2, ..</strong> (<em>int</em>) - tags of free
+or fixed regions.</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>* <strong>eletype...</strong> (<em>str</em>) - the name of the
+element followed by element parameters.</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>|Returns:</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>|Return Type:</p></td>
+<td><p>None</p></td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<p>&lt;source lang="python"&gt; alpha = 1.4 freeregs = [1,2] fixedregs =
+[3,4] eleargs = ['PFEMElement2DBubble',rho,mu,b1,b2,thk,kappa]</p>
+<p>remesh('tri', alpha, len(freeregs), *freeregs, len(fixedregs)
+*fixedregs, *eleargs) &lt;/source&gt;</p>

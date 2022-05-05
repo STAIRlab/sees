@@ -1,0 +1,151 @@
+# Rigid Diaphragm Consequences
+
+<p>An unintended consequence of using the RigidDiaphragm constraint (or
+other constraint) on a beam column element is a result of the fact that
+it enforces a condition of zero axial strain on the element. For
+sections where the neutral axis does not shift as a consequence of
+bending in the beam this constraint has little effect on the axial load
+in the beam, e.g. elastic or steel sections. For those beams where the
+neutral axis does shift, i.e. Reinforced Concrete beams modeled using
+fiber sections under moment, the moments in an unconstrained beam will
+cause the beam to undergo axial deformation. To constrain this axial
+deformation requires axial forces, the magnitude of which can be
+significant.</p>
+<p>Here is a stupid made up example that illustrates my point:</p>
+<p>&lt;source lang="tcl"&gt; foreach rigidConstraint {no yes} {</p>
+<p>puts "RIGID CONSTRAINT: $rigidConstraint"</p>
+<p>foreach matType {steel concrete} { foreach eleType {forceBeamColumn
+dispBeamColumn} {</p>
+<p>wipe</p>
+<ol>
+<li>create model builder</li>
+</ol>
+<p>model basic -ndm 2 -ndf 3</p>
+<p>set width 360 set height 144</p>
+<ol>
+<li>create nodes</li>
+</ol>
+<p>node 1 0.0 0.0 node 2 $width 0.0 node 3 0.0 $height node 4 $width
+$height</p>
+<ol>
+<li>Fix supports at base of columns</li>
+<li>tag DX DY RZ</li>
+</ol>
+<p>fix 1 1 1 1 fix 2 1 1 1</p>
+<p>if {$rigidConstraint == "yes"} { equalDOF 3 4 1 }</p>
+<p>if {$matType == "concrete"} {</p>
+<ol>
+<li>CONCRETE tag f'c ec0 f'cu ecu</li>
+<li>Core concrete (confined)</li>
+</ol>
+<p>uniaxialMaterial Concrete01 1 -6.0 -0.004 -5.0 -0.014</p>
+<ol>
+<li>Cover concrete (unconfined)</li>
+</ol>
+<p>uniaxialMaterial Concrete01 2 -5.0 -0.002 0.0 -0.006</p>
+<ol>
+<li>STEEL</li>
+<li>Reinforcing steel</li>
+</ol>
+<p>set fy 60.0; # Yield stress set E 30000.0; # Young's modulus</p>
+<ol>
+<li>tag fy E0 b</li>
+</ol>
+<p>uniaxialMaterial Steel01 3 $fy $E 0.01</p>
+<p>} else {</p>
+<p>set fy 60.0; # Yield stress set E 30000.0; # Young's modulus</p>
+<ol>
+<li>tag fy E0 b</li>
+</ol>
+<p>uniaxialMaterial Steel01 1 $fy $E 0.01 uniaxialMaterial Steel01 2 $fy
+$E 0.01 uniaxialMaterial Steel01 3 $fy $E 0.01 }</p>
+<ol>
+<li>Define cross-section for nonlinear columns</li>
+<li><hr /></li>
+</ol>
+<ol>
+<li>set some paramaters</li>
+</ol>
+<p>set colWidth 15 set colDepth 24</p>
+<p>set cover 1.5 set As 0.60; # area of no. 7 bars</p>
+<ol>
+<li>some variables derived from the parameters</li>
+</ol>
+<p>set y1 [expr $colDepth/2.0] set z1 [expr $colWidth/2.0]</p>
+<p>section Fiber 1 {</p>
+<ol>
+<li>Create the concrete core fibers</li>
+</ol>
+<p>patch rect 1 10 1 [expr $cover-$y1] [expr $cover-$z1] [expr
+$y1-$cover] [expr $z1-$cover]</p>
+<ol>
+<li>Create the concrete cover fibers (top, bottom, left, right)</li>
+</ol>
+<p>patch rect 2 10 1 [expr -$y1] [expr $z1-$cover] $y1 $z1 patch rect 2
+10 1 [expr -$y1] [expr -$z1] $y1 [expr $cover-$z1] patch rect 2 2 1
+[expr -$y1] [expr $cover-$z1] [expr $cover-$y1] [expr $z1-$cover] patch
+rect 2 2 1 [expr $y1-$cover] [expr $cover-$z1] $y1 [expr $z1-$cover]</p>
+<ol>
+<li>Create the reinforcing fibers (left, middle, right)</li>
+</ol>
+<p>layer straight 3 3 $As [expr $y1-$cover] [expr $z1-$cover] [expr
+$y1-$cover] [expr $cover-$z1] layer straight 3 2 $As 0.0 [expr
+$z1-$cover] 0.0 [expr $cover-$z1] layer straight 3 3 $As [expr
+$cover-$y1] [expr $z1-$cover] [expr $cover-$y1] [expr $cover-$z1] }</p>
+<ol>
+<li>Define elements</li>
+<li><hr /></li>
+</ol>
+<p>geomTransf Linear 1 set np 5</p>
+<ol>
+<li>Create the coulumns using Beam-column elements</li>
+<li>e tag ndI ndJ nsecs secID transfTag</li>
+</ol>
+<p>element $eleType 1 1 3 $np 1 1 element $eleType 2 2 4 $np 1 1 element
+$eleType 3 3 4 $np 1 1</p>
+<ol>
+<li>Define gravity loads</li>
+<li><hr /></li>
+</ol>
+<ol>
+<li>Set a parameter for the axial load</li>
+</ol>
+<p>set P 180; # 10% of axial capacity of columns</p>
+<ol>
+<li>Create a Plain load pattern with a Linear TimeSeries</li>
+</ol>
+<p>pattern Plain 1 "Linear" {</p>
+<ol>
+<li>Create nodal loads at nodes 3 &amp; 4</li>
+<li>nd FX FY MZ</li>
+</ol>
+<p>load 3 0.0 [expr -$P] 0.0 load 4 0.0 [expr -$P] 0.0 }</p>
+<p>system BandGeneral constraints Transformation numberer RCM test
+NormDispIncr 1.0e-12 10 3 algorithm Newton integrator LoadControl 0.1
+analysis Static</p>
+<p>analyze 10</p>
+<p>loadConst -time 0.0</p>
+<p>pattern Plain 2 "Linear" { load 3 1.0 0.0 0.0 load 4 1.0 0.0 0.0
+}</p>
+<p>integrator DisplacementControl 3 1 0.1 analyze 10 set strains
+[eleResponse 3 basicDeformation] set forces [eleResponse 3 forces] puts
+"eleType: $eleType matType $matType axialForce [lindex $forces 0]
+axialDeformation: [lindex $strains 0]" } } } &lt;/source&gt;</p>
+<p>and the results when this script is run are:</p>
+<p>&lt;source lang="tcl"&gt; RIGID CONSTRAINT: no eleType:
+forceBeamColumn matType steel axialForce -0.08875612010504939364
+axialDeformation: 0.00000291960921383616 eleType: dispBeamColumn matType
+steel axialForce -0.00000000000010219973 axialDeformation:
+0.00000000000000000000 eleType: forceBeamColumn matType concrete
+axialForce 1.25405861627505310629 axialDeformation:
+0.12918648354852413362 eleType: dispBeamColumn matType concrete
+axialForce 3.61866611884458500015 axialDeformation:
+0.17247077365271457072 RIGID CONSTRAINT: yes eleType: forceBeamColumn
+matType steel axialForce -0.00000000000010287569 axialDeformation:
+0.00000000000000000000 eleType: dispBeamColumn matType steel axialForce
+-0.00000000000013310834 axialDeformation: 0.00000000000000000000
+eleType: forceBeamColumn matType concrete axialForce
+186.25340185913745472135 axialDeformation: 0.00000000000000000000
+eleType: dispBeamColumn matType concrete axialForce
+163.64106186688189836786 axialDeformation: 0.00000000000000000000</p>
+<p>&lt;/source&gt;</p>
