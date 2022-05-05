@@ -119,11 +119,11 @@ pstrain1? pstrain2? fpc? fyT? fy? E0? epsc0?</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>material density</p></td>
 </tr>
 <tr class="odd">
@@ -154,23 +154,23 @@ ConcreteZ01</strong></p></td>
 <td><p>initial strain in tendons</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fpc</strong></p></td>
+<td><code class="parameter-table-variable">fpc</code></td>
 <td><p>compressive strength of concrete</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fyT</strong></p></td>
+<td><code class="parameter-table-variable">fyT</code></td>
 <td><p>yield strength of tendons</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fy</strong></p></td>
+<td><code class="parameter-table-variable">fy</code></td>
 <td><p>yield strength of steel</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E0</strong></p></td>
+<td><code class="parameter-table-variable">E0</code></td>
 <td><p>initial stiffness of steel (Young's Modulus)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsc0</strong></p></td>
+<td><code class="parameter-table-variable">epsc0</code></td>
 <td><p>compressive strain of concrete</p></td>
 </tr>
 </tbody>
@@ -214,39 +214,39 @@ epsc0?</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$tag</strong></p></td>
+<td><code class="parameter-table-variable">tag</code></td>
 <td><p>unique uniaxial integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fy</strong></p></td>
+<td><code class="parameter-table-variable">fy</code></td>
 <td><p>yield strength bare steel</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$E0</strong></p></td>
+<td><code class="parameter-table-variable">E0</code></td>
 <td><p>initial stiffness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fpc</strong></p></td>
+<td><code class="parameter-table-variable">fpc</code></td>
 <td><p>compressive strength of concrete</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsc0</strong></p></td>
+<td><code class="parameter-table-variable">epsc0</code></td>
 <td><p>strain at compressive strength</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rou</strong></p></td>
+<td><code class="parameter-table-variable">rou</code></td>
 <td><p>steel ratio</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsp</strong></p></td>
+<td><code class="parameter-table-variable">epsp</code></td>
 <td><p>prestress strain</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ac</strong></p></td>
+<td><code class="parameter-table-variable">ac</code></td>
 <td><p>unloading path parameter (default = 1.9)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rc</strong></p></td>
+<td><code class="parameter-table-variable">rc</code></td>
 <td><p>reloading path parameter (default = 10.0)</p></td>
 </tr>
 </tbody>

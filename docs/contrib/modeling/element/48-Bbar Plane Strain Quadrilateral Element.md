@@ -13,7 +13,7 @@ element bbarQuad $eleTag $iNode $jNode $kNode $lNode
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -22,11 +22,11 @@ element bbarQuad $eleTag $iNode $jNode $kNode $lNode
 counter-clockwise order around the element.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$thick</strong></p></td>
+<td><code class="parameter-table-variable">thick</code></td>
 <td><p>element thickness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>tag of nDMaterial</p></td>
 </tr>
 </tbody>

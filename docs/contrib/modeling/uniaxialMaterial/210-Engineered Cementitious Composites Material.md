@@ -17,15 +17,15 @@ $betaT $betaC</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sigt0</strong></p></td>
+<td><code class="parameter-table-variable">sigt0</code></td>
 <td><p>tensile cracking stress</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epst0</strong></p></td>
+<td><code class="parameter-table-variable">epst0</code></td>
 <td><p>strain at tensile cracking stress</p></td>
 </tr>
 <tr class="even">
@@ -41,11 +41,11 @@ $betaT $betaC</strong></p></td>
 <td><p>ultimate tensile strain</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$sigc0</strong></p></td>
+<td><code class="parameter-table-variable">sigc0</code></td>
 <td><p>compressive strength (see NOTES)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$epsc0</strong></p></td>
+<td><code class="parameter-table-variable">epsc0</code></td>
 <td><p>strain at compressive strength (see NOTES)</p></td>
 </tr>
 <tr class="odd">
@@ -63,21 +63,21 @@ region</p></td>
 region</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alphaC</strong></p></td>
+<td><code class="parameter-table-variable">alphaC</code></td>
 <td><p>exponent of the unloading curve in the compressive
 softening</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$alphaCU</strong></p></td>
+<td><code class="parameter-table-variable">alphaCU</code></td>
 <td><p>exponent of the compressive softening curve (use 1 for linear
 softening)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$betaT</strong></p></td>
+<td><code class="parameter-table-variable">betaT</code></td>
 <td><p>parameter to determine permanent strain in tension</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$betaC</strong></p></td>
+<td><code class="parameter-table-variable">betaC</code></td>
 <td><p>parameter to determine permanent strain in compression</p></td>
 </tr>
 </tbody>

@@ -19,7 +19,7 @@ $maxIters $tol&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -27,7 +27,7 @@ $maxIters $tol&gt;</strong></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$transfTag</strong></p></td>
+<td><code class="parameter-table-variable">transfTag</code></td>
 <td><p>identifier for previously-defined coordinate-transformation
 (CrdTransf) object</p></td>
 </tr>
@@ -39,17 +39,17 @@ href="image:IntegrationTypes.pdf"
 title="wikilink">image:IntegrationTypes.pdf</a>)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$massDens</strong></p></td>
+<td><code class="parameter-table-variable">massDens</code></td>
 <td><p>element mass density (per unit length), from which a lumped-mass
 matrix is formed (optional, default=0.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$maxIters</strong></p></td>
+<td><code class="parameter-table-variable">maxIters</code></td>
 <td><p>maximum number of iterations to undertake to satisfy element
 compatibility (optional, default=10)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tol</strong></p></td>
+<td><code class="parameter-table-variable">tol</code></td>
 <td><p>tolerance for satisfaction of element compatibility (optional,
 default=10-12)</p></td>
 </tr>
@@ -70,16 +70,16 @@ $maxIters $tol&gt; &lt;-integration $intType&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$numIntgrPts</strong></p></td>
+<td><code class="parameter-table-variable">numIntgrPts</code></td>
 <td><p>number of Gauss-Lobatto integration points along the
 element.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$secTag</strong></p></td>
+<td><code class="parameter-table-variable">secTag</code></td>
 <td><p>identifier for previously-defined section object</p></td>
 </tr>
 </tbody>
@@ -97,11 +97,11 @@ $maxIters $tol&gt; &lt;-integration $intType&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$intType</strong></p></td>
+<td><code class="parameter-table-variable">intType</code></td>
 <td><p>numerical integration type, options are Lobatto, Legendre, Radau,
 NewtonCotes, Trapezoidal (optional, default= Lobatto)</p></td>
 </tr>

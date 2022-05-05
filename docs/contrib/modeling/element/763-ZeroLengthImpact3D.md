@@ -15,39 +15,39 @@ $cohesion</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$tag</strong></p></td>
+<td><code class="parameter-table-variable">tag</code></td>
 <td><p>Unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cNode</strong></p></td>
+<td><code class="parameter-table-variable">cNode</code></td>
 <td><p>Constrained node tag</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rNode</strong></p></td>
+<td><code class="parameter-table-variable">rNode</code></td>
 <td><p>Retained node tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$direction</strong></p></td>
+<td><code class="parameter-table-variable">direction</code></td>
 <td><p>1 if out-normal vector of master plane points to +X direction</p>
 <p>2 if out-normal vector of master plane points to +Y direction</p>
 <p>3 if out-normal vector of master plane points to +Z
 direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$initGap</strong></p></td>
+<td><code class="parameter-table-variable">initGap</code></td>
 <td><p>Initial gap between retained plane and constrained plane</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$frictionRatio</strong></p></td>
+<td><code class="parameter-table-variable">frictionRatio</code></td>
 <td><p>Friction ratio in two tangential directions (parallel to retained
 and constrained planes)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Kt</strong></p></td>
+<td><code class="parameter-table-variable">Kt</code></td>
 <td><p>Penalty in two tangential directions</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Kn</strong></p></td>
+<td><code class="parameter-table-variable">Kn</code></td>
 <td><p>Penalty in normal direction (normal to retained and constrained
 planes)</p></td>
 </tr>
@@ -57,11 +57,11 @@ planes)</p></td>
 model</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Delta_y</strong></p></td>
+<td><code class="parameter-table-variable">Delta_y</code></td>
 <td><p>Yield deformation based on Hertz impact model</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cohesion</strong></p></td>
+<td><code class="parameter-table-variable">cohesion</code></td>
 <td><p>Cohesion, if no cohesion, it is zero</p></td>
 </tr>
 </tbody>
@@ -132,5 +132,5 @@ ceilings, simulating the impact/pounding and friction phenomena.</li>
 </ol>
 <p>&lt;!-- After running the example script, the following hysteresis
 loop is resulted in normal direction under cyclic excitation:</p>
-<p><img src="_HysteresisLoop.png" title="_HysteresisLoop.png"
+<p><img src="/OpenSeesRT/contrib/static/_HysteresisLoop.png" title="_HysteresisLoop.png"
 alt="_HysteresisLoop.png" /> --&gt;</p>

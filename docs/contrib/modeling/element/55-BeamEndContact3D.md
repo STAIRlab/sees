@@ -13,40 +13,40 @@ $lNode $radius $gTol $fTol &lt;$cFlag$&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique integer tag identifying element object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode</strong></p></td>
+<td><code class="parameter-table-variable">iNode</code></td>
 <td><p>retained node from the beam (-ndm 3 -ndf 6)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$jNode</strong></p></td>
+<td><code class="parameter-table-variable">jNode</code></td>
 <td><p>the remaining node on the beam element with $iNode (-ndm 3 -ndf
 6)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cNode</strong></p></td>
+<td><code class="parameter-table-variable">cNode</code></td>
 <td><p>constrained node (-ndm 3 -ndf 3)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$lNode</strong></p></td>
+<td><code class="parameter-table-variable">lNode</code></td>
 <td><p>Lagrange multiplier node (-ndm 3 -ndf 3)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$radius</strong></p></td>
+<td><code class="parameter-table-variable">radius</code></td>
 <td><p>radius of circular beam associated with beam element</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$gTol</strong></p></td>
+<td><code class="parameter-table-variable">gTol</code></td>
 <td><p>gap tolerance</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fTol</strong></p></td>
+<td><code class="parameter-table-variable">fTol</code></td>
 <td><p>force tolerance</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cFlag</strong></p></td>
+<td><code class="parameter-table-variable">cFlag</code></td>
 <td><p>optional initial contact flag</p></td>
 </tr>
 <tr class="even">

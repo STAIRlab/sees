@@ -25,33 +25,33 @@ nDmaterial MultiYieldSurfaceClay $matTag $nd $rho $G $K
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique material object integer tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nd</strong></p></td>
+<td><code class="parameter-table-variable">nd</code></td>
 <td><p>number of dimensions, 2 for 2-D analysis (plane-strain), and 3
 for 3-D analysis</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>saturated soil mass density</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$G</strong></p></td>
+<td><code class="parameter-table-variable">G</code></td>
 <td><p>reference low-strain shear modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$K</strong></p></td>
+<td><code class="parameter-table-variable">K</code></td>
 <td><p>reference bulk modulus</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cohesion</strong></p></td>
+<td><code class="parameter-table-variable">cohesion</code></td>
 <td><p>peak shear (apparent cohesion at zero effective
 confinement)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$peakShearStrain</strong></p></td>
+<td><code class="parameter-table-variable">peakShearStrain</code></td>
 <td><p>strain at peak shear, i.e., the octahedral shear strain at which
 the maximum shear strength is reached</p></td>
 </tr>

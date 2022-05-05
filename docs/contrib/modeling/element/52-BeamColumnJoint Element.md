@@ -17,7 +17,7 @@ $Mat13 &lt;$eleHeightFac $eleWidthFac&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$Tag</strong></p></td>
+<td><code class="parameter-table-variable">Tag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -63,7 +63,7 @@ $Mat13 &lt;$eleHeightFac $eleWidthFac&gt;</strong></p></td>
 3</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Mat9</strong></p></td>
+<td><code class="parameter-table-variable">Mat9</code></td>
 <td><p>uniaxial material tag for interface-shear spring at node
 3</p></td>
 </tr>
@@ -87,13 +87,13 @@ $Mat13 &lt;$eleHeightFac $eleWidthFac&gt;</strong></p></td>
 <td><p>uniaxial material tag for shear-panel</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$eleHeightFac</strong></p></td>
+<td><code class="parameter-table-variable">eleHeightFac</code></td>
 <td><p>floating point value (as a ratio to the total height of the
 element) to be considered for determination of the distance in between
 the tension-compression couples (optional, default: 1.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$eleWidthFac</strong></p></td>
+<td><code class="parameter-table-variable">eleWidthFac</code></td>
 <td><p>floating point value (as a ratio to the total width of the
 element) to be considered for determination of the distance in between
 the tension-compression couples (optional, default: 1.0)</p></td>
@@ -101,7 +101,7 @@ the tension-compression couples (optional, default: 1.0)</p></td>
 </tbody>
 </table>
 <figure>
-<img src="BeamColumnJoint.png" title="BeamColumnJoint.png"
+<img src="/OpenSeesRT/contrib/static/BeamColumnJoint.png" title="BeamColumnJoint.png"
 alt="BeamColumnJoint.png" />
 <figcaption aria-hidden="true">BeamColumnJoint.png</figcaption>
 </figure>

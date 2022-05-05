@@ -1,4 +1,4 @@
-# QzSimple1 Material
+ # QzSimple1
 
 <p>This command is used to construct a QzSimple1 uniaxial material
 object:</p>
@@ -11,18 +11,18 @@ uniaxialMaterial QzSimple1 $matTag $qzType $qult $Z50
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$qzType</strong></p></td>
+<td><code class="parameter-table-variable">qzType</code></td>
 <td><p>qzType = 1 Backbone of q-z curve approximates Reese and O'Neill's
 (1987) relation for drilled shafts in clay.</p>
 <p>qzType = 2 Backbone of q-z curve approximates Vijayvergiya's (1977)
 relation for piles in sand.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$qult</strong></p></td>
+<td><code class="parameter-table-variable">qult</code></td>
 <td><p>Ultimate capacity of the q-z material. SEE NOTE 1.</p></td>
 </tr>
 <tr class="even">
@@ -31,12 +31,12 @@ relation for piles in sand.</p></td>
 loading. SEE NOTE 2.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$suction</strong></p></td>
+<td><code class="parameter-table-variable">suction</code></td>
 <td><p>Uplift resistance is equal to suction*qult. Default = 0.0. The
 value of suction must be 0.0 to 0.1.*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>The viscous damping term (dashpot) on the far-field (elastic)
 component of the displacement rate (velocity). Default = 0.0. Nonzero c
 values are used to represent radiation damping effects.*</p></td>

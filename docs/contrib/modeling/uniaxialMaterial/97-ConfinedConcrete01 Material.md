@@ -1,21 +1,21 @@
-# ConfinedConcrete01 Material
+ # ConfinedConcrete01
 
-<p>This  command  is  used  to  construct  an  uniaxial  material
- object  of  confined  concrete  in  according  to  the  work  of
- Braga,  Gigliotti  and  Laterza  (2006).  The  confined  concrete
- model  (BGL model)  has  not  tensile  strength  and  degraded  linear
- unloading/reloading  stiffness  as  proposed  by  Karsan  and  Jirsa 
-(1969).  The  BGL  model  accounts  for  confinement  effects  due  to
- different  arrangements  of  transverse  reinforcement  and/or 
-external  strengthening  such  as  steel  jackets  or  FRP  wraps.  The
-  confinement  effect  along  the  column is described  as  well.  In 
-order  to  obtain  th e compressive  envelope  curve a  non  linear
- approach  is  performed  at  each  increment  of  column  axial 
-strain. The  sougth  curve  is  obtained  crossing  different
- stress‐strain  relationships,  each  of  which  corresponding  to  a
- different  level  of  confinement.  Currently,  the  Attard  and 
-Setunge’s  model  is  implemented  in  calculating  each  active  curve 
-of  the  confined  concrete.  IMPORTANT: the units to be used are MPa,
+<p>This command is used to construct an uniaxial material
+object of confined concrete in according to the work of
+Braga, Gigliotti and Laterza (2006). The confined concrete
+model (BGLmodel) has not tensile strength and degraded linear
+unloading/reloading stiffness as proposed by Karsan and Jirsa
+(1969). The BGL model accounts for confinement effects due to
+different arrangements of transverse reinforcement and/or
+external strengthening such as steel jackets or FRP wraps. The
+confinement effect along the column is described as well. In
+order to obtain th ecompressive envelope curve a non linear
+approach is performed at each increment of column axial
+strain.The sougth curve is obtained crossing different
+stress‐strain relationships, each of which corresponding to a
+different level of confinement. Currently, the Attard and
+Setunge’s model is implemented in calculating each active curve
+of the confined concrete. IMPORTANT: the units to be used are MPa,
 mm.</p>
 <table>
 <tbody>
@@ -35,20 +35,20 @@ $stRatio&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$tag</strong></p></td>
+<td><code class="parameter-table-variable">tag</code></td>
 <td><p>integer tag identifying material.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$secType</strong></p></td>
+<td><code class="parameter-table-variable">secType</code></td>
 <td><p>tag for the transverse reinforcement configuration. See NOTE
 1.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fpc</strong></p></td>
+<td><code class="parameter-table-variable">fpc</code></td>
 <td><p>unconfined cylindrical strength of concrete specimen.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Ec</strong></p></td>
+<td><code class="parameter-table-variable">Ec</code></td>
 <td><p>initial elastic modulus of unconfined concrete.</p></td>
 </tr>
 <tr class="odd">
@@ -72,32 +72,32 @@ to the hoop center line.</p></td>
 NOTE 4.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$phis</strong></p></td>
+<td><code class="parameter-table-variable">phis</code></td>
 <td><p>hoop diameter. If section arrangement has multiple hoops it
 refers to the external hoop.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$S</strong></p></td>
+<td><code class="parameter-table-variable">S</code></td>
 <td><p>hoop spacing.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fyh</strong></p></td>
+<td><code class="parameter-table-variable">fyh</code></td>
 <td><p>yielding strength of the hoop steel.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Es0</strong></p></td>
+<td><code class="parameter-table-variable">Es0</code></td>
 <td><p>elastic modulus of the hoop steel.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$haRatio</strong></p></td>
+<td><code class="parameter-table-variable">haRatio</code></td>
 <td><p>hardening ratio of the hoop steel.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$mu</strong></p></td>
+<td><code class="parameter-table-variable">mu</code></td>
 <td><p>ductility factor of the hoop steel.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$phiLon</strong></p></td>
+<td><code class="parameter-table-variable">phiLon</code></td>
 <td><p>diameter of longitudinal bars.</p></td>
 </tr>
 <tr class="even">
@@ -160,7 +160,7 @@ wrapping.</p></td>
 </tbody>
 </table>
 <figure>
-<img src="SectionTypes.png" title="SectionTypes.png" width="300"
+<img src="/OpenSeesRT/contrib/static/SectionTypes.png" title="SectionTypes.png" width="300"
 alt="SectionTypes.png" />
 <figcaption aria-hidden="true">SectionTypes.png</figcaption>
 </figure>
@@ -189,37 +189,37 @@ parameters:</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$cover</strong></p></td>
+<td><code class="parameter-table-variable">cover</code></td>
 <td><p>cover thickness measured from the outer line of hoop.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Am</strong></p></td>
+<td><code class="parameter-table-variable">Am</code></td>
 <td><p>total area of FRP wraps (number of layers x wrap thickness x wrap
 width).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Sw</strong></p></td>
+<td><code class="parameter-table-variable">Sw</code></td>
 <td><p>spacing of FRP wraps (if continuous wraps are used the spacing is
 equal to the wrap width).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ful</strong></p></td>
+<td><code class="parameter-table-variable">ful</code></td>
 <td><p>ultimate strength of FRP wraps.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Es0w</strong></p></td>
+<td><code class="parameter-table-variable">Es0w</code></td>
 <td><p>elastic modulus of FRP wraps.</p></td>
 </tr>
 </tbody>
 </table>
-<p>6) Stresses  and  strains  can  be  defined  either  as  positive 
-or  as  negative  values.  All  commands  are  not  case
- sensitive. </p>
+<p>6) Stresses and strains can be defined either as positive
+or as negative values. All commands are not case
+sensitive.</p>
 <p>EXAMPLES:</p>
-<p><strong>Square  section  reinforced  by  simple  transverse  hoop 
-and  by  additional  FRP  wraps  (Section  S1)</strong></p>
+<p><strong>Square section reinforced by simple transverse hoop
+and by additional FRP wraps (Section S1)</strong></p>
 <figure>
-<img src="S1.png" title="S1.png" width="500" alt="S1.png" />
+<img src="/OpenSeesRT/contrib/static/S1.png" title="S1.png" width="500" alt="S1.png" />
 <figcaption aria-hidden="true">S1.png</figcaption>
 </figure>
 <p><em>Section S1</em></p>
@@ -242,10 +242,10 @@ $ful $Es0w -stRatio $stRatio</li>
 <p>uniaxialMaterial ConfinedConcrete01 1 S1 -30.0 26081.0 -epscu -0.03
 -varub 300.0 10.0 100.0 300.0 206000.0 0.0 1000.0 16.0 -wrap 30.0 51.0
 100.0 3900.0 230000.0 -stRatio 0.85 &lt;/source&gt;</p>
-<p><strong>Square  section  reinforced  by  multiple  transverse  hoop 
-and  by  additional  FRP  wraps  (Section  S4a)</strong></p>
+<p><strong>Square section reinforced by multiple transverse hoop
+and by additional FRP wraps (Section S4a)</strong></p>
 <figure>
-<img src="S4a.png" title="S4a.png" width="500" alt="S4a.png" />
+<img src="/OpenSeesRT/contrib/static/S4a.png" title="S4a.png" width="500" alt="S4a.png" />
 <figcaption aria-hidden="true">S4a.png</figcaption>
 </figure>
 <p><em>Section S4a</em> &lt;source lang="tcl"&gt;</p>
@@ -267,10 +267,10 @@ $Am $Sw $ful $Es0w -stRatio $stRatio</li>
 <p>uniaxialMaterial ConfinedConcrete01 1 S4a -30.0 26081.0 -epscu -0.03
 -varUB 300.0 200.0 100.0 10.0 100.0 300.0 206000.0 0.0 1000.0 16.0 -wrap
 30.0 51.0 100.0 3900.0 230000.0 -stRatio 0.85 &lt;/source&gt;</p>
-<p><strong>Rectangular  section  reinforced  by  simple  transverse
- hoop  and  by  additional  FRP  wraps  (Section  R)</strong></p>
+<p><strong>Rectangular section reinforced by simple transverse
+hoop and by additional FRP wraps (Section R)</strong></p>
 <figure>
-<img src="R.png" title="R.png" width="500" alt="R.png" />
+<img src="/OpenSeesRT/contrib/static/R.png" title="R.png" width="500" alt="R.png" />
 <figcaption aria-hidden="true">R.png</figcaption>
 </figure>
 <p><em>Section R</em> &lt;source lang="tcl"&gt;</p>

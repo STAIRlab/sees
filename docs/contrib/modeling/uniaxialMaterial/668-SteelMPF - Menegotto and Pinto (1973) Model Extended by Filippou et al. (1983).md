@@ -52,7 +52,7 @@ parameters are <em>a&lt;sub class="subscript"&gt;3&lt;/sub&gt;</em> =
 <p><strong>Source:</strong>
 /usr/local/cvs/OpenSees/SRC/material/uniaxial/</p>
 <figure>
-<img src="SteelMPF.png"
+<img src="/OpenSeesRT/contrib/static/SteelMPF.png"
 title="Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)"
 width="500"
 alt="Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)" />
@@ -72,34 +72,34 @@ $R0 $cR1 $cR2 &lt;$a1 $a2 $a3 $a4&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$mattag</strong></p></td>
+<td><code class="parameter-table-variable">mattag</code></td>
 <td><p>Unique <em>uniaxialMaterial</em> tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fyp</strong></p></td>
+<td><code class="parameter-table-variable">fyp</code></td>
 <td><p>Yield strength in tension (positive loading direction)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fyn</strong></p></td>
+<td><code class="parameter-table-variable">fyn</code></td>
 <td><p>Yield strength in compression (negative loading
 direction)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E0</strong></p></td>
+<td><code class="parameter-table-variable">E0</code></td>
 <td><p>Initial tangent modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$bp</strong></p></td>
+<td><code class="parameter-table-variable">bp</code></td>
 <td><p>Strain hardening ratio in tension (positive loading
 direction)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$bn</strong></p></td>
+<td><code class="parameter-table-variable">bn</code></td>
 <td><p>Strain hardening ratio in compression (negative loading
 direction)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$R0</strong></p></td>
+<td><code class="parameter-table-variable">R0</code></td>
 <td><p>Initial value of the curvature parameter R (R0 = 20
 recommended)</p></td>
 </tr>
@@ -162,7 +162,7 @@ that includes strain reversals at strain values equal to one-half of the
 yield strain (i.e., ε&lt;sub class="subscript"&gt;r&lt;/sub&gt; = ±0.001
 = ε&lt;sub class="subscript"&gt;y&lt;/sub&gt;/2).</p>
 <figure>
-<img src="SteelMPF_1.png"
+<img src="/OpenSeesRT/contrib/static/SteelMPF_1.png"
 title="Figure 2. Comparing the degradation of cyclic curvature in the pre-yielding region for Steel02 and SteelMPF"
 width="500"
 alt="Figure 2. Comparing the degradation of cyclic curvature in the pre-yielding region for Steel02 and SteelMPF" />
@@ -197,7 +197,7 @@ comparison between strain-stress relationships obtained using
 history that includes low-amplitude unloading followed by reloading is
 presented in Figure 3.</p>
 <figure>
-<img src="Steel_MPF_02.png"
+<img src="/OpenSeesRT/contrib/static/Steel_MPF_02.png"
 title="Figure 3. Comparing the stress overshooting upon reloading from low-amplitude unloading for Steel02 and SteelMPF"
 width="500"
 alt="Figure 3. Comparing the stress overshooting upon reloading from low-amplitude unloading for Steel02 and SteelMPF" />

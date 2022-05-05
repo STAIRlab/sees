@@ -31,7 +31,7 @@ experimental results.</p>
 <p><strong>Source:</strong>
 /usr/local/cvs/OpenSees/SRC/element/MVLEM/</p>
 <figure>
-<img src="MVLEM.JPG"
+<img src="/OpenSeesRT/contrib/static/MVLEM.JPG"
 title="Figure 1. a) MVLEM Element, b) MVLEM Rotations and Displacements"
 width="700"
 alt="Figure 1. a) MVLEM Element, b) MVLEM Rotations and Displacements" />
@@ -53,11 +53,11 @@ Rotations and Displacements</figcaption>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>Unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Dens</strong></p></td>
+<td><code class="parameter-table-variable">Dens</code></td>
 <td><p>Wall density</p></td>
 </tr>
 <tr class="odd">
@@ -65,11 +65,11 @@ Rotations and Displacements</figcaption>
 <td><p>End node tags</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>Number of element macro-fibers</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>Location of center of rotation from the iNode, <em>c</em> = 0.4
 (recommended)</p></td>
 </tr>
@@ -191,7 +191,7 @@ were calibrated to match as tested material properties. Details about
 model calibration and experimental validation are provided by Orakcal
 (2004), and Orakcal and Wallace (2004).</p>
 <figure>
-<img src="MVLEM_E1.png"
+<img src="/OpenSeesRT/contrib/static/MVLEM_E1.png"
 title="Figure E1.1. Geometry and Discretization of Wall Specimen RW2"
 width="650"
 alt="Figure E1.1. Geometry and Discretization of Wall Specimen RW2" />
@@ -218,7 +218,7 @@ parameters</li>
 <strong>MVLEM</strong> model and measured during the experiment are
 shown on Figure E1.2.</p>
 <figure>
-<img src="MVLEM_E2.png"
+<img src="/OpenSeesRT/contrib/static/MVLEM_E2.png"
 title="Figure E1.2. Experimental and Analytical Load versus Flexural Deformation Relationships"
 width="450"
 alt="Figure E1.2. Experimental and Analytical Load versus Flexural Deformation Relationships" />
@@ -244,7 +244,7 @@ characteristics of the behavior predicted by the <strong>MVLEM</strong>
 vary slightly when <strong>SteelMPF</strong> versus
 <strong>Steel02</strong> is used.</p>
 <figure>
-<img src="MVLEM_E3.png"
+<img src="/OpenSeesRT/contrib/static/MVLEM_E3.png"
 title="Figure E1.3. Sensitivity of Analytical Results to Material Modeling Parameters of: a) Concrete, and b) Steel"
 width="700"
 alt="Figure E1.3. Sensitivity of Analytical Results to Material Modeling Parameters of: a) Concrete, and b) Steel" />
@@ -261,7 +261,7 @@ Responses are obtained using <strong>MVLEM</strong> recorders
 <em>Fiber_Strain</em>, <em>Fiber_Stress_Concrete</em>, and
 <em>Fiber_Stress_Steel</em>.</p>
 <figure>
-<img src="MVLEM_4.png"
+<img src="/OpenSeesRT/contrib/static/MVLEM_4.png"
 title="Figure E1.4. Analytical Strain Histories at Outermost and Central Wall Fibers"
 width="500"
 alt="Figure E1.4. Analytical Strain Histories at Outermost and Central Wall Fibers" />
@@ -269,7 +269,7 @@ alt="Figure E1.4. Analytical Strain Histories at Outermost and Central Wall Fibe
 at Outermost and Central Wall Fibers</figcaption>
 </figure>
 <figure>
-<img src="MVLEM_5.png"
+<img src="/OpenSeesRT/contrib/static/MVLEM_5.png"
 title="Figure E1.5. Analytically Predicted Stress-Strain Relationships at Wall Outermost Fiber: a) Concrete, b) Steel"
 width="700"
 alt="Figure E1.5. Analytically Predicted Stress-Strain Relationships at Wall Outermost Fiber: a) Concrete, b) Steel" />

@@ -9,37 +9,37 @@ uniaxialMaterial Concrete02 $matTag $fpc $epsc0 $fpcu
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fpc</strong></p></td>
+<td><code class="parameter-table-variable">fpc</code></td>
 <td><p>concrete compressive strength at 28 days (compression is
 negative)*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsc0</strong></p></td>
+<td><code class="parameter-table-variable">epsc0</code></td>
 <td><p>concrete strain at maximum strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fpcu</strong></p></td>
+<td><code class="parameter-table-variable">fpcu</code></td>
 <td><p>concrete crushing strength *</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsU</strong></p></td>
+<td><code class="parameter-table-variable">epsU</code></td>
 <td><p>concrete strain at crushing strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$lambda</strong></p></td>
+<td><code class="parameter-table-variable">lambda</code></td>
 <td><p>ratio between unloading slope at $epscu and initial
 slope</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ft</strong></p></td>
+<td><code class="parameter-table-variable">ft</code></td>
 <td><p>tensile strength</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Ets</strong></p></td>
+<td><code class="parameter-table-variable">Ets</code></td>
 <td><p>tension softening stiffness (absolute value) (slope of the linear
 tension softening branch)</p></td>
 </tr>
@@ -58,13 +58,13 @@ values.</li>
 Structures under Monotonic and Cycling Loads", PhD dissertation,
 University of California, Berkeley, 1994.</p>
 <figure>
-<img src="Concrete02.jpg" title="Concrete02.jpg" alt="Concrete02.jpg" />
+<img src="/OpenSeesRT/contrib/static/Concrete02.jpg" title="Concrete02.jpg" alt="Concrete02.jpg" />
 <figcaption aria-hidden="true">Concrete02.jpg</figcaption>
 </figure>
 <p>Comparison of Hysteretic Stress-Strain Relation for Concerete01
 versus Concrete02 materials.</p>
 <figure>
-<img src="Concrete02Hysteretic.jpg" title="Concrete02Hysteretic.jpg"
+<img src="/OpenSeesRT/contrib/static/Concrete02Hysteretic.jpg" title="Concrete02Hysteretic.jpg"
 alt="Concrete02Hysteretic.jpg" />
 <figcaption aria-hidden="true">Concrete02Hysteretic.jpg</figcaption>
 </figure>

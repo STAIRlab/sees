@@ -36,7 +36,7 @@ $massDens&gt; &lt;-iter $maxIters $tol&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -44,41 +44,41 @@ $massDens&gt; &lt;-iter $maxIters $tol&gt;</strong></p></td>
 <td><p>nodes at element ends I and J, respectively</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$secTagI</strong></p></td>
+<td><code class="parameter-table-variable">secTagI</code></td>
 <td><p>identifier for previously-defined section object at end
 I</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$LpI</strong></p></td>
+<td><code class="parameter-table-variable">LpI</code></td>
 <td><p>plastic hinge length at end I</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$secTagJ</strong></p></td>
+<td><code class="parameter-table-variable">secTagJ</code></td>
 <td><p>identifier for previously-defined section object at end
 J</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$LpJ</strong></p></td>
+<td><code class="parameter-table-variable">LpJ</code></td>
 <td><p>plastic hinge length at end J</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$secTagInterior</strong></p></td>
+<td><code class="parameter-table-variable">secTagInterior</code></td>
 <td><p>identifier for previously-defined section object on the element
 interior (DOES NOT HAVE TO BE ELASTIC, but can be any type of section,
 including fiber)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$transfTag</strong></p></td>
+<td><code class="parameter-table-variable">transfTag</code></td>
 <td><p>identifier for previously-defined
 coordinate-transformation</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$maxIters</strong></p></td>
+<td><code class="parameter-table-variable">maxIters</code></td>
 <td><p>maximum number of iterations to undertake to satisfy element
 compatibility (optional, default=1)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tol</strong></p></td>
+<td><code class="parameter-table-variable">tol</code></td>
 <td><p>tolerance for satisfaction of element compatibility (optional,
 default=10-16)</p></td>
 </tr>
@@ -157,28 +157,28 @@ two Gauss integration points of the element interior</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>Youngs modulus elastic portion</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$A</strong></p></td>
+<td><code class="parameter-table-variable">A</code></td>
 <td><p>Area for elastic portion</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Iz</strong></p></td>
+<td><code class="parameter-table-variable">Iz</code></td>
 <td><p>second moment of area for elastic portion about local z</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Iy</strong></p></td>
+<td><code class="parameter-table-variable">Iy</code></td>
 <td><p>second moment of area for elastic portion about local y</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$G</strong></p></td>
+<td><code class="parameter-table-variable">G</code></td>
 <td><p>torsional moment of inertia of cross section for elastic
 portion</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$J</strong></p></td>
+<td><code class="parameter-table-variable">J</code></td>
 <td><p>Shear Modulus of elastic portion.</p></td>
 </tr>
 </tbody>

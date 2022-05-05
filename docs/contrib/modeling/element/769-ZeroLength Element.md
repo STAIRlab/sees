@@ -17,7 +17,7 @@ $x1 $x2 $x3 $yp1 $yp2 $yp3&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -53,7 +53,7 @@ respectively;</p></td>
 lies in the local x-y plane for the element. (optional)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rFlag</strong></p></td>
+<td><code class="parameter-table-variable">rFlag</code></td>
 <td><p>optional, default = 0</p></td>
 </tr>
 <tr class="even">

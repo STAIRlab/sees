@@ -16,47 +16,47 @@ $tangent&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fcc</strong></p></td>
+<td><code class="parameter-table-variable">fcc</code></td>
 <td><p>concrete compressive strength</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fct</strong></p></td>
+<td><code class="parameter-table-variable">fct</code></td>
 <td><p>optional concrete tensile strength</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>optional Young modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ni</strong></p></td>
+<td><code class="parameter-table-variable">ni</code></td>
 <td><p>optional Poisson coefficient</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Gt</strong></p></td>
+<td><code class="parameter-table-variable">Gt</code></td>
 <td><p>optional tension fracture energy density</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Gc</strong></p></td>
+<td><code class="parameter-table-variable">Gc</code></td>
 <td><p>optional compression fracture energy density</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rho_bar</strong></p></td>
+<td><code class="parameter-table-variable">rho_bar</code></td>
 <td><p>ptional parameter of plastic volume change</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$H</strong></p></td>
+<td><code class="parameter-table-variable">H</code></td>
 <td><p>optional linear hardening parameter for plasticity</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$theta</strong></p></td>
+<td><code class="parameter-table-variable">theta</code></td>
 <td><p>optional ratio between isotropic and kinematic hardening</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tangent</strong></p></td>
+<td><code class="parameter-table-variable">tangent</code></td>
 <td><p>optional integer to choose the computational stiffness
 matrix</p></td>
 </tr>
@@ -69,40 +69,40 @@ matrix</p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$fcc</strong></p></td>
+<td><code class="parameter-table-variable">fcc</code></td>
 <td><p>negative real value (positive input is changed in sign
 automatically)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fct</strong></p></td>
+<td><code class="parameter-table-variable">fct</code></td>
 <td><p>positive real value (for concrete like materials is less than
 $fcc)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Gt</strong></p></td>
+<td><code class="parameter-table-variable">Gt</code></td>
 <td><p>positive real value (integral of the stress-strain envelope in
 tension)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Gc</strong></p></td>
+<td><code class="parameter-table-variable">Gc</code></td>
 <td><p>positive real value (integral of the stress-strain envelope after
 the peak in compression)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rhoBar</strong></p></td>
+<td><code class="parameter-table-variable">rhoBar</code></td>
 <td><p>positive real value 0=rhoBar&lt;sqrt(2/3)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$H</strong></p></td>
+<td><code class="parameter-table-variable">H</code></td>
 <td><p>positive real value (usually less than $E)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$theta</strong></p></td>
+<td><code class="parameter-table-variable">theta</code></td>
 <td><p>positive real value 0=$theta=1 (with: 0 hardening kinematic only
 and 1 hardening isotropic only</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tangent</strong></p></td>
+<td><code class="parameter-table-variable">tangent</code></td>
 <td><p>0: computational tangent; 1: damaged secant stiffness (hint: in
 case of strong nonlinearities use it with Krylov-Newton
 algorithm)</p></td>
@@ -114,11 +114,11 @@ parameters:</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$fct</strong></p></td>
+<td><code class="parameter-table-variable">fct</code></td>
 <td><p>= 0.1*abs(fcc)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>= 4750*sqrt(abs(fcc)) if abs(fcc)&lt;2000 because fcc is assumed
 in MPa (see ACI 318)</p>
 <p>= 57000*sqrt(abs(fcc)) if abs(fcc)&gt;2000 because fcc is assumed in
@@ -135,17 +135,17 @@ psi (see ACI 318)</p></td>
 Shah 1985)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Gc</strong></p></td>
+<td><code class="parameter-table-variable">Gc</code></td>
 <td><p>= 6250*fcc*fcc/E (from comparison with tests by Karsan and Jirsa
 1969)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rhoBar</strong></p></td>
+<td><code class="parameter-table-variable">rhoBar</code></td>
 <td><p>= 0.2 (from comparison with tests by Kupfer Hilsdorf Rusch
 1969)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$H</strong></p></td>
+<td><code class="parameter-table-variable">H</code></td>
 <td><p>= 0.25*E (from comparison with tests by Karsan and Jirsa 1969 and
 Gopalaratnam and Shah 1985)</p></td>
 </tr>
@@ -155,7 +155,7 @@ Gopalaratnam and Shah 1985)</p></td>
 Gopalaratnam and Shah 1985)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tangent</strong></p></td>
+<td><code class="parameter-table-variable">tangent</code></td>
 <td><p>= 0</p></td>
 </tr>
 </tbody>

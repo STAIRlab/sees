@@ -1,4 +1,4 @@
-# Hysteretic Material
+ # Hysteretic
 
 <p>This command is used to construct a uniaxial bilinear hysteretic
 material object with pinching of force and deformation, damage due to
@@ -17,7 +17,7 @@ $damage1 $damage2 &lt;$beta&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
@@ -51,12 +51,12 @@ the envelope in the negative direction</p></td>
 the envelope in the negative direction (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$pinchx</strong></p></td>
+<td><code class="parameter-table-variable">pinchx</code></td>
 <td><p>pinching factor for strain (or deformation) during
 reloading</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$pinchy</strong></p></td>
+<td><code class="parameter-table-variable">pinchy</code></td>
 <td><p>pinching factor for stress (or force) during reloading</p></td>
 </tr>
 <tr class="even">
@@ -68,7 +68,7 @@ reloading</p></td>
 <td><p>damage due to energy: D2(Eii/Eult)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$beta</strong></p></td>
+<td><code class="parameter-table-variable">beta</code></td>
 <td><p>power used to determine the degraded unloading stiffness based on
 ductility, mu-beta (optional, default=0.0)</p></td>
 </tr>
@@ -79,7 +79,7 @@ ductility, mu-beta (optional, default=0.0)</p></td>
 <figcaption aria-hidden="true">Hysteretic.gif</figcaption>
 </figure>
 <figure>
-<img src="Hysteretic2.png" title="Hysteretic2.png"
+<img src="/OpenSeesRT/contrib/static/Hysteretic2.png" title="Hysteretic2.png"
 alt="Hysteretic2.png" />
 <figcaption aria-hidden="true">Hysteretic2.png</figcaption>
 </figure>

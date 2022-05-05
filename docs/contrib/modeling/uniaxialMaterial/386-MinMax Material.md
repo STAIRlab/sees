@@ -1,4 +1,4 @@
-# MinMax Material
+ # MinMax
 
 <p>This command is used to construct a MinMax material object. This
 stress-strain behaviour for this material is provided by another
@@ -15,19 +15,19 @@ uniaxialMaterial MinMax $matTag $otherTag &lt;-min
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$otherTag</strong></p></td>
+<td><code class="parameter-table-variable">otherTag</code></td>
 <td><p>tag of the other material</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$minStrain</strong></p></td>
+<td><code class="parameter-table-variable">minStrain</code></td>
 <td><p>minimum value of strain. optional default = -1.0e16.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$maxStrain</strong></p></td>
+<td><code class="parameter-table-variable">maxStrain</code></td>
 <td><p>max value of strain. optional default = 1.0e16.</p></td>
 </tr>
 </tbody>

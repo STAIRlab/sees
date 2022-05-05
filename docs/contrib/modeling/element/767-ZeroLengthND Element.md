@@ -17,7 +17,7 @@ $yp3&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -25,11 +25,11 @@ $yp3&gt;</strong></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>tag associated with previously-defined ndMaterial object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$uniTag</strong></p></td>
+<td><code class="parameter-table-variable">uniTag</code></td>
 <td><p>ag associated with previously-defined UniaxialMaterial object
 which may be used to represent uncoupled behavior orthogonal to the
 plane of the NDmaterial response. SEE NOTES 2 and 3.</p></td>

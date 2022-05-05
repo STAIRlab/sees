@@ -13,15 +13,15 @@ $nDim</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique integer tag identifying nDMaterial object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nDMatTag</strong></p></td>
+<td><code class="parameter-table-variable">nDMatTag</code></td>
 <td><p>the tag of the associated nDMaterial object</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$nDim</strong></p></td>
+<td><code class="parameter-table-variable">nDim</code></td>
 <td><p>number of dimensions (2 for 2D, 3 for 3D)</p></td>
 </tr>
 </tbody>

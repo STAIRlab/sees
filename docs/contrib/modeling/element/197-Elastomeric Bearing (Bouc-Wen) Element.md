@@ -41,7 +41,7 @@ $m&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -49,11 +49,11 @@ $m&gt;</strong></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$kInit</strong></p></td>
+<td><code class="parameter-table-variable">kInit</code></td>
 <td><p>initial elastic stiffness in local shear direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$qd</strong></p></td>
+<td><code class="parameter-table-variable">qd</code></td>
 <td><p>characteristic strength</p></td>
 </tr>
 <tr class="odd">
@@ -66,20 +66,20 @@ $m&gt;</strong></p></td>
 component</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$mu</strong></p></td>
+<td><code class="parameter-table-variable">mu</code></td>
 <td><p>exponent of non-linear hardening component</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$eta</strong></p></td>
+<td><code class="parameter-table-variable">eta</code></td>
 <td><p>yielding exponent (sharpness of hysteresis loop corners) (default
 = 1.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$beta</strong></p></td>
+<td><code class="parameter-table-variable">beta</code></td>
 <td><p>first hysteretic shape parameter (default = 0.5)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$gamma</strong></p></td>
+<td><code class="parameter-table-variable">gamma</code></td>
 <td><p>second hysteretic shape parameter (default = 0.5)</p></td>
 </tr>
 <tr class="odd">
@@ -113,7 +113,7 @@ direction around local z-axis</p></td>
 (optional)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$sDratio</strong></p></td>
+<td><code class="parameter-table-variable">sDratio</code></td>
 <td><p>shear distance from iNode as a fraction of the element length
 (optional, default = 0.5)</p></td>
 </tr>
@@ -123,12 +123,12 @@ direction around local z-axis</p></td>
 no Rayleigh damping contribution)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>element mass (optional, default = 0.0)</p></td>
 </tr>
 </tbody>
 </table>
-<p><img src="ElastomericBearingBoucWenFig01.png"
+<p><img src="/OpenSeesRT/contrib/static/ElastomericBearingBoucWenFig01.png"
 title="ElastomericBearingBoucWenFig01.png" width="600"
 alt="ElastomericBearingBoucWenFig01.png" /> <img
 src="ElastomericBearingBoucWenFig02.png"

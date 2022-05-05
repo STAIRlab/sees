@@ -1,4 +1,4 @@
-# Pinching4 Material
+ # Pinching4
 
 <p>This command is used to construct a uniaxial material that represents
 a 'pinched' load-deformation response and exhibits degradation under
@@ -20,7 +20,7 @@ $gF3 $gF4 $gFLim $gE $dmgType</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
@@ -44,37 +44,37 @@ response envelope</p></td>
 response envelope</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rDispP</strong></p></td>
+<td><code class="parameter-table-variable">rDispP</code></td>
 <td><p>floating point value defining the ratio of the deformation at
 which reloading occurs to the maximum historic deformation
 demand</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fFoceP</strong></p></td>
+<td><code class="parameter-table-variable">fFoceP</code></td>
 <td><p>floating point value defining the ratio of the force at which
 reloading begins to force corresponding to the maximum historic
 deformation demand</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$uForceP</strong></p></td>
+<td><code class="parameter-table-variable">uForceP</code></td>
 <td><p>floating point value defining the ratio of strength developed
 upon unloading from negative load to the maximum strength developed
 under monotonic loading</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rDispN</strong></p></td>
+<td><code class="parameter-table-variable">rDispN</code></td>
 <td><p>floating point value defining the ratio of the deformation at
 which reloading occurs to the minimum historic deformation
 demand</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fFoceN</strong></p></td>
+<td><code class="parameter-table-variable">fFoceN</code></td>
 <td><p>floating point value defining the ratio of the force at which
 reloading begins to force corresponding to the minimum historic
 deformation demand</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$uForceN</strong></p></td>
+<td><code class="parameter-table-variable">uForceN</code></td>
 <td><p>floating point value defining the ratio of strength developed
 upon unloading from negative load to the minimum strength developed
 under monotonic loading</p></td>
@@ -95,14 +95,14 @@ reloading stiffness degradation</p></td>
 strength degradation</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$gE</strong></p></td>
+<td><code class="parameter-table-variable">gE</code></td>
 <td><p>floating point value used to define maximum energy dissipation
 under cyclic loading. Total energy dissipation capacity is defined as
 this factor multiplied by the energy dissipated under monotonic
 loading.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dmgType</strong></p></td>
+<td><code class="parameter-table-variable">dmgType</code></td>
 <td><p>string to indicate type of damage (option: "cycle",
 "energy")</p></td>
 </tr>
@@ -110,7 +110,7 @@ loading.</p></td>
 </table>
 <p>NOTES:</p>
 <figure>
-<img src="Piinching4.jpg" title="Piinching4.jpg" alt="Piinching4.jpg" />
+<img src="/OpenSeesRT/contrib/static/Piinching4.jpg" title="Piinching4.jpg" alt="Piinching4.jpg" />
 <figcaption aria-hidden="true">Piinching4.jpg</figcaption>
 </figure>
 <p>Damage Models:</p>

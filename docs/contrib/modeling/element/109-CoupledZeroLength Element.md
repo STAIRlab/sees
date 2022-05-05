@@ -16,7 +16,7 @@ element CoupledZeroLength $eleTag $iNode $jNode $dirn1
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -24,7 +24,7 @@ element CoupledZeroLength $eleTag $iNode $jNode $dirn1
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>tags associated with previously-defined UniaxialMaterial</p></td>
 </tr>
 <tr class="even">
@@ -32,7 +32,7 @@ element CoupledZeroLength $eleTag $iNode $jNode $dirn1
 <td><p>the two directions, 1 through ndof.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rFlag</strong></p></td>
+<td><code class="parameter-table-variable">rFlag</code></td>
 <td><p>optional, default = 0</p></td>
 </tr>
 <tr class="even">

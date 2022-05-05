@@ -11,27 +11,27 @@ uniaxialMaterial ElasticPPGap $matTag $E $Fy $gap
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>tangent</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Fy</strong></p></td>
+<td><code class="parameter-table-variable">Fy</code></td>
 <td><p>stress or force at which material reaches plastic state</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$gap</strong></p></td>
+<td><code class="parameter-table-variable">gap</code></td>
 <td><p>initial gap (strain or deformation)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$eta</strong></p></td>
+<td><code class="parameter-table-variable">eta</code></td>
 <td><p>hardening ratio (=Eh/E), which can be negative</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$damage</strong></p></td>
+<td><code class="parameter-table-variable">damage</code></td>
 <td><p>an optional string to specify whether to accumulate damage or not
 in the material. With the default string, "noDamage" the gap material
 will re-center on load reversal. If the string "damage" is provided this
@@ -50,8 +50,8 @@ alt="ElasticPPGap.gif" />
 <figcaption aria-hidden="true">_ElasticPPGap.tcl</figcaption>
 </figure>
 <p>&lt;tcl&gt;ElasticPPGap.tcl&lt;/tcl&gt;</p>
-<p><img src="ElasticPPGapPlotA.png" title="ElasticPPGapPlotA.png"
-alt="ElasticPPGapPlotA.png" /> <img src="ElasticPPGapPlotB.png"
+<p><img src="/OpenSeesRT/contrib/static/ElasticPPGapPlotA.png" title="ElasticPPGapPlotA.png"
+alt="ElasticPPGapPlotA.png" /> <img src="/OpenSeesRT/contrib/static/ElasticPPGapPlotB.png"
 title="ElasticPPGapPlotB.png" alt="ElasticPPGapPlotB.png" /></p>
 <hr />
 <p>Code Developed by: <span style="color:blue"> Kevin Mackie,

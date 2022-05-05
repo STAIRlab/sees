@@ -1,4 +1,4 @@
-# BWBN Material
+ # BWBN
 
 <p>This command is used to construct a uniaxial Bouc-Wen pinching
 hysteretic material object. This material model is an extension of the
@@ -13,20 +13,20 @@ uniaxialMaterial BWBN $matTag $alpha $ko $n $gamma $beta
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>ratio of post-yield stiffness to the initial elastic stiffenss
 (0&lt; &lt;math&gt;\alpha&lt;/math&gt; &lt;1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ko</strong></p></td>
+<td><code class="parameter-table-variable">ko</code></td>
 <td><p>initial elastic stiffness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$n</strong></p></td>
+<td><code class="parameter-table-variable">n</code></td>
 <td><p>parameter that controls transition from linear to nonlinear range
 (as n increases the transition becomes sharper; n is usually grater or
 equal to 1)</p></td>
@@ -41,7 +41,7 @@ href="http://opensees.berkeley.edu/wiki/index.php/BoucWen_Material">BoucWen
 Material</a>)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Ao</strong></p></td>
+<td><code class="parameter-table-variable">Ao</code></td>
 <td><p>parameter that controls tangent stiffness</p></td>
 </tr>
 <tr class="odd">
@@ -49,11 +49,11 @@ Material</a>)</p></td>
 <td><p>parameters that control pinching</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tol</strong></p></td>
+<td><code class="parameter-table-variable">tol</code></td>
 <td><p>tolerance</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$maxIter</strong></p></td>
+<td><code class="parameter-table-variable">maxIter</code></td>
 <td><p>maximum iterations</p></td>
 </tr>
 </tbody>

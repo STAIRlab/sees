@@ -1,4 +1,4 @@
-# PressureIndependMultiYield Material
+ # PressureIndependMultiYield
 
 <p><strong>PressureIndependMultiYield</strong> material is an
 elastic-plastic material in which plasticity exhibits only in the
@@ -68,23 +68,23 @@ $refPress=100. $pressDependCoe=0. $noYieldSurf=20 &lt;$r1 $Gs1 …&gt;
 </table>
 <hr />
 <figure>
-<img src="PreDep_ss.png" title="PreDep_ss.png" alt="PreDep_ss.png" />
+<img src="/OpenSeesRT/contrib/static/PreDep_ss.png" title="PreDep_ss.png" alt="PreDep_ss.png" />
 <figcaption aria-hidden="true">PreDep_ss.png</figcaption>
 </figure>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$tag</strong></p></td>
+<td><code class="parameter-table-variable">tag</code></td>
 <td><p>A positive integer uniquely identifying the material among all
 nDMaterials.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nd</strong></p></td>
+<td><code class="parameter-table-variable">nd</code></td>
 <td><p>Number of dimensions, 2 for plane-strain, and 3 for 3D
 analysis.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>Saturated soil mass density.</p></td>
 </tr>
 <tr class="even">
@@ -135,7 +135,7 @@ alt="PreDep_pressDepCoe.png‎" />
 <p><strong>If &amp;Phi;=0, d is reset to 0.0.</strong></p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$noYieldSurf</strong></p></td>
+<td><code class="parameter-table-variable">noYieldSurf</code></td>
 <td><p>Number of yield surfaces, optional (must be less than 40, default
 is 20). The surfaces are generated based on the hyperbolic relation
 defined in Note 2 below.</p></td>

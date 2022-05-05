@@ -13,15 +13,15 @@ element zeroLengtContactNTS2D $eleTag -cNdNum $cNdNum
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cNdNum</strong></p></td>
+<td><code class="parameter-table-variable">cNdNum</code></td>
 <td><p>Number of Constrained Nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rNdNum</strong></p></td>
+<td><code class="parameter-table-variable">rNdNum</code></td>
 <td><p>Number of Retained nodes</p></td>
 </tr>
 <tr class="even">
@@ -29,15 +29,15 @@ element zeroLengtContactNTS2D $eleTag -cNdNum $cNdNum
 <td><p>Constrained and Retained node tags respectively</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Kn</strong></p></td>
+<td><code class="parameter-table-variable">Kn</code></td>
 <td><p>Penalty in normal direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Kt</strong></p></td>
+<td><code class="parameter-table-variable">Kt</code></td>
 <td><p>Penalty in tangential direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$phi</strong></p></td>
+<td><code class="parameter-table-variable">phi</code></td>
 <td><p>Friction angle in degrees</p></td>
 </tr>
 </tbody>
@@ -62,7 +62,7 @@ will be calculated automatically at each step.</li>
 </ol>
 <p><strong>EXAMPLE:</strong></p>
 <figure>
-<img src="zeroLengthContactNTS2Drc.png"
+<img src="/OpenSeesRT/contrib/static/zeroLengthContactNTS2Drc.png"
 title="zeroLengthContactNTS2Drc.png"
 alt="zeroLengthContactNTS2Drc.png" />
 <figcaption aria-hidden="true">zeroLengthContactNTS2Drc.png</figcaption>
@@ -75,7 +75,7 @@ contact. The top element is in normal downward uniform force. The Tcl
 script of this example can be found <a
 href="ZeroLengthContactNTS2D_Example1" title="wikilink">here</a>.</p>
 <figure>
-<img src="ZeroLengthContactNTS2D_fig2.jpg"
+<img src="/OpenSeesRT/contrib/static/ZeroLengthContactNTS2D_fig2.jpg"
 title="ZeroLengthContactNTS2D_fig2.jpg"
 alt="ZeroLengthContactNTS2D_fig2.jpg" />
 <figcaption
@@ -88,7 +88,7 @@ was subjected to a linearly increasing displacement. The Tcl scripts for
 this example can be found <a href="ZeroLengthContactNTS2D_Example2"
 title="wikilink">here</a>.</p>
 <figure>
-<img src="zeroLengthContactNTS2D_fig3.jpg"
+<img src="/OpenSeesRT/contrib/static/zeroLengthContactNTS2D_fig3.jpg"
 title="zeroLengthContactNTS2D_fig3.jpg"
 alt="zeroLengthContactNTS2D_fig3.jpg" />
 <figcaption
@@ -96,7 +96,7 @@ aria-hidden="true">zeroLengthContactNTS2D_fig3.jpg</figcaption>
 </figure>
 <p>The following Figure shows the deflections of the two beams.</p>
 <figure>
-<img src="zeroLengthContactNTS2D_fig4.jpg"
+<img src="/OpenSeesRT/contrib/static/zeroLengthContactNTS2D_fig4.jpg"
 title="zeroLengthContactNTS2D_fig4.jpg"
 alt="zeroLengthContactNTS2D_fig4.jpg" />
 <figcaption

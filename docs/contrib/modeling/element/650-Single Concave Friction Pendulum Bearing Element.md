@@ -42,7 +42,7 @@ $tol&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -50,19 +50,19 @@ $tol&gt;</strong></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$frnMdlTag</strong></p></td>
+<td><code class="parameter-table-variable">frnMdlTag</code></td>
 <td><p>tag associated with previously-defined FrictionModel</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$R</strong></p></td>
+<td><code class="parameter-table-variable">R</code></td>
 <td><p>radius of concave sliding surface</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$h</strong></p></td>
+<td><code class="parameter-table-variable">h</code></td>
 <td><p>height of articulated slider</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$uy</strong></p></td>
+<td><code class="parameter-table-variable">uy</code></td>
 <td><p>yield displacement</p></td>
 </tr>
 <tr class="odd">
@@ -96,16 +96,16 @@ direction around local z-axis</p></td>
 (optional)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>element mass (optional, default = 0.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$maxIter</strong></p></td>
+<td><code class="parameter-table-variable">maxIter</code></td>
 <td><p>maximum number of iterations to undertake to satisfy element
 equilibrium (optional, default = 20)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tol</strong></p></td>
+<td><code class="parameter-table-variable">tol</code></td>
 <td><p>convergence tolerance to satisfy element equilibrium (optional,
 default = 1E-8)</p></td>
 </tr>

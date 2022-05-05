@@ -25,7 +25,7 @@ $tol $unit</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -33,71 +33,71 @@ $tol $unit</p>
 <td><p>End nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$MuRef</strong></p></td>
+<td><code class="parameter-table-variable">MuRef</code></td>
 <td><p>Reference coefficient of friction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$IsPressureDependent</strong></p></td>
+<td><code class="parameter-table-variable">IsPressureDependent</code></td>
 <td><p>1.0 if the coefficient of friction is a function of instantaneous
 axial pressure</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$pRef</strong></p></td>
+<td><code class="parameter-table-variable">pRef</code></td>
 <td><p>Reference axial pressure (the bearing pressure under static
 loads)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$IsTemperatureDependent</strong></p></td>
+<td><code class="parameter-table-variable">IsTemperatureDependent</code></td>
 <td><p>1.0 if the coefficient of friction is a function of instantaneous
 temperature at the sliding surface</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Diffusivity</strong></p></td>
+<td><code class="parameter-table-variable">Diffusivity</code></td>
 <td><p>Thermal diffusivity of steel</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Conductivity</strong></p></td>
+<td><code class="parameter-table-variable">Conductivity</code></td>
 <td><p>Thermal conductivity of steel</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$IsVelocityDependent</strong></p></td>
+<td><code class="parameter-table-variable">IsVelocityDependent</code></td>
 <td><p>1.0 if the coefficient of friction is a function of instantaneous
 velocity at the sliding surface</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rateParameter</strong></p></td>
+<td><code class="parameter-table-variable">rateParameter</code></td>
 <td><p>The exponent that determines the shape of the coefficient of
 friction vs. sliding velocity curve</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ReffectiveFP</strong></p></td>
+<td><code class="parameter-table-variable">ReffectiveFP</code></td>
 <td><p>Effective radius of curvature of the sliding surface of the
 FPbearing</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Radius_Contact</strong></p></td>
+<td><code class="parameter-table-variable">Radius_Contact</code></td>
 <td><p>Radius of contact area at the sliding surface</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$kInitial</strong></p></td>
+<td><code class="parameter-table-variable">kInitial</code></td>
 <td><p>Lateral stiffness of the sliding bearing before sliding
 begins</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$theMaterialA</strong></p></td>
+<td><code class="parameter-table-variable">theMaterialA</code></td>
 <td><p>Tag for the uniaxial material in the axial direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$theMaterialB</strong></p></td>
+<td><code class="parameter-table-variable">theMaterialB</code></td>
 <td><p>Tag for the uniaxial material in the torsional direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$theMaterialC</strong></p></td>
+<td><code class="parameter-table-variable">theMaterialC</code></td>
 <td><p>Tag for the uniaxial material for rocking about local Y
 axis</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$theMaterialD</strong></p></td>
+<td><code class="parameter-table-variable">theMaterialD</code></td>
 <td><p>Tag for the uniaxial material for rocking about local Z
 axis</p></td>
 </tr>
@@ -110,30 +110,30 @@ axis</p></td>
 <td><p>Vector components to define local Y axis</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$shearDist</strong></p></td>
+<td><code class="parameter-table-variable">shearDist</code></td>
 <td><p>Shear distance from iNode as a fraction of the length of the
 element</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$doRayleigh</strong></p></td>
+<td><code class="parameter-table-variable">doRayleigh</code></td>
 <td><p>To include Rayleigh damping from the bearing</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$mass</strong></p></td>
+<td><code class="parameter-table-variable">mass</code></td>
 <td><p>Element mass</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$iter</strong></p></td>
+<td><code class="parameter-table-variable">iter</code></td>
 <td><p>Maximum number of iterations to satisfy the equilibrium of
 element</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tol</strong></p></td>
+<td><code class="parameter-table-variable">tol</code></td>
 <td><p>Convergence tolerance to satisfy the equilibrium of the
 element</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$unit</strong></p></td>
+<td><code class="parameter-table-variable">unit</code></td>
 <td><p>Tag to identify the unit from the list below.</p></td>
 </tr>
 <tr class="even">

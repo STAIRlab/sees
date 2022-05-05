@@ -1,4 +1,4 @@
-# SelfCentering Material
+ # SelfCentering
 
 <p>This command is used to construct a uniaxial self-centering
 (flag-shaped) material object with optional non-recoverable slip
@@ -32,7 +32,7 @@ uniaxialMaterial SelfCentering $matTag $k1 $k2 $sigAct
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
@@ -44,38 +44,38 @@ uniaxialMaterial SelfCentering $matTag $k1 $k2 $sigAct
 <td><p>Post-Activation Stiffness (0&lt;$k2&lt;$k1)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sigAct</strong></p></td>
+<td><code class="parameter-table-variable">sigAct</code></td>
 <td><p>Forward Activation Stress/Force</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$beta</strong></p></td>
+<td><code class="parameter-table-variable">beta</code></td>
 <td><p>Ratio of Forward to Reverse Activation Stress/Force</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$epsSlip</strong></p></td>
+<td><code class="parameter-table-variable">epsSlip</code></td>
 <td><p>slip Strain/Deformation (if $epsSlip = 0, there will be no
 slippage)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsBear</strong></p></td>
+<td><code class="parameter-table-variable">epsBear</code></td>
 <td><p>Bearing Strain/Deformation (if $epsBear = 0, there will be no
 bearing)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rBear</strong></p></td>
+<td><code class="parameter-table-variable">rBear</code></td>
 <td><p>Ratio of Bearing Stiffness to Initial Stiffness $k1</p></td>
 </tr>
 </tbody>
 </table>
 <figure>
-<img src="SC1.png" title="SC1.png" alt="SC1.png" />
+<img src="/OpenSeesRT/contrib/static/SC1.png" title="SC1.png" alt="SC1.png" />
 <figcaption aria-hidden="true">SC1.png</figcaption>
 </figure>
-<p><img src="SC2.png" title="SC2.png" alt="SC2.png" /> <img
+<p><img src="/OpenSeesRT/contrib/static/SC2.png" title="SC2.png" alt="SC2.png" /> <img
 src="SC3.png" title="SC3.png" alt="SC3.png" /></p>
-<p><img src="SC4.png" title="SC4.png" alt="SC4.png" /> <img
+<p><img src="/OpenSeesRT/contrib/static/SC4.png" title="SC4.png" alt="SC4.png" /> <img
 src="SC5.png" title="SC5.png" alt="SC5.png" /></p>
-<p><img src="SC6.png" title="SC6.png" alt="SC6.png" /> <img
+<p><img src="/OpenSeesRT/contrib/static/SC6.png" title="SC6.png" alt="SC6.png" /> <img
 src="SC7.png" title="SC7.png" alt="SC7.png" /></p>
 <hr />
 <p>REFERENCES:</p>

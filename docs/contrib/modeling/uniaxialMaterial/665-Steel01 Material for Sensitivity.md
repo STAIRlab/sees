@@ -13,19 +13,19 @@ uniaxialMaterial Steel01 $matTag $sigmaY $E $b &lt;$a1
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique material object integer tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>initial tangent stiffness</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$sigmaY</strong></p></td>
+<td><code class="parameter-table-variable">sigmaY</code></td>
 <td><p>yield strength</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>strain-hardening ratio (ratio between post-yield tangent and
 initial elastic tangent stiffness)</p></td>
 </tr>

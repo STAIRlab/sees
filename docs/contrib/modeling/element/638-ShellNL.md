@@ -11,7 +11,7 @@ element ShellNL $eleTag $node1 $node2 ... $node9
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -21,7 +21,7 @@ firstly four corner nodes counter-clockwise, then mid-side nodes
 counter-clockwise and finally the central node.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$secTag</strong></p></td>
+<td><code class="parameter-table-variable">secTag</code></td>
 <td><p>tag associated with previously-defined SectionForceDeformation
 object. Currently must be either a PlateFiberSection, or
 ElasticMembranePlateSection</p></td>

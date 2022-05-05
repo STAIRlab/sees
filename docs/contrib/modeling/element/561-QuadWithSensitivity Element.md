@@ -20,7 +20,7 @@ $b2&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$tag</strong></p></td>
+<td><code class="parameter-table-variable">tag</code></td>
 <td><p>integer tag identifying an existing parameter.</p></td>
 </tr>
 <tr class="even">
@@ -29,28 +29,28 @@ $b2&gt;</strong></p></td>
 counter-clockwise order around the element).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$thick</strong></p></td>
+<td><code class="parameter-table-variable">thick</code></td>
 <td><p>element thickness (constant).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$type</strong></p></td>
+<td><code class="parameter-table-variable">type</code></td>
 <td><p>string representing material behavior. Valid options depend on
 the nDMaterial object and the corresponding available material
 formulations. The ‘type’ parameter can be either "PlaneStrain" or
 "PlaneStress".</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>tag associated with previously-defined NDMaterial
 object.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$pressure</strong></p></td>
+<td><code class="parameter-table-variable">pressure</code></td>
 <td><p>surface pressure (set temporarily equal to zero for DDM-based
 sensitivity analysis).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>element mass density (per unit volume) from which a lumped
 element mass matrix is computed (optional, default=0.0).</p></td>
 </tr>

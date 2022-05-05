@@ -111,6 +111,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/commands/380-Material%20Commands/</loc>
+         <lastmod>2022-05-05</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/134-Discovering%20OpenSees%20--%20Force-based%20Element%20vs.%20Displacement-based%20Element/</loc>
          <lastmod>2022-05-05</lastmod>
          <changefreq>daily</changefreq>
@@ -852,11 +857,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/367-Limit%20State%20Material/</loc>
-         <lastmod>2022-05-05</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/380-Material%20Commands/</loc>
          <lastmod>2022-05-05</lastmod>
          <changefreq>daily</changefreq>
     </url>

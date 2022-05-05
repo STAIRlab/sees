@@ -13,23 +13,23 @@ $t</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique integer tag identifying nDMaterial object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$mu</strong></p></td>
+<td><code class="parameter-table-variable">mu</code></td>
 <td><p>interface frictional coefficient</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$G</strong></p></td>
+<td><code class="parameter-table-variable">G</code></td>
 <td><p>interface stiffness parameter</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>interface cohesive intercept</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$t</strong></p></td>
+<td><code class="parameter-table-variable">t</code></td>
 <td><p>interface tensile strength</p></td>
 </tr>
 </tbody>

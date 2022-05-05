@@ -13,7 +13,7 @@ $b3&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique integer tag identifying element object</p></td>
 </tr>
 <tr class="even">
@@ -25,7 +25,7 @@ href="Standard_Brick_Element" title="wikilink"> stdBrick Element</a>)
 (-ndm 3 -ndf 3)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique integer tag associated with previously-defined nDMaterial
 object</p></td>
 </tr>

@@ -12,11 +12,11 @@ nDMaterial PlateFiber $matTag
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$threeDTag</strong></p></td>
+<td><code class="parameter-table-variable">threeDTag</code></td>
 <td><p>material tag for a previously-defined three-dimensional
 material</p></td>
 </tr>

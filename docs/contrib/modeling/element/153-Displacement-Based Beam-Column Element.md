@@ -27,7 +27,7 @@ of command may be used:</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -35,11 +35,11 @@ of command may be used:</p>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$numIntgrPts</strong></p></td>
+<td><code class="parameter-table-variable">numIntgrPts</code></td>
 <td><p>number of integration points along the element.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$secTag</strong></p></td>
+<td><code class="parameter-table-variable">secTag</code></td>
 <td><p>identifier for previously-defined section object</p></td>
 </tr>
 <tr class="odd">
@@ -48,12 +48,12 @@ of command may be used:</p>
 object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$transfTag</strong></p></td>
+<td><code class="parameter-table-variable">transfTag</code></td>
 <td><p>identifier for previously-defined coordinate-transformation
 (CrdTransf) object</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$massDens</strong></p></td>
+<td><code class="parameter-table-variable">massDens</code></td>
 <td><p>element mass density (per unit length), from which a lumped-mass
 matrix is formed (optional, default = 0.0)</p></td>
 </tr>
@@ -63,7 +63,7 @@ matrix is formed (optional, default = 0.0)</p></td>
 matrix)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$intType</strong></p></td>
+<td><code class="parameter-table-variable">intType</code></td>
 <td><p>numerical integration type, options are Lobotto, Legendre, Radau,
 NewtonCotes, Trapezoidal (optional, default = Legendre)</p></td>
 </tr>

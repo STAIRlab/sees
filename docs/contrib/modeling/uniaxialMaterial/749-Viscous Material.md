@@ -1,4 +1,4 @@
-# Viscous Material
+ # Viscous
 
 <p>This command is used to construct a uniaxial viscous material object.
 stress =C(strain-rate)^alpha</p>
@@ -11,15 +11,15 @@ uniaxialMaterial Viscous $matTag $C
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$C</strong></p></td>
+<td><code class="parameter-table-variable">C</code></td>
 <td><p>damping coeficient</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>power factor (=1 means linear damping)</p></td>
 </tr>
 </tbody>

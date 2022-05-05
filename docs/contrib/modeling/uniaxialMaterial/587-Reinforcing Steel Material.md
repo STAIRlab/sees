@@ -35,25 +35,25 @@ class="subscript"&gt;d&lt;/sub&gt; &gt; &lt; -IsoHard &lt;$a1
 <td></td>
 </tr>
 <tr class="even">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fy</strong></p></td>
+<td><code class="parameter-table-variable">fy</code></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fu</strong></p></td>
+<td><code class="parameter-table-variable">fu</code></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Es</strong></p></td>
+<td><code class="parameter-table-variable">Es</code></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Esh</strong></p></td>
+<td><code class="parameter-table-variable">Esh</code></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$esh</strong></p></td>
+<td><code class="parameter-table-variable">esh</code></td>
 </tr>
 <tr class="even">
-<td><p><strong>$eult</strong></p></td>
+<td><code class="parameter-table-variable">eult</code></td>
 </tr>
 <tr class="odd">
 <td><p><strong>-GABuck</strong></p></td>
@@ -64,16 +64,16 @@ class="subscript"&gt;d&lt;/sub&gt; &gt; &lt; -IsoHard &lt;$a1
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$lsr</strong></p></td>
+<td><code class="parameter-table-variable">lsr</code></td>
 <td><p>Slenderness Ratio (see Figure 2)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$beta</strong></p></td>
+<td><code class="parameter-table-variable">beta</code></td>
 <td><p>Amplification factor for the buckled stress strain curve. (see
 Figure 3)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$r</strong></p></td>
+<td><code class="parameter-table-variable">r</code></td>
 <td><p>Buckling reduction factor</p>
 <dl>
 <dt></dt>
@@ -102,7 +102,7 @@ curves
 </dl></td>
 </tr>
 <tr class="even">
-<td><p><strong>$gamma</strong></p></td>
+<td><code class="parameter-table-variable">gamma</code></td>
 <td><p>Buckling constant (see Figures 3 and 4)</p></td>
 </tr>
 </tbody>
@@ -120,11 +120,11 @@ curves
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$lsr</strong></p></td>
+<td><code class="parameter-table-variable">lsr</code></td>
 <td><p>Slenderness Ratio (see Figure 2)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>Adjustment Constant usually between 0.75 and 1.0</p>
 <dl>
 <dt></dt>
@@ -153,7 +153,7 @@ class="subscript"&gt;f&lt;/sub&gt;</strong></p></td>
 <td><p>Coffin-Manson constant C (see Figure 5)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>Coffin-Manson constant a (see Figure 5)</p></td>
 </tr>
 <tr class="odd">
@@ -181,7 +181,7 @@ class="subscript"&gt;d&lt;/sub&gt;</strong></p></td>
 <td><p>Hardening constant (default = 4.3)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$limit</strong></p></td>
+<td><code class="parameter-table-variable">limit</code></td>
 <td><p>Limit for the reduction of the yield plateau. % of original
 plateau length to remain (0.01 &lt; limit &lt; 1.0 )</p>
 <dl>
@@ -234,7 +234,7 @@ Dhakal and Maekawa(2002). The buckling and fatigue portions of this
 simulation are still being further enhanced and refined. Additional
 buckling and fatigue options should be available in the near future.</p>
 <figure>
-<img src="ReinfSteel2430.png" title="ReinfSteel2430.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2430.png" title="ReinfSteel2430.png"
 alt="ReinfSteel2430.png" />
 <figcaption aria-hidden="true">ReinfSteel2430.png</figcaption>
 </figure>
@@ -281,13 +281,13 @@ simplicity. The plastic strain due to the backbone curve is ignored so
 that a monotonically loaded sample can be calibrated to a monotonic test
 sample more easily.</p>
 <figure>
-<img src="ReinfSteel2431.png" title="ReinfSteel2431.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2431.png" title="ReinfSteel2431.png"
 alt="ReinfSteel2431.png" />
 <figcaption aria-hidden="true">ReinfSteel2431.png</figcaption>
 </figure>
 <p>Figure 2: Slenderness Defined</p>
 <figure>
-<img src="ReinfSteel2432.png" title="ReinfSteel2432.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2432.png" title="ReinfSteel2432.png"
 alt="ReinfSteel2432.png" />
 <figcaption aria-hidden="true">ReinfSteel2432.png</figcaption>
 </figure>
@@ -309,15 +309,15 @@ g of 0.0 will factor to the zero stress axis. This will usually produce
 a kink in the reloading curve at the zero stress location. Good results
 have been obtained using the following values for the buckling
 constants.</p>
-<p><img src="ReinfSteel2433.png" title="ReinfSteel2433.png"
-alt="ReinfSteel2433.png" /> or <img src="ReinfSteel2434.png"
+<p><img src="/OpenSeesRT/contrib/static/ReinfSteel2433.png" title="ReinfSteel2433.png"
+alt="ReinfSteel2433.png" /> or <img src="/OpenSeesRT/contrib/static/ReinfSteel2434.png"
 title="ReinfSteel2434.png" alt="ReinfSteel2434.png" /></p>
 <p>Figure 4 displays the buckling behavior due to the variation of the
 different constants. The response shown on the upper left is the
 unbuckled case. In each of the other cases, buckling behavior is defined
 by the constants shown.</p>
 <figure>
-<img src="ReinfSteel2435.png" title="ReinfSteel2435.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2435.png" title="ReinfSteel2435.png"
 alt="ReinfSteel2435.png" />
 <figcaption aria-hidden="true">ReinfSteel2435.png</figcaption>
 </figure>
@@ -334,7 +334,7 @@ since the material model does include strain hardening a=1.0 has been
 assumed as the default value. Figure 5 shows the unbuckled vs buckled
 stress strain response curves.</p>
 <figure>
-<img src="ReinfSteel2436.png" title="ReinfSteel2436.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2436.png" title="ReinfSteel2436.png"
 alt="ReinfSteel2436.png" />
 <figcaption aria-hidden="true">ReinfSteel2436.png</figcaption>
 </figure>
@@ -348,19 +348,19 @@ amplitude,, is shown in Figure 6b as the change in strain from reversal
 A to reversal B. C&lt;sub class="subscript"&gt;f&lt;/sub&gt; and a are
 used to define a cumulative damage factor, D, as described in Equation
 2.</p>
-<p><img src="ReinfSteel2438.png" title="ReinfSteel2438.png"
-alt="ReinfSteel2438.png" /><img src="ReinfSteel2439.png"
+<p><img src="/OpenSeesRT/contrib/static/ReinfSteel2438.png" title="ReinfSteel2438.png"
+alt="ReinfSteel2438.png" /><img src="/OpenSeesRT/contrib/static/ReinfSteel2439.png"
 title="ReinfSteel2439.png" alt="ReinfSteel2439.png" /></p>
 <p>Figure 6a: Coffin-Manson Constants Figure 6b: Half Cycle Terms
 Defined</p>
-<p><img src="ReinfSteel2440.png" title="ReinfSteel2440.png"
-alt="ReinfSteel2440.png" /> (1) <img src="ReinfSteel2441.png"
+<p><img src="/OpenSeesRT/contrib/static/ReinfSteel2440.png" title="ReinfSteel2440.png"
+alt="ReinfSteel2440.png" /> (1) <img src="/OpenSeesRT/contrib/static/ReinfSteel2441.png"
 title="ReinfSteel2441.png" alt="ReinfSteel2441.png" /> (2)</p>
 <p>The cumulative damage factor is zero at no damage and 1.0 at
 fracture. Once a bar has been determined to have fractured, the strength
 is rapidly degraded to zero.</p>
 <figure>
-<img src="ReinfSteel2442.png" title="ReinfSteel2442.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2442.png" title="ReinfSteel2442.png"
 alt="ReinfSteel2442.png" />
 <figcaption aria-hidden="true">ReinfSteel2442.png</figcaption>
 </figure>
@@ -371,7 +371,7 @@ resulting in softening due to plastic reversals. The degradation is
 currently assumed to have a simple linear relationship with D. This is
 used to correlate strength degradation to the cumulative damage factor.
 This linear relationship is shown in Equation 3.</p>
-<p><img src="ReinfSteel2443.png" title="ReinfSteel2443.png"
+<p><img src="/OpenSeesRT/contrib/static/ReinfSteel2443.png" title="ReinfSteel2443.png"
 alt="ReinfSteel2443.png" /> (3)</p>
 <p>Alternately this simple linear equation can be rewritten in a way
 that makes the strength degradation independent of the number of half
@@ -379,12 +379,12 @@ cycles to failure. Keeping the failure and degradation terms independent
 is convenient for calibration. Equation 3 is rewritten below utilizing
 the strength degradation constant C&lt;sub
 class="subscript"&gt;d&lt;/sub&gt;.</p>
-<p><img src="ReinfSteel2444.png" title="ReinfSteel2444.png"
+<p><img src="/OpenSeesRT/contrib/static/ReinfSteel2444.png" title="ReinfSteel2444.png"
 alt="ReinfSteel2444.png" /> (4)</p>
 <p>The constants K&lt;sub class="subscript"&gt;1&lt;/sub&gt;, and
 C&lt;sub class="subscript"&gt;d&lt;/sub&gt; can be related as shown in
 Equation 5.</p>
-<p><img src="ReinfSteel2445.png" title="ReinfSteel2445.png"
+<p><img src="/OpenSeesRT/contrib/static/ReinfSteel2445.png" title="ReinfSteel2445.png"
 alt="ReinfSteel2445.png" /> (5)</p>
 <p>Suggested starting values have been obtained from data reported by
 Brown and Kunnath (2000) for bars with a slenderness of 6. Keep in mind
@@ -410,7 +410,7 @@ will result in a lower reduction of strength for each cycle. The four
 charts shown in Figure 8 demonstrate the effect that some of the
 variables have on the cyclic response.</p>
 <figure>
-<img src="ReinfSteel2446.png" title="ReinfSteel2446.png"
+<img src="/OpenSeesRT/contrib/static/ReinfSteel2446.png" title="ReinfSteel2446.png"
 alt="ReinfSteel2446.png" />
 <figcaption aria-hidden="true">ReinfSteel2446.png</figcaption>
 </figure>

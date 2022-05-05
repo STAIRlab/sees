@@ -1,4 +1,4 @@
-# Steel4 Material
+ # Steel4
 
 <table>
 <tbody>
@@ -24,16 +24,16 @@ non-symmetric behavior.</p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique material object integer tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$f_y</strong></p></td>
+<td><code class="parameter-table-variable">f_y</code></td>
 <td><p>yield strength (assumed identical in tension and
 compression)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$E_0</strong></p></td>
+<td><code class="parameter-table-variable">E_0</code></td>
 <td><p>initial stiffness (Young's modulus)</p></td>
 </tr>
 <tr class="even">
@@ -57,7 +57,7 @@ compression)</p></td>
 <td><p>colspan = "2" style="text-align: justify" | Kinematic hardening
 is based on the Menegotto-Pinto model. The parameters and their use is
 identical to those of the Steel02 material.</p></td>
-<td><p>rowspan = "7" | <img src="Steel4_param_kin.png"
+<td><p>rowspan = "7" | <img src="/OpenSeesRT/contrib/static/Steel4_param_kin.png"
 title="Steel4_param_kin.png" width="400"
 alt="Steel4_param_kin.png" /></p></td>
 </tr>
@@ -66,11 +66,11 @@ alt="Steel4_param_kin.png" /></p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$b_k</strong></p></td>
+<td><code class="parameter-table-variable">b_k</code></td>
 <td><p>hardening ratio (E_k/E_0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$R_0</strong></p></td>
+<td><code class="parameter-table-variable">R_0</code></td>
 <td><p>control the exponential transition from linear elastic to
 hardening asymptote recommended values: <em>$R_0 = 20 $r_1 = 0.90 $r_2 =
 0.15</em></p></td>
@@ -106,7 +106,7 @@ hardening asymptote recommended values: <em>$R_0 = 20 $r_1 = 0.90 $r_2 =
 increases the yield strength of the material. The applied increase is
 calculated as a function of the accumulated plastic strain. The
 following parameters control that function.</p></td>
-<td><p>rowspan = "9" | <img src="Steel4_param_iso.png"
+<td><p>rowspan = "9" | <img src="/OpenSeesRT/contrib/static/Steel4_param_iso.png"
 title="Steel4_param_iso.png" width="400"
 alt="Steel4_param_iso.png" /></p></td>
 </tr>
@@ -115,7 +115,7 @@ alt="Steel4_param_iso.png" /></p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$b_i</strong></p></td>
+<td><code class="parameter-table-variable">b_i</code></td>
 <td><p>initial hardening ratio (E_i/E_0)</p></td>
 </tr>
 <tr class="even">
@@ -123,21 +123,21 @@ alt="Steel4_param_iso.png" /></p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$b_l</strong></p></td>
+<td><code class="parameter-table-variable">b_l</code></td>
 <td><p>saturated hardening ratio (E_is/E_0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rho_i</strong></p></td>
+<td><code class="parameter-table-variable">rho_i</code></td>
 <td><p>specifies the position of the intersection point between initial
 and saturated hardening asymptotes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$R_i</strong></p></td>
+<td><code class="parameter-table-variable">R_i</code></td>
 <td><p>control the exponential transition from initial to saturated
 asymptote</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$l_yp</strong></p></td>
+<td><code class="parameter-table-variable">l_yp</code></td>
 <td><p>length of the yield plateau in eps_y0 = f_y / E_0 units</p></td>
 </tr>
 <tr class="odd">
@@ -164,7 +164,7 @@ limit serves as an upper limit of material resistance. After the limit
 is reached the material behaves in a perfectly plastic manner.
 Exponential transition is provided from the kinematic hardening to the
 perfectly plastic asymptote.</p></td>
-<td><p>rowspan = "6" | <img src="Steel4_param_ult.png"
+<td><p>rowspan = "6" | <img src="/OpenSeesRT/contrib/static/Steel4_param_ult.png"
 title="Steel4_param_ult.png" width="400"
 alt="Steel4_param_ult.png" /></p></td>
 </tr>
@@ -180,11 +180,11 @@ instantaneous.</p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p><strong>$f_u</strong></p></td>
+<td><code class="parameter-table-variable">f_u</code></td>
 <td><p>ultimate strength</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$R_u</strong></p></td>
+<td><code class="parameter-table-variable">R_u</code></td>
 <td><p>control the exponential transition from kinematic hardening to
 perfectly plastic asymptote</p></td>
 </tr>
@@ -214,7 +214,7 @@ parameters control behavior under tension. Additional parameters shall
 be specified to describe behavior under compression. The following
 parameters are expected after the normal parameters when the options
 below are used.</p></td>
-<td><p>rowspan = "6" | <img src="Steel4_param_asymk.png"
+<td><p>rowspan = "6" | <img src="/OpenSeesRT/contrib/static/Steel4_param_asymk.png"
 title="Steel4_param_asymk.png" width="400"
 alt="Steel4_param_asymk.png" /></p></td>
 </tr>
@@ -265,7 +265,7 @@ alt="Steel4_param_asymk.png" /></p></td>
 assumed at 0 strain at the beginning of the loading process. The
 absolute value of the initial stress is assumed to be less than the
 yield strength of the material.</p></td>
-<td><p>rowspan = "4" | <img src="Steel4_param_init.png"
+<td><p>rowspan = "4" | <img src="/OpenSeesRT/contrib/static/Steel4_param_init.png"
 title="Steel4_param_init.png" width="400"
 alt="Steel4_param_init.png" /></p></td>
 </tr>
@@ -274,7 +274,7 @@ alt="Steel4_param_init.png" /></p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$sig_init</strong></p></td>
+<td><code class="parameter-table-variable">sig_init</code></td>
 <td><p>initial stress value</p></td>
 </tr>
 <tr class="even">
@@ -301,7 +301,7 @@ memory is a database of preceding load cycles. It is updated at every
 load reversal point during the loading process. It is turned on by
 default. Turning it off will reduce the memory consumption of
 Steel4.</p></td>
-<td><p>rowspan = "8" | <img src="Steel4_param_mem.png"
+<td><p>rowspan = "8" | <img src="/OpenSeesRT/contrib/static/Steel4_param_mem.png"
 title="Steel4_param_mem.png" width="400"
 alt="Steel4_param_mem.png" /></p></td>
 </tr>
@@ -328,7 +328,7 @@ the response that depend on preceding load cycles.</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cycNum</strong></p></td>
+<td><code class="parameter-table-variable">cycNum</code></td>
 <td><p>expected number of half-cycles during the loading
 process</p></td>
 </tr>

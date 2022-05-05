@@ -1,4 +1,4 @@
-# Parallel Material
+ # Parallel
 
 <p>This command is used to construct a parallel material object made up
 of an arbitrary number of previously-constructed UniaxialMaterial
@@ -12,7 +12,7 @@ uniaxialMaterial Parallel $matTag $tag1 $tag2 ...
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">

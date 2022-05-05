@@ -11,7 +11,7 @@ nDMaterial ElasticOrthotropic $matTag $Ex $Ey $Ez $vxy
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
@@ -28,7 +28,7 @@ and z)</p></td>
 <td><p>shear modulii</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>mass density, optional default = 0.0.</p></td>
 </tr>
 </tbody>

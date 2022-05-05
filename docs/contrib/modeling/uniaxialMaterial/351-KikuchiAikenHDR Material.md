@@ -1,4 +1,4 @@
-# KikuchiAikenHDR Material
+ # KikuchiAikenHDR
 
 <p>This command is used to construct a uniaxial KikuchiAikenHDR material
 object. This material model produces nonlinear hysteretic curves of high
@@ -12,19 +12,19 @@ uniaxialMaterial KikuchiAikenHDR $matTag $tp $ar $hr
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tp</strong></p></td>
+<td><code class="parameter-table-variable">tp</code></td>
 <td><p>rubber type (see note 1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ar</strong></p></td>
+<td><code class="parameter-table-variable">ar</code></td>
 <td><p>area of rubber <strong>[unit: m^2]</strong> (see note 2)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$hr</strong></p></td>
+<td><code class="parameter-table-variable">hr</code></td>
 <td><p>total thickness of rubber <strong>[unit: m]</strong> (see note
 2)</p></td>
 </tr>
@@ -92,7 +92,7 @@ $rs=0.2500, $rf=0.1989.</p>
 <p><a href="Media:KikuchiAikenHDR_sample.tcl"
 title="wikilink">KikuchiAikenHDR_sample.tcl</a></p>
 <figure>
-<img src="KikuchiAikenHDR_StressStrain.png"
+<img src="/OpenSeesRT/contrib/static/KikuchiAikenHDR_StressStrain.png"
 title="KikuchiAikenHDR_StressStrain.png" width="300"
 alt="KikuchiAikenHDR_StressStrain.png" />
 <figcaption

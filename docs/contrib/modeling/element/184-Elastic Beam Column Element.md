@@ -23,7 +23,7 @@ $J $Iy $Iz $transfTag &lt;-mass $massDens&gt;
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -31,36 +31,36 @@ $J $Iy $Iz $transfTag &lt;-mass $massDens&gt;
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$A</strong></p></td>
+<td><code class="parameter-table-variable">A</code></td>
 <td><p>cross-sectional area of element</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>Young's Modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$G</strong></p></td>
+<td><code class="parameter-table-variable">G</code></td>
 <td><p>Shear Modulus</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$J</strong></p></td>
+<td><code class="parameter-table-variable">J</code></td>
 <td><p>torsional moment of inertia of cross section</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Iz</strong></p></td>
+<td><code class="parameter-table-variable">Iz</code></td>
 <td><p>second moment of area about the local z-axis</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Iy</strong></p></td>
+<td><code class="parameter-table-variable">Iy</code></td>
 <td><p>second moment of area about the local y-axis</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$transfTag</strong></p></td>
+<td><code class="parameter-table-variable">transfTag</code></td>
 <td><p>identifier for previously-defined coordinate-transformation
 (CrdTransf) object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$massDens</strong></p></td>
+<td><code class="parameter-table-variable">massDens</code></td>
 <td><p>element mass per unit length (optional, default = 0.0)</p></td>
 </tr>
 <tr class="odd">

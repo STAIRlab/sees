@@ -17,7 +17,7 @@ $yp1 $yp2 $yp3&gt; &lt;-mass $m&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -25,16 +25,16 @@ $yp1 $yp2 $yp3&gt; &lt;-mass $m&gt;</strong></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$nSpring</strong></p></td>
+<td><code class="parameter-table-variable">nSpring</code></td>
 <td><p>number of springs</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>tag associated with previously-defined UniaxialMaterial
 object</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dsp</strong></p></td>
+<td><code class="parameter-table-variable">dsp</code></td>
 <td><p>minimum deformation to calculate equivalent coefficient (see note
 1)</p></td>
 </tr>
@@ -49,7 +49,7 @@ x-axis</p></td>
 lies in the local x-y plane for the element</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>element mass</p></td>
 </tr>
 </tbody>
@@ -66,7 +66,7 @@ equivalent coefficient.</p>
 an ElementRecorder object are 'globalForce', 'localForce', 'basicForce',
 'localDisplacement' and 'basicDeformation'.</p>
 <figure>
-<img src="MultipleShearSpring_Model.png"
+<img src="/OpenSeesRT/contrib/static/MultipleShearSpring_Model.png"
 title="MultipleShearSpring_Model.png" width="300"
 alt="MultipleShearSpring_Model.png" />
 <figcaption
@@ -81,13 +81,13 @@ href="Media:MultipleShearSpring_input_X.tcl"
 title="wikilink">MultipleShearSpring_input_X.tcl</a>, <a
 href="Media:MultipleShearSpring_input_Y.tcl"
 title="wikilink">MultipleShearSpring_input_Y.tcl</a></p>
-<p><img src="MultipleShearSpring_ForceDeformation_1y.png"
+<p><img src="/OpenSeesRT/contrib/static/MultipleShearSpring_ForceDeformation_1y.png"
 title="MultipleShearSpring_ForceDeformation_1y.png" width="250"
 alt="MultipleShearSpring_ForceDeformation_1y.png" />
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img
 src="MultipleShearSpring_path.png" title="MultipleShearSpring_path.png"
 width="250" alt="MultipleShearSpring_path.png" /></p>
-<p><img src="MultipleShearSpring_ForceDeformation_2y.png"
+<p><img src="/OpenSeesRT/contrib/static/MultipleShearSpring_ForceDeformation_2y.png"
 title="MultipleShearSpring_ForceDeformation_2y.png" width="250"
 alt="MultipleShearSpring_ForceDeformation_2y.png" />
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img

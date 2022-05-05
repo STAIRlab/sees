@@ -1,4 +1,4 @@
-# PressureDependMultiYield Material
+ # PressureDependMultiYield
 
 <p><strong>PressureDependMultiYield</strong> material is an
 elastic-plastic material for simulating the essential response
@@ -85,23 +85,23 @@ $cs2=0.02 $cs3=0.7 $pa=101 &lt;$c=0.3&gt;&gt;</strong></p></td>
 </table>
 <hr />
 <figure>
-<img src="PreDep_ss.png" title="PreDep_ss.png" alt="PreDep_ss.png" />
+<img src="/OpenSeesRT/contrib/static/PreDep_ss.png" title="PreDep_ss.png" alt="PreDep_ss.png" />
 <figcaption aria-hidden="true">PreDep_ss.png</figcaption>
 </figure>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$tag</strong></p></td>
+<td><code class="parameter-table-variable">tag</code></td>
 <td><p>A positive integer uniquely identifying the material among all
 nDMaterials.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nd</strong></p></td>
+<td><code class="parameter-table-variable">nd</code></td>
 <td><p>Number of dimensions, 2 for plane-strain, and 3 for 3D
 analysis.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>Saturated soil mass density.</p></td>
 </tr>
 <tr class="even">
@@ -156,7 +156,7 @@ alt="PreDep_pressDepCoe.png‎" />
 <td><p>Phase transformation angle, in degrees.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$contrac</strong></p></td>
+<td><code class="parameter-table-variable">contrac</code></td>
 <td><p>A non-negative constant defining the rate of shear-induced volume
 decrease (contraction) or pore pressure buildup. A larger value
 corresponds to faster contraction rate.</p></td>
@@ -187,7 +187,7 @@ assigned to denser sands. See the references listed at the end of this
 chapter for more information.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$noYieldSurf</strong></p></td>
+<td><code class="parameter-table-variable">noYieldSurf</code></td>
 <td><p>Number of yield surfaces, optional (must be less than 40, default
 is 20). The surfaces are generated based on the hyperbolic relation
 defined in Note 2 below.</p></td>
@@ -205,7 +205,7 @@ example, to define 10 surfaces: …
 <p>See Note 3 below for some important notes.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$e</strong></p></td>
+<td><code class="parameter-table-variable">e</code></td>
 <td><p>Initial void ratio, optional (default is 0.6).</p></td>
 </tr>
 <tr class="odd">
@@ -242,7 +242,7 @@ units). All four constants are optional (default values: cs1=0.9,
 cs2=0.02, cs3=0.7, p&lt;sub&gt;a&lt;/sub&gt; =101 kPa).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>Numerical constant (default value = 0.3 kPa)</p></td>
 </tr>
 </tbody>

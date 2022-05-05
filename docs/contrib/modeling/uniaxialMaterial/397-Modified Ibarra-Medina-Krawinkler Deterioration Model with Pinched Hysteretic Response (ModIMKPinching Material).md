@@ -23,138 +23,138 @@ $theta_u_Neg $D_Plus $D_Neg</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$K0</strong></p></td>
+<td><code class="parameter-table-variable">K0</code></td>
 <td><p>elastic stiffness</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$as_Plus</strong></p></td>
+<td><code class="parameter-table-variable">as_Plus</code></td>
 <td><p>strain hardening ratio for positive loading direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$as_Neg</strong></p></td>
+<td><code class="parameter-table-variable">as_Neg</code></td>
 <td><p>strain hardening ratio for negative loading direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$My_Plus</strong></p></td>
+<td><code class="parameter-table-variable">My_Plus</code></td>
 <td><p>effective yield strength for positive loading direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$My_Neg</strong></p></td>
+<td><code class="parameter-table-variable">My_Neg</code></td>
 <td><p>effective yield strength for negative loading direction (Must be
 defined as a negative value)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$FprPos</strong></p></td>
+<td><code class="parameter-table-variable">FprPos</code></td>
 <td><p>Ratio of the force at which reloading begins to force
 corresponding to the maximum historic deformation demand (positive
 loading direction)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$FprNeg</strong></p></td>
+<td><code class="parameter-table-variable">FprNeg</code></td>
 <td><p>Ratio of the force at which reloading begins to force
 corresponding to the absolute maximum historic deformation demand
 (negative loading direction)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$A_Pinch</strong></p></td>
+<td><code class="parameter-table-variable">A_Pinch</code></td>
 <td><p>Ratio of reloading stiffness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Lamda_S</strong></p></td>
+<td><code class="parameter-table-variable">Lamda_S</code></td>
 <td><p>Cyclic deterioration parameter for strength deterioration
 [E_t=Lamda_S*M_y, see Lignos and Krawinkler (2011); set Lamda_S = 0 to
 disable this mode of deterioration]</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Lamda_C</strong></p></td>
+<td><code class="parameter-table-variable">Lamda_C</code></td>
 <td><p>Cyclic deterioration parameter for post-capping strength
 deterioration [E_t=Lamda_C*M_y, see Lignos and Krawinkler (2011); set
 Lamda_C = 0 to disable this mode of deterioration]</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Lamda_A</strong></p></td>
+<td><code class="parameter-table-variable">Lamda_A</code></td>
 <td><p>Cyclic deterioration parameter for accelerated reloading
 stiffness deterioration [E_t=Lamda_A*M_y, see Lignos and Krawinkler
 (2011); set Lamda_A = 0 to disable this mode of deterioration]</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Lamda_K</strong></p></td>
+<td><code class="parameter-table-variable">Lamda_K</code></td>
 <td><p>Cyclic deterioration parameter for unloading stiffness
 deterioration [E_t=Lamda_K*M_y, see Lignos and Krawinkler (2011); set
 Lamda_K = 0 to disable this mode of deterioration]</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c_S</strong></p></td>
+<td><code class="parameter-table-variable">c_S</code></td>
 <td><p>rate of strength deterioration. The default value is
 1.0.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$c_C</strong></p></td>
+<td><code class="parameter-table-variable">c_C</code></td>
 <td><p>rate of post-capping strength deterioration. The default value is
 1.0.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c_A</strong></p></td>
+<td><code class="parameter-table-variable">c_A</code></td>
 <td><p>rate of accelerated reloading deterioration. The default value is
 1.0.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$c_K</strong></p></td>
+<td><code class="parameter-table-variable">c_K</code></td>
 <td><p>rate of unloading stiffness deterioration. The default value is
 1.0.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$theta_p_Plus</strong></p></td>
+<td><code class="parameter-table-variable">theta_p_Plus</code></td>
 <td><p>pre-capping rotation for positive loading direction (often noted
 as plastic rotation capacity)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$theta_p_Neg</strong></p></td>
+<td><code class="parameter-table-variable">theta_p_Neg</code></td>
 <td><p>pre-capping rotation for negative loading direction (often noted
 as plastic rotation capacity) (must be defined as a positive
 value)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$theta_pc_Plus</strong></p></td>
+<td><code class="parameter-table-variable">theta_pc_Plus</code></td>
 <td><p>post-capping rotation for positive loading direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$theta_pc_Neg</strong></p></td>
+<td><code class="parameter-table-variable">theta_pc_Neg</code></td>
 <td><p>post-capping rotation for negative loading direction (must be
 defined as a positive value)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Res_Pos</strong></p></td>
+<td><code class="parameter-table-variable">Res_Pos</code></td>
 <td><p>residual strength ratio for positive loading direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Res_Neg</strong></p></td>
+<td><code class="parameter-table-variable">Res_Neg</code></td>
 <td><p>residual strength ratio for negative loading direction (must be
 defined as a positive value)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$theta_u_Plus</strong></p></td>
+<td><code class="parameter-table-variable">theta_u_Plus</code></td>
 <td><p>ultimate rotation capacity for positive loading
 direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$theta_u_Neg</strong></p></td>
+<td><code class="parameter-table-variable">theta_u_Neg</code></td>
 <td><p>ultimate rotation capacity for negative loading direction (must
 be defined as a positive value)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$D_Plus</strong></p></td>
+<td><code class="parameter-table-variable">D_Plus</code></td>
 <td><p>rate of cyclic deterioration in the positive loading direction
 (this parameter is used to create assymetric hysteretic behavior for the
 case of a composite beam). For symmetric hysteretic response use
 1.0.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$D_Neg</strong></p></td>
+<td><code class="parameter-table-variable">D_Neg</code></td>
 <td><p>rate of cyclic deterioration in the negative loading direction
 (this parameter is used to create assymetric hysteretic behavior for the
 case of a composite beam). For symmetric hysteretic response use
@@ -167,7 +167,7 @@ case of a composite beam). For symmetric hysteretic response use
 </tbody>
 </table>
 <figure>
-<img src="ModIMKDefinitionFigure.png" title="ModIMKDefinitionFigure.png"
+<img src="/OpenSeesRT/contrib/static/ModIMKDefinitionFigure.png" title="ModIMKDefinitionFigure.png"
 width="700" alt="ModIMKDefinitionFigure.png" />
 <figcaption aria-hidden="true">ModIMKDefinitionFigure.png</figcaption>
 </figure>

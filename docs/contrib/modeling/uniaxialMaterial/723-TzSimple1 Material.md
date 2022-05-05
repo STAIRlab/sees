@@ -1,4 +1,4 @@
-# TzSimple1 Material
+ # TzSimple1
 
 <p>This command is used to construct a TzSimple1 uniaxial material
 object:</p>
@@ -11,18 +11,18 @@ uniaxialMaterial TzSimple1 $matTag $tzType $tult $z50
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$soilType</strong></p></td>
+<td><code class="parameter-table-variable">soilType</code></td>
 <td><p>soilType = 1 Backbone of t-z curve approximates Reese and O'Neill
 (1987).</p>
 <p>soilType = 2 Backbone of t-z curve approximates Mosher (1984)
 relation.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tult</strong></p></td>
+<td><code class="parameter-table-variable">tult</code></td>
 <td><p>Ultimate capacity of the t-z material. SEE NOTE 1.</p></td>
 </tr>
 <tr class="even">
@@ -31,7 +31,7 @@ relation.</p></td>
 loading.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>The viscous damping term (dashpot) on the far-field (elastic)
 component of the displacement rate (velocity). (optional Default = 0.0).
 See NOTE 2.</p></td>

@@ -17,7 +17,7 @@ $massDens&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -25,26 +25,26 @@ $massDens&gt;</strong></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$numIntgrPts</strong></p></td>
+<td><code class="parameter-table-variable">numIntgrPts</code></td>
 <td><p>number of integration points along the element.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$secTag</strong></p></td>
+<td><code class="parameter-table-variable">secTag</code></td>
 <td><p>identifier for previously-defined section object</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$transfTag</strong></p></td>
+<td><code class="parameter-table-variable">transfTag</code></td>
 <td><p>identifier for previously-defined coordinate-transformation
 (CrdTransf) object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cRot</strong></p></td>
+<td><code class="parameter-table-variable">cRot</code></td>
 <td><p>identifier for element center of rotation (or center of curvature
 distribution). Fraction of the height distance from bottom to the center
 of rotation (0 to 1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$massDens</strong></p></td>
+<td><code class="parameter-table-variable">massDens</code></td>
 <td><p>element mass density (per unit length), from which a lumped-mass
 matrix is formed (optional, default=0.0)</p></td>
 </tr>
@@ -136,7 +136,7 @@ to define the number of strips within each sub-section with the same
 thickness, which has to add up the same number of different fiber
 locations defined in the section (total number of strips).</p>
 <figure>
-<img src="BeamShearFlexure.png" title="BeamShearFlexure.png"
+<img src="/OpenSeesRT/contrib/static/BeamShearFlexure.png" title="BeamShearFlexure.png"
 alt="BeamShearFlexure.png" />
 <figcaption aria-hidden="true">BeamShearFlexure.png</figcaption>
 </figure>
@@ -190,7 +190,7 @@ fiber</a>...</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$sectTag</strong></p></td>
+<td><code class="parameter-table-variable">sectTag</code></td>
 <td><p>unique tag among FiberSections</p></td>
 </tr>
 <tr class="even">
@@ -274,21 +274,21 @@ Hfiber $yLoc $zLoc $A $matTag
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$yLoc</strong></p></td>
+<td><code class="parameter-table-variable">yLoc</code></td>
 <td><p>y coordinate of the fiber in the section (just for completeness,
 not required in calculations)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$zLoc</strong></p></td>
+<td><code class="parameter-table-variable">zLoc</code></td>
 <td><p>z coordinate of the fiber in the section (just for completeness,
 not required in calculations)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$A</strong></p></td>
+<td><code class="parameter-table-variable">A</code></td>
 <td><p>total steel area located inside the section</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>identifier for previously-defined material object</p></td>
 </tr>
 </tbody>

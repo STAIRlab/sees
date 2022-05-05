@@ -1,4 +1,4 @@
-# MultiLinear Material
+ # MultiLinear
 
 <p>This command is used to construct a uniaxial multilinear material
 object.</p>
@@ -11,7 +11,7 @@ uniaxialMaterial MultiLinear $matTag $u1 $f1 $u2 $f2 $u3
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
@@ -37,7 +37,7 @@ the envelope</p></td>
 </tbody>
 </table>
 <figure>
-<img src="MultiLinear_Material2.png" title="MultiLinear_Material2.png"
+<img src="/OpenSeesRT/contrib/static/MultiLinear_Material2.png" title="MultiLinear_Material2.png"
 alt="MultiLinear_Material2.png" />
 <figcaption aria-hidden="true">MultiLinear_Material2.png</figcaption>
 </figure>

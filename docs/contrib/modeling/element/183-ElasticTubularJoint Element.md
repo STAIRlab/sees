@@ -16,28 +16,28 @@ $Chord_Angle</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$Tag</strong></p></td>
+<td><code class="parameter-table-variable">Tag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode</strong></p></td>
+<td><code class="parameter-table-variable">iNode</code></td>
 <td><p>first end node- it is always located on the chord axis</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$jNode</strong></p></td>
+<td><code class="parameter-table-variable">jNode</code></td>
 <td><p>second end node - it is always located on the chord wall</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Brace_Diameter</strong></p></td>
+<td><code class="parameter-table-variable">Brace_Diameter</code></td>
 <td><p>outer diameter of brace</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Brace_Angle</strong></p></td>
+<td><code class="parameter-table-variable">Brace_Angle</code></td>
 <td><p>angle between brace and chord axis 0 &lt; Brace_Angle &lt;
 90</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>Young's Modulus</p></td>
 </tr>
 <tr class="odd">
@@ -45,11 +45,11 @@ $Chord_Angle</strong></p></td>
 <td><p>outer diameter of chord</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Chord_Thickness</strong></p></td>
+<td><code class="parameter-table-variable">Chord_Thickness</code></td>
 <td><p>thickness of chord</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Chord_Angle</strong></p></td>
+<td><code class="parameter-table-variable">Chord_Angle</code></td>
 <td><p>angle between chord axis and global x-axis 0 &lt; Chord_Angle
 &lt; 180</p></td>
 </tr>

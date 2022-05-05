@@ -11,19 +11,19 @@ uniaxialMaterial Elastic $matTag $E &lt;$eta&gt;
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>tangent</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$eta</strong></p></td>
+<td><code class="parameter-table-variable">eta</code></td>
 <td><p>damping tangent (optional, default=0.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Eneg</strong></p></td>
+<td><code class="parameter-table-variable">Eneg</code></td>
 <td><p>tangent in compression (optional, default=E)</p></td>
 </tr>
 </tbody>

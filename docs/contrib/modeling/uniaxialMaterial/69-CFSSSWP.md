@@ -23,71 +23,71 @@ $openingLength</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>Integer identifier used to tag the material model</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$height</strong></p></td>
+<td><code class="parameter-table-variable">height</code></td>
 <td><p>SWP’s height (mm)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$width</strong></p></td>
+<td><code class="parameter-table-variable">width</code></td>
 <td><p>SWP’s width (mm)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fuf</strong></p></td>
+<td><code class="parameter-table-variable">fuf</code></td>
 <td><p>Tensile strength of framing members (MPa)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fyf</strong></p></td>
+<td><code class="parameter-table-variable">fyf</code></td>
 <td><p>Yield strength of framing members (MPa)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tf</strong></p></td>
+<td><code class="parameter-table-variable">tf</code></td>
 <td><p>Framing thickness (mm)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Af</strong></p></td>
+<td><code class="parameter-table-variable">Af</code></td>
 <td><p>Framing cross section area (mm²)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fus</strong></p></td>
+<td><code class="parameter-table-variable">fus</code></td>
 <td><p>Tensile strength of steel sheet sheathing (MPa)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fys</strong></p></td>
+<td><code class="parameter-table-variable">fys</code></td>
 <td><p>Yield strength of steel sheet sheathing (MPa)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ts</strong></p></td>
+<td><code class="parameter-table-variable">ts</code></td>
 <td><p>Sheathing thickness (mm)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$np</strong></p></td>
+<td><code class="parameter-table-variable">np</code></td>
 <td><p>Sheathing number (one or two sides sheathed)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ds</strong></p></td>
+<td><code class="parameter-table-variable">ds</code></td>
 <td><p>Screws diameter (mm)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Vs</strong></p></td>
+<td><code class="parameter-table-variable">Vs</code></td>
 <td><p>Screws shear strength (N)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sc</strong></p></td>
+<td><code class="parameter-table-variable">sc</code></td>
 <td><p>Screw spacing on the SWP perimeter (mm)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dt</strong></p></td>
+<td><code class="parameter-table-variable">dt</code></td>
 <td><p>Anchor bolt’s diameter (mm)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$openingArea</strong></p></td>
+<td><code class="parameter-table-variable">openingArea</code></td>
 <td><p>Total area of openings (mm²)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$openingLength</strong></p></td>
+<td><code class="parameter-table-variable">openingLength</code></td>
 <td><p>Cumulative length of openings (mm)</p></td>
 </tr>
 <tr class="even">
@@ -120,11 +120,11 @@ associated to peak strength has not been reached yet. The stiffness
 deterioration of the proposed model is positively related to strength
 degraded degree, and is defined in a same way as the strength
 deterioration.</p>
-<p><img src="Model_parameters.jpg"
+<p><img src="/OpenSeesRT/contrib/static/Model_parameters.jpg"
 title="Fig. 1: Unloading-reloading paths of the proposed hysteresis model"
 width="400"
 alt="Fig. 1: Unloading-reloading paths of the proposed hysteresis model" />
-<img src="Deterioration.png"
+<img src="/OpenSeesRT/contrib/static/Deterioration.png"
 title="Fig. 2: Impact of hysteresis damage on shear strength-lateral displacement response"
 width="400"
 alt="Fig. 2: Impact of hysteresis damage on shear strength-lateral displacement response" /></p>
@@ -138,7 +138,7 @@ and the lateral stiffness and strength are derived directly from the
 zeroLength element. The CFS SWP details, as well as a schematic
 representation of the finite element model are illustrated in Fig.3.</p>
 <figure>
-<img src="SWP.jpg"
+<img src="/OpenSeesRT/contrib/static/SWP.jpg"
 title="Fig. 3: Cold-Formed Steel Shear Wall Panel details and equivalent OpenSees finite element model"
 width="700"
 alt="Fig. 3: Cold-Formed Steel Shear Wall Panel details and equivalent OpenSees finite element model" />

@@ -20,35 +20,35 @@ element zeroLengthContact3D $eleTag $cNode $rNode $Kn $Kt
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cNode</strong></p></td>
+<td><code class="parameter-table-variable">cNode</code></td>
 <td><p>Constrained node tag</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rNode</strong></p></td>
+<td><code class="parameter-table-variable">rNode</code></td>
 <td><p>Retained node tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Kn</strong></p></td>
+<td><code class="parameter-table-variable">Kn</code></td>
 <td><p>Penalty in normal direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Kt</strong></p></td>
+<td><code class="parameter-table-variable">Kt</code></td>
 <td><p>Penalty in tangential direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$mu</strong></p></td>
+<td><code class="parameter-table-variable">mu</code></td>
 <td><p>friction coefficient</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>cohesion (not available in 2D)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dir</strong></p></td>
+<td><code class="parameter-table-variable">dir</code></td>
 <td><p>Direction flag of the contact plane (3D), it can be:</p>
 <p>1 Out normal of the retained plane pointing to +X direction</p>
 <p>2 Out normal of the retained plane pointing to +Y direction</p>
@@ -57,7 +57,7 @@ element zeroLengthContact3D $eleTag $cNode $rNode $Kn $Kt
 </tbody>
 </table>
 <figure>
-<img src="ZeroLengthContact2.png" title="ZeroLengthContact2.png"
+<img src="/OpenSeesRT/contrib/static/ZeroLengthContact2.png" title="ZeroLengthContact2.png"
 alt="ZeroLengthContact2.png" />
 <figcaption aria-hidden="true">ZeroLengthContact2.png</figcaption>
 </figure>

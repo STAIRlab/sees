@@ -32,7 +32,7 @@ determine the directions of the springs.</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -40,12 +40,12 @@ determine the directions of the springs.</p>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTags</strong></p></td>
+<td><code class="parameter-table-variable">matTags</code></td>
 <td><p>tags associated with previously-defined UniaxialMaterial
 objects</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dirs</strong></p></td>
+<td><code class="parameter-table-variable">dirs</code></td>
 <td><p>material directions:</p></td>
 </tr>
 <tr class="odd">
@@ -69,7 +69,7 @@ rotation about local z axis</p></td>
 (optional)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Mratios</strong></p></td>
+<td><code class="parameter-table-variable">Mratios</code></td>
 <td><p>P-Delta moment contribution ratios, size of ratio vector is 2 for
 2D-case and 4 for 3D-case</p></td>
 </tr>
@@ -84,7 +84,7 @@ My_jNode &lt;= 1.0, Mz_iNode + Mz_jNode &lt;= 1.0.</p></td>
 (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sDratios</strong></p></td>
+<td><code class="parameter-table-variable">sDratios</code></td>
 <td><p>shear distances from iNode as a fraction of the element length,
 size of ratio vector is 1 for 2D-case and 2 for 3D-case</p></td>
 </tr>
@@ -99,13 +99,13 @@ size of ratio vector is 1 for 2D-case and 2 for 3D-case</p></td>
 no Rayleigh damping contribution)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>element mass (optional, default = 0.0)</p></td>
 </tr>
 </tbody>
 </table>
 <figure>
-<img src="TwoNodeLinkElement.png" title="TwoNodeLinkElement.png"
+<img src="/OpenSeesRT/contrib/static/TwoNodeLinkElement.png" title="TwoNodeLinkElement.png"
 alt="TwoNodeLinkElement.png" />
 <figcaption aria-hidden="true">TwoNodeLinkElement.png</figcaption>
 </figure>

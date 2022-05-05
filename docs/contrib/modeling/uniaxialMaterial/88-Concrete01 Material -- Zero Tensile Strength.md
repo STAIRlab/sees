@@ -13,24 +13,24 @@ uniaxialMaterial Concrete01 $matTag $fpc $epsc0 $fpcu
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fpc</strong></p></td>
+<td><code class="parameter-table-variable">fpc</code></td>
 <td><p>concrete compressive strength at 28 days (compression is
 negative)*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsc0</strong></p></td>
+<td><code class="parameter-table-variable">epsc0</code></td>
 <td><p>concrete strain at maximum strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fpcu</strong></p></td>
+<td><code class="parameter-table-variable">fpcu</code></td>
 <td><p>concrete crushing strength *</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsU</strong></p></td>
+<td><code class="parameter-table-variable">epsU</code></td>
 <td><p>concrete strain at crushing strength*</p></td>
 </tr>
 </tbody>
@@ -54,7 +54,7 @@ internally).</li>
 material with tag 1 reaches compressive strength of 4.0 at strain of
 0.002 and reaches ultimate strength of 0.0 at strain of 0.005.</p>
 <figure>
-<img src="Concrete01Hysteretic.jpg" title="Concrete01Hysteretic.jpg"
+<img src="/OpenSeesRT/contrib/static/Concrete01Hysteretic.jpg" title="Concrete01Hysteretic.jpg"
 alt="Concrete01Hysteretic.jpg" />
 <figcaption aria-hidden="true">Concrete01Hysteretic.jpg</figcaption>
 </figure>

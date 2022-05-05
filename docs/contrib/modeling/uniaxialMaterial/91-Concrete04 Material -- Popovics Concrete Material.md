@@ -13,40 +13,40 @@ uniaxialMaterial Concrete04 $matTag $fc $ec $ecu $Ec
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fc</strong></p></td>
+<td><code class="parameter-table-variable">fc</code></td>
 <td><p>floating point values defining concrete compressive strength at
 28 days (compression is negative)*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ec</strong></p></td>
+<td><code class="parameter-table-variable">ec</code></td>
 <td><p>floating point values defining concrete strain at maximum
 strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ecu</strong></p></td>
+<td><code class="parameter-table-variable">ecu</code></td>
 <td><p>floating point values defining concrete strain at crushing
 strength*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Ec</strong></p></td>
+<td><code class="parameter-table-variable">Ec</code></td>
 <td><p>floating point values defining initial stiffness**</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fct</strong></p></td>
+<td><code class="parameter-table-variable">fct</code></td>
 <td><p>floating point value defining the maximum tensile strength of
 concrete</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$et</strong></p></td>
+<td><code class="parameter-table-variable">et</code></td>
 <td><p>floating point value defining ultimate tensile strain of
 concrete</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$beta</strong></p></td>
+<td><code class="parameter-table-variable">beta</code></td>
 <td><p>loating point value defining the exponential curve parameter to
 define the residual stress (as a factor of $ft) at $etu</p></td>
 </tr>
@@ -71,12 +71,12 @@ unloading and reloading in tensile, the secant stiffness is used to
 define the path.</li>
 </ul>
 <figure>
-<img src="Concrete04A.png" title="Concrete04A.png"
+<img src="/OpenSeesRT/contrib/static/Concrete04A.png" title="Concrete04A.png"
 alt="Concrete04A.png" />
 <figcaption aria-hidden="true">Concrete04A.png</figcaption>
 </figure>
 <figure>
-<img src="Concrete0B.png" title="Concrete0B.png" alt="Concrete0B.png" />
+<img src="/OpenSeesRT/contrib/static/Concrete0B.png" title="Concrete0B.png" alt="Concrete0B.png" />
 <figcaption aria-hidden="true">Concrete0B.png</figcaption>
 </figure>
 <p>REFERENCES: Reference:</p>

@@ -21,7 +21,7 @@ $t=0&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -30,31 +30,31 @@ $t=0&gt;</strong></p></td>
 counter-clockwise order around the element</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$thick</strong></p></td>
+<td><code class="parameter-table-variable">thick</code></td>
 <td><p>Element thickness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>Tag of an NDMaterial object (previously defined) of which the
 element is composed</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$bulk</strong></p></td>
+<td><code class="parameter-table-variable">bulk</code></td>
 <td><p>Combined undrained bulk modulus Bc relating changes in pore
 pressure and volumetric strain, may be approximated by: where Bf is the
 bulk modulus of fluid phase (2.2x106 kPa for water), and n the initial
 porosity.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fmass</strong></p></td>
+<td><code class="parameter-table-variable">fmass</code></td>
 <td><p>Fluid mass density</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$PermX</strong></p></td>
+<td><code class="parameter-table-variable">PermX</code></td>
 <td><p>Permeability coefficient in X direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$PermY</strong></p></td>
+<td><code class="parameter-table-variable">PermY</code></td>
 <td><p>Permeability coefficient in Y direction</p></td>
 </tr>
 <tr class="odd">
@@ -63,7 +63,7 @@ porosity.</p></td>
 respectively (defaults are 0.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$t</strong></p></td>
+<td><code class="parameter-table-variable">t</code></td>
 <td><p>Optional uniform element normal traction, positive in tension
 (default is 0.0)</p></td>
 </tr>

@@ -11,27 +11,27 @@ uniaxialMaterial HyperbolicGapMaterial $matTag $Kmax $Kur
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Kmax</strong></p></td>
+<td><code class="parameter-table-variable">Kmax</code></td>
 <td><p>initial stiffness</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Kur</strong></p></td>
+<td><code class="parameter-table-variable">Kur</code></td>
 <td><p>unloading/reloading stiffness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Rf</strong></p></td>
+<td><code class="parameter-table-variable">Rf</code></td>
 <td><p>failure ratio</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Fult</strong></p></td>
+<td><code class="parameter-table-variable">Fult</code></td>
 <td><p>ultimate (maximum) passive resistance*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$gap</strong></p></td>
+<td><code class="parameter-table-variable">gap</code></td>
 <td><p>initial gap*</p></td>
 </tr>
 </tbody>
@@ -46,23 +46,23 @@ negative values.</li>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$Kmax</strong></p></td>
+<td><code class="parameter-table-variable">Kmax</code></td>
 <td><p>= 20300 kN/m of abutment width</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Kcur</strong></p></td>
+<td><code class="parameter-table-variable">Kcur</code></td>
 <td><p>= $Kmax</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Rf</strong></p></td>
+<td><code class="parameter-table-variable">Rf</code></td>
 <td><p>= 0.7</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Fult</strong></p></td>
+<td><code class="parameter-table-variable">Fult</code></td>
 <td><p>= -326 kN per meter of abutment width</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$gap</strong></p></td>
+<td><code class="parameter-table-variable">gap</code></td>
 <td><p>= -2.54 cm</p></td>
 </tr>
 </tbody>
@@ -90,12 +90,12 @@ $$F(x) = \frac{x}{\frac{1}{K_\text{max}} + R_f
 </dd>
 </dl>
 <figure>
-<img src="HyperbolicGapA.png" title="HyperbolicGapA.png"
+<img src="/OpenSeesRT/contrib/static/HyperbolicGapA.png" title="HyperbolicGapA.png"
 alt="HyperbolicGapA.png" />
 <figcaption aria-hidden="true">HyperbolicGapA.png</figcaption>
 </figure>
 <figure>
-<img src="HyperbolicGapB.png" title="HyperbolicGapB.png"
+<img src="/OpenSeesRT/contrib/static/HyperbolicGapB.png" title="HyperbolicGapB.png"
 alt="HyperbolicGapB.png" />
 <figcaption aria-hidden="true">HyperbolicGapB.png</figcaption>
 </figure>

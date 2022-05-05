@@ -1,7 +1,7 @@
 # FourNodeTetrahedron
 
 <figure>
-<img src="Tet.png" title="Tet.png" alt="Tet.png" />
+<img src="/OpenSeesRT/contrib/static/Tet.png" title="Tet.png" alt="Tet.png" />
 <figcaption aria-hidden="true">Tet.png</figcaption>
 </figure>
 <p>This command is used to construct a standard four-node tetrahedron
@@ -15,7 +15,7 @@ element FourNodeTetrahedron $eleTag $node1 $node2 $node3
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -25,7 +25,7 @@ element FourNodeTetrahedron $eleTag $node1 $node2 $node3
 the figure.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>tag of nDMaterial</p></td>
 </tr>
 <tr class="even">

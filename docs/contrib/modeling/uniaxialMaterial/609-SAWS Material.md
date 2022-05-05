@@ -1,4 +1,4 @@
-# SAWS Material
+ # SAWS
 
 <p>This file contains the class definition for SAWSMaterial.
 SAWSMaterial provides the implementation of a one-dimensional hysteretic
@@ -12,26 +12,26 @@ uniaxialMaterial SAWS $tag $F0 $FI $DU $S0 $R1 $R2 $R3
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$F0</strong></p></td>
+<td><code class="parameter-table-variable">F0</code></td>
 <td><p>Intercept strength of the shear wall spring element for the
 asymtotic line to the envelope curve F0 &gt; FI &gt; 0</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$FI</strong></p></td>
+<td><code class="parameter-table-variable">FI</code></td>
 <td><p>Intercept strength of the spring element for the pinching branch
 of the hysteretic curve. (FI &gt; 0).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$DU</strong></p></td>
+<td><code class="parameter-table-variable">DU</code></td>
 <td><p>Spring element displacement at ultimate load. (DU &gt;
 0).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$S0</strong></p></td>
+<td><code class="parameter-table-variable">S0</code></td>
 <td><p>Initial stiffness of the shear wall spring element (S0 &gt;
 0).</p></td>
 </tr>
@@ -57,12 +57,12 @@ envelope curve. The slope of this line is R3 S0. ( R3 1).</p></td>
 The slope of this line is R4 S0. ( R4 &gt; 0).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>Stiffness degradation parameter for the shear wall spring
 element. (ALPHA &gt; 0).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$beta</strong></p></td>
+<td><code class="parameter-table-variable">beta</code></td>
 <td><p>Stiffness degradation parameter for the spring element. (BETA
 &gt; 0).</p></td>
 </tr>
@@ -83,7 +83,7 @@ assumptions.</p>
 title="wikilink">Media:SAWSZeroLength.tcl</a></p>
 <h2 id="example_hysteresis">Example: Hysteresis</h2>
 <figure>
-<img src="TestHysteresis.jpg" title="TestHysteresis.jpg" width="700"
+<img src="/OpenSeesRT/contrib/static/TestHysteresis.jpg" title="TestHysteresis.jpg" width="700"
 alt="TestHysteresis.jpg" />
 <figcaption aria-hidden="true">TestHysteresis.jpg</figcaption>
 </figure>

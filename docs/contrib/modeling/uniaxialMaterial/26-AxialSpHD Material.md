@@ -1,4 +1,4 @@
-# AxialSpHD Material
+ # AxialSpHD
 
 <p>This command is used to construct a uniaxial AxialSpHD material
 object. This material model produces axial stress-strain curve of
@@ -12,11 +12,11 @@ uniaxialMaterial AxialSpHD $matTag $sce $fty $fcy
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sce</strong></p></td>
+<td><code class="parameter-table-variable">sce</code></td>
 <td><p>compressive modulus</p></td>
 </tr>
 <tr class="odd">
@@ -32,11 +32,11 @@ tensile yielding (<strong>$bty</strong>), tensile hardening
 (see note 1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fcr</strong></p></td>
+<td><code class="parameter-table-variable">fcr</code></td>
 <td><p>target point stress (see note 1)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ath</strong></p></td>
+<td><code class="parameter-table-variable">ath</code></td>
 <td><p>hardening strain ratio to yield strain (see note 1)</p></td>
 </tr>
 </tbody>
@@ -49,7 +49,7 @@ tensile yielding (<strong>$bty</strong>), tensile hardening
 <p>0.0 &lt;= <strong>$bcy</strong> &lt;= 1.0</p>
 <p><strong>$fcy</strong> &lt;= <strong>$fcr</strong> &lt;= 0.0</p>
 <p>1.0 &lt;= <strong>$ath</strong></p>
-<p><img src="AxialSpHD_note1.png" title="AxialSpHD_note1.png"
+<p><img src="/OpenSeesRT/contrib/static/AxialSpHD_note1.png" title="AxialSpHD_note1.png"
 width="250" alt="AxialSpHD_note1.png" />
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img
 src="AxialSpHD_note2.png" title="AxialSpHD_note2.png" width="250"
@@ -59,7 +59,7 @@ alt="AxialSpHD_note2.png" /></p>
 <p><a href="Media:AxialSpHD_sample.tcl"
 title="wikilink">AxialSpHD_sample.tcl</a></p>
 <figure>
-<img src="AxialSpHD_StressStrain.png" title="AxialSpHD_StressStrain.png"
+<img src="/OpenSeesRT/contrib/static/AxialSpHD_StressStrain.png" title="AxialSpHD_StressStrain.png"
 width="300" alt="AxialSpHD_StressStrain.png" />
 <figcaption aria-hidden="true">AxialSpHD_StressStrain.png</figcaption>
 </figure>

@@ -12,7 +12,7 @@ $p</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique integer tag identifying element object</p></td>
 </tr>
 <tr class="even">
@@ -21,7 +21,7 @@ $p</strong></p></td>
 order (-ndm 3 -ndf 3)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$p</strong></p></td>
+<td><code class="parameter-table-variable">p</code></td>
 <td><p>applied pressure loading normal to the surface, outward is
 positive, inward is negative</p></td>
 </tr>

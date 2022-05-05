@@ -1,4 +1,4 @@
-# SteelMP Material
+ # SteelMP
 
 <p>This command is used to construct a uniaxial Menegotto-Pinto steel
 material object.</p>
@@ -11,19 +11,19 @@ uniaxialMaterial SteelMP $matTag $sigmaY $E
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique material object integer tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sigmaY</strong></p></td>
+<td><code class="parameter-table-variable">sigmaY</code></td>
 <td><p>yield stress or force</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>initial tangent stiffness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>strain-hardening ratio (ratio between post-yield tangent and
 initial elastic tangent)</p></td>
 </tr>

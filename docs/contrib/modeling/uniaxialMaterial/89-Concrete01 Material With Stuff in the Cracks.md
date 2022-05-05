@@ -14,28 +14,28 @@ uniaxialMaterial Concrete01WithSITC $matTag $fpc $epsc0
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fpc</strong></p></td>
+<td><code class="parameter-table-variable">fpc</code></td>
 <td><p>concrete compressive strength at 28 days (compression is
 negative)*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsc0</strong></p></td>
+<td><code class="parameter-table-variable">epsc0</code></td>
 <td><p>concrete strain at maximum strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fpcu</strong></p></td>
+<td><code class="parameter-table-variable">fpcu</code></td>
 <td><p>concrete crushing strength *</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsU</strong></p></td>
+<td><code class="parameter-table-variable">epsU</code></td>
 <td><p>concrete strain at crushing strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$endStrainSITC</strong></p></td>
+<td><code class="parameter-table-variable">endStrainSITC</code></td>
 <td><p>optional, default = 0.03</p></td>
 </tr>
 </tbody>

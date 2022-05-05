@@ -1,22 +1,21 @@
-# AxialSp Material
+ # AxialSp
 
 <p>This command is used to construct a uniaxial AxialSp material object.
 This material model produces axial stress-strain curve of elastomeric
 bearings.</p>
 
 ```tcl
-uniaxialMaterial AxialSp $matTag $sce $fty $fcy &lt;$bte
-        $bty $bcy $fcr&gt;
+uniaxialMaterial AxialSp $matTag $sce $fty $fcy &lt;$bte $bty $bcy $fcr&gt;
 ```
 <hr />
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sce</strong></p></td>
+<td><code class="parameter-table-variable">sce</code></td>
 <td><p>compressive modulus</p></td>
 </tr>
 <tr class="odd">
@@ -31,7 +30,7 @@ tensile yielding (<strong>$bty</strong>) and compressive yielding
 (<strong>$bcy</strong>) (see note 1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fcr</strong></p></td>
+<td><code class="parameter-table-variable">fcr</code></td>
 <td><p>target point stress (see note 1)</p></td>
 </tr>
 </tbody>
@@ -43,7 +42,7 @@ tensile yielding (<strong>$bty</strong>) and compressive yielding
 1.0</p>
 <p>0.0 &lt;= <strong>$bcy</strong> &lt;= 1.0</p>
 <p><strong>$fcy</strong> &lt;= <strong>$fcr</strong> &lt;= 0.0</p>
-<p><img src="AxialSp_note1.png" title="AxialSp_note1.png" width="250"
+<p><img src="/OpenSeesRT/contrib/static/AxialSp_note1.png" title="AxialSp_note1.png" width="250"
 alt="AxialSp_note1.png" />
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img
 src="AxialSp_note2.png" title="AxialSp_note2.png" width="250"
@@ -53,7 +52,7 @@ alt="AxialSp_note2.png" /></p>
 <p><a href="Media:AxialSp_sample.tcl"
 title="wikilink">AxialSp_sample.tcl</a></p>
 <figure>
-<img src="AxialSp_StressStrain.png" title="AxialSp_StressStrain.png"
+<img src="/OpenSeesRT/contrib/static/AxialSp_StressStrain.png" title="AxialSp_StressStrain.png"
 width="300" alt="AxialSp_StressStrain.png" />
 <figcaption aria-hidden="true">AxialSp_StressStrain.png</figcaption>
 </figure>

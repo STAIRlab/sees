@@ -1,4 +1,4 @@
-# SmoothPSConcrete Material
+ # SmoothPSConcrete
 
 <p>This command is used to construct a uniaxial smoothed Popovics-Saenz
 concrete material object.</p>
@@ -11,33 +11,33 @@ uniaxialMaterial SmoothPSConcrete $matTag $fc $fu $Ec
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique material object integer tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fc</strong></p></td>
+<td><code class="parameter-table-variable">fc</code></td>
 <td><p>concrete compressive strength (positive for compression)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fu</strong></p></td>
+<td><code class="parameter-table-variable">fu</code></td>
 <td><p>concrete crushing strength (positive for compression</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Ec</strong></p></td>
+<td><code class="parameter-table-variable">Ec</code></td>
 <td><p>initial tangent stiffness</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsco</strong></p></td>
+<td><code class="parameter-table-variable">epsco</code></td>
 <td><p>concrete strain at maximum strength (positive for
 compression)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$epsu</strong></p></td>
+<td><code class="parameter-table-variable">epsu</code></td>
 <td><p>concrete strain at crushing strength (positive for
 compression)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$eta</strong></p></td>
+<td><code class="parameter-table-variable">eta</code></td>
 <td><p>smoothing parameter (default value = 0.2).</p></td>
 </tr>
 </tbody>

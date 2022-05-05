@@ -1,4 +1,4 @@
-# CastFuse Material
+ # CastFuse
 
 <p>This command is used to construct a CastFuse uniaxial material. The
 CastFuse material simulates the hysteretic response a cast yielding fuse
@@ -14,42 +14,42 @@ uniaxialMaterial Cast $matTag $n $bo $h $fy $E $L $b $Ro
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$n</strong></p></td>
+<td><code class="parameter-table-variable">n</code></td>
 <td><p>Number of yield fingers of the CSF-brace</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$bo</strong></p></td>
+<td><code class="parameter-table-variable">bo</code></td>
 <td><p>Width of an individual yielding finger at its base of the
 CSF-brace</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$h</strong></p></td>
+<td><code class="parameter-table-variable">h</code></td>
 <td><p>Thickness of an individual yielding finger</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fy</strong></p></td>
+<td><code class="parameter-table-variable">fy</code></td>
 <td><p>Yield strength of the steel material of the yielding
 finger</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>Modulus of elasticity of the steel material of the yielding
 finger</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$L</strong></p></td>
+<td><code class="parameter-table-variable">L</code></td>
 <td><p>Height of an individual yielding finger</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>Strain hardening ratio</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Ro</strong></p></td>
+<td><code class="parameter-table-variable">Ro</code></td>
 <td><p>Parameter that controls the Bauschinger effect. Recommended
 Values for $Ro=between 10 to 30</p></td>
 </tr>

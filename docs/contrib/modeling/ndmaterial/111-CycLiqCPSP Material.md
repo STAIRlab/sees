@@ -1,4 +1,4 @@
-# CycLiqCPSP Material
+ # CycLiqCPSP
 
 <p>This command is used to construct a multi-dimensional material object
 based on a unified plasticity model for large post-liquefaction shear
@@ -45,23 +45,23 @@ through:</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$G0</strong></p></td>
+<td><code class="parameter-table-variable">G0</code></td>
 <td><p>A constant related to elastic shear modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$kappa</strong></p></td>
+<td><code class="parameter-table-variable">kappa</code></td>
 <td><p>A constant related to elastic bulk modulus</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$h</strong></p></td>
+<td><code class="parameter-table-variable">h</code></td>
 <td><p>Model parameter for plastic modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$M</strong></p></td>
+<td><code class="parameter-table-variable">M</code></td>
 <td><p>Critical state stress ratio</p></td>
 </tr>
 <tr class="even">
@@ -73,45 +73,45 @@ through:</p>
 <td><p>Coefficient for reversible dilatancy release</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rdr</strong></p></td>
+<td><code class="parameter-table-variable">rdr</code></td>
 <td><p>Reference shear strain length</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>Parameter controlling the decrease rate of irreversible
 dilatancy</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dir</strong></p></td>
+<td><code class="parameter-table-variable">dir</code></td>
 <td><p>Coefficient for irreversible dilatancy potential</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$lambdac</strong></p></td>
+<td><code class="parameter-table-variable">lambdac</code></td>
 <td><p>Critical state constant</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ksi</strong></p></td>
+<td><code class="parameter-table-variable">ksi</code></td>
 <td><p>Critical state constant</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$e0</strong></p></td>
+<td><code class="parameter-table-variable">e0</code></td>
 <td><p>Void ratio at pc=0</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$np</strong></p></td>
+<td><code class="parameter-table-variable">np</code></td>
 <td><p>Material constant for peak mobilized stress ratio</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$nd</strong></p></td>
+<td><code class="parameter-table-variable">nd</code></td>
 <td><p>Material constant for reversible dilatancy generation stress
 ratio</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ein</strong></p></td>
+<td><code class="parameter-table-variable">ein</code></td>
 <td><p>Initial void ratio</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>Saturated mass density</p></td>
 </tr>
 </tbody>

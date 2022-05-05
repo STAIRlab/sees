@@ -23,22 +23,22 @@ $combinedBulkModul &lt;$pa=101&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$Tag</strong></p></td>
+<td><code class="parameter-table-variable">Tag</code></td>
 <td><p>A positive integer uniquely identifying the element among all
 elements</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nd</strong></p></td>
+<td><code class="parameter-table-variable">nd</code></td>
 <td><p>Number of dimensions, 2 for plane-strain, and 3 for general 3D
 analysis.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$soilMatTag</strong></p></td>
+<td><code class="parameter-table-variable">soilMatTag</code></td>
 <td><p>The material number for the solid phase material (previously
 defined).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$combinBulkModul</strong></p></td>
+<td><code class="parameter-table-variable">combinBulkModul</code></td>
 <td><p>Combined undrained bulk modulus B&lt;sub&gt;c&lt;/sub&gt;
 relating changes in pore pressure and volumetric strain, may be
 approximated by:</p>

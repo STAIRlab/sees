@@ -13,46 +13,46 @@ $bulkMod $OCR $mu_o $alpha $lambda $h $m</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$massDensity</strong></p></td>
+<td><code class="parameter-table-variable">massDensity</code></td>
 <td><p>mass density</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$C</strong></p></td>
+<td><code class="parameter-table-variable">C</code></td>
 <td><p>ellipsoidal axis ratio (defines shape of ellipsoidal
 loading/bounding surfaces)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$bulkMod</strong></p></td>
+<td><code class="parameter-table-variable">bulkMod</code></td>
 <td><p>initial bulk modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$OCR</strong></p></td>
+<td><code class="parameter-table-variable">OCR</code></td>
 <td><p>overconsolidation ratio</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$mu_o</strong></p></td>
+<td><code class="parameter-table-variable">mu_o</code></td>
 <td><p>initial shear modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>pressure-dependency parameter for modulii (greater than or equal
 to zero)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$lambda</strong></p></td>
+<td><code class="parameter-table-variable">lambda</code></td>
 <td><p>soil compressibility index for virgin loading</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$h</strong></p></td>
+<td><code class="parameter-table-variable">h</code></td>
 <td><p>hardening parameter for plastic response inside of bounding
 surface (if h = 0, no hardening)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>hardening parameter (exponent) for plastic response inside of
 bounding surface (if m = 0, only linear hardening)</p></td>
 </tr>

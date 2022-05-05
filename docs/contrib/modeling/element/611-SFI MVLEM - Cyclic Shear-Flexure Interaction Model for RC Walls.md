@@ -24,7 +24,7 @@ incorporates interaction between shear and flexural behavior at the
 <p><strong>Source:</strong>
 /usr/local/cvs/OpenSees/SRC/element/SFI_MVLEM/</p>
 <figure>
-<img src="SFI_MVLEM_1.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_1.png"
 title="Figure 1. a) SFI_MVLEM Element, b) RC Panel Element (nDMaterial FSAM)"
 width="650"
 alt="Figure 1. a) SFI_MVLEM Element, b) RC Panel Element (nDMaterial FSAM)" />
@@ -44,7 +44,7 @@ Panel Element (nDMaterial FSAM)</figcaption>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>Unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -52,11 +52,11 @@ Panel Element (nDMaterial FSAM)</figcaption>
 <td><p>End node tags</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>Number of element macro-fibers</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>Location of center of rotation with from the iNode, <em>c</em> =
 0.4 (recommended)</p></td>
 </tr>
@@ -153,7 +153,7 @@ found in paper by Tran and Wallace (2012), whereas details of model
 calibration are provided by Kolozvari (2013) and Kolozvari et al.
 (2015b).</p>
 <figure>
-<img src="Example2_1.png"
+<img src="/OpenSeesRT/contrib/static/Example2_1.png"
 title="Figure E1.1. Model discretization: a) Plan view, b) Cross-section"
 width="650"
 alt="Figure E1.1. Model discretization: a) Plan view, b) Cross-section" />
@@ -191,7 +191,7 @@ recorder, total shear displacement is obtained using <em>shearDef</em>
 element recorder and crack orientations are obtained using
 <em>RCPanel</em> and <em>cracking_angles</em> element recorders.</p>
 <figure>
-<img src="Example2_2.png"
+<img src="/OpenSeesRT/contrib/static/Example2_2.png"
 title="Figure E1.2. Wall responses: a) Load versus Top Displacement Behavior, b) Cracking Patterns"
 width="650"
 alt="Figure E1.2. Wall responses: a) Load versus Top Displacement Behavior, b) Cracking Patterns" />
@@ -199,7 +199,7 @@ alt="Figure E1.2. Wall responses: a) Load versus Top Displacement Behavior, b) C
 versus Top Displacement Behavior, b) Cracking Patterns</figcaption>
 </figure>
 <figure>
-<img src="Example2_3.png"
+<img src="/OpenSeesRT/contrib/static/Example2_3.png"
 title="Figure E1.3. Load versus Deformation Behavior for: a) Flexure, b) Shear"
 width="650"
 alt="Figure E1.3. Load versus Deformation Behavior for: a) Flexure, b) Shear" />
@@ -213,7 +213,7 @@ obtained from the analysis for the bottom wall model element. Responses
 are recorded using <em>globalForce</em>, <em>ShearDef</em>, and
 <em>Curvature</em> element recorders.</p>
 <figure>
-<img src="Example2_31.png"
+<img src="/OpenSeesRT/contrib/static/Example2_31.png"
 title="Figure E1.4. Model Element Responses: a) Shear Force vs. Total Deformation, b) Shear force vs. Flexural Deformation, c) Shear Force vs. Shear Deformation, d) Moment vs. Curvature"
 width="650"
 alt="Figure E1.4. Model Element Responses: a) Shear Force vs. Total Deformation, b) Shear force vs. Flexural Deformation, c) Shear Force vs. Shear Deformation, d) Moment vs. Curvature" />
@@ -235,7 +235,7 @@ horizontal and vertical steel reinforcement (Figure E1.7; element
 <em>RCPanel</em> recorders: <em>strain_stress_steelX</em> and
 <em>strain_stress_steelY</em>).</p>
 <figure>
-<img src="Example2_4.png"
+<img src="/OpenSeesRT/contrib/static/Example2_4.png"
 title="Figure E1.5. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear"
 width="650"
 alt="Figure E1.5. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear" />
@@ -244,7 +244,7 @@ Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c)
 Shear</figcaption>
 </figure>
 <figure>
-<img src="Example2_5.png"
+<img src="/OpenSeesRT/contrib/static/Example2_5.png"
 title="Figure E1.6. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) Strut 2"
 width="800"
 alt="Figure E1.6. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) Strut 2" />
@@ -252,7 +252,7 @@ alt="Figure E1.6. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) 
 Behavior for Concrete: a) Strut 1, b) Strut 2</figcaption>
 </figure>
 <figure>
-<img src="Example2_6.png"
+<img src="/OpenSeesRT/contrib/static/Example2_6.png"
 title="Figure E1.7. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)"
 width="800"
 alt="Figure E1.7. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)" />
@@ -293,7 +293,7 @@ Based on the structural design, cross-section dimensions of 12
 were adopted. Cross-sections of structural elements with the
 reinforcement detailing are provided in Figure E2.2.</p>
 <figure>
-<img src="SFI_MVLEM_E2_1.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_1.png"
 title="Figure E2.1. Building Views: a) Plan View, b) Frame Elevation, c) Wall Elevation"
 width="500"
 alt="Figure E2.1. Building Views: a) Plan View, b) Frame Elevation, c) Wall Elevation" />
@@ -301,7 +301,7 @@ alt="Figure E2.1. Building Views: a) Plan View, b) Frame Elevation, c) Wall Elev
 View, b) Frame Elevation, c) Wall Elevation</figcaption>
 </figure>
 <figure>
-<img src="SFI_MVLEM_E2_2.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_2.png"
 title="Figure E2.2. Member Cross-Sections: a) Walls, b) Columns, c) Beams"
 width="500"
 alt="Figure E2.2. Member Cross-Sections: a) Walls, b) Columns, c) Beams" />
@@ -355,7 +355,7 @@ parameters, gravity analysis</li>
 <li>DisplayPlane.tcl - display plane</li>
 </ul>
 <figure>
-<img src="SFI_MVLEM_E2_3.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_3.png"
 title="Figure E2.3. Analytical Model of Building System: a) Modeling Approach, b) Plastic Hinge Model"
 width="650"
 alt="Figure E2.3. Analytical Model of Building System: a) Modeling Approach, b) Plastic Hinge Model" />
@@ -373,7 +373,7 @@ considered.</p>
 <p>First two building fundamental periods and mode shapes are presented
 in Figure E2.4.</p>
 <figure>
-<img src="SFI_MVLEM_E2_4.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_4.png"
 title="Figure E2.4. Mode Shapes: a) 1st Mode, b) 2nd Mode" width="800"
 alt="Figure E2.4. Mode Shapes: a) 1st Mode, b) 2nd Mode" />
 <figcaption aria-hidden="true">Figure E2.4. Mode Shapes: a) 1st Mode, b)
@@ -385,7 +385,7 @@ displacement, and wall base shear force (bottom wall node reaction) are
 presented in Figure 2.5; the responses are obtained using
 <em>globalForce</em> and <em>Reactions</em> node recorders.</p>
 <figure>
-<img src="SFI_MVLEM_E2_5.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_5.png"
 title="Figure E2.5. Global Building Responses" width="500"
 alt="Figure E2.5. Global Building Responses" />
 <figcaption aria-hidden="true">Figure E2.5. Global Building
@@ -399,7 +399,7 @@ obtained using corresponding node recorders, <em>disp</em> and
 <em>drift</em>, whereas shear force and bending moments over the wall
 height are recorded using element recorders <em>globalForce</em>.</p>
 <figure>
-<img src="SFI_MVLEM_E2_6.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_6.png"
 title="Figure E2.6. Maximum Deformation Responses: a) Lateral Displacements, b) Interstory Drifts"
 width="625"
 alt="Figure E2.6. Maximum Deformation Responses: a) Lateral Displacements, b) Interstory Drifts" />
@@ -407,7 +407,7 @@ alt="Figure E2.6. Maximum Deformation Responses: a) Lateral Displacements, b) In
 Responses: a) Lateral Displacements, b) Interstory Drifts</figcaption>
 </figure>
 <figure>
-<img src="SFI_MVLEM_E2_7.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_7.png"
 title="Figure E2.7. Maximum Shear Force and Bending Moment over Wall Height"
 width="625"
 alt="Figure E2.7. Maximum Shear Force and Bending Moment over Wall Height" />
@@ -424,7 +424,7 @@ obtained using <strong>SFI_MVLEM</strong> element recorders
 force and bending moment are recorded using element recorder
 <em>globalForce</em>.</p>
 <figure>
-<img src="SFI_MVLEM_E2_8.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_8.png"
 title="Figure E2.8. Model Element Responses: a) Lateral Load vs. Displacement, b) Lateral Load vs. Flexural Deformation, c) Lateral Load vs. Shear Deformation, d) Moment vs. Curvature"
 width="650"
 alt="Figure E2.8. Model Element Responses: a) Lateral Load vs. Displacement, b) Lateral Load vs. Flexural Deformation, c) Lateral Load vs. Shear Deformation, d) Moment vs. Curvature" />
@@ -448,7 +448,7 @@ reinforcing steel presented on Figure E2.11 are obtained using
 commands. Other panel responses described in Section 3 could be plotted
 in a similar manner.</p>
 <figure>
-<img src="SFI_MVLEM_E2_9.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_9.png"
 title="Figure E2.9. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear"
 width="650"
 alt="Figure E2.9. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear" />
@@ -457,7 +457,7 @@ Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c)
 Shear</figcaption>
 </figure>
 <figure>
-<img src="SFI_MVLEM_E2_10.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_10.png"
 title="Figure E2.10. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) Strut 2"
 width="780"
 alt="Figure E2.10. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) Strut 2" />
@@ -465,7 +465,7 @@ alt="Figure E2.10. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b)
 Behavior for Concrete: a) Strut 1, b) Strut 2</figcaption>
 </figure>
 <figure>
-<img src="SFI_MVLEM_E2_11.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_11.png"
 title="Figure E2.11. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)"
 width="780"
 alt="Figure E2.11. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)" />
@@ -480,7 +480,7 @@ over the wall height (Figure E2.12b) are derived from element
 responses could be plotted over the wall height (e.g., shear
 deformations, etc.).</p>
 <figure>
-<img src="SFI_MVLEM_E2_12.png"
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_12.png"
 title="Figure E2.12. Local Responses - Vertical Profiles of Maximum: a) Vertical Strains, b) Rotations"
 width="625"
 alt="Figure E2.12. Local Responses - Vertical Profiles of Maximum: a) Vertical Strains, b) Rotations" />

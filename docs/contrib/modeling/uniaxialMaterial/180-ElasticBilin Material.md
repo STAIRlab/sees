@@ -1,4 +1,4 @@
-# ElasticBilin Material
+ # ElasticBilin
 
 <p>This command is used to construct an elastic bilinear uniaxial
 material object. Unlike all other bilinear materials, the unloading
@@ -12,7 +12,7 @@ uniaxialMaterial ElasticBilin $matTag $EP1 $EP2 $epsP2
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">

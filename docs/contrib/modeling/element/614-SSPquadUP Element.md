@@ -13,7 +13,7 @@ $b2&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique integer tag identifying element object</p></td>
 </tr>
 <tr class="even">
@@ -22,20 +22,20 @@ $b2&gt;</strong></p></td>
 order (-ndm 2 -ndf 3)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique integer tag associated with previously-defined nDMaterial
 object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$thick</strong></p></td>
+<td><code class="parameter-table-variable">thick</code></td>
 <td><p>thickness of the element in out-of-plane direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fBulk</strong></p></td>
+<td><code class="parameter-table-variable">fBulk</code></td>
 <td><p>bulk modulus of the pore fluid</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fDen</strong></p></td>
+<td><code class="parameter-table-variable">fDen</code></td>
 <td><p>mass density of the pore fluid</p></td>
 </tr>
 <tr class="odd">
@@ -44,11 +44,11 @@ object</p></td>
 respectively</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$void</strong></p></td>
+<td><code class="parameter-table-variable">void</code></td>
 <td><p>voids ratio</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>spatial pressure field stabilization parameter (see discussion
 below for more information)</p></td>
 </tr>

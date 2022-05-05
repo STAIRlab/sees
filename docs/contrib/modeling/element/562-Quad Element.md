@@ -11,7 +11,7 @@ element quad $eleTag $iNode $jNode $kNode $lNode $thick
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -20,24 +20,24 @@ element quad $eleTag $iNode $jNode $kNode $lNode $thick
 counter-clockwise order around the element.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$thick</strong></p></td>
+<td><code class="parameter-table-variable">thick</code></td>
 <td><p>element thickness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$type</strong></p></td>
+<td><code class="parameter-table-variable">type</code></td>
 <td><p>string representing material behavior. The type parameter can be
 either "PlaneStrain" or "PlaneStress."</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>tag of nDMaterial</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$pressure</strong></p></td>
+<td><code class="parameter-table-variable">pressure</code></td>
 <td><p>surface pressure (optional, default = 0.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>element mass density (per unit volume) from which a lumped
 element mass matrix is computed (optional, default=0.0)</p></td>
 </tr>

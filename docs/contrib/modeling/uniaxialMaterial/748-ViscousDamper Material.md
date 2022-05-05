@@ -1,4 +1,4 @@
-# ViscousDamper Material
+ # ViscousDamper
 
 <p>This command is used to construct a ViscousDamper material, which
 represents the <a
@@ -17,46 +17,46 @@ uniaxialMaterial ViscousDamper $matTag $K $Cd $alpha
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$K</strong></p></td>
+<td><code class="parameter-table-variable">K</code></td>
 <td><p>Elastic stiffness of linear spring to model the axial flexibility
 of a viscous damper (e.g. combined stiffness of the supporting brace and
 internal damper portion)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Cd</strong></p></td>
+<td><code class="parameter-table-variable">Cd</code></td>
 <td><p>Damping coefficient</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>Velocity exponent</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$LGap</strong></p></td>
+<td><code class="parameter-table-variable">LGap</code></td>
 <td><p>Gap length to simulate the gap length due to the pin
 tolerance</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$NM</strong></p></td>
+<td><code class="parameter-table-variable">NM</code></td>
 <td><p>Employed adaptive numerical algorithm (default value NM = 1; 1 =
 Dormand-Prince54, 2=6th order Adams-Bashforth-Moulton, 3=modified
 Rosenbrock Triple)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$RelTol</strong></p></td>
+<td><code class="parameter-table-variable">RelTol</code></td>
 <td><p>Tolerance for absolute relative error control of the adaptive
 iterative algorithm (default value 10^-6)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$AbsTol</strong></p></td>
+<td><code class="parameter-table-variable">AbsTol</code></td>
 <td><p>Tolerance for absolute error control of adaptive iterative
 algorithm (default value 10^-10)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$MaxHalf</strong></p></td>
+<td><code class="parameter-table-variable">MaxHalf</code></td>
 <td><p>Maximum number of sub-step iterations within an integration step
 (default value 15)</p></td>
 </tr>
@@ -106,7 +106,7 @@ parameters:</p></td>
 </tr>
 <tr class="even">
 <td><figure>
-<img src="Fig2_ViscousDampers.png"
+<img src="/OpenSeesRT/contrib/static/Fig2_ViscousDampers.png"
 title=" Viscous Damper with various input parameter variations"
 width="850"
 alt=" Viscous Damper with various input parameter variations" />

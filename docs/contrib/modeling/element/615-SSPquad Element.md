@@ -12,7 +12,7 @@ $matTag $type $thick &lt;$b1 $b2&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique integer tag identifying element object</p></td>
 </tr>
 <tr class="even">
@@ -21,16 +21,16 @@ $matTag $type $thick &lt;$b1 $b2&gt;</strong></p></td>
 order (-ndm 2 -ndf 2)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$thick</strong></p></td>
+<td><code class="parameter-table-variable">thick</code></td>
 <td><p>thickness of the element in out-of-plane direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$type</strong></p></td>
+<td><code class="parameter-table-variable">type</code></td>
 <td><p>string to relay material behavior to the element, can be either
 "PlaneStrain" or "PlaneStress"</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique integer tag associated with previously-defined nDMaterial
 object</p></td>
 </tr>

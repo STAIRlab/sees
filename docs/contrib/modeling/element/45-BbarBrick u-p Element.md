@@ -30,13 +30,13 @@ $Node5 $Node6 $Node7 $Node8 $matTag $bulk $fmass $PermX $PermY $PermZ
 </tbody>
 </table>
 <figure>
-<img src="BrickUp.png" title="BrickUp.png" alt="BrickUp.png" />
+<img src="/OpenSeesRT/contrib/static/BrickUp.png" title="BrickUp.png" alt="BrickUp.png" />
 <figcaption aria-hidden="true">BrickUp.png</figcaption>
 </figure>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>A positive integer uniquely identifying the element among all
 elements</p></td>
 </tr>
@@ -46,12 +46,12 @@ elements</p></td>
 for order of numbering).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>Tag of an NDMaterial object (previously defined) of which the
 element is composed</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$bulk</strong></p></td>
+<td><code class="parameter-table-variable">bulk</code></td>
 <td><p>Combined undrained bulk modulus B&lt;sub&gt;c&lt;/sub&gt;
 relating changes in pore pressure and volumetric strain, may be
 approximated by:</p>
@@ -61,7 +61,7 @@ approximated by:</p>
 psi) for water), and n the initial porosity.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fmass</strong></p></td>
+<td><code class="parameter-table-variable">fmass</code></td>
 <td><p>Fluid mass density</p></td>
 </tr>
 <tr class="even">

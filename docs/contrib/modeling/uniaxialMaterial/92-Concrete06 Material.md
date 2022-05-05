@@ -1,4 +1,4 @@
-# Concrete06 Material
+ # Concrete06
 
 <p>This command is used to construct a uniaxial concrete material object
 with tensile strength, nonlinear tension stiffening and compressive
@@ -12,23 +12,23 @@ uniaxialMaterial Concrete06 $matTag $fc $e0 $n $k $alpha1
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fc</strong></p></td>
+<td><code class="parameter-table-variable">fc</code></td>
 <td><p>concrete compressive strength (compression is negative)*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$e0</strong></p></td>
+<td><code class="parameter-table-variable">e0</code></td>
 <td><p>strain at compressive strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$n</strong></p></td>
+<td><code class="parameter-table-variable">n</code></td>
 <td><p>compressive shape factor</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$k</strong></p></td>
+<td><code class="parameter-table-variable">k</code></td>
 <td><p>post-peak compressive shape factor</p></td>
 </tr>
 <tr class="even">
@@ -37,15 +37,15 @@ uniaxialMaterial Concrete06 $matTag $fc $e0 $n $k $alpha1
 plastic strain definition</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fcr</strong></p></td>
+<td><code class="parameter-table-variable">fcr</code></td>
 <td><p>tensile strength</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ecr</strong></p></td>
+<td><code class="parameter-table-variable">ecr</code></td>
 <td><p>tensile strain at peak stress ($fcr)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>exponent of the tension stiffening curve</p></td>
 </tr>
 <tr class="even">
@@ -56,7 +56,7 @@ strain definition</p></td>
 </tbody>
 </table>
 <figure>
-<img src="Concrete06C.png" title="Concrete06C.png"
+<img src="/OpenSeesRT/contrib/static/Concrete06C.png" title="Concrete06C.png"
 alt="Concrete06C.png" />
 <figcaption aria-hidden="true">Concrete06C.png</figcaption>
 </figure>
@@ -112,7 +112,7 @@ $$
 $\epsilon_\text{cr}$ is the strain at tensile
 strength and b is a parameter.</p>
 <figure>
-<img src="Concrete06A.png" title="Concrete06A.png"
+<img src="/OpenSeesRT/contrib/static/Concrete06A.png" title="Concrete06A.png"
 alt="Concrete06A.png" />
 <figcaption aria-hidden="true">Concrete06A.png</figcaption>
 </figure>
@@ -182,7 +182,7 @@ can be generally used, an internal checking is included in the model
 such that the unloading/reloading paths have as maximum stiffness the
 initial stiffness.</p>
 <figure>
-<img src="Concrete06B.png" title="Concrete06B.png"
+<img src="/OpenSeesRT/contrib/static/Concrete06B.png" title="Concrete06B.png"
 alt="Concrete06B.png" />
 <figcaption aria-hidden="true">Concrete06B.png</figcaption>
 </figure>

@@ -14,81 +14,81 @@ $Den</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$G0</strong></p></td>
+<td><code class="parameter-table-variable">G0</code></td>
 <td><p>shear modulus constant</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$nu</strong></p></td>
+<td><code class="parameter-table-variable">nu</code></td>
 <td><p>poisson ratio</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$e_init</strong></p></td>
+<td><code class="parameter-table-variable">e_init</code></td>
 <td><p>initial void ratio</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Mc</strong></p></td>
+<td><code class="parameter-table-variable">Mc</code></td>
 <td><p>critical state stress ratio</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>ratio of critical state stress ratio in extension and
 compression</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$lambda_c</strong></p></td>
+<td><code class="parameter-table-variable">lambda_c</code></td>
 <td><p>critical state line constant</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$e0</strong></p></td>
+<td><code class="parameter-table-variable">e0</code></td>
 <td><p>critical void ratio at p = 0</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ksi</strong></p></td>
+<td><code class="parameter-table-variable">ksi</code></td>
 <td><p>critical state line constant</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$P_atm</strong></p></td>
+<td><code class="parameter-table-variable">P_atm</code></td>
 <td><p>atmospheric pressure</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>yield surface constant (radius of yield surface in stress ratio
 space)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$h0</strong></p></td>
+<td><code class="parameter-table-variable">h0</code></td>
 <td><p>constant parameter</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ch</strong></p></td>
+<td><code class="parameter-table-variable">ch</code></td>
 <td><p>constant parameter</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nb</strong></p></td>
+<td><code class="parameter-table-variable">nb</code></td>
 <td><p>bounding surface parameter, $nb &amp;ge; 0</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$A0</strong></p></td>
+<td><code class="parameter-table-variable">A0</code></td>
 <td><p>dilatancy parameter</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nd</strong></p></td>
+<td><code class="parameter-table-variable">nd</code></td>
 <td><p>dilatancy surface parameter $nd &amp;ge; 0</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$z_max</strong></p></td>
+<td><code class="parameter-table-variable">z_max</code></td>
 <td><p>fabric-dilatancy tensor parameter</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cz</strong></p></td>
+<td><code class="parameter-table-variable">cz</code></td>
 <td><p>fabric-dilatancy tensor parameter</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Den</strong></p></td>
+<td><code class="parameter-table-variable">Den</code></td>
 <td><p>mass density of the material</p></td>
 </tr>
 </tbody>

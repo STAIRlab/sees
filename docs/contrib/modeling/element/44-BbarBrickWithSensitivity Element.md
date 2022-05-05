@@ -16,7 +16,7 @@ element bbarBrickWithSensitivity $eleTag $node1 $node2
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag.</p></td>
 </tr>
 <tr class="even">
@@ -25,7 +25,7 @@ element bbarBrickWithSensitivity $eleTag $node1 $node2
 figure below).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>tag associated with previously-defined nDMaterial
 object.</p></td>
 </tr>

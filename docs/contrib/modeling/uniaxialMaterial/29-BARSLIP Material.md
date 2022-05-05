@@ -1,4 +1,4 @@
-# BARSLIP Material
+ # BARSLIP
 
 <p>This command is used to construct a uniaxial material that simulates
 the bar force versus slip response of a reinforcing bar anchored in a
@@ -19,7 +19,7 @@ $unit&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique material object integer tag</p></td>
 </tr>
 <tr class="even">
@@ -38,64 +38,64 @@ reinforcing steel</p></td>
 reinforcing steel</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fu</strong></p></td>
+<td><code class="parameter-table-variable">fu</code></td>
 <td><p>positive floating point value defining the ultimate strength of
 the reinforcing steel</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Eh</strong></p></td>
+<td><code class="parameter-table-variable">Eh</code></td>
 <td><p>floating point value defining the hardening modulus of the
 reinforcing steel</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ld</strong></p></td>
+<td><code class="parameter-table-variable">ld</code></td>
 <td><p>floating point value defining the development length of the
 reinforcing steel</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$db</strong></p></td>
+<td><code class="parameter-table-variable">db</code></td>
 <td><p>point value defining the diameter of reinforcing steel</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$nb</strong></p></td>
+<td><code class="parameter-table-variable">nb</code></td>
 <td><p>an integer defining the number of anchored bars</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$depth</strong></p></td>
+<td><code class="parameter-table-variable">depth</code></td>
 <td><p>floating point value defining the dimension of the member (beam
 or column) perpendicular to the dimension of the plane of the
 paper</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$height</strong></p></td>
+<td><code class="parameter-table-variable">height</code></td>
 <td><p>floating point value defining the height of the flexural member,
 perpendicular to direction in which the reinforcing steel is placed, but
 in the plane of the paper</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ancLratio</strong></p></td>
+<td><code class="parameter-table-variable">ancLratio</code></td>
 <td><p>floating point value defining the ratio of anchorage length used
 for the reinforcing bar to the dimension of the joint in the direction
 of the reinforcing bar (optional, default: 1.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$bsFlag</strong></p></td>
+<td><code class="parameter-table-variable">bsFlag</code></td>
 <td><p>string indicating relative bond strength for the anchored
 reinforcing bar (options: "Strong" or "Weak")</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$type</strong></p></td>
+<td><code class="parameter-table-variable">type</code></td>
 <td><p>string indicating where the reinforcing bar is placed. (options:
 "beamtop", "beambot" or "column")</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$damage</strong></p></td>
+<td><code class="parameter-table-variable">damage</code></td>
 <td><p>string indicating type of damage:whether there is full damage in
 the material or no damage (optional, options: "Damage", "NoDamage" ;
 default: Damage)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$unit</strong></p></td>
+<td><code class="parameter-table-variable">unit</code></td>
 <td><p>string indicating the type of unit system used (optional,
 options: "psi", "MPa", "Pa", "psf", "ksi", "ksf") (default: "psi" /
 "MPa")*</p></td>

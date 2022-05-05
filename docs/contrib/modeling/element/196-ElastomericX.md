@@ -29,7 +29,7 @@ $Kbulk $D1 $D2 $ts $tr $n &lt;&lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -37,19 +37,19 @@ $Kbulk $D1 $D2 $ts $tr $n &lt;&lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Fy</strong></p></td>
+<td><code class="parameter-table-variable">Fy</code></td>
 <td><p>yield strength</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>post-yield stiffness ratio</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Gr</strong></p></td>
+<td><code class="parameter-table-variable">Gr</code></td>
 <td><p>shear modulus of elastomeric bearing</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Kbulk</strong></p></td>
+<td><code class="parameter-table-variable">Kbulk</code></td>
 <td><p>bulk modulus of rubber</p></td>
 </tr>
 <tr class="odd">
@@ -61,15 +61,15 @@ $Kbulk $D1 $D2 $ts $tr $n &lt;&lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
 <td><p>outer diameter (excluding cover thickness)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ts</strong></p></td>
+<td><code class="parameter-table-variable">ts</code></td>
 <td><p>single steel shim layer thickness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tr</strong></p></td>
+<td><code class="parameter-table-variable">tr</code></td>
 <td><p>single rubber layer thickness</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$n</strong></p></td>
+<td><code class="parameter-table-variable">n</code></td>
 <td><p>number of rubber layers</p></td>
 </tr>
 <tr class="even">
@@ -83,32 +83,32 @@ $Kbulk $D1 $D2 $ts $tr $n &lt;&lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
 (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$kc</strong></p></td>
+<td><code class="parameter-table-variable">kc</code></td>
 <td><p>cavitation parameter (optional, default = 10.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$PhiM</strong></p></td>
+<td><code class="parameter-table-variable">PhiM</code></td>
 <td><p>damage parameter (optional, default = 0.5)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ac</strong></p></td>
+<td><code class="parameter-table-variable">ac</code></td>
 <td><p>strength reduction parameter (optional, default = 1.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$sDratio</strong></p></td>
+<td><code class="parameter-table-variable">sDratio</code></td>
 <td><p>shear distance from iNode as a fraction of the element length
 (optional, default = 0.5)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>element mass (optional, default = 0.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cd</strong></p></td>
+<td><code class="parameter-table-variable">cd</code></td>
 <td><p>viscous damping parameter (optional, default = 0.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tc</strong></p></td>
+<td><code class="parameter-table-variable">tc</code></td>
 <td><p>cover thickness (optional, default = 0.0)</p></td>
 </tr>
 <tr class="odd">
@@ -147,7 +147,7 @@ connected by six springs that represent the mechanical behavior in the
 six basic directions of a bearing. The degrees of freedom and discrete
 spring representation of an elastomeric bearing is shown in the below
 figures.</p>
-<p><img src="Elastomeric3DModel.png"
+<p><img src="/OpenSeesRT/contrib/static/Elastomeric3DModel.png"
 title="inline|Physical continuum model" height="300"
 alt="inline|Physical continuum model" /> <img
 src="ElastomericDiscreteSpring.png"
@@ -269,7 +269,7 @@ title="Excitation_Warn.zip" /> ‎</p>
 alt="EBgravity.tcl‎" /> <img src="EBtest.tcl‎" title="EBtest.tcl‎"
 alt="EBtest.tcl‎" /></p>
 <figure>
-<img src="EBWarnComparison.jpg"
+<img src="/OpenSeesRT/contrib/static/EBWarnComparison.jpg"
 title="inline|Numerical and experimental response comparison"
 height="400"
 alt="inline|Numerical and experimental response comparison" />

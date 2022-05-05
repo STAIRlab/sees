@@ -1,4 +1,4 @@
-# KikuchiAikenLRB Material
+ # KikuchiAikenLRB
 
 <p>This command is used to construct a uniaxial KikuchiAikenLRB material
 object. This material model produces nonlinear hysteretic curves of
@@ -16,44 +16,44 @@ $gr $ap $tp $alph $beta &lt;-T $temp&gt; &lt;-coKQ $rk $rq&gt;
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$type</strong></p></td>
+<td><code class="parameter-table-variable">type</code></td>
 <td><p>rubber type (see note 1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ar</strong></p></td>
+<td><code class="parameter-table-variable">ar</code></td>
 <td><p>area of rubber <strong>[unit: m^2]</strong></p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$hr</strong></p></td>
+<td><code class="parameter-table-variable">hr</code></td>
 <td><p>total thickness of rubber <strong>[unit: m]</strong></p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$gr</strong></p></td>
+<td><code class="parameter-table-variable">gr</code></td>
 <td><p>shear modulus of rubber <strong>[unit: N/m^2]</strong></p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ap</strong></p></td>
+<td><code class="parameter-table-variable">ap</code></td>
 <td><p>area of lead plug <strong>[unit: m^2]</strong></p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tp</strong></p></td>
+<td><code class="parameter-table-variable">tp</code></td>
 <td><p>yield stress of lead plug <strong>[unit: N/m^2]</strong></p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alph</strong></p></td>
+<td><code class="parameter-table-variable">alph</code></td>
 <td><p>shear modulus of lead plug <strong>[unit:
 N/m^2]</strong></p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$beta</strong></p></td>
+<td><code class="parameter-table-variable">beta</code></td>
 <td><p>ratio of initial stiffness to yielding stiffness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$temp</strong></p></td>
+<td><code class="parameter-table-variable">temp</code></td>
 <td><p>temperature <strong>[unit: &amp;deg;C]</strong></p></td>
 </tr>
 <tr class="odd">
@@ -94,7 +94,7 @@ $rs=0.2500 and $rf=0.1989.</p>
 <p><a href="Media:KikuchiAikenLRB_sample.tcl"
 title="wikilink">KikuchiAikenLRB_sample.tcl</a></p>
 <figure>
-<img src="KikuchiAikenLRB_ForceStrain.png"
+<img src="/OpenSeesRT/contrib/static/KikuchiAikenLRB_ForceStrain.png"
 title="KikuchiAikenLRB_ForceStrain.png" width="300"
 alt="KikuchiAikenLRB_ForceStrain.png" />
 <figcaption

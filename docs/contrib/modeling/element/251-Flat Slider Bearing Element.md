@@ -46,7 +46,7 @@ $tol&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -54,12 +54,12 @@ $tol&gt;</strong></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$frnMdlTag</strong></p></td>
+<td><code class="parameter-table-variable">frnMdlTag</code></td>
 <td><p>tag associated with previously-defined <a
 href="http://opensees.berkeley.edu/wiki/index.php/FrictionModel_Command">FrictionModel</a></p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$kInit</strong></p></td>
+<td><code class="parameter-table-variable">kInit</code></td>
 <td><p>initial elastic stiffness in local shear direction</p></td>
 </tr>
 <tr class="odd">
@@ -93,7 +93,7 @@ direction around local z-axis</p></td>
 (optional)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$sDratio</strong></p></td>
+<td><code class="parameter-table-variable">sDratio</code></td>
 <td><p>shear distance from iNode as a fraction of the element length
 (optional, default = 0.0)</p></td>
 </tr>
@@ -103,23 +103,23 @@ direction around local z-axis</p></td>
 no Rayleigh damping contribution)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>element mass (optional, default = 0.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$maxIter</strong></p></td>
+<td><code class="parameter-table-variable">maxIter</code></td>
 <td><p>maximum number of iterations to undertake to satisfy element
 equilibrium (optional, default = 20)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tol</strong></p></td>
+<td><code class="parameter-table-variable">tol</code></td>
 <td><p>convergence tolerance to satisfy element equilibrium (optional,
 default = 1E-8)</p></td>
 </tr>
 </tbody>
 </table>
 <figure>
-<img src="FlatSliderBearingFig01.png" title="FlatSliderBearingFig01.png"
+<img src="/OpenSeesRT/contrib/static/FlatSliderBearingFig01.png" title="FlatSliderBearingFig01.png"
 width="600" alt="FlatSliderBearingFig01.png" />
 <figcaption aria-hidden="true">FlatSliderBearingFig01.png</figcaption>
 </figure>

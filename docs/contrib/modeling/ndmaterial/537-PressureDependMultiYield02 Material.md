@@ -1,4 +1,4 @@
-# PressureDependMultiYield02 Material
+ # PressureDependMultiYield02
 
 <p><strong>PressureDependMultiYield02</strong> material is modified from
 <strong>PressureDependMultiYield</strong> material, with:</p>
@@ -50,7 +50,7 @@ strain as a function of load reversal history. <strong>(Redefined and
 different from PressureDependMultiYield material).</strong></p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>Numerical constant (default value = 0.1 kPa)</p></td>
 </tr>
 <tr class="odd">

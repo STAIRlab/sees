@@ -15,7 +15,7 @@ defined. The element can also be used for modeling single friction
 pendulum bearings or double friction pendulum bearings by simplifying
 the general backbone curve of the TPB.</p>
 <figure>
-<img src="TPB_Nhan_Fig1.jpg" title="TPB_Nhan_Fig1.jpg" width="500"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Fig1.jpg" title="TPB_Nhan_Fig1.jpg" width="500"
 alt="TPB_Nhan_Fig1.jpg" />
 <figcaption aria-hidden="true">TPB_Nhan_Fig1.jpg</figcaption>
 </figure>
@@ -30,7 +30,7 @@ generating a backbone curve of a TPB can be downloaded
 here:</span><a href="Media:TPB_Nhan_BackboneCurve.xls"
 title="wikilink">Media:TPB_Nhan_BackboneCurve.xls</a></p>
 <figure>
-<img src="TPB_Nhan_Fig2.jpg" title="TPB_Nhan_Fig2.jpg" width="400"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Fig2.jpg" title="TPB_Nhan_Fig2.jpg" width="400"
 alt="TPB_Nhan_Fig2.jpg" />
 <figcaption aria-hidden="true">TPB_Nhan_Fig2.jpg</figcaption>
 </figure>
@@ -59,7 +59,7 @@ $tol</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>= unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -73,7 +73,7 @@ href="http://opensees.berkeley.edu/wiki/index.php/FrictionModel_Command">Frictio
 at the three sliding interfaces</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$vertMatTag</strong></p></td>
+<td><code class="parameter-table-variable">vertMatTag</code></td>
 <td><p>= Pre-defined material tag for COMPRESSION behavior of the
 bearing</p></td>
 </tr>
@@ -92,18 +92,18 @@ bearing</p></td>
 of the bearing is 2$d1+$d2+$d3+$L1.$d3/$L3-$L1.$d2/$L2</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$W</strong></p></td>
+<td><code class="parameter-table-variable">W</code></td>
 <td><p>= axial force used for the first trial of the first analysis
 step.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$uy</strong></p></td>
+<td><code class="parameter-table-variable">uy</code></td>
 <td><p>= lateral displacement where sliding of the bearing starts.
 Recommended value = 0.25 to 1 mm. A smaller value may cause convergence
 problem.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$kvt</strong></p></td>
+<td><code class="parameter-table-variable">kvt</code></td>
 <td><p>= Tension stiffness k_vt of the bearing.</p></td>
 </tr>
 <tr class="odd">
@@ -118,7 +118,7 @@ is always computed from $kvc (or $kvt) and vertical deformation, and
 thus is not affected by $minFv.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tol</strong></p></td>
+<td><code class="parameter-table-variable">tol</code></td>
 <td><p>= relative tolerance for checking the convergence of the element.
 Recommended value = 1.e-10 to 1.e-3.</p></td>
 </tr>
@@ -219,7 +219,7 @@ href="Media:CheckingTripleFrictionPendulum_StaticCyclicPushover.tcl"
 title="wikilink">Media:CheckingTripleFrictionPendulum_StaticCyclicPushover.tcl</a></p>
 <p>Results:</p>
 <figure>
-<img src="TPB_Nhan_Ex1a.png" title="TPB_Nhan_Ex1a.png" width="400"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex1a.png" title="TPB_Nhan_Ex1a.png" width="400"
 alt="TPB_Nhan_Ex1a.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex1a.png</figcaption>
 </figure>
@@ -234,23 +234,23 @@ href="Media:CheckingTripleFrictionPendulum_1DDynamics_ConstFriction.tcl"
 title="wikilink">Media:CheckingTripleFrictionPendulum_1DDynamics_ConstFriction.tcl</a></p>
 <p>Results:</p>
 <figure>
-<img src="TPB_Nhan_Ex2_1Disp.png" title="TPB_Nhan_Ex2_1Disp.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex2_1Disp.png" title="TPB_Nhan_Ex2_1Disp.png"
 width="500" alt="TPB_Nhan_Ex2_1Disp.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex2_1Disp.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex2_2DispTrace.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex2_2DispTrace.png"
 title="TPB_Nhan_Ex2_2DispTrace.png" width="250"
 alt="TPB_Nhan_Ex2_2DispTrace.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex2_2DispTrace.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex2_3Reaction.png" title="TPB_Nhan_Ex2_3Reaction.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex2_3Reaction.png" title="TPB_Nhan_Ex2_3Reaction.png"
 width="500" alt="TPB_Nhan_Ex2_3Reaction.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex2_3Reaction.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex2_4Loop.png" title="TPB_Nhan_Ex2_4Loop.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex2_4Loop.png" title="TPB_Nhan_Ex2_4Loop.png"
 width="500" alt="TPB_Nhan_Ex2_4Loop.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex2_4Loop.png</figcaption>
 </figure>
@@ -265,23 +265,23 @@ href="Media:CheckingTripleFrictionPendulum_1DDynamics_VariableFriction.tcl"
 title="wikilink">Media:CheckingTripleFrictionPendulum_1DDynamics_VariableFriction.tcl</a></p>
 <p>Results:</p>
 <figure>
-<img src="TPB_Nhan_Ex3_1Disp.png" title="TPB_Nhan_Ex3_1Disp.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex3_1Disp.png" title="TPB_Nhan_Ex3_1Disp.png"
 width="500" alt="TPB_Nhan_Ex3_1Disp.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex3_1Disp.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex3_2DispTrace.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex3_2DispTrace.png"
 title="TPB_Nhan_Ex3_2DispTrace.png" width="250"
 alt="TPB_Nhan_Ex3_2DispTrace.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex3_2DispTrace.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex3_3Reaction.png" title="TPB_Nhan_Ex3_3Reaction.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex3_3Reaction.png" title="TPB_Nhan_Ex3_3Reaction.png"
 width="500" alt="TPB_Nhan_Ex3_3Reaction.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex3_3Reaction.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex3_4Loop.png" title="TPB_Nhan_Ex3_4Loop.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex3_4Loop.png" title="TPB_Nhan_Ex3_4Loop.png"
 width="500" alt="TPB_Nhan_Ex3_4Loop.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex3_4Loop.png</figcaption>
 </figure>
@@ -296,24 +296,24 @@ href="Media:CheckingTripleFrictionPendulum_2DDynamic_ConstFriction.tcl"
 title="wikilink">Media:CheckingTripleFrictionPendulum_2DDynamic_ConstFriction.tcl</a></p>
 <p>Results:</p>
 <figure>
-<img src="TPB_Nhan_Ex4_1Disp.png" title="TPB_Nhan_Ex4_1Disp.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex4_1Disp.png" title="TPB_Nhan_Ex4_1Disp.png"
 width="500" alt="TPB_Nhan_Ex4_1Disp.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex4_1Disp.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex4_2DispTrace.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex4_2DispTrace.png"
 title="TPB_Nhan_Ex4_2DispTrace.png" width="250"
 alt="TPB_Nhan_Ex4_2DispTrace.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex4_2DispTrace.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex4_3aReaction.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex4_3aReaction.png"
 title="TPB_Nhan_Ex4_3aReaction.png" width="500"
 alt="TPB_Nhan_Ex4_3aReaction.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex4_3aReaction.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex4_4Loop.png" title="TPB_Nhan_Ex4_4Loop.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex4_4Loop.png" title="TPB_Nhan_Ex4_4Loop.png"
 width="500" alt="TPB_Nhan_Ex4_4Loop.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex4_4Loop.png</figcaption>
 </figure>
@@ -328,22 +328,22 @@ href="Media:CheckingTripleFrictionPendulum_2DDynamic_VariableFriction.tcl"
 title="wikilink">Media:CheckingTripleFrictionPendulum_2DDynamic_VariableFriction.tcl</a></p>
 <p>Results:</p>
 <figure>
-<img src="TPB_Nhan_Ex5_1Disp.png" title="TPB_Nhan_Ex5_1Disp.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex5_1Disp.png" title="TPB_Nhan_Ex5_1Disp.png"
 width="500" alt="TPB_Nhan_Ex5_1Disp.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex5_1Disp.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex5_2Trace.png" title="TPB_Nhan_Ex5_2Trace.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex5_2Trace.png" title="TPB_Nhan_Ex5_2Trace.png"
 width="250" alt="TPB_Nhan_Ex5_2Trace.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex5_2Trace.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex5_3Reaction.png" title="TPB_Nhan_Ex5_3Reaction.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex5_3Reaction.png" title="TPB_Nhan_Ex5_3Reaction.png"
 width="500" alt="TPB_Nhan_Ex5_3Reaction.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex5_3Reaction.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex5_4aLoop.png" title="TPB_Nhan_Ex5_4aLoop.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex5_4aLoop.png" title="TPB_Nhan_Ex5_4aLoop.png"
 width="500" alt="TPB_Nhan_Ex5_4aLoop.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex5_4aLoop.png</figcaption>
 </figure>
@@ -358,23 +358,23 @@ href="Media:CheckingTripleFrictionPendulum_3DDynamic_ConstFriction.tcl"
 title="wikilink">Media:CheckingTripleFrictionPendulum_3DDynamic_ConstFriction.tcl</a></p>
 <p>Results:</p>
 <figure>
-<img src="TPB_Nhan_Ex6_1Disp.png" title="TPB_Nhan_Ex6_1Disp.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex6_1Disp.png" title="TPB_Nhan_Ex6_1Disp.png"
 width="500" alt="TPB_Nhan_Ex6_1Disp.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex6_1Disp.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex6_2DispTrace.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex6_2DispTrace.png"
 title="TPB_Nhan_Ex6_2DispTrace.png" width="250"
 alt="TPB_Nhan_Ex6_2DispTrace.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex6_2DispTrace.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex6_3Reaction.png" title="TPB_Nhan_Ex6_3Reaction.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex6_3Reaction.png" title="TPB_Nhan_Ex6_3Reaction.png"
 width="500" alt="TPB_Nhan_Ex6_3Reaction.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex6_3Reaction.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex6_4Loop.png" title="TPB_Nhan_Ex6_4Loop.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex6_4Loop.png" title="TPB_Nhan_Ex6_4Loop.png"
 width="500" alt="TPB_Nhan_Ex6_4Loop.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex6_4Loop.png</figcaption>
 </figure>
@@ -389,23 +389,23 @@ href="Media:CheckingTripleFrictionPendulum_3DDynamic_VariableFriction.tcl"
 title="wikilink">Media:CheckingTripleFrictionPendulum_3DDynamic_VariableFriction.tcl</a></p>
 <p>Results:</p>
 <figure>
-<img src="TPB_Nhan_Ex7_1Disp.png" title="TPB_Nhan_Ex7_1Disp.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex7_1Disp.png" title="TPB_Nhan_Ex7_1Disp.png"
 width="500" alt="TPB_Nhan_Ex7_1Disp.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex7_1Disp.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex7_2DispTrace.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex7_2DispTrace.png"
 title="TPB_Nhan_Ex7_2DispTrace.png" width="250"
 alt="TPB_Nhan_Ex7_2DispTrace.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex7_2DispTrace.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex7_3Reaction.png" title="TPB_Nhan_Ex7_3Reaction.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex7_3Reaction.png" title="TPB_Nhan_Ex7_3Reaction.png"
 width="500" alt="TPB_Nhan_Ex7_3Reaction.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex7_3Reaction.png</figcaption>
 </figure>
 <figure>
-<img src="TPB_Nhan_Ex7_4Loop.png" title="TPB_Nhan_Ex7_4Loop.png"
+<img src="/OpenSeesRT/contrib/static/TPB_Nhan_Ex7_4Loop.png" title="TPB_Nhan_Ex7_4Loop.png"
 width="500" alt="TPB_Nhan_Ex7_4Loop.png" />
 <figcaption aria-hidden="true">TPB_Nhan_Ex7_4Loop.png</figcaption>
 </figure>

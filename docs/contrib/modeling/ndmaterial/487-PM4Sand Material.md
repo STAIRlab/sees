@@ -1,4 +1,4 @@
-# PM4Sand Material
+ # PM4Sand
 
 <ul>
 <li><strong>This page has been moved to the new <a
@@ -19,7 +19,7 @@ $R $m $Fsed_min $p_sedo&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
@@ -31,19 +31,19 @@ $R $m $Fsed_min $p_sedo&gt;</strong></p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Dr</strong></p></td>
+<td><code class="parameter-table-variable">Dr</code></td>
 <td><p>Relative density, in fraction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$G0</strong></p></td>
+<td><code class="parameter-table-variable">G0</code></td>
 <td><p>Shear modulus constant</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$hpo</strong></p></td>
+<td><code class="parameter-table-variable">hpo</code></td>
 <td><p>Contraction rate parameter</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Den</strong></p></td>
+<td><code class="parameter-table-variable">Den</code></td>
 <td><p>Mass density of the material</p></td>
 </tr>
 <tr class="even">
@@ -51,11 +51,11 @@ $R $m $Fsed_min $p_sedo&gt;</strong></p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$P_atm</strong></p></td>
+<td><code class="parameter-table-variable">P_atm</code></td>
 <td><p><em>Optional</em>, Atmospheric pressure</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$h0</strong></p></td>
+<td><code class="parameter-table-variable">h0</code></td>
 <td><p><em>Optional</em>, Variable that adjusts the ratio of plastic
 modulus to elastic modulus</p></td>
 </tr>
@@ -64,78 +64,78 @@ modulus to elastic modulus</p></td>
 <td><p><em>Optional</em>, Maximum and minimum void ratios</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nb</strong></p></td>
+<td><code class="parameter-table-variable">nb</code></td>
 <td><p><em>Optional</em>, Bounding surface parameter, $nb &amp;ge;
 0</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$nd</strong></p></td>
+<td><code class="parameter-table-variable">nd</code></td>
 <td><p><em>Optional</em>, Dilatancy surface parameter $nd &amp;ge;
 0</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Ado</strong></p></td>
+<td><code class="parameter-table-variable">Ado</code></td>
 <td><p><em>Optional</em>, Dilatancy parameter, will be computed at the
 time of initialization if input value is negative</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$z_max</strong></p></td>
+<td><code class="parameter-table-variable">z_max</code></td>
 <td><p><em>Optional</em>, Fabric-dilatancy tensor parameter</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cz</strong></p></td>
+<td><code class="parameter-table-variable">cz</code></td>
 <td><p><em>Optional</em>, Fabric-dilatancy tensor parameter</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ce</strong></p></td>
+<td><code class="parameter-table-variable">ce</code></td>
 <td><p><em>Optional</em>, Variable that adjusts the rate of strain
 accumulation in cyclic loading</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$phic</strong></p></td>
+<td><code class="parameter-table-variable">phic</code></td>
 <td><p><em>Optional</em>, Critical state effective friction
 angle</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$nu</strong></p></td>
+<td><code class="parameter-table-variable">nu</code></td>
 <td><p><em>Optional</em>, Poisson's ratio</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cgd</strong></p></td>
+<td><code class="parameter-table-variable">cgd</code></td>
 <td><p><em>Optional</em>, Variable that adjusts degradation of elastic
 modulus with accumulation of fabric</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cdr</strong></p></td>
+<td><code class="parameter-table-variable">cdr</code></td>
 <td><p><em>Optional</em>, Variable that controls the rotated dilatancy
 surface</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ckaf</strong></p></td>
+<td><code class="parameter-table-variable">ckaf</code></td>
 <td><p><em>Optional</em>, Variable that controls the effect that
 sustained static shear stresses have on plastic modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Q</strong></p></td>
+<td><code class="parameter-table-variable">Q</code></td>
 <td><p><em>Optional</em>, Critical state line parameter</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$R</strong></p></td>
+<td><code class="parameter-table-variable">R</code></td>
 <td><p><em>Optional</em>, Critical state line parameter</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p><em>Optional</em>, Yield surface constant (radius of yield
 surface in stress ratio space)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Fsed_min</strong></p></td>
+<td><code class="parameter-table-variable">Fsed_min</code></td>
 <td><p><em>Optional</em>, Variable that controls the minimum value the
 reduction factor of the elastic moduli can get during
 reconsolidation</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$p_sedo</strong></p></td>
+<td><code class="parameter-table-variable">p_sedo</code></td>
 <td><p><em>Optional</em>, Mean effective stress up to which
 reconsolidation strains are enhanced</p></td>
 </tr>

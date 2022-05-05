@@ -1,4 +1,4 @@
-# Impact Material
+ # Impact
 
 <p>This command is used to construct an impact material object</p>
 <table>
@@ -13,7 +13,7 @@ $gap</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
@@ -29,7 +29,7 @@ $gap</strong></p></td>
 <td><p>yield displacement</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$gap</strong></p></td>
+<td><code class="parameter-table-variable">gap</code></td>
 <td><p>initial gap*</p></td>
 </tr>
 </tbody>

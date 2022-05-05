@@ -1,4 +1,4 @@
-# Fatigue Material
+ # Fatigue
 
 <p>The fatigue material uses a modified rainflow cycle counting
 algorithm to accumulate damage in a material using Miner’s Rule. Element
@@ -13,31 +13,31 @@ uniaxialMaterial Fatigue $matTag $tag &lt;-E0 $E0&gt;
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tag</strong></p></td>
+<td><code class="parameter-table-variable">tag</code></td>
 <td><p>Unique material object integer tag for the material that is being
 wrapped</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$E0</strong></p></td>
+<td><code class="parameter-table-variable">E0</code></td>
 <td><p>Value of strain at which one cycle will cause failure (default
 0.191)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>Slope of Coffin-Manson curve in log-log space (default
 -0.458)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$min</strong></p></td>
+<td><code class="parameter-table-variable">min</code></td>
 <td><p>Global minimum value for strain or deformation (default
 -1e16)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$max</strong></p></td>
+<td><code class="parameter-table-variable">max</code></td>
 <td><p>Global maximum value for strain or deformation (default
 1e16)</p></td>
 </tr>
@@ -80,7 +80,7 @@ title="wikilink">Media:FatigueExample.tcl</a></p>
 <p><a href="Media:RandomStrainHstory.tcl"
 title="wikilink">Media:RandomStrainHstory.tcl</a></p>
 <figure>
-<img src="DamageExample.jpg" title="DamageExample.jpg"
+<img src="/OpenSeesRT/contrib/static/DamageExample.jpg" title="DamageExample.jpg"
 alt="DamageExample.jpg" />
 <figcaption aria-hidden="true">DamageExample.jpg</figcaption>
 </figure>

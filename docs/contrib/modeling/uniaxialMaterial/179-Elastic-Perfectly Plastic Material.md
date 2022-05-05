@@ -11,20 +11,20 @@ uniaxialMaterial ElasticPP $matTag $E $epsyP &lt;$epsyN
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>tangent</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsyP</strong></p></td>
+<td><code class="parameter-table-variable">epsyP</code></td>
 <td><p>strain or deformation at which material reaches plastic state in
 tension</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$epsyN</strong></p></td>
+<td><code class="parameter-table-variable">epsyN</code></td>
 <td><p>strain or deformation at which material reaches plastic state in
 compression.</p></td>
 </tr>
@@ -33,7 +33,7 @@ compression.</p></td>
 <td><p>(optional, default is tension value)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$eps0</strong></p></td>
+<td><code class="parameter-table-variable">eps0</code></td>
 <td><p>initial strain (optional, default: zero)</p></td>
 </tr>
 </tbody>

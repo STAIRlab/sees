@@ -17,27 +17,27 @@ $ssl3 $ssl4 $ssl5 $ssl6 $ssl7 $hsl $pmin&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$mDen</strong></p></td>
+<td><code class="parameter-table-variable">mDen</code></td>
 <td><p>mass density</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$eNot</strong></p></td>
+<td><code class="parameter-table-variable">eNot</code></td>
 <td><p>initial void ratio</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$A</strong></p></td>
+<td><code class="parameter-table-variable">A</code></td>
 <td><p>constant for elastic shear modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$n</strong></p></td>
+<td><code class="parameter-table-variable">n</code></td>
 <td><p>pressure dependency exponent for elastic shear modulus</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nu</strong></p></td>
+<td><code class="parameter-table-variable">nu</code></td>
 <td><p>Poisson's ratio</p></td>
 </tr>
 <tr class="odd">
@@ -65,27 +65,27 @@ $ssl3 $ssl4 $ssl5 $ssl6 $ssl7 $hsl $pmin&gt;</strong></p></td>
 <td><p>min shear modulus coefficient (Gn_min = a3 + b3*Is)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fd</strong></p></td>
+<td><code class="parameter-table-variable">fd</code></td>
 <td><p>degradation constant</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$muNot</strong></p></td>
+<td><code class="parameter-table-variable">muNot</code></td>
 <td><p>dilatancy coefficient (monotonic loading)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$muCyc</strong></p></td>
+<td><code class="parameter-table-variable">muCyc</code></td>
 <td><p>dilatancy coefficient (cyclic loading)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sc</strong></p></td>
+<td><code class="parameter-table-variable">sc</code></td>
 <td><p>dilatancy strain</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$M</strong></p></td>
+<td><code class="parameter-table-variable">M</code></td>
 <td><p>critical state stress ratio</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$patm</strong></p></td>
+<td><code class="parameter-table-variable">patm</code></td>
 <td><p>atmospheric pressure (in appropriate units)</p></td>
 </tr>
 </tbody>

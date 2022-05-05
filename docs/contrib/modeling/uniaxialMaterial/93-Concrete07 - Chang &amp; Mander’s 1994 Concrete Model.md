@@ -15,46 +15,46 @@ uniaxialMaterial Concrete07 $matTag $fc $ec $Ec $ft $et
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fc</strong></p></td>
+<td><code class="parameter-table-variable">fc</code></td>
 <td><p>concrete compressive strength (compression is negative)*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ec</strong></p></td>
+<td><code class="parameter-table-variable">ec</code></td>
 <td><p>concrete strain at maximum compressive strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Ec</strong></p></td>
+<td><code class="parameter-table-variable">Ec</code></td>
 <td><p>Initial Elastic modulus of the concrete</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ft</strong></p></td>
+<td><code class="parameter-table-variable">ft</code></td>
 <td><p>tensile strength of concrete (tension is positive)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$et</strong></p></td>
+<td><code class="parameter-table-variable">et</code></td>
 <td><p>tensile strain at max tensile strength of concrete</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$xp</strong></p></td>
+<td><code class="parameter-table-variable">xp</code></td>
 <td><p>Non-dimensional term that defines the strain at which the
 straight line descent begins in tension</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$xn</strong></p></td>
+<td><code class="parameter-table-variable">xn</code></td>
 <td><p>Non-dimensional term that defines the strain at which the
 straight line descent begins in compression</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$r</strong></p></td>
+<td><code class="parameter-table-variable">r</code></td>
 <td><p>Parameter that controls the nonlinear descending branch</p></td>
 </tr>
 </tbody>
 </table>
-<p><img src="Concrete07.png" title="Concrete07.png"
+<p><img src="/OpenSeesRT/contrib/static/Concrete07.png" title="Concrete07.png"
 alt="Concrete07.png" /> <a
 href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/4055.htm">check
 this page!</a></p>
@@ -73,12 +73,12 @@ the compressive strength for unconfined concrete is readily available,
 the key parameters required for the model can be found using the
 following recommendations which include:</p>
 <figure>
-<img src="US_Customary_Units.png" title="US_Customary_Units.png"
+<img src="/OpenSeesRT/contrib/static/US_Customary_Units.png" title="US_Customary_Units.png"
 alt="US_Customary_Units.png" />
 <figcaption aria-hidden="true">US_Customary_Units.png</figcaption>
 </figure>
 <figure>
-<img src="SI_Metric_Units.png" title="SI_Metric_Units.png"
+<img src="/OpenSeesRT/contrib/static/SI_Metric_Units.png" title="SI_Metric_Units.png"
 alt="SI_Metric_Units.png" />
 <figcaption aria-hidden="true">SI_Metric_Units.png</figcaption>
 </figure>
@@ -92,13 +92,13 @@ respectively. The value of r is also decreased. The recommended approach
 to define all critical parameters needed to model the confined concrete
 under compression are as follows:</p>
 <figure>
-<img src="Confined_Concrete.png" title="Confined_Concrete.png"
+<img src="/OpenSeesRT/contrib/static/Confined_Concrete.png" title="Confined_Concrete.png"
 alt="Confined_Concrete.png" />
 <figcaption aria-hidden="true">Confined_Concrete.png</figcaption>
 </figure>
 <p>where:</p>
 <figure>
-<img src="Confined_Concrete_Parameters.png"
+<img src="/OpenSeesRT/contrib/static/Confined_Concrete_Parameters.png"
 title="Confined_Concrete_Parameters.png"
 alt="Confined_Concrete_Parameters.png" />
 <figcaption
@@ -138,7 +138,7 @@ shown in below; a magnified view of the tension region is shown
 separately. A confined concrete is used in this illustration so that the
 differences between the models behavior is more pronounced.</p>
 <figure>
-<img src="Hysteretic_behavior_of_Concrete07.png"
+<img src="/OpenSeesRT/contrib/static/Hysteretic_behavior_of_Concrete07.png"
 title="Hysteretic_behavior_of_Concrete07.png"
 alt="Hysteretic_behavior_of_Concrete07.png" />
 <figcaption
@@ -151,11 +151,11 @@ state that the abrupt loss of capacity shown in Concrete03 in tension is
 due to testing conditions and not representative of the true material
 behavior.</p>
 <figure>
-<img src="Comp1.png" title="Comp1.png" alt="Comp1.png" />
+<img src="/OpenSeesRT/contrib/static/Comp1.png" title="Comp1.png" alt="Comp1.png" />
 <figcaption aria-hidden="true">Comp1.png</figcaption>
 </figure>
 <figure>
-<img src="Comp2.png" title="Comp2.png" alt="Comp2.png" />
+<img src="/OpenSeesRT/contrib/static/Comp2.png" title="Comp2.png" alt="Comp2.png" />
 <figcaption aria-hidden="true">Comp2.png</figcaption>
 </figure>
 <ul>

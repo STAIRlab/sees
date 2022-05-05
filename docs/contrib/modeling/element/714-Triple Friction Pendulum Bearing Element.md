@@ -34,7 +34,7 @@ $D3 $D4 $d1 $d2 $d3 $d4 $mu1 $mu2 $mu3 $mu4 $h1 $h2 $h3 $h4 $H0 $colLoad
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -126,16 +126,16 @@ bearing</p></td>
 bearing</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$H0</strong></p></td>
+<td><code class="parameter-table-variable">H0</code></td>
 <td><p>total height of bearing</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$colLoad</strong></p></td>
+<td><code class="parameter-table-variable">colLoad</code></td>
 <td><p>initial axial load on bearing (only used for first time step then
 load come from model)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$K</strong></p></td>
+<td><code class="parameter-table-variable">K</code></td>
 <td><p>optional, stiffness of spring in vertical dirn (dof 2 if ndm= 2,
 dof 3 if ndm = 3) (default=1.0e15)</p></td>
 </tr>

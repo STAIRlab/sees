@@ -1,4 +1,4 @@
-# PressureDependMultiYield03 Material
+ # PressureDependMultiYield03
 
 <p>(The reference for <strong>PressureDependMultiYield03</strong>
 material: Khosravifar, A., Elgamal, A., Lu, J., and Li, J. [2018]. "A 3D
@@ -43,12 +43,12 @@ information.</p></td>
 1 and 2 below for more information.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$mType</strong></p></td>
+<td><code class="parameter-table-variable">mType</code></td>
 <td><p>0: Triaxial Compression; 1: Triaxial Extension; 2: Direct
 Shear</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$s0</strong></p></td>
+<td><code class="parameter-table-variable">s0</code></td>
 <td><p>Numerical constant (default value = 1.73 kPa). See Tables 1 and 2
 below for more information.</p></td>
 </tr>
@@ -65,7 +65,7 @@ densities. Table 2 provides a brief description for each parameter and
 the adopted calibration procedure.</p>
 <p>Table 1. Model Input Parameters</p>
 <figure>
-<img src="Pdmy03_table1.png" title="Pdmy03_table1.png"
+<img src="/OpenSeesRT/contrib/static/Pdmy03_table1.png" title="Pdmy03_table1.png"
 alt="Pdmy03_table1.png" />
 <figcaption aria-hidden="true">Pdmy03_table1.png</figcaption>
 </figure>
@@ -73,7 +73,7 @@ alt="Pdmy03_table1.png" />
 model, but rather parameters computed during model calibration.</p>
 <p>Table 2. Description of Calibration Parameters</p>
 <figure>
-<img src="Pdmy03_table2.png" title="Pdmy03_table2.png"
+<img src="/OpenSeesRT/contrib/static/Pdmy03_table2.png" title="Pdmy03_table2.png"
 alt="Pdmy03_table2.png" />
 <figcaption aria-hidden="true">Pdmy03_table2.png</figcaption>
 </figure>

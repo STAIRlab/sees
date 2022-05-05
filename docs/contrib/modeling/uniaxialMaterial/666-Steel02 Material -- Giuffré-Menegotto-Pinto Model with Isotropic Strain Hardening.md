@@ -11,19 +11,19 @@ uniaxialMaterial Steel02 $matTag $Fy $E $b $R0 $cR1 $cR2
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Fy</strong></p></td>
+<td><code class="parameter-table-variable">Fy</code></td>
 <td><p>yield strength</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$E0</strong></p></td>
+<td><code class="parameter-table-variable">E0</code></td>
 <td><p>initial elastic tangent</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>strain-hardening ratio (ratio between post-yield tangent and
 initial elastic tangent)</p></td>
 </tr>
@@ -56,7 +56,7 @@ as proportion of yield strength after a plastic strain of $a4*($Fy/E0).
 (optional default = 1.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sigInit</strong></p></td>
+<td><code class="parameter-table-variable">sigInit</code></td>
 <td><p>Initial Stress Value (optional, default: 0.0) the strain is
 calculated from epsP=$sigInit/$E if (sigInit!= 0.0) { double epsInit =
 sigInit/E; eps = trialStrain+epsInit; } else eps = trialStrain;</p></td>
@@ -72,28 +72,28 @@ Joints". Report EERC 83-19, Earthquake Engineering Research Center,
 University of California, Berkeley.</p>
 <p>Steel02 Material -- Material Parameters of Monotonic Envelope</p>
 <figure>
-<img src="Steel02Monotonic.jpg" title="Steel02Monotonic.jpg"
+<img src="/OpenSeesRT/contrib/static/Steel02Monotonic.jpg" title="Steel02Monotonic.jpg"
 alt="Steel02Monotonic.jpg" />
 <figcaption aria-hidden="true">Steel02Monotonic.jpg</figcaption>
 </figure>
 <p>Steel02 Material -- Hysteretic Behavior of Model w/o Isotropic
 Hardening</p>
 <figure>
-<img src="Steel02HystereticA.jpg" title="Steel02HystereticA.jpg"
+<img src="/OpenSeesRT/contrib/static/Steel02HystereticA.jpg" title="Steel02HystereticA.jpg"
 alt="Steel02HystereticA.jpg" />
 <figcaption aria-hidden="true">Steel02HystereticA.jpg</figcaption>
 </figure>
 <p>Steel02 Material -- Hysteretic Behavior of Model with Isotropic
 Hardening in Compression</p>
 <figure>
-<img src="Steel02HystereticB.jpg" title="Steel02HystereticB.jpg"
+<img src="/OpenSeesRT/contrib/static/Steel02HystereticB.jpg" title="Steel02HystereticB.jpg"
 alt="Steel02HystereticB.jpg" />
 <figcaption aria-hidden="true">Steel02HystereticB.jpg</figcaption>
 </figure>
 <p>Steel01 Material -- Hysteretic Behavior of Model with Isotropic
 Hardening in Tension</p>
 <figure>
-<img src="Steel02HystereticC.jpg" title="Steel02HystereticC.jpg"
+<img src="/OpenSeesRT/contrib/static/Steel02HystereticC.jpg" title="Steel02HystereticC.jpg"
 alt="Steel02HystereticC.jpg" />
 <figcaption aria-hidden="true">Steel02HystereticC.jpg</figcaption>
 </figure>

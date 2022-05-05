@@ -1,4 +1,4 @@
-# ElasticMultiLinear Material
+ # ElasticMultiLinear
 
 <p>This command is used to construct a multi-linear elastic uniaxial
 material object. The nonlinear stress-strain relationship is given by a
@@ -19,25 +19,25 @@ uniaxialMaterial ElasticMultiLinear $matTag &lt;$eta&gt;
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$eta</strong></p></td>
+<td><code class="parameter-table-variable">eta</code></td>
 <td><p>damping tangent (optional, default=0.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$strainPoints</strong></p></td>
+<td><code class="parameter-table-variable">strainPoints</code></td>
 <td><p>array of strain points along stress-strain curve</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$stressPoints</strong></p></td>
+<td><code class="parameter-table-variable">stressPoints</code></td>
 <td><p>array of stress points along stress-strain curve</p></td>
 </tr>
 </tbody>
 </table>
 <figure>
-<img src="ElasticMultiLinear.png" title="ElasticMultiLinear.png"
+<img src="/OpenSeesRT/contrib/static/ElasticMultiLinear.png" title="ElasticMultiLinear.png"
 alt="ElasticMultiLinear.png" />
 <figcaption aria-hidden="true">ElasticMultiLinear.png</figcaption>
 </figure>

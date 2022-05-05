@@ -13,7 +13,7 @@ $lNode $matTag $gTol $fTol</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique integer tag identifying element object</p></td>
 </tr>
 <tr class="even">
@@ -21,24 +21,24 @@ $lNode $matTag $gTol $fTol</strong></p></td>
 <td><p>retained nodes (-ndm 2 -ndf 2)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cNode</strong></p></td>
+<td><code class="parameter-table-variable">cNode</code></td>
 <td><p>constrained node (-ndm 2 -ndf 2)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$lNode</strong></p></td>
+<td><code class="parameter-table-variable">lNode</code></td>
 <td><p>Lagrange multiplier node (-ndm 2 -ndf 2)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique integer tag associated with previously-defined nDMaterial
 object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$gTol</strong></p></td>
+<td><code class="parameter-table-variable">gTol</code></td>
 <td><p>gap tolerance</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fTol</strong></p></td>
+<td><code class="parameter-table-variable">fTol</code></td>
 <td><p>force tolerance</p></td>
 </tr>
 </tbody>

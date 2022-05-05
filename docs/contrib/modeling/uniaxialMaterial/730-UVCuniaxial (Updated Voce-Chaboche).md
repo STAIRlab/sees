@@ -33,38 +33,38 @@ $gamma8&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>Integer tag identifying the material.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>Elastic modulus of the steel material.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fy</strong></p></td>
+<td><code class="parameter-table-variable">fy</code></td>
 <td><p>Initial yield stress of the steel material.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$QInf</strong></p></td>
+<td><code class="parameter-table-variable">QInf</code></td>
 <td><p>Maximum increase in yield stress due to cyclic hardening
 (isotropic hardening).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>Saturation rate of QInf, b &gt; 0.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$DInf</strong></p></td>
+<td><code class="parameter-table-variable">DInf</code></td>
 <td><p>Decrease in the initial yield stress, to neglect the model
 updates set DInf = 0.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a</strong></p></td>
+<td><code class="parameter-table-variable">a</code></td>
 <td><p>Saturation rate of DInf, a &gt; 0. If DInf == 0, then a is
 arbitrary (but still a &gt; 0).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$N</strong></p></td>
+<td><code class="parameter-table-variable">N</code></td>
 <td><p>Number of backstresses to define, N &gt;= 1.</p></td>
 </tr>
 <tr class="odd">
@@ -104,7 +104,7 @@ element simulation platforms. The finite element models used to validate
 the Abaqus and OpenSees responses can be found at <a
 href="https://github.com/ahartloper/UVC_MatMod">https://github.com/ahartloper/UVC_MatMod</a>.</p>
 <figure>
-<img src="UVC_Opensees_valid_s22.png"
+<img src="/OpenSeesRT/contrib/static/UVC_Opensees_valid_s22.png"
 title="Figure 1. Validation of UVC model with built-in nonlinear isotropic/kinematic material in Abaqus."
 width="400"
 alt="Figure 1. Validation of UVC model with built-in nonlinear isotropic/kinematic material in Abaqus." />

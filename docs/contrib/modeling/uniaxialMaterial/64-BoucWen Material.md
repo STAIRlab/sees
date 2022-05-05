@@ -1,4 +1,4 @@
-# BoucWen Material
+ # BoucWen
 
 <p>This command is used to construct a uniaxial Bouc-Wen smooth
 hysteretic material object. This material model is an extension of the
@@ -13,20 +13,20 @@ uniaxialMaterial BoucWen $matTag $alpha $ko $n $gamma
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>ratio of post-yield stiffness to the initial elastic stiffenss
 (0&lt; &lt;math&gt;\alpha&lt;/math&gt; &lt;1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ko</strong></p></td>
+<td><code class="parameter-table-variable">ko</code></td>
 <td><p>initial elastic stiffness</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$n</strong></p></td>
+<td><code class="parameter-table-variable">n</code></td>
 <td><p>parameter that controls transition from linear to nonlinear range
 (as n increases the transition becomes sharper; n is usually grater or
 equal to 1)</p></td>

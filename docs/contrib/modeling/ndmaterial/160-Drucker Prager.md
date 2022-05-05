@@ -14,37 +14,37 @@ $rhoBar $Kinf $Ko $delta1 $delta2 $H $theta $density
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$k</strong></p></td>
+<td><code class="parameter-table-variable">k</code></td>
 <td><p>bulk modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$G</strong></p></td>
+<td><code class="parameter-table-variable">G</code></td>
 <td><p>shear modulus</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sigmaY</strong></p></td>
+<td><code class="parameter-table-variable">sigmaY</code></td>
 <td><p>yield stress</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>frictional strength parameter</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rhoBar</strong></p></td>
+<td><code class="parameter-table-variable">rhoBar</code></td>
 <td><p>controls evolution of plastic volume change, 0 &amp;le; $rhoBar
 &amp;le; $rho</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Kinf</strong></p></td>
+<td><code class="parameter-table-variable">Kinf</code></td>
 <td><p>nonlinear isotropic strain hardening parameter, $Kinf &amp;ge;
 0</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Ko</strong></p></td>
+<td><code class="parameter-table-variable">Ko</code></td>
 <td><p>nonlinear isotropic strain hardening parameter, $Ko &amp;ge;
 0</p></td>
 </tr>
@@ -58,16 +58,16 @@ $rhoBar $Kinf $Ko $delta1 $delta2 $H $theta $density
 <td><p>tension softening parameter, $delta2 &amp;ge; 0</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$H</strong></p></td>
+<td><code class="parameter-table-variable">H</code></td>
 <td><p>linear strain hardening parameter, $H &amp;ge; 0</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$theta</strong></p></td>
+<td><code class="parameter-table-variable">theta</code></td>
 <td><p>controls relative proportions of isotropic and kinematic
 hardening, 0 &amp;le; $theta &amp;le; 1</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$density</strong></p></td>
+<td><code class="parameter-table-variable">density</code></td>
 <td><p>mass density of the material</p></td>
 </tr>
 <tr class="even">
@@ -282,7 +282,7 @@ stress. Also shown is the stress path resulting from this test plotted
 on the meridian plane. As shown, the element is loaded until failure, at
 which point the model can no longer converge, as this is a
 stress-controlled analysis.</p>
-<p><img src="CtcTest.png" title="CtcTest.png" alt="CtcTest.png" /> <img
+<p><img src="/OpenSeesRT/contrib/static/CtcTest.png" title="CtcTest.png" alt="CtcTest.png" /> <img
 src="CtcResults.png" title="CtcResults.png" alt="CtcResults.png" /></p>
 <p>&lt;source lang="tcl"&gt;</p>
 <ol>

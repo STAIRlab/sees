@@ -1,4 +1,4 @@
-# ConcretewBeta Material
+ # ConcretewBeta
 
 <p>&amp;emsp;&amp;emsp;This command is used to construct a uniaxial
 concrete material object that explicitly considers for the effect of
@@ -58,15 +58,15 @@ $ecc&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fpc</strong></p></td>
+<td><code class="parameter-table-variable">fpc</code></td>
 <td><p>peak unconfined concrete compressive strength*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ec0</strong></p></td>
+<td><code class="parameter-table-variable">ec0</code></td>
 <td><p>compressive strain corresponding to unconfined concrete
 compressive strength*</p></td>
 </tr>
@@ -81,7 +81,7 @@ envelope*</p></td>
 envelope*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ftint</strong></p></td>
+<td><code class="parameter-table-variable">ftint</code></td>
 <td><p>tensile strength of concrete</p></td>
 </tr>
 <tr class="odd">
@@ -103,12 +103,12 @@ envelope</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$lambda</strong></p></td>
+<td><code class="parameter-table-variable">lambda</code></td>
 <td><p>controls the path of unloading from compression strain (default
 0.5)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>controls the path of unloading from tensile strain (default
 1)</p></td>
 </tr>
@@ -123,12 +123,12 @@ envelope</p></td>
 1 and 0, respectively)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$M</strong></p></td>
+<td><code class="parameter-table-variable">M</code></td>
 <td><p>factor for Stevens et al. (1991) tension stiffening (default 0;
 see Note 2)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Ec</strong></p></td>
+<td><code class="parameter-table-variable">Ec</code></td>
 <td><p>initial stiffness (default
 2*<strong>$fpc</strong>/<strong>$ec0</strong>; see Note 3)</p></td>
 </tr>
@@ -277,7 +277,7 @@ coupled wall specimen with diagonal tension failure, see: <strong><a
 href="http://youtu.be/a26aZiU5RgY">Video of the
 simulation</a></strong></h3>
 <figure>
-<img src="5story_samplePic.png" title="5story_samplePic.png" width="800"
+<img src="/OpenSeesRT/contrib/static/5story_samplePic.png" title="5story_samplePic.png" width="800"
 alt="5story_samplePic.png" />
 <figcaption aria-hidden="true">5story_samplePic.png</figcaption>
 </figure>
@@ -289,7 +289,7 @@ Wall</a></strong> and <strong><a
 href="http://youtu.be/lQpzwHF_Z94">Video of the
 simulation</a></strong></h3>
 <figure>
-<img src="Mestyanek_resultsPlot2.png" title="Mestyanek_resultsPlot2.png"
+<img src="/OpenSeesRT/contrib/static/Mestyanek_resultsPlot2.png" title="Mestyanek_resultsPlot2.png"
 width="800" alt="Mestyanek_resultsPlot2.png" />
 <figcaption aria-hidden="true">Mestyanek_resultsPlot2.png</figcaption>
 </figure>
@@ -301,7 +301,7 @@ Wall</a></strong> and <strong><a
 href="http://youtu.be/9O9Mev62Ilw">Video of the
 simulation</a></strong></h3>
 <figure>
-<img src="BeyerWall_fig2.png" title="BeyerWall_fig2.png" width="800"
+<img src="/OpenSeesRT/contrib/static/BeyerWall_fig2.png" title="BeyerWall_fig2.png" width="800"
 alt="BeyerWall_fig2.png" />
 <figcaption aria-hidden="true">BeyerWall_fig2.png</figcaption>
 </figure>
@@ -312,7 +312,7 @@ Truss Model - Massone Sanchez (2005) Squat RC Wall</a></strong> and
 <strong><a href="http://youtu.be/aq7r4HMAmvc">Video of the
 simulation</a></strong></h3>
 <figure>
-<img src="MassoneWall_displ1a.jpg" title="MassoneWall_displ1a.jpg"
+<img src="/OpenSeesRT/contrib/static/MassoneWall_displ1a.jpg" title="MassoneWall_displ1a.jpg"
 width="400" alt="MassoneWall_displ1a.jpg" />
 <figcaption aria-hidden="true">MassoneWall_displ1a.jpg</figcaption>
 </figure>

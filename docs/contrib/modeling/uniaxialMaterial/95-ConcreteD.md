@@ -11,44 +11,44 @@ uniaxialMaterial ConcreteD $matTag $fc $epsc $ft $epst
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fc</strong></p></td>
+<td><code class="parameter-table-variable">fc</code></td>
 <td><p>concrete compressive strength *</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsc</strong></p></td>
+<td><code class="parameter-table-variable">epsc</code></td>
 <td><p>concrete strain at corresponding to compressive
 strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ft</strong></p></td>
+<td><code class="parameter-table-variable">ft</code></td>
 <td><p>concrete tensile strength *</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epst</strong></p></td>
+<td><code class="parameter-table-variable">epst</code></td>
 <td><p>concrete strain at corresponding to tensile strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Ec</strong></p></td>
+<td><code class="parameter-table-variable">Ec</code></td>
 <td><p>concrete initial Elastic modulus*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$alphac</strong></p></td>
+<td><code class="parameter-table-variable">alphac</code></td>
 <td><p>compressive descending parameter*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alphat</strong></p></td>
+<td><code class="parameter-table-variable">alphat</code></td>
 <td><p>tensile descending parameter*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cesp</strong></p></td>
+<td><code class="parameter-table-variable">cesp</code></td>
 <td><p>plastic parameter, recommended values: 0.2~0.3*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$etap</strong></p></td>
+<td><code class="parameter-table-variable">etap</code></td>
 <td><p>plastic parameter, recommended values: 1.0~1.3*</p></td>
 </tr>
 </tbody>

@@ -17,7 +17,7 @@ $rFlag&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -25,7 +25,7 @@ $rFlag&gt;</strong></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$secTag</strong></p></td>
+<td><code class="parameter-table-variable">secTag</code></td>
 <td><p>tag associated with previously-defined Section object</p></td>
 </tr>
 <tr class="even">
@@ -39,7 +39,7 @@ $rFlag&gt;</strong></p></td>
 lies in the local x-y plane for the element. (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rFlag</strong></p></td>
+<td><code class="parameter-table-variable">rFlag</code></td>
 <td><p>optional, default = 1</p></td>
 </tr>
 <tr class="odd">

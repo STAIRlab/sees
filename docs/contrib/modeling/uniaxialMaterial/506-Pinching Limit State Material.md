@@ -31,21 +31,21 @@ $dmgR2 $dmgR3 $dmgR4 $dmgRLim</strong> <strong>$dmgRCyc</strong>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique material object integer tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nodeT</strong></p></td>
+<td><code class="parameter-table-variable">nodeT</code></td>
 <td><p>integer node tag to define the first node at the extreme end of
 the associated flexural frame member (L3 or D5 in Figure)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$nodeB</strong></p></td>
+<td><code class="parameter-table-variable">nodeB</code></td>
 <td><p>integer node tag to define the last node at the extreme end of
 the associated flexural frame member (L2 or D2 in Figure)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$driftAxis</strong></p></td>
+<td><code class="parameter-table-variable">driftAxis</code></td>
 <td><p>integer to indicate the drift axis in which lateral-strength
 degradation will occur. This axis should be orthogonal to the axis of
 measured rotation (see $rotAxis in Rotation Shear Curve
@@ -57,12 +57,12 @@ definition)</p></td>
 along the y-axis driftAxis = 3 - Drift along the z-axis</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Kelas</strong></p></td>
+<td><code class="parameter-table-variable">Kelas</code></td>
 <td><p>floating point value to define the initial material elastic
 stiffness (Kelastic); Kelas &gt; 0</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$crvTyp</strong></p></td>
+<td><code class="parameter-table-variable">crvTyp</code></td>
 <td><p>integer flag to indicate the type of limit curve associated with
 this material.</p></td>
 </tr>
@@ -73,12 +73,12 @@ this material.</p></td>
 title="wikilink">RotationShearCurve</a></p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$crvTag</strong></p></td>
+<td><code class="parameter-table-variable">crvTag</code></td>
 <td><p>integer tag for the unique limit curve object associated with
 this material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$YpinchUPN</strong></p></td>
+<td><code class="parameter-table-variable">YpinchUPN</code></td>
 <td><p>floating point unloading force pinching factor for loading in the
 negative direction</p></td>
 </tr>
@@ -87,7 +87,7 @@ negative direction</p></td>
 <td><p>Note: This value must be between zero and unity</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$YpinchRPN</strong></p></td>
+<td><code class="parameter-table-variable">YpinchRPN</code></td>
 <td><p>floating point reloading force pinching factor for loading in the
 negative direction</p></td>
 </tr>
@@ -96,7 +96,7 @@ negative direction</p></td>
 <td><p>Note: This value must be between negative one and unity</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$XpinchRPN</strong></p></td>
+<td><code class="parameter-table-variable">XpinchRPN</code></td>
 <td><p>floating point reloading displacement pinching factor for loading
 in the negative direction</p></td>
 </tr>
@@ -105,7 +105,7 @@ in the negative direction</p></td>
 <td><p>Note: This value must be between negative one and unity</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$YpinchUNP</strong></p></td>
+<td><code class="parameter-table-variable">YpinchUNP</code></td>
 <td><p>floating point unloading force pinching factor for loading in the
 positive direction</p></td>
 </tr>
@@ -114,7 +114,7 @@ positive direction</p></td>
 <td><p>Note: This value must be between zero and unity</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$YpinchRNP</strong></p></td>
+<td><code class="parameter-table-variable">YpinchRNP</code></td>
 <td><p>floating point reloading force pinching factor for loading in the
 positive direction</p></td>
 </tr>
@@ -123,7 +123,7 @@ positive direction</p></td>
 <td><p>Note: This value must be between negative one and unity</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$XpinchRNP</strong></p></td>
+<td><code class="parameter-table-variable">XpinchRNP</code></td>
 <td><p>floating point reloading displacement pinching factor for loading
 in the positive direction</p></td>
 </tr>
@@ -132,7 +132,7 @@ in the positive direction</p></td>
 <td><p>Note: This value must be between negative one and unity</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dmgStrsLimE</strong></p></td>
+<td><code class="parameter-table-variable">dmgStrsLimE</code></td>
 <td><p>floating point force limit for elastic stiffness damage
 (typically defined as the lowest of shear strength or shear at flexrual
 yielding).</p></td>
@@ -146,7 +146,7 @@ damage is not required and set $dmgE1, $dmgE2, $dmgE3, $dmgE4, and
 $dmgELim to zero</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dmgDispMax</strong></p></td>
+<td><code class="parameter-table-variable">dmgDispMax</code></td>
 <td><p>floating point for ultimate drift at failure (δmax Eq. 1) and is
 used for strength and stiffness damage.</p></td>
 </tr>
@@ -166,7 +166,7 @@ required</p></td>
 <em>α1,α2,α3,α4</em> shown in Eq. 1</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dmgELim</strong></p></td>
+<td><code class="parameter-table-variable">dmgELim</code></td>
 <td><p>floating point elastic stiffness damage limit <em>Dlim</em> shown
 in Eq. 1; Note: This value must be between zero and unity</p></td>
 </tr>
@@ -176,12 +176,12 @@ in Eq. 1; Note: This value must be between zero and unity</p></td>
 <em>α1,α2,α3,α4</em> shown in Eq. 1</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dmgRLim</strong></p></td>
+<td><code class="parameter-table-variable">dmgRLim</code></td>
 <td><p>floating point reloading stiffness damage limit <em>Dlim</em>
 shown in Eq. 1; Note: This value must be between zero and unity</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dmgRCyc</strong></p></td>
+<td><code class="parameter-table-variable">dmgRCyc</code></td>
 <td><p>floating point cyclic reloading stiffness damage index; Note:
 This value must be between zero and unity</p></td>
 </tr>
@@ -191,12 +191,12 @@ This value must be between zero and unity</p></td>
 <em>α1,α2,α3,α4</em> shown in Eq. 1</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dmgSLim</strong></p></td>
+<td><code class="parameter-table-variable">dmgSLim</code></td>
 <td><p>floating point backbone strength damage limit <em>Dlim</em> shown
 in Eq. 1; Note: This value must be between zero and unity</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dmgSCyc</strong></p></td>
+<td><code class="parameter-table-variable">dmgSCyc</code></td>
 <td><p>floating point cyclic backbone strength damage index; Note: This
 value must be between zero and unity</p></td>
 </tr>
@@ -222,21 +222,21 @@ $As $Acc $ld $db $rhot $f'c $fy $fyt</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>unique material object integer tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nodeT</strong></p></td>
+<td><code class="parameter-table-variable">nodeT</code></td>
 <td><p>integer node tag to define the first node at the extreme end of
 the associated flexural frame member (L3 or D5 in Figure)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$nodeB</strong></p></td>
+<td><code class="parameter-table-variable">nodeB</code></td>
 <td><p>integer node tag to define the last node at the extreme end of
 the associated flexural frame member (L2 or D2 in Figure)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$driftAxis</strong></p></td>
+<td><code class="parameter-table-variable">driftAxis</code></td>
 <td><p>integer to indicate the drift axis in which lateral-strength
 degradation will occur. This axis should be orthogonal to the axis of
 measured rotation (see $rotAxis in Rotation Shear Curve
@@ -248,7 +248,7 @@ definition)</p></td>
 along the y-axis driftAxis = 3 - Drift along the z-axis</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Kelas</strong></p></td>
+<td><code class="parameter-table-variable">Kelas</code></td>
 <td><p>floating point value to define the shear stiffness (Kelastic) of
 the shear spring prior to shear failure</p></td>
 </tr>
@@ -271,58 +271,58 @@ stiffness (typically double curvature better estimates framed column
 behavior)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$crvTag</strong></p></td>
+<td><code class="parameter-table-variable">crvTag</code></td>
 <td><p>integer tag for the unique limit curve object associated with
 this material</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>integer element tag to define the associated beam-column element
 used to extract axial load</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>floating point column width (inches)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$d</strong></p></td>
+<td><code class="parameter-table-variable">d</code></td>
 <td><p>floating point column depth (inches)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$h</strong></p></td>
+<td><code class="parameter-table-variable">h</code></td>
 <td><p>floating point column height (inches)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a</strong></p></td>
+<td><code class="parameter-table-variable">a</code></td>
 <td><p>floating point shear span length (inches)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$st</strong></p></td>
+<td><code class="parameter-table-variable">st</code></td>
 <td><p>floating point transverse reinforcement spacing (inches) along
 column height</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$As</strong></p></td>
+<td><code class="parameter-table-variable">As</code></td>
 <td><p>floating point total area (inches squared) of longitudinal steel
 bars in section</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Acc</strong></p></td>
+<td><code class="parameter-table-variable">Acc</code></td>
 <td><p>floating point gross confined concrete area (inches squared)
 bounded by the transverse reinforcement in column section</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ld</strong></p></td>
+<td><code class="parameter-table-variable">ld</code></td>
 <td><p>floating point development length (inches) of longitudinal bars
 using ACI 318-11 Eq. 12-1 and Eq. 12-2</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$db</strong></p></td>
+<td><code class="parameter-table-variable">db</code></td>
 <td><p>floating point diameter (inches) of longitudinal bars in column
 section</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rhot</strong></p></td>
+<td><code class="parameter-table-variable">rhot</code></td>
 <td><p>floating point transverse reinforcement ratio
 (Ast/st.db)</p></td>
 </tr>
@@ -331,11 +331,11 @@ section</p></td>
 <td><p>floating point concrete compressive strength (ksi)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fy</strong></p></td>
+<td><code class="parameter-table-variable">fy</code></td>
 <td><p>floating point longitudinal steel yield strength (ksi)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fyt</strong></p></td>
+<td><code class="parameter-table-variable">fyt</code></td>
 <td><p>floating point transverse steel yield strength (ksi)</p></td>
 </tr>
 </tbody>
@@ -343,7 +343,7 @@ section</p></td>
 <hr />
 <p>DESCRIPTION:</p>
 <figure>
-<img src="PinchingLimitStateMaterial2.png"
+<img src="/OpenSeesRT/contrib/static/PinchingLimitStateMaterial2.png"
 title="PinchingLimitStateMaterial2.png" width="550"
 alt="PinchingLimitStateMaterial2.png" />
 <figcaption
@@ -387,7 +387,7 @@ simple parameters $dmgRCyc and $dmgSCyc with values ranging from 0 to
 using the following energy and displacement damage model (from Mitra and
 Lowes (2007)):</p>
 <figure>
-<img src="PinchingLimitStateMaterialEq1.png"
+<img src="/OpenSeesRT/contrib/static/PinchingLimitStateMaterialEq1.png"
 title="PinchingLimitStateMaterialEq1.png" width="350"
 alt="PinchingLimitStateMaterialEq1.png" />
 <figcaption

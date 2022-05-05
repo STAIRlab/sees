@@ -17,7 +17,7 @@ $useBuck</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material.</p></td>
 </tr>
 <tr class="even">
@@ -29,72 +29,72 @@ $useBuck</strong></p></td>
 <td><p>concrete cover compressive strength.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$epsc0</strong></p></td>
+<td><code class="parameter-table-variable">epsc0</code></td>
 <td><p>strain corresponding to unconfined concrete strength.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$D</strong></p></td>
+<td><code class="parameter-table-variable">D</code></td>
 <td><p>diameter of the circular section.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>dimension of concrete cover (until the outer edge of steel
 stirrups)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Ej</strong></p></td>
+<td><code class="parameter-table-variable">Ej</code></td>
 <td><p>elastic modulus of the fiber reinforced polymer (FRP)
 jacket.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Sj</strong></p></td>
+<td><code class="parameter-table-variable">Sj</code></td>
 <td><p>clear spacing of the FRP strips - zero if FRP jacket is
 continuous.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tj</strong></p></td>
+<td><code class="parameter-table-variable">tj</code></td>
 <td><p>total thickness of the FRP jacket.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$eju</strong></p></td>
+<td><code class="parameter-table-variable">eju</code></td>
 <td><p>rupture strain of the FRP jacket from tensile coupons.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$S</strong></p></td>
+<td><code class="parameter-table-variable">S</code></td>
 <td><p>spacing of the steel spiral/stirrups.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fyl</strong></p></td>
+<td><code class="parameter-table-variable">fyl</code></td>
 <td><p>yielding strength of longitudinal steel bars.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fyh</strong></p></td>
+<td><code class="parameter-table-variable">fyh</code></td>
 <td><p>yielding strength of the steel spiral/stirrups.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dlong</strong></p></td>
+<td><code class="parameter-table-variable">dlong</code></td>
 <td><p>diameter of the longitudinal bars of the circular
 section.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dtrans</strong></p></td>
+<td><code class="parameter-table-variable">dtrans</code></td>
 <td><p>diameter of the steel spiral/stirrups.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Es</strong></p></td>
+<td><code class="parameter-table-variable">Es</code></td>
 <td><p>elastic modulus of steel.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$vo</strong></p></td>
+<td><code class="parameter-table-variable">vo</code></td>
 <td><p>initial Poisson’s coefficient for concrete.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$k</strong></p></td>
+<td><code class="parameter-table-variable">k</code></td>
 <td><p>reduction factor for the rupture strain of the FRP jacket,
 recommended values 0.5-0.8.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$useBuck</strong></p></td>
+<td><code class="parameter-table-variable">useBuck</code></td>
 <td><p>FRP jacket failure criterion due to buckling of longitudinal
 compressive steel bars (0 = not include it, 1= to include it).</p></td>
 </tr>
@@ -120,7 +120,7 @@ under compression” is plotted on the screen.</p>
 <p><strong>Typical Hysteretic Stress-Strain Relation for
 FRPConfinedConcrete.</strong></p>
 <figure>
-<img src="Figure_1_.jpg" title="Figure_1_.jpg" width="600"
+<img src="/OpenSeesRT/contrib/static/Figure_1_.jpg" title="Figure_1_.jpg" width="600"
 alt="Figure_1_.jpg" />
 <figcaption aria-hidden="true">Figure_1_.jpg</figcaption>
 </figure>
@@ -155,7 +155,7 @@ title="ExampleFRPpy.doc" /> Please change the file type to
 <p><strong>Response of Cantilever FRP-Confined Circular Reinforced
 Concrete Column under Cyclic Lateral Loading.</strong></p>
 <figure>
-<img src="Figure_3.jpg" title="Figure_3.jpg" width="600"
+<img src="/OpenSeesRT/contrib/static/Figure_3.jpg" title="Figure_3.jpg" width="600"
 alt="Figure_3.jpg" />
 <figcaption aria-hidden="true">Figure_3.jpg</figcaption>
 </figure>

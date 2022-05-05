@@ -35,23 +35,23 @@ achieve the desired elastic-plastic stress-strain response.</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$G0</strong></p></td>
+<td><code class="parameter-table-variable">G0</code></td>
 <td><p>A constant related to elastic shear modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$kappa</strong></p></td>
+<td><code class="parameter-table-variable">kappa</code></td>
 <td><p>A constant related to elastic bulk modulus</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$h</strong></p></td>
+<td><code class="parameter-table-variable">h</code></td>
 <td><p>Model parameter for plastic modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Mfc</strong></p></td>
+<td><code class="parameter-table-variable">Mfc</code></td>
 <td><p>Stress ratio at failure in triaxial compression</p></td>
 </tr>
 <tr class="even">
@@ -59,7 +59,7 @@ achieve the desired elastic-plastic stress-strain response.</p>
 <td><p>Coefficient for reversible dilatancy generation</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Mdc</strong></p></td>
+<td><code class="parameter-table-variable">Mdc</code></td>
 <td><p>Stress ratio at which the reversible dilatancy sign
 changes</p></td>
 </tr>
@@ -68,24 +68,24 @@ changes</p></td>
 <td><p>Coefficient for reversible dilatancy release</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rdr</strong></p></td>
+<td><code class="parameter-table-variable">rdr</code></td>
 <td><p>Reference shear strain length</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>Parameter controlling the decrease rate of irreversible
 dilatancy</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dir</strong></p></td>
+<td><code class="parameter-table-variable">dir</code></td>
 <td><p>Coefficient for irreversible dilatancy potential</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ein</strong></p></td>
+<td><code class="parameter-table-variable">ein</code></td>
 <td><p>Initial void ratio</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>Saturated mass density</p></td>
 </tr>
 </tbody>

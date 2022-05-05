@@ -1,4 +1,4 @@
-# PyLiq1 Material
+ # PyLiq1
 
 <p>This command constructs a uniaxial p-y material that incorporates
 liquefaction effects. This p y material is used with a zeroLength
@@ -26,18 +26,18 @@ uniaxialMaterial PyLiq1 $matTag $soilType $pult $Y50 $Cd
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$soilType</strong></p></td>
+<td><code class="parameter-table-variable">soilType</code></td>
 <td><p>soilType = 1 Backbone of p-y curve approximates Matlock (1970)
 soft clay relation.</p>
 <p>soilType = 2 Backbone of p-y curve approximates API (1993) sand
 relation.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$pult</strong></p></td>
+<td><code class="parameter-table-variable">pult</code></td>
 <td><p>Ultimate capacity of the p-y material. Note that "p" or "pult"
 are distributed loads [force per length of pile] in common design
 equations, but are both loads for this uniaxialMaterial [i.e.,
@@ -49,19 +49,19 @@ distributed load times the tributary length of the pile].</p></td>
 loading.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Cd</strong></p></td>
+<td><code class="parameter-table-variable">Cd</code></td>
 <td><p>Variable that sets the drag resistance within a fully-mobilized
 gap as Cd*pult.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>The viscous damping term (dashpot) on the far-field (elastic)
 component of the displacement rate (velocity). (optional Default = 0.0).
 Nonzero c values are used to represent radiation damping
 effects</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$pRes</strong></p></td>
+<td><code class="parameter-table-variable">pRes</code></td>
 <td><p>sets the minimum (or residual) peak resistance that the material
 retains as the adjacent solid soil elements liquefy</p></td>
 </tr>
@@ -72,7 +72,7 @@ which PyLiq1 will obtain mean effective stresses and excess pore
 pressures</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$seriesTag</strong></p></td>
+<td><code class="parameter-table-variable">seriesTag</code></td>
 <td><p>Alternatively, mean effective stress can be supplied by a time
 series by specifying the text string -timeSeries and the tag of the
 seriesm $seriesTag.</p></td>
@@ -204,12 +204,12 @@ develops against the pile depends on the pile’s flexibility relative to
 the displacement range over which the soil goes through phase
 transformation.</p>
 <figure>
-<img src="PyLiq1NoSpreading.png" title="PyLiq1NoSpreading.png"
+<img src="/OpenSeesRT/contrib/static/PyLiq1NoSpreading.png" title="PyLiq1NoSpreading.png"
 alt="PyLiq1NoSpreading.png" />
 <figcaption aria-hidden="true">PyLiq1NoSpreading.png</figcaption>
 </figure>
 <figure>
-<img src="PyLiq1WithSpreading.png" title="PyLiq1WithSpreading.png"
+<img src="/OpenSeesRT/contrib/static/PyLiq1WithSpreading.png" title="PyLiq1WithSpreading.png"
 alt="PyLiq1WithSpreading.png" />
 <figcaption aria-hidden="true">PyLiq1WithSpreading.png</figcaption>
 </figure>

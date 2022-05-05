@@ -21,34 +21,34 @@ wall longitudinal bars anchored into footings or bridge joints</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Fy</strong></p></td>
+<td><code class="parameter-table-variable">Fy</code></td>
 <td><p>Yield strength of the reinforcement steel</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Sy</strong></p></td>
+<td><code class="parameter-table-variable">Sy</code></td>
 <td><p>Rebar slip at member interface under yield stress. (see NOTES
 below)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Fu</strong></p></td>
+<td><code class="parameter-table-variable">Fu</code></td>
 <td><p>Ultimate strength of the reinforcement steel</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Su</strong></p></td>
+<td><code class="parameter-table-variable">Su</code></td>
 <td><p>Rebar slip at the loaded end at the bar fracture
 strength</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>Initial hardening ratio in the monotonic slip vs. bar stress
 response (0.3~0.5)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$R</strong></p></td>
+<td><code class="parameter-table-variable">R</code></td>
 <td><p>Pinching factor for the cyclic slip vs. bar response
 (0.5~1.0)</p></td>
 </tr>
@@ -56,19 +56,19 @@ response (0.3~0.5)</p></td>
 </table>
 <p>Monotonic bar stress vs. slip response as modelled in Bond_SP01</p>
 <figure>
-<img src="BondSPMonotonic.png" title="BondSPMonotonic.png"
+<img src="/OpenSeesRT/contrib/static/BondSPMonotonic.png" title="BondSPMonotonic.png"
 alt="BondSPMonotonic.png" />
 <figcaption aria-hidden="true">BondSPMonotonic.png</figcaption>
 </figure>
 <p>Cyclic bar stress vs. slip response as modelled in Bond_SP01</p>
 <figure>
-<img src="BondSPCyclic.png" title="BondSPCyclic.png"
+<img src="/OpenSeesRT/contrib/static/BondSPCyclic.png" title="BondSPCyclic.png"
 alt="BondSPCyclic.png" />
 <figcaption aria-hidden="true">BondSPCyclic.png</figcaption>
 </figure>
 <p>Pinching effect represented by $R in Bond_SP01</p>
 <figure>
-<img src="BondSPPinching.png" title="BondSPPinching.png"
+<img src="/OpenSeesRT/contrib/static/BondSPPinching.png" title="BondSPPinching.png"
 alt="BondSPPinching.png" />
 <figcaption aria-hidden="true">BondSPPinching.png</figcaption>
 </figure>
@@ -76,7 +76,7 @@ alt="BondSPPinching.png" />
 <p><strong>$Sy</strong> Rebar slip at member interface under yield
 stress and may be obtained from</p>
 <figure>
-<img src="BondSP_Sy1.png" title="BondSP_Sy1.png" alt="BondSP_Sy1.png" />
+<img src="/OpenSeesRT/contrib/static/BondSP_Sy1.png" title="BondSP_Sy1.png" alt="BondSP_Sy1.png" />
 <figcaption aria-hidden="true">BondSP_Sy1.png</figcaption>
 </figure>
 <p>or</p>

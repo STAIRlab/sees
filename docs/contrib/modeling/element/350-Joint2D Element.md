@@ -15,7 +15,7 @@ element Joint2D $eleTag $Nd1 $Nd2 $Nd3 $Nd4 $NdC
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -24,7 +24,7 @@ element Joint2D $eleTag $Nd1 $Nd2 $Nd3 $Nd4 $NdC
 element is connected to the adjoining beam-column element</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$NdC</strong></p></td>
+<td><code class="parameter-table-variable">NdC</code></td>
 <td><p>integer tags indicating the central node of beam-column joint
 (the tag is used to generate the internal node, thus, the node should
 not exist in the domain or be used by any other node)</p></td>
@@ -54,12 +54,12 @@ Use a zero tag to indicate the case that a beam-column element is
 rigidly framed to the joint. (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$MatC</strong></p></td>
+<td><code class="parameter-table-variable">MatC</code></td>
 <td><p>uniaxial material tag for rotational spring of the central node
 that describes shear panel behavior</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$LrgDspTag</strong></p></td>
+<td><code class="parameter-table-variable">LrgDspTag</code></td>
 <td><p>an integer indicating the flag for considering large
 deformations:</p></td>
 </tr>

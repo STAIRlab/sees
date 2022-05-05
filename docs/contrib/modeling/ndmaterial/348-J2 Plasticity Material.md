@@ -12,31 +12,31 @@ nDMaterial J2Plasticity $matTag $K $G $sig0 $sigInf
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$K</strong></p></td>
+<td><code class="parameter-table-variable">K</code></td>
 <td><p>bulk modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$G</strong></p></td>
+<td><code class="parameter-table-variable">G</code></td>
 <td><p>shear modulus</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sig0</strong></p></td>
+<td><code class="parameter-table-variable">sig0</code></td>
 <td><p>initial yield stress</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$sigInf</strong></p></td>
+<td><code class="parameter-table-variable">sigInf</code></td>
 <td><p>final saturation yield stress</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$delta</strong></p></td>
+<td><code class="parameter-table-variable">delta</code></td>
 <td><p>exponential hardening parameter</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$H</strong></p></td>
+<td><code class="parameter-table-variable">H</code></td>
 <td><p>linear hardening parameter</p></td>
 </tr>
 </tbody>

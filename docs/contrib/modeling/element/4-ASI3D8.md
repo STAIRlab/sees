@@ -13,7 +13,7 @@ element ASI3D8 $eleTag $node1 $node2 $node3 $node4 $node5
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">

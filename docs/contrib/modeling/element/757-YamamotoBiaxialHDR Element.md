@@ -17,7 +17,7 @@ $y3&gt; &lt;-mass $m&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -25,7 +25,7 @@ $y3&gt; &lt;-mass $m&gt;</strong></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Tp</strong></p></td>
+<td><code class="parameter-table-variable">Tp</code></td>
 <td><p>compound type</p></td>
 </tr>
 <tr class="even">
@@ -34,15 +34,15 @@ $y3&gt; &lt;-mass $m&gt;</strong></p></td>
 corporation.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$DDo</strong></p></td>
+<td><code class="parameter-table-variable">DDo</code></td>
 <td><p>outer diameter [m]</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$DDi</strong></p></td>
+<td><code class="parameter-table-variable">DDi</code></td>
 <td><p>bore diameter [m]</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Hr</strong></p></td>
+<td><code class="parameter-table-variable">Hr</code></td>
 <td><p>total thickness of rubber layer [m]</p></td>
 </tr>
 <tr class="even">
@@ -66,7 +66,7 @@ x-axis</p></td>
 lies in the local x-y plane for the element</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$m</strong></p></td>
+<td><code class="parameter-table-variable">m</code></td>
 <td><p>element mass [kg]</p></td>
 </tr>
 </tbody>
@@ -76,7 +76,7 @@ lies in the local x-y plane for the element</p></td>
 ElementRecorder object are 'globalForce', 'localForce', 'basicForce',
 'localDisplacement' and 'basicDeformation'.</p>
 <figure>
-<img src="YamamotoBiaxialHDR_Model.png"
+<img src="/OpenSeesRT/contrib/static/YamamotoBiaxialHDR_Model.png"
 title="YamamotoBiaxialHDR_Model.png" width="150"
 alt="YamamotoBiaxialHDR_Model.png" />
 <figcaption aria-hidden="true">YamamotoBiaxialHDR_Model.png</figcaption>

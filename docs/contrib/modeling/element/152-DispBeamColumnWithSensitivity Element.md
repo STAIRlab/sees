@@ -20,7 +20,7 @@ method&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$tag</strong></p></td>
+<td><code class="parameter-table-variable">tag</code></td>
 <td><p>integer tag identifying an existing parameter.</p></td>
 </tr>
 <tr class="even">
@@ -28,15 +28,15 @@ method&gt;</strong></p></td>
 <td><p>end nodes.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$numIntgrPts</strong></p></td>
+<td><code class="parameter-table-variable">numIntgrPts</code></td>
 <td><p>number of integration points along the element.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$secTag</strong></p></td>
+<td><code class="parameter-table-variable">secTag</code></td>
 <td><p>identifier for previously-defined section object.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$transfTag</strong></p></td>
+<td><code class="parameter-table-variable">transfTag</code></td>
 <td><p>identifier for previously-defined coordinate-transformation
 (CrdTransf) object.</p></td>
 </tr>

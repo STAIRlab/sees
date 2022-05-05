@@ -1,4 +1,4 @@
-# Steel01 Material
+ # Steel01
 
 <p>This command is used to construct a uniaxial bilinear steel material
 object with kinematic hardening and optional isotropic hardening
@@ -12,19 +12,19 @@ uniaxialMaterial Steel01 $matTag $Fy $E0 $b &lt;$a1 $a2
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Fy</strong></p></td>
+<td><code class="parameter-table-variable">Fy</code></td>
 <td><p>yield strength</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$E0</strong></p></td>
+<td><code class="parameter-table-variable">E0</code></td>
 <td><p>initial elastic tangent</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b</strong></p></td>
+<td><code class="parameter-table-variable">b</code></td>
 <td><p>strain-hardening ratio (ratio between post-yield tangent and
 initial elastic tangent)</p></td>
 </tr>
@@ -59,21 +59,21 @@ as proportion of yield strength after a plastic strain of $a4*($Fy/E0).
 <p>Steel01 Material -- Hysteretic Behavior of Model w/o Isotropic
 Hardening</p>
 <figure>
-<img src="Steel01HystereticA.jpg" title="Steel01HystereticA.jpg"
+<img src="/OpenSeesRT/contrib/static/Steel01HystereticA.jpg" title="Steel01HystereticA.jpg"
 alt="Steel01HystereticA.jpg" />
 <figcaption aria-hidden="true">Steel01HystereticA.jpg</figcaption>
 </figure>
 <p>Steel01 Material -- Hysteretic Behavior of Model with Isotropic
 Hardening in Compression</p>
 <figure>
-<img src="Steel01HystereticB.jpg" title="Steel01HystereticB.jpg"
+<img src="/OpenSeesRT/contrib/static/Steel01HystereticB.jpg" title="Steel01HystereticB.jpg"
 alt="Steel01HystereticB.jpg" />
 <figcaption aria-hidden="true">Steel01HystereticB.jpg</figcaption>
 </figure>
 <p>Steel01 Material -- Hysteretic Behavior of Model with Isotropic
 Hardening in Tension</p>
 <figure>
-<img src="Steel01HystereticC.jpg" title="Steel01HystereticC.jpg"
+<img src="/OpenSeesRT/contrib/static/Steel01HystereticC.jpg" title="Steel01HystereticC.jpg"
 alt="Steel01HystereticC.jpg" />
 <figcaption aria-hidden="true">Steel01HystereticC.jpg</figcaption>
 </figure>

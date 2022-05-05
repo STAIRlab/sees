@@ -27,7 +27,7 @@ $rFlag&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -35,23 +35,23 @@ $rFlag&gt;</strong></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$A</strong></p></td>
+<td><code class="parameter-table-variable">A</code></td>
 <td><p>cross-sectional area of element</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>tag associated with previously-defined UniaxialMaterial</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$secTag</strong></p></td>
+<td><code class="parameter-table-variable">secTag</code></td>
 <td><p>tag associated with previously-defined Section</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>mass per unit length, optional, default = 0.0</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cFlag</strong></p></td>
+<td><code class="parameter-table-variable">cFlag</code></td>
 <td><p>consistent mass flag, optional, default = 0</p></td>
 </tr>
 <tr class="even">
@@ -63,7 +63,7 @@ $rFlag&gt;</strong></p></td>
 <td><p>cFlag = 1 consistent mass matrix</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rFlag</strong></p></td>
+<td><code class="parameter-table-variable">rFlag</code></td>
 <td><p>Rayleigh damping flag, optional, default = 0</p></td>
 </tr>
 <tr class="odd">

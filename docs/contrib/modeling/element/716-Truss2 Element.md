@@ -21,7 +21,7 @@ element CorotTruss2 $eleTag $iNode $jNode $mGNode $nGNode
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -33,11 +33,11 @@ element CorotTruss2 $eleTag $iNode $jNode $mGNode $nGNode
 <td><p>end nodes for the zero-stiffness gauge element</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$A</strong></p></td>
+<td><code class="parameter-table-variable">A</code></td>
 <td><p>cross-sectional area of truss element</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>tag of material used (see Note 1)</p></td>
 </tr>
 <tr class="even">
@@ -49,14 +49,14 @@ element CorotTruss2 $eleTag $iNode $jNode $mGNode $nGNode
 <td></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>mass per unit length, as in the <strong><a href="Truss_Element"
 title="wikilink"> Truss</a></strong> and <strong><a
 href="Corotational_Truss_Element" title="wikilink">
 CorotTruss</a></strong> Elements (default = 0.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rFlag</strong></p></td>
+<td><code class="parameter-table-variable">rFlag</code></td>
 <td><p>flag for Rayleigh damping, as in the <strong><a
 href="Truss_Element" title="wikilink"> Truss</a></strong> Element
 (default = 0; see Note 2)</p></td>

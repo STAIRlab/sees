@@ -20,13 +20,13 @@ $regTag&gt; $arg1 $arg2 ...</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$fileName</strong></p></td>
+<td><code class="parameter-table-variable">fileName</code></td>
 <td><p>name of file to which output is sent. file output is either in
 xml format (-xml option), textual (-file option) or binary (-binary
 option)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nSD</strong></p></td>
+<td><code class="parameter-table-variable">nSD</code></td>
 <td><p>number of significant digits (optional, default is 6)</p></td>
 </tr>
 <tr class="odd">
@@ -43,7 +43,7 @@ Note, this greatly slows the execution time, but is useful if you need
 to monitor the data during the analysis.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$deltaT</strong></p></td>
+<td><code class="parameter-table-variable">deltaT</code></td>
 <td><p>time interval for recording. will record when next step is
 $deltaT greater than last recorder step. (optional, default: records at
 every time step)</p></td>
@@ -60,7 +60,7 @@ elements in domain (optional, default: omitted)</p></td>
 omitted)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$regTag</strong></p></td>
+<td><code class="parameter-table-variable">regTag</code></td>
 <td><p>previously-defined tag of region of elements whose response is
 being recorded -- region of elements in domain (optional)</p></td>
 </tr>

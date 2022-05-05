@@ -15,7 +15,7 @@ $massType</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -23,41 +23,41 @@ $massType</strong></p></td>
 <td><p>end nodes (3 dof per node)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>elastic modulus of the cable material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$A</strong></p></td>
+<td><code class="parameter-table-variable">A</code></td>
 <td><p>cross-sectional area of element</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$L0</strong></p></td>
+<td><code class="parameter-table-variable">L0</code></td>
 <td><p>unstretched length of the cable</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><code class="parameter-table-variable">alpha</code></td>
 <td><p>coefficient of thermal expansion</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$temperature_change</strong></p></td>
+<td><code class="parameter-table-variable">temperature_change</code></td>
 <td><p>temperature change for the element</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>mass per unit length</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$errortol</strong></p></td>
+<td><code class="parameter-table-variable">errortol</code></td>
 <td><p>allowed tolerance for within-element equilbrium (Newton-Rhapson
 iterations)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Nsubsteps</strong></p></td>
+<td><code class="parameter-table-variable">Nsubsteps</code></td>
 <td><p>number of within-element substeps into which equilibrium
 iterations are subdivided (not number of steps to convergence)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$massType</strong></p></td>
+<td><code class="parameter-table-variable">massType</code></td>
 <td><p>Mass matrix model to use (<strong>$massType = 0</strong> lumped
 mass matrix, <strong>$massType = 1</strong> rigid-body mass matrix (in
 development))</p></td>

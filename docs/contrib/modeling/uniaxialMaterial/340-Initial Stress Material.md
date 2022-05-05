@@ -14,15 +14,15 @@ uniaxialMaterial InitStressMaterial $matTag $otherTag
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$otherTag</strong></p></td>
+<td><code class="parameter-table-variable">otherTag</code></td>
 <td><p>tag of the other material</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$initStress</strong></p></td>
+<td><code class="parameter-table-variable">initStress</code></td>
 <td><p>initial stress</p></td>
 </tr>
 </tbody>

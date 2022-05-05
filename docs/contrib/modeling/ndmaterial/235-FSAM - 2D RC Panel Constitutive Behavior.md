@@ -36,7 +36,7 @@ but it could be also used elsewhere.</p>
 <p><strong>Source:</strong>
 /usr/local/cvs/OpenSees/SRC/material/nD/reinforcedConcretePlaneStress/</p>
 <figure>
-<img src="FSAM_1.png"
+<img src="/OpenSeesRT/contrib/static/FSAM_1.png"
 title="Figure 1. FSAM for Converting In-Plane Strains to In-Plane Smeared Stresses on a RC Panel Element"
 width="500"
 alt="Figure 1. FSAM for Converting In-Plane Strains to In-Plane Smeared Stresses on a RC Panel Element" />
@@ -56,46 +56,46 @@ $nu $alfadow</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$mattag</strong></p></td>
+<td><code class="parameter-table-variable">mattag</code></td>
 <td><p>Unique nDMaterial tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>Material density</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$sX</strong></p></td>
+<td><code class="parameter-table-variable">sX</code></td>
 <td><p>Tag of uniaxialMaterial simulating horizontal (x)
 reinforcement</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sY</strong></p></td>
+<td><code class="parameter-table-variable">sY</code></td>
 <td><p>Tag of uniaxialMaterial simulating vertical (y)
 reinforcement</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$conc</strong></p></td>
+<td><code class="parameter-table-variable">conc</code></td>
 <td><p>Tag of uniaxialMaterial&lt;sup
 class="superscript"&gt;1&lt;/sup&gt; simulating concrete</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rouX</strong></p></td>
+<td><code class="parameter-table-variable">rouX</code></td>
 <td><p>Reinforcing ratio in horizontal (x) direction (rouX = A&lt;sub
 class="subscript"&gt;s,x&lt;/sub&gt;/A&lt;sub
 class="subscript"&gt;gross,x&lt;/sub&gt;)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rouY</strong></p></td>
+<td><code class="parameter-table-variable">rouY</code></td>
 <td><p>Reinforcing ratio in vertical (y) direction (rouY = A&lt;sub
 class="subscript"&gt;s,y&lt;/sub&gt;/A&lt;sub
 class="subscript"&gt;gross,y&lt;/sub&gt;)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nu</strong></p></td>
+<td><code class="parameter-table-variable">nu</code></td>
 <td><p>Concrete friction coefficient (0.0 &lt; nu &lt; 1.5)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$alfadow</strong></p></td>
+<td><code class="parameter-table-variable">alfadow</code></td>
 <td><p>Stiffness coefficient of reinforcement dowel action (0.0 &lt;
 alfadow &lt; 0.05)</p></td>
 </tr>
@@ -198,7 +198,7 @@ values only for one macro-fiber within one or multiple elements.</p>
 <p>Recorder Element -file MVLEM_panel_strain.out -time -ele 1 RCPanel 1
 panel_strain</p>
 <figure>
-<img src="FSAM_2a.png"
+<img src="/OpenSeesRT/contrib/static/FSAM_2a.png"
 title="Figure 2. Behavior and Input/Output Parameters of the FSAM Constitutive Model"
 width="1000"
 alt="Figure 2. Behavior and Input/Output Parameters of the FSAM Constitutive Model" />

@@ -18,7 +18,7 @@ $damage2 $beta $curveTag $curveType.</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
@@ -52,12 +52,12 @@ the envelope in the negative direction*</p></td>
 the envelope in the negative direction*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$pinchX</strong></p></td>
+<td><code class="parameter-table-variable">pinchX</code></td>
 <td><p>pinching factor for strain (or deformation) during
 reloading</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$pinchY</strong></p></td>
+<td><code class="parameter-table-variable">pinchY</code></td>
 <td><p>pinching factor for stress (or force) during reloading</p></td>
 </tr>
 <tr class="even">
@@ -69,17 +69,17 @@ reloading</p></td>
 <td><p>damage due to energy: D2(Ei/Eult)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$beta</strong></p></td>
+<td><code class="parameter-table-variable">beta</code></td>
 <td><p>power used to determine the degraded unloading stiffness based on
 ductility, m-b (optional, default=0.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$curveTag</strong></p></td>
+<td><code class="parameter-table-variable">curveTag</code></td>
 <td><p>an integer tag for the <a href="Limit_Curve"
 title="wikilink">Limit Curve</a> defining the limit surface</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$curveType</strong></p></td>
+<td><code class="parameter-table-variable">curveType</code></td>
 <td><p>an integer defining the type of LimitCurve (0 = no curve,</p>
 <p>1 = axial curve, all other curves can be any other integer)</p></td>
 </tr>

@@ -11,19 +11,19 @@ nDMaterial ElasticIsotropic $matTag $E $v
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$E</strong></p></td>
+<td><code class="parameter-table-variable">E</code></td>
 <td><p>elastic Modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$v</strong></p></td>
+<td><code class="parameter-table-variable">v</code></td>
 <td><p>Poisson's ratio</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rho</strong></p></td>
+<td><code class="parameter-table-variable">rho</code></td>
 <td><p>mass density, optional default = 0.0.</p></td>
 </tr>
 </tbody>

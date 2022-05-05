@@ -1,4 +1,4 @@
-# BilinearOilDamper Material
+ # BilinearOilDamper
 
 <p>This command is used to construct a BilinearOilDamper material, which
 simulates the hysteretic response of bilinear oil dampers with relief
@@ -18,50 +18,50 @@ $MaxHalf&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$K</strong></p></td>
+<td><code class="parameter-table-variable">K</code></td>
 <td><p>Elastic stiffness of linear spring to model the axial flexibility
 of an oil damper (brace and damper portion)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Cd</strong></p></td>
+<td><code class="parameter-table-variable">Cd</code></td>
 <td><p>Viscous damping coefficient of an oil damper (before
 relief)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Fr</strong></p></td>
+<td><code class="parameter-table-variable">Fr</code></td>
 <td><p>Damper relief load (default=1.0, Damper property)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$p</strong></p></td>
+<td><code class="parameter-table-variable">p</code></td>
 <td><p>Post-relief viscous damping coefficient ratio (default=1.0,
 linear oil damper)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$LGap</strong></p></td>
+<td><code class="parameter-table-variable">LGap</code></td>
 <td><p>gap length to simulate the gap length due to the pin tolerance
 (default=0.0: zero tolerance)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$NM</strong></p></td>
+<td><code class="parameter-table-variable">NM</code></td>
 <td><p>Employed adaptive numerical algorithm (default value NM = 1; 1 =
 Dormand-Prince54, 2=adaptive finite difference)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$RelTol</strong></p></td>
+<td><code class="parameter-table-variable">RelTol</code></td>
 <td><p>Tolerance for absolute relative error control of the adaptive
 iterative algorithm (default value 10^-6)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$AbsTol</strong></p></td>
+<td><code class="parameter-table-variable">AbsTol</code></td>
 <td><p>Tolerance for absolute error control of adaptive iterative
 algorithm (default value 10^-10)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$MaxHalf</strong></p></td>
+<td><code class="parameter-table-variable">MaxHalf</code></td>
 <td><p>Maximum number of sub-step iterations within an integration step
 (default value 15)</p></td>
 </tr>
@@ -111,7 +111,7 @@ varying post-relief viscous damping coefficient ratio (p=1.0, 0.5, 0.1,
 </tr>
 <tr class="even">
 <td><figure>
-<img src="BOD_1.png"
+<img src="/OpenSeesRT/contrib/static/BOD_1.png"
 title=" Figure 1.Oil Damper with various post-relief viscous damping coefficient ratios"
 width="550"
 alt=" Figure 1.Oil Damper with various post-relief viscous damping coefficient ratios" />
@@ -154,7 +154,7 @@ mm)</p></td>
 </tr>
 <tr class="odd">
 <td><figure>
-<img src="BODgap_2.png"
+<img src="/OpenSeesRT/contrib/static/BODgap_2.png"
 title=" Figure 2.Oil Damper with various gap lengths" width="550"
 alt=" Figure 2.Oil Damper with various gap lengths" />
 <figcaption aria-hidden="true"> Figure 2.Oil Damper with various gap

@@ -1,4 +1,4 @@
-# PySimple1 Material
+ # PySimple1
 
 <p>This command is used to construct a PySimple1 uniaxial material
 object:</p>
@@ -11,18 +11,18 @@ uniaxialMaterial PySimple1 $matTag $soilType $pult $Y50
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><code class="parameter-table-variable">matTag</code></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$soilType</strong></p></td>
+<td><code class="parameter-table-variable">soilType</code></td>
 <td><p>soilType = 1 Backbone of p-y curve approximates Matlock (1970)
 soft clay relation.</p>
 <p>soilType = 2 Backbone of p-y curve approximates API (1993) sand
 relation.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$pult</strong></p></td>
+<td><code class="parameter-table-variable">pult</code></td>
 <td><p>Ultimate capacity of the p-y material. Note that "p" or "pult"
 are distributed loads [force per length of pile] in common design
 equations, but are both loads for this uniaxialMaterial [i.e.,
@@ -34,12 +34,12 @@ distributed load times the tributary length of the pile].</p></td>
 loading.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Cd</strong></p></td>
+<td><code class="parameter-table-variable">Cd</code></td>
 <td><p>Variable that sets the drag resistance within a fully-mobilized
 gap as Cd*pult.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$c</strong></p></td>
+<td><code class="parameter-table-variable">c</code></td>
 <td><p>The viscous damping term (dashpot) on the far-field (elastic)
 component of the displacement rate (velocity). (optional Default = 0.0).
 Nonzero c values are used to represent radiation damping

@@ -12,7 +12,7 @@ element ShellDKGQ $eleTag $iNode $jNode $kNode $lNode
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><code class="parameter-table-variable">eleTag</code></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
@@ -21,7 +21,7 @@ element ShellDKGQ $eleTag $iNode $jNode $kNode $lNode
 counter-clockwise order around the element.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$secTag</strong></p></td>
+<td><code class="parameter-table-variable">secTag</code></td>
 <td><p>tag associated with previously-defined SectionForceDeformation
 object. Currently can be a PlateFiberSection, a
 ElasticMembranePlateSection and a LayeredShell section</p></td>
