@@ -14,11 +14,11 @@ recorder plot $fileName $windowTitle $xLoc $yLoc $xPixels
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$fileName</strong></p></td>
+<td><p><code class="parameter-table-variable">fileName</code></p></td>
 <td><p>name of file from which data will be read</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$windowTitle</strong></p></td>
+<td><p><code class="parameter-table-variable">windowTitle</code></p></td>
 <td><p>title of window to be opened</p></td>
 </tr>
 <tr class="odd">
@@ -46,7 +46,9 @@ be specified.</li>
 </ul>
 <hr />
 <p>EXAMPLE</p>
-<p>Example:</p>
+
+## Examples
+
 <p>recorder Plot node.out "Nodal Displacement" 10 10 400 400 -columns 1
 2</p>
 <hr />

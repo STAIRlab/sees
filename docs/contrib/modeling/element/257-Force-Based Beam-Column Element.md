@@ -140,7 +140,9 @@ integer 1 through $numIntegrPts)</li>
 location and weight of the Gauss-Lobatto integration points <a
 href="http://opensees.berkeley.edu/WebSVN/filedetails.php?repname=OpenSees&amp;path=%2Ftrunk%2FSRC%2Felement%2FforceBeamColumn%2FLobattoBeamIntegration.cpp">1</a></li>
 </ol>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element forceBeamColumn 1 2 4 9 Lobatto 8 5; # force beam column
 element added with tag 1 between nodes 2 and 4 that has Gauss-Lobatto 5
 integration points, each using section 8, and the element uses geometric

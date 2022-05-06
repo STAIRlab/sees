@@ -88,7 +88,9 @@ sin(pi*i/n)^2} and <strong>$rf</strong>=1/sum(i=0,n-1){sin(pi*i/n)},
 where n is the number of springs in the MSS. For example, when n=8,
 $rs=0.2500 and $rf=0.1989.</p>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p><a href="Media:KikuchiAikenLRB_sample.tcl"
 title="wikilink">KikuchiAikenLRB_sample.tcl</a></p>
 <figure>

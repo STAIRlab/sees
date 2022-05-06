@@ -50,7 +50,7 @@ and constrained planes)</p></td>
 planes)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Kn2</strong></p></td>
+<td><p><code class="parameter-table-variable">Kn2</code></p></td>
 <td><p>Penalty in normal direction after yielding based on Hertz impact
 model</p></td>
 </tr>
@@ -89,7 +89,9 @@ retained surface.</li>
 for extra elements and nodes in the modeling process.</li>
 </ol>
 <hr />
-<p>EXAMPLES:</p>
+
+## Examples
+
 <ol>
 <li>The following zip file contains an example script and the
 corresponding input cyclic displacement: <embed
@@ -103,8 +105,12 @@ title="Example_script_6DOF_3DOF.zip" /></li>
 <hr />
 <p>SAMPLE COMMAND (example scripts are available at bottom of this
 page):</p>
-<p>&lt;source lang="Tcl"&gt;</p>
-<p>&lt;/source&gt; --&gt;</p>
+<p>
+```Tcl
+</p>
+<p>
+```
+ --&gt;</p>
 <hr />
 <p>REFERENCES:</p>
 <p><a href="ZeroLengthContact_Element" title="wikilink">

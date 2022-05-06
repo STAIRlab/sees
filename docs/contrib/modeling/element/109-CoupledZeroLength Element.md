@@ -49,11 +49,15 @@ element CoupledZeroLength $eleTag $iNode $jNode $dirn1
 <p>The valid queries to a zero-length element when creating an
 ElementRecorder object are 'force,' and 'material matArg1 matArg2
 ...'</p>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element CoupledZeroLength 1 2 4 5 6 7; # truss tag 1 between nodes 2
 and 4 acting in directions 5 and 6 with material 7.</p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>if change in element end displacements for 2 dof of interest are d1
 and d2:</p>
 <p>the deformation (strain in uniaxial material) of the material is set

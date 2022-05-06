@@ -394,7 +394,9 @@ alt="PinchingLimitStateMaterialEq1.png" />
 aria-hidden="true">PinchingLimitStateMaterialEq1.png</figcaption>
 </figure>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p><a href="PinchingLimitStateMaterial_Example"
 title="wikilink">PinchingLimitStateMaterial Example</a></p>
 <hr />

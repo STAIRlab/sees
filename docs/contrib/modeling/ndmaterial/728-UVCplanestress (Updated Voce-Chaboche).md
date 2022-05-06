@@ -70,12 +70,12 @@ arbitrary (but still a &gt; 0).</p></td>
 <td><p>Number of backstresses to define, N &gt;= 1.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$C1</strong></p></td>
+<td><p><code class="parameter-table-variable">C1</code></p></td>
 <td><p>Kinematic hardening parameter associated with backstress
 component 1.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$gamma1</strong></p></td>
+<td><p><code class="parameter-table-variable">gamma1</code></p></td>
 <td><p>Saturation rate of kinematic hardening associated with backstress
 component 1.</p></td>
 </tr>

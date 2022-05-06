@@ -54,7 +54,9 @@ Washington </span></p>
 loading to a four-element mesh of brick elements. The applied loading is
 increased linearly over the first 0.1 seconds of pseudo-time, then held
 constant.</p>
-<p>&lt;source lang="tcl"&gt; wipe</p>
+<p>
+```tcl
+ wipe</p>
 <p>model BasicBuilder -ndm 3 -ndf 3</p>
 <ol>
 <li>nodes</li>
@@ -106,4 +108,6 @@ eleLoad -ele 7 -type -surfaceLoad eleLoad -ele 8 -type -surfaceLoad
 Newton numberer Plain system SparseSPD integrator LoadControl 0.01
 analysis Static</p>
 <p>analyze 105</p>
-<p>wipe &lt;/source&gt;</p>
+<p>wipe 
+```
+</p>

@@ -69,7 +69,9 @@ using the BWBN material model</p>
 <p><a href="BWBNParameterEstimation"
 title="wikilink">BWBNParameterEstimation</a></p>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p><a href="BWBNExample" title="wikilink">BWBNExample</a></p>
 <hr />
 <p>REFERENCES:</p>

@@ -87,11 +87,11 @@ lies in the local x-y plane for the element</p></td>
 <td><p>element mass</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>-noPDInput</strong></p></td>
+<td><p><code class="parameter-table-flag">-noPDInput</code></p></td>
 <td><p>not consider P-Delta moment</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-noTilt</strong></p></td>
+<td><p><code class="parameter-table-flag">-noTilt</code></p></td>
 <td><p>not consider tilt of rigid link</p></td>
 </tr>
 <tr class="even">
@@ -127,7 +127,9 @@ width="400" alt="KikuchiBearing_Model.png" />
 <figcaption aria-hidden="true">KikuchiBearing_Model.png</figcaption>
 </figure>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element KikuchiBearing 1 1 2 -shape round -size 1.016 0.320 -nMSS 8
 -matMSS 1 -nMNS 30 -matMNS 2</p>
 <p><a href="Media:KikuchiBearing_Sample.tcl"

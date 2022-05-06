@@ -40,7 +40,9 @@ object are 'forces', 'stresses,' and 'material $matNum matArg1 matArg2
 point corresponding to the node numbers in the isoparametric
 domain.</li>
 </ol>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> Edward Love,
 Sandia National Laboratories </span></p>

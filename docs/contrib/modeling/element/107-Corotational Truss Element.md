@@ -93,7 +93,9 @@ CorotTrussSection element.</li>
 <ul>
 <li>CorotTruss DOES NOT include Rayleigh damping by default.</li>
 </ul>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element truss 1 2 4 5.5 9; # truss element with tag 1 added between
 nodes 2 and 4 with area 5.5 that uses material 9</p>
 <hr />

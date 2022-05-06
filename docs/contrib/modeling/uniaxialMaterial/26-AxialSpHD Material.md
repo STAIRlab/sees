@@ -55,7 +55,9 @@ width="250" alt="AxialSpHD_note1.png" />
 src="AxialSpHD_note2.png" title="AxialSpHD_note2.png" width="250"
 alt="AxialSpHD_note2.png" /></p>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p><a href="Media:AxialSpHD_sample.tcl"
 title="wikilink">AxialSpHD_sample.tcl</a></p>
 <figure>

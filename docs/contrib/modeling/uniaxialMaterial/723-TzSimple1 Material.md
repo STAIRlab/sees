@@ -26,7 +26,7 @@ relation.</p></td>
 <td><p>Ultimate capacity of the t-z material. SEE NOTE 1.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Z50</strong></p></td>
+<td><p><code class="parameter-table-variable">Z50</code></p></td>
 <td><p>Displacement at which 50% of tult is mobilized in monotonic
 loading.</p></td>
 </tr>
@@ -122,7 +122,9 @@ still well below</p>
 <img src="/OpenSeesRT/contrib/static/TzSimple1.gif" title="TzSimple1.gif" alt="TzSimple1.gif" />
 <figcaption aria-hidden="true">TzSimple1.gif</figcaption>
 </figure>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>REFERENCES:</p>
 <p>"Seismic Soil-pile-strcture interaction experiments and analysis",
 Boulanger, R.W., Curras, C.J., Kutter, B.L., Wilson, D.W., and Abghari,

@@ -29,24 +29,24 @@ uniaxialMaterial Steel01 $matTag $Fy $E0 $b &lt;$a1 $a2
 initial elastic tangent)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a1</strong></p></td>
+<td><p><code class="parameter-table-variable">a1</code></p></td>
 <td><p>isotropic hardening parameter, increase of compression yield
 envelope as proportion of yield strength after a plastic strain of
 $a2*($Fy/E0). (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$a2</strong></p></td>
+<td><p><code class="parameter-table-variable">a2</code></p></td>
 <td><p>isotropic hardening parameter (see explanation under $a1).
 (optional).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a3</strong></p></td>
+<td><p><code class="parameter-table-variable">a3</code></p></td>
 <td><p>isotropic hardening parameter, increase of tension yield envelope
 as proportion of yield strength after a plastic strain of $a4*($Fy/E0).
 (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$a4</strong></p></td>
+<td><p><code class="parameter-table-variable">a4</code></p></td>
 <td><p>isotropic hardening parameter (see explanation under $a3).
 (optional)</p></td>
 </tr>

@@ -94,7 +94,7 @@ size of ratio vector is 1 for 2D-case and 2 for 3D-case</p></td>
 0.5])</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>-doRayleigh</strong></p></td>
+<td><p><code class="parameter-table-flag">-doRayleigh</code></p></td>
 <td><p>to include Rayleigh damping from the element (optional, default =
 no Rayleigh damping contribution)</p></td>
 </tr>
@@ -121,7 +121,9 @@ ElementRecorder object are 'force,' 'localForce,' 'basicForce,'
 matArg2 ...' Where $matNum is the number associated with the material
 whose data is to be output.</p>
 <hr />
-<p>EXAMPLES:</p>
+
+## Examples
+
 <p>2D: element twoNodeLink 1 1 2 -mat 1 2 3 -dir 1 2 3;</p>
 <p>3D: element twoNodeLink 1 1 2 -mat 1 2 3 -dir 1 2 6;</p>
 <hr />

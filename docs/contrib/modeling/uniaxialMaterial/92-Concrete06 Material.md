@@ -32,7 +32,7 @@ uniaxialMaterial Concrete06 $matTag $fc $e0 $n $k $alpha1
 <td><p>post-peak compressive shape factor</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha1</strong></p></td>
+<td><p><code class="parameter-table-variable">alpha1</code></p></td>
 <td><p>$\alpha_1$ parameter for compressive
 plastic strain definition</p></td>
 </tr>
@@ -49,7 +49,7 @@ plastic strain definition</p></td>
 <td><p>exponent of the tension stiffening curve</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha2</strong></p></td>
+<td><p><code class="parameter-table-variable">alpha2</code></p></td>
 <td><p>$\alpha_2$ parameter for tensile plastic
 strain definition</p></td>
 </tr>
@@ -65,7 +65,9 @@ alt="Concrete06C.png" />
 <li>Compressive concrete parameters should be input as negative
 values.</li>
 </ol>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>uniaxialMaterial Concrete06 1 -3 -0.002 2 1 0.32 0.3 0.00008 4
 0.08</p>
 <hr />

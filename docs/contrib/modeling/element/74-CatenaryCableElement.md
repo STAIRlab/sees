@@ -90,8 +90,12 @@ printed out.</li>
 <p>Code Developed by: <span style="color:blue">Pablo Ibañez and <a
 href="http://www.joseabell.com">José A. Abell at Universidad de los
 Andes, Chile</a></span></p>
-<p>EXAMPLE:</p>
-<p>&lt;source lang="tcl"&gt;</p>
+
+## Examples
+
+<p>
+```tcl
+</p>
 <ol>
 <li>This example implements a slight modification of the verification
 test from reference #1.</li>
@@ -118,7 +122,9 @@ recorder Element -file "forces.txt" -time -eleRange 1 2 force</p>
 1.0e-5 100 1 integrator LoadControl [expr 1.0/$NSteps] algorithm Newton
 analysis Static</p>
 <p>analyze $NSteps</p>
-<p>print -node 2 &lt;/source&gt;</p>
+<p>print -node 2 
+```
+</p>
 <p>Results should be:</p>
 <p>Node: 2 Coordinates : 15 0 40 Disps: 8.58693 0 2.82578 unbalanced
 Load: 0 0 0 ID : 0 -1 1</p>

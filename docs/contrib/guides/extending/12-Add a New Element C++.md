@@ -21,7 +21,9 @@ number of methods defined in the interface, not all these methods need
 to be included in a new Element class. The following is the minimal
 interface that should be considered:</p>
 <p>The Element Class:</p>
-<p>&lt;source lang="cpp"&gt; class Element : public DomainComponent {
+<p>
+```cpp
+ class Element : public DomainComponent {
 public: Element(int tag, int classTag); virtual ~Element();</p>
 <p>// initialization virtual int setDomain(Domain *theDomain);</p>
 <p>// methods dealing with nodes and number of external dof virtual int
@@ -49,7 +51,9 @@ Information &amp;eleInformation);</p>
 commitTag, Channel &amp;theChannel); int recvSelf(int commitTag, Channel
 &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</p>
 <p>}</p>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <h3 id="example___truss2d">Example - Truss2D</h3>
 <p>In the following section we will provide all necessary code to add a
 new 2d planar truss element into an OpenSees interpreter. To demonstrate
@@ -58,7 +62,9 @@ will be provided by a UniaxialMaterial object.</p>
 <h4 id="header">Header</h4>
 <p>The header for thew new class, which we will call Truss2D is as
 follows:</p>
-<p>&lt;source lang="cpp"&gt; // include directives</p>
+<p>
+```cpp
+ // include directives</p>
 <ol>
 <li>include &lt;Element.h&gt;</li>
 <li>include &lt;Matrix.h&gt;</li>
@@ -104,7 +110,9 @@ Vector trussR; // class wide vector for returning residual };</p>
 <ol>
 <li>endif</li>
 </ol>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <p>The header file defines the interface and variables for the class
 Truss2D. It defines the new class to be a sublass of the Element class.
 In the public interface, are two constructors and a destructor in
@@ -131,7 +139,9 @@ file.</p>
 <p>The first part of the file contains the list of includes. It is
 necessary to have an #include directive for each class and api file that
 is used within the .cpp file and is not included in the header.</p>
-<p>&lt;source lang="cpp"&gt;</p>
+<p>
+```cpp
+</p>
 <ol>
 <li>include "Truss2D.h"</li>
 </ol>
@@ -153,15 +163,21 @@ is used within the .cpp file and is not included in the header.</p>
 <li>include &lt;stdlib.h&gt;</li>
 <li>include &lt;string.h&gt;</li>
 </ol>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <h5 id="static_variables">Static Variables</h5>
 <p>Next, we initialize the static variables. For this example we are
 using 2 static-variables (objects shared by each Truss2D object that is
 created), one to return the tangent matrix and the other to return the
 resisting force.</p>
-<p>&lt;source lang="cpp"&gt; // initialise the class wide variables
+<p>
+```cpp
+ // initialise the class wide variables
 Matrix Truss2D::trussK(4,4); Vector Truss2D::trussR(4);
-&lt;/source&gt;</p>
+
+```
+</p>
 <h5 id="constructors">Constructors</h5>
 <p>After the list of includes, we provide the 2 constructors. The
 constructors are rather simple. They just initialize all the data
@@ -182,7 +198,9 @@ values are set to the nodal tags of the 2 nodes.</li>
 <p>It should be noted that the static variables dealing with length,
 transformations, and nodes are set to 0 in the constructors. They will
 be filled in when the setDomain() method is invoked on the object.</p>
-<p>&lt;source lang="cpp"&gt; Truss2D::Truss2D(int tag, int Nd1, int Nd2,
+<p>
+```cpp
+ Truss2D::Truss2D(int tag, int Nd1, int Nd2,
 UniaxialMaterial &amp;theMat, double a)</p>
 <dl>
 <dt></dt>
@@ -199,12 +217,16 @@ of memory, could not get a copy of the Material\n"; exit(-1); }</p>
 TrussCPP::TrussCPP() - out of memory, could not create an ID of size
 2\n"; exit(-1); }</p>
 <p>externalNodes(0) = Nd1; externalNodes(1) = Nd2;</p>
-<p>theNodes[0] = 0; theNodes[1] = 0; } &lt;/source&gt;</p>
+<p>theNodes[0] = 0; theNodes[1] = 0; } 
+```
+</p>
 <p>The second constructor is called when paralell processing or the
 database feature of the OpenSees application is used. It's pupose is to
 create a blank Truss2D object, that will be filled in when the
 recvSelf() method is invoked on the object.</p>
-<p>&lt;source lang="cpp"&gt; Truss2D::Truss2D()</p>
+<p>
+```cpp
+ Truss2D::Truss2D()</p>
 <dl>
 <dt></dt>
 <dd>
@@ -212,14 +234,20 @@ Element(0, 0),
 </dd>
 </dl>
 <p>theMaterial(0), externalNodes(2), trans(1,4), L(0.0), A(0.0) {
-theNodes[0] = 0; theNodes[1] = 0; } &lt;/source&gt;</p>
+theNodes[0] = 0; theNodes[1] = 0; } 
+```
+</p>
 <h5 id="destructor">Destructor</h5>
 <p>The we provide the destructor. In the destructor all memory that the
 Truss2D created or was passed to it in the constructor must be
 destroyed. For our example, we need to invoke the destructor on the copy
 of the material object.</p>
-<p>&lt;source lang="cpp"&gt; Truss2D::~Truss2D() { if (theMaterial != 0)
-delete theMaterial; } &lt;/source&gt;</p>
+<p>
+```cpp
+ Truss2D::~Truss2D() { if (theMaterial != 0)
+delete theMaterial; } 
+```
+</p>
 <p>===== setDomain() Initialization Method</p>
 <p>The setDomain() method is invoked when the truss element is being
 added to the Domain. It is in this method that most of the private
@@ -228,7 +256,9 @@ successfull, a negative number if not. In the method we obtain pointers
 to the end nodes, nodal coordinates are obtained and the elements length
 and transformation matrix is set once the coordinates have been
 obtained.</p>
-<p>&lt;source lang="cpp"&gt; void Truss2D::setDomain(Domain *theDomain)
+<p>
+```cpp
+ void Truss2D::setDomain(Domain *theDomain)
 { // check Domain is not null - invoked when object removed from a
 domain if (theDomain == 0) { return; }</p>
 <p>// first ensure nodes exist in Domain and set the node pointers Node
@@ -259,19 +289,27 @@ Truss2D " &lt;&lt; this-&gt;getTag() &lt;&lt; " has zero length\n";
 return; // don't go any further - otherwise divide by 0 error }</p>
 <p>double cs = dx/L; double sn = dy/L;</p>
 <p>trans(0,0) = -cs; trans(0,1) = -sn; trans(0,2) = cs; trans(0,3) = sn;
-} &lt;/source&gt;</p>
+} 
+```
+</p>
 <h5 id="methods_dealing_with_nodes">Methods Dealing With Nodes</h5>
 <p>Next comes 4 rather simple methods that return basic information
 about the elements nodes. These are one line methods that should not
-need any explanation! &lt;source lang="cpp"&gt; int
+need any explanation! 
+```cpp
+ int
 Truss2D::getNumExternalNodes(void) const { return 2; }</p>
 <p>const ID &amp; Truss2D::getExternalNodes(void) { return
 externalNodes; }</p>
 <p>Node ** Truss2D::getNodePtrs(void) { return theNodes; }</p>
-<p>int Truss2D::getNumDOF(void) { return 4; } &lt;/source&gt;</p>
+<p>int Truss2D::getNumDOF(void) { return 4; } 
+```
+</p>
 <h5 id="methods_dealing_with_current_state">Methods Dealing With Current
 State</h5>
-<p>&lt;source lang="cpp"&gt; int Truss2D::commitState() { return
+<p>
+```cpp
+ int Truss2D::commitState() { return
 theMaterial-&gt;commitState(); }</p>
 <p>int Truss2D::revertToLastCommit() { return
 theMaterial-&gt;revertToLastCommit(); }</p>
@@ -282,12 +320,16 @@ displacements at nodes double strain =
 this-&gt;computeCurrentStrain();</p>
 <p>// set the strain in the materials
 theMaterial-&gt;setTrialStrain(strain);</p>
-<p>return 0; } &lt;/source&gt;</p>
+<p>return 0; } 
+```
+</p>
 <h5 id="methods_to_return_tangent_matrix">Methods To Return Tangent
 Matrix</h5>
 <p>In both methods, we obtain the appropriate tangent from the material
 and use this to return the transformed matrix.</p>
-<p>&lt;source lang="cpp"&gt; const Matrix &amp;
+<p>
+```cpp
+ const Matrix &amp;
 Truss2D::getTangentStiff(void) { if (L == 0.0) { // length = zero -
 problem in setDomain() warning message already printed trussK.Zero();
 return trussK; }</p>
@@ -303,30 +345,40 @@ printed trussK.Zero(); return trussK; }</p>
 double E = theMaterial-&gt;getInitialTangent();</p>
 <p>// form the tangent stiffness matrix trussK = trans^trans; trussK *=
 A*E/L;</p>
-<p>// return the matrix return trussK; } &lt;/source&gt;</p>
+<p>// return the matrix return trussK; } 
+```
+</p>
 <h5 id="methods_to_return_resisting_force">Methods To Return Resisting
 Force</h5>
 <p>In this method we obtain the stress from the material and use this to
 return the transformed force vector.</p>
-<p>&lt;source lang="cpp"&gt; const Vector &amp;
+<p>
+```cpp
+ const Vector &amp;
 Truss2D::getResistingForce() { if (L == 0.0) { // if length == 0,
 problem in setDomain() trussR.Zero(); return trussR; }</p>
 <p>// want: R = Ku - Pext</p>
 <p>// force = F * transformation double force =
 A*theMaterial-&gt;getStress(); for (int i=0; i&lt;4; i++) trussR(i) =
 trans(0,i)*force;</p>
-<p>return trussR; } &lt;/source&gt;</p>
+<p>return trussR; } 
+```
+</p>
 <h5 id="methods_dealing_with_output">Methods Dealing With Output</h5>
 <p>Information is obtained by the user when the print command is invoked
 by the user and also when the user issues the recorder command. When the
 print command is invoked the Print method is invoked. This method simply
 prints information about the element, and then asks the material to do
 likewise.</p>
-<p>&lt;source lang="cpp"&gt; void Truss2D::Print(OPS_Stream &amp;s, int
+<p>
+```cpp
+ void Truss2D::Print(OPS_Stream &amp;s, int
 flag) { s &lt;&lt; "Element: " &lt;&lt; this-&gt;getTag(); s &lt;&lt; "
 type: Truss2D iNode: " &lt;&lt; externalNodes(0); s &lt;&lt; " jNode: "
 &lt;&lt; externalNodes(1); s &lt;&lt; " Area: " &lt;&lt; A; s &lt;&lt; "
-\t Material: " &lt;&lt; *theMaterial; } &lt;/source&gt;</p>
+\t Material: " &lt;&lt; *theMaterial; } 
+```
+</p>
 <p>There are two methods used by the element recorders.</p>
 <ol>
 <li>The first method, setResponse(), is called when the recorder is
@@ -339,7 +391,9 @@ the response.</li>
 <li>The second method, getReponse(), is called by the recorder when it
 is actually recording the information.</li>
 </ol>
-<p>&lt;source lang="cpp"&gt; Response * Truss2D::setResponse(const char
+<p>
+```cpp
+ Response * Truss2D::setResponse(const char
 **argv, int argc, OPS_Stream &amp;output) { Response *theResponse =
 0;</p>
 <p>output.tag("ElementOutput");
@@ -371,7 +425,9 @@ double strain;</p>
 return eleInfo.setVector(this-&gt;getResistingForce()); case 2: return
 eleInfo.setVector(this-&gt;getRayleighDampingForces()); case 3:
 theMaterial-&gt;setTrialStrain(strain); return eleInfo.setDouble(A *
-theMaterial-&gt;getStress()); default: return 0; } } &lt;/source&gt;</p>
+theMaterial-&gt;getStress()); default: return 0; } } 
+```
+</p>
 <h5 id="methods_dealing_with_databasesparallel_processing">Methods
 Dealing With Databases/Parallel Processing</h5>
 <p>There are two methods provided which are required is the user uses to
@@ -382,7 +438,9 @@ must pack up it's information using Vector and ID objects and send it
 off to a Channel object. On the flip side, the receiving blank element
 must receive the same Vector and ID data, unpack it and set the
 variables.</p>
-<p>&lt;source lang="cpp"&gt; int Truss2D::sendSelf(int commitTag,
+<p>
+```cpp
+ int Truss2D::sendSelf(int commitTag,
 Channel &amp;theChannel) { int res;</p>
 <p>// note: we don't check for dataTag == 0 for Element // objects as
 that is taken care of in a commit by the Domain // object - don't want

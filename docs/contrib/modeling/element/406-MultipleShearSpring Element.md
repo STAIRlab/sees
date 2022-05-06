@@ -71,7 +71,9 @@ alt="MultipleShearSpring_Model.png" />
 aria-hidden="true">MultipleShearSpring_Model.png</figcaption>
 </figure>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element multipleShearSpring 1 1 2 16 -mat 1</p>
 <p><a href="Media:MultipleShearSpring_Sample.tcl"
 title="wikilink">MultipleShearSpring_Sample.tcl</a>, <a

@@ -47,12 +47,12 @@ nDMaterial DruckerPrager $matTag $k $G $sigmaY $rho
 0</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$delta1</strong></p></td>
+<td><p><code class="parameter-table-variable">delta1</code></p></td>
 <td><p>nonlinear isotropic strain hardening parameter, $delta1 &amp;ge;
 0</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$delta2</strong></p></td>
+<td><p><code class="parameter-table-variable">delta2</code></p></td>
 <td><p>tension softening parameter, $delta2 &amp;ge; 0</p></td>
 </tr>
 <tr class="odd">
@@ -282,7 +282,9 @@ which point the model can no longer converge, as this is a
 stress-controlled analysis.</p>
 <p><img src="/OpenSeesRT/contrib/static/CtcTest.png" title="CtcTest.png" alt="CtcTest.png" /> <img
 src="CtcResults.png" title="CtcResults.png" alt="CtcResults.png" /></p>
-<p>&lt;source lang="tcl"&gt;</p>
+<p>
+```tcl
+</p>
 <ol>
 <li><ol>
 <li></li>
@@ -422,7 +424,9 @@ seconds] analyze 1000</p>
 <p>set endT [clock seconds] puts "triaxial shear application
 finished..." puts "loading analysis execution time: [expr $endT-$startT]
 seconds."</p>
-<p>wipe &lt;/source&gt;</p>
+<p>wipe 
+```
+</p>
 <h2 id="references">References</h2>
 <p>Drucker, D. C. and Prager, W., "Soil mechanics and plastic analysis
 for limit design." Quarterly of Applied Mathematics, vol. 10, no. 2, pp.

@@ -62,7 +62,7 @@ element elasticBeamColumn $eleTag $iNode $jNode $A $E $G
 <td><p>element mass per unit length (optional, default = 0.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-cMass</strong></p></td>
+<td><p><code class="parameter-table-flag">-cMass</code></p></td>
 <td><p>to form consistent mass matrix (optional, default = lumped mass
 matrix)</p></td>
 </tr>
@@ -71,7 +71,9 @@ matrix)</p></td>
 <p>NOTE:</p>
 <p>The valid queries to an elastic beam-column element when creating an
 ElementRecorder object are 'force'.</p>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element elasticBeamColumn 1 2 4 5.5 100.0 1e6 9; # elastic element
 tag 1 between nodes 2 and 4 with area 5.5, E 100 and Iz 1e6 which uses
 transformation 9</p>

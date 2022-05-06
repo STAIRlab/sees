@@ -73,7 +73,7 @@ element ElasticTimoshenkoBeam $eleTag $iNode $jNode $E $G
 <td><p>element mass per unit length (optional, default = 0.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-cMass</strong></p></td>
+<td><p><code class="parameter-table-flag">-cMass</code></p></td>
 <td><p>to form consistent mass matrix (optional, default = lumped mass
 matrix)</p></td>
 </tr>
@@ -85,7 +85,9 @@ an ElementRecorder object are 'force'.</p>
 <p>For solid rectangular sections, the shear area is 5/6 of the gross
 area. For solid circular sections, the shear area is 9/10 of the gross
 area. For I-shapes, the shear area can be approximated as Aweb.</p>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element ElasticTimoshenkoBeam 1 2 4 100.0 45.0 6.0 4.5 5.0 9; #
 elastic Timoshenko element with tag 1 between nodes 2 and 4 with E=100,
 G=45, A=6.0, I=4.5 and Av=5.0 which uses transformation 9</p>

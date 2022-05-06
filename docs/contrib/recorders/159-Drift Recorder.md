@@ -19,7 +19,7 @@ $nSD&gt; &lt;-time&gt; -iNode $inode1 $inode2 ... -jNode $jnode1 $jnode2
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$fileName</strong></p></td>
+<td><p><code class="parameter-table-variable">fileName</code></p></td>
 <td><p>name of file to which output is sent. Each line of the file
 contains the result for a committed state of the domain file output is
 either in xml format (-xml option), textual (-file option) or binary
@@ -31,15 +31,15 @@ either in xml format (-xml option), textual (-file option) or binary
 sent</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$port</strong></p></td>
+<td><p><code class="parameter-table-variable">port</code></p></td>
 <td><p>port on remote machine awaiting tcp</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nSD</strong></p></td>
+<td><p><code class="parameter-table-variable">nSD</code></p></td>
 <td><p>number of significant digits (optional, default is 6)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-time</strong></p></td>
+<td><p><code class="parameter-table-flag">-time</code></p></td>
 <td><p>using this option places domain time in first entry of each data
 line (optional, default: omitted)</p></td>
 </tr>

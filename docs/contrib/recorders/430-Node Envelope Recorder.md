@@ -18,22 +18,22 @@ $regionTag&gt; -dof ($dof1 $dof2 ...) $respType</em>'</p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$fileName</strong></p></td>
+<td><p><code class="parameter-table-variable">fileName</code></p></td>
 <td><p>name of file to which output is sent. file output is either in
 xml format (-xml option), textual (-file option) or binary (-binary
 option)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$nSD</strong></p></td>
+<td><p><code class="parameter-table-variable">nSD</code></p></td>
 <td><p>number of significant digits (optional, default is 6)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-time</strong></p></td>
+<td><p><code class="parameter-table-flag">-time</code></p></td>
 <td><p>(optional using this option places domain time in first entry of
 each data line, default is to have time ommitted)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>-closeOnWrite</strong></p></td>
+<td><p><code class="parameter-table-flag">-closeOnWrite</code></p></td>
 <td><p>optional. using this option will instruct the recorder to invoke
 a close on the data handler after every timestep. If this is a file it
 will close the file on every step and then re-open it for the next step.
@@ -41,7 +41,7 @@ Note, this greatly slows the execution time, but is useful if you need
 to monitor the data during the analysis.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tsTag</strong></p></td>
+<td><p><code class="parameter-table-variable">tsTag</code></p></td>
 <td><p>the tag of a previously constructed TimeSeries, results from node
 at each time step are added to load factor from series</p></td>
 </tr>
@@ -56,7 +56,7 @@ default: omitted)</p></td>
 (optional, default: omitted)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$regionTag</strong></p></td>
+<td><p><code class="parameter-table-variable">regionTag</code></p></td>
 <td><p>a region tag; to specify all nodes in the previously defined
 region. (optional)</p></td>
 </tr>
@@ -66,7 +66,7 @@ region. (optional)</p></td>
 requested.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$respType</strong></p></td>
+<td><p><code class="parameter-table-variable">respType</code></p></td>
 <td><p>a string indicating response required. Response types are given
 in table below.</p></td>
 </tr>

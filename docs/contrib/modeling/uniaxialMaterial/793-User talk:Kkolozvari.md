@@ -834,20 +834,20 @@ direction)</p></td>
 recommended)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$a1</strong></p></td>
+<td><p><code class="parameter-table-variable">a1</code></p></td>
 <td><p>Curvature degradation parameter (a1 = 18.5 recommended)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a2</strong></p></td>
+<td><p><code class="parameter-table-variable">a2</code></p></td>
 <td><p>Curvature degradation parameter (a2 = 0.15 or 0.0015
 recommended)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$a3</strong></p></td>
+<td><p><code class="parameter-table-variable">a3</code></p></td>
 <td><p>Isotropic hardening parameter (optional, default = 0.01)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a4</strong></p></td>
+<td><p><code class="parameter-table-variable">a4</code></p></td>
 <td><p>Isotropic hardening parameter (optional, default = 7.0)</p></td>
 </tr>
 </tbody>

@@ -16,31 +16,31 @@ uniaxialMaterial ElasticBilin $matTag $EP1 $EP2 $epsP2
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$EP1</strong></p></td>
+<td><p><code class="parameter-table-variable">EP1</code></p></td>
 <td><p>tangent in tension for stains: 0 &lt;= strains &lt;=
 $epsP2</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$EP2</strong></p></td>
+<td><p><code class="parameter-table-variable">EP2</code></p></td>
 <td><p>tangent when material in tension with strains &gt;
 $epsP2</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$epsP2</strong></p></td>
+<td><p><code class="parameter-table-variable">epsP2</code></p></td>
 <td><p>strain at which material changes tangent in tension.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$EN1</strong></p></td>
+<td><p><code class="parameter-table-variable">EN1</code></p></td>
 <td><p>optional, default = $EP1. tangent in compression for stains: 0
 &lt; strains &lt;= $epsN2</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$EN2</strong></p></td>
+<td><p><code class="parameter-table-variable">EN2</code></p></td>
 <td><p>optional, default = $EP2. tangent in compression with strains
 &lt; $epsN2</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsN2</strong></p></td>
+<td><p><code class="parameter-table-variable">epsN2</code></p></td>
 <td><p>optional, default = -epsP2. strain at which material changes
 tangent in compression.</p></td>
 </tr>

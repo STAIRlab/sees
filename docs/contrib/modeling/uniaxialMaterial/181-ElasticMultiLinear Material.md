@@ -42,7 +42,9 @@ alt="ElasticMultiLinear.png" />
 <figcaption aria-hidden="true">ElasticMultiLinear.png</figcaption>
 </figure>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>uniaxialMaterial ElasticMultiLinear 1 -strain -0.045 -0.04 -0.02 0.0
 0.02 0.04 0.045 -stress 10 -100 -10 0 50 55 100</p>
 <hr />

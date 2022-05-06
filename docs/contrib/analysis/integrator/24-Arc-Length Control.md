@@ -11,21 +11,25 @@ integrator ArcLength $s $alpha
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$s</strong></p></td>
+<td><p><code class="parameter-table-variable">s</code></p></td>
 <td><p>$s$ the arcLength.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha</strong></p></td>
+<td><p><code class="parameter-table-variable">alpha</code></p></td>
 <td><p>$\alpha$ a scaling factor on the reference
 loads.</p></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>integrator ArcLength 1.0 0.1;</p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>If we write the governing finite element equation at &lt;math&gt;t +
 \Delta t\!&lt;/math&gt;as:</p>
 <dl>

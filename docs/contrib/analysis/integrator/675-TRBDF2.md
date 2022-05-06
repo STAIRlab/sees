@@ -18,7 +18,9 @@ time step in our implementation is double that described in the
 papers.</li>
 </ol>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>integrator TRBDF2</p>
 <hr />
 <p>REFERENCES</p>
@@ -30,7 +32,9 @@ Simple Impicit Time Integration Scheme", Computers and Structures,
 Vol(85), 437-445, 2007. <a
 href="doi:10.1016/j.compstruc.2006.09.004">doi:10.1016/j.compstruc.2006.09.004</a></p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>COMING SOON. LOOK AT BATHE'S PAPER FOR NOW.</p>
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk

@@ -54,34 +54,34 @@ finger</p></td>
 Values for $Ro=between 10 to 30</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cR1</strong></p></td>
+<td><p><code class="parameter-table-variable">cR1</code></p></td>
 <td><p>Parameter that controls the Bauschinger effect. Recommended Value
 $cR1=0.925</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cR2</strong></p></td>
+<td><p><code class="parameter-table-variable">cR2</code></p></td>
 <td><p>Parameter that controls the Bauschinger effect. Recommended Value
 $cR2=0.150</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$a1</strong></p></td>
+<td><p><code class="parameter-table-variable">a1</code></p></td>
 <td><p>isotropic hardening parameter, increase of compression yield
 envelope as proportion of yield strength after a plastic deformation of
 $a2*(P&lt;sub&gt;p&lt;/sub&gt;/K&lt;sub&gt;p&lt;/sub&gt;)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a2</strong></p></td>
+<td><p><code class="parameter-table-variable">a2</code></p></td>
 <td><p>isotropic hardening parameter (see explanation under $a1).
 (optional default = 1.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$a3</strong></p></td>
+<td><p><code class="parameter-table-variable">a3</code></p></td>
 <td><p>isotropic hardening parameter, increase of tension yield envelope
 as proportion of yield strength after a plastic deformation of
 $a4*(P&lt;sub&gt;p&lt;/sub&gt;/K&lt;sub&gt;p&lt;/sub&gt;)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a4</strong></p></td>
+<td><p><code class="parameter-table-variable">a4</code></p></td>
 <td><p>isotropic hardening parameter (see explanation under $a3).
 (optional default = 1.0)</p></td>
 </tr>

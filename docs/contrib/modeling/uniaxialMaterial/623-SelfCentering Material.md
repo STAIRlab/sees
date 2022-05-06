@@ -36,11 +36,11 @@ uniaxialMaterial SelfCentering $matTag $k1 $k2 $sigAct
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$k1</strong></p></td>
+<td><p><code class="parameter-table-variable">k1</code></p></td>
 <td><p>Initial Stiffness</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$k2</strong></p></td>
+<td><p><code class="parameter-table-variable">k2</code></p></td>
 <td><p>Post-Activation Stiffness (0&lt;$k2&lt;$k1)</p></td>
 </tr>
 <tr class="even">

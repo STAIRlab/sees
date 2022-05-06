@@ -14,21 +14,23 @@ integrator HHT $alpha &lt;$gamma
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$alpha</strong></p></td>
+<td><p><code class="parameter-table-variable">alpha</code></p></td>
 <td><p>$\alpha$ factor</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$gamma</strong></p></td>
+<td><p><code class="parameter-table-variable">gamma</code></p></td>
 <td><p>$\gamma$ factor</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$beta</strong></p></td>
+<td><p><code class="parameter-table-variable">beta</code></p></td>
 <td><p>$\beta$ factor</p></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>integrator HHT 0.9</p>
 <p>NOTES: $\alpha$ is defined differently that in
 the paper, we use $\alpha = (\alpha_{HHT} - 1})$
@@ -74,7 +76,9 @@ $$\gamma = \frac{3}{2} - \alpha$$
 Dissipation for Time Integration Algorithms in Structural Dynamics"
 Earthquake Engineering and Structural Dynamics, 5:282-292, 1977.</p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>The HHT method (sometimes called the $\alpha$
 method) is a one step implicit method for solving the transient problem
 which attempts to increase the amount of numerical damping present
@@ -100,15 +104,12 @@ U_t + [\gamma \Delta t ] \ddot U_{t+\Delta t} $$
 </dd>
 </dl>
 <p>but the time-discrete momentum equation is modified:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;R_{t + \alpha \Delta t} = F_{t+\Delta t}^{ext} - M \ddot
-U_{t + \Delta t} - C \dot U_{t+\alpha \Delta t} - F^{int}(U_{t + \alpha
-\Delta t})
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+
+$$
+R_{t + \alpha \Delta t} = F_{t+\Delta t}^{ext} - M \ddot
+U_{t + \Delta t} - C \dot U_{t+\alpha \Delta t} - F^{int}(U_{t + \alpha \Delta t})
+$$
+
 <p>where the displacements and velocities at the intermediate point are
 given by:</p>
 <dl>
@@ -162,9 +163,9 @@ U_{t+ \Delta t}^{i-1}$$
 
 </dd>
 </dl>
-<p>The linear equations are used to solve for &lt;math&gt; U_{t+\alpha
+<p>The linear equations are used to solve for $U_{t+\alpha
 \Delta t}, \dot U_{t + \alpha \Delta t} \ddot U_{t+\Delta
-t}&lt;/math&gt;. Once convergence has been achieved the displacements
+t}$. Once convergence has been achieved the displacements
 and velocities at time $t + \Delta t$ can be
 computed.</p>
 <hr />

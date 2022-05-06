@@ -11,13 +11,13 @@ integrator MinUnbalDispNorm $dlambda1 &lt;$Jd $minLambda
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$dlambda1</strong></p></td>
+<td><p><code class="parameter-table-variable">dlambda1</code></p></td>
 <td><p>first load increment (pseudo-time step) at the first iteration in
 the next invocation of the <a href="Analysis_Command"
 title="wikilink">analysis</a> command.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Jd</strong></p></td>
+<td><p><code class="parameter-table-variable">Jd</code></p></td>
 <td><p>factor relating first load increment at subsequent time steps
 (optional, default: 1.0)</p></td>
 </tr>
@@ -29,10 +29,14 @@ $dLambda1 for both)</p></td>
 </tbody>
 </table>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>integrator MinUnbalDispNorm 0.1;</p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>The load increment at iteration i,
 &lt;math&gt;d\lambda_{1,i}&lt;/math&gt;, is related to the load
 increment at (i-1), $d\lambda_{1,i-1}$, and the

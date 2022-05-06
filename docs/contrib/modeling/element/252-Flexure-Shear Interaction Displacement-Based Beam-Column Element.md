@@ -58,7 +58,9 @@ to be output.</li>
 numbering the materials. see Discussion below for section command and
 material numbering.</li>
 </ol>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>geomTransf LinearInt 1</p>
 <p>element dispBeamColumnInt 1 1 3 2 2 1 0.4</p>
 <hr />
@@ -154,7 +156,9 @@ organized in columns for each strip inside the section, using the same
 order defined in the fiber section. At the section level, axial strain,
 curvature, shear strain, resultant axial force, moment and shear force
 are obtained with the standard recorder forceAndDeformation.</p>
-<p>Example:</p>
+
+## Examples
+
 <p>recorder Element -file Sect_eX.out -ele 1 section 1 eX</p>
 <p>recorder Element -file Sect_s2.out -ele 1 section 1 s2</p>
 <p>This commnand allows the user to construct a FiberSection object.
@@ -192,7 +196,7 @@ fiber</a>...</strong></p></td>
 <td><p>unique tag among FiberSections</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$thick1</strong></p></td>
+<td><p><code class="parameter-table-variable">thick1</code></p></td>
 <td><p>section thickness 1.</p></td>
 </tr>
 <tr class="odd">
@@ -201,7 +205,7 @@ fiber</a>...</strong></p></td>
 strips in the fiber section with thickness $thick1.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$thick2</strong></p></td>
+<td><p><code class="parameter-table-variable">thick2</code></p></td>
 <td><p>section thickness 2.</p></td>
 </tr>
 <tr class="odd">
@@ -210,7 +214,7 @@ strips in the fiber section with thickness $thick1.</p></td>
 strips in the fiber section with thickness $thick2.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$thick3</strong></p></td>
+<td><p><code class="parameter-table-variable">thick3</code></p></td>
 <td><p>section thickness 3.</p></td>
 </tr>
 <tr class="odd">
@@ -234,8 +238,12 @@ fiber</a>...</strong></p></td>
 </tr>
 </tbody>
 </table>
-<p>EXAMPLE:</p>
-<p>Example:</p>
+
+## Examples
+
+
+## Examples
+
 <p>section FiberInt 2 -NStrip 1 6.5 1 2.0 1 6.5 {</p>
 <p>fiber -25.55 0 15.6 2</p>
 <p>fiber -25.55 0 1.24 1003</p>
@@ -291,7 +299,9 @@ not required in calculations)</p></td>
 </tr>
 </tbody>
 </table>
-<p>Example:</p>
+
+## Examples
+
 <p>uniaxialMaterial Concrete01 2 -3 -0.002 0 -0.01</p>
 <p>uniaxialMaterial Steel02 1003 60 29000 0.02 20 0.9 0.2 0 0.1 0
 0.1</p>

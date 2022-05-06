@@ -36,23 +36,23 @@ of the hysteretic curve. (FI &gt; 0).</p></td>
 0).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$R1</strong></p></td>
+<td><p><code class="parameter-table-variable">R1</code></p></td>
 <td><p>Stiffness ratio of the asymptotic line to the spring element
 envelope curve. The slope of this line is R1 S0. (0 &lt; R1 &lt;
 1.0).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$R2</strong></p></td>
+<td><p><code class="parameter-table-variable">R2</code></p></td>
 <td><p>Stiffness ratio of the descending branch of the spring element
 envelope curve. The slope of this line is R2 S0. ( R2 &lt; 0).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$R3</strong></p></td>
+<td><p><code class="parameter-table-variable">R3</code></p></td>
 <td><p>Stiffness ratio of the unloading branch off the spring element
 envelope curve. The slope of this line is R3 S0. ( R3 1).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$R4</strong></p></td>
+<td><p><code class="parameter-table-variable">R4</code></p></td>
 <td><p>Stiffness ratio of the pinching branch for the spring element.
 The slope of this line is R4 S0. ( R4 &gt; 0).</p></td>
 </tr>

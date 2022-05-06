@@ -49,7 +49,9 @@ internally).</li>
 <figcaption aria-hidden="true">Concrete01.gif</figcaption>
 </figure>
 <p>Typical Hysteretic Stress-Strain Relation for material</p>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>uniaxialMaterial Concrete01 1 -4.0 -0.002 0.0 -0.005; # the concrete
 material with tag 1 reaches compressive strength of 4.0 at strain of
 0.002 and reaches ultimate strength of 0.0 at strain of 0.005.</p>

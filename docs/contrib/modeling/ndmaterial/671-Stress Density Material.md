@@ -39,27 +39,27 @@ nDMaterial stressDensity $matTag $mDen $eNot $A $n $nu
 <td><p>Poisson's ratio</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a1</strong></p></td>
+<td><p><code class="parameter-table-variable">a1</code></p></td>
 <td><p>peak stress ratio coefficient (etaMax = a1 + b1*Is)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b1</strong></p></td>
+<td><p><code class="parameter-table-variable">b1</code></p></td>
 <td><p>peak stress ratio coefficient (etaMax = a1 + b1*Is)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a2</strong></p></td>
+<td><p><code class="parameter-table-variable">a2</code></p></td>
 <td><p>max shear modulus coefficient (Gn_max = a2 + b2*Is)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b2</strong></p></td>
+<td><p><code class="parameter-table-variable">b2</code></p></td>
 <td><p>max shear modulus coefficient (Gn_max = a2 + b2*Is)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a3</strong></p></td>
+<td><p><code class="parameter-table-variable">a3</code></p></td>
 <td><p>min shear modulus coefficient (Gn_min = a3 + b3*Is)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b3</strong></p></td>
+<td><p><code class="parameter-table-variable">b3</code></p></td>
 <td><p>min shear modulus coefficient (Gn_min = a3 + b3*Is)</p></td>
 </tr>
 <tr class="odd">
@@ -185,7 +185,9 @@ elastoplasticity for sand modelling,' <em>Soils and Foundations,</em>
 <h2 id="example_analysis">Example Analysis</h2>
 <p>Element test with pure shear loading starting from isotropic initial
 state of stress.</p>
-<p>&lt;source lang="tcl"&gt;</p>
+<p>
+```tcl
+</p>
 <ol>
 <li>intended number of cycles in the test</li>
 </ol>
@@ -348,4 +350,6 @@ loading"</li>
 <p>eval "timeSeries Path [expr 400+$i] -time {$cTime $eTime 1e10}
 -values {1 -1000 -1000}" pattern Plain [expr 400+$i] [expr 400+$i] { sp
 3 1 $b sp 4 1 $b } set cCount [expr $cCount + 1] break } } }</p>
-<p>wipe &lt;/source&gt;</p>
+<p>wipe 
+```
+</p>

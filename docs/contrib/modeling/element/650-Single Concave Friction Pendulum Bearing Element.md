@@ -117,7 +117,9 @@ element when creating an ElementRecorder object are 'force,'
 'localForce,' 'basicForce,' 'localDisplacement,' 'basicDisplacement' and
 'material $matNum matArg1 matArg2 ...' Where $matNum is the number
 associated with the material whose data is to be output.</p>
-<p>EXAMPLES:</p>
+
+## Examples
+
 <p>element singleFPBearing 1 1 2 1 37.28 2.60 0.01 -P 1 -Mz 2 -orient 0
 1 0 -1 0 0; # for a 2D single concave friction pendulum bearing</p>
 <p>element singleFPBearing 1 1 2 1 37.28 2.60 0.01 -P 1 -T 2 -My 3 -Mz 4

@@ -7,7 +7,9 @@ object.</p>
 integrator Explicitdifference
 ```
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>integrator Explicitdifference</p>
 <hr />
 <p>NOTES:</p>
@@ -23,7 +25,9 @@ because the equations are uncoupled.</li>
 title="ExplicitDifference_eq1.pdf" /></li>
 </ol>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>The Explicit Difference Integrator is based on the Leap-frog method.
 The basic formula of Leap-frog method is shown as below:</p>
 <dl>

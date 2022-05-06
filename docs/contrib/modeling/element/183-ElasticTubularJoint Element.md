@@ -57,7 +57,9 @@ element ElasticTubularJoint $Tag $iNode $jNode
 </tr>
 </tbody>
 </table>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element ElasticTubularJoint 1 1 2 0.25 45 210E+09 0.5 0.016 45 #
 Tubular joint having tag 1 which interconnects nodes 1 and 2; brace
 diameter is 25cm; intersection angle is 45 degrees; Young's modulus of

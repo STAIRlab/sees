@@ -17,21 +17,21 @@ $&lt;math&gt;\Delta U \text{max}&lt;/math&gt;&gt;</strong></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$node</strong></p></td>
+<td><p><code class="parameter-table-variable">node</code></p></td>
 <td><p>node whose response controls solution</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dof</strong></p></td>
+<td><p><code class="parameter-table-variable">dof</code></p></td>
 <td><p>degree of freedom at the node, valid options: 1 through ndf at
 node.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$incr</strong></p></td>
+<td><p><code class="parameter-table-variable">incr</code></p></td>
 <td><p>first displacement increment &lt;math&gt;\Delta
 U_{\text{dof}}&lt;/math&gt;</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$numIter</strong></p></td>
+<td><p><code class="parameter-table-variable">numIter</code></p></td>
 <td><p>the number of iterations the user would like to occur in the
 solution algorithm. Optional, default = 1.0.</p></td>
 </tr>
@@ -50,11 +50,15 @@ solution algorithm. Optional, default = 1.0.</p></td>
 </tbody>
 </table>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>integrator DisplacementControl 1 2 0.1; # displacement control
 algorithm seking constant increment of 0.1 at node 1 at 2'nd dof.</p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>If we write the governing finite element equation at &lt;math&gt;t +
 \Delta t\!&lt;/math&gt;as:</p>
 <dl>

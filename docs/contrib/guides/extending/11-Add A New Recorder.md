@@ -10,7 +10,9 @@ will be used to parse the input and create the new recorder.</p>
 both the TaggedObject class and the MovableObject class. The class has a
 minimal interface, which is as shown below:</p>
 <p>The Recorder Class:</p>
-<p>&lt;source lang="cpp"&gt; class Recorder: public MovableObject,
+<p>
+```cpp
+ class Recorder: public MovableObject,
 public TaggedObject { public: Recorder(int classTag); virtual
 ~Recorder();</p>
 <p>virtual int record(int commitTag, double timeStamp) =0;</p>
@@ -20,7 +22,9 @@ commitTag, Channel &amp;theChannel); virtual int recvSelf(int commitTag,
 Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</p>
 <p>virtual void Print(OPS_Stream &amp;s, int flag);</p>
 <p>protected: protected:</p>
-<p>private: static int lastRecorderTag; }; &lt;/source&gt;</p>
+<p>private: static int lastRecorderTag; }; 
+```
+</p>
 <p>The most important methods in the interface are:</p>
 <ol>
 <li>setDomain() - this is the method that is called when the new
@@ -61,7 +65,9 @@ recorder options.</p>
 <h4 id="header">Header</h4>
 <p>The header for thew new class, which we will call
 SumElementForcesRecorder is as follows:</p>
-<p>&lt;source lang="cpp"&gt;</p>
+<p>
+```cpp
+</p>
 <ol>
 <li>ifndef SumElementForcesRecorder_h</li>
 <li>define SumElementForcesRecorder_h</li>
@@ -93,7 +99,9 @@ array) to store sum of element forces };</p>
 <ol>
 <li>endif</li>
 </ol>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <p>The header file defines the interface and variables for the class
 SumElementForceRecorder. It defines the new class to be a sublass of the
 Recorder class. In the public interface are 2 constructors and 1
@@ -118,7 +126,9 @@ each part of the file.</p>
 <p>The first part of the file contains the list of includes. It is
 necessary to have an #include directive for each class and api file that
 is used within the .cpp file and is not included in the header.</p>
-<p>&lt;source lang="cpp"&gt;</p>
+<p>
+```cpp
+</p>
 <ol>
 <li>include "SumElementForcesRecorder.h"</li>
 <li>include &lt;elementAPI.h&gt;</li>
@@ -144,13 +154,17 @@ is used within the .cpp file and is not included in the header.</p>
 <ol>
 <li>include &lt;elementAPI.h&gt;</li>
 </ol>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <h5 id="constructors">Constructors</h5>
 <p>After the list of includes, we provide the 2 constructors. The
 constructors are rather simple. They just initialize all the data
 variables defined in the header. Note it is very important to set all
 pointer values to 0.</p>
-<p>&lt;source lang="cpp"&gt;
+<p>
+```cpp
+
 SumElementForcesRecorder::SumElementForcesRecorder()</p>
 <dl>
 <dt></dt>
@@ -173,17 +187,23 @@ Recorder(-1),
 theOutput(theoutput), echoTimeFlag(echoTime), data(0) { // set numEle
 numEle = eleID.Size(); if (numEle == 0) { opserr &lt;&lt; "WARNING
 SumElementForcesRecorder::SumElementForcesRecorder() - no elements tags
-passed in input!\n"; } } &lt;/source&gt;</p>
+passed in input!\n"; } } 
+```
+</p>
 <h5 id="destructor">Destructor</h5>
 <p>The we provide the destructor. In the destructor all memory that the
 Recorder created or was passed to it in the constructor must be
 destroyed. Failing to delete this memory, will result in memory
 leaks.</p>
-<p>&lt;source lang="cpp"&gt;
+<p>
+```cpp
+
 SumElementForcesRecorder::~SumElementForcesRecorder() { if (theElements
 != 0) delete [] theElements;</p>
 <p>if (data != 0) delete data;</p>
-<p>if (theOutput != 0) delete theOutput; } &lt;/source&gt;</p>
+<p>if (theOutput != 0) delete theOutput; } 
+```
+</p>
 <h5 id="record_method">record() Method</h5>
 <p>After the destructor, we provide the code for the record() method. It
 does the following operations:</p>
@@ -196,7 +216,9 @@ vector.</li>
 <li>Send the vector to the output handler to be written.</li>
 <li>Returns success.</li>
 </ol>
-<p>&lt;source lang="cpp"&gt; int SumElementForcesRecorder::record(int
+<p>
+```cpp
+ int SumElementForcesRecorder::record(int
 commitTag, double timeStamp) { // check for initialization if (data ==
 0) { opserr &lt;&lt; "SumElementForcesRecorder::record() - setDomain()
 has not been called\n"; return -1; }</p>
@@ -213,16 +235,22 @@ for (int j=0; j&lt;forceSize; j++, loc++) (*data)(loc) += force(j); }
 }</p>
 <p>// // send the response vector to the output handler for o/p //</p>
 <p>if (theOutput != 0) theOutput-&gt;write(*data);</p>
-<p>// succesfull completion - return 0 return 0; } &lt;/source&gt;</p>
+<p>// succesfull completion - return 0 return 0; } 
+```
+</p>
 <h5 id="restart_and_domainchanged_methods">restart() and domainChanged()
 methods</h5>
 <p>Afte the record() method, we have the two simple short methods
 restart() and domainChanged(). restart does nothing and domainChanged
 simply calls the objects own setDomain() method.</p>
-<p>&lt;source lang="cpp"&gt; int SumElementForcesRecorder::restart(void)
+<p>
+```cpp
+ int SumElementForcesRecorder::restart(void)
 { return 0; }</p>
 <p>int SumElementForcesRecorder::domainChanged(void) { if (theDomain !=
-0) this-&gt;setDomain(*theDomain); } &lt;/source&gt;</p>
+0) this-&gt;setDomain(*theDomain); } 
+```
+</p>
 <h5 id="setdomain_method">setDomain() Method</h5>
 <p>The setDomain() method follows. In this method we perform the
 following:</p>
@@ -236,7 +264,9 @@ by the eleID.</li>
 of the forces.</li>
 <li>allocate space for the vector.</li>
 </ol>
-<p>&lt;source lang="cpp"&gt; int
+<p>
+```cpp
+ int
 SumElementForcesRecorder::setDomain(Domain &amp;theDom) { theDomain =
 &amp;theDom;</p>
 <p>// set numEle if (numEle == 0) { opserr &lt;&lt; "WARNING
@@ -266,14 +296,18 @@ Vector(sizeArray);</p>
 <p>if (data == 0 || data-&gt;Size() != sizeArray) { opserr &lt;&lt;
 "SumElementForcesRecorder::initialize() - out of memory\n"; delete []
 theElements; theElements = 0; numEle = 0; }</p>
-<p>return 0; } &lt;/source&gt;</p>
+<p>return 0; } 
+```
+</p>
 <h5 id="sendself_and_recvself_methods">sendSelf() and recvSelf()
 methods</h5>
 <p>These methods only need be provided if the object will be used in a
 parallel program. We provide their implementation for completeness,
 though typicall developers are interested in running the code in a
 sequential application and should just return -1.</p>
-<p>&lt;source lang="cpp"&gt; static char myClassType[] =
+<p>
+```cpp
+ static char myClassType[] =
 {"SumElementForcesRecorder"};</p>
 <p>const char * SumElementForcesRecorder::getClassType(void) const {
 return myClassType; }</p>
@@ -294,8 +328,12 @@ failed to send idData\n"; return -1; }</p>
 (theOutput-&gt;sendSelf(commitTag, theChannel) &lt; 0) { opserr &lt;&lt;
 "SumElementForcesRecorder::sendSelf() - failed to send theOutput\n";
 return -1; }</p>
-<p>return 0; } &lt;/source&gt;</p>
-<p>&lt;source lang="cpp"&gt; int SumElementForcesRecorder::recvSelf(int
+<p>return 0; } 
+```
+</p>
+<p>
+```cpp
+ int SumElementForcesRecorder::recvSelf(int
 commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker) {
 // receive from the sending object the ID static ID idData(5); if
 (theChannel.recvID(0, commitTag, idData) &lt; 0) { opserr &lt;&lt;
@@ -318,7 +356,9 @@ eleID\n"; return -1; }</p>
 (theOutput-&gt;recvSelf(commitTag, theChannel, theBroker) &lt; 0) {
 opserr &lt;&lt; "SumElementForcesRecorder::sendSelf() - failed to send
 theOutput\n"; return -1; }</p>
-<p>return 0; } &lt;/source&gt;</p>
+<p>return 0; } 
+```
+</p>
 <h4 id="interface_function">Interface Function</h4>
 <p>At the end of the implementation file is the interface function. This
 function is required by all new classes. It is a function which will use
@@ -332,7 +372,9 @@ calling function.</li>
 <p>The interface function is the function that is called when the
 interpreter comes across the command telling it to create a
 SumElementForcesRecorder.</p>
-<p>&lt;source lang="cpp"&gt;</p>
+<p>
+```cpp
+</p>
 <ol>
 <li>ifdef _USRDLL</li>
 <li>include &lt;windows.h&gt;</li>
@@ -379,11 +421,15 @@ numRemainingArgs -= 2; }</p>
 <p>// // create the recorder //</p>
 <p>theRecorder = new SumElementForcesRecorder(eleID, echoTime,
 theOutputStream);</p>
-<p>// return it return theRecorder; } &lt;/source&gt;</p>
+<p>// return it return theRecorder; } 
+```
+</p>
 <h4 id="example_script">Example Script</h4>
 <p>(OpenSeesDeveloper/recorder/example1.tcl)</p>
 <p>An example OpenSees tcl input file for this new recorder is:</p>
-<p>&lt;source lang="tcl"&gt;</p>
+<p>
+```tcl
+</p>
 <ol>
 <li>create the model</li>
 </ol>
@@ -406,12 +452,18 @@ b.out -time -ele 1 2 3</p>
 <ol>
 <li>perform the analysis</li>
 </ol>
-<p>analyze 10 &lt;/source&gt;</p>
+<p>analyze 10 
+```
+</p>
 <h4 id="example_output">Example Output</h4>
 <p>The output shows that the model is in equilibrium, and that at node 4
 the node the element resisting forces are equal to the applied
 forces.</p>
-<p>&lt;source lang="tcl"&gt; 1 -100 50 100 -50 2 -200 100 200 -100 3
+<p>
+```tcl
+ 1 -100 50 100 -50 2 -200 100 200 -100 3
 -300 150 300 -150 4 -400 200 400 -200 5 -500 250 500 -250 6 -600 300 600
 -300 7 -700 350 700 -350 8 -800 400 800 -400 9 -900 450 900 -450 10
--1000 500 1000 -500 &lt;/source&gt;</p>
+-1000 500 1000 -500 
+```
+</p>

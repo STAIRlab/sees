@@ -53,11 +53,11 @@ element elastomericBearingPlasticity $eleTag $iNode
 <td><p>characteristic strength</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$alpha1</strong></p></td>
+<td><p><code class="parameter-table-variable">alpha1</code></p></td>
 <td><p>post yield stiffness ratio of linear hardening component</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alpha2</strong></p></td>
+<td><p><code class="parameter-table-variable">alpha2</code></p></td>
 <td><p>post yield stiffness ratio of non-linear hardening
 component</p></td>
 </tr>
@@ -101,7 +101,7 @@ direction around local z-axis</p></td>
 (optional, default = 0.5)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-doRayleigh</strong></p></td>
+<td><p><code class="parameter-table-flag">-doRayleigh</code></p></td>
 <td><p>to include Rayleigh damping from the bearing (optional, default =
 no Rayleigh damping contribution)</p></td>
 </tr>
@@ -140,7 +140,9 @@ an ElementRecorder object are 'force,' 'localForce,' 'basicForce,'
 matArg2 ...' Where $matNum is the number associated with the material
 whose data is to be output.</p>
 <hr />
-<p>EXAMPLES:</p>
+
+## Examples
+
 <p>element elastomericBearingPlasticity 1 1 2 20.0 2.50 0.02 0.0 3.0 -P
 1 -Mz 2; # for a 2D elastomeric bearing</p>
 <p>element elastomericBearingPlasticity 1 1 2 20 2.50 0.02 0.0 3.0 -P 1

@@ -98,7 +98,9 @@ results to each other and to the beam solution to see shear locking in
 action. Volumetric locking in the <a href="Quad_Element"
 title="wikilink">Quad Element</a> can be observed by increasing
 Poisson's ratio to 0.49.</p>
-<p>&lt;source lang="tcl"&gt;</p>
+<p>
+```tcl
+</p>
 <ol>
 <li><ol>
 <li></li>
@@ -177,4 +179,6 @@ load $nNodeT 0.0 [expr 0.1875*$P] load $nNodeX 0.0 [expr 0.3125*$P]</p>
 constraints Transformation test NormDispIncr 1e-5 40 1 algorithm Newton
 analysis Static</p>
 <p>analyze 105</p>
-<p>wipe &lt;/source&gt;</p>
+<p>wipe 
+```
+</p>

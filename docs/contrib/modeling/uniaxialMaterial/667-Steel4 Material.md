@@ -45,7 +45,7 @@ compression)</p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>-kin</strong></p></td>
+<td><p><code class="parameter-table-flag">-kin</code></p></td>
 <td><p>apply kinematic hardening</p></td>
 </tr>
 </tbody>
@@ -76,11 +76,11 @@ hardening asymptote recommended values: <em>$R_0 = 20 $r_1 = 0.90 $r_2 =
 0.15</em></p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$r_1</strong></p></td>
+<td><p><code class="parameter-table-variable">r_1</code></p></td>
 <td></td>
 </tr>
 <tr class="even">
-<td><p><strong>$r_2</strong></p></td>
+<td><p><code class="parameter-table-variable">r_2</code></p></td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -93,7 +93,7 @@ hardening asymptote recommended values: <em>$R_0 = 20 $r_1 = 0.90 $r_2 =
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>-iso</strong></p></td>
+<td><p><code class="parameter-table-flag">-iso</code></p></td>
 <td><p>apply isotropic hardening</p></td>
 </tr>
 </tbody>
@@ -150,7 +150,7 @@ asymptote</p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>-ult</strong></p></td>
+<td><p><code class="parameter-table-flag">-ult</code></p></td>
 <td><p>apply an ultimate strength limit</p></td>
 </tr>
 </tbody>
@@ -198,7 +198,7 @@ perfectly plastic asymptote</p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>-asym</strong></p></td>
+<td><p><code class="parameter-table-flag">-asym</code></p></td>
 <td><p>assume non-symmetric behavior</p></td>
 </tr>
 </tbody>
@@ -223,15 +223,15 @@ alt="Steel4_param_asymk.png" /></p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-kin</strong></p></td>
+<td><p><code class="parameter-table-flag">-kin</code></p></td>
 <td><p><em>$b_kc $R_0c $r_1c $r_2c</em></p></td>
 </tr>
 <tr class="even">
-<td><p><strong>-iso</strong></p></td>
+<td><p><code class="parameter-table-flag">-iso</code></p></td>
 <td><p><em>$b_ic $rho_ic $b_lc $R_ic</em></p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-ult</strong></p></td>
+<td><p><code class="parameter-table-flag">-ult</code></p></td>
 <td><p><em>$f_uc $R_uc</em></p></td>
 </tr>
 <tr class="even">
@@ -252,7 +252,7 @@ alt="Steel4_param_asymk.png" /></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>-init</strong></p></td>
+<td><p><code class="parameter-table-flag">-init</code></p></td>
 <td><p>apply initial stress</p></td>
 </tr>
 </tbody>
@@ -287,7 +287,7 @@ alt="Steel4_param_init.png" /></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>-mem</strong></p></td>
+<td><p><code class="parameter-table-flag">-mem</code></p></td>
 <td><p>configure the load history memory</p></td>
 </tr>
 </tbody>

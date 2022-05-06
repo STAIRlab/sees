@@ -101,35 +101,35 @@ direction)</p></td>
 recommended)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cR1</strong></p></td>
+<td><p><code class="parameter-table-variable">cR1</code></p></td>
 <td><p>Curvature degradation parameter (a1 = 0.925 recommended)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cR2</strong></p></td>
+<td><p><code class="parameter-table-variable">cR2</code></p></td>
 <td><p>Curvature degradation parameter (a2 = 0.15 or 0.0015
 recommended)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$a1</strong></p></td>
+<td><p><code class="parameter-table-variable">a1</code></p></td>
 <td><p>Isotropic hardening in compression parameter (optional, default =
 0.0). Shifts compression yield envelope by a proportion of compressive
 yield strength after a maximum plastic tensile strain of
 $a2($fyp/$E0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a2</strong></p></td>
+<td><p><code class="parameter-table-variable">a2</code></p></td>
 <td><p>Isotropic hardening in compression parameter (optional, default =
 1.0). See explanation of a1.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$a3</strong></p></td>
+<td><p><code class="parameter-table-variable">a3</code></p></td>
 <td><p>Isotropic hardening in tension parameter (optional, default =
 0.0). Shifts tension yield envelope by a proportion of tensile yield
 strength after a maximum plastic compressive strain of
 $a3($fyn/$E0).</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$a4</strong></p></td>
+<td><p><code class="parameter-table-variable">a4</code></p></td>
 <td><p>Isotropic hardening in tension parameter (optional, default =
 1.0). See explanation of a3.</p></td>
 </tr>

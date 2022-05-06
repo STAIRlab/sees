@@ -92,7 +92,9 @@ element types before version 2.2.0. Before 2.2.0, a Truss DID NOT
 INCLUDE Rayleigh damping, a TrussSection did. By default they both
 <strong>DO NOT</strong> now include Rayleigh damping by default.</li>
 </ol>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element truss 1 2 4 5.5 9; # truss element with tag 1 added between
 nodes 2 and 4 with area 5.5 that uses material 9</p>
 <hr />

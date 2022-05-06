@@ -54,7 +54,7 @@ object</p></td>
 matrix is formed (optional, default = 0.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>-cMass</strong></p></td>
+<td><p><code class="parameter-table-flag">-cMass</code></p></td>
 <td><p>to form consistent mass matrix (optional, default = lumped mass
 matrix)</p></td>
 </tr>
@@ -80,7 +80,9 @@ creating an ElementRecorder object are 'force,' and 'section $secNum
 secArg1 secArg2...' Where $secNum refers to the integration point whose
 data is to be output valid entries being 1 through $numIntgrPts.</li>
 </ul>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element dispBeamColumn 1 2 4 5 8 9; # displacement-based beam column
 element added with tag 1 between nodes 2 and 4 that has 5 integration
 points, each using section 8, and the element uses geometric

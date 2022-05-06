@@ -102,7 +102,9 @@ integration point.</li>
 </tr>
 </tbody>
 </table>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>Please visit <a
 href="http://cyclic.ucsd.edu/opensees">http://cyclic.ucsd.edu/opensees</a>
 for examples.</p>

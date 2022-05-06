@@ -94,7 +94,7 @@ direction around local z-axis</p></td>
 (optional, default = 0.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>-doRayleigh</strong></p></td>
+<td><p><code class="parameter-table-flag">-doRayleigh</code></p></td>
 <td><p>to include Rayleigh damping from the bearing (optional, default =
 no Rayleigh damping contribution)</p></td>
 </tr>
@@ -141,7 +141,9 @@ an ElementRecorder object are 'force,' 'localForce,' 'basicForce,'
 matArg2 ...' Where $matNum is the number associated with the material
 whose data is to be output.</p>
 <hr />
-<p>EXAMPLES:</p>
+
+## Examples
+
 <p>For a 2D flat slider bearing: element flatSliderBearing 1 1 2 1 250.0
 -P 1 -Mz 2 -orient 0 1 0 -1 0 0;</p>
 <ul>

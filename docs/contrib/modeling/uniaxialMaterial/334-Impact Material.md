@@ -17,11 +17,11 @@ $gap</strong></p></td>
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$K1</strong></p></td>
+<td><p><code class="parameter-table-variable">K1</code></p></td>
 <td><p>initial stiffness</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$K2</strong></p></td>
+<td><p><code class="parameter-table-variable">K2</code></p></td>
 <td><p>secondary stiffness</p></td>
 </tr>
 <tr class="even">
@@ -68,7 +68,9 @@ amplitude.</p>
 <img src="/OpenSeesRT/contrib/static/ImpactB.gif" title="ImpactB.gif" alt="ImpactB.gif" />
 <figcaption aria-hidden="true">ImpactB.gif</figcaption>
 </figure>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>REFERENCES:</p>
 <p>Muthukumar, S., and DesRoches, R. (2006). “A Hertz Contact Model with
 Non-linear Damping for Pounding Simulation.” Earthquake Engineering and

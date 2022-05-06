@@ -7,7 +7,9 @@ object.</p>
 integrator CentralDifference
 ```
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>integrator CentralDifference</p>
 <hr />
 <p>NOTES:</p>
@@ -24,7 +26,9 @@ diagonal mass matrix a diagonal solver may and should be used.</li>
 <hr />
 <p>REFERENCES</p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>The Central difference approximations for velocity and
 acceleration:</p>
 <dl>

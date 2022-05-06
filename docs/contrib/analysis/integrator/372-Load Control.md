@@ -11,24 +11,24 @@ integrator LoadControl $lambda &lt;$numIter $minLambda
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$lambda</strong></p></td>
+<td><p><code class="parameter-table-variable">lambda</code></p></td>
 <td><p>the load factor increment
 &lt;math&gt;\lambda&lt;/math&gt;</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$numIter</strong></p></td>
+<td><p><code class="parameter-table-variable">numIter</code></p></td>
 <td><p>the number of iterations the user would like to occur in the
 solution algorithm. Optional, default = 1.0.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$minLambda</strong></p></td>
+<td><p><code class="parameter-table-variable">minLambda</code></p></td>
 <td><p>the min stepsize the user will allow. optional, defualt =
-&lt;math&gt;\lambda_{min} = \lambda&lt;/math&gt;</p></td>
+$\lambda_{min} = \lambda$</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$maxLambda</strong></p></td>
+<td><p><code class="parameter-table-variable">maxLambda</code></p></td>
 <td><p>the max stepsize the user will allow. optional, default =
-&lt;math&gt;\lambda_{max} = \lambda&lt;/math&gt;</p></td>
+$\lambda_{max} = \lambda$</p></td>
 </tr>
 </tbody>
 </table>
@@ -45,12 +45,16 @@ cases where convergence is too fast and slow down the step size in cases
 where convergence is too slow.</li>
 </ol>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>integrator LoadControl 0.1;</p>
 <hr />
-<p>THEORY:</p>
-<p>In Load Control the time in the domain is set to &lt;math&gt;t +
-\lambda_{t+1}&lt;/math&gt; where,</p>
+
+## Theory
+
+<p>In Load Control the time in the domain is set to $t +
+\lambda_{t+1}$ where,</p>
 <dl>
 <dt></dt>
 <dd>
@@ -62,5 +66,4 @@ $$\lambda_{t+1} = \max \left ( \lambda_{min}, \min \left (
 </dd>
 </dl>
 <hr />
-<p>Code Developed by: <span style="color:blue"> fmk
-</span></p>
+<p>Code Developed by: <span style="color:blue">fmk</span></p>

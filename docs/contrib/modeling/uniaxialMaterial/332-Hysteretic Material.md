@@ -58,11 +58,11 @@ reloading</p></td>
 <td><p>pinching factor for stress (or force) during reloading</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$damage1</strong></p></td>
+<td><p><code class="parameter-table-variable">damage1</code></p></td>
 <td><p>damage due to ductility: D1(mu-1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$damage2</strong></p></td>
+<td><p><code class="parameter-table-variable">damage2</code></p></td>
 <td><p>damage due to energy: D2(Eii/Eult)</p></td>
 </tr>
 <tr class="even">
@@ -91,7 +91,9 @@ of the hysteretic material after $e3p or $e3n is a flat line with a
 constant stress (or force) equal to $s3p or $s3n.</li>
 </ol>
 <hr />
-<p>Examples:</p>
+
+## Examples
+
 <p>Effects of Hysteretic-Material Parameters <a
 href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/4052.htm">1</a></p>
 <hr />

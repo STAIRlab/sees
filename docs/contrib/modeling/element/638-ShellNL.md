@@ -38,7 +38,9 @@ point corresponding to the node numbers in the isoparametric
 domain.</li>
 </ol>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>&lt;pre&gt; set t 10.0 model basic -ndm 3 -ndf 6 nDMaterial
 ElasticIsotropic 1 200000 0.3 nDMaterial PlateFiber 2 1 section
 PlateFiber 3 2 $t element ShellNL 1 1 27 29 3 14 28 16 2 15 3

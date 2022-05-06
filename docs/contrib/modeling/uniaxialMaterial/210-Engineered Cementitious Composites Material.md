@@ -27,15 +27,15 @@ uniaxialMaterial ECC01 $matTag $sigt0 $epst0 $sigt1
 <td><p>strain at tensile cracking stress</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sigt1</strong></p></td>
+<td><p><code class="parameter-table-variable">sigt1</code></p></td>
 <td><p>peak tensile stress</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epst1</strong></p></td>
+<td><p><code class="parameter-table-variable">epst1</code></p></td>
 <td><p>strain at peak tensile stress</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$sigt2</strong></p></td>
+<td><p><code class="parameter-table-variable">sigt2</code></p></td>
 <td><p>ultimate tensile strain</p></td>
 </tr>
 <tr class="odd">
@@ -47,16 +47,16 @@ uniaxialMaterial ECC01 $matTag $sigt0 $epst0 $sigt1
 <td><p>strain at compressive strength (see NOTES)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$epsc1</strong></p></td>
+<td><p><code class="parameter-table-variable">epsc1</code></p></td>
 <td><p>ultimate compressive strain (see NOTES)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alphaT1</strong></p></td>
+<td><p><code class="parameter-table-variable">alphaT1</code></p></td>
 <td><p>exponent of the unloading curve in tensile strain hardening
 region</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$alphaT2</strong></p></td>
+<td><p><code class="parameter-table-variable">alphaT2</code></p></td>
 <td><p>exponent of the unloading curve in tensile softening
 region</p></td>
 </tr>

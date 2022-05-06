@@ -42,15 +42,15 @@ element ModElasticBeam2d $eleTag $iNode $jNode $A $E $Iz
 <td><p>second moment of area about the local z-axis</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$K11</strong></p></td>
+<td><p><code class="parameter-table-variable">K11</code></p></td>
 <td><p>stiffness modifier for translation</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$K33</strong></p></td>
+<td><p><code class="parameter-table-variable">K33</code></p></td>
 <td><p>stiffness modifier for translation</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$K44</strong></p></td>
+<td><p><code class="parameter-table-variable">K44</code></p></td>
 <td><p>stiffness modifier for rotation</p></td>
 </tr>
 <tr class="odd">
@@ -63,7 +63,7 @@ element ModElasticBeam2d $eleTag $iNode $jNode $A $E $Iz
 <td><p>element mass per unit length (optional, default = 0.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-cMass</strong></p></td>
+<td><p><code class="parameter-table-flag">-cMass</code></p></td>
 <td><p>to form consistent mass matrix (optional, default = lumped mass
 matrix)</p></td>
 </tr>

@@ -44,7 +44,9 @@ recentering will not occur and gap will grow.</p></td>
 alt="ElasticPPGap.gif" />
 <figcaption aria-hidden="true">ElasticPPGap.gif</figcaption>
 </figure>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <figure>
 <embed src="_ElasticPPGap.tcl" title="_ElasticPPGap.tcl" />
 <figcaption aria-hidden="true">_ElasticPPGap.tcl</figcaption>

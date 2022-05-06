@@ -38,7 +38,7 @@ relation.</p></td>
 <td><p>Ultimate capacity of the t-z material. SEE NOTE 1.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Z50</strong></p></td>
+<td><p><code class="parameter-table-variable">Z50</code></p></td>
 <td><p>Displacement at which 50% of tult is mobilized in monotonic
 loading.</p></td>
 </tr>
@@ -101,7 +101,9 @@ effective stresses (and hence excess pore pressures) in the specified
 solid soil elements. The logic and implementation are the same as for
 how PyLiq1 inherits and modifies PySimple1. Therefore, the reader is
 referred to the documentation of PyLiq1 for details.</p>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>REFERENCES:</p>
 <p>"Seismic Soil-pile-strcture interaction experiments and analysis",
 Boulanger, R.W., Curras, C.J., Kutter, B.L., Wilson, D.W., and Abghari,

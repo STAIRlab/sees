@@ -37,7 +37,9 @@ explanations.</p>
 <p>Please note that the following example has been corrected and
 expanded by the author of this page. The following code may not match
 the actual version in the OpenSees repository.</p>
-<p>&lt;source lang="fortran"&gt; SUBROUTINE
+<p>
+```fortran
+ SUBROUTINE
 trussf(eleObj,modl,tang,resid,isw,error)</p>
 <p>!DEC$ IF DEFINED (_DLL) !DEC$ ATTRIBUTES DLLEXPORT :: TRUSSF !DEC$
 END IF</p>
@@ -54,9 +56,13 @@ type(matObject), pointer :: theMat</p>
 <p>double precision dData(1), nd1Crd(2), nd2Crd(2) double precision
 d1(2), d2(2), tran(4) double precision strs(1), strn(1), tng(1)</p>
 <p>integer numData, err, matType</p>
-<p>&lt;/source&gt; The main IF/THEN structure of the routine begins
+<p>
+```
+ The main IF/THEN structure of the routine begins
 here; it is needed to select the proper code depending on what the flag
-isw is requesting. &lt;source lang="fortran"&gt;</p>
+isw is requesting. 
+```fortran
+</p>
 <p>IF (isw.eq.ISW_INIT) THEN</p>
 <p>c get the input data - tag? nd1? nd2? A? matTag?</p>
 <p>numData = 3 err = OPS_GetIntInput(numData, iData) tag = iData(1); nd1
@@ -85,7 +91,9 @@ sn;</p>
 <p>theNodes(1) = nd1; theNodes(2) = nd2;</p>
 <p>ELSE</p>
 <p>IF (isw == ISW_COMMIT) THEN</p>
-<p>&lt;/source&gt; In ISW_COMMIT, the state of the model is saved. If
+<p>
+```
+ In ISW_COMMIT, the state of the model is saved. If
 your element uses state variables, save them here. &lt;source
 lang="fortran"&gt;</p>
 <p>call c_f_pointer(eleObj%mats, theCMatPtrPtr, [1]); theCMatPtr =
@@ -98,15 +106,23 @@ theCMatPtrPtr(1);</p>
 <p>j=OPS_InvokeMaterialDirectly(theCMatPtr, modl, strn, strs, + tng,
 isw)</p>
 <p>ELSE IF (isw == ISW_FORM_MASS) THEN</p>
-<p>&lt;/source&gt; In ISW_FORM_MASS, the mass matrix (if given by the
+<p>
+```
+ In ISW_FORM_MASS, the mass matrix (if given by the
 element) must be returned in TANG. IMPORTANT: if your element returns no
 mass, remember to initialize TANG to zero! If not initialized, Fortran
 will return a mass matrix with random values. Also, do not overwrite
-RESID! &lt;source lang="fortran"&gt;</p>
+RESID! 
+```fortran
+</p>
 <p>ELSE IF (isw == ISW_FORM_TANG_AND_RESID) THEN</p>
-<p>&lt;/source&gt; In ISW_FORM_TANG_AND_RESID, all the trials during a
+<p>
+```
+ In ISW_FORM_TANG_AND_RESID, all the trials during a
 non-linear analysis are performed. DO NOT save state variables here.
-&lt;source lang="fortran"&gt;</p>
+
+```fortran
+</p>
 <p>call c_f_pointer(eleObj%param, theParam, [4]); call
 c_f_pointer(eleObj%node, theNodes, [2]); call c_f_pointer(eleObj%mats,
 theCMatPtrPtr, [1]); theCMatPtr = theCMatPtrPtr(1);</p>
@@ -127,7 +143,9 @@ tran(i)*tran(j); continue continue</p>
 <p>END IF</p>
 <p>END IF</p>
 <p>c return error code error = 0</p>
-<p>END SUBROUTINE trussf &lt;/source&gt;</p>
+<p>END SUBROUTINE trussf 
+```
+</p>
 <h3
 id="compilation_instructions_for_visual_studio_on_windows">Compilation
 Instructions for Visual Studio on Windows</h3>

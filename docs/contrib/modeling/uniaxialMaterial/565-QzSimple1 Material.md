@@ -5,7 +5,7 @@ object:</p>
 
 ```tcl
 uniaxialMaterial QzSimple1 $matTag $qzType $qult $Z50
-        &lt;$suction $c&gt;
+        <$suction $c>
 ```
 <hr />
 <table>
@@ -26,7 +26,7 @@ relation for piles in sand.</p></td>
 <td><p>Ultimate capacity of the q-z material. SEE NOTE 1.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Z50</strong></p></td>
+<td><p><code class="parameter-table-variable">Z50</code></p></td>
 <td><p>Displacement at which 50% of qult is mobilized in monotonic
 loading. SEE NOTE 2.</p></td>
 </tr>
@@ -158,7 +158,9 @@ QzSimple1 are given in the following plots.</p>
 <img src="/OpenSeesRT/contrib/static/QzSimple1B.gif" title="QzSimple1B.gif" alt="QzSimple1B.gif" />
 <figcaption aria-hidden="true">QzSimple1B.gif</figcaption>
 </figure>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>REFERENCES:</p>
 <p>"Seismic Soil-pile-strcture interaction experiments and analysis",
 Boulanger, R.W., Curras, C.J., Kutter, B.L., Wilson, D.W., and Abghari,

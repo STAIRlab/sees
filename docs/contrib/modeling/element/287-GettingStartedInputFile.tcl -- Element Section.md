@@ -1,7 +1,9 @@
 # GettingStartedInputFile.tcl -- Element Section
 
 <p>__NOTOC__ <img src="/OpenSeesRT/contrib/static/BuildingTclLogo.gif" title="BuildingTclLogo.gif"
-alt="BuildingTclLogo.gif" /> &lt;source lang="Tcl"&gt;</p>
+alt="BuildingTclLogo.gif" /> 
+```Tcl
+</p>
 <ol>
 <li>ELEMENT SECTION ---------------------------------------</li>
 </ol>
@@ -32,7 +34,9 @@ addSectionData CoreMaterialLabel 4ksiConfinedConcrete; addSectionData
 CoverMaterialLabel 4ksiUnconfinedConcrete; addSectionData
 ReinfMaterialLabel 60ksiReinforcingSteel; addSection</p>
 <p>puts --DoneSections--</p>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <hr />
 <p>Return to <a href="Getting_Started_with_BuildingTcl"
 title="wikilink">Getting Started with BuildingTcl</a></p>

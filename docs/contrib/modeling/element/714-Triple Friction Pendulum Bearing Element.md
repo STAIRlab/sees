@@ -40,86 +40,86 @@ element TFP $eleTag $iNode $jNode $R1 $R2 $R3 $R4 $D1 $D2
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$R1</strong></p></td>
+<td><p><code class="parameter-table-variable">R1</code></p></td>
 <td><p>Radius of inner bottom sliding surface</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$R2</strong></p></td>
+<td><p><code class="parameter-table-variable">R2</code></p></td>
 <td><p>Radius of inner top sliding surface</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$R3</strong></p></td>
+<td><p><code class="parameter-table-variable">R3</code></p></td>
 <td><p>Radius of outer bottom sliding surface</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$R4</strong></p></td>
+<td><p><code class="parameter-table-variable">R4</code></p></td>
 <td><p>Radius of outer top sliding surface</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$D1</strong></p></td>
+<td><p><code class="parameter-table-variable">D1</code></p></td>
 <td><p>Diameter of inner bottom sliding surface</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$D2</strong></p></td>
+<td><p><code class="parameter-table-variable">D2</code></p></td>
 <td><p>Diameter of inner top sliding surface</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$D3</strong></p></td>
+<td><p><code class="parameter-table-variable">D3</code></p></td>
 <td><p>Diameter of outer bottom sliding surface</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$D4</strong></p></td>
+<td><p><code class="parameter-table-variable">D4</code></p></td>
 <td><p>Diameter of outer top sliding surface</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$d1</strong></p></td>
+<td><p><code class="parameter-table-variable">d1</code></p></td>
 <td><p>diameter of inner slider</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$d2</strong></p></td>
+<td><p><code class="parameter-table-variable">d2</code></p></td>
 <td><p>diameter of inner slider</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$d3</strong></p></td>
+<td><p><code class="parameter-table-variable">d3</code></p></td>
 <td><p>diameter of outer bottom slider</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$d4</strong></p></td>
+<td><p><code class="parameter-table-variable">d4</code></p></td>
 <td><p>diameter of outer top slider</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$mu1</strong></p></td>
+<td><p><code class="parameter-table-variable">mu1</code></p></td>
 <td><p>friction coefficient of inner bottom sliding surface</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$mu2</strong></p></td>
+<td><p><code class="parameter-table-variable">mu2</code></p></td>
 <td><p>friction coefficient of inner top sliding surface</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$mu3</strong></p></td>
+<td><p><code class="parameter-table-variable">mu3</code></p></td>
 <td><p>friction coefficient of outer bottom sliding surface</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$mu4</strong></p></td>
+<td><p><code class="parameter-table-variable">mu4</code></p></td>
 <td><p>friction coefficient of outer top sliding surface</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$h1</strong></p></td>
+<td><p><code class="parameter-table-variable">h1</code></p></td>
 <td><p>height from inner bottom sliding surface to center of
 bearing</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$h2</strong></p></td>
+<td><p><code class="parameter-table-variable">h2</code></p></td>
 <td><p>height from inner top sliding surface to center of
 bearing</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$h3</strong></p></td>
+<td><p><code class="parameter-table-variable">h3</code></p></td>
 <td><p>height from outer bottom sliding surface to center of
 bearing</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$h4</strong></p></td>
+<td><p><code class="parameter-table-variable">h4</code></p></td>
 <td><p>height from inner top sliding surface to center of
 bearing</p></td>
 </tr>
@@ -169,7 +169,9 @@ direction.</li>
 associated with relativeDisp</li>
 </ol></li>
 </ol>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element TFP 1 1 2 12.0 12.0 88.0 88.0 12.0 12.0 44.0 44.0 8.0 8.0
 12.5 12.5 0.02 0.02 0.09 0.12 3.0 3.0 4.5 4.5 12.5 45.0;</p>
 <p>REFERENCE:</p>

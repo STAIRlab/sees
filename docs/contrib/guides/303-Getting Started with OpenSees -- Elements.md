@@ -40,14 +40,22 @@ considered, and can be the same for all elements. The linear
 transformation will be used in this demonstration:</p>
 <p><em>geomTransf Linear $transfTag &lt;-jntOffset $dXi $dYi $dXj
 $dYj&gt;</em></p>
-<p>&lt;source lang="Tcl"&gt; geomTransf Linear 1 &lt;/source&gt;</p>
+<p>
+```Tcl
+ geomTransf Linear 1 
+```
+</p>
 <p>The following commands define the two columns (element 1 and 2) and
 the beam (element 3):</p>
 <p><em>element elasticBeamColumn $eleTag $iNode $jNode $A $E $Iz
 $transfTag</em></p>
-<p>&lt;source lang="Tcl"&gt; element elasticBeamColumn 1 1 3 3600 4227
+<p>
+```Tcl
+ element elasticBeamColumn 1 1 3 3600 4227
 1080000 1 element elasticBeamColumn 2 2 4 3600 4227 1080000 1 element
-elasticBeamColumn 3 3 4 5760 4227 4423680 1 &lt;/source&gt;</p>
+elasticBeamColumn 3 3 4 5760 4227 4423680 1 
+```
+</p>
 <p>The element connectivity is shown in the following figure:</p>
 <figure>
 <img src="GettingStartedNodes.JPG" title="GettingStartedNodes.JPG"

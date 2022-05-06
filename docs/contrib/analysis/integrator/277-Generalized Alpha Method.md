@@ -3,8 +3,8 @@
 <p>This command is used to construct a Generalized
 $\alpha$ integration object. This is an implicit
 method that like the HHT method allows for high frequency energy
-dissipation and second order accuracy, i.e. &lt;math&gt;\Delta
-t^2&lt;/math&gt;. Depending on choices of input parameters, the method
+dissipation and second order accuracy, i.e. $\Delta
+t^2$. Depending on choices of input parameters, the method
 can be unconditionally stable.</p>
 
 ```tcl
@@ -15,26 +15,31 @@ integrator GeneralizedAlpha $alphaM $alphaF &lt;$gamma
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$alphaM</strong></p></td>
+<td><p><code class="parameter-table-variable">alphaM</code></p></td>
 <td><p>$\alpha_M$ factor</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$alphaF</strong></p></td>
+<td><p><code class="parameter-table-variable">alphaF</code></p></td>
 <td><p>$\alpha_F$ factor</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$gamma</strong></p></td>
+<td><p><code class="parameter-table-variable">gamma</code></p></td>
 <td><p>$\gamma$ factor</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$beta</strong></p></td>
+<td><p><code class="parameter-table-variable">beta</code></p></td>
 <td><p>$\beta$ factor</p></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p>EXAMPLE:</p>
-<p>integrator GeneralizedAlpha 1.0 0.8</p>
+
+## Examples
+
+```tcl
+integrator GeneralizedAlpha 1.0 0.8
+```
+
 <p>NOTES:</p>
 <ol>
 <li>$\alpha_F$ and
@@ -53,11 +58,12 @@ greater than those for explicit schemes.</li>
 the Newmark Method.</li>
 <li>$\alpha_M = 1.0$ corresponds to the HHT
 method.</li>
-<li>The method is second-order accurate provided &lt;math&gt;\gamma =
-\tfrac{1}{2} + \alpha_M - \alpha_F&lt;/math&gt;</li>
-<li>The method is unconditionally stable provided &lt;math&gt;\alpha_M
-&gt;= \alpha_F &gt;= \tfrac{1}{2}, \beta&gt;=\tfrac{1}{4}
-+\tfrac{1}{2}(\gamma_M - \gamma_F)&lt;/math&gt;</li>
+<li>The method is second-order accurate provided $\gamma =
+\tfrac{1}{2} + \alpha_M - \alpha_F$</li>
+<li>The method is unconditionally stable provided $\alpha_M
+>= \alpha_F &gt;= \tfrac{1}{2}, \beta>=\tfrac{1}{4}
++\tfrac{1}{2}(\gamma_M - \gamma_F)$
+</li>
 <li>$\gamma$ and $\beta$
 are optional. The default values ensure the method is unconditionally
 stable, second order accurate and high frequency dissipation is
@@ -88,7 +94,9 @@ Dynamics with Improved Numerical Dissipation: The
 Generalized-$\alpha$ Method" ASME Journal of
 Applied Mechanics, 60, 371:375, 1993.</p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>The Generalized $\alpha$ method (sometimes
 called the $\alpha$ method) is a one step
 implicit method for solving the transient problem which attempts to
@@ -115,44 +123,24 @@ U_t + [\gamma \Delta t ] \ddot U_{t+\Delta t} $$
 </dd>
 </dl>
 <p>but the time-discrete momentum equation is modified:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;R_{t + \alpha_M \Delta t} = F_{t+\Delta t}^{ext} - M \ddot
+
+$$R_{t + \alpha_M \Delta t} = F_{t+\Delta t}^{ext} - M \ddot
 U_{t + \alpha_M \Delta t} - C \dot U_{t+\alpha_F \Delta t} -
 F^{int}(U_{t + \alpha_F \Delta t})
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+$$
+
 <p>where the displacements and velocities at the intermediate point are
 given by:</p>
-<dl>
-<dt></dt>
-<dd>
 
 $$U_{t+ \alpha_F \Delta t} = (1 - \alpha_F) U_t + \alpha_F
 U_{t + \Delta t}$$
 
-</dd>
-</dl>
-<dl>
-<dt></dt>
-<dd>
-
 $$\dot U_{t+\alpha_F \Delta t} = (1-\alpha_F) \dot U_t +
 \alpha_F \dot U_{t + \Delta t}$$
-
-</dd>
-</dl>
-<dl>
-<dt></dt>
-<dd>
 
 $$\ddot U_{t+\alpha_M \Delta t} = (1-\alpha_M) \ddot U_t +
 \alpha_M \ddot U_{t + \Delta t}$$
 
-</dd>
-</dl>
 <p>Following the methods outlined for Newmarks method, linearization of
 the nonlinear momentum equation results in the following linear
 equations:</p>
@@ -187,11 +175,14 @@ F \Delta t}^{i-1})^{int} - C \dot U_{t+\alpha F \Delta t}^{i-1} - M
 
 </dd>
 </dl>
-<p>The linear equations are used to solve for &lt;math&gt; U_{t+\alpha F
+<p>The linear equations are used to solve for 
+
+$$U_{t+\alpha F
 \Delta t}, \dot U_{t + \alpha F \Delta t} \ddot U_{t+ \alpha M \Delta
-t}&lt;/math&gt;. Once convergence has been achieved the displacements,
-velocities and accelerations at time &lt;math&gt;t + \Delta
-t&lt;/math&gt; can be computed.</p>
+t}$$
+Once convergence has been achieved the displacements,
+velocities and accelerations at time $t + \Delta t$ can be computed.</p>
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> fmk
-</span></p>
+
+<p>Code Developed by: <span style="color:blue">fmk</span></p>

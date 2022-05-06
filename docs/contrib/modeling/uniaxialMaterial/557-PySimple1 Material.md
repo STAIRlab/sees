@@ -29,7 +29,7 @@ equations, but are both loads for this uniaxialMaterial [i.e.,
 distributed load times the tributary length of the pile].</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Y50</strong></p></td>
+<td><p><code class="parameter-table-variable">Y50</code></p></td>
 <td><p>Displacement at which 50% of pult is mobilized in monotonic
 loading.</p></td>
 </tr>
@@ -179,7 +179,9 @@ like PySimple1.</p>
 <img src="/OpenSeesRT/contrib/static/PySimple1B.gif" title="PySimple1B.gif" alt="PySimple1B.gif" />
 <figcaption aria-hidden="true">PySimple1B.gif</figcaption>
 </figure>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>REFERENCES:</p>
 <p>"Seismic Soil-pile-strcture interaction experiments and analysis",
 Boulanger, R.w., Curras, C.J., Kutter, B.L., Wilson, D.W., and Abghari,

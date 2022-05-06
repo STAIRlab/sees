@@ -19,11 +19,11 @@ uniaxialMaterial FRPConfinedConcrete $matTag $fpc1 $fpc2
 <td><p>integer tag identifying material.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fpc1</strong></p></td>
+<td><p><code class="parameter-table-variable">fpc1</code></p></td>
 <td><p>concrete core compressive strength.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fpc2</strong></p></td>
+<td><p><code class="parameter-table-variable">fpc2</code></p></td>
 <td><p>concrete cover compressive strength.</p></td>
 </tr>
 <tr class="even">

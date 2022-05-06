@@ -30,12 +30,12 @@ option)</p></td>
 <td><p>number of significant digits (optional, default is 6)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-time</strong></p></td>
+<td><p><code class="parameter-table-flag">-time</code></p></td>
 <td><p>(optional using this option places domain time in first entry of
 each data line, default is to have time ommitted)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>-closeOnWrite</strong></p></td>
+<td><p><code class="parameter-table-flag">-closeOnWrite</code></p></td>
 <td><p>optional. using this option will instruct the recorder to invoke
 a close on the data handler after every timestep. If this is a file it
 will close the file on every step and then re-open it for the next step.
@@ -82,7 +82,9 @@ recorder</a> commmand.</p>
 and is described with the <a href="Element_Command"
 title="wikilink">Element Command</a>.</p>
 <p>EXAMPLE</p>
-<p>Example:</p>
+
+## Examples
+
 <p>recorder Element -file Element1.out -time -ele 1 3 section 1 fiber
 0.10 0.10 stressStrain</p>
 <hr />

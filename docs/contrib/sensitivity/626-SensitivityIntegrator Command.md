@@ -27,11 +27,11 @@ integrator NewmarkWithSensitivity $gamma
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$gamma</strong></p></td>
+<td><p><code class="parameter-table-variable">gamma</code></p></td>
 <td><p>Newmark parameter gamma.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$beta</strong></p></td>
+<td><p><code class="parameter-table-variable">beta</code></p></td>
 <td><p>Newmark parameter beta.</p></td>
 </tr>
 </tbody>

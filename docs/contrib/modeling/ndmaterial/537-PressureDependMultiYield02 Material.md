@@ -25,26 +25,26 @@ $liquefac1=1. $liquefac2=0. $e=0.6 $cs1=0.9 $cs2=0.02 $cs3=0.7 $pa=101
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$contrac3</strong></p></td>
+<td><p><code class="parameter-table-variable">contrac3</code></p></td>
 <td><p>A non-negative constant reflecting K&amp;sigma; effect.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dilat3</strong></p></td>
+<td><p><code class="parameter-table-variable">dilat3</code></p></td>
 <td><p>A non-negative constant reflecting K&amp;sigma; effect.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$contrac2</strong></p></td>
+<td><p><code class="parameter-table-variable">contrac2</code></p></td>
 <td><p>A non-negative constant reflecting dilation history on
 contraction tendency.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$liquefac1</strong></p></td>
+<td><p><code class="parameter-table-variable">liquefac1</code></p></td>
 <td><p>Damage parameter to define accumulated permanent shear strain as
 a function of dilation history. <strong>(Redefined and different from
 PressureDependMultiYield material).</strong></p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$liquefac2</strong></p></td>
+<td><p><code class="parameter-table-variable">liquefac2</code></p></td>
 <td><p>Damage parameter to define biased accumulation of permanent shear
 strain as a function of load reversal history. <strong>(Redefined and
 different from PressureDependMultiYield material).</strong></p></td>

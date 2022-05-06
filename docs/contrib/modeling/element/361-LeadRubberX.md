@@ -51,11 +51,11 @@ element LeadRubberX $eleTag $Nd1 $Nd2 $Fy $alpha $Gr
 <td><p>bulk modulus of rubber</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$D1</strong></p></td>
+<td><p><code class="parameter-table-variable">D1</code></p></td>
 <td><p>internal diameter</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$D2</strong></p></td>
+<td><p><code class="parameter-table-variable">D2</code></p></td>
 <td><p>outer diameter (excluding cover thickness)</p></td>
 </tr>
 <tr class="odd">
@@ -129,27 +129,27 @@ oC)</p></td>
 m2/s)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tag1</strong></p></td>
+<td><p><code class="parameter-table-variable">tag1</code></p></td>
 <td><p>Tag to include cavitation and post-cavitation (optional, default
 = 0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tag2</strong></p></td>
+<td><p><code class="parameter-table-variable">tag2</code></p></td>
 <td><p>Tag to include buckling load variation (optional, default =
 0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tag3</strong></p></td>
+<td><p><code class="parameter-table-variable">tag3</code></p></td>
 <td><p>Tag to include horizontal stiffness variation (optional, default
 = 0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tag4</strong></p></td>
+<td><p><code class="parameter-table-variable">tag4</code></p></td>
 <td><p>Tag to include vertical stiffness variation (optional, default =
 0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tag5</strong></p></td>
+<td><p><code class="parameter-table-variable">tag5</code></p></td>
 <td><p>Tag to include strength degradation in shear due to heating of
 lead core (optional, default = 0)</p></td>
 </tr>

@@ -24,7 +24,9 @@ methods defined in the interface, not all these methods need to be
 included in a new UniaxialMaterial class. The following is the minimal
 interface that should be considered:</p>
 <p>The UniaxialMaterial Class:</p>
-<p>&lt;source lang="cpp"&gt;</p>
+<p>
+```cpp
+</p>
 <ol>
 <li>ifndef ElasticPPcpp_h</li>
 <li>define ElasticPPcpp_h</li>
@@ -54,7 +56,9 @@ int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker
 &amp;theBroker);</p>
 <p>virtual void Print(OPS_Stream &amp;s, int flag =0);</p>
 <p>protected:</p>
-<p>private: } &lt;/source&gt;</p>
+<p>private: } 
+```
+</p>
 <p>The methods with =0; are methods that you must implement for the
 class to link successfully with OpenSees. The other classes are
 optional.</p>
@@ -91,7 +95,9 @@ new elastic perfectly plastic material into an OpenSees interpreter.</p>
 <h4 id="header">Header</h4>
 <p>The header for thew new class, which we will call Truss2D is as
 follows:</p>
-<p>&lt;source lang="cpp"&gt;</p>
+<p>
+```cpp
+</p>
 <ol>
 <li>ifndef ElasticPPcpp_h</li>
 <li>define ElasticPPcpp_h</li>
@@ -120,7 +126,9 @@ double ezero; // initial strain double E; // elastic modulus double ep;
 trial stress double trialTangent; // current trial tangent double
 commitStrain; // last commited strain double commitStress; // last
 commited stress double commitTangent; // last committed tangent
-&lt;/source&gt;</p>
+
+```
+</p>
 <p>The header file defines the interface and variables for the class
 ElasticPPcpp. It defines the new class to be a sublass of the
 UniaxialMaterial class. In the public interface, are two constructors
@@ -140,7 +148,9 @@ file.</p>
 <p>The first part of the file contains the list of includes. It is
 necessary to have an #include directive for each class and api file that
 is used within the .cpp file and is not included in the header.</p>
-<p>&lt;source lang="cpp"&gt;</p>
+<p>
+```cpp
+</p>
 <ol>
 <li>include "ElasticPPcpp.h"</li>
 </ol>
@@ -151,13 +161,19 @@ is used within the .cpp file and is not included in the header.</p>
 <li>include &lt;math.h&gt;</li>
 <li>include &lt;float.h&gt;</li>
 </ol>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <h5 id="static_variables">Static Variables</h5>
 <p>Next, we initialize the static variables. For this example we are
 using 1 static-variables to keep track of the number of times the
 external procedure to parse and create such an object is called.</p>
-<p>&lt;source lang="cpp"&gt; static int numElasticPPcpp = 0;
-&lt;/source&gt;</p>
+<p>
+```cpp
+ static int numElasticPPcpp = 0;
+
+```
+</p>
 <h5 id="constructors">Constructors</h5>
 <p>After the list of includes, we provide the 2 constructors. The
 constructors are rather simple. They just initialize all the data
@@ -168,7 +184,9 @@ here.</p>
 provide the materials tag, youngs modulus and initial yield point strain
 values. material. The code in the constructor simply computes the
 positive and negative yield stress based on the input provided.</p>
-<p>&lt;source lang="cpp"&gt; ElasticPPcpp::ElasticPPcpp(int tag, double
+<p>
+```cpp
+ ElasticPPcpp::ElasticPPcpp(int tag, double
 e, double eyp)</p>
 <dl>
 <dt></dt>
@@ -178,12 +196,16 @@ UniaxialMaterial(tag, 0),
 </dl>
 <p>ezero(0.0), E(e), ep(0.0), trialStrain(0.0), trialStress(0.0),
 trialTangent(E), commitStrain(0.0), commitStress(0.0), commitTangent(E)
-{ fyp = E*eyp; fyn = -fyp; } &lt;/source&gt;</p>
+{ fyp = E*eyp; fyn = -fyp; } 
+```
+</p>
 <p>The second constructor is called when paralell processing or the
 database feature of the OpenSees application is used. It's purpose is to
 create a blank TElasticPPcpp object, that will be filled in when the
 recvSelf() method is invoked on the object.</p>
-<p>&lt;source lang="cpp"&gt; ElasticPPcpp::ElasticPPcpp()</p>
+<p>
+```cpp
+ ElasticPPcpp::ElasticPPcpp()</p>
 <dl>
 <dt></dt>
 <dd>
@@ -194,23 +216,33 @@ UniaxialMaterial(0, 0),
 trialStress(0.0), trialTangent(E), commitStrain(0.0), commitStress(0.0),
 commitTangent(E) {</p>
 <p>}</p>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <h5 id="destructor">Destructor</h5>
 <p>The we provide the destructor. In the destructor all memory that the
 the object created or was passed to it in the constructor must be
 destroyed. For this example we have no such memory. We could have left
 the destructor out entirely. Hoowever, it is good practice to leave it
 in your source code.</p>
-<p>&lt;source lang="cpp"&gt; ElasticPPcpp::~ElasticPPcpp() { // does
-nothing } &lt;/source&gt;</p>
+<p>
+```cpp
+ ElasticPPcpp::~ElasticPPcpp() { // does
+nothing } 
+```
+</p>
 <h5 id="getcopy_method">getCopy() Method</h5>
 <p>This is the method called by each element or section to get unique
 copies of a material.</p>
-<p>&lt;source lang="cpp"&gt; UniaxialMaterial *
+<p>
+```cpp
+ UniaxialMaterial *
 ElasticPPcpp::getCopy(void) { ElasticPPcpp *theCopy = new
 ElasticPPcpp(this-&gt;getTag(),E,fyp/E); theCopy-&gt;ep =
 this-&gt;ep;</p>
-<p>return theCopy; } &lt;/source&gt;</p>
+<p>return theCopy; } 
+```
+</p>
 <h5 id="settrialstrain_method">setTrialStrain() Method</h5>
 <p>This, as mentioned, is the method called when the element has
 computed a nw strain for the element. The element will make subsequent
@@ -218,7 +250,9 @@ calls to getStress() and getTangent() to obtain new values of these for
 the new strain. This is typically the most complicated method to write
 and to determine the theory for before you even write the code. ALl
 subsequent methods are trivial.</p>
-<p>&lt;source lang="cpp"&gt; int ElasticPPcpp::setTrialStrain(double
+<p>
+```cpp
+ int ElasticPPcpp::setTrialStrain(double
 strain, double strainRate) { if (fabs(trialStrain - strain) &lt;
 DBL_EPSILON) return 0;</p>
 <p>trialStrain = strain;</p>
@@ -237,7 +271,9 @@ fyp; else f = -sigtrial + fyn;</p>
 trialStress = fyn; }</p>
 <p>trialTangent = 0.0; }</p>
 <p>return 0; }</p>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <h5 id="trivial_methods">Trivial Methods</h5>
 <p>Next comes 3 rather simple methods that return basic information
 computed in the setTrialStrain(). You do of course have the option to
@@ -247,7 +283,9 @@ lang="cpp"&gt; double ElasticPPcpp::getStrain(void) { return
 trialStrain; }</p>
 <p>double ElasticPPcpp::getStress(void) { return trialStress; }</p>
 <p>double ElasticPPcpp::getTangent(void) { return trialTangent; }</p>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <h5 id="methods_dealing_with_current_state">Methods Dealing With Current
 State</h5>
 <p>As mentioned, when the algorithm finds a solution state as it goes
@@ -261,7 +299,9 @@ to the last converged step or indeed the start. You the developer must
 provide code so that your mateial can indeed go back to these states and
 report correct getTangent() and getStress() values for subsequent
 analysis atte,pts.</p>
-<p>&lt;source lang="cpp"&gt; int ElasticPPcpp::commitState(void) {
+<p>
+```cpp
+ int ElasticPPcpp::commitState(void) {
 double sigtrial; // trial stress double f; // yield function</p>
 <p>// compute trial stress sigtrial = E * ( trialStrain - ezero - ep
 );</p>
@@ -282,19 +322,25 @@ commitStress;</p>
 0.0;</p>
 <p>ep = 0.0;</p>
 <p>return 0; }</p>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <h5 id="methods_dealing_with_output">Methods Dealing With Output</h5>
 <p>Information is obtained by the user when the print command is invoked
 by the user and also when the user issues the recorder command. When the
 print command is invoked the Print method is invoked. This method simply
 prints information about the element, and then asks the material to do
 likewise.</p>
-<p>&lt;source lang="cpp"&gt; void ElasticPPcpp::Print(OPS_Stream &amp;s,
+<p>
+```cpp
+ void ElasticPPcpp::Print(OPS_Stream &amp;s,
 int flag) { s &lt;&lt; "ElasticPPcpp tag: " &lt;&lt; this-&gt;getTag()
 &lt;&lt; endln; s &lt;&lt; " E: " &lt;&lt; E &lt;&lt; endln; s &lt;&lt;
 " ep: " &lt;&lt; ep &lt;&lt; endln; s &lt;&lt; " stress: " &lt;&lt;
 trialStress &lt;&lt; " tangent: " &lt;&lt; trialTangent &lt;&lt; endln;
-} &lt;/source&gt;</p>
+} 
+```
+</p>
 <p>There are two methods used by the element recorders.</p>
 <ol>
 <li>The first method, setResponse(), is called when the recorder is
@@ -307,8 +353,12 @@ the response.</li>
 <li>The second method, getReponse(), is called by the recorder when it
 is actually recording the information.</li>
 </ol>
-<p>&lt;source lang="cpp"&gt;</p>
-<p>&lt;/source&gt;</p>
+<p>
+```cpp
+</p>
+<p>
+```
+</p>
 <h5 id="methods_dealing_with_databasesparallel_processing">Methods
 Dealing With Databases/Parallel Processing</h5>
 <p>There are two methods provided which are required is the user uses to
@@ -319,7 +369,9 @@ must pack up it's information using Vector and ID objects and send it
 off to a Channel object. On the flip side, the receiving blank element
 must receive the same Vector and ID data, unpack it and set the
 variables.</p>
-<p>&lt;source lang="cpp"&gt; int ElasticPPcpp::sendSelf(int cTag,
+<p>
+```cpp
+ int ElasticPPcpp::sendSelf(int cTag,
 Channel &amp;theChannel) { int res = 0; static Vector data(9); data(0) =
 this-&gt;getTag(); data(1) = ep; data(2) = E; data(3) = ezero; data(4) =
 fyp; data(5) = fyn; data(6) = commitStrain; data(7) = commitStress;
@@ -336,7 +388,9 @@ data\n"; else { this-&gt;setTag(data(0)); ep = data(1); E = data(2);
 ezero = data(3); fyp = data(4); fyn = data(5); commitStrain=data(6);
 commitStress=data(7); commitTangent=data(8); trialStrain = commitStrain;
 trialTangent = commitTangent; trialStress = commitStress; }</p>
-<p>return res; } &lt;/source&gt;</p>
+<p>return res; } 
+```
+</p>
 <h4 id="external_procedure">External Procedure</h4>
 <p>This is the all importat extenal procedure that the interpreter will
 parse when it comes accross your element on the command line. You need
@@ -352,7 +406,9 @@ as character strings and obtaining the number of input arguments are
 also available.</p>
 <p>The #ifdef stuff at the start is required for different operating
 systems.</p>
-<p>&lt;source lang="cpp"&gt;</p>
+<p>
+```cpp
+</p>
 <ol>
 <li>ifdef _USRDLL</li>
 <li>define OPS_Export extern "C" _declspec(dllexport)</li>
@@ -379,4 +435,6 @@ opserr &lt;&lt; "WARNING invalid E &amp; ep\n"; return 0; }</p>
 <p>theMaterial = new ElasticPPcpp(iData[0], dData[0], dData[1]);</p>
 <p>if (theMaterial == 0) { opserr &lt;&lt; "WARNING could not create
 uniaxialMaterial of type ElasticPPCpp\n"; return 0; }</p>
-<p>// return the material return theMaterial; } &lt;/source&gt;</p>
+<p>// return the material return theMaterial; } 
+```
+</p>

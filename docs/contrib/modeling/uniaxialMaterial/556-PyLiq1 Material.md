@@ -44,7 +44,7 @@ equations, but are both loads for this uniaxialMaterial [i.e.,
 distributed load times the tributary length of the pile].</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Y50</strong></p></td>
+<td><p><code class="parameter-table-variable">Y50</code></p></td>
 <td><p>Displacement at which 50% of pult is mobilized in monotonic
 loading.</p></td>
 </tr>
@@ -213,7 +213,9 @@ alt="PyLiq1NoSpreading.png" />
 alt="PyLiq1WithSpreading.png" />
 <figcaption aria-hidden="true">PyLiq1WithSpreading.png</figcaption>
 </figure>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>&lt;pre&gt; model basic -ndm 2 -ndf 2 node 1 0.0 0.0 node 2 0.0 0.0
 fix 2 1 1 fix 1 0 1</p>
 <p>timeSeries Path 1 -fileTime time.txt -filePath meanStress.txt -factor

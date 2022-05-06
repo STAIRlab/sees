@@ -80,7 +80,9 @@ alt="YamamotoBiaxialHDR_Model.png" />
 <figcaption aria-hidden="true">YamamotoBiaxialHDR_Model.png</figcaption>
 </figure>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>element YamamotoBiaxialHDR 1 1 2 1 1.300 0.030 0.261 -orient 0 0 1 1
 0 0</p>
 <p><a href="Media:YamamotoBiaxialHDR_Sample.tcl"

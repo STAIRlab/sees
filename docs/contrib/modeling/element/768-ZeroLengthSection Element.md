@@ -64,7 +64,9 @@ this orientation.</li>
 ElementRecorder object are 'force,' 'deformation,' 'stiff,' and 'section
 $secArg1 secArg2 ...'.</li>
 </ol>
-<p>EXAMPLES:</p>
+
+## Examples
+
 <p>element zeroLengthSection 1 2 4 6; # truss tag 1 between nodes 2 and
 4 usinga type 6 section.</p>
 <p>element zeroLengthSection 1 1 2 1 -orient 0 1 0 0 0 -1; # element tag

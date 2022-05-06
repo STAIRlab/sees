@@ -66,7 +66,9 @@ analysis, but the example below includes this data to demonstrate the
 effect of the InitialStateAnalysis command. At the end of the analysis,
 there should be non-zero stress and strain in the element with zero
 displacement.</p>
-<p>&lt;source lang="tcl"&gt; wipe</p>
+<p>
+```tcl
+ wipe</p>
 <p>model BasicBuilder -ndm 3 -ndf 3</p>
 <ol>
 <li>create the nodes</li>
@@ -128,4 +130,6 @@ recorder Element -ele 1 -time -file strain.out -dT $step strain</p>
 zero displacement</li>
 </ol>
 <p>analyze 3</p>
-<p>wipe &lt;/source&gt;</p>
+<p>wipe 
+```
+</p>

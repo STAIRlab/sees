@@ -30,25 +30,25 @@ element is connected to the adjoining beam-column element</p></td>
 not exist in the domain or be used by any other node)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Mat1</strong></p></td>
+<td><p><code class="parameter-table-variable">Mat1</code></p></td>
 <td><p>uniaxial material tag for interface rotational spring at node 1.
 Use a zero tag to indicate the case that a beam-column element is
 rigidly framed to the joint. (optional)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Mat2</strong></p></td>
+<td><p><code class="parameter-table-variable">Mat2</code></p></td>
 <td><p>uniaxial material tag for interface rotational spring at node 2.
 Use a zero tag to indicate the case that a beam-column element is
 rigidly framed to the joint. (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Mat3</strong></p></td>
+<td><p><code class="parameter-table-variable">Mat3</code></p></td>
 <td><p>uniaxial material tag for interface rotational spring at node 3.
 Use a zero tag to indicate the case that a beam-column element is
 rigidly framed to the joint. (optional)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$Mat4</strong></p></td>
+<td><p><code class="parameter-table-variable">Mat4</code></p></td>
 <td><p>uniaxial material tag for interface rotational spring at node 4.
 Use a zero tag to indicate the case that a beam-column element is
 rigidly framed to the joint. (optional)</p></td>
@@ -113,7 +113,9 @@ moments</li>
 </ol></li>
 </ol>
 <hr />
-<p>Examples:</p>
+
+## Examples
+
 <ol>
 <li>element Joint2D 12 1 2 3 4 112 10 0; # constructs a Joint2D element
 with tag 12 that is connected to nodes 1, 2, 3, and 4. The element will

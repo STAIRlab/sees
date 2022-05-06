@@ -192,7 +192,9 @@ i}}{\text{def}_\text{max}}, \frac{d_\text{min i}}{\text{def}_\text{min}}
 </dd>
 </dl>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p><a href="Pinching4MaterialExample"
 title="wikilink">Pinching4MaterialExample</a></p>
 <hr />

@@ -55,7 +55,7 @@ achieve the desired elastic-plastic stress-strain response.</p>
 <td><p>Stress ratio at failure in triaxial compression</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dre1</strong></p></td>
+<td><p><code class="parameter-table-variable">dre1</code></p></td>
 <td><p>Coefficient for reversible dilatancy generation</p></td>
 </tr>
 <tr class="odd">
@@ -64,7 +64,7 @@ achieve the desired elastic-plastic stress-strain response.</p>
 changes</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dre2</strong></p></td>
+<td><p><code class="parameter-table-variable">dre2</code></p></td>
 <td><p>Coefficient for reversible dilatancy release</p></td>
 </tr>
 <tr class="odd">

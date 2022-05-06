@@ -62,7 +62,9 @@ specified on the command line.</li>
 ElementRecorder object are 'force', 'deformation', and 'material matArg1
 matArg2 ...'</li>
 </ol>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> Micheal Scott,
 Oregon State University. </span></p>

@@ -48,7 +48,9 @@ alt="AxialSp_note1.png" />
 src="AxialSp_note2.png" title="AxialSp_note2.png" width="250"
 alt="AxialSp_note2.png" /></p>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p><a href="Media:AxialSp_sample.tcl"
 title="wikilink">AxialSp_sample.tcl</a></p>
 <figure>

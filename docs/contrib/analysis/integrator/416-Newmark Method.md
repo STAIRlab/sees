@@ -9,17 +9,19 @@ integrator Newmark $gamma $beta
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$gamma</strong></p></td>
+<td><p><code class="parameter-table-variable">gamma</code></p></td>
 <td><p>$\gamma$ factor</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$beta</strong></p></td>
+<td><p><code class="parameter-table-variable">beta</code></p></td>
 <td><p>$\beta$ factor</p></td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>integrator Newmark 0.5 0.25</p>
 <hr />
 <p>NOTES:</p>
@@ -49,7 +51,9 @@ numerical damping proportional to &lt;math&gt; \gamma -
 <p>Newmark, N.M. "A Method of Computation for Structural Dynamics" ASCE
 Journal of Engineering Mechanics Division, Vol 85. No EM3, 1959.</p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>The Newmark method is a one step implicit method for solving the
 transient problem, represented by the residual for the momentum
 equation:</p>

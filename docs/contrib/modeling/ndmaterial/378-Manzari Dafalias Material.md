@@ -395,7 +395,9 @@ $$d\mathbf{z} = - c_z \langle -d\varepsilon^p_v \rangle
 <p>This example, provides an undrained confined triaxial compression
 test using one 8-node SSPBrickUP element and ManzariDafalias material
 model.</p>
-<p>&lt;source lang="tcl"&gt;</p>
+<p>
+```tcl
+</p>
 <ol>
 <li>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
 #</li>
@@ -538,7 +540,9 @@ set success [subStepAnalyze [expr $dT/2.0] [incr subStep]] set curStep
 int($numStep-$curStep)] puts "Current step: $curStep , Remaining steps:
 $remStep" } } set endT [clock seconds] puts "loading analysis execution
 time: [expr $endT-$startT] seconds."</p>
-<p>wipe &lt;/source&gt;</p>
+<p>wipe 
+```
+</p>
 <h2 id="references">References</h2>
 <p>Dafalias YF, Manzari MT. "Simple plasticity sand model accounting for
 fabric change effects". Journal of Engineering Mechanics 2004</p>

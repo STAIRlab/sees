@@ -38,7 +38,7 @@ information.</p></td>
 <td><p>A non-negative constant reflecting K&amp;sigma; effect.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$contrac2</strong></p></td>
+<td><p><code class="parameter-table-variable">contrac2</code></p></td>
 <td><p>Non-negative constants defining the rate of dilation. See Tables
 1 and 2 below for more information.</p></td>
 </tr>

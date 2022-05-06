@@ -40,7 +40,9 @@ domain.</li>
 domain.</li>
 </ol>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>&lt;pre&gt; set t 100.0 model basic -ndm 3 -ndf 6 nDMaterial
 ElasticIsotropic 1 200000 0.3 nDMaterial PlateFiber 4 1 set secArgs "7"
 section PlateFiber $secArgs 4 $t set EleType ShellMITC4 block2D $n1 $n2

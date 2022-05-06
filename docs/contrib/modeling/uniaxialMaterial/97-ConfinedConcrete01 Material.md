@@ -62,7 +62,7 @@ $gamma&gt;</strong></p></td>
 <td><p>Poisson's Ratio. See NOTE 3.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$L1</strong></p></td>
+<td><p><code class="parameter-table-variable">L1</code></p></td>
 <td><p>length/diameter of square/circular core section measured respect
 to the hoop center line.</p></td>
 </tr>
@@ -215,7 +215,9 @@ equal to the wrap width).</p></td>
 <p>6) Stresses and strains can be defined either as positive
 or as negative values. All commands are not case
 sensitive.</p>
-<p>EXAMPLES:</p>
+
+## Examples
+
 <p><strong>Square section reinforced by simple transverse hoop
 and by additional FRP wraps (Section S1)</strong></p>
 <figure>
@@ -223,7 +225,9 @@ and by additional FRP wraps (Section S1)</strong></p>
 <figcaption aria-hidden="true">S1.png</figcaption>
 </figure>
 <p><em>Section S1</em></p>
-<p>&lt;source lang="tcl"&gt;</p>
+<p>
+```tcl
+</p>
 <ol>
 <li>uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu
 $epscu $nu $L1 $phis $S $fyh $Es0 $haRatio $mu $phiLon -stRatio
@@ -231,7 +235,9 @@ $stRatio</li>
 </ol>
 <p>uniaxialMaterial ConfinedConcrete01 1 S1 -30.0 26081.0 -epscu -0.03
 -varub 300.0 10.0 100.0 300.0 206000.0 0.0 1000.0 16.0 -stRatio 0.85
-&lt;/source&gt;</p>
+
+```
+</p>
 <p><em>Section S1 strengthened by additional FRP wraps</em> &lt;source
 lang="tcl"&gt;</p>
 <ol>
@@ -241,14 +247,18 @@ $ful $Es0w -stRatio $stRatio</li>
 </ol>
 <p>uniaxialMaterial ConfinedConcrete01 1 S1 -30.0 26081.0 -epscu -0.03
 -varub 300.0 10.0 100.0 300.0 206000.0 0.0 1000.0 16.0 -wrap 30.0 51.0
-100.0 3900.0 230000.0 -stRatio 0.85 &lt;/source&gt;</p>
+100.0 3900.0 230000.0 -stRatio 0.85 
+```
+</p>
 <p><strong>Square section reinforced by multiple transverse hoop
 and by additional FRP wraps (Section S4a)</strong></p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/S4a.png" title="S4a.png" width="500" alt="S4a.png" />
 <figcaption aria-hidden="true">S4a.png</figcaption>
 </figure>
-<p><em>Section S4a</em> &lt;source lang="tcl"&gt;</p>
+<p><em>Section S4a</em> 
+```tcl
+</p>
 <ol>
 <li>uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu
 $epscu $nu $L1 $L2 $L3 $phis $S $fyh $Es0 $haRatio $mu $phiLon -stRatio
@@ -256,7 +266,9 @@ $stRatio</li>
 </ol>
 <p>uniaxialMaterial ConfinedConcrete01 1 S4a -30.0 26081.0 -epscu -0.03
 -varUB 300.0 200.0 100.0 10.0 100.0 300.0 206000.0 0.0 1000.0 16.0
--stRatio 0.85 &lt;/source&gt;</p>
+-stRatio 0.85 
+```
+</p>
 <p><em>Section S4a strengthened by additional FRP wraps</em> &lt;source
 lang="tcl"&gt;</p>
 <ol>
@@ -266,14 +278,18 @@ $Am $Sw $ful $Es0w -stRatio $stRatio</li>
 </ol>
 <p>uniaxialMaterial ConfinedConcrete01 1 S4a -30.0 26081.0 -epscu -0.03
 -varUB 300.0 200.0 100.0 10.0 100.0 300.0 206000.0 0.0 1000.0 16.0 -wrap
-30.0 51.0 100.0 3900.0 230000.0 -stRatio 0.85 &lt;/source&gt;</p>
+30.0 51.0 100.0 3900.0 230000.0 -stRatio 0.85 
+```
+</p>
 <p><strong>Rectangular section reinforced by simple transverse
 hoop and by additional FRP wraps (Section R)</strong></p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/R.png" title="R.png" width="500" alt="R.png" />
 <figcaption aria-hidden="true">R.png</figcaption>
 </figure>
-<p><em>Section R</em> &lt;source lang="tcl"&gt;</p>
+<p><em>Section R</em> 
+```tcl
+</p>
 <ol>
 <li>uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu
 $epscu $nu $L1 $L2 $phis $S $fyh $Es0 $haRatio $mu $phiLon -stRatio
@@ -281,7 +297,9 @@ $stRatio</li>
 </ol>
 <p>uniaxialMaterial ConfinedConcrete01 1 R -30.0 26081.0 -epscu -0.03
 -varUB 500.0 300.0 10.0 100.0 300.0 206000.0 0.0 1000.0 16.0 -stRatio
-0.85 &lt;/source&gt;</p>
+0.85 
+```
+</p>
 <p><em>Section R strengthened by additional FRP wraps</em> &lt;source
 lang="tcl"&gt;</p>
 <ol>
@@ -291,7 +309,9 @@ $Sw $ful $Es0w -stRatio $stRatio</li>
 </ol>
 <p>uniaxialMaterial ConfinedConcrete01 1 R -30.0 26081.0 -epscu -0.03
 -varUB 500.0 300.0 10.0 100.0 300.0 206000.0 0.0 1000.0 16.0 -wrap 30.0
-51.0 100.0 3900.0 230000.0 -stRatio 0.85 &lt;/source&gt;</p>
+51.0 100.0 3900.0 230000.0 -stRatio 0.85 
+```
+</p>
 <hr />
 <p>REFEERENCES:</p>
 <ol>

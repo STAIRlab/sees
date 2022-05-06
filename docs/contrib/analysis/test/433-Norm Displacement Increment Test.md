@@ -16,16 +16,16 @@ test NormDispIncr $tol $iter &lt;$pFlag&gt;
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$tol</strong></p></td>
+<td><p><code class="parameter-table-variable">tol</code></p></td>
 <td><p>the tolerance criteria used to check for convergence</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iter</strong></p></td>
+<td><p><code class="parameter-table-variable">iter</code></p></td>
 <td><p>the max number of iterations to check before returning failure
 condition</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$pFlag</strong></p></td>
+<td><p><code class="parameter-table-variable">pFlag</code></p></td>
 <td><p>optional print flag, default is 0. valid options:</p></td>
 </tr>
 <tr class="even">
@@ -53,7 +53,7 @@ vectors.</p></td>
 error message BUT RETURN A SUCCESSFUL test</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$nType</strong></p></td>
+<td><p><code class="parameter-table-variable">nType</code></p></td>
 <td><p>optional type of norm, default is 2. (0 = max-norm, 1 = 1-norm, 2
 = 2-norm, ...)</p></td>
 </tr>
@@ -66,7 +66,9 @@ error message BUT RETURN A SUCCESSFUL test</p></td>
 Lagrange multipliers appear in the solution vector.</li>
 </ul>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>If the system of equations formed by the integrator is:</p>
 <dl>
 <dt></dt>

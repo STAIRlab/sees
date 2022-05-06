@@ -63,11 +63,11 @@ through:</p>
 <td><p>Critical state stress ratio</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dre1</strong></p></td>
+<td><p><code class="parameter-table-variable">dre1</code></p></td>
 <td><p>Coefficient for reversible dilatancy generation</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dre2</strong></p></td>
+<td><p><code class="parameter-table-variable">dre2</code></p></td>
 <td><p>Coefficient for reversible dilatancy release</p></td>
 </tr>
 <tr class="even">

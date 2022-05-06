@@ -44,7 +44,9 @@ nDMaterial J2Plasticity $matTag $K $G $sig0 $sigInf
 <p>The material formulations for the J2 object are "ThreeDimensional,"
 "PlaneStrain," "Plane Stress," "AxiSymmetric," and "PlateFiber."</p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>The theory for the non hardening case can be found <a
 href="http://en.wikipedia.org/wiki/Von_Mises_yield_criterion"
 title="wikilink">http://en.wikipedia.org/wiki/Von_Mises_yield_criterion</a></p>

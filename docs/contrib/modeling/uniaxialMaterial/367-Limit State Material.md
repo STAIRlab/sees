@@ -59,11 +59,11 @@ reloading</p></td>
 <td><p>pinching factor for stress (or force) during reloading</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$damage1</strong></p></td>
+<td><p><code class="parameter-table-variable">damage1</code></p></td>
 <td><p>damage due to ductility: D1(m-1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$damage2</strong></p></td>
+<td><p><code class="parameter-table-variable">damage2</code></p></td>
 <td><p>damage due to energy: D2(Ei/Eult)</p></td>
 </tr>
 <tr class="even">
@@ -89,7 +89,9 @@ title="wikilink">Limit Curve</a> defining the limit surface</p></td>
 values</li>
 </ul>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>Original version of example:</p>
 <ul>
 <li><a href="LimitStateMaterialExample"

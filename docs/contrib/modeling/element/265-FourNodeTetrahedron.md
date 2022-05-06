@@ -47,7 +47,9 @@ to the material object at the integration point corresponding to the
 node numbers in the isoparametric domain.</li>
 <li>This element can only be defined in -ndm 3 -ndf 3</li>
 </ol>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>REFERENCES:</p>
 <p><a
 href="https://www.colorado.edu/engineering/CAS/courses.d/AFEM.d/AFEM.Ch09.d/AFEM.Ch09.pdf">Carlos

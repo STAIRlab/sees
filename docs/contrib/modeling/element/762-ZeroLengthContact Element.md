@@ -85,7 +85,9 @@ For 3D contact, constrained nodes and retained nodes must be 3 DOF.</li>
 solver.</li>
 </ol>
 <hr />
-<p>EXAMPLES:</p>
+
+## Examples
+
 <p>Gang Wang to provide a smart example!</p>
 <hr />
 <p>REFERENCES:</p>
