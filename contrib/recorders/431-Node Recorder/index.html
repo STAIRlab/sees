@@ -13314,7 +13314,19 @@ The Node recorder type records the response of a number of nodes at every conver
 <tr class="odd">
 <td>
 <p>
-<em>recorder Node &lt;-file $fileName&gt; &lt;-xml $fileName&gt; &lt;-binary $fileName&gt; &lt;-tcp $inetAddress $port&gt; &lt;-precision $nSD&gt; &lt;-timeSeries $tsTag&gt; &lt;-time&gt; &lt;-dT $deltaT&gt; &lt;-closeOnWrite&gt; &lt;-node $node1 $node2 …&gt; &lt;-nodeRange $startNode $endNode&gt; &lt;-region <span class="math inline">\(regionTag&amp;gt; -dof (\)</span>dof1 $dof2 …) <span class="math inline">\(respType&lt;/em&gt;&#39;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fileName</strong>
+<em>recorder Node &lt;-file $fileName&gt; &lt;-xml $fileName&gt; &lt;-binary $fileName&gt; &lt;-tcp $inetAddress $port&gt; &lt;-precision $nSD&gt; &lt;-timeSeries $tsTag&gt; &lt;-time&gt; &lt;-dT $deltaT&gt; &lt;-closeOnWrite&gt; &lt;-node $node1 $node2 …&gt; &lt;-nodeRange $startNode $endNode&gt; &lt;-region <span class="math inline">\(regionTag&amp;gt; -dof (\)</span>dof1 $dof2 …) $respType</em>’
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-variable">fileName</code>
 </p>
 </td>
 <td>
@@ -13338,7 +13350,19 @@ ip address, “xx.xx.xx.xx”, of remote machine to which data is sent
 <tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(port&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;port on remote machine awaiting tcp&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>nSD</strong>
+<code class="parameter-table-variable">port</code>
+</p>
+</td>
+<td>
+<p>
+port on remote machine awaiting tcp
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">nSD</code>
 </p>
 </td>
 <td>
@@ -13350,7 +13374,7 @@ number of significant digits (optional, default is 6)
 <tr class="odd">
 <td>
 <p>
-<strong>-time</strong>
+<code class="parameter-table-flag">-time</code>
 </p>
 </td>
 <td>
@@ -13362,7 +13386,7 @@ optional, using this option places domain time in first entry of each data line,
 <tr class="even">
 <td>
 <p>
-<strong>-closeOnWrite</strong>
+<code class="parameter-table-flag">-closeOnWrite</code>
 </p>
 </td>
 <td>
@@ -13374,36 +13398,24 @@ optional. using this option will instruct the recorder to invoke a close on the 
 <tr class="odd">
 <td>
 <p>
-<strong>$deltaT</strong>
+<code class="parameter-table-variable">deltaT</code>
 </p>
 </td>
 <td>
 <p>
-time interval for recording. will record when next step is <span class="math inline">\(deltaT greater than last recorder step. (optional, default: records at every time step)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>tsTag</strong>
+time interval for recording. will record when next step is <span class="math inline">\(deltaT greater than last recorder step. (optional, default: records at every time step)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;tsTag&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the tag of a previously constructed TimeSeries, results from node at each time step are added to load factor from series&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>node1 <span class="math inline">\(node2 ..&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags of nodes whose response is being recorded (optional, default: omitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>startNode <span class="math inline">\(endNode ..&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tag for start and end nodes whose response is being recorded (optional, default: omitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;regionTag&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;a region tag; to specify all nodes in the previously defined region. (optional)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dof1 dof2 …</strong>
 </p>
 </td>
 <td>
 <p>
-the tag of a previously constructed TimeSeries, results from node at each time step are added to load factor from series
+the specified dof at the nodes whose response is requested.
 </p>
 </td>
 </tr>
 <tr class="odd">
 <td>
 <p>
-<strong>$node1 <span class="math inline">\(node2 ..&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags of nodes whose response is being recorded (optional, default: omitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>startNode <span class="math inline">\(endNode ..&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tag for start and end nodes whose response is being recorded (optional, default: omitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>regionTag</strong>
-</p>
-</td>
-<td>
-<p>
-a region tag; to specify all nodes in the previously defined region. (optional)
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong><span class="math inline">\(dof1 dof2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the specified dof at the nodes whose response is requested.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>respType</strong>
+<code class="parameter-table-variable">respType</code>
 </p>
 </td>
 <td>

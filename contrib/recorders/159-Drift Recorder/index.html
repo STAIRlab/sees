@@ -13314,55 +13314,7 @@ The Drift type records the displacement drift between two nodes. The drift is ta
 <tr class="odd">
 <td>
 <p>
-<em>recorder Drift &lt;-file $fileName&gt; &lt;-xml $fileName&gt; &lt;-binary $fileName&gt; &lt;-tcp $inetAddress $port&gt; &lt;-precision $nSD&gt; &lt;-time&gt; -iNode $inode1 $inode2 … -jNode $jnode1 $jnode2 … -dof $dof1 $dof2 … -perpDirn $perpDirn1 <span class="math inline">\(perpDirn2 ...&lt;/em&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fileName</strong>
-</p>
-</td>
-<td>
-<p>
-name of file to which output is sent. Each line of the file contains the result for a committed state of the domain file output is either in xml format (-xml option), textual (-file option) or binary (-binary option)
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong>inetAddr</strong>
-</p>
-</td>
-<td>
-<p>
-ip address, “xx.xx.xx.xx”, of remote machine to which data is sent
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong><span class="math inline">\(port&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;port on remote machine awaiting tcp&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>nSD</strong>
-</p>
-</td>
-<td>
-<p>
-number of significant digits (optional, default is 6)
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong>-time</strong>
-</p>
-</td>
-<td>
-<p>
-using this option places domain time in first entry of each data line (optional, default: omitted)
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong>$inode1 <span class="math inline">\(inode2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags of set of i nodes for which drift is being recorded&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>jnode1 <span class="math inline">\(jnode2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags of set of j nodes for which drift is being recorded&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dof1 dof2 …</strong>
+<em>recorder Drift &lt;-file $fileName&gt; &lt;-xml $fileName&gt; &lt;-binary $fileName&gt; &lt;-tcp $inetAddress $port&gt; &lt;-precision $nSD&gt; &lt;-time&gt; -iNode $inode1 $inode2 … -jNode $jnode1 $jnode2 … -dof $dof1 $dof2 … -perpDirn $perpDirn1 <span class="math inline">\(perpDirn2 ...&lt;/em&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fileName&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;name of file to which output is sent. Each line of the file contains the result for a committed state of the domain file output is either in xml format (-xml option), textual (-file option) or binary (-binary option)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;inetAddr&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;ip address, &quot;xx.xx.xx.xx&quot;, of remote machine to which data is sent&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;port&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;port on remote machine awaiting tcp&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;nSD&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;number of significant digits (optional, default is 6)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-flag&quot;&gt;-time&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;using this option places domain time in first entry of each data line (optional, default: omitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>inode1 <span class="math inline">\(inode2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags of set of i nodes for which drift is being recorded&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>jnode1 <span class="math inline">\(jnode2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags of set of j nodes for which drift is being recorded&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dof1 dof2 …</strong>
 </p>
 </td>
 <td>

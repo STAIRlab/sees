@@ -13335,7 +13335,65 @@ updateMaterialStage -material $matTag -stage 0
 After the gravity load stage, the material stage should be updated to achieve the desired elastic-plastic stress-strain response.
 </p>
 <p>
-updateMaterialStage -material <span class="math inline">\(matTag -stage 1&lt;/p&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;integer tag identifying material&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;G0&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;A constant related to elastic shear modulus&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;kappa&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;A constant related to elastic bulk modulus&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;h&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Model parameter for plastic modulus&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;Mfc&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Stress ratio at failure in triaxial compression&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dre1</strong>
+updateMaterialStage -material $matTag -stage 1
+</p>
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">matTag</code>
+</td>
+<td>
+<p>
+integer tag identifying material
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">G0</code>
+</td>
+<td>
+<p>
+A constant related to elastic shear modulus
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">kappa</code>
+</td>
+<td>
+<p>
+A constant related to elastic bulk modulus
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">h</code>
+</td>
+<td>
+<p>
+Model parameter for plastic modulus
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">Mfc</code>
+</td>
+<td>
+<p>
+Stress ratio at failure in triaxial compression
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">dre1</code>
 </p>
 </td>
 <td>
@@ -13357,7 +13415,7 @@ Stress ratio at which the reversible dilatancy sign changes
 <tr class="even">
 <td>
 <p>
-<strong>$dre2</strong>
+<code class="parameter-table-variable">dre2</code>
 </p>
 </td>
 <td>

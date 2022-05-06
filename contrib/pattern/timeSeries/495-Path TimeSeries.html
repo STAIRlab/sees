@@ -45,20 +45,20 @@ timeSeries Path $tag -fileTime $fileTime -filePath
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$tag</strong></p></td>
+<td><p><code class="parameter-table-variable">tag</code></p></td>
 <td><p>unique tag among TimeSeries objects.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$filePath</strong></p></td>
+<td><p><code class="parameter-table-variable">filePath</code></p></td>
 <td><p>file containing the load factors values</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fileTime</strong></p></td>
+<td><p><code class="parameter-table-variable">fileTime</code></p></td>
 <td><p>file containing the time values for corresponding load
 factors</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dT</strong></p></td>
+<td><p><code class="parameter-table-variable">dT</code></p></td>
 <td><p>time interval between specified points.</p></td>
 </tr>
 <tr class="odd">
@@ -70,22 +70,22 @@ factors</p></td>
 <td><p>load factor values in a tcl list</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cFactor</strong></p></td>
+<td><p><code class="parameter-table-variable">cFactor</code></p></td>
 <td><p>optional, a factor to multiply load factors by (default =
 1.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>-useLast</strong></p></td>
+<td><p><code class="parameter-table-flag">-useLast</code></p></td>
 <td><p>optional, to use last value after the end of the series (default
 = 0.0)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>-prependZero</strong></p></td>
+<td><p><code class="parameter-table-flag">-prependZero</code></p></td>
 <td><p>optional, to prepend a zero value to the series of load factors
 (default = false). See NOTES.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tStart</strong></p></td>
+<td><p><code class="parameter-table-variable">tStart</code></p></td>
 <td><p>optional, to provide a start time for provided load factors
 (default = 0.0)</p></td>
 </tr>
@@ -104,7 +104,9 @@ timeSeries = 0.0). To guarantee that this is the case the optional
 parameter -prependZero can be specified to prepend a zero value to the
 provided timeSeries.</li>
 </ul>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>timeSeries Path 1 -dT 0.02 -filePath A-ELC270.AT2 -factor $G</p>
 <p>timeSeries Path 2 -time {0.0 0.2 0.4 1.0} -values {0.0 1.0 2.0
 0.0}</p>

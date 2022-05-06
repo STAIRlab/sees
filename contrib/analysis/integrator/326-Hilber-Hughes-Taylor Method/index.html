@@ -13319,30 +13319,43 @@ This command is used to construct a Hilber-Hughes-Taylor (HHT) integration objec
 <tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(alpha&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>$ factor
+<code class="parameter-table-variable">alpha</code>
+</p>
+</td>
+<td>
+<p>
+<span class="math inline">\(\alpha\)</span> factor
 </p>
 </td>
 </tr>
 <tr class="even">
 <td>
 <p>
-<strong><span class="math inline">\(gamma&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>$ factor
+<code class="parameter-table-variable">gamma</code>
+</p>
+</td>
+<td>
+<p>
+<span class="math inline">\(\gamma\)</span> factor
 </p>
 </td>
 </tr>
 <tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(beta&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>$ factor
+<code class="parameter-table-variable">beta</code>
+</p>
+</td>
+<td>
+<p>
+<span class="math inline">\(\beta\)</span> factor
 </p>
 </td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p>
-EXAMPLE:
-</p>
+<h2 id="examples">Examples</h2>
 <p>
 integrator HHT 0.9
 </p>
@@ -13387,9 +13400,7 @@ REFERENCES
 Hilber, H.M, Hughes,T.J.R and Talor, R.L. “Improved Numerical Dissipation for Time Integration Algorithms in Structural Dynamics” Earthquake Engineering and Structural Dynamics, 5:282-292, 1977.
 </p>
 <hr />
-<p>
-THEORY:
-</p>
+<h2 id="theory">Theory</h2>
 <p>
 The HHT method (sometimes called the <span class="math inline">\(\alpha\)</span> method) is a one step implicit method for solving the transient problem which attempts to increase the amount of numerical damping present without degrading the order of accuracy. In the HHT method, the same Newmark approximations are used:
 </p>

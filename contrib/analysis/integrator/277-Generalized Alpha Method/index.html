@@ -13319,37 +13319,55 @@ This command is used to construct a Generalized <span class="math inline">\(\alp
 <tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(alphaM&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>_M$ factor
+<code class="parameter-table-variable">alphaM</code>
+</p>
+</td>
+<td>
+<p>
+<span class="math inline">\(\alpha_M\)</span> factor
 </p>
 </td>
 </tr>
 <tr class="even">
 <td>
 <p>
-<strong><span class="math inline">\(alphaF&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>_F$ factor
+<code class="parameter-table-variable">alphaF</code>
+</p>
+</td>
+<td>
+<p>
+<span class="math inline">\(\alpha_F\)</span> factor
 </p>
 </td>
 </tr>
 <tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(gamma&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>$ factor
+<code class="parameter-table-variable">gamma</code>
+</p>
+</td>
+<td>
+<p>
+<span class="math inline">\(\gamma\)</span> factor
 </p>
 </td>
 </tr>
 <tr class="even">
 <td>
 <p>
-<strong><span class="math inline">\(beta&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>$ factor
+<code class="parameter-table-variable">beta</code>
+</p>
+</td>
+<td>
+<p>
+<span class="math inline">\(\beta\)</span> factor
 </p>
 </td>
 </tr>
 </tbody>
 </table>
 <hr />
-<p>
-EXAMPLE:
-</p>
+<h2 id="examples">Examples</h2>
 <p>
 integrator GeneralizedAlpha 1.0 0.8
 </p>
@@ -13407,9 +13425,7 @@ REFERENCES
 J. Chung, G.M.Hubert. “A Time Integration Algorithm for Structural Dynamics with Improved Numerical Dissipation: The Generalized-<span class="math inline">\(\alpha\)</span> Method” ASME Journal of Applied Mechanics, 60, 371:375, 1993.
 </p>
 <hr />
-<p>
-THEORY:
-</p>
+<h2 id="theory">Theory</h2>
 <p>
 The Generalized <span class="math inline">\(\alpha\)</span> method (sometimes called the <span class="math inline">\(\alpha\)</span> method) is a one step implicit method for solving the transient problem which attempts to increase the amount of numerical damping present without degrading the order of accuracy. In the HHT method, the same Newmark approximations are used:
 </p>

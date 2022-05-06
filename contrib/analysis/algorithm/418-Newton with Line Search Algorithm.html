@@ -16,7 +16,7 @@ algorithm NewtonLineSearch &lt;-type $typeSearch&gt;
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$typeSearch</strong></p></td>
+<td><p><code class="parameter-table-variable">typeSearch</code></p></td>
 <td><p>line search algorithm. optional default is InitialInterpoled.
 valid types are:</p></td>
 </tr>
@@ -25,20 +25,20 @@ valid types are:</p></td>
 <td><p>Bisection, Secant, RegulaFalsi, InitialInterpolated</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tol</strong></p></td>
+<td><p><code class="parameter-table-variable">tol</code></p></td>
 <td><p>tolerance for search. optional, defeulat = 0.8</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$maxIter</strong></p></td>
+<td><p><code class="parameter-table-variable">maxIter</code></p></td>
 <td><p>max num of iterations to try. optional, default = 10</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$minEta</strong></p></td>
+<td><p><code class="parameter-table-variable">minEta</code></p></td>
 <td><p>a min &lt;math&gt;\eta\!&lt;/math&gt; value. optional, default =
 0.1</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$maxEta</strong></p></td>
+<td><p><code class="parameter-table-variable">maxEta</code></p></td>
 <td><p>a max &lt;math&gt;\eta\!&lt;/math&gt; value. optional, default =
 10.0</p></td>
 </tr>
@@ -49,7 +49,9 @@ valid types are:</p></td>
 <p>M.A. Crisfield, "Nonlinear Finite Element Analysis of Solids and
 Structures, Volume 1:Essentials", Wiley, 1991.</p>
 <hr />
-<p>THEORY:</p>
+
+## Theory
+
 <p>The rationale behin line search is that:</p>
 <ul>
 <li>the direction &lt;math&gt;\Delta U\,\!&lt;/math&gt; found by the <a

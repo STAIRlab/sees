@@ -13319,7 +13319,19 @@ This command is used to construct a LoadControl integrator object.
 <tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(lambda&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the load factor increment &amp;lt;math&amp;gt;\lambda&amp;lt;/math&amp;gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>numIter</strong>
+<code class="parameter-table-variable">lambda</code>
+</p>
+</td>
+<td>
+<p>
+the load factor increment &lt;math&gt;&lt;/math&gt;
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">numIter</code>
 </p>
 </td>
 <td>
@@ -13331,7 +13343,19 @@ the number of iterations the user would like to occur in the solution algorithm.
 <tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(minLambda&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the min stepsize the user will allow. optional, defualt = &amp;lt;math&amp;gt;\lambda_{min} = \lambda&amp;lt;/math&amp;gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>maxLambda</strong>
+<code class="parameter-table-variable">minLambda</code>
+</p>
+</td>
+<td>
+<p>
+the min stepsize the user will allow. optional, defualt = &lt;math&gt;_{min} = &lt;/math&gt;
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">maxLambda</code>
 </p>
 </td>
 <td>
@@ -13355,16 +13379,12 @@ The optional arguments are supplied to speed up the step size in cases where con
 </li>
 </ol>
 <hr />
-<p>
-EXAMPLE:
-</p>
+<h2 id="examples">Examples</h2>
 <p>
 integrator LoadControl 0.1;
 </p>
 <hr />
-<p>
-THEORY:
-</p>
+<h2 id="theory">Theory</h2>
 <p>
 In Load Control the time in the domain is set to &lt;math&gt;t + _{t+1}&lt;/math&gt; where,
 </p>

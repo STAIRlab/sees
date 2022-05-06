@@ -13318,7 +13318,19 @@ This command is used to construct a convergence test which uses the norm of the 
 <tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(tol&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the tolerance criteria used to check for convergence&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>iter</strong>
+<code class="parameter-table-variable">tol</code>
+</p>
+</td>
+<td>
+<p>
+the tolerance criteria used to check for convergence
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">iter</code>
 </p>
 </td>
 <td>
@@ -13330,7 +13342,7 @@ the max number of iterations to check before returning failure condition
 <tr class="odd">
 <td>
 <p>
-<strong>$pFlag</strong>
+<code class="parameter-table-variable">pFlag</code>
 </p>
 </td>
 <td>
@@ -13380,7 +13392,14 @@ optional print flag, default is 0. valid options:
 </td>
 <td>
 <p>
-5 if it fails to converge at end of <span class="math inline">\(numIter it will print an error message BUT RETURN A SUCEESSFULL test&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>nType</strong>
+5 if it fails to converge at end of $numIter it will print an error message BUT RETURN A SUCEESSFULL test
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-variable">nType</code>
 </p>
 </td>
 <td>
@@ -13404,9 +13423,7 @@ When using the Penalty method additional large forces to enforce the penalty fun
 convergence using this test usually impossible (even though solution might have converged).
 </p>
 <hr />
-<p>
-THEORY:
-</p>
+<h2 id="theory">Theory</h2>
 <p>
 If the system of equations formed by the integrator is:
 </p>
