@@ -8,14 +8,12 @@ circular.</p>
 (the geometry of the patch is defined by four vertices: I J K L. The
 coordinates of each of the four vertices is specified in COUNTER
 CLOCKWISE sequence):</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>patch quad $matTag $numSubdivIJ $numSubdivJK $yI $zI $yJ
-$zJ $yK $zK $yL $zL</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+patch quad $matTag $numSubdivIJ $numSubdivJK $yI $zI $yJ
+        $zJ $yK $zK $yL $zL
+```
+
 <table>
 <tbody>
 <tr class="odd">
@@ -63,14 +61,12 @@ geometry of the patch is defined by coordinates of vertices: I and J.
 The first vertex, I, is the bottom-left point and the second vertex, J,
 is the top-right point, having as a reference the local y-z plane (look
 at the sketch bellow).</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>patch rect $matTag $numSubdivY $numSubdivZ $yI $zI $yJ
-$zJ</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+patch rect $matTag $numSubdivY $numSubdivZ $yI $zI $yJ
+        $zJ
+```
+
 <table>
 <tbody>
 <tr class="odd">
@@ -106,14 +102,12 @@ system)</p></td>
 </figure>
 <hr />
 <p>The following is the command to generate a circular shaped patch:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>patch circ $matTag $numSubdivCirc $numSubdivRad $yCenter
-$zCenter $intRad $extRad $startAng $endAng</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+patch circ $matTag $numSubdivCirc $numSubdivRad $yCenter
+        $zCenter $intRad $extRad $startAng $endAng
+```
+
 <table>
 <tbody>
 <tr class="odd">
