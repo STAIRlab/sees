@@ -12369,6 +12369,26 @@ Removal During Simulation
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_4_3">
@@ -12382,6 +12402,156 @@ Removal During Simulation
           LinearSolve
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/110-Cusp/" class="md-nav__link">
+        Cusp
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/274-FullGeneral/" class="md-nav__link">
+        FullGeneral
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/35-BandGeneral%20SOE/" class="md-nav__link">
+        BandGeneral SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/36-BandSPD%20SOE/" class="md-nav__link">
+        BandSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/546-ProfileSPD%20SOE/" class="md-nav__link">
+        ProfileSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/660-SparseSPD%20SOE/" class="md-nav__link">
+        SparseSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/661-SparseSYM%20SOE/" class="md-nav__link">
+        SparseSYM SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/672-SuperLU%20SOE/" class="md-nav__link">
+        SuperLU SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/674-System%20Command/" class="md-nav__link">
+        System Command
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/731-UmfPack%20SOE/" class="md-nav__link">
+        UmfPack SOE
+
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -13164,12 +13334,48 @@ title="wikilink">thumb|upright=2.0|alt=RC C-shaped wall |Reinforced concrete wal
 </dl>
 </dd>
 </dl>
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConcretewBeta <span class="dt">$matTag</span> <span class="dt">$fpc</span> <span class="dt">$ec0</span> <span class="dt">$fcint</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ecint</span> <span class="dt">$fcres</span> <span class="dt">$ecres</span> <span class="dt">$ft</span> <span class="dt">$ftint</span> <span class="dt">$etint</span> <span class="dt">$ftres</span> <span class="dt">$etres</span> &amp;lt;-lambda</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$lambda</span>&amp;gt; &amp;lt;-alpha <span class="dt">$alpha</span>&amp;gt; &amp;lt;-beta <span class="dt">$bint</span> <span class="dt">$ebint</span> <span class="dt">$bres</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ebres</span>&amp;gt; &amp;lt;-M <span class="dt">$M</span>&amp;gt; &amp;lt;-E <span class="dt">$Ec</span>&amp;gt; &amp;lt;-conf <span class="dt">$fcc</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ecc</span>&amp;gt;</span></code></pre></div>
+<hr />
 <table>
 <tbody>
 <tr class="odd">
 <td>
+<code class="parameter-table-variable">matTag</code>
+</td>
+<td>
 <p>
-<strong>uniaxialMaterial ConcretewBeta $matTag $fpc $ec0 $fcint $ecint $fcres $ecres $ft $ftint $etint $ftres $etres &lt;-lambda $lambda&gt; &lt;-alpha $alpha&gt; &lt;-beta $bint $ebint $bres $ebres&gt; &lt;-M $M&gt; &lt;-E $Ec&gt; &lt;-conf $fcc <span class="math inline">\(ecc&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;integer tag identifying material&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fpc&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;peak unconfined concrete compressive strength*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;ec0&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;compressive strain corresponding to unconfined concrete compressive strength*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fcint, <span class="math inline">\(ecint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate stress-strain point for compression post-peak envelope*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fcres, <span class="math inline">\(ecres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual stress-strain point for compression post-peak envelope*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;ftint&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tensile strength of concrete&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ftint, <span class="math inline">\(etint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate stress-strain point for tension softening envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ftres, <span class="math inline">\(etres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual stress-strain point for tension softening envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;Optional:&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;lambda&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;controls the path of unloading from compression strain (default 0.5)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;alpha&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;controls the path of unloading from tensile strain (default 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>bint <span class="math inline">\(ebint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate &amp;amp;beta;-strain point for for biaxial effect (default 1 and 0, respectively)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>bres <span class="math inline">\(ebres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual &amp;amp;beta;-strain point for for biaxial effect (default 1 and 0, respectively)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;M&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;factor for Stevens et al. (1991) tension stiffening (default 0; see Note 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;Ec&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;initial stiffness (default 2*&lt;strong&gt;\)</span>fpc</strong>/<strong><span class="math inline">\(ec0&lt;/strong&gt;; see Note 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fcc <span class="math inline">\(ecc&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;confined concrete peak compressive stress and corresponding strain* (see Eq. 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;p&gt;(1) *Parameters of concrete in compression should be specified as negative values.&lt;/p&gt; &lt;p&gt;(2) For non-zero &lt;strong&gt;\)</span>M</strong>, the tension stiffening behavior will govern the post-peak tension envelope. Tri-linear tension softening parameters <strong>$ftint, $etint, $ftres, <span class="math inline">\(etres&lt;/strong&gt; will have no effect, but dummy values must be specified.&lt;/p&gt; &lt;p&gt;(3) Value of &lt;strong&gt;\)</span>Ec</strong> must be between <strong><span class="math inline">\(fpc&lt;/strong&gt;/&lt;strong&gt;\)</span>ec0</strong> and 2*<strong><span class="math inline">\(fpc&lt;/strong&gt;/&lt;strong&gt;\)</span>ec0</strong> otherwise the closest value will be assigned.
+integer tag identifying material
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">fpc</code>
+</td>
+<td>
+<p>
+peak unconfined concrete compressive strength*
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">ec0</code>
+</td>
+<td>
+<p>
+compressive strain corresponding to unconfined concrete compressive strength*
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>$fcint, <span class="math inline">\(ecint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate stress-strain point for compression post-peak envelope*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fcres, <span class="math inline">\(ecres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual stress-strain point for compression post-peak envelope*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;ftint&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tensile strength of concrete&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ftint, <span class="math inline">\(etint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate stress-strain point for tension softening envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ftres, <span class="math inline">\(etres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual stress-strain point for tension softening envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;Optional:&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;lambda&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;controls the path of unloading from compression strain (default 0.5)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;alpha&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;controls the path of unloading from tensile strain (default 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>bint <span class="math inline">\(ebint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate &amp;amp;beta;-strain point for for biaxial effect (default 1 and 0, respectively)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>bres <span class="math inline">\(ebres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual &amp;amp;beta;-strain point for for biaxial effect (default 1 and 0, respectively)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;M&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;factor for Stevens et al. (1991) tension stiffening (default 0; see Note 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;Ec&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;initial stiffness (default 2*&lt;strong&gt;\)</span>fpc</strong>/<strong><span class="math inline">\(ec0&lt;/strong&gt;; see Note 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fcc <span class="math inline">\(ecc&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;confined concrete peak compressive stress and corresponding strain* (see Eq. 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;p&gt;(1) *Parameters of concrete in compression should be specified as negative values.&lt;/p&gt; &lt;p&gt;(2) For non-zero &lt;strong&gt;\)</span>M</strong>, the tension stiffening behavior will govern the post-peak tension envelope. Tri-linear tension softening parameters <strong>$ftint, $etint, $ftres, <span class="math inline">\(etres&lt;/strong&gt; will have no effect, but dummy values must be specified.&lt;/p&gt; &lt;p&gt;(3) Value of &lt;strong&gt;\)</span>Ec</strong> must be between <strong><span class="math inline">\(fpc&lt;/strong&gt;/&lt;strong&gt;\)</span>ec0</strong> and 2*<strong><span class="math inline">\(fpc&lt;/strong&gt;/&lt;strong&gt;\)</span>ec0</strong> otherwise the closest value will be assigned.
 </p>
 <h2 id="implementation">
 Implementation

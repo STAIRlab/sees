@@ -12370,6 +12370,26 @@ Removal During Simulation
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_4_3">
@@ -12383,6 +12403,156 @@ Removal During Simulation
           LinearSolve
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/110-Cusp/" class="md-nav__link">
+        Cusp
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/274-FullGeneral/" class="md-nav__link">
+        FullGeneral
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/35-BandGeneral%20SOE/" class="md-nav__link">
+        BandGeneral SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/36-BandSPD%20SOE/" class="md-nav__link">
+        BandSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/546-ProfileSPD%20SOE/" class="md-nav__link">
+        ProfileSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/660-SparseSPD%20SOE/" class="md-nav__link">
+        SparseSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/661-SparseSYM%20SOE/" class="md-nav__link">
+        SparseSYM SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/672-SuperLU%20SOE/" class="md-nav__link">
+        SuperLU SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/674-System%20Command/" class="md-nav__link">
+        System Command
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/731-UmfPack%20SOE/" class="md-nav__link">
+        UmfPack SOE
+
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -13153,31 +13323,15 @@ href="http://www.egr.uh.edu/cive/faculty/hsu/">Thomas T.C. Hsu</a></span>,
 <p>
 This command is used to construct a Reinforced Concrete Plane Stress material object based on Rotating Angle Theory with steel along two directions.
 </p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>nDMaterial ReinforcedConcretePlaneStress matTag? rho? s1? s2? c1? c2? angle1? angle2? rou1? rou2? fpc? fy? E0? epsc0?</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nDMaterial ReinforcedConcretePlaneStress matTag? rho? s1?</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        s2? c1? c2? angle1? angle2? rou1? rou2? fpc? fy? E0?</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        epsc0?</span></code></pre></div>
 <p>
 This command is used to construct a Reinforced Concrete Plane Stress material object based on Fixed Angle theory with steel along two directions.
 </p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>nDMaterial FAReinforcedConcretePlaneStress matTag? rho? s1? s2? c1? c2? angle1? angle2? rou1? rou2? fpc? fy? E0? epsc0?</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nDMaterial FAReinforcedConcretePlaneStress matTag? rho?</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        s1? s2? c1? c2? angle1? angle2? rou1? rou2? fpc? fy? E0?</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        epsc0?</span></code></pre></div>
 <p>
 This command is used to construct a Reinforced Concrete Plane Stress material object based on Rotating Angle theory with steel along four directions.
 </p>
@@ -13209,59 +13363,27 @@ This command is used to construct a Reinforced Concrete Plane Stress material ob
 <p>
 This command is used to construct a Prestressed Concrete Plane Stress material object based on Rotating Angle Theory with steel along two directions.
 </p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>nDMaterial PrestressedConcretePlaneStress matTag? rho? t1? s1? c1? c2? angle1? angle2? rou1? rou2? pstrain? fpc? fyT? fy2? E0? epsc0?</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>nDMaterial PrestressedConcretePlaneStress matTag? rho?</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        t1? s1? c1? c2? angle1? angle2? rou1? rou2? pstrain? fpc? fyT? fy2? E0?</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        epsc0?</span></code></pre></div>
 <p>
 This command is used to construct a Prestressed Concrete Plane Stress material object based on Fixed Angle theory with steel along two directions.
 </p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>nDMaterial FAPrestressedConcretePlaneStress matTag? rho? t1? s2? c1? c2? angle1? angle2? rou1? rou2? pstrain? fpc? fyT? fy? E0? epsc0?</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb4"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nDMaterial FAPrestressedConcretePlaneStress matTag? rho?</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        t1? s2? c1? c2? angle1? angle2? rou1? rou2? pstrain? fpc? fyT? fy? E0?</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        epsc0?</span></code></pre></div>
 <p>
 This command is used to construct a Prestressed Concrete Plane Stress material object based on Rotating Angle Theory with steel along four directions.
 </p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>nDMaterial RAFourSteelPCPlaneStress matTag? rho? UniaxiaMatTag1? UniaxiaMatTag2? UniaxiaMatTag3? UniaxiaMatTag4? angle1? angle2? rou1? rou2? pstrain? fpc? fyT? fy? E0? epsc0?</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb5"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>nDMaterial RAFourSteelPCPlaneStress matTag? rho?</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>        UniaxiaMatTag1? UniaxiaMatTag2? UniaxiaMatTag3? UniaxiaMatTag4? angle1?</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        angle2? rou1? rou2? pstrain? fpc? fyT? fy? E0? epsc0?</span></code></pre></div>
 <p>
 This command is used to construct a Prestresed Concrete Plane Stress material object based on Fixed Angle theory with steel along four directions.
 </p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>nDMaterial FAFourSteelPCPlaneStress matTag? rho? t1? t2? s3? s4? c1? c2? angle1? angle2? angle3? angle4? rou1? rou2? rou3? rou4? pstrain1? pstrain2? fpc? fyT? fy? E0? epsc0?</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb6"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>nDMaterial FAFourSteelPCPlaneStress matTag? rho? t1? t2?</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        s3? s4? c1? c2? angle1? angle2? angle3? angle4? rou1? rou2? rou3? rou4?</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        pstrain1? pstrain2? fpc? fyT? fy? E0? epsc0?</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -13353,50 +13475,14 @@ compressive strain of concrete
 <p>
 A number of special uniaxial materials are needed for these materials. These materials are created using the following uniaxialMaterial commands.
 </p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>uniaxialMaterial SteelZ01 tag? fy? E0? fpc? rou? &lt;ac?&gt; &lt;rc?&gt;</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>uniaxialMaterial TendonL01 tag? fpy? Eps? fpc? rou? epsp? &lt;ac?&gt; &lt;rc?&gt;</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>uniaxialMaterial ConcreteL01 tag? fpc? epsc0?</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>uniaxialMaterial ConcreteZ01 tag? fpc? epsc0?</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb7"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial SteelZ01 <span class="ot">tag</span>? fy? E0? fpc? rou?</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;ac?&amp;gt; &amp;lt;rc?&amp;gt;</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial TendonL01 <span class="ot">tag</span>? fpy? Eps? fpc? rou? epsp?</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;ac?&amp;gt; &amp;lt;rc?&amp;gt;</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConcreteL01 <span class="ot">tag</span>? fpc?</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>        epsc0?</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConcreteZ01 <span class="ot">tag</span>? fpc?</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>        epsc0?</span></code></pre></div>
 <table>
 <tbody>
 <tr class="odd">
