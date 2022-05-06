@@ -121,7 +121,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/258-Force-based%20Element%20vs.%20Displacement-based%20Element%2C%20Dec%202011/</loc>
+         <lastmod>2022-05-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/303-Getting%20Started%20with%20OpenSees%20--%20Elements/</loc>
+         <lastmod>2022-05-06</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/discovering/139-Discovering%20OpenSees%20--%20Modeling%20Diaphragms%20in%202D%20Models%20with%20Linear%20and%20Nonlinear%20Elements/</loc>
          <lastmod>2022-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -162,11 +172,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/element/109-CoupledZeroLength%20Element/</loc>
-         <lastmod>2022-05-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/element/139-Discovering%20OpenSees%20--%20Modeling%20Diaphragms%20in%202D%20Models%20with%20Linear%20and%20Nonlinear%20Elements/</loc>
          <lastmod>2022-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -257,11 +262,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/element/257-Force-Based%20Beam-Column%20Element/</loc>
-         <lastmod>2022-05-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/element/258-Force-based%20Element%20vs.%20Displacement-based%20Element%2C%20Dec%202011/</loc>
          <lastmod>2022-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -577,11 +577,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/element/769-ZeroLength%20Element/</loc>
-         <lastmod>2022-05-06</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/element/9-Add%20A%20New%20Element/</loc>
          <lastmod>2022-05-06</lastmod>
          <changefreq>daily</changefreq>
     </url>
