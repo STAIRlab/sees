@@ -13329,7 +13329,29 @@ unique element object tag
 <tr class="even">
 <td>
 <p>
-<strong>$Nd1 $Nd2 $Nd3 <span class="math inline">\(Nd4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;integer tags indicating four external nodes where the joint element is connected to the adjoining beam-column element&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;NdC&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;integer tags indicating the central node of beam-column joint (the tag is used to generate the internal node, thus, the node should not exist in the domain or be used by any other node)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Mat1</strong>
+<strong>$Nd1 $Nd2 $Nd3 $Nd4</strong>
+</p>
+</td>
+<td>
+<p>
+integer tags indicating four external nodes where the joint element is connected to the adjoining beam-column element
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">NdC</code>
+</td>
+<td>
+<p>
+integer tags indicating the central node of beam-column joint (the tag is used to generate the internal node, thus, the node should not exist in the domain or be used by any other node)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">Mat1</code>
 </p>
 </td>
 <td>
@@ -13341,7 +13363,19 @@ uniaxial material tag for interface rotational spring at node 1. Use a zero tag 
 <tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(Mat2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;uniaxial material tag for interface rotational spring at node 2. Use a zero tag to indicate the case that a beam-column element is rigidly framed to the joint. (optional)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Mat3</strong>
+<code class="parameter-table-variable">Mat2</code>
+</p>
+</td>
+<td>
+<p>
+uniaxial material tag for interface rotational spring at node 2. Use a zero tag to indicate the case that a beam-column element is rigidly framed to the joint. (optional)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">Mat3</code>
 </p>
 </td>
 <td>
@@ -13353,7 +13387,7 @@ uniaxial material tag for interface rotational spring at node 3. Use a zero tag 
 <tr class="odd">
 <td>
 <p>
-<strong>$Mat4</strong>
+<code class="parameter-table-variable">Mat4</code>
 </p>
 </td>
 <td>
@@ -13460,9 +13494,7 @@ defoANDforce - Joint deformation components followed by the nodal moments
 </li>
 </ol>
 <hr />
-<p>
-Examples:
-</p>
+<h2 id="examples">Examples</h2>
 <ol>
 <li>
 element Joint2D 12 1 2 3 4 112 10 0; # constructs a Joint2D element with tag 12 that is connected to nodes 1, 2, 3, and 4. The element will generate a center node with tag 112, and it uses the uniaxial material object with tag 10 as the shear panel rotational spring. This joint element does not have rotational springs at external nodes and does not include large deformations.

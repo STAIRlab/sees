@@ -13319,7 +13319,20 @@ This command is used to construct a StaticIntegrator object of type MinUnbalDisp
 <tr class="odd">
 <td>
 <p>
-<strong><span class="math inline">\(dlambda1&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;first load increment (pseudo-time step) at the first iteration in the next invocation of the &lt;a href=&quot;Analysis_Command&quot; title=&quot;wikilink&quot;&gt;analysis&lt;/a&gt; command.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Jd</strong>
+<code class="parameter-table-variable">dlambda1</code>
+</p>
+</td>
+<td>
+<p>
+first load increment (pseudo-time step) at the first iteration in the next invocation of the <a href="Analysis_Command"
+title="wikilink">analysis</a> command.
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">Jd</code>
 </p>
 </td>
 <td>
@@ -13343,16 +13356,12 @@ arguments used to bound the load increment (optional, default: $dLambda1 for bot
 </tbody>
 </table>
 <hr />
-<p>
-EXAMPLE:
-</p>
+<h2 id="examples">Examples</h2>
 <p>
 integrator MinUnbalDispNorm 0.1;
 </p>
 <hr />
-<p>
-THEORY:
-</p>
+<h2 id="theory">Theory</h2>
 <p>
 The load increment at iteration i, &lt;math&gt;d_{1,i}&lt;/math&gt;, is related to the load increment at (i-1), <span class="math inline">\(d\lambda_{1,i-1}\)</span>, and the number of iterations at (i-1), <span class="math inline">\(J_{i-1}\)</span>, by the following:
 </p>

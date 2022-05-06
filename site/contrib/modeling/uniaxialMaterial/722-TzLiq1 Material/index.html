@@ -13358,7 +13358,29 @@ Ultimate capacity of the t-z material. SEE NOTE 1.
 <tr class="even">
 <td>
 <p>
-<strong><span class="math inline">\(Z50&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Displacement at which 50% of tult is mobilized in monotonic loading.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;c&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity).&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ele1 $ele2</strong>
+<code class="parameter-table-variable">Z50</code>
+</p>
+</td>
+<td>
+<p>
+Displacement at which 50% of tult is mobilized in monotonic loading.
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">c</code>
+</td>
+<td>
+<p>
+The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity).
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>$ele1 $ele2</strong>
 </p>
 </td>
 <td>
@@ -13410,9 +13432,7 @@ The analysis for gravity loading cannot use the “algorithm Linear” command b
 <p>
 TzLiq1 inherits TzSimple1 and modifies its response based on the mean effective stresses (and hence excess pore pressures) in the specified solid soil elements. The logic and implementation are the same as for how PyLiq1 inherits and modifies PySimple1. Therefore, the reader is referred to the documentation of PyLiq1 for details.
 </p>
-<p>
-EXAMPLE:
-</p>
+<h2 id="examples">Examples</h2>
 <p>
 REFERENCES:
 </p>

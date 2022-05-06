@@ -12,11 +12,11 @@ fixZ $zCoordinate (ndf $ConstrValues) &lt;-tol
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$zCordinate</strong></p></td>
+<td><p><code class="parameter-table-variable">zCordinate</code></p></td>
 <td><p>z-coordinate of nodes to be constrained</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$constrValues</strong></p></td>
+<td><p><code class="parameter-table-variable">constrValues</code></p></td>
 <td><p>ndf constraint values (0 or 1) corresponding to the ndf
 degrees-of-freedom.</p></td>
 </tr>
@@ -29,12 +29,14 @@ degrees-of-freedom.</p></td>
 <td><p><strong>1</strong> constrained (or fixed)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$tol</strong></p></td>
+<td><p><code class="parameter-table-variable">tol</code></p></td>
 <td><p>user-defined tolerance (optional, default = 1e-10)</p></td>
 </tr>
 </tbody>
 </table>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>fixZ 0.0 1 1 1 1 1 1; # fully restrain all nodes in x-y plane at
 origin (z=0.0)</p>
 <p>Code Developed by: <span style="color:blue"> fmk

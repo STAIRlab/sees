@@ -13358,7 +13358,49 @@ Ultimate capacity of the p-y material. Note that “p” or “pult” are distr
 <tr class="even">
 <td>
 <p>
-<strong><span class="math inline">\(Y50&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Displacement at which 50% of pult is mobilized in monotonic loading.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;Cd&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Variable that sets the drag resistance within a fully-mobilized gap as Cd*pult.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;c&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). (optional Default = 0.0). Nonzero c values are used to represent radiation damping effects&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;pRes&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;sets the minimum (or residual) peak resistance that the material retains as the adjacent solid soil elements liquefy&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ele1 $ele2</strong>
+<code class="parameter-table-variable">Y50</code>
+</p>
+</td>
+<td>
+<p>
+Displacement at which 50% of pult is mobilized in monotonic loading.
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">Cd</code>
+</td>
+<td>
+<p>
+Variable that sets the drag resistance within a fully-mobilized gap as Cd*pult.
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">c</code>
+</td>
+<td>
+<p>
+The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). (optional Default = 0.0). Nonzero c values are used to represent radiation damping effects
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">pRes</code>
+</td>
+<td>
+<p>
+sets the minimum (or residual) peak resistance that the material retains as the adjacent solid soil elements liquefy
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>$ele1 $ele2</strong>
 </p>
 </td>
 <td>
@@ -13426,9 +13468,7 @@ alt="PyLiq1WithSpreading.png" />
 PyLiq1WithSpreading.png
 </figcaption>
 </figure>
-<p>
-EXAMPLE:
-</p>
+<h2 id="examples">Examples</h2>
 <p>
 &lt;pre&gt; model basic -ndm 2 -ndf 2 node 1 0.0 0.0 node 2 0.0 0.0 fix 2 1 1 fix 1 0 1
 </p>

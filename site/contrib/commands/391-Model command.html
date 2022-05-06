@@ -12,11 +12,11 @@ model BasicBuilder -ndm $ndm &lt;-ndf
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$ndm</strong></p></td>
+<td><p><code class="parameter-table-variable">ndm</code></p></td>
 <td><p>spatial dimension of problem (1,2, or 3)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ndf</strong></p></td>
+<td><p><code class="parameter-table-variable">ndf</code></p></td>
 <td><p>number of degrees of freedom at node (optional)</p></td>
 </tr>
 <tr class="odd">
@@ -42,7 +42,9 @@ Masses, Materials (nDMaterial Command, uniaxialMaterial Command),
 Sections, Elements, LoadPatterns, TimeSeries, Transformations, Blocks
 and Constraints. These additional commands are described in the
 subsequent chapters.</p>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>
 ```tcl
  model basic -ndm 2 -ndf 3; # 2 spacial

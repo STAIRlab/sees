@@ -13363,9 +13363,7 @@ It is a 3D element with 6 dofs and CAN NOT be used in 2D domain.
 </li>
 </ol>
 <hr />
-<p>
-EXAMPLE:
-</p>
+<h2 id="examples">Examples</h2>
 <p>
 &lt;pre&gt; set t 100.0 model basic -ndm 3 -ndf 6 nDMaterial ElasticIsotropic 1 200000 0.3 nDMaterial PlateFiber 4 1 set secArgs “7” section PlateFiber $secArgs 4 $t set EleType ShellMITC4 block2D $n1 $n2 1 1 $EleType $secArgs { 1 0.0 0.0 0.0 2 0.0 10 0.0 3 1000 10 0.0 4 1000 0.0 0.0 } &lt;/pre&gt;
 </p>

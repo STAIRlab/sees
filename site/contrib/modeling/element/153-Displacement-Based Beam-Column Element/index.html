@@ -13363,7 +13363,7 @@ element mass density (per unit length), from which a lumped-mass matrix is forme
 <tr class="even">
 <td>
 <p>
-<strong>-cMass</strong>
+<code class="parameter-table-flag">-cMass</code>
 </p>
 </td>
 <td>
@@ -13402,9 +13402,7 @@ The default element is prismatic, i.e. the beam is represented by the section m
 The valid queries to a displacement-based beam-column element when creating an ElementRecorder object are ‘force,’ and ‘section $secNum secArg1 secArg2…’ Where $secNum refers to the integration point whose data is to be output valid entries being 1 through $numIntgrPts.
 </li>
 </ul>
-<p>
-EXAMPLE:
-</p>
+<h2 id="examples">Examples</h2>
 <p>
 element dispBeamColumn 1 2 4 5 8 9; # displacement-based beam column element added with tag 1 between nodes 2 and 4 that has 5 integration points, each using section 8, and the element uses geometric transformation 9
 </p>

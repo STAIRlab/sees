@@ -9,7 +9,7 @@ rigidLink $type $rNodeTag $cNodeTag
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$type</strong></p></td>
+<td><p><code class="parameter-table-variable">type</code></p></td>
 <td><p>string-based argument for rigid-link type:</p></td>
 </tr>
 <tr class="even">
@@ -24,18 +24,20 @@ node</p></td>
 degrees of freedom are constrained.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rNodeTag</strong></p></td>
+<td><p><code class="parameter-table-variable">rNodeTag</code></p></td>
 <td><p>integer tag identifying the retained node</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$cNodeTag</strong></p></td>
+<td><p><code class="parameter-table-variable">cNodeTag</code></p></td>
 <td><p>integer tag identifying the constrained node</p></td>
 </tr>
 </tbody>
 </table>
 <p>NOTE: The constraint object constructed for the beam option assumes
 small rotations</p>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>rigidLink beam 2 3; # connect node 3 to node 2 via a rigid
 link-beam.</p>
 <p>REFERENCE:</p>

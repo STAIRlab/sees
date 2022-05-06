@@ -13396,7 +13396,40 @@ NOTE:
 </p>
 <ol>
 <li>
-The valid queries to a nonlinear beam-column element when creating an ElementRecorder object are ‘force,’ and ‘section $secNum secArg1 secArg2…’ Where <span class="math inline">\(secNum refers to the integration point whose data is to be output.&lt;/li&gt; &lt;li&gt;The element requires a special section and special care when numbering the materials. see Discussion below for section command and material numbering.&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;EXAMPLE:&lt;/p&gt; &lt;p&gt;geomTransf LinearInt 1&lt;/p&gt; &lt;p&gt;element dispBeamColumnInt 1 1 3 2 2 1 0.4&lt;/p&gt; &lt;hr /&gt; &lt;p&gt;DISCUSSION:&lt;/p&gt; &lt;p&gt;In the original fiber element (Displacement-Based Beam-Column Element) implemented in OpenSees, based on linear interpolation of the curvature and constant axial strain, a third strain component was included to account for shear flexibility. The fiber discretization leads no longer to just uniaxial behavior, but rather a biaxial response by incorporating a membrane material model based on simple uniaxial stress-strain curves for concrete and steel. Although the material models can be cyclic, the element model formulation has been implemented and verified initially for monotonic static analysis. Details of the formulation can be found elsewhere (Massone et al., 2006; Massone 2006). The compatibility equations to relate nodal displacements (6 DOF) and internal strains (axial strain, curvature and shear strain) are defined only in a 2D plane, so that no 3D analysis is possible with this element. It also requires a specific geometric transformation called &quot;LinearInt&quot;, which is based on the traditional geometric linear transformation, and therefore no other geometric transformation can be used.&lt;/p&gt; &lt;p&gt;The input parameters are the same as the original fiber element, however a new term, the location of the center of rotation (c), is required to distribute transversal displacement between flexural (curvature) and shear (shear strain) components. This parameter is defined as the fraction of the element height (measured from top) that corresponds to the center of curvature.&lt;/p&gt; &lt;p&gt;The section formulation required for each element is based also on a similar formulation implemented in OpenSees. However, not all capabilities are included as in the original formulation. The section is defined as a fiber section, but based only in fiber components and not in patch or layer components for simplicity. It has been formulated in this way to make sure that the strip modeling is understood since differently to the standard fiber section analysis the strips in the model with interaction between shear and flexure requires that all the strips are formed with smeared (average) concrete and reinforcement areas.&lt;/p&gt; &lt;p&gt;SECTIONAL ANALYSIS&lt;/p&gt; &lt;p&gt;The definition of the fiber section is initiated by establishing in the heading of the command the thickness of the section (three in this case to represent boundary elements). The thickness of the element is required to verify equilibrium in the horizontal direction (assuming that same area ratio holds between concrete materials inside a strip in horizontal and vertical directions). For generality, the section is allowed to have three different thicknesses to be able to model barbell or T-shaped walls (Fig. 1). Each thickness may be associated to several strips.&lt;/p&gt; &lt;p&gt;Strips are created from concrete and steel materials. Since the strip unit corresponds to the membrane (panel) element, the location of each of them is defined by the fiber coordinate (\)</span>yLoc), and therefore, tributary concrete and steel areas inside each strip are located at one same point (Fig. 1). This may difficult the analysis, but the model is based on uniform (smeared) steel and concrete distribution. Even though a center of area (concrete and steel) defined by using a transformed area for steel may be acceptable, in tensile governed elements a better approximation may be using the steel location. For simplicity, the center of area of concrete may be selected for calculations, regarding a reasonable small strip size selection. In the fiber section definition, each strip is defined by fibers with same coordinate, and strips are organized from negative to positive location. Therefore all steel and concrete components of one strip have to be together (one after the other). The change in fiber location tells the program that a different strip is initiated. To complete the strip definition, the horizontal steel reinforcement has to be included. The steel is assumed uniformly distributed in the section, so that it may be located as only one fiber (recommended). In the case of horizontal steel, the component is called as “Hfiber” and the area defined in such fiber corresponds to the total horizontal steel area in one single element (for the entire element). This steel is assumed to be the same for all strips inside the section.
+The valid queries to a nonlinear beam-column element when creating an ElementRecorder object are ‘force,’ and ‘section $secNum secArg1 secArg2…’ Where $secNum refers to the integration point whose data is to be output.
+</li>
+<li>
+The element requires a special section and special care when numbering the materials. see Discussion below for section command and material numbering.
+</li>
+</ol>
+<h2 id="examples">Examples</h2>
+<p>
+geomTransf LinearInt 1
+</p>
+<p>
+element dispBeamColumnInt 1 1 3 2 2 1 0.4
+</p>
+<hr />
+<p>
+DISCUSSION:
+</p>
+<p>
+In the original fiber element (Displacement-Based Beam-Column Element) implemented in OpenSees, based on linear interpolation of the curvature and constant axial strain, a third strain component was included to account for shear flexibility. The fiber discretization leads no longer to just uniaxial behavior, but rather a biaxial response by incorporating a membrane material model based on simple uniaxial stress-strain curves for concrete and steel. Although the material models can be cyclic, the element model formulation has been implemented and verified initially for monotonic static analysis. Details of the formulation can be found elsewhere (Massone et al., 2006; Massone 2006). The compatibility equations to relate nodal displacements (6 DOF) and internal strains (axial strain, curvature and shear strain) are defined only in a 2D plane, so that no 3D analysis is possible with this element. It also requires a specific geometric transformation called “LinearInt”, which is based on the traditional geometric linear transformation, and therefore no other geometric transformation can be used.
+</p>
+<p>
+The input parameters are the same as the original fiber element, however a new term, the location of the center of rotation (c), is required to distribute transversal displacement between flexural (curvature) and shear (shear strain) components. This parameter is defined as the fraction of the element height (measured from top) that corresponds to the center of curvature.
+</p>
+<p>
+The section formulation required for each element is based also on a similar formulation implemented in OpenSees. However, not all capabilities are included as in the original formulation. The section is defined as a fiber section, but based only in fiber components and not in patch or layer components for simplicity. It has been formulated in this way to make sure that the strip modeling is understood since differently to the standard fiber section analysis the strips in the model with interaction between shear and flexure requires that all the strips are formed with smeared (average) concrete and reinforcement areas.
+</p>
+<p>
+SECTIONAL ANALYSIS
+</p>
+<p>
+The definition of the fiber section is initiated by establishing in the heading of the command the thickness of the section (three in this case to represent boundary elements). The thickness of the element is required to verify equilibrium in the horizontal direction (assuming that same area ratio holds between concrete materials inside a strip in horizontal and vertical directions). For generality, the section is allowed to have three different thicknesses to be able to model barbell or T-shaped walls (Fig. 1). Each thickness may be associated to several strips.
+</p>
+<p>
+Strips are created from concrete and steel materials. Since the strip unit corresponds to the membrane (panel) element, the location of each of them is defined by the fiber coordinate ($yLoc), and therefore, tributary concrete and steel areas inside each strip are located at one same point (Fig. 1). This may difficult the analysis, but the model is based on uniform (smeared) steel and concrete distribution. Even though a center of area (concrete and steel) defined by using a transformed area for steel may be acceptable, in tensile governed elements a better approximation may be using the steel location. For simplicity, the center of area of concrete may be selected for calculations, regarding a reasonable small strip size selection. In the fiber section definition, each strip is defined by fibers with same coordinate, and strips are organized from negative to positive location. Therefore all steel and concrete components of one strip have to be together (one after the other). The change in fiber location tells the program that a different strip is initiated. To complete the strip definition, the horizontal steel reinforcement has to be included. The steel is assumed uniformly distributed in the section, so that it may be located as only one fiber (recommended). In the case of horizontal steel, the component is called as “Hfiber” and the area defined in such fiber corresponds to the total horizontal steel area in one single element (for the entire element). This steel is assumed to be the same for all strips inside the section.
 </p>
 <p>
 For consistency when defining the fiber section, the command requires to define the number of strips within each sub-section with the same thickness, which has to add up the same number of different fiber locations defined in the section (total number of strips).
@@ -13411,9 +13444,7 @@ BeamShearFlexure.png
 <p>
 The original uniaxial definition of the fiber components inside the fiber section recorded only uniaxial stresses and strains for the fiber, and resultant axial force, moment, axial strain and curvature for the section. In the membrane (panel) formulation for the strips, other quantities may be useful to record. At the strip level new recorders have been included: eX (horizontal strain), eY (axial strain), e1 (principal strain in direction 1), e2 (principal strain in direction 2), alpha (angle for principal axis, measured counterclockwise from eY to e1), sX (average horizontal steel stress), sY (average vertical steel stress), s1 (average principal concrete stress in direction 1) and s2 (average principal concrete stress in direction 2). The mentioned recorders are called by sections, so that the output gives the results organized in columns for each strip inside the section, using the same order defined in the fiber section. At the section level, axial strain, curvature, shear strain, resultant axial force, moment and shear force are obtained with the standard recorder forceAndDeformation.
 </p>
-<p>
-Example:
-</p>
+<h2 id="examples-1">Examples</h2>
 <p>
 recorder Element -file Sect_eX.out -ele 1 section 1 eX
 </p>
@@ -13428,58 +13459,94 @@ This commnand allows the user to construct a FiberSection object. Each FiberSect
 <tr class="odd">
 <td>
 <p>
-<strong>section FiberInt $secTag -NStrip $nStrip1 $thick1 $nStrip2 $thick2 $nStrip3 <span class="math inline">\(thick3 {&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;fiber_Command&quot; title=&quot;wikilink&quot;&gt; fiber&lt;/a&gt;...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;Hfiber ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;}&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;sectTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique tag among FiberSections&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>thick1</strong>
+<strong>section FiberInt $secTag -NStrip $nStrip1 $thick1 $nStrip2 $thick2 $nStrip3 <span class="math inline">\(thick3 {&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;fiber_Command&quot; title=&quot;wikilink&quot;&gt; fiber&lt;/a&gt;...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;Hfiber ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;}&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;sectTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique tag among FiberSections&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;thick1&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;section thickness 1.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;em&gt;\)</span>nStrip1</em>’
 </p>
 </td>
 <td>
 <p>
-section thickness 1.
+number of strips with thickness $thick1. Considers first $nStrip1 strips in the fiber section with thickness <span class="math inline">\(thick1.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;thick2&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;section thickness 2.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;em&gt;\)</span>nStrip2</em>’
+</p>
+</td>
+<td>
+<p>
+number of strips with thickness $thick2. Considers next $nStrip2 strips in the fiber section with thickness <span class="math inline">\(thick2.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;thick3&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;section thickness 3.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;em&gt;\)</span>nStrip3</em>’
+</p>
+</td>
+<td>
+<p>
+umber of strips with thickness $thick3. Considers last $nStrip3 strips in the fiber section with thickness $thick3. Total number of strips has to match the fiber section defined.
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong><a href="fiber_Command" title="wikilink"> fiber</a>…</strong>
+</p>
+</td>
+<td>
+<p>
+command to generate concrete and vertical steel fibers.
 </p>
 </td>
 </tr>
 <tr class="odd">
 <td>
 <p>
-<em>$nStrip1</em>’
+<strong>Hfiber…</strong>
 </p>
 </td>
 <td>
 <p>
-number of strips with thickness $thick1. Considers first $nStrip1 strips in the fiber section with thickness <span class="math inline">\(thick1.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>thick2</strong>
-</p>
-</td>
-<td>
-<p>
-section thickness 2.
+command to generate horizontal steel fibers (stirrups)
 </p>
 </td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>
 <p>
-<em>$nStrip2</em>’
+‘…’’’
 </p>
 </td>
 <td>
-<p>
-number of strips with thickness $thick2. Considers next $nStrip2 strips in the fiber section with thickness <span class="math inline">\(thick2.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>thick3</strong>
-</p>
-</td>
-<td>
-<p>
-section thickness 3.
-</p>
 </td>
 </tr>
-<tr class="odd">
-<td>
+</tbody>
+</table>
+<h2 id="examples-2">Examples</h2>
+<h2 id="examples-3">Examples</h2>
 <p>
-<em>$nStrip3</em>’
+section FiberInt 2 -NStrip 1 6.5 1 2.0 1 6.5 {
 </p>
-</td>
-<td>
 <p>
-umber of strips with thickness $thick3. Considers last $nStrip3 strips in the fiber section with thickness <span class="math inline">\(thick3. Total number of strips has to match the fiber section defined.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;fiber_Command&quot; title=&quot;wikilink&quot;&gt; fiber&lt;/a&gt;...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;command to generate concrete and vertical steel fibers.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;Hfiber...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;command to generate horizontal steel fibers (stirrups)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&#39;...&#39;&#39;&#39;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;EXAMPLE:&lt;/p&gt; &lt;p&gt;Example:&lt;/p&gt; &lt;p&gt;section FiberInt 2 -NStrip 1 6.5 1 2.0 1 6.5 {&lt;/p&gt; &lt;p&gt;fiber -25.55 0 15.6 2&lt;/p&gt; &lt;p&gt;fiber -25.55 0 1.24 1003&lt;/p&gt; &lt;p&gt;fiber 0 0 35.6 2&lt;/p&gt; &lt;p&gt;fiber 0 0 0.84 1003&lt;/p&gt; &lt;p&gt;fiber +25.55 0 15.6 2&lt;/p&gt; &lt;p&gt;fiber +25.55 0 1.24 1003&lt;/p&gt; &lt;p&gt;Hfiber 0 0 0.0718 1005&lt;/p&gt; &lt;p&gt;}&lt;/p&gt; &lt;p&gt;FIBER MODELLING:&lt;/p&gt; &lt;p&gt;As described previously, the section is created based on strips, and each strip consists of vertical fibers (fiber) that represent steel and concrete materials and horizontal fibers (Hfiber) that represent the horizontal steel. Since uniform distribution of reinforcement steel is assumed at strip level, all horizontal steel reinforcement can be included as only one horizontal fiber. The location of such fiber is included in the command just for completeness, but it is not necessary for any calculation. The area required in the Hfiber corresponds to the total steel tributary area present in the element that holds the defined section. The internal numerical scheme defined to achieve equilibrium handles two different types of materials: steel and concrete. Since different steel and concrete stress-strain laws can be implemented and used with this model, the program needs to distinguish between concrete and steel. For simplicity, it has been selected the material tag (\)</span>matTag) to define whether a material is concrete or steel. Concrete materials are defined as materials with tag number under (or equal to) 1000 and steel materials use tag numbers over 1000 (see example).
+fiber -25.55 0 15.6 2
+</p>
+<p>
+fiber -25.55 0 1.24 1003
+</p>
+<p>
+fiber 0 0 35.6 2
+</p>
+<p>
+fiber 0 0 0.84 1003
+</p>
+<p>
+fiber +25.55 0 15.6 2
+</p>
+<p>
+fiber +25.55 0 1.24 1003
+</p>
+<p>
+Hfiber 0 0 0.0718 1005
+</p>
+<p>
+}
+</p>
+<p>
+FIBER MODELLING:
+</p>
+<p>
+As described previously, the section is created based on strips, and each strip consists of vertical fibers (fiber) that represent steel and concrete materials and horizontal fibers (Hfiber) that represent the horizontal steel. Since uniform distribution of reinforcement steel is assumed at strip level, all horizontal steel reinforcement can be included as only one horizontal fiber. The location of such fiber is included in the command just for completeness, but it is not necessary for any calculation. The area required in the Hfiber corresponds to the total steel tributary area present in the element that holds the defined section. The internal numerical scheme defined to achieve equilibrium handles two different types of materials: steel and concrete. Since different steel and concrete stress-strain laws can be implemented and used with this model, the program needs to distinguish between concrete and steel. For simplicity, it has been selected the material tag ($matTag) to define whether a material is concrete or steel. Concrete materials are defined as materials with tag number under (or equal to) 1000 and steel materials use tag numbers over 1000 (see example).
 </p>
 <p>
 HFiber Command
@@ -13530,9 +13597,7 @@ identifier for previously-defined material object
 </tr>
 </tbody>
 </table>
-<p>
-Example:
-</p>
+<h2 id="examples-4">Examples</h2>
 <p>
 uniaxialMaterial Concrete01 2 -3 -0.002 0 -0.01
 </p>

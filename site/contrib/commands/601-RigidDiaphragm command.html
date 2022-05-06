@@ -13,12 +13,12 @@ rigidDiaphragm $perpDirn $rNodeTag $cNodeTag1 $cNodeTag2
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$perpDirn</strong></p></td>
+<td><p><code class="parameter-table-variable">perpDirn</code></p></td>
 <td><p>direction perpendicular to the rigid plane (i.e. direction 3
 corresponds to the 1-2 plane)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rNodeTag</strong></p></td>
+<td><p><code class="parameter-table-variable">rNodeTag</code></p></td>
 <td><p>integer tag identifying the retained node</p></td>
 </tr>
 <tr class="odd">
@@ -31,7 +31,9 @@ corresponds to the 1-2 plane)</p></td>
 rotations.</p>
 <p>NOTE: The rigidDiaphragm command works only for problems in three
 dimensions with six-degrees-of-freedom at the nodes (ndf = 6).</p>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>rigidDiaphragm 2 2 4 5 6; constrain nodes 4,5,6 to move as if in the
 same x-z plane as node 2.</p>
 <p>Code Developed by: <span style="color:blue"> fmk

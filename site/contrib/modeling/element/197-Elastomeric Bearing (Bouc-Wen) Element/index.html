@@ -13342,7 +13342,39 @@ unique element object tag
 <tr class="even">
 <td>
 <p>
-<strong>$iNode <span class="math inline">\(jNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;end nodes&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;kInit&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;initial elastic stiffness in local shear direction&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;qd&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;characteristic strength&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>alpha1</strong>
+<strong>$iNode $jNode</strong>
+</p>
+</td>
+<td>
+<p>
+end nodes
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">kInit</code>
+</td>
+<td>
+<p>
+initial elastic stiffness in local shear direction
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">qd</code>
+</td>
+<td>
+<p>
+characteristic strength
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-variable">alpha1</code>
 </p>
 </td>
 <td>
@@ -13354,7 +13386,7 @@ post yield stiffness ratio of linear hardening component
 <tr class="even">
 <td>
 <p>
-<strong>$alpha2</strong>
+<code class="parameter-table-variable">alpha2</code>
 </p>
 </td>
 <td>
@@ -13464,7 +13496,7 @@ shear distance from iNode as a fraction of the element length (optional, default
 <tr class="even">
 <td>
 <p>
-<strong>-doRayleigh</strong>
+<code class="parameter-table-flag">-doRayleigh</code>
 </p>
 </td>
 <td>
@@ -13511,10 +13543,11 @@ href="http://opensees.berkeley.edu/wiki/index.php/ElasticMultiLinear_Material">E
 <ol start="3" type="1">
 <li>The valid queries to an elastomeric bearing element when creating an ElementRecorder object are ‘force,’ ‘localForce,’ ‘basicForce,’ ‘localDisplacement,’ ‘basicDisplacement’ and ‘material $matNum matArg1 matArg2 …’ Where $matNum is the number associated with the material whose data is to be output.
 </p>
-<hr />
-<p>
-EXAMPLES:
-</p>
+<hr /></li>
+</ol></li>
+</ol></li>
+</ol>
+<h2 id="examples">Examples</h2>
 <p>
 element elastomericBearingBoucWen 1 1 2 20.0 2.50 0.02 0.0 3.0 1.0 0.5 0.5 -P 1 -Mz 2; # for a 2D elastomeric bearing
 </p>
@@ -13524,10 +13557,7 @@ element elastomericBearingBoucWen 1 1 2 20 2.50 0.02 0.0 3.0 1.0 0.5 0.5 -P 1 -T
 <hr />
 <p>
 Code Developed by: <span style="color:blue"> Andreas Schellenberg, University of California, Berkeley. </span>
-</p></li>
-</ol></li>
-</ol></li>
-</ol>
+</p>
 
 
               

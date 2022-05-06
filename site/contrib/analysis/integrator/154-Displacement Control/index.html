@@ -13316,31 +13316,7 @@ This command is used to construct a DisplacementControl integrator object. In an
 <tr class="odd">
 <td>
 <p>
-<strong>integrator DisplacementControl $node $dof <span class="math inline">\(incr &amp;lt;\)</span>numIter $&lt;math&gt;U  &lt;/math&gt; <span class="math inline">\(&amp;lt;math&amp;gt;\Delta U \text{max}&amp;lt;/math&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>node</strong>
-</p>
-</td>
-<td>
-<p>
-node whose response controls solution
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong><span class="math inline">\(dof&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;degree of freedom at the node, valid options: 1 through ndf at node.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>incr</strong>
-</p>
-</td>
-<td>
-<p>
-first displacement increment &lt;math&gt; U_{}&lt;/math&gt;
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong><span class="math inline">\(numIter&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the number of iterations the user would like to occur in the solution algorithm. Optional, default = 1.0.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>&lt;math&gt;U &lt;/math&gt;</strong>
+<strong>integrator DisplacementControl $node $dof <span class="math inline">\(incr &amp;lt;\)</span>numIter $&lt;math&gt;U  &lt;/math&gt; <span class="math inline">\(&amp;lt;math&amp;gt;\Delta U \text{max}&amp;lt;/math&amp;gt;&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;node&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;node whose response controls solution&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;dof&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;degree of freedom at the node, valid options: 1 through ndf at node.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;incr&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;first displacement increment &amp;lt;math&amp;gt;\Delta U_{\text{dof}}&amp;lt;/math&amp;gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;numIter&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the number of iterations the user would like to occur in the solution algorithm. Optional, default = 1.0.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>&lt;math&gt;U &lt;/math&gt;</strong>
 </p>
 </td>
 <td>
@@ -13364,16 +13340,12 @@ the max stepsize the user will allow. optional, default = &lt;math&gt;U_{max} = 
 </tbody>
 </table>
 <hr />
-<p>
-EXAMPLE:
-</p>
+<h2 id="examples">Examples</h2>
 <p>
 integrator DisplacementControl 1 2 0.1; # displacement control algorithm seking constant increment of 0.1 at node 1 at 2’nd dof.
 </p>
 <hr />
-<p>
-THEORY:
-</p>
+<h2 id="theory">Theory</h2>
 <p>
 If we write the governing finite element equation at &lt;math&gt;t + t!&lt;/math&gt;as:
 </p>

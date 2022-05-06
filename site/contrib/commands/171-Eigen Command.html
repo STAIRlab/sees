@@ -9,11 +9,11 @@ eigen &lt;$solver&gt; $numEigenvalues
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$numEigenvalues</strong></p></td>
+<td><p><code class="parameter-table-variable">numEigenvalues</code></p></td>
 <td><p>number of eigenvalues required</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$solver</strong></p></td>
+<td><p><code class="parameter-table-variable">solver</code></p></td>
 <td><p>optional string detailing type of solver: -genBandArpack,
 -symmBandLapack, -fullGenLapack (default: -genBandArpack)</p></td>
 </tr>
@@ -31,7 +31,9 @@ where N is the number of inertial DOFs. When running into this
 limitation the -fullGenLapack solver can be used instead of the default
 Arpack solver.</li>
 </ol>
-<p>THEORY:</p>
+
+## Theory
+
 <dl>
 <dt></dt>
 <dd>
@@ -41,7 +43,9 @@ $$\left (K - \lambda M \right ) \Phi = 0 $$
 </dd>
 </dl>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>set eigenvalues [eigen 10];</p>
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk

@@ -13314,43 +13314,19 @@ The EnvelopeNode recorder type records the min, max and absolute max of a number
 <tr class="odd">
 <td>
 <p>
-<em>recorder EnvelopeNode &lt;-file $fileName&gt; &lt;-xml $fileName&gt; &lt;-precision $nSD&gt; &lt;-time&gt; &lt;-closeOnWrite&gt; &lt;-timeSeries $tsTag&gt; &lt;-node $node1 $node2 …&gt; &lt;-nodeRange $startNode $endNode&gt; &lt;-region <span class="math inline">\(regionTag&amp;gt; -dof (\)</span>dof1 $dof2 …) <span class="math inline">\(respType&lt;/em&gt;&#39;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fileName</strong>
+<em>recorder EnvelopeNode &lt;-file $fileName&gt; &lt;-xml $fileName&gt; &lt;-precision $nSD&gt; &lt;-time&gt; &lt;-closeOnWrite&gt; &lt;-timeSeries $tsTag&gt; &lt;-node $node1 $node2 …&gt; &lt;-nodeRange $startNode $endNode&gt; &lt;-region <span class="math inline">\(regionTag&amp;gt; -dof (\)</span>dof1 $dof2 …) <span class="math inline">\(respType&lt;/em&gt;&#39;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fileName&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;name of file to which output is sent. file output is either in xml format (-xml option), textual (-file option) or binary (-binary option)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;nSD&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;number of significant digits (optional, default is 6)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-flag&quot;&gt;-time&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;(optional using this option places domain time in first entry of each data line, default is to have time ommitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-flag&quot;&gt;-closeOnWrite&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;optional. using this option will instruct the recorder to invoke a close on the data handler after every timestep. If this is a file it will close the file on every step and then re-open it for the next step. Note, this greatly slows the execution time, but is useful if you need to monitor the data during the analysis.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;tsTag&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the tag of a previously constructed TimeSeries, results from node at each time step are added to load factor from series&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>node1 <span class="math inline">\(node2 ..&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags of nodes whose response is being recorded (optional, default: omitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>startNode <span class="math inline">\(endNode ..&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tag for start and end nodes whose response is being recorded (optional, default: omitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;regionTag&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;a region tag; to specify all nodes in the previously defined region. (optional)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dof1 dof2 …</strong>
 </p>
 </td>
 <td>
 <p>
-name of file to which output is sent. file output is either in xml format (-xml option), textual (-file option) or binary (-binary option)
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong><span class="math inline">\(nSD&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;number of significant digits (optional, default is 6)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;-time&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;(optional using this option places domain time in first entry of each data line, default is to have time ommitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;-closeOnWrite&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;optional. using this option will instruct the recorder to invoke a close on the data handler after every timestep. If this is a file it will close the file on every step and then re-open it for the next step. Note, this greatly slows the execution time, but is useful if you need to monitor the data during the analysis.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>tsTag</strong>
-</p>
-</td>
-<td>
-<p>
-the tag of a previously constructed TimeSeries, results from node at each time step are added to load factor from series
+the specified dof at the nodes whose response is requested.
 </p>
 </td>
 </tr>
 <tr class="even">
 <td>
 <p>
-<strong>$node1 <span class="math inline">\(node2 ..&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags of nodes whose response is being recorded (optional, default: omitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>startNode <span class="math inline">\(endNode ..&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tag for start and end nodes whose response is being recorded (optional, default: omitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>regionTag</strong>
-</p>
-</td>
-<td>
-<p>
-a region tag; to specify all nodes in the previously defined region. (optional)
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<strong><span class="math inline">\(dof1 dof2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the specified dof at the nodes whose response is requested.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>respType</strong>
+<code class="parameter-table-variable">respType</code>
 </p>
 </td>
 <td>
