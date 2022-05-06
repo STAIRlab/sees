@@ -3,14 +3,12 @@
 <p>This command is used to construct a KrylovNewton algorithm object
 which uses a Krylov subspace accelerator to accelerate the convergence
 of the modified newton method. The command is of the following form:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>algorithm KrylovNewton &lt;-iterate $tangIter&gt;
-&lt;-increment $tangIncr&gt; &lt;-maxDim $maxDim&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+algorithm KrylovNewton &lt;-iterate $tangIter&gt;
+        &lt;-increment $tangIncr&gt; &lt;-maxDim $maxDim&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

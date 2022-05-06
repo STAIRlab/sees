@@ -10,14 +10,12 @@ load $eleLoad $arg1 $arg2 $arg3 ....
 <p>The element loads are only applied to line elements. Continuum
 elements do not accept element loads. When NDM=2, the beam column
 elements all accept eleLoad commands of the following form:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>eleLoad -ele $eleTag1 &lt;$eleTag2 ....&gt; -type
--beamUniform $Wy &lt;$Wx&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+eleLoad -ele $eleTag1 &lt;$eleTag2 ....&gt; -type
+        -beamUniform $Wy &lt;$Wx&gt;
+```
+
 
 ```tcl
 eleLoad -range $eleTag1 $eleTag2 -type -beamPoint $Py $xL
@@ -25,14 +23,12 @@ eleLoad -range $eleTag1 $eleTag2 -type -beamPoint $Py $xL
 ```
 <p>When NDM=3, the beam column elements all accept eleLoad commands of
 the following form:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>eleLoad -ele $eleTag1 &lt;$eleTag2 ....&gt; -type
--beamUniform $Wy $Wz &lt;$Wx&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+eleLoad -ele $eleTag1 &lt;$eleTag2 ....&gt; -type
+        -beamUniform $Wy $Wz &lt;$Wx&gt;
+```
+
 
 ```tcl
 eleLoad -range $eleTag1 $eleTag2 -type -beamPoint $Py $Pz

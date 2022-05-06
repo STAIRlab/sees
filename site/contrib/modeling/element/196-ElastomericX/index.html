@@ -12370,6 +12370,26 @@ Removal During Simulation
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_4_3">
@@ -12383,6 +12403,156 @@ Removal During Simulation
           LinearSolve
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/110-Cusp/" class="md-nav__link">
+        Cusp
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/274-FullGeneral/" class="md-nav__link">
+        FullGeneral
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/35-BandGeneral%20SOE/" class="md-nav__link">
+        BandGeneral SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/36-BandSPD%20SOE/" class="md-nav__link">
+        BandSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/546-ProfileSPD%20SOE/" class="md-nav__link">
+        ProfileSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/660-SparseSPD%20SOE/" class="md-nav__link">
+        SparseSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/661-SparseSYM%20SOE/" class="md-nav__link">
+        SparseSYM SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/672-SuperLU%20SOE/" class="md-nav__link">
+        SuperLU SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/674-System%20Command/" class="md-nav__link">
+        System Command
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/731-UmfPack%20SOE/" class="md-nav__link">
+        UmfPack SOE
+
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -13147,17 +13317,11 @@ href="#Recorders" title="wikilink">recorder</a>.
 <p>
 For a 3D problem:
 </p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>element ElastomericX $eleTag $Nd1 $Nd2 $Fy $alpha $Gr $Kbulk $D1 $D2 $ts $tr <span class="math inline">\(n &amp;lt;&amp;lt;\)</span>x1 $x2 $x3&gt; $y1 $y2 <span class="math inline">\(y3&amp;gt; &amp;lt;\)</span>kc&gt; &lt;<span class="math inline">\(PhiM&amp;gt; &amp;lt;\)</span>ac&gt; &lt;<span class="math inline">\(sDratio&amp;gt; &amp;lt;\)</span>m&gt; &lt;<span class="math inline">\(cd&amp;gt; &amp;lt;\)</span>tc&gt; &lt;<span class="math inline">\(tag1&amp;gt; &amp;lt;\)</span>tag2&gt; &lt;<span class="math inline">\(tag3&amp;gt; &amp;lt;\)</span>tag4&gt;</strong>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element ElastomericX <span class="dt">$eleTag</span> <span class="dt">$Nd1</span> <span class="dt">$Nd2</span> <span class="dt">$Fy</span> <span class="dt">$alpha</span> <span class="dt">$Gr</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$Kbulk</span> <span class="dt">$D1</span> <span class="dt">$D2</span> <span class="dt">$ts</span> <span class="dt">$tr</span> <span class="dt">$n</span> &amp;lt;&amp;lt;<span class="dt">$x1</span> <span class="dt">$x2</span> <span class="dt">$x3</span>&amp;gt; <span class="dt">$y1</span> <span class="dt">$y2</span> <span class="dt">$y3</span>&amp;gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$kc</span>&amp;gt; &amp;lt;<span class="dt">$PhiM</span>&amp;gt; &amp;lt;<span class="dt">$ac</span>&amp;gt; &amp;lt;<span class="dt">$sDratio</span>&amp;gt; &amp;lt;<span class="dt">$m</span>&amp;gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$cd</span>&amp;gt; &amp;lt;<span class="dt">$tc</span>&amp;gt; &amp;lt;<span class="dt">$tag1</span>&amp;gt; &amp;lt;<span class="dt">$tag2</span>&amp;gt; &amp;lt;<span class="dt">$tag3</span>&amp;gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$tag4</span>&amp;gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>

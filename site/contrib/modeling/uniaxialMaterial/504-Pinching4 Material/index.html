@@ -12369,6 +12369,26 @@ Removal During Simulation
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_4_3">
@@ -12382,6 +12402,156 @@ Removal During Simulation
           LinearSolve
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/110-Cusp/" class="md-nav__link">
+        Cusp
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/274-FullGeneral/" class="md-nav__link">
+        FullGeneral
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/35-BandGeneral%20SOE/" class="md-nav__link">
+        BandGeneral SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/36-BandSPD%20SOE/" class="md-nav__link">
+        BandSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/546-ProfileSPD%20SOE/" class="md-nav__link">
+        ProfileSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/660-SparseSPD%20SOE/" class="md-nav__link">
+        SparseSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/661-SparseSYM%20SOE/" class="md-nav__link">
+        SparseSYM SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/672-SuperLU%20SOE/" class="md-nav__link">
+        SuperLU SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/674-System%20Command/" class="md-nav__link">
+        System Command
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/731-UmfPack%20SOE/" class="md-nav__link">
+        UmfPack SOE
+
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -13142,12 +13312,28 @@ Removal During Simulation
 <p>
 This command is used to construct a uniaxial material that represents a ‘pinched’ load-deformation response and exhibits degradation under cyclic loading. Cyclic degradation of strength and stiffness occurs in three ways: unloading stiffness degradation, reloading stiffness degradation, strength degradation.
 </p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial Pinching4 <span class="dt">$matTag</span> <span class="dt">$ePf1</span> <span class="dt">$ePd1</span> <span class="dt">$ePf2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ePd2</span> <span class="dt">$ePf3</span> <span class="dt">$ePd3</span> <span class="dt">$ePf4</span> <span class="dt">$ePd4</span> &amp;lt;<span class="dt">$eNf1</span> <span class="dt">$eNd1</span> <span class="dt">$eNf2</span> <span class="dt">$eNd2</span> <span class="dt">$eNf3</span> <span class="dt">$eNd3</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$eNf4</span> <span class="dt">$eNd4</span>&amp;gt; <span class="dt">$rDispP</span> <span class="dt">$rForceP</span> <span class="dt">$uForceP</span> &amp;lt;<span class="dt">$rDispN</span> <span class="dt">$rForceN</span> <span class="dt">$uForceN</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &amp;gt; <span class="dt">$gK1</span> <span class="dt">$gK2</span> <span class="dt">$gK3</span> <span class="dt">$gK4</span> <span class="dt">$gKLim</span> <span class="dt">$gD1</span> <span class="dt">$gD2</span> <span class="dt">$gD3</span> <span class="dt">$gD4</span> <span class="dt">$gDLim</span> <span class="dt">$gF1</span> <span class="dt">$gF2</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$gF3</span> <span class="dt">$gF4</span> <span class="dt">$gFLim</span> <span class="dt">$gE</span> <span class="dt">$dmgType</span></span></code></pre></div>
+<hr />
 <table>
 <tbody>
 <tr class="odd">
 <td>
+<code class="parameter-table-variable">matTag</code>
+</td>
+<td>
 <p>
-<strong>uniaxialMaterial Pinching4 $matTag $ePf1 $ePd1 $ePf2 $ePd2 $ePf3 $ePd3 $ePf4 <span class="math inline">\(ePd4 &amp;lt;\)</span>eNf1 $eNd1 $eNf2 $eNd2 $eNf3 $eNd3 $eNf4 $eNd4&gt; $rDispP $rForceP <span class="math inline">\(uForceP &amp;lt;\)</span>rDispN $rForceN $uForceN &gt; $gK1 $gK2 $gK3 $gK4 $gKLim $gD1 $gD2 $gD3 $gD4 $gDLim $gF1 $gF2 $gF3 $gF4 $gFLim $gE <span class="math inline">\(dmgType&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;integer tag identifying material&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ePf1 $ePf2 $ePf3 <span class="math inline">\(ePf4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining force points on the positive response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ePd1 $ePd2 $ePd3 <span class="math inline">\(ePd4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining deformation points on the positive response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>eNf1 $eNf2 $eNf3 <span class="math inline">\(eNf4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining force points on the negative response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>eNd1 $eNd2 $eNd3 <span class="math inline">\(eNd4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining deformation points on the negative response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;rDispP&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the deformation at which reloading occurs to the maximum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fFoceP&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the force at which reloading begins to force corresponding to the maximum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;uForceP&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of strength developed upon unloading from negative load to the maximum strength developed under monotonic loading&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;rDispN&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the deformation at which reloading occurs to the minimum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fFoceN&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the force at which reloading begins to force corresponding to the minimum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;uForceN&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of strength developed upon unloading from negative load to the minimum strength developed under monotonic loading&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>gK1 $gK2 $gK3 $gK4 <span class="math inline">\(gKLim&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values controlling cyclic degradation model for unloading stiffness degradation&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>gD1 $gD2 $gD3 $gD4 <span class="math inline">\(gDLim&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values controlling cyclic degradation model for reloading stiffness degradation&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>gF1 $gF2 $gF3 $gF4 $gFLim</strong>
+integer tag identifying material
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>$ePf1 $ePf2 $ePf3 <span class="math inline">\(ePf4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining force points on the positive response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ePd1 $ePd2 $ePd3 <span class="math inline">\(ePd4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining deformation points on the positive response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>eNf1 $eNf2 $eNf3 <span class="math inline">\(eNf4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining force points on the negative response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>eNd1 $eNd2 $eNd3 <span class="math inline">\(eNd4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining deformation points on the negative response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;rDispP&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the deformation at which reloading occurs to the maximum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fFoceP&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the force at which reloading begins to force corresponding to the maximum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;uForceP&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of strength developed upon unloading from negative load to the maximum strength developed under monotonic loading&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;rDispN&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the deformation at which reloading occurs to the minimum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fFoceN&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the force at which reloading begins to force corresponding to the minimum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;uForceN&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of strength developed upon unloading from negative load to the minimum strength developed under monotonic loading&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>gK1 $gK2 $gK3 $gK4 <span class="math inline">\(gKLim&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values controlling cyclic degradation model for unloading stiffness degradation&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>gD1 $gD2 $gD3 $gD4 <span class="math inline">\(gDLim&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values controlling cyclic degradation model for reloading stiffness degradation&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>gF1 $gF2 $gF3 $gF4 $gFLim</strong>
 </p>
 </td>
 <td>

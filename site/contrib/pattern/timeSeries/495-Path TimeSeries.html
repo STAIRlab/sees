@@ -9,37 +9,31 @@ is used between points. There are many ways to specify the load
 path:</p>
 <p>For a load path where the factors are specified in a tcl list with a
 constant time interval between points:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>timeSeries Path $tag -dt $dt -values {list_of_values}
-&lt;-factor $cFactor&gt; &lt;-useLast&gt; &lt;-prependZero&gt;
-&lt;-startTime $tStart&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+timeSeries Path $tag -dt $dt -values {list_of_values}
+        &lt;-factor $cFactor&gt; &lt;-useLast&gt; &lt;-prependZero&gt;
+        &lt;-startTime $tStart&gt;
+```
+
 <p>For a load path where the factors are specified in a file for a
 constant time interval between points:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>timeSeries Path $tag -dt $dt -filePath $filePath
-&lt;-factor $cFactor&gt; &lt;-useLast&gt; &lt;-prependZero&gt;
-&lt;-startTime $tStart&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+timeSeries Path $tag -dt $dt -filePath $filePath
+        &lt;-factor $cFactor&gt; &lt;-useLast&gt; &lt;-prependZero&gt;
+        &lt;-startTime $tStart&gt;
+```
+
 <p>For a load path where the values are specified at non-constant time
 intervals:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>timeSeries Path $tag -time {list_of_times} -values
-{list_of_values} &lt;-factor $cFactor&gt;
-&lt;-useLast&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+timeSeries Path $tag -time {list_of_times} -values
+        {list_of_values} &lt;-factor $cFactor&gt;
+        &lt;-useLast&gt;
+```
+
 <p>For a load path where both time and values are specified in a list
 included in the command</p>
 

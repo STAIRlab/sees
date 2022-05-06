@@ -12370,6 +12370,26 @@ Removal During Simulation
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_6_4_3">
@@ -12383,6 +12403,156 @@ Removal During Simulation
           LinearSolve
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/110-Cusp/" class="md-nav__link">
+        Cusp
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/274-FullGeneral/" class="md-nav__link">
+        FullGeneral
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/35-BandGeneral%20SOE/" class="md-nav__link">
+        BandGeneral SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/36-BandSPD%20SOE/" class="md-nav__link">
+        BandSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/546-ProfileSPD%20SOE/" class="md-nav__link">
+        ProfileSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/660-SparseSPD%20SOE/" class="md-nav__link">
+        SparseSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/661-SparseSYM%20SOE/" class="md-nav__link">
+        SparseSYM SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/672-SuperLU%20SOE/" class="md-nav__link">
+        SuperLU SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/674-System%20Command/" class="md-nav__link">
+        System Command
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/numerics/LinearSolve/731-UmfPack%20SOE/" class="md-nav__link">
+        UmfPack SOE
+
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -13151,12 +13321,28 @@ For a two-dimensional problem:
 <p>
 For a three-dimensional problem:
 </p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>element RJWatsonEqsBearing <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$frnMdlTag</span> <span class="dt">$kInit</span><span class="ot"> -P</span> <span class="dt">$matTag</span><span class="ot"> -Vy</span> <span class="dt">$matTag</span><span class="ot"> -Vz</span> <span class="dt">$matTag</span><span class="ot"> -T</span> <span class="dt">$matTag</span><span class="ot"> -My</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$matTag</span><span class="ot"> -Mz</span> <span class="dt">$matTag</span> &amp;lt;-orient &amp;lt;<span class="dt">$x1</span> <span class="dt">$x2</span> <span class="dt">$x3</span>&amp;gt; <span class="dt">$y1</span> <span class="dt">$y2</span> <span class="dt">$y3</span>&amp;gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        &amp;lt;-shearDist <span class="dt">$sDratio</span>&amp;gt; &amp;lt;-doRayleigh&amp;gt; &amp;lt;-mass <span class="dt">$m</span>&amp;gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        &amp;lt;-iter <span class="dt">$maxIter</span> <span class="dt">$tol</span>&amp;gt;</span></code></pre></div>
+<hr />
 <table>
 <tbody>
 <tr class="odd">
 <td>
+<code class="parameter-table-variable">eleTag</code>
+</td>
+<td>
 <p>
-<strong>element RJWatsonEqsBearing $eleTag $iNode $jNode $frnMdlTag $kInit -P $matTag -Vy $matTag -Vz $matTag -T $matTag -My $matTag -Mz <span class="math inline">\(matTag &amp;lt;-orient &amp;lt;\)</span>x1 $x2 $x3&gt; $y1 $y2 $y3&gt; &lt;-shearDist $sDratio&gt; &lt;-doRayleigh&gt; &lt;-mass $m&gt; &lt;-iter $maxIter <span class="math inline">\(tol&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;eleTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique element object tag&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>iNode $jNode</strong>
+unique element object tag
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>$iNode $jNode</strong>
 </p>
 </td>
 <td>

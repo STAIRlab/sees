@@ -6,15 +6,13 @@ title="wikilink"> Newton-Raphson</a> algorithm to solve the nonlinear
 residual equation. Line search increases the effectiveness of the Newton
 method when convergence is slow due to roughness of the residual. The
 command is of the following form:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>algorithm NewtonLineSearch &lt;-type $typeSearch&gt;
-&lt;-tol $tol&gt; &lt;-maxIter $maxIter&gt; &lt;-minEta $minEta&gt;
-&lt;-maxEta $maxEta&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+algorithm NewtonLineSearch &lt;-type $typeSearch&gt;
+        &lt;-tol $tol&gt; &lt;-maxIter $maxIter&gt; &lt;-minEta $minEta&gt;
+        &lt;-maxEta $maxEta&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">
