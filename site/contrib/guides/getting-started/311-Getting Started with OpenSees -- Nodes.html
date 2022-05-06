@@ -15,14 +15,22 @@ using the OpenSees <a href="node_command" title="wikilink">node
 command</a>:</p>
 <p><em>node $nodeTag (ndm $coords) &lt;-mass (ndf
 $MassValues)&gt;</em></p>
-<p>&lt;source lang="Tcl"&gt; node 1 0 0 node 2 504 0 node 3 0 432 node 4
-504 432 &lt;/source&gt;</p>
+<p>
+```Tcl
+ node 1 0 0 node 2 504 0 node 3 0 432 node 4
+504 432 
+```
+</p>
 <p>The boundary conditions are defined using the OpenSees <a
 href="fix_command" title="wikilink">fix command</a>:</p>
 <p><em>fix $nodeTag (ndf $ConstrValues)</em></p>
 <p>with three degrees of freedom per node are constrained:</p>
-<p>&lt;source lang="Tcl"&gt; fix 1 1 1 1 fix 2 1 1 1 fix 3 0 0 0 fix 4 0
-0 0 &lt;/source&gt;</p>
+<p>
+```Tcl
+ fix 1 1 1 1 fix 2 1 1 1 fix 3 0 0 0 fix 4 0
+0 0 
+```
+</p>
 <p>where a fixed constraint is defined with a 1, a free constraint is
 defined with a 0.</p>
 <p>Nodal masses are typically defined at the same time as the nodal
@@ -33,8 +41,12 @@ be defined within the OpenSees <a href="node_command"
 title="wikilink">node command</a>, or the can be "appended" using the
 OpenSees <a href="Mass_Command" title="wikilink">mass command</a>:</p>
 <p><em>mass $nodeTag (ndf $MassValues)</em></p>
-<p>&lt;source lang="Tcl"&gt; mass 3 5.18 0. 0. mass 4 5.18 0. 0.
-&lt;/source&gt;</p>
+<p>
+```Tcl
+ mass 3 5.18 0. 0. mass 4 5.18 0. 0.
+
+```
+</p>
 <p>The mass value was calculated by dividing the nodal weight (1/2 of
 the total super-structure weight) by the gravitational constant g (32
 ft/sec):</p>

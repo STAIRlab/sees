@@ -2,15 +2,23 @@
 
 <p>The gravity loads can be placed into a file, called GravityLoads.tcl
 with the following commands:</p>
-<p>&lt;source lang="Tcl"&gt; pattern Plain 1 Linear { load 3 0.0 -2000
+<p>
+```Tcl
+ pattern Plain 1 Linear { load 3 0.0 -2000
 -168074 load 4 0.0 -2000 168074 }</p>
 <p>constraints Transformation numberer RCM system BandGeneral test
 NormDispIncr 1.0e-6 6 algorithm Newton integrator LoadControl 0.1
 analysis Static</p>
-<p>analyze 10 loadConst -time 0.0 &lt;/source&gt;</p>
+<p>analyze 10 loadConst -time 0.0 
+```
+</p>
 <p>This file can be sourced in after the example.tcl file:</p>
-<p>&lt;source lang="Tcl"&gt; source example.tcl source GravityLoads.tcl
-&lt;/source&gt;</p>
+<p>
+```Tcl
+ source example.tcl source GravityLoads.tcl
+
+```
+</p>
 <hr />
 <p>Return to <a href="Getting_Started_with_OpenSees"
 title="wikilink">Getting Started with OpenSees</a></p>

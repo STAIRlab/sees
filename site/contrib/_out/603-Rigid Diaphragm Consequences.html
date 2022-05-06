@@ -12,7 +12,9 @@ cause the beam to undergo axial deformation. To constrain this axial
 deformation requires axial forces, the magnitude of which can be
 significant.</p>
 <p>Here is a stupid made up example that illustrates my point:</p>
-<p>&lt;source lang="tcl"&gt; foreach rigidConstraint {no yes} {</p>
+<p>
+```tcl
+ foreach rigidConstraint {no yes} {</p>
 <p>puts "RIGID CONSTRAINT: $rigidConstraint"</p>
 <p>foreach matType {steel concrete} { foreach eleType {forceBeamColumn
 dispBeamColumn} {</p>
@@ -130,9 +132,13 @@ analysis Static</p>
 <p>integrator DisplacementControl 3 1 0.1 analyze 10 set strains
 [eleResponse 3 basicDeformation] set forces [eleResponse 3 forces] puts
 "eleType: $eleType matType $matType axialForce [lindex $forces 0]
-axialDeformation: [lindex $strains 0]" } } } &lt;/source&gt;</p>
+axialDeformation: [lindex $strains 0]" } } } 
+```
+</p>
 <p>and the results when this script is run are:</p>
-<p>&lt;source lang="tcl"&gt; RIGID CONSTRAINT: no eleType:
+<p>
+```tcl
+ RIGID CONSTRAINT: no eleType:
 forceBeamColumn matType steel axialForce -0.08875612010504939364
 axialDeformation: 0.00000291960921383616 eleType: dispBeamColumn matType
 steel axialForce -0.00000000000010219973 axialDeformation:
@@ -148,4 +154,6 @@ eleType: forceBeamColumn matType concrete axialForce
 186.25340185913745472135 axialDeformation: 0.00000000000000000000
 eleType: dispBeamColumn matType concrete axialForce
 163.64106186688189836786 axialDeformation: 0.00000000000000000000</p>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>

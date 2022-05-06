@@ -54,7 +54,11 @@ element followed by element parameters.</p></td>
 </tbody>
 </table>
 <p>Example:</p>
-<p>&lt;source lang="python"&gt; alpha = 1.4 freeregs = [1,2] fixedregs =
+<p>
+```python
+ alpha = 1.4 freeregs = [1,2] fixedregs =
 [3,4] eleargs = ['PFEMElement2DBubble',rho,mu,b1,b2,thk,kappa]</p>
 <p>remesh('tri', alpha, len(freeregs), *freeregs, len(fixedregs)
-*fixedregs, *eleargs) &lt;/source&gt;</p>
+*fixedregs, *eleargs) 
+```
+</p>

@@ -66,8 +66,12 @@ element followed by element parameters.</p></td>
 </tbody>
 </table>
 <p>Example:</p>
-<p>&lt;source lang="python"&gt; fluid = 1 ndf = 2 ndtags = [1,2,3,4]
+<p>
+```python
+ fluid = 1 ndf = 2 ndtags = [1,2,3,4]
 bounds = [0,1,1,0] eleargs =
 ['PFEMElement2DBubble',rho,mu,b1,b2,thk,kappa] meshsize = 0.01</p>
 <p>mesh('poly', flud, ndf, meshsize, len(ndtags), *ndtags, *bounds,
-*eleargs) &lt;/source&gt;</p>
+*eleargs) 
+```
+</p>

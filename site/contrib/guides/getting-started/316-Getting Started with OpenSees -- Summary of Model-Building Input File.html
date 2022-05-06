@@ -2,7 +2,9 @@
 
 <p>The following is a compilation of all the commands necessary to build
 the model:</p>
-<p>&lt;source lang="Tcl"&gt; model basic -ndm 2 -ndf 3</p>
+<p>
+```Tcl
+ model basic -ndm 2 -ndf 3</p>
 <ol>
 <li>nodal coordinates:</li>
 </ol>
@@ -29,7 +31,9 @@ elasticBeamColumn 2 2 4 3600 4227 1080000 1 element elasticBeamColumn 3
 <li>recorders</li>
 </ol>
 <p>recorder Node -file Node3.out -time -node 3 -dof 1 2 disp recorder
-Element -file Element1.out -time -ele 1 force &lt;/source&gt;</p>
+Element -file Element1.out -time -ele 1 force 
+```
+</p>
 <p>The above commands can be input line by line at the OpenSees command
 prompt:</p>
 <figure>

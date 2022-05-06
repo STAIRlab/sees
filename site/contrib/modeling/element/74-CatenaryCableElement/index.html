@@ -13358,41 +13358,34 @@ href="http://www.joseabell.com">José A. Abell at Universidad de los Andes, Chil
 EXAMPLE:
 </p>
 <p>
-&lt;source lang=“tcl”&gt;
-</p>
-<ol>
-<li>
-This example implements a slight modification of the verification test from reference #1.
-</li>
-<li>
-</li>
-</ol>
-<p>
-model BasicBuilder -ndm 3 -ndf 3
-</p>
-<p>
-set x 30. ; #Set to example from paper x = 30, 60, 80, 100. Will not work for x=0.01, system ill-conditioned.
-</p>
-<p>
-node 1 0.0 0.0 90.0 node 2 [expr $x/2] 0.0 40.0 node 3 $x 60 30.
-</p>
-<p>
-fix 1 1 1 1 fix 2 0 1 0 fix 3 1 1 1
-</p>
-<p>
-set w3 -0.00001 set E 3.e7 set A 1. set L0 100. set alfa 6.5e-6 set cambiodetemp 100. set rho [expr $w3 / 9.81]
-</p>
-<p>
-set errorTol 1e-6 set NSubSteps 20
-</p>
-<p>
-element CatenaryCable 1 1 2 $w3 $E $A [expr $L0/2] $alfa $cambiodetemp $rho $errorTol $NSubSteps 0 element CatenaryCable 2 2 3 $w3 $E $A [expr $L0/2] $alfa $cambiodetemp $rho $errorTol <span class="math inline">\(NSubSteps 0&lt;/p&gt; &lt;p&gt;set NSteps 10 timeSeries Linear 1 -factor 1&lt;/p&gt; &lt;p&gt;pattern Plain 2 1 { eleLoad -ele 1 2 -type -beamUniform 0. 0. -1 }&lt;/p&gt; &lt;p&gt;recorder Node -file &quot;disp.txt&quot; -time -nodeRange 1 3 -dof 1 2 3 disp recorder Element -file &quot;forces.txt&quot; -time -eleRange 1 2 force&lt;/p&gt; &lt;p&gt;system FullGeneral constraints Plain numberer Plain test NormDispIncr 1.0e-5 100 1 integrator LoadControl [expr 1.0/\)</span>NSteps] algorithm Newton analysis Static
-</p>
-<p>
-analyze $NSteps
-</p>
-<p>
-print -node 2 &lt;/source&gt;
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;This example implements a slight modification of the verification</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>test from reference #<span class="fl">1.</span>&lt;/li&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;&lt;/li&gt;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;model BasicBuilder<span class="ot"> -ndm</span> <span class="dv">3</span><span class="ot"> -ndf</span> <span class="dv">3</span>&lt;/p&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> <span class="ot">x</span> <span class="fl">30.</span> ; <span class="co">#Set to example from paper x = 30, 60, 80, 100. Will not</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>work <span class="kw">for</span> <span class="ot">x</span>=<span class="fl">0.01</span>, <span class="ot">system</span> ill-conditioned.&lt;/p&gt;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;node <span class="dv">1</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="fl">90.0</span> node <span class="dv">2</span> <span class="kw">[expr</span> <span class="dt">$x</span>/<span class="dv">2</span><span class="kw">]</span> <span class="fl">0.0</span> <span class="fl">40.0</span> node <span class="dv">3</span> <span class="dt">$x</span> <span class="dv">60</span> <span class="fl">30.</span>&lt;/p&gt;</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;fix <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> fix <span class="dv">2</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">0</span> fix <span class="dv">3</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span>&lt;/p&gt;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> w3<span class="ot"> -0</span><span class="fl">.00001</span> <span class="kw">set</span> E <span class="dv">3</span>.e7 <span class="kw">set</span> A <span class="fl">1.</span> <span class="kw">set</span> L0 <span class="fl">100.</span> <span class="kw">set</span> alfa <span class="fl">6.5e-6</span> <span class="kw">set</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>cambiodetemp <span class="fl">100.</span> <span class="kw">set</span> rho <span class="kw">[expr</span> <span class="dt">$w3</span> / <span class="fl">9.81</span><span class="kw">]</span>&lt;/p&gt;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> errorTol <span class="fl">1e-6</span> <span class="kw">set</span> NSubSteps <span class="dv">20</span>&lt;/p&gt;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;element CatenaryCable <span class="dv">1</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dt">$w3</span> <span class="dt">$E</span> <span class="dt">$A</span> <span class="kw">[expr</span> <span class="dt">$L0</span>/<span class="dv">2</span><span class="kw">]</span> <span class="dt">$alfa</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="dt">$cambiodetemp</span> <span class="dt">$rho</span> <span class="dt">$errorTol</span> <span class="dt">$NSubSteps</span> <span class="dv">0</span> element CatenaryCable <span class="dv">2</span> <span class="dv">2</span> <span class="dv">3</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="dt">$w3</span> <span class="dt">$E</span> <span class="dt">$A</span> <span class="kw">[expr</span> <span class="dt">$L0</span>/<span class="dv">2</span><span class="kw">]</span> <span class="dt">$alfa</span> <span class="dt">$cambiodetemp</span> <span class="dt">$rho</span> <span class="dt">$errorTol</span> <span class="dt">$NSubSteps</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span>&lt;/p&gt;</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> NSteps <span class="dv">10</span> timeSeries Linear <span class="dv">1</span><span class="ot"> -factor</span> <span class="dv">1</span>&lt;/p&gt;</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;pattern Plain <span class="dv">2</span> <span class="dv">1</span> <span class="kw">{</span> eleLoad<span class="ot"> -ele</span> <span class="dv">1</span> <span class="dv">2</span><span class="ot"> -type -beamUniform</span> <span class="fl">0.</span> <span class="fl">0.</span><span class="ot"> -1</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span>&lt;/p&gt;</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;recorder Node<span class="ot"> -file</span> <span class="st">&quot;disp.txt&quot;</span><span class="ot"> -time -nodeRange</span> <span class="dv">1</span> <span class="dv">3</span><span class="ot"> -dof</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> disp</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>recorder Element<span class="ot"> -file</span> <span class="st">&quot;forces.txt&quot;</span><span class="ot"> -time -eleRange</span> <span class="dv">1</span> <span class="dv">2</span> force&lt;/p&gt;</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="ot">system</span> FullGeneral constraints Plain numberer Plain test NormDispIncr</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="fl">1.0e-5</span> <span class="dv">100</span> <span class="dv">1</span> integrator LoadControl <span class="kw">[expr</span> <span class="fl">1.0</span>/<span class="dt">$NSteps</span><span class="kw">]</span> algorithm Newton</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>analysis Static&lt;/p&gt;</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;analyze <span class="dt">$NSteps</span>&lt;/p&gt;</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;print<span class="ot"> -node</span> <span class="dv">2</span> </span></code></pre></div>
 </p>
 <p>
 Results should be:
