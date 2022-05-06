@@ -1,9 +1,12 @@
-# ConcreteCM - Complete Concrete Model by Chang and Mander (1994)
+---
+description: Complete Concrete Model by Chang and Mander (1994)
+...
+
+# ConcreteCM
 
 <p><strong>Developed and Implemented by:</strong></p>
-<p><a href="mailto:kkolozvari@fullerton.edu">&lt;span
-style="color:blue"&gt; Kristijan Kolozvari&lt;span
-style="color:black"&gt;</a>, California State University, Fullerton</p>
+<p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>
+<span style="color:black"></a>, California State University, Fullerton</p>
 <p><span style="color:blue"> Kutay Orakcal&lt;span
 style="color:black"&gt;, Bogazici University, Istanbul, Turkey</p>
 <p><span style="color:blue"> John Wallace&lt;span
@@ -244,6 +247,7 @@ alt="Figure 5. Comparison of ConcreteCM and Concrete07" />
 Concrete07</figcaption>
 </figure>
 <hr />
+
 <p><strong>References:</strong></p>
 <p>1) Belarbi H. and Hsu T.C.C. (1994), “Constitutive Laws of Concrete
 in Tension and Reinforcing Bars Stiffened by Concrete”, ACI Structural

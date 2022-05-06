@@ -5,6 +5,8 @@ import matplotlib.pyplot as plt
 def show(): plt.show()
 
 def section(s, ax=None, **kwds):
+    if isinstance(s, list):
+        pass
     return MplPlotter(ax=ax).plot_section(s, **kwds)
 
 class MplPlotter:
@@ -18,7 +20,7 @@ class MplPlotter:
             if hasattr(layer, "plot_opts"):
                 options = layer.plot_opts
             else:
-                options = dict(linestyle="--", color="k", **kwds)
+                options = dict(linestyle="--", color="k", linewidth=1.0, **kwds)
             yield lines.Line2D(*np.asarray(layer.vertices).T, **options)
 
     def get_section_patches(self, section, facecolor="grey", edgecolor="grey", **kwds):
@@ -114,7 +116,17 @@ class MplPlotter:
         ax.add_collection(self.get_section_patches(section, **kwds))
         for l in self.get_section_layers(section, **kwds):
             ax.add_line(l)
-        ax.scatter(*zip(*(f.coord for f in section.fibers)), s=0.1)
+        
+        try:
+            ax.scatter(*zip(*(f.coord for patch in section.patches for f in patch.fibers)), s=0.1)
+        except:
+            pass
+
+        try:
+            coords, areas = zip(*((f.coord, 20*f.area) for layer in section.layers for f in layer.fibers))
+            ax.scatter(*zip(*coords), s=areas, color="k")
+        except:
+            pass
         # show centroid
         #ax.scatter(*section.centroid)
         # show origin

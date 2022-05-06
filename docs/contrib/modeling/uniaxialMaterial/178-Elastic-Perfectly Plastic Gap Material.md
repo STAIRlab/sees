@@ -40,7 +40,7 @@ recentering will not occur and gap will grow.</p></td>
 </tbody>
 </table>
 <figure>
-<img src="ElasticPPGap.gif" title="ElasticPPGap.gif"
+<img src="/OpenSeesRT/contrib/static/ElasticPPGap.gif" title="ElasticPPGap.gif"
 alt="ElasticPPGap.gif" />
 <figcaption aria-hidden="true">ElasticPPGap.gif</figcaption>
 </figure>

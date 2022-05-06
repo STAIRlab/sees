@@ -1,6 +1,6 @@
 # GettingStartedInputFile.tcl -- Element Section
 
-<p>__NOTOC__ <img src="BuildingTclLogo.gif" title="BuildingTclLogo.gif"
+<p>__NOTOC__ <img src="/OpenSeesRT/contrib/static/BuildingTclLogo.gif" title="BuildingTclLogo.gif"
 alt="BuildingTclLogo.gif" /> &lt;source lang="Tcl"&gt;</p>
 <ol>
 <li>ELEMENT SECTION ---------------------------------------</li>

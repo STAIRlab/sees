@@ -85,15 +85,15 @@ softening)</p></td>
 <p>NOTES</p>
 <p>Compressive ECC parameters should be input as negative values.</p>
 <figure>
-<img src="ECC01.gif" title="ECC01.gif" alt="ECC01.gif" />
+<img src="/OpenSeesRT/contrib/static/ECC01.gif" title="ECC01.gif" alt="ECC01.gif" />
 <figcaption aria-hidden="true">ECC01.gif</figcaption>
 </figure>
 <figure>
-<img src="eccTensile.gif" title="eccTensile.gif" alt="eccTensile.gif" />
+<img src="/OpenSeesRT/contrib/static/eccTensile.gif" title="eccTensile.gif" alt="eccTensile.gif" />
 <figcaption aria-hidden="true">eccTensile.gif</figcaption>
 </figure>
 <figure>
-<img src="eccCompression.gif" title="eccCompression.gif"
+<img src="/OpenSeesRT/contrib/static/eccCompression.gif" title="eccCompression.gif"
 alt="eccCompression.gif" />
 <figcaption aria-hidden="true">eccCompression.gif</figcaption>
 </figure>

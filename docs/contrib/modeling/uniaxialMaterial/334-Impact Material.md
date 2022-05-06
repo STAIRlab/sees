@@ -59,13 +59,13 @@ consistent with the associated energy dissipated in the Hertz model.</p>
 <p>K2 = Keff - E / ((1-a)*δm^2)</p>
 <p>Response of Impact Material during a pounding event.</p>
 <figure>
-<img src="ImpactA.gif" title="ImpactA.gif" alt="ImpactA.gif" />
+<img src="/OpenSeesRT/contrib/static/ImpactA.gif" title="ImpactA.gif" alt="ImpactA.gif" />
 <figcaption aria-hidden="true">ImpactA.gif</figcaption>
 </figure>
 <p>Response of Impact Material for displacement cycles of increasing
 amplitude.</p>
 <figure>
-<img src="ImpactB.gif" title="ImpactB.gif" alt="ImpactB.gif" />
+<img src="/OpenSeesRT/contrib/static/ImpactB.gif" title="ImpactB.gif" alt="ImpactB.gif" />
 <figcaption aria-hidden="true">ImpactB.gif</figcaption>
 </figure>
 <p>EXAMPLE:</p>

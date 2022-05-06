@@ -32,7 +32,7 @@ other. (optional, default = 1.0)</p></td>
 src="ParallelMaterial.gif" title="ParallelMaterial.gif"
 alt="ParallelMaterial.gif" /></p>
 <p>In a parallel model, strains are equal and stresses and stiffnesses
-are additive: <img src="ParallelMaterialExample.gif"
+are additive: <img src="/OpenSeesRT/contrib/static/ParallelMaterialExample.gif"
 title="ParallelMaterialExample.gif"
 alt="ParallelMaterialExample.gif" /></p>
 <hr />

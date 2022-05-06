@@ -2,6 +2,7 @@ from  .ast  import *
 
 class Component:
     def __enter__(self):
+        assert self._rt is None
         # libOpenSeesRT must be imported by Python
         # AFTER if has been loaded by Tcl (this was done
         # when a TclRuntime() is created) so that Tcl stubs
@@ -15,17 +16,19 @@ class Component:
         if self._cmd[0] == "uniaxialMaterial":
             rt.model(self)
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
-            self._rt = rt
-            return self._builder.getUniaxialMaterial("1")
+            handle = self._builder.getUniaxialMaterial("1")
 
         if self._cmd[0] == "section":
             rt.model(self)
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
-            self._rt = rt
-            return self._builder.getSection(str(self.name))
+            handle = self._builder.getSection(str(self.name))
+
+        self._rt = rt
+        return handle
 
     def __exit__(self, exception_type, exception_value, exception_traceback):
-        del self._rt
+        assert self._rt is not None
+        self._rt = None
 
 
     def get_ast(self):
@@ -62,6 +65,7 @@ class Component:
         return partial
 
     def _init(self):
+        self._rt = None
         self._argdict = {}
         for arg in self._args:
             field = arg.field
@@ -104,11 +108,21 @@ class Cmd:
         self.cmd = cmd
 
 
-def cmd(cls, cmd, args, refs=[], **ops):
-    fields = [arg.field for arg in args] 
-    alts = {arg.kwds["alt"] for arg in args if "alt" in arg.kwds}
-    obj = struct(cls, fields, args, alts, refs=refs)
-    obj._cmd  = [cmd]
+def cmd(cls, cmd=None, args=None, refs=(), **ops):
+    if isinstance(cls, str):
+        # Called as function (ie my_command = cmd('my_cmd'))
+        fields = [arg.field for arg in args] 
+        alts = {arg.kwds["alt"] for arg in args if "alt" in arg.kwds}
+        obj = struct(cls, fields, args, alts, refs=refs)
+        obj._cmd  = [cmd]
+    else:
+        # Called as class decorator
+        fields = [arg.field for arg in cls._args]
+        alts = cls._alts if hasattr(cls, "_alts") else None
+        name = cls.__name__
+        cmd = name.lower()
+        obj = struct(name, fields, cls._args, alts)
+        obj._cmd  = [cmd]
     return obj
 
 

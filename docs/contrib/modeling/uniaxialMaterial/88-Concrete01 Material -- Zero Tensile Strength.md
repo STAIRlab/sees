@@ -45,7 +45,7 @@ internally).</li>
 <li>The initial slope for this model is (2*$fpc/$epsc0)</li>
 </ul>
 <figure>
-<img src="Concrete01.gif" title="Concrete01.gif" alt="Concrete01.gif" />
+<img src="/OpenSeesRT/contrib/static/Concrete01.gif" title="Concrete01.gif" alt="Concrete01.gif" />
 <figcaption aria-hidden="true">Concrete01.gif</figcaption>
 </figure>
 <p>Typical Hysteretic Stress-Strain Relation for material</p>

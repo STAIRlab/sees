@@ -53,7 +53,7 @@ as proportion of yield strength after a plastic strain of $a4*($Fy/E0).
 </tbody>
 </table>
 <figure>
-<img src="Steel01.gif" title="Steel01.gif" alt="Steel01.gif" />
+<img src="/OpenSeesRT/contrib/static/Steel01.gif" title="Steel01.gif" alt="Steel01.gif" />
 <figcaption aria-hidden="true">Steel01.gif</figcaption>
 </figure>
 <p>Steel01 Material -- Hysteretic Behavior of Model w/o Isotropic

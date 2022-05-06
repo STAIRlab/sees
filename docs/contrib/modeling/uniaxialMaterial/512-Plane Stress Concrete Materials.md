@@ -9,9 +9,9 @@ University of Houston and are based on the Cyclic Softened Membrane
 Model (CSMM). They are capable of modeling the cyclic shear behavior of
 prestressed and reinforced concrete membranes.</p>
 <p>This code has been developed at the University of Houston by:
-<span style="color:blue"> A. Laskar</span>, &lt;span
-style="color:blue"&gt; J. Zhong</span>, &lt;span
-style="color:blue"&gt; <a
+<span style="color:blue"> A. Laskar</span>, 
+<span style="color:blue"> J. Zhong</span>, 
+<span style="color:blue"> <a
 href="http://www.egr.uh.edu/cive/faculty/mo/?e=main">Y.L. Mo</a>
 </span>, and <span style="color:blue"> <a
 href="http://www.egr.uh.edu/cive/faculty/hsu/">Thomas T.C.

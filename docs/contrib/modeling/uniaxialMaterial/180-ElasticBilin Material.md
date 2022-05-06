@@ -47,7 +47,7 @@ tangent in compression.</p></td>
 </tbody>
 </table>
 <figure>
-<img src="ElasticPP.gif" title="ElasticPP.gif" alt="ElasticPP.gif" />
+<img src="/OpenSeesRT/contrib/static/ElasticPP.gif" title="ElasticPP.gif" alt="ElasticPP.gif" />
 <figcaption aria-hidden="true">ElasticPP.gif</figcaption>
 </figure>
 <p>NOTE:</p>

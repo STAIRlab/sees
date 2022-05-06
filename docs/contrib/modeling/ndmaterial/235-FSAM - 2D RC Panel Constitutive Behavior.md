@@ -1,9 +1,8 @@
 # FSAM - 2D RC Panel Constitutive Behavior
 
 <p><strong>Developed and Implemented by:</strong></p>
-<p><a href="mailto:kkolozvari@fullerton.edu">&lt;span
-style="color:blue"&gt; Kristijan Kolozvari&lt;span
-style="color:black"&gt;</a>, California State University, Fullerton</p>
+<p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>
+<span style="color:black"></a>, California State University, Fullerton</p>
 <p><span style="color:blue"> Kutay Orakcal&lt;span
 style="color:black"&gt;, Bogazici University, Istanbul, Turkey</p>
 <p><span style="color:blue"> Leonardo Massone&lt;span

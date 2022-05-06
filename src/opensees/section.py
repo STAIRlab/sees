@@ -5,7 +5,7 @@ relationships at beam-column and plate sample points.
 
 """
 from math import pi, sin, cos, sqrt
-from opensees.obj import LibCmd, Cmd
+from opensees.obj import LibCmd, Cmd, Component
 from .lib import uniaxial
 from opensees.ast import *
 from . import patch, layer
@@ -34,6 +34,11 @@ class FiberSection(_FiberCollection):
         )
     ]
     _refs = ["materials"]
+
+    def __enter__(self):
+        Component.__enter__(self)
+        #for f in self.fibers:
+        #    f.__enter__()
     
     @property
     def materials(self):

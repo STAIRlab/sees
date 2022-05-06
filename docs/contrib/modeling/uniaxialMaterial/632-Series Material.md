@@ -26,7 +26,7 @@ model</p></td>
 src="SeriesMaterial.gif" title="SeriesMaterial.gif"
 alt="SeriesMaterial.gif" /></p>
 <p>In a series model, stresses are equal and strains and flexibilities
-are additive: <img src="SeriesMaterialExample.gif"
+are additive: <img src="/OpenSeesRT/contrib/static/SeriesMaterialExample.gif"
 title="SeriesMaterialExample.gif" alt="SeriesMaterialExample.gif" /></p>
 <hr />
 <p>Code Developed by: <span style="color:blue"> Micheal Scott,

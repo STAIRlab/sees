@@ -78,8 +78,8 @@ correction</p></td>
 </tr>
 </tbody>
 </table>
-<p><img src="Joint2D_panelZone.GIF" title="Joint2D_panelZone.GIF"
-alt="Joint2D_panelZone.GIF" /> <img src="Joint2D_v2.GIF"
+<p><img src="/OpenSeesRT/contrib/static/Joint2D_panelZone.GIF" title="Joint2D_panelZone.GIF"
+alt="Joint2D_panelZone.GIF" /> <img src="/OpenSeesRT/contrib/static/Joint2D_v2.GIF"
 title="Joint2D_v2.GIF" alt="Joint2D_v2.GIF" /></p>
 <p>NOTES:</p>
 <ol>

@@ -38,7 +38,7 @@ uniaxialMaterial Hardening $matTag $E $sigmaY $H_iso
 </tbody>
 </table>
 <figure>
-<img src="HardeningMaterial.gif" title="HardeningMaterial.gif"
+<img src="/OpenSeesRT/contrib/static/HardeningMaterial.gif" title="HardeningMaterial.gif"
 alt="HardeningMaterial.gif" />
 <figcaption aria-hidden="true">HardeningMaterial.gif</figcaption>
 </figure>

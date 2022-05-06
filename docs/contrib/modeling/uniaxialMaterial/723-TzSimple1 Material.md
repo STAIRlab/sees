@@ -119,7 +119,7 @@ nonlinearity at smaller displacements (and hence greater hysteretic
 damping) and that it approaches tult more gradually (such that t/tult is
 still well below</p>
 <figure>
-<img src="TzSimple1.gif" title="TzSimple1.gif" alt="TzSimple1.gif" />
+<img src="/OpenSeesRT/contrib/static/TzSimple1.gif" title="TzSimple1.gif" alt="TzSimple1.gif" />
 <figcaption aria-hidden="true">TzSimple1.gif</figcaption>
 </figure>
 <p>EXAMPLE:</p>

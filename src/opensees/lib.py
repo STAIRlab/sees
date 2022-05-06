@@ -73,8 +73,8 @@ class uniaxial:
             Tag(),
             Yng(),
             Num("epsyP",  about="strain or deformation at which material reaches plastic state in tension"),
-            Num("epsyN",  about="strain or deformation at which material reaches plastic state in compression. (optional, default is tension value)"),
-            Num("eps0",   about="initial strain (optional, default: zero)")
+            Num("epsyN", reqd=False, about="strain or deformation at which material reaches plastic state in compression. (optional, default is tension value)"),
+            Num("eps0",  reqd=False, about="initial strain (optional, default: zero)")
     ])
 
     Steel02 = Uni("Steel02",
@@ -103,7 +103,7 @@ class uniaxial:
                       of yield strength after a plastic strain of `a4∗(Fy/E0)`"""
             ),
             Num("a4", default = 1.0, about="see explanation under `a3`."),
-          Num("sigInit", reqd=False, default=0.0, about="initial stress")
+            Num("sigInit", reqd=False, default=0.0, about="initial stress")
           ]),
         ],
     )
@@ -152,6 +152,20 @@ class uniaxial:
          Grp("tension", reqd=False, typ=Num, args=[
             Num("rat"), Num("ft"), Num("Ets")
          ])
+    ])
+
+    ConcreteCM = Uni("ConcreteCM", "ConcreteCM", args=[ 
+        Tag(), #"mattag  Unique uniaxialMaterial tag"),
+        Num("fpcc" , about="Compressive strength (f'c)"),
+        Num("epcc" , about="Strain at compressive strength (<math>\epsilon</math>'c)"),
+        Num("Ec"   , about="Initial tangent modulus (Ec)"),
+        Num("rc"   , about="Shape parameter in Tsai’s equation defined for compression (rc)"),
+        Num("xcrn" , about="Non-dimensional critical strain on compression envelope (<math>\epsilon</math>-cr, where the envelope curve starts following a straight line)"),
+        Num("ft"   , about="Tensile strength (ft)"),
+        Num("et"   , about="Strain at tensile strength (<math>\epsilon</math>t)"),
+        Num("rt"   , about="Shape parameter in Tsai’s equation defined for tension (rt)"),
+        Num("xcrp" , about="Non-dimensional critical strain on tension envelope (<math>\epsilon</math>+cr, where the envelope curve starts following a straight line – large value [e.g., 10000] recommended when tension stiffening is considered)"),
+        Int("gap", reqd=False, flag="-GapClose",  about="gap = 0, less gradual gap closure (default); gap = 1, more gradual gap closure"),
     ])
 
 

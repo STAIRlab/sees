@@ -172,6 +172,6 @@ href="http://www.uwm.edu/~jzhao/Bond_SP01_pages/Bond_index.html">http://www.uwm.
 </ol>
 <hr />
 <p>Code Developed by: <span style="color:blue">Jian Zhao,
-University of Wisconsin, Milwakee </span> and &lt;span
-style="color:blue"&gt; Sri Sritharan, Iowa State
+University of Wisconsin, Milwakee </span> and 
+<span style="color:blue"> Sri Sritharan, Iowa State
 University</span></p>

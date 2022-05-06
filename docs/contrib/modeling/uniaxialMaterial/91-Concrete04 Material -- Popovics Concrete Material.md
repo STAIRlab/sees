@@ -97,8 +97,8 @@ compressive loading." Journal of Structural Division ASCE,
 </ul>
 <hr />
 <p>Code Developed by: <span style="color:blue"> Laura Lowes,
-University of Washington </span> and &lt;span
-style="color:blue"&gt; Michael Berry, University of Washington
+University of Washington </span> and 
+<span style="color:blue"> Michael Berry, University of Washington
 </span></p>
 <p>Images Developed by: <span style="color:blue"> Silvia Mazzoni
 </span></p>

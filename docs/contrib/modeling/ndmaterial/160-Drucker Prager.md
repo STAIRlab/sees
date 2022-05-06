@@ -82,8 +82,8 @@ shear moduli (default = 101 kPa)</p></td>
 <hr />
 <p>This code has been Developed by: <span style="color:blue"><a
 href="http://www.ce.washington.edu/people/faculty/bios/mackenzie_p.html">Peter
-Mackenzie, U Washington</a></span> and the great &lt;span
-style="color:blue"&gt;<a
+Mackenzie, U Washington</a></span> and the great 
+<span style="color:blue"><a
 href="http://www.ce.washington.edu/people/faculty/bios/arduino_p.html">Pedro
 Arduino, U Washington</a></span></p>
 <hr />

@@ -120,8 +120,8 @@ Materials with Discontinuous Yielding". Report No. 271062, Resilient
 Steel Structures Laboratory (RESSLab), EPFL, Lausanne, Switzerland. <a
 href="https://infoscience.epfl.ch/record/271062">https://infoscience.epfl.ch/record/271062</a>.</p>
 <hr />
-<p>Code developed, implemented, and maintained by: &lt;span
-style="color:blue"&gt; Alex Hartloper (EPFL). </span> Issues,
+<p>Code developed, implemented, and maintained by: 
+<span style="color:blue"> Alex Hartloper (EPFL). </span> Issues,
 bugs, and feature requests can be opened at the <a
 href="https://github.com/ahartloper/UVC_MatMod">github
 repository</a>.</p>

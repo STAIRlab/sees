@@ -17,7 +17,7 @@ nodal geometry unless the optional x-axis vector is specified in which
 case the nodal geometry is ignored and the user-defined orientation is
 utilized.</p>
 <figure>
-<img src="TFP_backbone.gif" title="TFP_backbone.gif"
+<img src="/OpenSeesRT/contrib/static/TFP_backbone.gif" title="TFP_backbone.gif"
 alt="TFP_backbone.gif" />
 <figcaption aria-hidden="true">TFP_backbone.gif</figcaption>
 </figure>
@@ -142,11 +142,11 @@ dof 3 if ndm = 3) (default=1.0e15)</p></td>
 </tbody>
 </table>
 <figure>
-<img src="TFPwH0.gif" title="TFPwH0.gif" alt="TFPwH0.gif" />
+<img src="/OpenSeesRT/contrib/static/TFPwH0.gif" title="TFPwH0.gif" alt="TFPwH0.gif" />
 <figcaption aria-hidden="true">TFPwH0.gif</figcaption>
 </figure>
 <figure>
-<img src="TFP_displaced.gif" title="TFP_displaced.gif"
+<img src="/OpenSeesRT/contrib/static/TFP_displaced.gif" title="TFP_displaced.gif"
 alt="TFP_displaced.gif" />
 <figcaption aria-hidden="true">TFP_displaced.gif</figcaption>
 </figure>

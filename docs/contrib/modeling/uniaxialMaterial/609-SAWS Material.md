@@ -73,7 +73,7 @@ element. (ALPHA &gt; 0).</p></td>
 provided at the end of this page for complete details about modeling
 assumptions.</p>
 <figure>
-<img src="FolzFigure.gif" title="FolzFigure.gif" alt="FolzFigure.gif" />
+<img src="/OpenSeesRT/contrib/static/FolzFigure.gif" title="FolzFigure.gif" alt="FolzFigure.gif" />
 <figcaption aria-hidden="true">FolzFigure.gif</figcaption>
 </figure>
 <h2 id="example_files">Example Files:</h2>

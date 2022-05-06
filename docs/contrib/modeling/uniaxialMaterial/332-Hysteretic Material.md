@@ -75,7 +75,7 @@ ductility, mu-beta (optional, default=0.0)</p></td>
 </tbody>
 </table>
 <figure>
-<img src="Hysteretic.gif" title="Hysteretic.gif" alt="Hysteretic.gif" />
+<img src="/OpenSeesRT/contrib/static/Hysteretic.gif" title="Hysteretic.gif" alt="Hysteretic.gif" />
 <figcaption aria-hidden="true">Hysteretic.gif</figcaption>
 </figure>
 <figure>

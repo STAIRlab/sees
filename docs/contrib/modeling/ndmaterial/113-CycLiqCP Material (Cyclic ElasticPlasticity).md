@@ -101,7 +101,7 @@ dilatancy</p></td>
 <li>The elastic modulii are given by the following relations:</li>
 </ol>
 <figure>
-<img src="CycLiqCp.GIF" title="CycLiqCp.GIF" alt="CycLiqCp.GIF" />
+<img src="/OpenSeesRT/contrib/static/CycLiqCp.GIF" title="CycLiqCp.GIF" alt="CycLiqCp.GIF" />
 <figcaption aria-hidden="true">CycLiqCp.GIF</figcaption>
 </figure>
 <hr />

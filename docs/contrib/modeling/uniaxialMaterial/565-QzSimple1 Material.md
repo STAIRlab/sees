@@ -151,11 +151,11 @@ oscillations in materials like QzSimple1.</p>
 <p>Examples of the monotonic backbones and cyclic loading response of
 QzSimple1 are given in the following plots.</p>
 <figure>
-<img src="QzSimple1A.gif" title="QzSimple1A.gif" alt="QzSimple1A.gif" />
+<img src="/OpenSeesRT/contrib/static/QzSimple1A.gif" title="QzSimple1A.gif" alt="QzSimple1A.gif" />
 <figcaption aria-hidden="true">QzSimple1A.gif</figcaption>
 </figure>
 <figure>
-<img src="QzSimple1B.gif" title="QzSimple1B.gif" alt="QzSimple1B.gif" />
+<img src="/OpenSeesRT/contrib/static/QzSimple1B.gif" title="QzSimple1B.gif" alt="QzSimple1B.gif" />
 <figcaption aria-hidden="true">QzSimple1B.gif</figcaption>
 </figure>
 <p>EXAMPLE:</p>

@@ -37,7 +37,7 @@ the figure.</p></td>
 </tbody>
 </table>
 <figure>
-<img src="Brick.gif" title="Brick.gif" alt="Brick.gif" />
+<img src="/OpenSeesRT/contrib/static/Brick.gif" title="Brick.gif" alt="Brick.gif" />
 <figcaption aria-hidden="true">Brick.gif</figcaption>
 </figure>
 <p>NOTE:</p>

@@ -31,20 +31,29 @@ import numpy as np
 class Material: pass
 class Backbone: pass
 
-fiber = Fiber = cmd("Fiber","fiber",
+
+@cmd
+class Fiber:
+    """
+    This class represents a single fiber in an
+    enclosing `FiberSection` or `NDFiberSection`.
+    """
+#fiber = Fiber = cmd("Fiber","fiber",
     # fiber $yLoc $zLoc $A $material
-    about="This command allows the user to construct a single fiber "\
-          "and add it to the enclosing `FiberSection` or `NDFiberSection`.",
-    args=[
-        Grp("coord", args=[Num("y"), Num("z")],
-            about="$y$ and $z$ coordinate of the fiber in the section "\
+    #about="This command allows the user to construct a single fiber "\
+    #      "and add it to the enclosing `FiberSection` or `NDFiberSection`."
+    _args = [
+        Grp("coord", args=[Num("x"), Num("y")], reverse=True,
+            about="$x$ and $y$ coordinate of the fiber in the section "\
                   "(local coordinate system)"),
         Num("area", about="area of the fiber."),
         Ref("material", type=Material, 
             about="material tag associated with this fiber (UniaxialMaterial tag"\
                   "for a FiberSection and NDMaterial tag for use in an NDFiberSection)."),
     ]
-)
+    def getStress(self, strain, commit=False):
+        pass
+#)
 
 _patch = LibCmd("patch")
 
@@ -142,29 +151,50 @@ class rect(_Polygon):
            about="tag of previously defined material (`UniaxialMaterial`"\
                  "tag for a `FiberSection` or `NDMaterial` tag for use "\
                  "in an `NDFiberSection`)"),
-       Grp("divs", args=[
+       Grp("divs", reverse=True, args=[
            Int("ij", about="number of subdivisions (fibers) in the IJ direction."),
            Int("jk", about="number of subdivisions (fibers) in the JK direction."),
        ]),
-       Grp("vertices", args=[
-         Grp(args=[Num("yI"), Num("zI")],  about="$y$ & $z$-coordinates of vertex I (local coordinate system)"),
-         Grp(args=[Num("yJ"), Num("zJ")],  about="$y$ & $z$-coordinates of vertex J (local coordinate system)"),
-         Grp(args=[Num("yK"), Num("zK")],  about="$y$ & $z$-coordinates of vertex K (local coordinate system)"),
-         Grp(args=[Num("yL"), Num("zL")],  about="$y$ & $z$-coordinates of vertex L (local coordinate system)"),
+       Grp("corners", args=[
+         Grp(args=[Num("yI"), Num("zI")],  reverse=True, about="$y$ & $z$-coordinates of vertex I (local coordinate system)"),
+         #Grp(args=[Num("yJ"), Num("zJ")],  reverse=True, about="$y$ & $z$-coordinates of vertex J (local coordinate system)"),
+         Grp(args=[Num("yK"), Num("zK")],  reverse=True, about="$y$ & $z$-coordinates of vertex K (local coordinate system)"),
+         #Grp(args=[Num("yL"), Num("zL")],  reverse=True, about="$y$ & $z$-coordinates of vertex L (local coordinate system)"),
       ])
     ]
     def init(self):
         self._moic = None
         self._moig = None
         self._area = None
+        self._rule = "mid"
+        self._interp = None
 
-        if len(self.vertices) == 2:
-            ll, ur = self.vertices
+        if len(self.corners) == 2:
+            ll, ur = self.corners
             self.vertices = [ll, [ur[0], ll[1]], ur, [ll[0], ur[1]]]
 
     @property
     def fibers(self):
-        return [Fiber([y,z], self.area, self.material)]
+        if self.divs is None:
+            return []
+        from opensees.quadrature import iquad
+        interp = self._interp or lq4
+        rule = self._rule
+
+        loc, wght = zip(iquad(rule=rule, n=self.divs[0]), iquad(rule=rule, n=self.divs[1]))
+
+        x,y= zip(*(
+                interp(r,s)@self.vertices
+                        for r,s in itertools.product(*loc)
+        ))
+
+        da = 0.25*np.fromiter(
+            (dx*dy*self.area  for dx,dy in itertools.product(*wght)), 
+            float, len(x)
+        )
+        #y, x, da = map(list, zip(*sorted(zip(y, x, da))))
+        return [Fiber([xi,yi], dai, self.material) for yi,xi,dai in sorted(zip(y,x,da))]
+    # return [Fiber([y,z], self.area, self.material) for y,z in np.linspace(self.vertices[0], self.vertices[2], self.divs)]
 
 
 @_patch
@@ -178,15 +208,15 @@ class quad(_Polygon):
        Ref("material", type=Material, field="material", 
            about="tag of previously defined material (`UniaxialMaterial` "\
                  "tag for a `FiberSection` or `NDMaterial` tag for use in an `NDFiberSection`)"),
-       Grp("divs", args=[
+       Grp("divs", reverse=True, args=[
          Int("ij", about="number of subdivisions (fibers) in the IJ direction."),
          Int("jk", about="number of subdivisions (fibers) in the JK direction."),
        ]),
        Grp("vertices", args=[
-         Grp(args=[Num("yI"), Num("zI")],  about="$y$ & $z$-coordinates of vertex I (local coordinate system)"),
-         Grp(args=[Num("yJ"), Num("zJ")],  about="$y$ & $z$-coordinates of vertex J (local coordinate system)"),
-         Grp(args=[Num("yK"), Num("zK")],  about="$y$ & $z$-coordinates of vertex K (local coordinate system)"),
-         Grp(args=[Num("yL"), Num("zL")],  about="$y$ & $z$-coordinates of vertex L (local coordinate system)"),
+         Grp("i", args=[Num("x"), Num("y")],  about="$x$ & $y$-coordinates of vertex I (local coordinate system)", reverse=True),
+         Grp("j", args=[Num("x"), Num("y")],  about="$x$ & $y$-coordinates of vertex J (local coordinate system)", reverse=True),
+         Grp("k", args=[Num("x"), Num("y")],  about="$x$ & $y$-coordinates of vertex K (local coordinate system)", reverse=True),
+         Grp("l", args=[Num("x"), Num("y")],  about="$x$ & $y$-coordinates of vertex L (local coordinate system)", reverse=True),
       ])
     ]
 
@@ -277,6 +307,20 @@ class circ:
         self._area = None
         if "diameter" in self.kwds:
             self.extRad = self.kwds["diameter"]/2
+
+    @property
+    def fibers(self):
+        if self.divs is None:
+            return []
+        ri, ro = self.intRad, self.extRad
+        dr = (self.extRad   - self.intRad)/self.divs[1]
+        dt = (self.startAng - self.endAng)/self.divs[0]
+        areas = (0.5*dt*((ro+(i+1)*dr)**2 - (ri+i*dr)**2) for i in range(self.divs[1]-1))
+        return [
+            Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                    for r,area in zip(np.linspace(self.intRad, self.extRad, self.divs[1]), areas)
+                for theta in np.linspace(self.startAng, self.endAng, self.divs[0])
+        ]
     
     @property
     def moic(self):
@@ -339,6 +383,35 @@ layer = LibCmd("layer",
         about="The layer command is used to generate a number of fibers along a line or a circular arc.",
 )
 
+class reinf:
+    @staticmethod
+    def circ(bar_no, count, radius, center=None):
+        pass
+
+
+# @layer
+# class circ:
+#     _args = [
+#             Ref("material",  type=Material,
+#                  about="material tag of previously created material "\
+#                        "(UniaxialMaterial tag for a FiberSection or "\
+#                        "NDMaterial tag for use in an NDFiberSection)"),
+#             Int("divs",  about="number of fibers along arc"),
+#             Num("area", field="fiber_area", about="area of each fiber"),
+#             Grp("center", args=[Num("y"), Num("z")],
+#                 about="$y$ and $z$-coordinates of center of circular arc"),
+#             Num("radius", about="radius of circular arc"),
+#             Grp("arc", args=[
+#               Num("startAng",  about="starting angle (optional, default = 0.0)"),
+#               Num("endAng",    about="ending angle (optional, default = 360.0 - 360/$numFiber)"),
+#             ])
+#     ]
+#     @property
+#     def fibers(self):
+#         return [Fiber([x, y], self.fiber_area, self.material) 
+#                 for x,y in np.linspace(*self.vertices, self.divs)]
+
+
 @layer
 class line:
     _img = "straightLayer.svg"
@@ -349,18 +422,20 @@ class line:
       Int("divs", about="number of fibers along line"),
       Num("area", field="fiber_area", about="area of each fiber"),
       Grp("vertices", typ=Grp, args=[
-          Grp("start",args=[Num("y"), Num("z")], 
-              about="""$y$ and $z$-coordinates of first fiber
+          Grp("start",args=[Num("x"), Num("y")], reverse=True,
+              about="""$x$ and $y$-coordinates of first fiber
                        in line (local coordinate system)"""),
-          Grp("end", args=[Num("y"), Num("z")],
-              about="$y$ and $z$-coordinates of last fiber in line (local coordinate system)")
+          Grp("end",  args=[Num("x"), Num("y")], reverse=True,
+              about="$x$ and $y$-coordinates of last fiber in line (local coordinate system)")
       ])
     ]
 
     @property
     def fibers(self):
-        return [Fiber([y, z], self.fiber_area, self.material) 
-                for y,z in np.linspace(*self.vertices, self.divs)]
+        if self.divs is None:
+            return []
+        return [Fiber([x, y], self.fiber_area, self.material) 
+                for x,y in np.linspace(*self.vertices, self.divs)]
 
     def __contains__(self, point):
         a,b = np.asarray(self.vertices)

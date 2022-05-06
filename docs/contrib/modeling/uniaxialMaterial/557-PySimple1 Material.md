@@ -172,11 +172,11 @@ algorithms and damping ratios. In general, an HHT algorithm is preferred
 over a Newmark algorithm for reducing such oscillations in materials
 like PySimple1.</p>
 <figure>
-<img src="PySimple1A.gif" title="PySimple1A.gif" alt="PySimple1A.gif" />
+<img src="/OpenSeesRT/contrib/static/PySimple1A.gif" title="PySimple1A.gif" alt="PySimple1A.gif" />
 <figcaption aria-hidden="true">PySimple1A.gif</figcaption>
 </figure>
 <figure>
-<img src="PySimple1B.gif" title="PySimple1B.gif" alt="PySimple1B.gif" />
+<img src="/OpenSeesRT/contrib/static/PySimple1B.gif" title="PySimple1B.gif" alt="PySimple1B.gif" />
 <figcaption aria-hidden="true">PySimple1B.gif</figcaption>
 </figure>
 <p>EXAMPLE:</p>

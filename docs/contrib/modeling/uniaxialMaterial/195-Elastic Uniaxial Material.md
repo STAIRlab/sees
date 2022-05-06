@@ -28,7 +28,7 @@ uniaxialMaterial Elastic $matTag $E &lt;$eta&gt;
 </tr>
 </tbody>
 </table>
-<p><img src="Elastic.gif" title="Elastic.gif" alt="Elastic.gif" /> <img
+<p><img src="/OpenSeesRT/contrib/static/Elastic.gif" title="Elastic.gif" alt="Elastic.gif" /> <img
 src="ElasticPosNeg.png" title="ElasticPosNeg.png"
 alt="ElasticPosNeg.png" /></p>
 <hr />

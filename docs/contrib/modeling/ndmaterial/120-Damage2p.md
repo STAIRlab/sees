@@ -161,8 +161,8 @@ Gopalaratnam and Shah 1985)</p></td>
 </tbody>
 </table>
 <h2 id="development_team">Development Team</h2>
-<p>This code has been Developed by: &lt;span
-style="color:blue"&gt;Leopoldo Tesser - Dept. DICEA - Univeristy of
+<p>This code has been Developed by: 
+<span style="color:blue">Leopoldo Tesser - Dept. DICEA - Univeristy of
 Padua - Italy</span>,</p>
 <p>contact: <span style="color:blue">leopoldo.tesser AT
 dicea.unipd.it</span></p>

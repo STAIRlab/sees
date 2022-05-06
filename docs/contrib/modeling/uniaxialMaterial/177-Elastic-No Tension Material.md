@@ -20,7 +20,7 @@ uniaxialMaterial ENT $matTag $E
 </tbody>
 </table>
 <figure>
-<img src="ENT.gif" title="ENT.gif" alt="ENT.gif" />
+<img src="/OpenSeesRT/contrib/static/ENT.gif" title="ENT.gif" alt="ENT.gif" />
 <figcaption aria-hidden="true">ENT.gif</figcaption>
 </figure>
 <hr />
