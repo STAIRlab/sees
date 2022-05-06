@@ -1,15 +1,13 @@
 # SSPquadUP Element
 
 <p>This command is used to construct a SSPquadUP element object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element SSPquadUP $eleTag $iNode $jNode $kNode $lNode
-$matTag $thick $fBulk $fDen $k1 $k2 $void $alpha &lt;$b1
-$b2&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element SSPquadUP $eleTag $iNode $jNode $kNode $lNode
+        $matTag $thick $fBulk $fDen $k1 $k2 $void $alpha &lt;$b1
+        $b2&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

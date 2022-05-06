@@ -4,15 +4,13 @@
 object, which is defined by two nodes. This element consists of a series
 of identical shear springs arranged radially to represent the isotropic
 behavior in the local y-z plane.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element multipleShearSpring $eleTag $iNode $jNode
-$nSpring -mat $matTag &lt;-lim $dsp&gt; &lt;-orient &lt;$x1 $x2 $x3&gt;
-$yp1 $yp2 $yp3&gt; &lt;-mass $m&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element multipleShearSpring $eleTag $iNode $jNode
+        $nSpring -mat $matTag &lt;-lim $dsp&gt; &lt;-orient &lt;$x1 $x2 $x3&gt;
+        $yp1 $yp2 $yp3&gt; &lt;-mass $m&gt;
+```
+
 <hr />
 <table>
 <tbody>

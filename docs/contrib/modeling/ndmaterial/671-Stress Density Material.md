@@ -5,15 +5,13 @@ material object for modeling sand behaviour following the work of
 Cubrinovski and Ishihara (1998a,b). Note that as of January 2020 this
 material is still undergoing verification testing for more complex
 loading and initial conditions.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial stressDensity $matTag $mDen $eNot $A $n $nu
-$a1 $b1 $a2 $b2 $a3 $b3 $fd $muNot $muCyc $sc $M $patm &lt;$ssl1 $ssl2
-$ssl3 $ssl4 $ssl5 $ssl6 $ssl7 $hsl $pmin&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial stressDensity $matTag $mDen $eNot $A $n $nu
+        $a1 $b1 $a2 $b2 $a3 $b3 $fd $muNot $muCyc $sc $M $patm &lt;$ssl1 $ssl2
+        $ssl3 $ssl4 $ssl5 $ssl6 $ssl7 $hsl $pmin&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

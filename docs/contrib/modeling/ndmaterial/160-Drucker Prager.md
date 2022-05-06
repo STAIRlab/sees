@@ -2,15 +2,13 @@
 
 <p>This command is used to construct an multi dimensional material
 object that has a Drucker-Prager yield criterium.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial DruckerPrager $matTag $k $G $sigmaY $rho
-$rhoBar $Kinf $Ko $delta1 $delta2 $H $theta $density
-&lt;$atmPressure&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial DruckerPrager $matTag $k $G $sigmaY $rho
+        $rhoBar $Kinf $Ko $delta1 $delta2 $H $theta $density
+        &lt;$atmPressure&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

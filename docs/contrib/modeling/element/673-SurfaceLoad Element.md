@@ -1,14 +1,12 @@
 # SurfaceLoad Element
 
 <p>This command is used to construct a SurfaceLoad element object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element SurfaceLoad $eleTag $iNode $jNode $kNode $lNode
-$p</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element SurfaceLoad $eleTag $iNode $jNode $kNode $lNode
+        $p
+```
+
 <table>
 <tbody>
 <tr class="odd">

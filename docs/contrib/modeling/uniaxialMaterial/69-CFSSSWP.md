@@ -10,15 +10,13 @@ strength and displacement, respectively.</p>
 <p><span style="color:blue"> <strong>NOTE:</strong> before you use
 this material make sure that you have downloaded the latest OpenSees
 version.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial CFSSSWP $tag $height $width $fuf $fyf
-$tf $Af $fus $fys $ts $np $ds $Vs $sc $dt $openingArea
-$openingLength</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial CFSSSWP $tag $height $width $fuf $fyf
+        $tf $Af $fus $fys $ts $np $ds $Vs $sc $dt $openingArea
+        $openingLength
+```
+
 <hr />
 <table>
 <tbody>

@@ -5,15 +5,13 @@ simulates the hysteretic response of bilinear oil dampers with relief
 valve. Two adaptive iterative algorithms have been implemented and
 validated to solve numerically the constitutive equations within a
 bilinear oil damper with a high-precision accuracy.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial BilinearOilDamper $matTag $K $Cd &lt;$Fr
-$p&gt; &lt;$LGap&gt; &lt; $NM $RelTol $AbsTol
-$MaxHalf&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial BilinearOilDamper $matTag $K $Cd &lt;$Fr
+        $p&gt; &lt;$LGap&gt; &lt; $NM $RelTol $AbsTol
+        $MaxHalf&gt;
+```
+
 <hr />
 <table>
 <tbody>

@@ -15,28 +15,24 @@ determined from the nodal geometry unless the optional x-axis vector is
 specified in which case the nodal geometry is ignored and the
 user-defined orientation is utilized.</p>
 <p>For a two-dimensional problem:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element elastomericBearingBoucWen $eleTag $iNode $jNode
-$kInit $qd $alpha1 $alpha2 $mu $eta $beta $gamma -P $matTag -Mz $matTag
-&lt;-orient $x1 $x2 $x3 $y1 $y2 $y3&gt; &lt;-shearDist $sDratio&gt;
-&lt;-doRayleigh&gt; &lt;-mass $m&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element elastomericBearingBoucWen $eleTag $iNode $jNode
+        $kInit $qd $alpha1 $alpha2 $mu $eta $beta $gamma -P $matTag -Mz $matTag
+        &lt;-orient $x1 $x2 $x3 $y1 $y2 $y3&gt; &lt;-shearDist $sDratio&gt;
+        &lt;-doRayleigh&gt; &lt;-mass $m&gt;
+```
+
 <p>For a three-dimensional problem:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element elastomericBearingBoucWen $eleTag $iNode $jNode
-$kInit $qd $alpha1 $alpha2 $mu $eta $beat $gamma -P $matTag -T $matTag
--My $matTag -Mz $matTag &lt;-orient &lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
-&lt;-shearDist $sDratio&gt; &lt;-doRayleigh&gt; &lt;-mass
-$m&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element elastomericBearingBoucWen $eleTag $iNode $jNode
+        $kInit $qd $alpha1 $alpha2 $mu $eta $beat $gamma -P $matTag -T $matTag
+        -My $matTag -Mz $matTag &lt;-orient &lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
+        &lt;-shearDist $sDratio&gt; &lt;-doRayleigh&gt; &lt;-mass
+        $m&gt;
+```
+
 <hr />
 <table>
 <tbody>

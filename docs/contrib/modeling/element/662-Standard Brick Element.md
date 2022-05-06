@@ -2,15 +2,13 @@
 
 <p>This element is used to construct an eight-node brick element object,
 which uses a trilinear isoparametric formulation.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element stdBrick $eleTag $node1 $node2 $node3 $node4
-$node5 $node6 $node7 $node8 $matTag &lt;$b1 $b2
-$b3&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element stdBrick $eleTag $node1 $node2 $node3 $node4
+        $node5 $node6 $node7 $node8 $matTag &lt;$b1 $b2
+        $b3&gt;
+```
+
 <hr />
 <table>
 <tbody>

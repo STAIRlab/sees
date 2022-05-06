@@ -10,15 +10,13 @@ element elasticBeamColumn $eleTag $iNode $jNode $A $E $Iz
         $transfTag &lt;-mass $massDens&gt; &lt;-cMass&gt;
 ```
 <p>For a three-dimensional problem:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element elasticBeamColumn $eleTag $iNode $jNode $A $E $G
-$J $Iy $Iz $transfTag &lt;-mass $massDens&gt;
-&lt;-cMass&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element elasticBeamColumn $eleTag $iNode $jNode $A $E $G
+        $J $Iy $Iz $transfTag &lt;-mass $massDens&gt;
+        &lt;-cMass&gt;
+```
+
 <hr />
 <table>
 <tbody>

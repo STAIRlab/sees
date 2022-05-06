@@ -2,14 +2,12 @@
 
 <p>This command is used to construct a BeamEndContact3D element
 object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element BeamEndContact3D $eleTag $iNode $jNode $cNode
-$lNode $radius $gTol $fTol &lt;$cFlag$&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element BeamEndContact3D $eleTag $iNode $jNode $cNode
+        $lNode $radius $gTol $fTol &lt;$cFlag$&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

@@ -20,15 +20,13 @@ hardening rules as this uniaxial model, and only differ in their purpose
 and numerical implementation.</p>
 <p>Available in OpenSees version 3.1.0+.</p>
 <hr />
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial UVCuniaxial $matTag $E $fy $QInf $b
-$DInf $a $N $C1 $gamma1 &lt;$C2 $gamma2 $C3 $gamma3 … $C8
-$gamma8&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial UVCuniaxial $matTag $E $fy $QInf $b
+        $DInf $a $N $C1 $gamma1 &lt;$C2 $gamma2 $C3 $gamma3 … $C8
+        $gamma8&gt;
+```
+
 <hr />
 <table>
 <tbody>

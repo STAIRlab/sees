@@ -4,15 +4,13 @@
 which is defined by two nodes at the same location. The nodes are
 connected by a single NDMaterial object to represent the
 force-deformation relationship for the element.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element zeroLengthND $eleTag $iNode $jNode $matTag
-&lt;$uniTag&gt; &lt;-orient $x1 $x2 $x3 $yp1 $yp2
-$yp3&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element zeroLengthND $eleTag $iNode $jNode $matTag
+        &lt;$uniTag&gt; &lt;-orient $x1 $x2 $x3 $yp1 $yp2
+        $yp3&gt;
+```
+
 <hr />
 <table>
 <tbody>

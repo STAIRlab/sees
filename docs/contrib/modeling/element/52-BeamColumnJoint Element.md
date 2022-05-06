@@ -4,15 +4,13 @@
 element object. The element may be used with both two-dimensional and
 three-dimensional structures; however, load is transferred only in the
 plane of the element.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element beamColumnJoint $eleTag $Nd1 $Nd2 $Nd3 $Nd4 $Mat1
-$Mat2 $Mat3 $Mat4 $Mat5 $Mat6 $Mat7 $Mat8 $Mat9 $Mat10 $Mat11 $Mat12
-$Mat13 &lt;$eleHeightFac $eleWidthFac&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element beamColumnJoint $eleTag $Nd1 $Nd2 $Nd3 $Nd4 $Mat1
+        $Mat2 $Mat3 $Mat4 $Mat5 $Mat6 $Mat7 $Mat8 $Mat9 $Mat10 $Mat11 $Mat12
+        $Mat13 &lt;$eleHeightFac $eleWidthFac&gt;
+```
+
 <hr />
 <table>
 <tbody>

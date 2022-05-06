@@ -4,15 +4,13 @@
 object, which is defined by two nodes. This element can be used to
 represent the isotropic behavior of high-damping rubber bearing in the
 local y-z plane.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element YamamotoBiaxialHDR $eleTag $iNode $jNode $Tp $DDo
-$DDi $Hr &lt;-coRS $cr $cs&gt; &lt;-orient &lt;$x1 $x2 $x3&gt; $y1 $y2
-$y3&gt; &lt;-mass $m&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element YamamotoBiaxialHDR $eleTag $iNode $jNode $Tp $DDo
+        $DDi $Hr &lt;-coRS $cr $cs&gt; &lt;-orient &lt;$x1 $x2 $x3&gt; $y1 $y2
+        $y3&gt; &lt;-mass $m&gt;
+```
+
 <hr />
 <table>
 <tbody>

@@ -8,17 +8,15 @@ title="wikilink">NOTE: before you use this material make sure that you
 have downloaded the latest OpenSees version.</a> A youtube video
 presents a summary of this model including the way to be used within
 openSees (http://youtu.be/YHBHQ-xuybE).</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial ModIMKPinching $matTag $K0 $as_Plus
-$as_Neg $My_Plus $My_Neg $FprPos $FprNeg $A_pinch $Lamda_S $Lamda_C
-$Lamda_A $Lamda_K $c_S $c_C $c_A $c_K $theta_p_Plus $theta_p_Neg
-$theta_pc_Plus $theta_pc_Neg $Res_Pos $Res_Neg $theta_u_Plus
-$theta_u_Neg $D_Plus $D_Neg</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial ModIMKPinching $matTag $K0 $as_Plus
+        $as_Neg $My_Plus $My_Neg $FprPos $FprNeg $A_pinch $Lamda_S $Lamda_C
+        $Lamda_A $Lamda_K $c_S $c_C $c_A $c_K $theta_p_Plus $theta_p_Neg
+        $theta_pc_Plus $theta_pc_Neg $Res_Pos $Res_Neg $theta_u_Plus
+        $theta_u_Neg $D_Plus $D_Neg
+```
+
 <hr />
 <table>
 <tbody>

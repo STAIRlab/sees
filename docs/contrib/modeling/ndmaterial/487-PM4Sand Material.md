@@ -7,15 +7,13 @@ documentation site</a></strong></li>
 </ul>
 <p>This command is used to construct a 2-dimensional PM4Sand
 material.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDmaterial PM4Sand $matTag $Dr $G0 $hpo $Den &lt;$patm
-$h0 $emax $emin $nb $nd $Ado $zmax $cz $ce $phic $nu $cgd $cdr $ckaf $Q
-$R $m $Fsed_min $p_sedo&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDmaterial PM4Sand $matTag $Dr $G0 $hpo $Den &lt;$patm
+        $h0 $emax $emin $nb $nd $Ado $zmax $cz $ce $phic $nu $cgd $cdr $ckaf $Q
+        $R $m $Fsed_min $p_sedo&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

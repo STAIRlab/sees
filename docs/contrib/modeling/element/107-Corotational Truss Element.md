@@ -4,25 +4,21 @@
 object. There are two ways to construct a corotational truss element
 object:</p>
 <p>One way is to specify an area and a UniaxialMaterial identifier:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element corotTruss $eleTag $iNode $jNode $A $matTag
-&lt;-rho $rho&gt; &lt;-cMass $cFlag&gt; &lt;-doRayleigh
-$rFlag&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element corotTruss $eleTag $iNode $jNode $A $matTag
+        &lt;-rho $rho&gt; &lt;-cMass $cFlag&gt; &lt;-doRayleigh
+        $rFlag&gt;
+```
+
 <p>the other is to specify a Section identifier:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element corotTrussSection $eleTag $iNode $jNode $secTag
-&lt;-rho $rho&gt; &lt;-cMass $cFlag&gt; &lt;-doRayleigh
-$rFlag&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element corotTrussSection $eleTag $iNode $jNode $secTag
+        &lt;-rho $rho&gt; &lt;-cMass $cFlag&gt; &lt;-doRayleigh
+        $rFlag&gt;
+```
+
 <hr />
 <table>
 <tbody>

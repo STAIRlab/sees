@@ -109,14 +109,12 @@ class="subscript"&gt;cr&lt;/sub&gt; (e.g., 10000) can be defined.</p>
 <p>Source: /usr/local/cvs/OpenSees/SRC/material/uniaxial/</p>
 <hr />
 <p><strong>Input Format:</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial ConcreteCM $mattag $fpcc $epcc $Ec $rc
-$xcrn $ft $et $rt $xcrp &lt;-GapClose $gap&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial ConcreteCM $mattag $fpcc $epcc $Ec $rc
+        $xcrn $ft $et $rt $xcrp &lt;-GapClose $gap&gt;
+```
+
 
 <table>
 <tbody>

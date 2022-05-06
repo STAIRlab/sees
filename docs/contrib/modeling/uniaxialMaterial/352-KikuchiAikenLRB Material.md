@@ -3,15 +3,13 @@
 <p>This command is used to construct a uniaxial KikuchiAikenLRB material
 object. This material model produces nonlinear hysteretic curves of
 lead-rubber bearings.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial KikuchiAikenLRB $matTag $type $ar $hr
-$gr $ap $tp $alph $beta &lt;-T $temp&gt; &lt;-coKQ $rk $rq&gt;
-&lt;-coMSS $rs $rf&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial KikuchiAikenLRB $matTag $type $ar $hr
+        $gr $ap $tp $alph $beta &lt;-T $temp&gt; &lt;-coKQ $rk $rq&gt;
+        &lt;-coMSS $rs $rf&gt;
+```
+
 <hr />
 <table>
 <tbody>

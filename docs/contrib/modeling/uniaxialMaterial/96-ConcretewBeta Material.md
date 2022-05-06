@@ -43,17 +43,15 @@ described in <a href="#Examples" title="wikilink">the examples</a>.</a>
 </dl>
 </dd>
 </dl>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial ConcretewBeta $matTag $fpc $ec0 $fcint
-$ecint $fcres $ecres $ft $ftint $etint $ftres $etres &lt;-lambda
-$lambda&gt; &lt;-alpha $alpha&gt; &lt;-beta $bint $ebint $bres
-$ebres&gt; &lt;-M $M&gt; &lt;-E $Ec&gt; &lt;-conf $fcc
-$ecc&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial ConcretewBeta $matTag $fpc $ec0 $fcint
+        $ecint $fcres $ecres $ft $ftint $etint $ftres $etres &lt;-lambda
+        $lambda&gt; &lt;-alpha $alpha&gt; &lt;-beta $bint $ebint $bres
+        $ebres&gt; &lt;-M $M&gt; &lt;-E $Ec&gt; &lt;-conf $fcc
+        $ecc&gt;
+```
+
 <hr />
 <table>
 <tbody>

@@ -2,14 +2,12 @@
 
 <p>This command is used to construct a ContactMaterial2D nDMaterial
 object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial ContactMaterial2D $matTag $mu $G $c
-$t</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial ContactMaterial2D $matTag $mu $G $c
+        $t
+```
+
 <table>
 <tbody>
 <tr class="odd">

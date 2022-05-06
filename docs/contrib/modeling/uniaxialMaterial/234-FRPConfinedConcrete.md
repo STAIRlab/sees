@@ -4,15 +4,13 @@
 Megalooikonomou-Monti-Santini concrete material object with degraded
 linear unloading/reloading stiffness according to the work of
 Karsan-Jirsa and no tensile strength.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial FRPConfinedConcrete $matTag $fpc1 $fpc2
-$epsc0 $D $c $Ej $Sj $tj $eju $S $fyl $fyh $dlong $dtrans $Es $vo $k
-$useBuck</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial FRPConfinedConcrete $matTag $fpc1 $fpc2
+        $epsc0 $D $c $Ej $Sj $tj $eju $S $fyl $fyh $dlong $dtrans $Es $vo $k
+        $useBuck
+```
+
 <hr />
 <table>
 <tbody>

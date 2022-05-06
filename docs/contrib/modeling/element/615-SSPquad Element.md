@@ -1,14 +1,12 @@
 # SSPquad Element
 
 <p>This command is used to construct a SSPquad element object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element SSPquad $eleTag $iNode $jNode $kNode $lNode
-$matTag $type $thick &lt;$b1 $b2&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element SSPquad $eleTag $iNode $jNode $kNode $lNode
+        $matTag $type $thick &lt;$b1 $b2&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

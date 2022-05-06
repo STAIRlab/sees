@@ -32,14 +32,12 @@ Panel Element (nDMaterial FSAM)</figcaption>
 </figure>
 <hr />
 <p><strong>Input Format:</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Element SFI_MVLEM $eleTag $iNode $jNode $m $c -thick
-{Thicknesses} -width {Widths} -mat {Material_tags}</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+Element SFI_MVLEM $eleTag $iNode $jNode $m $c -thick
+        {Thicknesses} -width {Widths} -mat {Material_tags}
+```
+
 <table>
 <tbody>
 <tr class="odd">

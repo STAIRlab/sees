@@ -1,14 +1,12 @@
 # BeamContact2D
 
 <p>This command is used to construct a BeamContact2D element object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element BeamContact2D $eleTag $iNode $jNode $cNode $lNode
-$matTag $width $gTol $fTol &lt;$cFlag$&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element BeamContact2D $eleTag $iNode $jNode $cNode $lNode
+        $matTag $width $gTol $fTol &lt;$cFlag$&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

@@ -1,15 +1,13 @@
 # SSPbrick Element
 
 <p>This command is used to construct a SSPbrick element object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element SSPbrick $eleTag $iNode $jNode $kNode $lNode
-$mNode $nNode $pNode $qNode $matTag &lt;$b1 $b2
-$b3&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element SSPbrick $eleTag $iNode $jNode $kNode $lNode
+        $mNode $nNode $pNode $qNode $matTag &lt;$b1 $b2
+        $b3&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

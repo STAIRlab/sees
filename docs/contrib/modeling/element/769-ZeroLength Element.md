@@ -4,15 +4,13 @@
 is defined by two nodes at the same location. The nodes are connected by
 multiple UniaxialMaterial objects to represent the force-deformation
 relationship for the element.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element zeroLength $eleTag $iNode $jNode -mat $matTag1
-$matTag2 ... -dir $dir1 $dir2 ...&lt;-doRayleigh $rFlag&gt; &lt;-orient
-$x1 $x2 $x3 $yp1 $yp2 $yp3&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element zeroLength $eleTag $iNode $jNode -mat $matTag1
+        $matTag2 ... -dir $dir1 $dir2 ...&lt;-doRayleigh $rFlag&gt; &lt;-orient
+        $x1 $x2 $x3 $yp1 $yp2 $yp3&gt;
+```
+
 <hr />
 <table>
 <tbody>

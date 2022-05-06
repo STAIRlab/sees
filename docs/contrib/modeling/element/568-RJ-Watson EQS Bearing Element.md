@@ -21,28 +21,24 @@ non-zero length, the local x-axis is determined from the nodal geometry
 unless the optional x-axis vector is specified in which case the nodal
 geometry is ignored and the user-defined orientation is utilized.</p>
 <p>For a two-dimensional problem:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element RJWatsonEqsBearing $eleTag $iNode $jNode
-$frnMdlTag $kInit -P $matTag -Vy $matTag -Mz $matTag &lt;-orient $x1 $x2
-$x3 $y1 $y2 $y3&gt; &lt;-shearDist $sDratio&gt; &lt;-doRayleigh&gt;
-&lt;-mass $m&gt; &lt;-iter $maxIter $tol&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element RJWatsonEqsBearing $eleTag $iNode $jNode
+        $frnMdlTag $kInit -P $matTag -Vy $matTag -Mz $matTag &lt;-orient $x1 $x2
+        $x3 $y1 $y2 $y3&gt; &lt;-shearDist $sDratio&gt; &lt;-doRayleigh&gt;
+        &lt;-mass $m&gt; &lt;-iter $maxIter $tol&gt;
+```
+
 <p>For a three-dimensional problem:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element RJWatsonEqsBearing $eleTag $iNode $jNode
-$frnMdlTag $kInit -P $matTag -Vy $matTag -Vz $matTag -T $matTag -My
-$matTag -Mz $matTag &lt;-orient &lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
-&lt;-shearDist $sDratio&gt; &lt;-doRayleigh&gt; &lt;-mass $m&gt;
-&lt;-iter $maxIter $tol&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element RJWatsonEqsBearing $eleTag $iNode $jNode
+        $frnMdlTag $kInit -P $matTag -Vy $matTag -Vz $matTag -T $matTag -My
+        $matTag -Mz $matTag &lt;-orient &lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
+        &lt;-shearDist $sDratio&gt; &lt;-doRayleigh&gt; &lt;-mass $m&gt;
+        &lt;-iter $maxIter $tol&gt;
+```
+
 <hr />
 <table>
 <tbody>

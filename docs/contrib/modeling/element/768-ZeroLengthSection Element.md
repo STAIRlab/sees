@@ -4,15 +4,13 @@
 is defined by two nodes at the same location. The nodes are connected by
 a single section object to represent the force-deformation relationship
 for the element.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element zeroLengthSection $eleTag $iNode $jNode $secTag
-&lt;-orient $x1 $x2 $x3 $yp1 $yp2 $yp3&gt; &lt;-doRayleigh
-$rFlag&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element zeroLengthSection $eleTag $iNode $jNode $secTag
+        &lt;-orient $x1 $x2 $x3 $yp1 $yp2 $yp3&gt; &lt;-doRayleigh
+        $rFlag&gt;
+```
+
 <hr />
 <table>
 <tbody>

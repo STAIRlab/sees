@@ -21,15 +21,13 @@ utilized.</p>
 alt="TFP_backbone.gif" />
 <figcaption aria-hidden="true">TFP_backbone.gif</figcaption>
 </figure>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element TFP $eleTag $iNode $jNode $R1 $R2 $R3 $R4 $D1 $D2
-$D3 $D4 $d1 $d2 $d3 $d4 $mu1 $mu2 $mu3 $mu4 $h1 $h2 $h3 $h4 $H0 $colLoad
-&lt;$K&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element TFP $eleTag $iNode $jNode $R1 $R2 $R3 $R4 $D1 $D2
+        $D3 $D4 $d1 $d2 $d3 $d4 $mu1 $mu2 $mu3 $mu4 $h1 $h2 $h3 $h4 $H0 $colLoad
+        &lt;$K&gt;
+```
+
 <hr />
 <table>
 <tbody>

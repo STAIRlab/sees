@@ -2,14 +2,12 @@
 
 <p>This command is used to construct a SimpleContact3D element
 object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element SimpleContact3D $eleTag $iNode $jNode $kNode
-$lNode $cNode $lNode $matTag $gTol $fTol</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element SimpleContact3D $eleTag $iNode $jNode $kNode
+        $lNode $cNode $lNode $matTag $gTol $fTol
+```
+
 <table>
 <tbody>
 <tr class="odd">

@@ -5,15 +5,13 @@ element used in two dimensional analysis for contact between elements.
 Please notice that any number of DOF (DOF&gt;1) can be handled using
 this element (i.e. beam-solid, solid-solid as well as beam-beam contact)
 as oppose to zeroLengthContactNTS2D element).</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element zeroLengthInterface2D $eleTag -cNdNum $cNdNum
--rNdNum $rNdNum -dof $cdof $rdof -Nodes $Nodes $Kn $Kt
-$phi</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element zeroLengthInterface2D $eleTag -cNdNum $cNdNum
+        -rNdNum $rNdNum -dof $cdof $rdof -Nodes $Nodes $Kn $Kt
+        $phi
+```
+
 <hr />
 <table>
 <tbody>

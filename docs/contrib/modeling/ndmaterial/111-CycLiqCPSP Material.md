@@ -3,15 +3,13 @@
 <p>This command is used to construct a multi-dimensional material object
 based on a unified plasticity model for large post-liquefaction shear
 deformation of sand.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDmaterial CycLiqCPSP $matTag $G0 $kappa $h $M $dre1
-$dre2 $rdr $alpha $dir $lambdac $ksi $e0 $np $nd $ein
-&lt;$rho&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDmaterial CycLiqCPSP $matTag $G0 $kappa $h $M $dre1
+        $dre2 $rdr $alpha $dir $lambdac $ksi $e0 $np $nd $ein
+        &lt;$rho&gt;
+```
+
 <p>CycLiqCPSP material is a constitutive model for sand with special
 considerations for cyclic behaviour and accumulation of large
 post-liquefaction shear deformation, and is implemented using a cutting

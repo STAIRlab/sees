@@ -2,14 +2,12 @@
 
 <p>This command is used to construct a multi-dimensional bounding
 surface Cam Clay material object after Borja et al. (2001).</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial BoundingCamClay $matTag $massDensity $C
-$bulkMod $OCR $mu_o $alpha $lambda $h $m</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial BoundingCamClay $matTag $massDensity $C
+        $bulkMod $OCR $mu_o $alpha $lambda $h $m
+```
+
 <table>
 <tbody>
 <tr class="odd">

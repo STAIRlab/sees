@@ -58,15 +58,13 @@ default=10-12)</p></td>
 <p>Original command that assumes Gauss-Lobatto integration with a copy
 of the same section force-deformation model at each integration
 point:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element forceBeamColumn $eleTag $iNode $jNode
-$numIntgrPts $secTag $transfTag &lt;-mass $massDens&gt; &lt;-iter
-$maxIters $tol&gt; &lt;-integration $intType&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element forceBeamColumn $eleTag $iNode $jNode
+        $numIntgrPts $secTag $transfTag &lt;-mass $massDens&gt; &lt;-iter
+        $maxIters $tol&gt; &lt;-integration $intType&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">
@@ -85,15 +83,13 @@ element.</p></td>
 </tbody>
 </table>
 <p>Alternative command (kept for backward compatability):</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element nonlinearBeamColumn $eleTag $iNode $jNode
-$numIntgrPts $secTag $transfTag &lt;-mass $massDens&gt; &lt;-iter
-$maxIters $tol&gt; &lt;-integration $intType&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element nonlinearBeamColumn $eleTag $iNode $jNode
+        $numIntgrPts $secTag $transfTag &lt;-mass $massDens&gt; &lt;-iter
+        $maxIters $tol&gt; &lt;-integration $intType&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

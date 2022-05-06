@@ -2,14 +2,12 @@
 
 <p>This command is used to construct an InitialStateAnalysisWrapper
 nDMaterial object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial InitialStateAnalysisWrapper $matTag $nDMatTag
-$nDim</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial InitialStateAnalysisWrapper $matTag $nDMatTag
+        $nDim
+```
+
 <table>
 <tbody>
 <tr class="odd">

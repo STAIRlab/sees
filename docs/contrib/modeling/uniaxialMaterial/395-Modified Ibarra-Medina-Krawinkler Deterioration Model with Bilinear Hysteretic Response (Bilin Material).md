@@ -12,17 +12,15 @@ have been adopted by PEER/ATC (2010). <strong>The input parameters for
 this component model can be computed interactively from this [link: <a
 href="http://resslabtools.epfl.ch/">http://resslabtools.epfl.ch/</a>].
 Use the module <em>Component Model</em>.</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial Bilin $matTag $K0 $as_Plus $as_Neg
-$My_Plus $My_Neg $Lamda_S $Lamda_C $Lamda_A $Lamda_K $c_S $c_C $c_A $c_K
-$theta_p_Plus $theta_p_Neg $theta_pc_Plus $theta_pc_Neg $Res_Pos
-$Res_Neg $theta_u_Plus $theta_u_Neg $D_Plus $D_Neg
-&lt;$nFactor&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial Bilin $matTag $K0 $as_Plus $as_Neg
+        $My_Plus $My_Neg $Lamda_S $Lamda_C $Lamda_A $Lamda_K $c_S $c_C $c_A $c_K
+        $theta_p_Plus $theta_p_Neg $theta_pc_Plus $theta_pc_Neg $Res_Pos
+        $Res_Neg $theta_u_Plus $theta_u_Neg $D_Plus $D_Neg
+        &lt;$nFactor&gt;
+```
+
 <hr />
 <table>
 <tbody>

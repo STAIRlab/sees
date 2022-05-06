@@ -3,26 +3,22 @@
 <p>This command is used to construct a displacement beam element object,
 which is based on the displacement formulation, and considers the spread
 of plasticity along the element.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element dispBeamColumn $eleTag $iNode $jNode $numIntgrPts
-$secTag $transfTag &lt;-mass $massDens&gt; &lt;-cMass&gt;
-&lt;-integration $intType&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element dispBeamColumn $eleTag $iNode $jNode $numIntgrPts
+        $secTag $transfTag &lt;-mass $massDens&gt; &lt;-cMass&gt;
+        &lt;-integration $intType&gt;
+```
+
 <p>To change the sections along the element length, the following form
 of command may be used:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element dispBeamColumn $eleTag $iNode $jNode $numIntgrPts
--sections $secTag1 $secTag2 ... $transfTag &lt;-mass $massDens&gt;
-&lt;-cMass&gt; &lt;-integration $intType&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element dispBeamColumn $eleTag $iNode $jNode $numIntgrPts
+        -sections $secTag1 $secTag2 ... $transfTag &lt;-mass $massDens&gt;
+        &lt;-cMass&gt; &lt;-integration $intType&gt;
+```
+
 <hr />
 <table>
 <tbody>

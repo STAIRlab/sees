@@ -2,15 +2,13 @@
 
 <p>This command constructs a node-to-node zero-length contact element in
 3D space to simulate the impact/pounding and friction phenomena.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element zeroLengthImpact3D $tag $cNode $rNode $direction
-$initGap $frictionRatio $Kt $Kn $Kn2 $Delta_y
-$cohesion</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element zeroLengthImpact3D $tag $cNode $rNode $direction
+        $initGap $frictionRatio $Kt $Kn $Kn2 $Delta_y
+        $cohesion
+```
+
 <hr />
 <table>
 <tbody>

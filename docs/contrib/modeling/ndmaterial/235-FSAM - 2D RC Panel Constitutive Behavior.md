@@ -44,14 +44,12 @@ Strains to In-Plane Smeared Stresses on a RC Panel Element</figcaption>
 </figure>
 <hr />
 <p><strong>Input Format:</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial FSAM $mattag $rho $sX $sY $conc $rouX $rouY
-$nu $alfadow</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial FSAM $mattag $rho $sX $sY $conc $rouX $rouY
+        $nu $alfadow
+```
+
 <table>
 <tbody>
 <tr class="odd">

@@ -20,27 +20,23 @@ Hsu</a></span>,</p>
 <p>This command is used to construct a Reinforced Concrete Plane Stress
 material object based on Rotating Angle Theory with steel along two
 directions.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial ReinforcedConcretePlaneStress matTag? rho? s1?
-s2? c1? c2? angle1? angle2? rou1? rou2? fpc? fy? E0?
-epsc0?</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial ReinforcedConcretePlaneStress matTag? rho? s1?
+        s2? c1? c2? angle1? angle2? rou1? rou2? fpc? fy? E0?
+        epsc0?
+```
+
 <p>This command is used to construct a Reinforced Concrete Plane Stress
 material object based on Fixed Angle theory with steel along two
 directions.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial FAReinforcedConcretePlaneStress matTag? rho?
-s1? s2? c1? c2? angle1? angle2? rou1? rou2? fpc? fy? E0?
-epsc0?</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial FAReinforcedConcretePlaneStress matTag? rho?
+        s1? s2? c1? c2? angle1? angle2? rou1? rou2? fpc? fy? E0?
+        epsc0?
+```
+
 <p>This command is used to construct a Reinforced Concrete Plane Stress
 material object based on Rotating Angle theory with steel along four
 directions.</p>
@@ -70,51 +66,43 @@ rou2? rou3? rou4? fpc? fy? E0? epsc0?</strong></p></td>
 <p>This command is used to construct a Prestressed Concrete Plane Stress
 material object based on Rotating Angle Theory with steel along two
 directions.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial PrestressedConcretePlaneStress matTag? rho?
-t1? s1? c1? c2? angle1? angle2? rou1? rou2? pstrain? fpc? fyT? fy2? E0?
-epsc0?</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial PrestressedConcretePlaneStress matTag? rho?
+        t1? s1? c1? c2? angle1? angle2? rou1? rou2? pstrain? fpc? fyT? fy2? E0?
+        epsc0?
+```
+
 <p>This command is used to construct a Prestressed Concrete Plane Stress
 material object based on Fixed Angle theory with steel along two
 directions.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial FAPrestressedConcretePlaneStress matTag? rho?
-t1? s2? c1? c2? angle1? angle2? rou1? rou2? pstrain? fpc? fyT? fy? E0?
-epsc0?</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial FAPrestressedConcretePlaneStress matTag? rho?
+        t1? s2? c1? c2? angle1? angle2? rou1? rou2? pstrain? fpc? fyT? fy? E0?
+        epsc0?
+```
+
 <p>This command is used to construct a Prestressed Concrete Plane Stress
 material object based on Rotating Angle Theory with steel along four
 directions.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial RAFourSteelPCPlaneStress matTag? rho?
-UniaxiaMatTag1? UniaxiaMatTag2? UniaxiaMatTag3? UniaxiaMatTag4? angle1?
-angle2? rou1? rou2? pstrain? fpc? fyT? fy? E0? epsc0?</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial RAFourSteelPCPlaneStress matTag? rho?
+        UniaxiaMatTag1? UniaxiaMatTag2? UniaxiaMatTag3? UniaxiaMatTag4? angle1?
+        angle2? rou1? rou2? pstrain? fpc? fyT? fy? E0? epsc0?
+```
+
 <p>This command is used to construct a Prestresed Concrete Plane Stress
 material object based on Fixed Angle theory with steel along four
 directions.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial FAFourSteelPCPlaneStress matTag? rho? t1? t2?
-s3? s4? c1? c2? angle1? angle2? angle3? angle4? rou1? rou2? rou3? rou4?
-pstrain1? pstrain2? fpc? fyT? fy? E0? epsc0?</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial FAFourSteelPCPlaneStress matTag? rho? t1? t2?
+        s3? s4? c1? c2? angle1? angle2? angle3? angle4? rou1? rou2? rou3? rou4?
+        pstrain1? pstrain2? fpc? fyT? fy? E0? epsc0?
+```
+
 <hr />
 <table>
 <tbody>
@@ -179,38 +167,30 @@ ConcreteZ01</strong></p></td>
 <p>A number of special uniaxial materials are needed for these
 materials. These materials are created using the following
 uniaxialMaterial commands.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial SteelZ01 tag? fy? E0? fpc? rou?
-&lt;ac?&gt; &lt;rc?&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial TendonL01 tag? fpy? Eps? fpc? rou? epsp?
-&lt;ac?&gt; &lt;rc?&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial ConcreteL01 tag? fpc?
-epsc0?</strong></p></td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial ConcreteZ01 tag? fpc?
-epsc0?</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial SteelZ01 tag? fy? E0? fpc? rou?
+        &lt;ac?&gt; &lt;rc?&gt;
+```
+
+
+```tcl
+uniaxialMaterial TendonL01 tag? fpy? Eps? fpc? rou? epsp?
+        &lt;ac?&gt; &lt;rc?&gt;
+```
+
+
+```tcl
+uniaxialMaterial ConcreteL01 tag? fpc?
+        epsc0?
+```
+
+
+```tcl
+uniaxialMaterial ConcreteZ01 tag? fpc?
+        epsc0?
+```
+
 <table>
 <tbody>
 <tr class="odd">

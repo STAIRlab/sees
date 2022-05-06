@@ -303,14 +303,12 @@ Panel Element (nDMaterial FSAM)</figcaption>
 </figure>
 <hr />
 <p><strong>Input Format:</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Element SFI_MVLEM $eleTag $iNode $jNode $m $c -thick
-{Thicknesses} -width {Widths} -mat {Material_tags}</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+Element SFI_MVLEM $eleTag $iNode $jNode $m $c -thick
+        {Thicknesses} -width {Widths} -mat {Material_tags}
+```
+
 <table>
 <tbody>
 <tr class="odd">
@@ -795,14 +793,12 @@ alt="Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)" />
 </figure>
 <hr />
 <p><strong>Input Format:</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial SteelMPF $mattag $fyp $fyn $E0 $bp $bn
-$R0 $a1 $a2 &lt;$a3 $a4&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial SteelMPF $mattag $fyp $fyn $E0 $bp $bn
+        $R0 $a1 $a2 &lt;$a3 $a4&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">
@@ -1013,14 +1009,12 @@ class="subscript"&gt;cr&lt;/sub&gt; (e.g., 10000) can be defined.</p>
 <p>Source: /usr/local/cvs/OpenSees/SRC/material/uniaxial/</p>
 <hr />
 <p><strong>Input Format:</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial ConcreteCM $mattag $fpcc $epcc $Ec $rc
-$xcrn $ft $et $rt $xcrp &lt;-GapClose $gap&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial ConcreteCM $mattag $fpcc $epcc $Ec $rc
+        $xcrn $ft $et $rt $xcrp &lt;-GapClose $gap&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">
@@ -1195,14 +1189,12 @@ Strains to In-Plane Smeared Stresses on a RC Panel Element</figcaption>
 </figure>
 <hr />
 <p><strong>Input Format:</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial FSAM $mattag $rho $sX $sY $conc $rouX $rouY
-$nu $alfadow</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial FSAM $mattag $rho $sX $sY $conc $rouX $rouY
+        $nu $alfadow
+```
+
 <table>
 <tbody>
 <tr class="odd">

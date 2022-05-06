@@ -4,15 +4,13 @@
 which is a distributed-plasticity, displacement-based beam-column
 element which includes interaction between flexural and shear
 components.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element dispBeamColumnInt $eleTag $iNode $jNode
-$numIntgrPts $secTag $transfTag $cRot &lt;-mass
-$massDens&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element dispBeamColumnInt $eleTag $iNode $jNode
+        $numIntgrPts $secTag $transfTag $cRot &lt;-mass
+        $massDens&gt;
+```
+
 <hr />
 <table>
 <tbody>

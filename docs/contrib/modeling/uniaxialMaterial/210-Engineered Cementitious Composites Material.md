@@ -4,15 +4,13 @@
 Composites (ECC)material object based on the ECC material model of Han,
 et al. (see references). Reloading in tension and compression is
 linear.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial ECC01 $matTag $sigt0 $epst0 $sigt1
-$epst1 $epst2 $sigc0 $epsc0 $epsc1 $alphaT1 $alphaT2 $alphaC $alphaCU
-$betaT $betaC</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial ECC01 $matTag $sigt0 $epst0 $sigt1
+        $epst1 $epst2 $sigc0 $epsc0 $epsc1 $alphaT1 $alphaT2 $alphaC $alphaCU
+        $betaT $betaC
+```
+
 <hr />
 <table>
 <tbody>

@@ -2,15 +2,13 @@
 
 <p>This command is used to construct a multi-dimensional
 Manzari-Dafalias(2004) material.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDmaterial ManzariDafalias $matTag $G0 $nu $e_init $Mc $c
-$lambda_c $e0 $ksi $P_atm $m $h0 $ch $nb $A0 $nd $z_max $cz
-$Den</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDmaterial ManzariDafalias $matTag $G0 $nu $e_init $Mc $c
+        $lambda_c $e0 $ksi $P_atm $m $h0 $ch $nb $A0 $nd $z_max $cz
+        $Den
+```
+
 <table>
 <tbody>
 <tr class="odd">

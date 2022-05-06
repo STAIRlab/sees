@@ -132,25 +132,21 @@ queries.</p>
 <p>NOTE: this form of the command forces the element interior to be
 linear-elastic, which is not always the best approach.</p>
 <p>For 2D:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element beamWithHinges $eleTag $iNode $jNode $secTagI
-$Lpi $secTagJ $Lpj $E $A $Iz $transfTag &lt;-mass $massDens&gt;
-&lt;-iter $maxIters $tol&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element beamWithHinges $eleTag $iNode $jNode $secTagI
+        $Lpi $secTagJ $Lpj $E $A $Iz $transfTag &lt;-mass $massDens&gt;
+        &lt;-iter $maxIters $tol&gt;
+```
+
 <p>For 3D:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element beamWithHinges $eleTag $iNode $jNode $secTagI
-$Lpi $secTagJ $Lpj $E $A $Iz $Iy $G $J $transfTag &lt;-mass
-$massDens&gt; &lt;-iter $maxIters $tol&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element beamWithHinges $eleTag $iNode $jNode $secTagI
+        $Lpi $secTagJ $Lpj $E $A $Iz $Iy $G $J $transfTag &lt;-mass
+        $massDens&gt; &lt;-iter $maxIters $tol&gt;
+```
+
 <p>All inputs are the same as above, with the following additional
 inputs, which are used solely to create a "dummy" elastic section at the
 two Gauss integration points of the element interior</p>

@@ -5,17 +5,15 @@ a 'pinched' load-deformation response and exhibits degradation under
 cyclic loading. Cyclic degradation of strength and stiffness occurs in
 three ways: unloading stiffness degradation, reloading stiffness
 degradation, strength degradation.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial Pinching4 $matTag $ePf1 $ePd1 $ePf2
-$ePd2 $ePf3 $ePd3 $ePf4 $ePd4 &lt;$eNf1 $eNd1 $eNf2 $eNd2 $eNf3 $eNd3
-$eNf4 $eNd4&gt; $rDispP $rForceP $uForceP &lt;$rDispN $rForceN $uForceN
-&gt; $gK1 $gK2 $gK3 $gK4 $gKLim $gD1 $gD2 $gD3 $gD4 $gDLim $gF1 $gF2
-$gF3 $gF4 $gFLim $gE $dmgType</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial Pinching4 $matTag $ePf1 $ePd1 $ePf2
+        $ePd2 $ePf3 $ePd3 $ePf4 $ePd4 &lt;$eNf1 $eNd1 $eNf2 $eNd2 $eNf3 $eNd3
+        $eNf4 $eNd4&gt; $rDispP $rForceP $uForceP &lt;$rDispN $rForceN $uForceN
+        &gt; $gK1 $gK2 $gK3 $gK4 $gKLim $gD1 $gD2 $gD3 $gD4 $gDLim $gF1 $gF2
+        $gF3 $gF4 $gFLim $gE $dmgType
+```
+
 <hr />
 <table>
 <tbody>

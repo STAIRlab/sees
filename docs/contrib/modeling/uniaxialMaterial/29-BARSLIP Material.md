@@ -6,15 +6,13 @@ beam-column joint. The model exhibits degradation under cyclic loading.
 Cyclic degradation of strength and stiffness occurs in three ways:
 unloading stiffness degradation, reloading stiffness degradation,
 strength degradation.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial BarSlip $matTag $fc $fy $Es $fu $Eh $db
-$ld $nb $depth $height &lt;$ancLratio&gt; $bsFlag $type &lt;$damage
-$unit&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial BarSlip $matTag $fc $fy $Es $fu $Eh $db
+        $ld $nb $depth $height &lt;$ancLratio&gt; $bsFlag $type &lt;$damage
+        $unit&gt;
+```
+
 <hr />
 <table>
 <tbody>

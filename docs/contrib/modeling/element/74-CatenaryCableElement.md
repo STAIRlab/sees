@@ -2,15 +2,13 @@
 
 <p>This command is used to construct a catenary cable element
 object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element CatenaryCable $tag $iNode $jNode $weight $E $A
-$L0 $alpha $temperature_change $rho $errorTol $Nsubsteps
-$massType</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element CatenaryCable $tag $iNode $jNode $weight $E $A
+        $L0 $alpha $temperature_change $rho $errorTol $Nsubsteps
+        $massType
+```
+
 <hr />
 <table>
 <tbody>

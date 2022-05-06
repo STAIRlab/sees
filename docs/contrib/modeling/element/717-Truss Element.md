@@ -3,25 +3,21 @@
 <p>This command is used to construct a truss element object. There are
 two ways to construct a truss element object:</p>
 <p>One way is to specify an area and a UniaxialMaterial identifier:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element truss $eleTag $iNode $jNode $A $matTag &lt;-rho
-$rho&gt; &lt;-cMass $cFlag&gt; &lt;-doRayleigh
-$rFlag&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element truss $eleTag $iNode $jNode $A $matTag &lt;-rho
+        $rho&gt; &lt;-cMass $cFlag&gt; &lt;-doRayleigh
+        $rFlag&gt;
+```
+
 <p>the other is to specify a Section identifier:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element trussSection $eleTag $iNode $jNode $secTag
-&lt;-rho $rho&gt; &lt;-cMass $cFlag&gt; &lt;-doRayleigh
-$rFlag&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element trussSection $eleTag $iNode $jNode $secTag
+        &lt;-rho $rho&gt; &lt;-cMass $cFlag&gt; &lt;-doRayleigh
+        $rFlag&gt;
+```
+
 <hr />
 <table>
 <tbody>

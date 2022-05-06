@@ -5,15 +5,13 @@ object with pinching of force and deformation, damage due to ductility
 and energy, and degraded unloading stiffness based on ductility. Failure
 of the material is defined by the associated <a href="Limit_Curve"
 title="wikilink">Limit Curve</a>.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial LimitState $matTag $s1p $e1p $s2p $e2p
-$s3p $e3p $s1n $e1n $s2n $e2n $s3n $e3n $pinchX $pinchY $damage1
-$damage2 $beta $curveTag $curveType.</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial LimitState $matTag $s1p $e1p $s2p $e2p
+        $s3p $e3p $s1n $e1n $s2n $e2n $s3n $e3n $pinchX $pinchY $damage1
+        $damage2 $beta $curveTag $curveType.
+```
+
 <hr />
 <table>
 <tbody>

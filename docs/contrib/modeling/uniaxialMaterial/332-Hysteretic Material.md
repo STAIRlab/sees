@@ -4,15 +4,13 @@
 material object with pinching of force and deformation, damage due to
 ductility and energy, and degraded unloading stiffness based on
 ductility.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial Hysteretic $matTag $s1p $e1p $s2p $e2p
-&lt;$s3p $e3p&gt; $s1n $e1n $s2n $e2n &lt;$s3n $e3n&gt; $pinchX $pinchY
-$damage1 $damage2 &lt;$beta&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial Hysteretic $matTag $s1p $e1p $s2p $e2p
+        &lt;$s3p $e3p&gt; $s1n $e1n $s2n $e2n &lt;$s3n $e3n&gt; $pinchX $pinchY
+        $damage1 $damage2 &lt;$beta&gt;
+```
+
 <hr />
 <table>
 <tbody>

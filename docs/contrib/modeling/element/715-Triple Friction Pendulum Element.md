@@ -45,16 +45,14 @@ depends on the stiffness of the superstructure, but a value between 10
 N/m to 100 N/m should work well in most cases. Very small ratio of
 k_vt/k_vc may cause the convergence difficulty when the superstructure
 is uplifted.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element TripleFrictionPendulum $eleTag $iNode $jNode
-$frnTag1 $frnTag2 $frnTag3 $vertMatTag $rotZMatTag $rotXMatTag
-$rotYMatTag $L1 $L2 $L3 $d1 $d2 $d3 $W $uy $kvt $minFv
-$tol</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element TripleFrictionPendulum $eleTag $iNode $jNode
+        $frnTag1 $frnTag2 $frnTag3 $vertMatTag $rotZMatTag $rotXMatTag
+        $rotYMatTag $L1 $L2 $L3 $d1 $d2 $d3 $W $uy $kvt $minFv
+        $tol
+```
+
 <hr />
 <table>
 <tbody>

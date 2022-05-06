@@ -3,15 +3,13 @@
 <p>This command is used to construct an ElasticTubularJoint element
 object, which models joint flexibility of tubular joints in two
 dimensional analysis of any structure having tubular joints.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element ElasticTubularJoint $Tag $iNode $jNode
-$Brace_Diameter $Brace_Angle $E $Chord_Diameter $Chord_Thickness
-$Chord_Angle</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element ElasticTubularJoint $Tag $iNode $jNode
+        $Brace_Diameter $Brace_Angle $E $Chord_Diameter $Chord_Thickness
+        $Chord_Angle
+```
+
 <hr />
 <table>
 <tbody>

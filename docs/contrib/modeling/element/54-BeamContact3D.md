@@ -1,14 +1,12 @@
 # BeamContact3D
 
 <p>This command is used to construct a BeamContact3D element object.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element BeamContact3D $eleTag $iNode $jNode $cNode $lNode
-$radius $crdTransf $matTag $gTol $fTol &lt;$cFlag$&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element BeamContact3D $eleTag $iNode $jNode $cNode $lNode
+        $radius $crdTransf $matTag $gTol $fTol &lt;$cFlag$&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

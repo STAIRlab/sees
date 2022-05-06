@@ -60,14 +60,12 @@ alt="Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)" />
 </figure>
 <hr />
 <p><strong>Input Format:</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial SteelMPF $mattag $fyp $fyn $E0 $bp $bn
-$R0 $cR1 $cR2 &lt;$a1 $a2 $a3 $a4&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial SteelMPF $mattag $fyp $fyn $E0 $bp $bn
+        $R0 $cR1 $cR2 &lt;$a1 $a2 $a3 $a4&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

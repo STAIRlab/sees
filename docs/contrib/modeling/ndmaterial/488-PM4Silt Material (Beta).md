@@ -7,16 +7,14 @@ documentation site</a></strong></li>
 </ul>
 <p>This command is used to construct a 2-dimensional PM4Silt
 material.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial PM4Silt $matTag $S_u $Su_Rat $G_o $h_po $Den
-&lt;$Su_factor $Patm $nu $nG $h0 $eInit $lambda $phicv $nb_wet $nb_dry
-$nd $Ado $ru_max $zmax $cz $ce $Cgd $ckaf $m_m
-$CG_consol&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+nDMaterial PM4Silt $matTag $S_u $Su_Rat $G_o $h_po $Den
+        &lt;$Su_factor $Patm $nu $nG $h0 $eInit $lambda $phicv $nb_wet $nb_dry
+        $nd $Ado $ru_max $zmax $cz $ce $Cgd $ckaf $m_m
+        $CG_consol&gt;
+```
+
 <table>
 <tbody>
 <tr class="odd">

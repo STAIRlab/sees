@@ -5,25 +5,21 @@ object. A Timoshenko beam is a frame member that accounts for shear
 deformations. The arguments for the construction of an elastic
 Timoshenko beam element depend on the dimension of the problem, ndm:</p>
 <p>For a two-dimensional problem:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element ElasticTimoshenkoBeam $eleTag $iNode $jNode $E $G
-$A $Iz $Avy $transfTag &lt;-mass $massDens&gt;
-&lt;-cMass&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element ElasticTimoshenkoBeam $eleTag $iNode $jNode $E $G
+        $A $Iz $Avy $transfTag &lt;-mass $massDens&gt;
+        &lt;-cMass&gt;
+```
+
 <p>For a three-dimensional problem:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element ElasticTimoshenkoBeam $eleTag $iNode $jNode $E $G
-$A $Jx $Iy $Iz $Avy $Avz $transfTag &lt;-mass $massDens&gt;
-&lt;-cMass&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element ElasticTimoshenkoBeam $eleTag $iNode $jNode $E $G
+        $A $Jx $Iy $Iz $Avy $Avz $transfTag &lt;-mass $massDens&gt;
+        &lt;-cMass&gt;
+```
+
 <hr />
 <table>
 <tbody>

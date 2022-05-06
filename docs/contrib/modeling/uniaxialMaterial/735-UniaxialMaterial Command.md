@@ -3,14 +3,12 @@
 <p>&lt;noinclude&gt;This command is used to construct a UniaxialMaterial
 object which represents uniaxial stress-strain (or force-deformation)
 relationships.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial matType? matTag? arg1?
-...</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial matType? matTag? arg1?
+        ...
+```
+
 <hr />
 <p>The type of material created and the additional arguments required
 depends on the <strong>matType?</strong> provided in the command.</p>

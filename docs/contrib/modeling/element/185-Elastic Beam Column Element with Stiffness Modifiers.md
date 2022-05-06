@@ -11,15 +11,13 @@ number of analytical studies discussed in Zareian and Medina (2010) and
 Zareian and Krawinkler (2009) and is utilized in order to solve problems
 related to numerical damping in dynamic analysis of frame structures
 with concentrated plasticity springs.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element ModElasticBeam2d $eleTag $iNode $jNode $A $E $Iz
-$K11 $K33 $K44 $transfTag &lt;-mass $massDens&gt;
-&lt;-cMass&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element ModElasticBeam2d $eleTag $iNode $jNode $A $E $Iz
+        $K11 $K33 $K44 $transfTag &lt;-mass $massDens&gt;
+        &lt;-cMass&gt;
+```
+
 <hr />
 <table>
 <tbody>
