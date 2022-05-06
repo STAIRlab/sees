@@ -22,7 +22,9 @@ a new A, set the parameter in the elements, do an analysis step to
 obtain new displacement, and check versus target dispacement</li>
 <li>Finally I print a message indicating succcess or failure</li>
 </ol>
-<p>&lt;source lang="tcl"&gt;</p>
+<p>
+```tcl
+</p>
 <ol>
 <li></li>
 <li>set some variables</li>
@@ -102,7 +104,13 @@ done 1 }</p>
 <p>if {$done == 1} { puts "SUCCESS: A = $A gives Displacement of $xDisp
 versus target of $targetDisp" } else { puts "FAILURE: Hit limit A = $A
 gives Displacement of $xDisp versus target of $targetDisp" }
-&lt;/source&gt;</p>
+
+```
+</p>
 <p>The matlab scipt contained in the file getA.m is a simple
-divide-and-conquer. &lt;source lang="matlab"&gt; load data1;
-a=(data1(1,1)+data1(1,2))/2.0; dlmwrite('data2', a); &lt;/source&gt;</p>
+divide-and-conquer. 
+```matlab
+ load data1;
+a=(data1(1,1)+data1(1,2))/2.0; dlmwrite('data2', a); 
+```
+</p>

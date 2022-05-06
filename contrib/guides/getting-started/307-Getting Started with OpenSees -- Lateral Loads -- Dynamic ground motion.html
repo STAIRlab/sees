@@ -5,8 +5,12 @@
 gravityloads.tcl files have been run. The wipe command should be used at
 the beginning of the input to clear any previous OpenSees-objects
 definition:</p>
-<p>&lt;source lang="Tcl"&gt; wipe source example.tcl source
-gravityloads.tcl &lt;/source&gt;</p>
+<p>
+```Tcl
+ wipe source example.tcl source
+gravityloads.tcl 
+```
+</p>
 <p>The dynamic ground-motion analysis is a transient, rather than
 static, type of analysis. Therefore, most of the analysis components
 should be redefined.</p>
@@ -32,7 +36,9 @@ ReadSMDFile.tcl is a script procedure which parses a ground motion
 record from the PEER strong motion database by finding dt in the record
 header, then echoing data values to the output file. This file should be
 saved in the same directory as the OpenSees executable:</p>
-<p>&lt;source lang="Tcl"&gt;</p>
+<p>
+```Tcl
+</p>
 <ol>
 <li><hr /></li>
 <li>READSMDFILE.tcl</li>
@@ -107,11 +113,15 @@ $inFilename for reading" } else {</p>
 <ol>
 <li><hr /></li>
 </ol>
-<p>&lt;/source&gt;</p>
+<p>
+```
+</p>
 <p>Once this file has been created, it can be read-in by the input file
 and used in the analysis procedure, where an acceleration time-series is
 defined and used in a UniformExcitation load pattern:</p>
-<p>&lt;source lang="Tcl"&gt; Series -dt $dt -filePath $fileName
+<p>
+```Tcl
+ Series -dt $dt -filePath $fileName
 &lt;-factor $cFactor&gt; pattern UniformExcitation $patternTag $dir
 -accel (TimeSeriesType arguments) &lt;-vel0 $ver0&gt;</p>
 <ol>
@@ -119,14 +129,18 @@ defined and used in a UniformExcitation load pattern:</p>
 </ol>
 <p>source ReadSMDFile.tcl ReadSMDFile BM68elc.th BM68elc.acc dt set
 accelSeries "Series -dt $dt -filePath BM68elc.acc -factor 1"; pattern
-UniformExcitation 2 1 -accel $accelSeries &lt;/source&gt;</p>
+UniformExcitation 2 1 -accel $accelSeries 
+```
+</p>
 <p>The stiffness and mass-proportional damping factors can then be
 defined using the rayleigh command:</p>
 <p><em>rayleigh $alphaM $betaK $betaKinit $betaKcomm</em> There are
 three different stiffnesses the user can use, the current value, the
 initial value, or the stiffness at the last committed state (which is
 what is used here):</p>
-<p>&lt;source lang="Tcl"&gt;</p>
+<p>
+```Tcl
+</p>
 <ol>
 <li>set damping factors</li>
 </ol>
@@ -137,13 +151,19 @@ analysis components are defined as follows:</p>
 </ol>
 <p>wipeAnalysis constraints Plain numberer RCM system UmfPack test
 NormDispIncr 1.0e-8 10 algorithm Newton integrator Newmark 0.5 0.25
-analysis Transient &lt;/source&gt;</p>
+analysis Transient 
+```
+</p>
 <p>In a transient analysis, the analyze command also requires a time
 step. This time step does not have to be the same as the input ground
 motion. The number of time steps is equal to the total duration of the
 analysis (10 seconds) divided by the time step (0.02):</p>
-<p>&lt;source lang="Tcl"&gt; analyze [expr 10/0.02] 0.02
-&lt;/source&gt;</p>
+<p>
+```Tcl
+ analyze [expr 10/0.02] 0.02
+
+```
+</p>
 <hr />
 <p>Return to <a href="Getting_Started_with_OpenSees"
 title="wikilink">Getting Started with OpenSees</a></p>

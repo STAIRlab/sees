@@ -13335,34 +13335,35 @@ The Element class itself is an abstract base class. It inherits from both the Do
 The Element Class:
 </p>
 <p>
-&lt;source lang=“cpp”&gt; class Element : public DomainComponent { public: Element(int tag, int classTag); virtual ~Element();
-</p>
-<p>
-// initialization virtual int setDomain(Domain *theDomain);
-</p>
-<p>
-// methods dealing with nodes and number of external dof virtual int getNumExternalNodes(void) const =0; virtual const ID &amp;getExternalNodes(void) =0; virtual Node **getNodePtrs(void) =0; virtual int getNumDOF(void) =0;
-</p>
-<p>
-// methods dealing with committed state and update virtual int commitState(void); // called when a converged solution has been obtained for a time step virtual int revertToLastCommit(void) = 0; // called when the soln algorithm has failed to converge to a solution at a time step virtual int revertToStart(void); // called when model is rest to initial conditions virtual int update(void); // called when a new trial step has been set at the nodes
-</p>
-<p>
-// methods dealing with element stiffness virtual const Matrix &amp;getTangentStiff(void) =0; virtual const Matrix &amp;getInitialStiff(void) =0;
-</p>
-<p>
-// methods dealing with element forces virtual void zeroLoad(void); virtual int addLoad(ElementalLoad *theLoad, double loadFactor); virtual const Vector &amp;getResistingForce(void) =0;
-</p>
-<p>
-// public methods for output void Print(OPS_Stream &amp;s, int flag =0); virtual Response *setResponse(const char **argv, int argc, OPS_Stream &amp;theHandler); virtual int getResponse(int responseID, Information &amp;eleInformation);
-</p>
-<p>
-// method for database/parallel processing int sendSelf(int commitTag, Channel &amp;theChannel); int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);
-</p>
-<p>
-}
-</p>
-<p>
-&lt;/source&gt;
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="kw">class</span> Element <span class="op">:</span> <span class="kw">public</span> DomainComponent <span class="op">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span><span class="op">:</span> Element<span class="op">(</span><span class="dt">int</span> tag<span class="op">,</span> <span class="dt">int</span> classTag<span class="op">);</span> <span class="kw">virtual</span> <span class="op">~</span>Element<span class="op">();&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// initialization virtual int setDomain(Domain *theDomain);&lt;/p&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// methods dealing with nodes and number of external dof virtual int</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>getNumExternalNodes<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span> <span class="kw">virtual</span> <span class="at">const</span> ID</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>amp<span class="op">;</span>getExternalNodes<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span> <span class="kw">virtual</span> Node <span class="op">**</span>getNodePtrs<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumDOF<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// methods dealing with committed state and update virtual int</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>commitState<span class="op">(</span><span class="dt">void</span><span class="op">);</span> <span class="co">// called when a converged solution has been obtained</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a time step <span class="kw">virtual</span> <span class="dt">int</span> revertToLastCommit<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// called when</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>the soln algorithm has failed to converge to a solution at a time step</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> revertToStart<span class="op">(</span><span class="dt">void</span><span class="op">);</span> <span class="co">// called when model is rest to initial</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>conditions <span class="kw">virtual</span> <span class="dt">int</span> update<span class="op">(</span><span class="dt">void</span><span class="op">);</span> <span class="co">// called when a new trial step has</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>been set at the nodes<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// methods dealing with element stiffness virtual const Matrix</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>amp<span class="op">;</span>getTangentStiff<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span> <span class="kw">virtual</span> <span class="at">const</span> Matrix</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>amp<span class="op">;</span>getInitialStiff<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// methods dealing with element forces virtual void zeroLoad(void);</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> addLoad<span class="op">(</span>ElementalLoad <span class="op">*</span>theLoad<span class="op">,</span> <span class="dt">double</span> loadFactor<span class="op">);</span> <span class="kw">virtual</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Vector <span class="op">&amp;</span>amp<span class="op">;</span>getResistingForce<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// public methods for output void Print(OPS_Stream &amp;amp;s, int flag</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="op">=</span><span class="dv">0</span><span class="op">);</span> <span class="kw">virtual</span> Response <span class="op">*</span>setResponse<span class="op">(</span><span class="at">const</span> <span class="dt">char</span> <span class="op">**</span>argv<span class="op">,</span> <span class="dt">int</span> argc<span class="op">,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>OPS_Stream <span class="op">&amp;</span>amp<span class="op">;</span>theHandler<span class="op">);</span> <span class="kw">virtual</span> <span class="dt">int</span> getResponse<span class="op">(</span><span class="dt">int</span> responseID<span class="op">,</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>Information <span class="op">&amp;</span>amp<span class="op">;</span>eleInformation<span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// method for database/parallel processing int sendSelf(int</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>amp<span class="op">;</span>theChannel<span class="op">);</span> <span class="dt">int</span> recvSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>amp<span class="op">;</span>theChannel<span class="op">,</span> FEM_ObjectBroker <span class="op">&amp;</span>amp<span class="op">;</span>theBroker<span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span></span></code></pre></div>
 </p>
 <h3 id="example___truss2d">
 Example - Truss2D
@@ -13377,71 +13378,53 @@ Header
 The header for thew new class, which we will call Truss2D is as follows:
 </p>
 <p>
-&lt;source lang=“cpp”&gt; // include directives
-</p>
-<ol>
-<li>
-include &lt;Element.h&gt;
-</li>
-<li>
-include &lt;Matrix.h&gt;
-</li>
-<li>
-include &lt;Vector.h&gt;
-</li>
-</ol>
-<p>
-// forward declarations class UniaxialMaterial;
-</p>
-<p>
-class Truss2D : public Element { public: // constructors Truss2D(int tag, int Nd1, int Nd2, UniaxialMaterial &amp;theMaterial, double A);
-</p>
-<p>
-Truss2D();
-</p>
-<p>
-// destructor ~Truss2D();
-</p>
-<p>
-// initialization int setDomain(Domain *theDomain);
-</p>
-<p>
-// public methods to obtain inforrmation about dof &amp; connectivity int getNumExternalNodes(void) const; const ID &amp;getExternalNodes(void); Node **getNodePtrs(void); int getNumDOF(void);
-</p>
-<p>
-// public methods to set the state of the element int commitState(void); int revertToLastCommit(void); int revertToStart(void); int update(void);
-</p>
-<p>
-// public methods to obtain stiffness const Matrix &amp;getTangentStiff(void); const Matrix &amp;getInitialStiff(void);
-</p>
-<p>
-// public method to obtain resisting force const Vector &amp;getResistingForce(void);
-</p>
-<p>
-// method for obtaining information specific to an element void Print(OPS_Stream &amp;s, int flag =0); Response *setResponse(const char **argv, int argc, OPS_Stream &amp;s); int getResponse(int responseID, Information &amp;eleInformation);
-</p>
-<p>
-// public methods for database/parallel processing int sendSelf(int commitTag, Channel &amp;theChannel); int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker); void Print(OPS_Stream &amp;s, int flag =0);
-</p>
-<p>
-protected:
-</p>
-<p>
-private: // private member functions - only available to objects of the class double computeCurrentStrain(void) const;
-</p>
-<p>
-// private attributes - a copy for each object of the class UniaxialMaterial <em>theMaterial; // pointer to a material ID externalNodes; // contains the id’s of end nodes Matrix trans; // hold the transformation matrix double L; // length of truss (undeformed configuration) double A; // area of truss Node </em>theNodes[2]; // node pointers
-</p>
-<p>
-// static data - single copy for all objects of the class static Matrix trussK; // class wide matrix for returning stiffness static Vector trussR; // class wide vector for returning residual };
-</p>
-<ol>
-<li>
-endif
-</li>
-</ol>
-<p>
-&lt;/source&gt;
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> <span class="co">// include directives&lt;/p&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>ol<span class="op">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>Element<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>Matrix<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>Vector<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>ol<span class="op">&gt;</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// forward declarations class UniaxialMaterial;&lt;/p&gt;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">class</span> Truss2D <span class="op">:</span> <span class="kw">public</span> Element <span class="op">{</span> <span class="kw">public</span><span class="op">:</span> <span class="co">// constructors Truss2D(int</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>tag<span class="op">,</span> <span class="dt">int</span> Nd1<span class="op">,</span> <span class="dt">int</span> Nd2<span class="op">,</span> UniaxialMaterial <span class="op">&amp;</span>amp<span class="op">;</span>theMaterial<span class="op">,</span> <span class="dt">double</span> A<span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>Truss2D<span class="op">();&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// destructor ~Truss2D();&lt;/p&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// initialization int setDomain(Domain *theDomain);&lt;/p&gt;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// public methods to obtain inforrmation about dof &amp;amp; connectivity</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> getNumExternalNodes<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span> <span class="at">const</span> ID</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>amp<span class="op">;</span>getExternalNodes<span class="op">(</span><span class="dt">void</span><span class="op">);</span> Node <span class="op">**</span>getNodePtrs<span class="op">(</span><span class="dt">void</span><span class="op">);</span> <span class="dt">int</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>getNumDOF<span class="op">(</span><span class="dt">void</span><span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// public methods to set the state of the element int</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>commitState<span class="op">(</span><span class="dt">void</span><span class="op">);</span> <span class="dt">int</span> revertToLastCommit<span class="op">(</span><span class="dt">void</span><span class="op">);</span> <span class="dt">int</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>revertToStart<span class="op">(</span><span class="dt">void</span><span class="op">);</span> <span class="dt">int</span> update<span class="op">(</span><span class="dt">void</span><span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// public methods to obtain stiffness const Matrix</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>amp<span class="op">;</span>getTangentStiff<span class="op">(</span><span class="dt">void</span><span class="op">);</span> <span class="at">const</span> Matrix <span class="op">&amp;</span>amp<span class="op">;</span>getInitialStiff<span class="op">(</span><span class="dt">void</span><span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// public method to obtain resisting force const Vector</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>amp<span class="op">;</span>getResistingForce<span class="op">(</span><span class="dt">void</span><span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// method for obtaining information specific to an element void</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>amp<span class="op">;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span><span class="dv">0</span><span class="op">);</span> Response <span class="op">*</span>setResponse<span class="op">(</span><span class="at">const</span> <span class="dt">char</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>argv<span class="op">,</span> <span class="dt">int</span> argc<span class="op">,</span> OPS_Stream <span class="op">&amp;</span>amp<span class="op">;</span>s<span class="op">);</span> <span class="dt">int</span> getResponse<span class="op">(</span><span class="dt">int</span> responseID<span class="op">,</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>Information <span class="op">&amp;</span>amp<span class="op">;</span>eleInformation<span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// public methods for database/parallel processing int sendSelf(int</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>amp<span class="op">;</span>theChannel<span class="op">);</span> <span class="dt">int</span> recvSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>amp<span class="op">;</span>theChannel<span class="op">,</span> FEM_ObjectBroker <span class="op">&amp;</span>amp<span class="op">;</span>theBroker<span class="op">);</span> <span class="dt">void</span> Print<span class="op">(</span>OPS_Stream</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>amp<span class="op">;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span><span class="dv">0</span><span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">protected</span><span class="op">:&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">private</span><span class="op">:</span> <span class="co">// private member functions - only available to objects of</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>the <span class="kw">class</span> <span class="dt">double</span> computeCurrentStrain<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// private attributes - a copy for each object of the class</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>UniaxialMaterial <span class="op">*</span>theMaterial<span class="op">;</span> <span class="co">// pointer to a material ID</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>externalNodes<span class="op">;</span> <span class="co">// contains the id&#39;s of end nodes Matrix trans; // hold</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>the transformation matrix <span class="dt">double</span> L<span class="op">;</span> <span class="co">// length of truss (undeformed</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>configuration<span class="op">)</span> <span class="dt">double</span> A<span class="op">;</span> <span class="co">// area of truss Node *theNodes[2]; // node</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>pointers<span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// static data - single copy for all objects of the class static</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>Matrix trussK<span class="op">;</span> <span class="co">// class wide matrix for returning stiffness static</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>Vector trussR<span class="op">;</span> <span class="co">// class wide vector for returning residual };&lt;/p&gt;</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>ol<span class="op">&gt;</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>endif<span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>ol<span class="op">&gt;</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span></span></code></pre></div>
 </p>
 <p>
 The header file defines the interface and variables for the class Truss2D. It defines the new class to be a sublass of the Element class. In the public interface, are two constructors and a destructor in addition to minimal set of methods we showed for the Element class. There are no protected data or methods as we do not expect this class to be subclassed. In the private section, we define one private method, computeCurrentStrain(), and we define a number of private variables and a number of static variables.
@@ -13462,61 +13445,29 @@ Include Directives
 The first part of the file contains the list of includes. It is necessary to have an #include directive for each class and api file that is used within the .cpp file and is not included in the header.
 </p>
 <p>
-&lt;source lang=“cpp”&gt;
-</p>
-<ol>
-<li>
-include “Truss2D.h”
-</li>
-</ol>
-<ol>
-<li>
-include &lt;elementAPI.h&gt;
-</li>
-<li>
-include &lt;G3Globals.h&gt;
-</li>
-<li>
-include &lt;Information.h&gt;
-</li>
-<li>
-include &lt;Domain.h&gt;
-</li>
-<li>
-include &lt;Node.h&gt;
-</li>
-<li>
-include &lt;Channel.h&gt;
-</li>
-<li>
-include &lt;Message.h&gt;
-</li>
-<li>
-include &lt;FEM_ObjectBroker.h&gt;
-</li>
-<li>
-include &lt;UniaxialMaterial.h&gt;
-</li>
-<li>
-include &lt;Renderer.h&gt;
-</li>
-<li>
-include &lt;ElementResponse.h&gt;
-</li>
-</ol>
-<ol>
-<li>
-include &lt;math.h&gt;
-</li>
-<li>
-include &lt;stdlib.h&gt;
-</li>
-<li>
-include &lt;string.h&gt;
-</li>
-</ol>
-<p>
-&lt;/source&gt;
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>ol<span class="op">&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="st">&quot;Truss2D.h&quot;</span><span class="op">&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>ol<span class="op">&gt;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>ol<span class="op">&gt;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>elementAPI<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>G3Globals<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>Information<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>Domain<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>Node<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>Channel<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>Message<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>FEM_ObjectBroker<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>UniaxialMaterial<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>Renderer<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>ElementResponse<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>ol<span class="op">&gt;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>ol<span class="op">&gt;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>math<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>stdlib<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>li<span class="op">&gt;</span>include <span class="op">&amp;</span>lt<span class="op">;</span>string<span class="op">.</span>h<span class="op">&amp;</span>gt<span class="op">;&lt;/</span>li<span class="op">&gt;</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>ol<span class="op">&gt;</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span></span></code></pre></div>
 </p>
 <h5 id="static_variables">
 Static Variables
@@ -13525,7 +13476,8 @@ Static Variables
 Next, we initialize the static variables. For this example we are using 2 static-variables (objects shared by each Truss2D object that is created), one to return the tangent matrix and the other to return the resisting force.
 </p>
 <p>
-&lt;source lang=“cpp”&gt; // initialise the class wide variables Matrix Truss2D::trussK(4,4); Vector Truss2D::trussR(4); &lt;/source&gt;
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a> <span class="co">// initialise the class wide variables</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>Matrix Truss2D<span class="op">::</span>trussK<span class="op">(</span><span class="dv">4</span><span class="op">,</span><span class="dv">4</span><span class="op">);</span> Vector Truss2D<span class="op">::</span>trussR<span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div>
 </p>
 <h5 id="constructors">
 Constructors
@@ -13554,42 +13506,38 @@ The theNodes array components are set to be 0.
 It should be noted that the static variables dealing with length, transformations, and nodes are set to 0 in the constructors. They will be filled in when the setDomain() method is invoked on the object.
 </p>
 <p>
-&lt;source lang=“cpp”&gt; Truss2D::Truss2D(int tag, int Nd1, int Nd2, UniaxialMaterial &amp;theMat, double a)
-</p>
-<dl>
-<dt>
-</dt>
-<dd>
-Element(tag, 0),
-</dd>
-</dl>
-<p>
-externalNodes(2), trans(1,4), L(0.0), A(a) { // get a copy of the material object for our own use theMaterial = theMat.getCopy(); if (theMaterial == 0) { opserr &lt;&lt; “FATAL TrussCPP::TrussCPP() - out of memory, could not get a copy of the Material”; exit(-1); }
-</p>
-<p>
-// fill in the ID containing external node info with node id’s if (externalNodes.Size() != 2) { opserr &lt;&lt; “FATAL TrussCPP::TrussCPP() - out of memory, could not create an ID of size 2”; exit(-1); }
-</p>
-<p>
-externalNodes(0) = Nd1; externalNodes(1) = Nd2;
-</p>
-<p>
-theNodes[0] = 0; theNodes[1] = 0; } &lt;/source&gt;
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a> Truss2D<span class="op">::</span>Truss2D<span class="op">(</span><span class="dt">int</span> tag<span class="op">,</span> <span class="dt">int</span> Nd1<span class="op">,</span> <span class="dt">int</span> Nd2<span class="op">,</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>UniaxialMaterial <span class="op">&amp;</span>amp<span class="op">;</span>theMat<span class="op">,</span> <span class="dt">double</span> a<span class="op">)&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>dl<span class="op">&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>dt<span class="op">&gt;&lt;/</span>dt<span class="op">&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>dd<span class="op">&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>Element<span class="op">(</span>tag<span class="op">,</span> <span class="dv">0</span><span class="op">),</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>dd<span class="op">&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>dl<span class="op">&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>externalNodes<span class="op">(</span><span class="dv">2</span><span class="op">),</span> trans<span class="op">(</span><span class="dv">1</span><span class="op">,</span><span class="dv">4</span><span class="op">),</span> L<span class="op">(</span><span class="fl">0.0</span><span class="op">),</span> A<span class="op">(</span>a<span class="op">)</span> <span class="op">{</span> <span class="co">// get a copy of the</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>material object <span class="cf">for</span> our own use theMaterial <span class="op">=</span> theMat<span class="op">.</span>getCopy<span class="op">();</span> <span class="cf">if</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>theMaterial <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span> opserr <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot;FATAL TrussCPP::TrussCPP() - out</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>of memory<span class="op">,</span> could <span class="kw">not</span> get a copy of the Material\n<span class="st">&quot;; exit(-1); }&lt;/p&gt;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// fill in the ID containing external node info with node id&#39;s if</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>externalNodes<span class="op">.</span>Size<span class="op">()</span> <span class="op">!=</span> <span class="dv">2</span><span class="op">)</span> <span class="op">{</span> opserr <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot;FATAL</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>TrussCPP<span class="op">::</span>TrussCPP<span class="op">()</span> <span class="op">-</span> out of memory<span class="op">,</span> could <span class="kw">not</span> create an ID of size</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>\n<span class="st">&quot;; exit(-1); }&lt;/p&gt;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>externalNodes<span class="op">(</span><span class="dv">0</span><span class="op">)</span> <span class="op">=</span> Nd1<span class="op">;</span> externalNodes<span class="op">(</span><span class="dv">1</span><span class="op">)</span> <span class="op">=</span> Nd2<span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>theNodes<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> theNodes<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="op">}</span> </span></code></pre></div>
 </p>
 <p>
 The second constructor is called when paralell processing or the database feature of the OpenSees application is used. It’s pupose is to create a blank Truss2D object, that will be filled in when the recvSelf() method is invoked on the object.
 </p>
 <p>
-&lt;source lang=“cpp”&gt; Truss2D::Truss2D()
-</p>
-<dl>
-<dt>
-</dt>
-<dd>
-Element(0, 0),
-</dd>
-</dl>
-<p>
-theMaterial(0), externalNodes(2), trans(1,4), L(0.0), A(0.0) { theNodes[0] = 0; theNodes[1] = 0; } &lt;/source&gt;
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a> Truss2D<span class="op">::</span>Truss2D<span class="op">()&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>dl<span class="op">&gt;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>dt<span class="op">&gt;&lt;/</span>dt<span class="op">&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>dd<span class="op">&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>Element<span class="op">(</span><span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">),</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>dd<span class="op">&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;/</span>dl<span class="op">&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>theMaterial<span class="op">(</span><span class="dv">0</span><span class="op">),</span> externalNodes<span class="op">(</span><span class="dv">2</span><span class="op">),</span> trans<span class="op">(</span><span class="dv">1</span><span class="op">,</span><span class="dv">4</span><span class="op">),</span> L<span class="op">(</span><span class="fl">0.0</span><span class="op">),</span> A<span class="op">(</span><span class="fl">0.0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>theNodes<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> theNodes<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> <span class="op">}</span> </span></code></pre></div>
 </p>
 <h5 id="destructor">
 Destructor
@@ -13598,7 +13546,8 @@ Destructor
 The we provide the destructor. In the destructor all memory that the Truss2D created or was passed to it in the constructor must be destroyed. For our example, we need to invoke the destructor on the copy of the material object.
 </p>
 <p>
-&lt;source lang=“cpp”&gt; Truss2D::~Truss2D() { if (theMaterial != 0) delete theMaterial; } &lt;/source&gt;
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a> Truss2D<span class="op">::~</span>Truss2D<span class="op">()</span> <span class="op">{</span> <span class="cf">if</span> <span class="op">(</span>theMaterial <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">delete</span> theMaterial<span class="op">;</span> <span class="op">}</span> </span></code></pre></div>
 </p>
 <p>
 ===== setDomain() Initialization Method
@@ -13607,67 +13556,67 @@ The we provide the destructor. In the destructor all memory that the Truss2D cre
 The setDomain() method is invoked when the truss element is being added to the Domain. It is in this method that most of the private variables of the object are determined. The method returns 0 if successfull, a negative number if not. In the method we obtain pointers to the end nodes, nodal coordinates are obtained and the elements length and transformation matrix is set once the coordinates have been obtained.
 </p>
 <p>
-&lt;source lang=“cpp”&gt; void Truss2D::setDomain(Domain *theDomain) { // check Domain is not null - invoked when object removed from a domain if (theDomain == 0) { return; }
-</p>
-<p>
-// first ensure nodes exist in Domain and set the node pointers Node <em>end1Ptr, </em>end2Ptr; int Nd1 = externalNodes(0); int Nd2 = externalNodes(1); end1Ptr = theDomain-&gt;getNode(Nd1); end2Ptr = theDomain-&gt;getNode(Nd2); if (end1Ptr == 0) { opserr &lt;&lt; “WARNING Truss2D::setDomain() - at truss” &lt;&lt; this-&gt;getTag() &lt;&lt; ” node ” &lt;&lt; Nd1 &lt;&lt; ” does not exist in domain“; return; // don’t go any further - otherwise segemntation fault } if (end2Ptr == 0) { opserr &lt;&lt;”WARNING Truss2D::setDomain() - at truss ” &lt;&lt; this-&gt;getTag() &lt;&lt; ” node ” &lt;&lt; Nd2 &lt;&lt; ” does not exist in domain“; return; // don’t go any further - otherwise segemntation fault } theNodes[0] = end1Ptr; theNodes[1] = end2Ptr; // call the DomainComponent class method THIS IS VERY IMPORTANT this-&gt;DomainComponent::setDomain(theDomain);
-</p>
-<p>
-// ensure connected nodes have correct number of dof’s int dofNd1 = end1Ptr-&gt;getNumberDOF(); int dofNd2 = end2Ptr-&gt;getNumberDOF(); if ((dofNd1 != 2) || (dofNd2 != 2)) { opserr &lt;&lt; “Truss2D::setDomain(): 2 dof required at nodes”; return; }
-</p>
-<p>
-// now determine the length &amp; transformation matrix const Vector &amp;end1Crd = end1Ptr-&gt;getCrds(); const Vector &amp;end2Crd = end2Ptr-&gt;getCrds();
-</p>
-<p>
-double dx = end2Crd(0)-end1Crd(0); double dy = end2Crd(1)-end1Crd(1);
-</p>
-<p>
-L = sqrt(dx<em>dx + dy</em>dy);
-</p>
-<p>
-if (L == 0.0) { opserr &lt;&lt; “WARNING Truss2D::setDomain() - Truss2D” &lt;&lt; this-&gt;getTag() &lt;&lt; ” has zero length“; return; // don’t go any further - otherwise divide by 0 error }
-</p>
-<p>
-double cs = dx/L; double sn = dy/L;
-</p>
-<p>
-trans(0,0) = -cs; trans(0,1) = -sn; trans(0,2) = cs; trans(0,3) = sn; } &lt;/source&gt;
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a> <span class="dt">void</span> Truss2D<span class="op">::</span>setDomain<span class="op">(</span>Domain <span class="op">*</span>theDomain<span class="op">)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span> <span class="co">// check Domain is not null - invoked when object removed from a</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>domain <span class="cf">if</span> <span class="op">(</span>theDomain <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span> <span class="cf">return</span><span class="op">;</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// first ensure nodes exist in Domain and set the node pointers Node</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="op">*</span>end1Ptr<span class="op">,</span> <span class="op">*</span>end2Ptr<span class="op">;</span> <span class="dt">int</span> Nd1 <span class="op">=</span> externalNodes<span class="op">(</span><span class="dv">0</span><span class="op">);</span> <span class="dt">int</span> Nd2 <span class="op">=</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>externalNodes<span class="op">(</span><span class="dv">1</span><span class="op">);</span> end1Ptr <span class="op">=</span> theDomain<span class="op">-&amp;</span>gt<span class="op">;</span>getNode<span class="op">(</span>Nd1<span class="op">);</span> end2Ptr <span class="op">=</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>theDomain<span class="op">-&amp;</span>gt<span class="op">;</span>getNode<span class="op">(</span>Nd2<span class="op">);</span> <span class="cf">if</span> <span class="op">(</span>end1Ptr <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span> opserr <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot;WARNING</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>Truss2D<span class="op">::</span>setDomain<span class="op">()</span> <span class="op">-</span> at truss <span class="st">&quot; &amp;lt;&amp;lt; this-&amp;gt;getTag() &amp;lt;&amp;lt; &quot;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>node <span class="st">&quot; &amp;lt;&amp;lt; Nd1 &amp;lt;&amp;lt; &quot;</span> does <span class="kw">not</span> exist in domain\n<span class="st">&quot;; return; //</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>don<span class="ch">&#39;t</span><span class="er"> go any further - otherwise segemntation fault } if (end2Ptr == 0)</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="op">{</span> opserr <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot;WARNING Truss2D::setDomain() - at truss &quot;</span> <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getTag<span class="op">()</span> <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot; node &quot;</span> <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> Nd2 <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot; does not</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>exist in domain\n<span class="st">&quot;; return; // don&#39;t go any further - otherwise</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>segemntation fault <span class="op">}</span> theNodes<span class="op">[</span><span class="dv">0</span><span class="op">]</span> <span class="op">=</span> end1Ptr<span class="op">;</span> theNodes<span class="op">[</span><span class="dv">1</span><span class="op">]</span> <span class="op">=</span> end2Ptr<span class="op">;</span> <span class="co">//</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>call the DomainComponent <span class="kw">class</span> method THIS IS VERY IMPORTANT</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>DomainComponent<span class="op">::</span>setDomain<span class="op">(</span>theDomain<span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// ensure connected nodes have correct number of dof&#39;s int dofNd1 =</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>end1Ptr<span class="op">-&amp;</span>gt<span class="op">;</span>getNumberDOF<span class="op">();</span> <span class="dt">int</span> dofNd2 <span class="op">=</span> end2Ptr<span class="op">-&amp;</span>gt<span class="op">;</span>getNumberDOF<span class="op">();</span> <span class="cf">if</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="op">((</span>dofNd1 <span class="op">!=</span> <span class="dv">2</span><span class="op">)</span> <span class="op">||</span> <span class="op">(</span>dofNd2 <span class="op">!=</span> <span class="dv">2</span><span class="op">))</span> <span class="op">{</span> opserr <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Truss2D::setDomain(): 2 dof required at nodes</span><span class="sc">\n</span><span class="st">&quot;</span><span class="op">;</span> <span class="cf">return</span><span class="op">;</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// now determine the length &amp;amp; transformation matrix const Vector</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>amp<span class="op">;</span>end1Crd <span class="op">=</span> end1Ptr<span class="op">-&amp;</span>gt<span class="op">;</span>getCrds<span class="op">();</span> <span class="at">const</span> Vector <span class="op">&amp;</span>amp<span class="op">;</span>end2Crd <span class="op">=</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>end2Ptr<span class="op">-&amp;</span>gt<span class="op">;</span>getCrds<span class="op">();&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">double</span> dx <span class="op">=</span> end2Crd<span class="op">(</span><span class="dv">0</span><span class="op">)-</span>end1Crd<span class="op">(</span><span class="dv">0</span><span class="op">);</span> <span class="dt">double</span> dy <span class="op">=</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>end2Crd<span class="op">(</span><span class="dv">1</span><span class="op">)-</span>end1Crd<span class="op">(</span><span class="dv">1</span><span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>L <span class="op">=</span> sqrt<span class="op">(</span>dx<span class="op">*</span>dx <span class="op">+</span> dy<span class="op">*</span>dy<span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="cf">if</span> <span class="op">(</span>L <span class="op">==</span> <span class="fl">0.0</span><span class="op">)</span> <span class="op">{</span> opserr <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot;WARNING Truss2D::setDomain() -</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>Truss2D <span class="st">&quot; &amp;lt;&amp;lt; this-&amp;gt;getTag() &amp;lt;&amp;lt; &quot;</span> has zero length\n<span class="st">&quot;;</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span><span class="op">;</span> <span class="co">// don&#39;t go any further - otherwise divide by 0 error }&lt;/p&gt;</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">double</span> cs <span class="op">=</span> dx<span class="op">/</span>L<span class="op">;</span> <span class="dt">double</span> sn <span class="op">=</span> dy<span class="op">/</span>L<span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>trans<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">)</span> <span class="op">=</span> <span class="op">-</span>cs<span class="op">;</span> trans<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">1</span><span class="op">)</span> <span class="op">=</span> <span class="op">-</span>sn<span class="op">;</span> trans<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">2</span><span class="op">)</span> <span class="op">=</span> cs<span class="op">;</span> trans<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">3</span><span class="op">)</span> <span class="op">=</span> sn<span class="op">;</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> </span></code></pre></div>
 </p>
 <h5 id="methods_dealing_with_nodes">
 Methods Dealing With Nodes
 </h5>
 <p>
-Next comes 4 rather simple methods that return basic information about the elements nodes. These are one line methods that should not need any explanation! &lt;source lang=“cpp”&gt; int Truss2D::getNumExternalNodes(void) const { return 2; }
-</p>
-<p>
-const ID &amp; Truss2D::getExternalNodes(void) { return externalNodes; }
-</p>
-<p>
-Node ** Truss2D::getNodePtrs(void) { return theNodes; }
-</p>
-<p>
-int Truss2D::getNumDOF(void) { return 4; } &lt;/source&gt;
+<p>Next comes 4 rather simple methods that return basic information about the elements nodes. These are one line methods that should not need any explanation!</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a> <span class="dt">int</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>Truss2D<span class="op">::</span>getNumExternalNodes<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span> <span class="op">{</span> <span class="cf">return</span> <span class="dv">2</span><span class="op">;</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="at">const</span> ID <span class="op">&amp;</span>amp<span class="op">;</span> Truss2D<span class="op">::</span>getExternalNodes<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">{</span> <span class="cf">return</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>externalNodes<span class="op">;</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>Node <span class="op">**</span> Truss2D<span class="op">::</span>getNodePtrs<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> theNodes<span class="op">;</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">int</span> Truss2D<span class="op">::</span>getNumDOF<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">{</span> <span class="cf">return</span> <span class="dv">4</span><span class="op">;</span> <span class="op">}</span> </span></code></pre></div>
 </p>
 <h5 id="methods_dealing_with_current_state">
 Methods Dealing With Current State
 </h5>
 <p>
-&lt;source lang=“cpp”&gt; int Truss2D::commitState() { return theMaterial-&gt;commitState(); }
-</p>
-<p>
-int Truss2D::revertToLastCommit() { return theMaterial-&gt;revertToLastCommit(); }
-</p>
-<p>
-int Truss2D::revertToStart() { return theMaterial-&gt;revertToStart(); }
-</p>
-<p>
-int Truss2D::update() { // determine the current strain given trial displacements at nodes double strain = this-&gt;computeCurrentStrain();
-</p>
-<p>
-// set the strain in the materials theMaterial-&gt;setTrialStrain(strain);
-</p>
-<p>
-return 0; } &lt;/source&gt;
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a> <span class="dt">int</span> Truss2D<span class="op">::</span>commitState<span class="op">()</span> <span class="op">{</span> <span class="cf">return</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>theMaterial<span class="op">-&amp;</span>gt<span class="op">;</span>commitState<span class="op">();</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">int</span> Truss2D<span class="op">::</span>revertToLastCommit<span class="op">()</span> <span class="op">{</span> <span class="cf">return</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>theMaterial<span class="op">-&amp;</span>gt<span class="op">;</span>revertToLastCommit<span class="op">();</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">int</span> Truss2D<span class="op">::</span>revertToStart<span class="op">()</span> <span class="op">{</span> <span class="cf">return</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>theMaterial<span class="op">-&amp;</span>gt<span class="op">;</span>revertToStart<span class="op">();</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">int</span> Truss2D<span class="op">::</span>update<span class="op">()</span> <span class="op">{</span> <span class="co">// determine the current strain given trial</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>displacements at nodes <span class="dt">double</span> strain <span class="op">=</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>computeCurrentStrain<span class="op">();&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// set the strain in the materials</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>theMaterial<span class="op">-&amp;</span>gt<span class="op">;</span>setTrialStrain<span class="op">(</span>strain<span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="cf">return</span> <span class="dv">0</span><span class="op">;</span> <span class="op">}</span> </span></code></pre></div>
 </p>
 <h5 id="methods_to_return_tangent_matrix">
 Methods To Return Tangent Matrix
@@ -13676,28 +13625,23 @@ Methods To Return Tangent Matrix
 In both methods, we obtain the appropriate tangent from the material and use this to return the transformed matrix.
 </p>
 <p>
-&lt;source lang=“cpp”&gt; const Matrix &amp; Truss2D::getTangentStiff(void) { if (L == 0.0) { // length = zero - problem in setDomain() warning message already printed trussK.Zero(); return trussK; }
-</p>
-<p>
-// get the current E from the material for the last updated strain double E = theMaterial-&gt;getTangent();
-</p>
-<p>
-// form the tangent stiffness matrix trussK = trans^trans; trussK <em>= A</em>E/L;
-</p>
-<p>
-// return the matrix return trussK; }
-</p>
-<p>
-const Matrix &amp; Truss2D::getInitialStiff(void) { if (L == 0.0) { // length = zero - problem in setDomain() warning message already printed trussK.Zero(); return trussK; }
-</p>
-<p>
-// get the current E from the material for the last updated strain double E = theMaterial-&gt;getInitialTangent();
-</p>
-<p>
-// form the tangent stiffness matrix trussK = trans^trans; trussK <em>= A</em>E/L;
-</p>
-<p>
-// return the matrix return trussK; } &lt;/source&gt;
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a> <span class="at">const</span> Matrix <span class="op">&amp;</span>amp<span class="op">;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Truss2D<span class="op">::</span>getTangentStiff<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">{</span> <span class="cf">if</span> <span class="op">(</span>L <span class="op">==</span> <span class="fl">0.0</span><span class="op">)</span> <span class="op">{</span> <span class="co">// length = zero -</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>problem in setDomain<span class="op">()</span> warning message already printed trussK<span class="op">.</span>Zero<span class="op">();</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> trussK<span class="op">;</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// get the current E from the material for the last updated strain</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> E <span class="op">=</span> theMaterial<span class="op">-&amp;</span>gt<span class="op">;</span>getTangent<span class="op">();&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// form the tangent stiffness matrix trussK = trans^trans; trussK *=</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>A<span class="op">*</span>E<span class="op">/</span>L<span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// return the matrix return trussK; }&lt;/p&gt;</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="at">const</span> Matrix <span class="op">&amp;</span>amp<span class="op">;</span> Truss2D<span class="op">::</span>getInitialStiff<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">{</span> <span class="cf">if</span> <span class="op">(</span>L <span class="op">==</span> <span class="fl">0.0</span><span class="op">)</span> <span class="op">{</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="co">// length = zero - problem in setDomain() warning message already</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>printed trussK<span class="op">.</span>Zero<span class="op">();</span> <span class="cf">return</span> trussK<span class="op">;</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// get the current E from the material for the last updated strain</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> E <span class="op">=</span> theMaterial<span class="op">-&amp;</span>gt<span class="op">;</span>getInitialTangent<span class="op">();&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// form the tangent stiffness matrix trussK = trans^trans; trussK *=</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>A<span class="op">*</span>E<span class="op">/</span>L<span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// return the matrix return trussK; } </span></span></code></pre></div>
 </p>
 <h5 id="methods_to_return_resisting_force">
 Methods To Return Resisting Force
@@ -13706,16 +13650,14 @@ Methods To Return Resisting Force
 In this method we obtain the stress from the material and use this to return the transformed force vector.
 </p>
 <p>
-&lt;source lang=“cpp”&gt; const Vector &amp; Truss2D::getResistingForce() { if (L == 0.0) { // if length == 0, problem in setDomain() trussR.Zero(); return trussR; }
-</p>
-<p>
-// want: R = Ku - Pext
-</p>
-<p>
-// force = F * transformation double force = A<em>theMaterial-&gt;getStress(); for (int i=0; i&lt;4; i++) trussR(i) = trans(0,i)</em>force;
-</p>
-<p>
-return trussR; } &lt;/source&gt;
+<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a> <span class="at">const</span> Vector <span class="op">&amp;</span>amp<span class="op">;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Truss2D<span class="op">::</span>getResistingForce<span class="op">()</span> <span class="op">{</span> <span class="cf">if</span> <span class="op">(</span>L <span class="op">==</span> <span class="fl">0.0</span><span class="op">)</span> <span class="op">{</span> <span class="co">// if length == 0,</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>problem in setDomain<span class="op">()</span> trussR<span class="op">.</span>Zero<span class="op">();</span> <span class="cf">return</span> trussR<span class="op">;</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// want: R = Ku - Pext&lt;/p&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">// force = F * transformation double force =</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>A<span class="op">*</span>theMaterial<span class="op">-&amp;</span>gt<span class="op">;</span>getStress<span class="op">();</span> <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&amp;</span>lt<span class="op">;</span><span class="dv">4</span><span class="op">;</span> i<span class="op">++)</span> trussR<span class="op">(</span>i<span class="op">)</span> <span class="op">=</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>trans<span class="op">(</span><span class="dv">0</span><span class="op">,</span>i<span class="op">)*</span>force<span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="cf">return</span> trussR<span class="op">;</span> <span class="op">}</span> </span></code></pre></div>
 </p>
 <h5 id="methods_dealing_with_output">
 Methods Dealing With Output
@@ -13724,7 +13666,11 @@ Methods Dealing With Output
 Information is obtained by the user when the print command is invoked by the user and also when the user issues the recorder command. When the print command is invoked the Print method is invoked. This method simply prints information about the element, and then asks the material to do likewise.
 </p>
 <p>
-&lt;source lang=“cpp”&gt; void Truss2D::Print(OPS_Stream &amp;s, int flag) { s &lt;&lt; “Element:” &lt;&lt; this-&gt;getTag(); s &lt;&lt; ” type: Truss2D iNode: ” &lt;&lt; externalNodes(0); s &lt;&lt; ” jNode: ” &lt;&lt; externalNodes(1); s &lt;&lt; ” Area: ” &lt;&lt; A; s &lt;&lt; ” aterial: ” &lt;&lt; *theMaterial; } &lt;/source&gt;
+<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a> <span class="dt">void</span> Truss2D<span class="op">::</span>Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>amp<span class="op">;</span>s<span class="op">,</span> <span class="dt">int</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>flag<span class="op">)</span> <span class="op">{</span> s <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot;Element: &quot;</span> <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getTag<span class="op">();</span> s <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot;</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>type<span class="op">:</span> Truss2D iNode<span class="op">:</span> <span class="st">&quot; &amp;lt;&amp;lt; externalNodes(0); s &amp;lt;&amp;lt; &quot;</span> jNode<span class="op">:</span> <span class="st">&quot;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> externalNodes<span class="op">(</span><span class="dv">1</span><span class="op">);</span> s <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot; Area: &quot;</span> <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> A<span class="op">;</span> s <span class="op">&amp;</span>lt<span class="op">;&amp;</span>lt<span class="op">;</span> <span class="st">&quot;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>\t Material<span class="op">:</span> <span class="st">&quot; &amp;lt;&amp;lt; *theMaterial; } </span></span></code></pre></div>
 </p>
 <p>
 There are two methods used by the element recorders.
@@ -13738,28 +13684,39 @@ The second method, getReponse(), is called by the recorder when it is actually r
 </li>
 </ol>
 <p>
-&lt;source lang=“cpp”&gt; Response * Truss2D::setResponse(const char **argv, int argc, OPS_Stream &amp;output) { Response *theResponse = 0;
-</p>
-<p>
-output.tag(“ElementOutput”); output.attr(“eleType”,this-&gt;getClassType()); output.attr(“eleTag”,this-&gt;getTag()); int numNodes = this-&gt;getNumExternalNodes(); const ID &amp;nodes = this-&gt;getExternalNodes(); static char nodeData[32];
-</p>
-<p>
-for (int i=0; i&lt;numNodes; i++) { sprintf(nodeData,“node%d”,i+1); output.attr(nodeData,nodes(i)); }
-</p>
-<p>
-if (strcmp(argv[0],“force”) == 0 || strcmp(argv[0],“forces”) == 0 || strcmp(argv[0],“globalForce”) == 0 || strcmp(argv[0],“globalForces”) == 0) { const Vector &amp;force = this-&gt;getResistingForce(); int size = force.Size(); for (int i=0; i&lt;size; i++) { sprintf(nodeData,“P%d”,i+1); output.tag(“ResponseType”,nodeData); } theResponse = new ElementResponse(this, 1, this-&gt;getResistingForce()); }
-</p>
-<p>
-else if (strcmp(argv[0],“dampingForce”) == 0 || strcmp(argv[0],“dampingForces”) == 0) { const Vector &amp;force = this-&gt;getResistingForce(); int size = force.Size(); for (int i=0; i&lt;size; i++) { sprintf(nodeData,“P%d”,i+1); output.tag(“ResponseType”,nodeData); } theResponse = new ElementResponse(this, 2, this-&gt;getResistingForce()); } else if (strcmp(argv[0],“axialForce”) ==0) return new ElementResponse(this, 3, 0.0);
-</p>
-<p>
-output.endTag(); return theResponse; }
-</p>
-<p>
-int Truss2D::getResponse(int responseID, Information &amp;eleInfo) { double strain;
-</p>
-<p>
-switch (responseID) { case -1: return -1; case 1: // global forces return eleInfo.setVector(this-&gt;getResistingForce()); case 2: return eleInfo.setVector(this-&gt;getRayleighDampingForces()); case 3: theMaterial-&gt;setTrialStrain(strain); return eleInfo.setDouble(A * theMaterial-&gt;getStress()); default: return 0; } } &lt;/source&gt;
+<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a> Response <span class="op">*</span> Truss2D<span class="op">::</span>setResponse<span class="op">(</span><span class="at">const</span> <span class="dt">char</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">**</span>argv<span class="op">,</span> <span class="dt">int</span> argc<span class="op">,</span> OPS_Stream <span class="op">&amp;</span>amp<span class="op">;</span>output<span class="op">)</span> <span class="op">{</span> Response <span class="op">*</span>theResponse <span class="op">=</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>output<span class="op">.</span>tag<span class="op">(</span><span class="st">&quot;ElementOutput&quot;</span><span class="op">);</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span>attr<span class="op">(</span><span class="st">&quot;eleType&quot;</span><span class="op">,</span><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getClassType<span class="op">());</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span>attr<span class="op">(</span><span class="st">&quot;eleTag&quot;</span><span class="op">,</span><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getTag<span class="op">());</span> <span class="dt">int</span> numNodes <span class="op">=</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getNumExternalNodes<span class="op">();</span> <span class="at">const</span> ID <span class="op">&amp;</span>amp<span class="op">;</span>nodes <span class="op">=</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getExternalNodes<span class="op">();</span> <span class="at">static</span> <span class="dt">char</span> nodeData<span class="op">[</span><span class="dv">32</span><span class="op">];&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&amp;</span>lt<span class="op">;</span>numNodes<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> sprintf<span class="op">(</span>nodeData<span class="op">,</span><span class="st">&quot;node</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span>i<span class="op">+</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span>attr<span class="op">(</span>nodeData<span class="op">,</span>nodes<span class="op">(</span>i<span class="op">));</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>argv<span class="op">[</span><span class="dv">0</span><span class="op">],</span><span class="st">&quot;force&quot;</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">||</span> strcmp<span class="op">(</span>argv<span class="op">[</span><span class="dv">0</span><span class="op">],</span><span class="st">&quot;forces&quot;</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">||</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>strcmp<span class="op">(</span>argv<span class="op">[</span><span class="dv">0</span><span class="op">],</span><span class="st">&quot;globalForce&quot;</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">||</span> strcmp<span class="op">(</span>argv<span class="op">[</span><span class="dv">0</span><span class="op">],</span><span class="st">&quot;globalForces&quot;</span><span class="op">)</span> <span class="op">==</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="dv">0</span><span class="op">)</span> <span class="op">{</span> <span class="at">const</span> Vector <span class="op">&amp;</span>amp<span class="op">;</span>force <span class="op">=</span> <span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getResistingForce<span class="op">();</span> <span class="dt">int</span> size <span class="op">=</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>force<span class="op">.</span>Size<span class="op">();</span> <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&amp;</span>lt<span class="op">;</span>size<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>sprintf<span class="op">(</span>nodeData<span class="op">,</span><span class="st">&quot;P</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span>i<span class="op">+</span><span class="dv">1</span><span class="op">);</span> output<span class="op">.</span>tag<span class="op">(</span><span class="st">&quot;ResponseType&quot;</span><span class="op">,</span>nodeData<span class="op">);</span> <span class="op">}</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>theResponse <span class="op">=</span> <span class="kw">new</span> ElementResponse<span class="op">(</span><span class="kw">this</span><span class="op">,</span> <span class="dv">1</span><span class="op">,</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getResistingForce<span class="op">());</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="cf">else</span> <span class="cf">if</span> <span class="op">(</span>strcmp<span class="op">(</span>argv<span class="op">[</span><span class="dv">0</span><span class="op">],</span><span class="st">&quot;dampingForce&quot;</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span> <span class="op">||</span></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>strcmp<span class="op">(</span>argv<span class="op">[</span><span class="dv">0</span><span class="op">],</span><span class="st">&quot;dampingForces&quot;</span><span class="op">)</span> <span class="op">==</span> <span class="dv">0</span><span class="op">)</span> <span class="op">{</span> <span class="at">const</span> Vector <span class="op">&amp;</span>amp<span class="op">;</span>force <span class="op">=</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getResistingForce<span class="op">();</span> <span class="dt">int</span> size <span class="op">=</span> force<span class="op">.</span>Size<span class="op">();</span> <span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>i<span class="op">&amp;</span>lt<span class="op">;</span>size<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span> sprintf<span class="op">(</span>nodeData<span class="op">,</span><span class="st">&quot;P</span><span class="sc">%d</span><span class="st">&quot;</span><span class="op">,</span>i<span class="op">+</span><span class="dv">1</span><span class="op">);</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>output<span class="op">.</span>tag<span class="op">(</span><span class="st">&quot;ResponseType&quot;</span><span class="op">,</span>nodeData<span class="op">);</span> <span class="op">}</span> theResponse <span class="op">=</span> <span class="kw">new</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>ElementResponse<span class="op">(</span><span class="kw">this</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getResistingForce<span class="op">());</span> <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="op">(</span>strcmp<span class="op">(</span>argv<span class="op">[</span><span class="dv">0</span><span class="op">],</span><span class="st">&quot;axialForce&quot;</span><span class="op">)</span> <span class="op">==</span><span class="dv">0</span><span class="op">)</span> <span class="cf">return</span> <span class="kw">new</span> ElementResponse<span class="op">(</span><span class="kw">this</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span></span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="fl">0.0</span><span class="op">);&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>output<span class="op">.</span>endTag<span class="op">();</span> <span class="cf">return</span> theResponse<span class="op">;</span> <span class="op">}&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">int</span> Truss2D<span class="op">::</span>getResponse<span class="op">(</span><span class="dt">int</span> responseID<span class="op">,</span> Information <span class="op">&amp;</span>amp<span class="op">;</span>eleInfo<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="dt">double</span> strain<span class="op">;&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="cf">switch</span> <span class="op">(</span>responseID<span class="op">)</span> <span class="op">{</span> <span class="cf">case</span> <span class="op">-</span><span class="dv">1</span><span class="op">:</span> <span class="cf">return</span> <span class="op">-</span><span class="dv">1</span><span class="op">;</span> <span class="cf">case</span> <span class="dv">1</span><span class="op">:</span> <span class="co">// global forces</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> eleInfo<span class="op">.</span>setVector<span class="op">(</span><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getResistingForce<span class="op">());</span> <span class="cf">case</span> <span class="dv">2</span><span class="op">:</span> <span class="cf">return</span></span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>eleInfo<span class="op">.</span>setVector<span class="op">(</span><span class="kw">this</span><span class="op">-&amp;</span>gt<span class="op">;</span>getRayleighDampingForces<span class="op">());</span> <span class="cf">case</span> <span class="dv">3</span><span class="op">:</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>theMaterial<span class="op">-&amp;</span>gt<span class="op">;</span>setTrialStrain<span class="op">(</span>strain<span class="op">);</span> <span class="cf">return</span> eleInfo<span class="op">.</span>setDouble<span class="op">(</span>A <span class="op">*</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>theMaterial<span class="op">-&amp;</span>gt<span class="op">;</span>getStress<span class="op">());</span> <span class="cf">default</span><span class="op">:</span> <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span> <span class="op">}</span> <span class="op">}</span> </span></code></pre></div>
 </p>
 <h5 id="methods_dealing_with_databasesparallel_processing">
 Methods Dealing With Databases/Parallel Processing
@@ -13768,7 +13725,7 @@ Methods Dealing With Databases/Parallel Processing
 There are two methods provided which are required is the user uses to use the database or parallel procesing features of the OpenSees applications. If neither are to be used, the developer need simply return a negative value in both methods. The idea is that the element must pack up it’s information using Vector and ID objects and send it off to a Channel object. On the flip side, the receiving blank element must receive the same Vector and ID data, unpack it and set the variables.
 </p>
 <p>
-&lt;source lang=“cpp”&gt; int Truss2D::sendSelf(int commitTag, Channel &amp;theChannel) { int res;
+```cpp int Truss2D::sendSelf(int commitTag, Channel &amp;theChannel) { int res;
 </p>
 <p>
 // note: we don’t check for dataTag == 0 for Element // objects as that is taken care of in a commit by the Domain // object - don’t want to have to do the check if sending data int dataTag = this-&gt;getDbTag();

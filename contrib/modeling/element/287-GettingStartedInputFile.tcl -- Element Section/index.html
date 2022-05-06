@@ -13309,25 +13309,40 @@ Removal During Simulation
 
 <h1 id="gettingstartedinputfile.tcl-element-section">GettingStartedInputFile.tcl – Element Section</h1>
 <p>
-<strong>NOTOC</strong> <img src="/OpenSeesRT/contrib/static/BuildingTclLogo.gif" title="BuildingTclLogo.gif"
-alt="BuildingTclLogo.gif" /> &lt;source lang=“Tcl”&gt;
-</p>
-<ol>
-<li>
-ELEMENT SECTION —————————————
-</li>
-</ol>
-<p>
-addSectionData SectionLabel 30x30RCRectangularFiber addSectionData SectionDescription “Square Rectangular RC Section” addSectionData SectionModelLabel RCRectangularFiber; addSectionData H 30<em>$in; addSectionData B 30</em>$in; addSectionData NBarBot 6; # number of bottom longitudinal reinforcing bars in section addSectionData NBarTop 6; # number of top longitudinal reinforcing bars in section addSectionData NBarInt 6; # total number of intermediate bars in section (2 bars per layer) addSectionData BarSizeBot #9; addSectionData BarSizeTop #9; addSectionData BarSizeInt #9; addSectionData CoverBot 2.6<em>$in; addSectionData CoverTop 2.6</em>$in; addSectionData CoverInt 2.6*$in; addSectionData CoreMaterialLabel 4ksiConfinedConcrete; addSectionData CoverMaterialLabel 4ksiUnconfinedConcrete; addSectionData ReinfMaterialLabel 60ksiReinforcingSteel; addSection
-</p>
-<p>
-addSectionData SectionLabel 30x60RCRectangularFiber addSectionData SectionDescription “Rectangular RC Section” addSectionData SectionModelLabel RCRectangularFiber; addSectionData H 60<em>$in; addSectionData B 30</em>$in; addSectionData NBarBot 6; # number of bottom longitudinal reinforcing bars in section addSectionData NBarTop 4; # number of top longitudinal reinforcing bars in section addSectionData NBarInt 6; # total number of intermediate bars in section (2 bars per layer) addSectionData BarSizeBot #9; addSectionData BarSizeTop #11; addSectionData BarSizeInt #6; addSectionData CoverBot 2.6<em>$in; addSectionData CoverTop 2.6</em>$in; addSectionData CoverInt 2.6*$in; addSectionData CoreMaterialLabel 4ksiConfinedConcrete; addSectionData CoverMaterialLabel 4ksiUnconfinedConcrete; addSectionData ReinfMaterialLabel 60ksiReinforcingSteel; addSection
-</p>
-<p>
-puts –DoneSections–
-</p>
-<p>
-&lt;/source&gt;
+<p><strong>NOTOC</strong> <img src="/OpenSeesRT/contrib/static/BuildingTclLogo.gif" title="BuildingTclLogo.gif"
+alt="BuildingTclLogo.gif" /></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;ELEMENT SECTION ---------------------------------------&lt;/li&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;addSectionData SectionLabel 30x30RCRectangularFiber addSectionData</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>SectionDescription <span class="st">&quot;Square Rectangular RC Section&quot;</span> addSectionData</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>SectionModelLabel RCRectangularFiber; addSectionData H <span class="dv">30</span>*<span class="ch">\$</span>in;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>addSectionData B <span class="dv">30</span>*<span class="ch">\$</span>in; addSectionData NBarBot <span class="dv">6</span>; <span class="co"># number of bottom</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>longitudinal reinforcing bars in section addSectionData NBarTop <span class="dv">6</span>; <span class="co">#</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="ot">number</span> of top longitudinal reinforcing bars in section addSectionData</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>NBarInt <span class="dv">6</span>; <span class="co"># total number of intermediate bars in section (2 bars per</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>layer) addSectionData BarSizeBot #<span class="dv">9</span>; addSectionData BarSizeTop #<span class="dv">9</span>;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>addSectionData BarSizeInt #<span class="dv">9</span>; addSectionData CoverBot <span class="fl">2.6</span>*<span class="ch">\$</span>in;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>addSectionData CoverTop <span class="fl">2.6</span>*<span class="ch">\$</span>in; addSectionData CoverInt <span class="fl">2.6</span>*<span class="ch">\$</span>in;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>addSectionData CoreMaterialLabel 4ksiConfinedConcrete; addSectionData</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>CoverMaterialLabel 4ksiUnconfinedConcrete; addSectionData</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>ReinfMaterialLabel 60ksiReinforcingSteel; addSection&lt;/p&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;addSectionData SectionLabel 30x60RCRectangularFiber addSectionData</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>SectionDescription <span class="st">&quot;Rectangular RC Section&quot;</span> addSectionData</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>SectionModelLabel RCRectangularFiber; addSectionData H <span class="dv">60</span>*<span class="ch">\$</span>in;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>addSectionData B <span class="dv">30</span>*<span class="ch">\$</span>in; addSectionData NBarBot <span class="dv">6</span>; <span class="co"># number of bottom</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>longitudinal reinforcing bars in section addSectionData NBarTop <span class="dv">4</span>; <span class="co">#</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ot">number</span> of top longitudinal reinforcing bars in section addSectionData</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>NBarInt <span class="dv">6</span>; <span class="co"># total number of intermediate bars in section (2 bars per</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>layer) addSectionData BarSizeBot #<span class="dv">9</span>; addSectionData BarSizeTop #<span class="dv">11</span>;</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>addSectionData BarSizeInt #<span class="dv">6</span>; addSectionData CoverBot <span class="fl">2.6</span>*<span class="ch">\$</span>in;</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>addSectionData CoverTop <span class="fl">2.6</span>*<span class="ch">\$</span>in; addSectionData CoverInt <span class="fl">2.6</span>*<span class="ch">\$</span>in;</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>addSectionData CoreMaterialLabel 4ksiConfinedConcrete; addSectionData</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>CoverMaterialLabel 4ksiUnconfinedConcrete; addSectionData</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>ReinfMaterialLabel 60ksiReinforcingSteel; addSection&lt;/p&gt;</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">puts</span> --DoneSections--&lt;/p&gt;</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;</span></code></pre></div>
 </p>
 <hr />
 <p>

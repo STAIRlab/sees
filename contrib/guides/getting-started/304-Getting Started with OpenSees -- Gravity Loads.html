@@ -31,8 +31,12 @@ load $nodeTag (ndf $LoadValues)
 </dd>
 </dl>
 <p>}''</p>
-<p>&lt;source lang="Tcl"&gt; pattern Plain 1 Linear { load 3 0.0 -2000
--168074 load 4 0.0 -2000 168074 } &lt;/source&gt;</p>
+<p>
+```Tcl
+ pattern Plain 1 Linear { load 3 0.0 -2000
+-168074 load 4 0.0 -2000 168074 } 
+```
+</p>
 <p>&lt;h2&gt;Analysis Definition&lt;/h2&gt;</p>
 <ul>
 <li>The <a href="constraints_Command" title="wikilink">constraints
@@ -43,8 +47,12 @@ enforced in the analysis. The Transformation ContraintHadler is
 recommended for transient analysis, but can be used in most
 analyses.</li>
 </ul>
-<p>&lt;source lang="Tcl"&gt; constraints Transformation
-&lt;/source&gt;</p>
+<p>
+```Tcl
+ constraints Transformation
+
+```
+</p>
 <ul>
 <li>The <a href="numberer_Command" title="wikilink">numberer Command</a>
 is used to construct the DOF_Numberer object. The DOF_Numberer object
@@ -53,7 +61,11 @@ determines the mapping between equation numbers and degrees-of-freedom
 assigned degrees-of-freedom using the Reverse Cuthill-McKee algorithm,
 which makes the analysis more efficient for large models.</li>
 </ul>
-<p>&lt;source lang="Tcl"&gt; numberer RCM &lt;/source&gt;</p>
+<p>
+```Tcl
+ numberer RCM 
+```
+</p>
 <ul>
 <li>The <a href="system_Command" title="wikilink">system Command</a> is
 used to construct the LinearSOE and LinearSolver objects to store and
@@ -62,7 +74,11 @@ is used to construct an un-symmetric banded system of equations object
 which will be factored and solved during the analysis using the Lapack
 band general solver</li>
 </ul>
-<p>&lt;source lang="Tcl"&gt; system BandGeneral &lt;/source&gt;</p>
+<p>
+```Tcl
+ system BandGeneral 
+```
+</p>
 <ul>
 <li>The <a href="test_Command" title="wikilink">test Command</a> is used
 to construct a ConvergenceTest object. Certain SolutionAlgorithm objects
@@ -72,15 +88,23 @@ applied to residual. The NormDispIncr test takes the followin input
 format:</li>
 </ul>
 <p><em>test NormDispIncr $tol $maxNumIter &lt;$printFlag&gt;</em></p>
-<p>&lt;source lang="Tcl"&gt; test NormDispIncr 1.0e-6 6
-&lt;/source&gt;</p>
+<p>
+```Tcl
+ test NormDispIncr 1.0e-6 6
+
+```
+</p>
 <ul>
 <li>The <a href="algorithm_Command" title="wikilink">algorithm
 Command</a> is used to construct a SolutionAlgorithm object, which
 determines the sequence of steps taken to solve the non-linear
 equation.</li>
 </ul>
-<p>&lt;source lang="Tcl"&gt; algorithm Newton &lt;/source&gt;</p>
+<p>
+```Tcl
+ algorithm Newton 
+```
+</p>
 <ul>
 <li>The <a href="integrator_Command" title="wikilink">integrator
 Command</a> is used to construct the Integrator object. The Integrator
@@ -100,7 +124,11 @@ gravity load is analyzed using the load-control integrator which takes
 the following form: integrator LoadControl $dLambda1 &lt;$Jd $minLambda
 $maxLambda&gt;</p>
 <p>A load increment of 1/10 will be applied at each analysis step
-&lt;source lang="Tcl"&gt; integrator LoadControl 0.1 &lt;/source&gt;</p>
+
+```Tcl
+ integrator LoadControl 0.1 
+```
+</p>
 <ul>
 <li>The <a href="analysis_Command" title="wikilink">analysis Command</a>
 is used to construct the Analysis object. This analysis object is
@@ -108,7 +136,11 @@ constructed with the component objects previously created by the
 analyst. All currently-available analysis objects employ incremental
 solution strategies.</li>
 </ul>
-<p>&lt;source lang="Tcl"&gt; analysis Static &lt;/source&gt;</p>
+<p>
+```Tcl
+ analysis Static 
+```
+</p>
 <p>&lt;h2&gt;Analysis Execution&lt;/h2&gt;</p>
 <ul>
 <li>The <a href="analyze_Command" title="wikilink">analyze Command</a>
@@ -121,8 +153,12 @@ the analyses and resets the current time to zero.</li>
 <p>The commands take the following formats:</p>
 <p><em>analyze $numIncr &lt;$dt&gt; &lt;$dtMin $dtMax $Jd&gt;</em>
 &lt;br&gt; <em>loadConst &lt;-time $pseudoTime&gt;</em></p>
-<p>&lt;source lang="Tcl"&gt; analyze 10 loadConst -time 0.0
-&lt;/source&gt;</p>
+<p>
+```Tcl
+ analyze 10 loadConst -time 0.0
+
+```
+</p>
 <hr />
 <p>Return to <a href="Getting_Started_with_OpenSees"
 title="wikilink">Getting Started with OpenSees</a></p>

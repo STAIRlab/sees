@@ -13364,97 +13364,56 @@ In the following section we will provide all necessary code to add a new 2d plan
 Please note that the following example has been corrected and expanded by the author of this page. The following code may not match the actual version in the OpenSees repository.
 </p>
 <p>
-&lt;source lang=“fortran”&gt; SUBROUTINE trussf(eleObj,modl,tang,resid,isw,error)
-</p>
-<p>
-!DEC$ IF DEFINED (_DLL) !DEC$ ATTRIBUTES DLLEXPORT :: TRUSSF !DEC$ END IF
-</p>
-<p>
-use elementTypes use elementAPI implicit none
-</p>
-<p>
-type(eleObject)::eleObj type(modelState)::modl double precision tang(4, *) double precision resid(4) integer::isw; integer::error;
-</p>
-<p>
-integer :: tag, nd1, nd2, matTag, numCrd, i, j, numDOF real *8, pointer::theParam(:) integer, pointer::theNodes(:)
-</p>
-<p>
-double precision A, dx, dy, L, cs, sn double precision dLength, force, k
-</p>
-<p>
-integer :: iData(3); integer :: matTags(2);
-</p>
-<p>
-type(c_ptr) :: theCMatPtr type(c_ptr), pointer :: theCMatPtrPtr(:) type(matObject), pointer :: theMat
-</p>
-<p>
-double precision dData(1), nd1Crd(2), nd2Crd(2) double precision d1(2), d2(2), tran(4) double precision strs(1), strn(1), tng(1)
-</p>
-<p>
-integer numData, err, matType
-</p>
-<p>
-&lt;/source&gt; The main IF/THEN structure of the routine begins here; it is needed to select the proper code depending on what the flag isw is requesting. &lt;source lang=“fortran”&gt;
-</p>
-<p>
-IF (isw.eq.ISW_INIT) THEN
-</p>
-<p>
-c get the input data - tag? nd1? nd2? A? matTag?
-</p>
-<p>
-numData = 3 err = OPS_GetIntInput(numData, iData) tag = iData(1); nd1 = iData(2); nd2 = iData(3);
-</p>
-<p>
-numData = 1 err = OPS_GetDoubleInput(numData, dData) A = dData(1);
-</p>
-<p>
-numData = 1 err = OPS_GetIntInput(numData, iData) matTag = iData(1);
-</p>
-<p>
-c Allocate the element state
-</p>
-<p>
-eleObj%tag = tag eleObj%nnode = 2 eleObj%ndof = 4 eleObj%nparam = 4 eleObj%nstate = 0 eleObj%nmat = 1
-</p>
-<p>
-matTags(1) = matTag; matType = OPS_UNIAXIAL_MATERIAL_TYPE; err = OPS_AllocateElement(eleObj, matTags, matType)
-</p>
-<p>
-c Initialize the element properties
-</p>
-<p>
-call c_f_pointer(eleObj%param, theParam, [4]); call c_f_pointer(eleObj%node, theNodes, [2]);
-</p>
-<p>
-numCrd = 2; err = OPS_GetNodeCrd(nd1, numCrd, nd1Crd); err = OPS_GetNodeCrd(nd2, numCrd, nd2Crd);
-</p>
-<p>
-dx = nd2Crd(1)-nd1Crd(1); dy = nd2Crd(2)-nd1Crd(2);
-</p>
-<p>
-L = sqrt(dx<em>dx + dy</em>dy);
-</p>
-<p>
-if (L == 0.0) then c OPS_Error(“Warning - truss element has zero length”, 1); return; end if
-</p>
-<p>
-cs = dx/L; sn = dy/L;
-</p>
-<p>
-theParam(1) = A; theParam(2) = L; theParam(3) = cs; theParam(4) = sn;
-</p>
-<p>
-theNodes(1) = nd1; theNodes(2) = nd2;
-</p>
-<p>
-ELSE
-</p>
-<p>
-IF (isw == ISW_COMMIT) THEN
-</p>
-<p>
-&lt;/source&gt; In ISW_COMMIT, the state of the model is saved. If your element uses state variables, save them here. &lt;source lang=“fortran”&gt;
+<div class="sourceCode" id="cb1"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="kw">SUBROUTINE</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>trussf(eleObj,modl,tang,resid,isw,error)<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="co">!DEC$ IF DEFINED (_DLL) !DEC$ ATTRIBUTES DLLEXPORT :: TRUSSF !DEC$</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">END IF</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">use</span> elementTypes <span class="kw">use</span> elementAPI <span class="kw">implicit</span> <span class="kw">none</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">type(eleObject)::</span>eleObj <span class="dt">type(modelState)::</span>modl <span class="dt">double precision</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>tang(<span class="dv">4</span>, <span class="kw">*</span>) <span class="dt">double precision</span> resid(<span class="dv">4</span>) <span class="dt">integer::</span>isw; <span class="dt">integer::</span>error;<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">integer</span> <span class="dt">::</span> tag, nd1, nd2, matTag, numCrd, i, j, numDOF <span class="dt">real</span> <span class="kw">*</span><span class="dv">8</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">pointer::</span>theParam(:) <span class="dt">integer</span>, <span class="dt">pointer::</span>theNodes(:)<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">double precision</span> A, dx, dy, L, cs, sn <span class="dt">double precision</span> dLength,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>force, k<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">integer</span> <span class="dt">::</span> iData(<span class="dv">3</span>); <span class="dt">integer</span> <span class="dt">::</span> matTags(<span class="dv">2</span>);<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">type(c_ptr)</span> <span class="dt">::</span> theCMatPtr <span class="dt">type(c_ptr)</span>, <span class="dt">pointer</span> <span class="dt">::</span> theCMatPtrPtr(:)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="dt">type(matObject)</span>, <span class="dt">pointer</span> <span class="dt">::</span> theMat<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">double precision</span> dData(<span class="dv">1</span>), nd1Crd(<span class="dv">2</span>), nd2Crd(<span class="dv">2</span>) <span class="dt">double precision</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>d1(<span class="dv">2</span>), d2(<span class="dv">2</span>), tran(<span class="dv">4</span>) <span class="dt">double precision</span> strs(<span class="dv">1</span>), strn(<span class="dv">1</span>), tng(<span class="dv">1</span>)<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="dt">integer</span> numData, err, matType<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span></span></code></pre></div>
+<p>The main IF/THEN structure of the routine begins here; it is needed to select the proper code depending on what the flag isw is requesting.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">IF</span> (isw<span class="op">.eq.</span>ISW_INIT) <span class="kw">THEN</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>c get the input data <span class="kw">-</span> tag<span class="kw">?</span> nd1<span class="kw">?</span> nd2<span class="kw">?</span> A<span class="kw">?</span> matTag<span class="kw">?</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>numData <span class="kw">=</span> <span class="dv">3</span> err <span class="kw">=</span> OPS_GetIntInput(numData, iData) tag <span class="kw">=</span> iData(<span class="dv">1</span>); nd1</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="kw">=</span> iData(<span class="dv">2</span>); nd2 <span class="kw">=</span> iData(<span class="dv">3</span>);<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>numData <span class="kw">=</span> <span class="dv">1</span> err <span class="kw">=</span> OPS_GetDoubleInput(numData, dData) A <span class="kw">=</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>dData(<span class="dv">1</span>);<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>numData <span class="kw">=</span> <span class="dv">1</span> err <span class="kw">=</span> OPS_GetIntInput(numData, iData) matTag <span class="kw">=</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>iData(<span class="dv">1</span>);<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>c <span class="kw">Allocate</span> the element state<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>eleObj%tag <span class="kw">=</span> tag eleObj%nnode <span class="kw">=</span> <span class="dv">2</span> eleObj%ndof <span class="kw">=</span> <span class="dv">4</span> eleObj%nparam <span class="kw">=</span> <span class="dv">4</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>eleObj%nstate <span class="kw">=</span> <span class="dv">0</span> eleObj%nmat <span class="kw">=</span> <span class="dv">1</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>matTags(<span class="dv">1</span>) <span class="kw">=</span> matTag; matType <span class="kw">=</span> OPS_UNIAXIAL_MATERIAL_TYPE; err <span class="kw">=</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>OPS_AllocateElement(eleObj, matTags, matType)<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>c Initialize the element properties<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">call</span> c_f_pointer(eleObj%param, theParam, <span class="kw">[</span><span class="dv">4</span><span class="kw">]</span>); <span class="kw">call</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">c_f_pointer(eleObj%node, theNodes, [2]);&lt;/p&gt;</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>numCrd <span class="kw">=</span> <span class="dv">2</span>; err <span class="kw">=</span> OPS_GetNodeCrd(nd1, numCrd, nd1Crd); err <span class="kw">=</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>OPS_GetNodeCrd(nd2, numCrd, nd2Crd);<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>dx <span class="kw">=</span> nd2Crd(<span class="dv">1</span>)<span class="kw">-</span>nd1Crd(<span class="dv">1</span>); dy <span class="kw">=</span> nd2Crd(<span class="dv">2</span>)<span class="kw">-</span>nd1Crd(<span class="dv">2</span>);<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>L <span class="kw">=</span> <span class="bu">sqrt</span>(dx<span class="kw">*</span>dx <span class="kw">+</span> dy<span class="kw">*</span>dy);<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">if</span> (L <span class="op">==</span> <span class="fl">0.0</span>) <span class="kw">then</span> c OPS_Error(<span class="st">&quot;</span>Warning <span class="kw">-</span> truss element has zero</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>length\n<span class="st">&quot;</span>, <span class="dv">1</span>); <span class="kw">return</span>; <span class="kw">end if</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>cs <span class="kw">=</span> dx<span class="kw">/</span>L; sn <span class="kw">=</span> dy<span class="kw">/</span>L;<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>theParam(<span class="dv">1</span>) <span class="kw">=</span> A; theParam(<span class="dv">2</span>) <span class="kw">=</span> L; theParam(<span class="dv">3</span>) <span class="kw">=</span> cs; theParam(<span class="dv">4</span>) <span class="kw">=</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>sn;<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>theNodes(<span class="dv">1</span>) <span class="kw">=</span> nd1; theNodes(<span class="dv">2</span>) <span class="kw">=</span> nd2;<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">ELSE</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">IF</span> (isw <span class="op">==</span> ISW_COMMIT) <span class="kw">THEN</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span></span></code></pre></div>
+In ISW_COMMIT, the state of the model is saved. If your element uses state variables, save them here. &lt;source lang=“fortran”&gt;
 </p>
 <p>
 call c_f_pointer(eleObj%mats, theCMatPtrPtr, [1]); theCMatPtr = theCMatPtrPtr(1);
@@ -13475,52 +13434,38 @@ j=OPS_InvokeMaterialDirectly(theCMatPtr, modl, strn, strs, + tng, isw)
 ELSE IF (isw == ISW_FORM_MASS) THEN
 </p>
 <p>
-&lt;/source&gt; In ISW_FORM_MASS, the mass matrix (if given by the element) must be returned in TANG. IMPORTANT: if your element returns no mass, remember to initialize TANG to zero! If not initialized, Fortran will return a mass matrix with random values. Also, do not overwrite RESID! &lt;source lang=“fortran”&gt;
-</p>
-<p>
-ELSE IF (isw == ISW_FORM_TANG_AND_RESID) THEN
-</p>
-<p>
-&lt;/source&gt; In ISW_FORM_TANG_AND_RESID, all the trials during a non-linear analysis are performed. DO NOT save state variables here. &lt;source lang=“fortran”&gt;
-</p>
-<p>
-call c_f_pointer(eleObj%param, theParam, [4]); call c_f_pointer(eleObj%node, theNodes, [2]); call c_f_pointer(eleObj%mats, theCMatPtrPtr, [1]); theCMatPtr = theCMatPtrPtr(1);
-</p>
-<p>
-A = theParam(1); L = theParam(2); cs = theParam(3); sn = theParam(4); nd1 = theNodes(1); nd2 = theNodes(2);
-</p>
-<p>
-numDOF = 2; err = OPS_GetNodeDisp(nd1, numDOF, d1); err = OPS_GetNodeDisp(nd2, numDOF, d2);
-</p>
-<p>
-tran(1) = -cs; tran(2) = -sn; tran(3) = cs; tran(4) = sn;
-</p>
-<p>
-dLength = 0.0; do i = 1,2 dLength = dLength - (d2(i)-d1(i)) * tran(i); continue
-</p>
-<p>
-strn(1) = dLength/L;
-</p>
-<p>
-c i = 0 c i=OPS_InvokeMaterial(eleObj, i, modl, strn, strs, tng, isw) j=OPS_InvokeMaterialDirectly(theCMatPtr, modl, strn, strs, + tng, isw)
-</p>
-<p>
-force = A<em>strs(1); k = A</em>tng(1)/L;
-</p>
-<p>
-do i =1,4 resid(i) = force * tran(i); do j = 1,4 tang(i,j) = k <em> tran(i)</em>tran(j); continue continue
-</p>
-<p>
-END IF
-</p>
-<p>
-END IF
-</p>
-<p>
-c return error code error = 0
-</p>
-<p>
-END SUBROUTINE trussf &lt;/source&gt;
+<pre><code> In ISW_FORM_MASS, the mass matrix (if given by the
+element) must be returned in TANG. IMPORTANT: if your element returns no
+mass, remember to initialize TANG to zero! If not initialized, Fortran
+will return a mass matrix with random values. Also, do not overwrite
+RESID! 
+```fortran
+&lt;/p&gt;
+&lt;p&gt;ELSE IF (isw == ISW_FORM_TANG_AND_RESID) THEN&lt;/p&gt;
+&lt;p&gt;</code></pre>
+<p>In ISW_FORM_TANG_AND_RESID, all the trials during a non-linear analysis are performed. DO NOT save state variables here.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode fortran"><code class="sourceCode fortranfixed"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">call</span> c_f_pointer(eleObj%param, theParam, <span class="kw">[</span><span class="dv">4</span><span class="kw">]</span>); <span class="kw">call</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">c_f_pointer(eleObj%node, theNodes, [2]); call c_f_pointer(eleObj%mats,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>theCMatPtrPtr, <span class="kw">[</span><span class="dv">1</span><span class="kw">]</span>); theCMatPtr <span class="kw">=</span> theCMatPtrPtr(<span class="dv">1</span>);<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>A <span class="kw">=</span> theParam(<span class="dv">1</span>); L <span class="kw">=</span> theParam(<span class="dv">2</span>); cs <span class="kw">=</span> theParam(<span class="dv">3</span>); sn <span class="kw">=</span> theParam(<span class="dv">4</span>);</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>nd1 <span class="kw">=</span> theNodes(<span class="dv">1</span>); nd2 <span class="kw">=</span> theNodes(<span class="dv">2</span>);<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>numDOF <span class="kw">=</span> <span class="dv">2</span>; err <span class="kw">=</span> OPS_GetNodeDisp(nd1, numDOF, d1); err <span class="kw">=</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>OPS_GetNodeDisp(nd2, numDOF, d2);<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>tran(<span class="dv">1</span>) <span class="kw">=</span> <span class="kw">-</span>cs; tran(<span class="dv">2</span>) <span class="kw">=</span> <span class="kw">-</span>sn; tran(<span class="dv">3</span>) <span class="kw">=</span> cs; tran(<span class="dv">4</span>) <span class="kw">=</span> sn;<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>dLength <span class="kw">=</span> <span class="fl">0.0</span>; <span class="kw">do</span> i <span class="kw">=</span> <span class="dv">1</span>,<span class="dv">2</span> dLength <span class="kw">=</span> dLength <span class="kw">-</span> (d2(i)<span class="kw">-</span>d1(i)) <span class="kw">*</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>tran(i); <span class="kw">continue</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>strn(<span class="dv">1</span>) <span class="kw">=</span> dLength<span class="kw">/</span>L;<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>c i <span class="kw">=</span> <span class="dv">0</span> c i<span class="kw">=</span>OPS_InvokeMaterial(eleObj, i, modl, strn, strs, tng, isw)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>j<span class="kw">=</span>OPS_InvokeMaterialDirectly(theCMatPtr, modl, strn, strs, <span class="kw">+</span> tng,</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>isw)<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>force <span class="kw">=</span> A<span class="kw">*</span>strs(<span class="dv">1</span>); k <span class="kw">=</span> A<span class="kw">*</span>tng(<span class="dv">1</span>)<span class="kw">/</span>L;<span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">do</span> i <span class="kw">=</span><span class="dv">1</span>,<span class="dv">4</span> resid(i) <span class="kw">=</span> force <span class="kw">*</span> tran(i); <span class="kw">do</span> j <span class="kw">=</span> <span class="dv">1</span>,<span class="dv">4</span> tang(i,j) <span class="kw">=</span> k <span class="kw">*</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>tran(i)<span class="kw">*</span>tran(j); <span class="kw">continue</span> <span class="kw">continue</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">END IF</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">END IF</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span>c <span class="kw">return</span> error code error <span class="kw">=</span> <span class="dv">0</span><span class="op">&lt;</span><span class="kw">/</span>p<span class="op">&gt;</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>p<span class="op">&gt;</span><span class="kw">END SUBROUTINE</span> trussf </span></code></pre></div>
 </p>
 <h3 id="compilation_instructions_for_visual_studio_on_windows">
 Compilation Instructions for Visual Studio on Windows

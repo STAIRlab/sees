@@ -13592,7 +13592,7 @@ stress density model parameters
 </li>
 </ol>
 <p>
-set eNot 0.730 set A 250.0 set n 0.60 set a1 0.58 set b1 0.023 set a2 230.0 set b2 65.0 set a3 79.0 set b3 16.0 set fd 4.0 set muNot 0.22 set muCyc 0.0 set sc 0.0055 set M 0.607 nDMaterial stressDensity 1 $mDen $eNot $A $n $nu $a1 $b1 $a2 $b2 $a3 $b3 $fd $muNot $ muCyc $sc $M <span class="math inline">\(patm&lt;/p&gt; &lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt; &lt;p&gt;Cubrinovski, M. and Ishihara K. (1998a) &#39;Modelling of sand behaviour based on state concept,&#39; &lt;em&gt;Soils and Foundations,&lt;/em&gt; 38(3), 115-127.&lt;/p&gt; &lt;p&gt;Cubrinovski, M. and Ishihara K. (1998b) &#39;State concept and modified elastoplasticity for sand modelling,&#39; &lt;em&gt;Soils and Foundations,&lt;/em&gt; 38(4), 213-225.&lt;/p&gt; &lt;hr /&gt; &lt;h2 id=&quot;example_analysis&quot;&gt;Example Analysis&lt;/h2&gt; &lt;p&gt;Element test with pure shear loading starting from isotropic initial state of stress.&lt;/p&gt; &lt;p&gt;&amp;lt;source lang=&quot;tcl&quot;&amp;gt;&lt;/p&gt; &lt;ol&gt; &lt;li&gt;intended number of cycles in the test&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;set nCycles 120&lt;/p&gt; &lt;ol&gt; &lt;li&gt;shear strain increment for the test&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;set dg 0.0001 set wg [expr 2.0*\)</span>dg]
+set eNot 0.730 set A 250.0 set n 0.60 set a1 0.58 set b1 0.023 set a2 230.0 set b2 65.0 set a3 79.0 set b3 16.0 set fd 4.0 set muNot 0.22 set muCyc 0.0 set sc 0.0055 set M 0.607 nDMaterial stressDensity 1 $mDen $eNot $A $n $nu $a1 $b1 $a2 $b2 $a3 $b3 $fd $muNot $ muCyc $sc $M <span class="math inline">\(patm&lt;/p&gt; &lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt; &lt;p&gt;Cubrinovski, M. and Ishihara K. (1998a) &#39;Modelling of sand behaviour based on state concept,&#39; &lt;em&gt;Soils and Foundations,&lt;/em&gt; 38(3), 115-127.&lt;/p&gt; &lt;p&gt;Cubrinovski, M. and Ishihara K. (1998b) &#39;State concept and modified elastoplasticity for sand modelling,&#39; &lt;em&gt;Soils and Foundations,&lt;/em&gt; 38(4), 213-225.&lt;/p&gt; &lt;hr /&gt; &lt;h2 id=&quot;example_analysis&quot;&gt;Example Analysis&lt;/h2&gt; &lt;p&gt;Element test with pure shear loading starting from isotropic initial state of stress.&lt;/p&gt; &lt;p&gt; ```tcl &lt;/p&gt; &lt;ol&gt; &lt;li&gt;intended number of cycles in the test&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;set nCycles 120&lt;/p&gt; &lt;ol&gt; &lt;li&gt;shear strain increment for the test&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;set dg 0.0001 set wg [expr 2.0*\)</span>dg]
 </p>
 <ol>
 <li>
@@ -13821,7 +13821,7 @@ puts “end time for the new load pattern is <span class="math inline">\(eTime&q
 eval “timeSeries Path [expr 400+<span class="math inline">\(i] -time {\)</span>cTime <span class="math inline">\(eTime 1e10} -values {1 -1000 -1000}&quot; pattern Plain [expr 400+\)</span>i] [expr 400+$i] { sp 3 1 $b sp 4 1 $b } set cCount [expr $cCount + 1] break } } }
 </p>
 <p>
-wipe &lt;/source&gt;
+wipe ```
 </p>
 
 
