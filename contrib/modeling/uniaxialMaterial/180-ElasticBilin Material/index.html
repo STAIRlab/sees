@@ -3558,7 +3558,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../177-Elastic-No%20Tension%20Material/" class="md-nav__link">
-        Elastic-No Tension Material
+        Elastic-No Tension
 
       </a>
     </li>
@@ -3573,7 +3573,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../178-Elastic-Perfectly%20Plastic%20Gap%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Gap Material
+        Elastic-Perfectly Plastic Gap
 
       </a>
     </li>
@@ -3588,7 +3588,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../179-Elastic-Perfectly%20Plastic%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Material
+        Elastic-Perfectly Plastic
 
       </a>
     </li>
@@ -3746,7 +3746,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../29-BARSLIP%20Material/" class="md-nav__link">
-        BARSLIP
+        BarSlip
 
       </a>
     </li>
@@ -13458,7 +13458,7 @@ Removal During Simulation
 This command is used to construct an elastic bilinear uniaxial material object. Unlike all other bilinear materials, the unloading curve follows the loading curve exactly.
 </p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ElasticBilin <span class="dt">$matTag</span> <span class="dt">$EP1</span> <span class="dt">$EP2</span> <span class="dt">$epsP2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$EN1</span> <span class="dt">$EN2</span> <span class="dt">$epsN2</span>&amp;gt;</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$EN1</span> <span class="dt">$EN2</span> <span class="dt">$epsN2</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -13480,7 +13480,7 @@ integer tag identifying material
 </td>
 <td>
 <p>
-tangent in tension for stains: 0 &lt;= strains &lt;= $epsP2
+tangent in tension for stains: 0 &lt;= strains &lt;= <code>epsP2</code>
 </p>
 </td>
 </tr>
@@ -13492,7 +13492,7 @@ tangent in tension for stains: 0 &lt;= strains &lt;= $epsP2
 </td>
 <td>
 <p>
-tangent when material in tension with strains &gt; $epsP2
+tangent when material in tension with strains <code>epsP2</code>
 </p>
 </td>
 </tr>
@@ -13516,7 +13516,7 @@ strain at which material changes tangent in tension.
 </td>
 <td>
 <p>
-optional, default = $EP1. tangent in compression for stains: 0 &lt; strains &lt;= $epsN2
+optional, default = <code>EP1</code>. tangent in compression for stains: 0 &lt; strains &lt;= <code>epsN2</code>
 </p>
 </td>
 </tr>
@@ -13528,7 +13528,7 @@ optional, default = $EP1. tangent in compression for stains: 0 &lt; strains &lt;
 </td>
 <td>
 <p>
-optional, default = $EP2. tangent in compression with strains &lt; $epsN2
+optional, default = <code>EP2</code>. tangent in compression with strains &lt; $epsN2
 </p>
 </td>
 </tr>

@@ -3558,7 +3558,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../177-Elastic-No%20Tension%20Material/" class="md-nav__link">
-        Elastic-No Tension Material
+        Elastic-No Tension
 
       </a>
     </li>
@@ -3573,7 +3573,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../178-Elastic-Perfectly%20Plastic%20Gap%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Gap Material
+        Elastic-Perfectly Plastic Gap
 
       </a>
     </li>
@@ -3588,7 +3588,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../179-Elastic-Perfectly%20Plastic%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Material
+        Elastic-Perfectly Plastic
 
       </a>
     </li>
@@ -3738,7 +3738,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../29-BARSLIP%20Material/" class="md-nav__link">
-        BARSLIP
+        BarSlip
 
       </a>
     </li>
@@ -13566,7 +13566,23 @@ temperature <strong>[unit: &amp;deg;C]</strong>
 <tr class="odd">
 <td>
 <p>
-<strong>$rk <span class="math inline">\(rq&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;reduction rate for yielding stiffness (&lt;strong&gt;\)</span>rk</strong>) and force at zero displacement (<strong><span class="math inline">\(rq&lt;/strong&gt;)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rs <span class="math inline">\(rf&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;reduction rate for stiffness (&lt;strong&gt;\)</span>rs</strong>) and force (<strong><span class="math inline">\(rf&lt;/strong&gt;) (see note 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;p&gt;1) Following rubber types for &lt;strong&gt;\)</span>type</strong> are available:
+<strong>$rk <span class="math inline">\(rq&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;reduction rate for yielding stiffness (&lt;code class=&quot;tcl-variable&quot;&gt;rk&lt;/code&gt;) and force at zero displacement (&lt;code class=&quot;tcl-variable&quot;&gt;rq&lt;/code&gt;)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rs $rf</strong>
+</p>
+</td>
+<td>
+<p>
+reduction rate for stiffness (<code class="tcl-variable">rs</code>) and force (<code class="tcl-variable">rf</code>) (see note 3)
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+NOTES:
+</p>
+<p>
+<ol type="1">
+<li>Following rubber types for <code class="tcl-variable">type</code> are available:
 </p>
 <table>
 <tbody>
@@ -13590,9 +13606,10 @@ lead-rubber bearing, up to 400% shear strain [Kikuchi et al., 2010 &amp; 2012]
 </p>
 <p>
 <ol start="3" type="1">
-<li><strong><span class="math inline">\(rs&lt;/strong&gt; and &lt;strong&gt;\)</span>rf</strong> are available if this material is applied to multipleShearSpring (MSS) element. Recommended values are <strong><span class="math inline">\(rs&lt;/strong&gt;=1/sum(i=0,n-1){ sin(pi*i/n)^2} and &lt;strong&gt;\)</span>rf</strong>=1/sum(i=0,n-1){sin(pi*i/n)}, where n is the number of springs in the MSS. For example, when n=8, $rs=0.2500 and $rf=0.1989.
+<li><code class="tcl-variable">rs</code> and <code class="tcl-variable">rf</code> are available if this material is applied to multipleShearSpring (MSS) element. Recommended values are <code class="tcl-variable">rs</code>=1/sum(i=0,n-1){ sin(pi<em>i/n)^2} and <code class="tcl-variable">rf</code>=1/sum(i=0,n-1){sin(pi</em>i/n)}, where n is the number of springs in the MSS. For example, when n=8, $rs=0.2500 and $rf=0.1989.
 </p>
 <hr /></li>
+</ol></li>
 </ol></li>
 </ol>
 <h2 id="examples">Examples</h2>

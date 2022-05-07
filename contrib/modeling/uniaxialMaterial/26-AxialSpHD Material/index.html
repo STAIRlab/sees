@@ -3558,7 +3558,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../177-Elastic-No%20Tension%20Material/" class="md-nav__link">
-        Elastic-No Tension Material
+        Elastic-No Tension
 
       </a>
     </li>
@@ -3573,7 +3573,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../178-Elastic-Perfectly%20Plastic%20Gap%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Gap Material
+        Elastic-Perfectly Plastic Gap
 
       </a>
     </li>
@@ -3588,7 +3588,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../179-Elastic-Perfectly%20Plastic%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Material
+        Elastic-Perfectly Plastic
 
       </a>
     </li>
@@ -3746,7 +3746,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../29-BARSLIP%20Material/" class="md-nav__link">
-        BARSLIP
+        BarSlip
 
       </a>
     </li>
@@ -13485,10 +13485,58 @@ compressive modulus
 <tr class="odd">
 <td>
 <p>
-<strong>$fty <span class="math inline">\(fcy&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;yield stress under tension (&lt;strong&gt;\)</span>fty</strong>) and compression (<strong><span class="math inline">\(fcy&lt;/strong&gt;) (see note 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>bte $bty $bth <span class="math inline">\(bcy&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;reduction rate for tensile elastic range (&lt;strong&gt;\)</span>bte</strong>), tensile yielding (<strong><span class="math inline">\(bty&lt;/strong&gt;), tensile hardening (&lt;strong&gt;\)</span>bth</strong>) and compressive yielding (<strong><span class="math inline">\(bcy&lt;/strong&gt;) (see note 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fcr&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;target point stress (see note 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;ath&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;hardening strain ratio to yield strain (see note 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;p&gt;1) Input parameters are required to satisfy followings.&lt;/p&gt; &lt;p&gt;&lt;strong&gt;\)</span>fcy</strong> &lt; 0.0 &lt; <strong><span class="math inline">\(fty&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;0.0 &amp;lt;= &lt;strong&gt;\)</span>bty</strong> &lt; <strong><span class="math inline">\(bth&lt;/strong&gt; &amp;lt; &lt;strong&gt;\)</span>bte</strong> &lt;= 1.0
+<strong>$fty <span class="math inline">\(fcy&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;yield stress under tension (&lt;code class=&quot;tcl-variable&quot;&gt;fty&lt;/code&gt;) and compression (&lt;code class=&quot;tcl-variable&quot;&gt;fcy&lt;/code&gt;) (see note 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>bte $bty $bth $bcy</strong>
+</p>
+</td>
+<td>
+<p>
+reduction rate for tensile elastic range (<code class="tcl-variable">bte</code>), tensile yielding (<code class="tcl-variable">bty</code>), tensile hardening (<code class="tcl-variable">bth</code>) and compressive yielding (<code class="tcl-variable">bcy</code>) (see note 1)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">fcr</code>
+</td>
+<td>
+<p>
+target point stress (see note 1)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">ath</code>
+</td>
+<td>
+<p>
+hardening strain ratio to yield strain (see note 1)
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+NOTES:
 </p>
 <p>
-0.0 &lt;= <strong><span class="math inline">\(bcy&lt;/strong&gt; &amp;lt;= 1.0&lt;/p&gt; &lt;p&gt;&lt;strong&gt;\)</span>fcy</strong> &lt;= <strong><span class="math inline">\(fcr&lt;/strong&gt; &amp;lt;= 0.0&lt;/p&gt; &lt;p&gt;1.0 &amp;lt;= &lt;strong&gt;\)</span>ath</strong>
+<ol type="1">
+<li>Input parameters are required to satisfy followings.
+</p>
+<p>
+<code class="tcl-variable">fcy</code> &lt; 0.0 &lt; <code class="tcl-variable">fty</code>
+</p>
+<p>
+0.0 &lt;= <code class="tcl-variable">bty</code> &lt; <code class="tcl-variable">bth</code> &lt; <code class="tcl-variable">bte</code> &lt;= 1.0
+</p>
+<p>
+0.0 &lt;= <code class="tcl-variable">bcy</code> &lt;= 1.0
+</p>
+<p>
+<code class="tcl-variable">fcy</code> &lt;= <code class="tcl-variable">fcr</code> &lt;= 0.0
+</p>
+<p>
+1.0 &lt;= <code class="tcl-variable">ath</code>
 </p>
 <p>
 <img src="/OpenSeesRT/contrib/static/AxialSpHD_note1.png" title="AxialSpHD_note1.png"
@@ -13496,7 +13544,8 @@ width="250" alt="AxialSpHD_note1.png" /> &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp
 src="AxialSpHD_note2.png" title="AxialSpHD_note2.png" width="250"
 alt="AxialSpHD_note2.png" />
 </p>
-<hr />
+<hr /></li>
+</ol>
 <h2 id="examples">Examples</h2>
 <p>
 <a href="Media:AxialSpHD_sample.tcl"

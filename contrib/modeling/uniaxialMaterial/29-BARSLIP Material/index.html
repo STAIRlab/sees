@@ -15,7 +15,7 @@
     
     
       
-        <title>BARSLIP - OpenSeesRT</title>
+        <title>BarSlip - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BARSLIP
+              BarSlip
 
             
           </span>
@@ -3558,7 +3558,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../177-Elastic-No%20Tension%20Material/" class="md-nav__link">
-        Elastic-No Tension Material
+        Elastic-No Tension
 
       </a>
     </li>
@@ -3573,7 +3573,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../178-Elastic-Perfectly%20Plastic%20Gap%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Gap Material
+        Elastic-Perfectly Plastic Gap
 
       </a>
     </li>
@@ -3588,7 +3588,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../179-Elastic-Perfectly%20Plastic%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Material
+        Elastic-Perfectly Plastic
 
       </a>
     </li>
@@ -3745,7 +3745,7 @@ Nonlinear Elements
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        BARSLIP
+        BarSlip
 
       </a>
       
@@ -13453,13 +13453,14 @@ Removal During Simulation
 
 
 
-<h1 id="barslip">BARSLIP</h1>
+<h1 id="barslip">BarSlip</h1>
 <p>
 This command is used to construct a uniaxial material that simulates the bar force versus slip response of a reinforcing bar anchored in a beam-column joint. The model exhibits degradation under cyclic loading. Cyclic degradation of strength and stiffness occurs in three ways: unloading stiffness degradation, reloading stiffness degradation, strength degradation.
 </p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial BarSlip <span class="dt">$matTag</span> <span class="dt">$fc</span> <span class="dt">$fy</span> <span class="dt">$Es</span> <span class="dt">$fu</span> <span class="dt">$Eh</span> <span class="dt">$db</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ld</span> <span class="dt">$nb</span> <span class="dt">$depth</span> <span class="dt">$height</span> &amp;lt;<span class="dt">$ancLratio</span>&amp;gt; <span class="dt">$bsFlag</span> <span class="dt">$type</span> &amp;lt;<span class="dt">$damage</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$unit</span>&amp;gt;</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ld</span> <span class="dt">$nb</span> <span class="dt">$depth</span> <span class="dt">$height</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$ancLratio</span>&amp;gt; <span class="dt">$bsFlag</span> <span class="dt">$type</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$damage</span> <span class="dt">$unit</span>&amp;gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -13475,9 +13476,17 @@ unique material object integer tag
 </tr>
 <tr class="even">
 <td>
+<code class="parameter-table-variable">fc</code>
+</td>
+<td>
 <p>
-’’’<span class="math inline">\(fc&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;positive floating point value defining the compressive strength of the concrete in which the reinforcing bar is anchored&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&#39;&#39;&#39;\)</span>fy
+positive floating point value defining the compressive strength of the concrete in which the reinforcing bar is anchored
 </p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">fy</code>
 </td>
 <td>
 <p>
@@ -13487,9 +13496,7 @@ positive floating point value defining the yield strength of the reinforcing ste
 </tr>
 <tr class="even">
 <td>
-<p>
-’’’$Es
-</p>
+<code class="parameter-table-variable">Es</code>
 </td>
 <td>
 <p>

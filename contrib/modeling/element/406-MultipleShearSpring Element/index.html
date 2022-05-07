@@ -3566,7 +3566,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/177-Elastic-No%20Tension%20Material/" class="md-nav__link">
-        Elastic-No Tension Material
+        Elastic-No Tension
 
       </a>
     </li>
@@ -3581,7 +3581,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/178-Elastic-Perfectly%20Plastic%20Gap%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Gap Material
+        Elastic-Perfectly Plastic Gap
 
       </a>
     </li>
@@ -3596,7 +3596,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/179-Elastic-Perfectly%20Plastic%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Material
+        Elastic-Perfectly Plastic
 
       </a>
     </li>
@@ -3746,7 +3746,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/29-BARSLIP%20Material/" class="md-nav__link">
-        BARSLIP
+        BarSlip
 
       </a>
     </li>
@@ -13476,7 +13476,33 @@ unique element object tag
 <tr class="even">
 <td>
 <p>
-<strong>$inode <span class="math inline">\(jnode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;end nodes&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;nSpring&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;number of springs&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tag associated with previously-defined UniaxialMaterial object&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;dsp&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;minimum deformation to calculate equivalent coefficient (see note 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>x1 $x2 <span class="math inline">\(x3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;vector components in global coordinates defining local x-axis&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>yp1 $yp2 <span class="math inline">\(yp3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;vector components in global coordinates defining vector yp which lies in the local x-y plane for the element&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;m&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;element mass&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;p&gt;1) If &lt;strong&gt;\)</span>dsp</strong> is positive and the shear deformation of MSS exceeds <strong><span class="math inline">\(dsp&lt;/strong&gt;, this element calculates equivalent coefficient to adjust force and stiffness of MSS. The adjusted MSS force and stiffness reproduce the behavior of the previously defined uniaxial material under monotonic loading in every direction. If &lt;strong&gt;\)</span>dsp</strong> is zero, the element does not calculate the equivalent coefficient.
+<strong>$inode <span class="math inline">\(jnode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;end nodes&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;nSpring&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;number of springs&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tag associated with previously-defined UniaxialMaterial object&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;dsp&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;minimum deformation to calculate equivalent coefficient (see note 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>x1 $x2 <span class="math inline">\(x3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;vector components in global coordinates defining local x-axis&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>yp1 $yp2 $yp3</strong>
+</p>
+</td>
+<td>
+<p>
+vector components in global coordinates defining vector yp which lies in the local x-y plane for the element
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">m</code>
+</td>
+<td>
+<p>
+element mass
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+NOTES:
+</p>
+<p>
+<ol type="1">
+<li>If <code class="tcl-variable">dsp</code> is positive and the shear deformation of MSS exceeds <code class="tcl-variable">dsp</code>, this element calculates equivalent coefficient to adjust force and stiffness of MSS. The adjusted MSS force and stiffness reproduce the behavior of the previously defined uniaxial material under monotonic loading in every direction. If <code class="tcl-variable">dsp</code> is zero, the element does not calculate the equivalent coefficient.
 </p>
 <p>
 <ol start="2" type="1">
@@ -13491,6 +13517,7 @@ MultipleShearSpring_Model.png
 </figcaption>
 </figure>
 <hr /></li>
+</ol></li>
 </ol>
 <h2 id="examples">Examples</h2>
 <p>
