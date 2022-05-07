@@ -3028,7 +3028,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../contrib/modeling/ndmaterial/160-Drucker%20Prager/" class="md-nav__link">
-        Drucker Prager
+        DruckerPrager
 
       </a>
     </li>
@@ -11312,6 +11312,10 @@ Removal During Simulation
       
         
           
+            
+          
+        
+          
         
           
         
@@ -11345,10 +11349,16 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_6_3_2">
-          Backbone
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../libraries/modeling/backbone/">Backbone</a>
+          
+            <label for="__nav_6_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Backbone" data-md-level="3">
         <label class="md-nav__title" for="__nav_6_3_2">
@@ -11356,6 +11366,8 @@ Removal During Simulation
           Backbone
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -13273,23 +13285,13 @@ Removal During Simulation
       
         
           
-            
-          
-        
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../reference/runtime/">Runtime</a>
-          
-            <label for="__nav_7_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_6">
+          Runtime
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Runtime" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_6">
@@ -13297,8 +13299,6 @@ Removal During Simulation
           Runtime
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
           
             
               
@@ -13453,12 +13453,14 @@ Removal During Simulation
 <p>A simulation with <code>opensees</code> is generally configured in the following steps:</p>
 <ol type="1">
 <li><p><strong>Modeling</strong>: This consists of defining a collection of mathematical abstractions and their relationships with the objective of representing some phenomenon. This generally includes creating <code>Element</code>, <code>Node</code>, <code>LoadPattern</code> and <code>Constraint</code> objects that define the model.</p></li>
-<li><p><strong>Analysis</strong>: Once a model is defined, the next step is to create an Analysis. The following are some common analysis routines:</p>
+<li><p><strong>Analysis</strong>: Once a model is defined, the next step is to create an Analysis. Some common analysis routines are the following:</p>
 <ul>
 <li><a href="">Static Analysis</a> Load or displacement controlled</li>
 <li><a href="">Spectral Decomposition</a></li>
 <li><a href="">Transient Direct Integration</a></li>
 <li><a href="">Transient Modal Integration</a></li>
+<li><a href="">Moment-Curvature Analysis</a></li>
+<li><a href="">Ultimate N-M Surface Analysis</a></li>
 </ul>
 <p>These routines are configured and refined in terms of analysis abstractions which generally may include an <code>Integrator</code>, <code>SolutionAlgorithm</code>, and <code>ConstraintHandler</code> strategy.</p></li>
 <li><p><strong>Post-processing</strong>: Once the model and analysis have been defined, the user has the option of specifying what is to be monitored during the analysis. This, for example, could be the displacement history at a node or internal state of an element in a transient analysis or the entire state of the model at each step in the solution procedure. Several Recorder objects are created to store what the user wants to examine.</p></li>
