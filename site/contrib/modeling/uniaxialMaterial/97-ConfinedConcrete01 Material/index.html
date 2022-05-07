@@ -13466,6 +13466,261 @@ This command is used to construct an uniaxial material object of confined concre
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot"> -gravel</span> &gt; &lt;<span class="ot"> -silica</span> &gt; &lt;<span class="ot"> -tol</span> <span class="dt">$tol</span> &gt; &lt;<span class="ot"> -maxNumIter</span> <span class="dt">$maxNumIter</span> &gt; </span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot"> -epscuLimit</span> <span class="dt">$epscuLimit</span> &gt; &lt;<span class="ot"> -stRatio</span> <span class="dt">$stRatio</span> &gt; </span></code></pre></div>
 <hr />
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%">
+<col width="75%">
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">matTag</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+</td>
+<td>
+integer tag identifying material
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">secType</span></code> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>)
+</td>
+<td>
+<p class="first">
+tag for the transverse reinforcement configuration. see image below.
+</p>
+<ul class="last simple">
+<li>
+<code class="docutils literal notranslate"><span class="pre">‘S1’</span></code> square section with S1 type of transverse reinforcement with or without external FRP wrapping
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">‘S2’</span></code> square section with S2 type of transverse reinforcement with or without external FRP wrapping
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">‘S3’</span></code> square section with S3 type of transverse reinforcement with or without external FRP wrapping
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">‘S4a’</span></code> square section with S4a type of transverse reinforcement with or without external FRP wrapping
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">‘S4b’</span></code> square section with S4b type of transverse reinforcement with or without external FRP wrapping
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">‘S5’</span></code> square section with S5 type of transverse reinforcement with or without external FRP wrapping
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">‘C’</span></code> circular section with or without external FRP wrapping
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">‘R’</span></code> rectangular section with or without external FRP wrapping.
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">fpc</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+unconfined cylindrical strength of concrete specimen.
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">Ec</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+initial elastic modulus of unconfined concrete.
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">epscu_type</span></code> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>)
+</td>
+<td>
+Method to define confined concrete ultimate strain - <code class="docutils literal notranslate"><span class="pre">-epscu</span></code> then value is confined concrete ultimate strain, - <code class="docutils literal notranslate"><span class="pre">-gamma</span></code> then value is the ratio of the strength corresponding to ultimate strain to the peak strength of the confined concrete stress-strain curve. If <code class="docutils literal notranslate"><span class="pre">gamma</span></code> cannot be achieved in the range [0, epscuLimit] then epscuLimit (optional, default: 0.05) will be assumed as ultimate strain.
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">epscu_val</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+Value for the definition of the concrete ultimate strain
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">nu</span></code> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>) or (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>)
+</td>
+<td>
+Definition for Poisson’s Ratio. - <code class="docutils literal notranslate"><span class="pre">[‘-nu’,</span> <span class="pre">&lt;value</span> <span class="pre">of</span> <span class="pre">Poisson’s</span> <span class="pre">ratio&gt;]</span></code> - <code class="docutils literal notranslate"><span class="pre">‘-varub’</span></code> Poisson’s ratio is defined as a function of axial strain by means of the expression proposed by Braga et al. (2006) with the upper bound equal to 0.5 -<code class="docutils literal notranslate"><span class="pre">‘-varnoub’</span></code> Poisson’s ratio is defined as a function of axial strain by means of the expression proposed by Braga et al. (2006) without any upper bound.
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">L1</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+length/diameter of square/circular core section measured respect to the hoop center line.
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">L2</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+additional dimensions when multiple hoops are being used.
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">L3</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+additional dimensions when multiple hoops are being used.
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">phis</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+hoop diameter. If section arrangement has multiple hoops it refers to the external hoop.
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">S</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+hoop spacing.
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">fyh</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+yielding strength of the hoop steel.
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">Es0</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+elastic modulus of the hoop steel.
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">haRatio</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+hardening ratio of the hoop steel.
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">mu</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+ductility factor of the hoop steel.
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">phiLon</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+diameter of longitudinal bars.
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">internalArgs</span></code> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>))
+</td>
+<td>
+<code class="docutils literal notranslate"><span class="pre">internalArgs=</span> <span class="pre">[phisi,</span> <span class="pre">Si,</span> <span class="pre">fyhi,</span> <span class="pre">Es0i,</span> <span class="pre">haRatioi,</span> <span class="pre">mui]</span></code> optional parameters for defining the internal transverse reinforcement. If they are not specified they will be assumed equal to the external ones (for <code class="docutils literal notranslate"><span class="pre">S2</span></code>, <code class="docutils literal notranslate"><span class="pre">S3</span></code>, <code class="docutils literal notranslate"><span class="pre">S4a</span></code>, <code class="docutils literal notranslate"><span class="pre">S4b</span></code> and <code class="docutils literal notranslate"><span class="pre">S5</span></code> typed).
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">wrapArgs</span></code> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>))
+</td>
+<td>
+<p class="first">
+<code class="docutils literal notranslate"><span class="pre">wrapArgs=[cover,</span> <span class="pre">Am,</span> <span class="pre">Sw,</span> <span class="pre">ful,</span> <span class="pre">Es0w]</span></code> optional parameters required when section is strengthened with FRP wraps.
+</p>
+<ul class="last simple">
+<li>
+<code class="docutils literal notranslate"><span class="pre">cover</span></code> cover thickness measured from the outer line of hoop.
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">Am</span></code> total area of FRP wraps (number of layers x wrap thickness x wrap width).
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">Sw</span></code> spacing of FRP wraps (if continuous wraps are used the spacing is equal to the wrap width).
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">ful</span></code> ultimate strength of FRP wraps.
+</li>
+<li>
+<code class="docutils literal notranslate"><span class="pre">Es0w</span></code> elastic modulus of FRP wraps.
+</li>
+</ul>
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">‘-gravel’</span></code> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>)
+</td>
+<td>
+Unknown
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">‘-silica’</span></code> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>)
+</td>
+<td>
+Unknown
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">tol</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+Unknown
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">maxNumIter</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int">int</a>)
+</td>
+<td>
+Unknown
+</td>
+</tr>
+<tr class="row-even">
+<td>
+<code class="docutils literal notranslate"><span class="pre">epscuLimit</span></code> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float">float</a>)
+</td>
+<td>
+Unknown
+</td>
+</tr>
+<tr class="row-odd">
+<td>
+<code class="docutils literal notranslate"><span class="pre">stRatio</span></code>
+</td>
+<td>
+Unknown
+</td>
+</tr>
+</tbody>
+</table>
 <table>
 <tbody>
 <tr class="odd">
