@@ -27,7 +27,7 @@ class FiberSection(_FiberCollection):
         Tag(),
         Num("GJ", flag="-GJ", field="torsional_stiffness", optional=True, 
             about="linear-elastic torsional stiffness assigned to the section (optional, default = no torsional stiffness)"),
-        Blk("areas", default=[], type=Cmd, defn=dict(
+        Blk("areas", from_prop="fibers", default=[], type=Cmd, defn=dict(
            fiber=LibCmd("fiber"),
            layer=LibCmd("layer")
           )
@@ -37,17 +37,26 @@ class FiberSection(_FiberCollection):
 
     def __enter__(self):
         Component.__enter__(self)
-        #for f in self.fibers:
-        #    f.__enter__()
-    
+   
+    def init(self):
+        self._fibers = None
+        self._area   = None
+        if "material" in self.kwds:
+            mat = self.kwds["material"]
+            for i in self.areas:
+                if i.material is None:
+                    i.material = mat
+
     @property
     def materials(self):
         return (f.material for f in self.fibers)
 
     def add_patch(self, patch):
+        self._fibers = None
         self.areas.append(patch)
 
     def add_patches(self, patch):
+        self._fibers = None
         self.areas.extend(patch)
 
     @property
@@ -60,21 +69,27 @@ class FiberSection(_FiberCollection):
 
     @property
     def fibers(self):
-        return [ 
+        if self._fibers is None:
+            self._fibers = [ 
              f for a in (a.fibers if hasattr(a,"fibers") else [a] for a in self.areas)
                 for f in a
-        ]
+            ]
+        return self._fibers
 
     @property
     def area(self):
-        return sum(i.area for i in self.patches)
+        if self._area is None:
+            self._area = sum(i.area for i in self.patches)
+        return self._area
     
     @property
     def centroid(self):
+        # TODO: cache
         return sum(i.centroid * i.area for i in self.patches) / self.area
      
     @property
     def ixc(self):
+        # TODO: cache
         yc = self.centroid[1]
         return sum(
             p.ixc + (p.centroid[1]-yc)**2*p.area for p in self.patches
@@ -82,6 +97,7 @@ class FiberSection(_FiberCollection):
     
     @property
     def iyc(self):
+        # TODO: cache
         xc = self.centroid[0]
         return sum(
             p.iyc + (p.centroid[0]-xc)**2*p.area for p in self.patches
@@ -90,6 +106,7 @@ class FiberSection(_FiberCollection):
 
     @property
     def moic(self):
+        # TODO: cache
         return [
             [p.moi[i] + p.centroid[i]**2*p.area for i in range(2)] + [p.moi[-1]]
             for p in self.patches
@@ -169,11 +186,11 @@ def _oct_outline(Rcol):
 #     sect.intRad = Rcore
 #     return sect
     
-def ConfiningPolygon(n, extRad=None, intRad=None, divs=None, diameter=None, s=1):
+def ConfiningPolygon(n, extRad=None, intRad=None, divs=None, diameter=None, s=4, material=None):
     psi = 2*pi/n
     phi = psi/s
     collection = []
-    if divs is None: divs = 4,8 # divisions in each slice of the cover
+    if divs is None: divs = 8,8 # divisions in each slice of the cover
     iR1, iR2 = [intRad]*2
 
     for i in range(n):
@@ -195,7 +212,7 @@ def ConfiningPolygon(n, extRad=None, intRad=None, divs=None, diameter=None, s=1)
                   [   iR2*cos(sita2),    iR2*sin(sita2)],
                 ]
             ))
-    sect = FiberSection(areas=collection)
+    sect = FiberSection(areas=collection, material=material)
     sect.extRad = extRad
     sect.intRad = intRad
     return sect
@@ -384,4 +401,69 @@ def sect2gmsh(sect, size, **kwds):
     # for cell in mesh.cells:
     #     cell.data = np.roll(np.flip(cell.data, axis=1),3,1)
     return mesh
+
+
+class TorsionalConstantAnalysis:
+    pass
+
+class MomentCurvatureAnalysis:
+    @staticmethod
+    def solve_eps(sect, kap, axial: float, eps0, tol=1e-6, maxiter=25):
+        # Newton-Raphson iteration
+        eps = eps0
+        s = sect.getStressResultant([eps, kap], False)
+        for i in range(maxiter):
+            if abs(s[0] - axial) < tol:
+                return eps
+            s = sect.getStressResultant([eps, kap], False)
+            eps -= (s[0] - axial)/sect.getSectionTangent()[0,0]
+        return eps
+
+    def __init__(self, axial):
+        pass
+
+
+class MomentAxialLocus:
+    def __init__(self, section, axial):
+        self.axial = axial
+        self.section = section
+
+
+    def plot(self):
+        pass
+
+    def analyze(self):
+        import matplotlib.pyplot as plt
+        import numpy as np
+        fig, ax = plt.subplots(1,2)
+        sect = self.section
+        axial = self.axial
+
+        solve_eps = MomentCurvatureAnalysis.solve_eps
+        if sect.name is None:
+            sect.name = 1
+
+        dkap = 5e-6
+        for P in axial:
+            with sect as s:
+                k0 = 0.0
+                e0 = solve_eps(s,  k0,  P,  solve_eps(s,  k0,  P,  0.0))
+                PM = [
+                    s.getStressResultant([e0, k0], True),
+                    s.getStressResultant([solve_eps(s, k0+dkap, P, e0), k0+dkap], True),
+                ]
+                e = e0
+                kap = 2*dkap
+                while abs(PM[-1][1]) > 0.995*abs(PM[-2][1]):
+                    e = solve_eps(s, kap, P, e)
+                    PM.append(s.getStressResultant([e, kap], True))
+                    kap += dkap
+ 
+            p, m = zip(*PM)
+
+            ax[0].plot(np.linspace(0.0, kap, len(m)), m)
+
+            ax[1].plot(m, p)
+
+        plt.show()
 

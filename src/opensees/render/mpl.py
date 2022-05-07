@@ -4,10 +4,15 @@ import matplotlib.pyplot as plt
 
 def show(): plt.show()
 
-def section(s, ax=None, **kwds):
+def section(s, ax=None, show=None, **kwds):
+    if isinstance(show, str):
+        show = [show]
+    elif show is None:
+        show = ["fiber", "patch", "layer"]
+
     if isinstance(s, list):
         pass
-    return MplPlotter(ax=ax).plot_section(s, **kwds)
+    return MplPlotter(ax=ax).plot_section(s, show=show, **kwds)
 
 class MplPlotter:
     def __init__(self, ax=None, **kwds):
@@ -21,7 +26,9 @@ class MplPlotter:
                 options = layer.plot_opts
             else:
                 options = dict(linestyle="--", color="k", linewidth=1.0, **kwds)
-            yield lines.Line2D(*np.asarray(layer.vertices).T, **options)
+
+            if hasattr(layer, "vertices"):
+                yield lines.Line2D(*np.asarray(layer.vertices).T, **options)
 
     def get_section_patches(self, section, facecolor="grey", edgecolor="grey", **kwds):
         """
@@ -59,7 +66,7 @@ class MplPlotter:
         show_properties=False,
         plain=True,
         set_limits=False,
-        show_quad=True,
+        show = None,
         show_dims=True,
         annotate=True,
         ax = None,
@@ -70,7 +77,7 @@ class MplPlotter:
         """Plot a composite cross section."""    
         
         if plain:
-            show_properties = show_quad = show_dims = False
+            show_properties = show_dims = False
 
         if show_properties:
             fig = plt.figure(constrained_layout=True)
@@ -113,20 +120,24 @@ class MplPlotter:
             ax.set_ylim( y_min, y_max)
 
         # add shapes
-        ax.add_collection(self.get_section_patches(section, **kwds))
-        for l in self.get_section_layers(section, **kwds):
-            ax.add_line(l)
-        
-        try:
-            ax.scatter(*zip(*(f.coord for patch in section.patches for f in patch.fibers)), s=0.1)
-        except:
-            pass
+        if "patch" in show:
+            ax.add_collection(self.get_section_patches(section, **kwds))
 
-        try:
-            coords, areas = zip(*((f.coord, 20*f.area) for layer in section.layers for f in layer.fibers))
-            ax.scatter(*zip(*coords), s=areas, color="k")
-        except:
-            pass
+        if "layer" in show:
+            for l in self.get_section_layers(section, **kwds):
+                ax.add_line(l)
+
+        if "fiber" in show: 
+            try:
+                ax.scatter(*zip(*(f.coord for patch in section.patches for f in patch.fibers)), s=0.1)
+            except:
+                pass
+
+            try:
+                coords, areas = zip(*((f.coord, 20*f.area) for layer in section.layers for f in layer.fibers))
+                ax.scatter(*zip(*coords), s=areas, color="k")
+            except:
+                pass
         # show centroid
         #ax.scatter(*section.centroid)
         # show origin

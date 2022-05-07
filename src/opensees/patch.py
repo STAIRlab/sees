@@ -310,18 +310,55 @@ class circ:
 
     @property
     def fibers(self):
+        #print(self.divs, self.kwds.get
         if self.divs is None:
             return []
-        ri, ro = self.intRad, self.extRad
-        dr = (self.extRad   - self.intRad)/self.divs[1]
-        dt = (self.startAng - self.endAng)/self.divs[0]
-        areas = (0.5*dt*((ro+(i+1)*dr)**2 - (ri+i*dr)**2) for i in range(self.divs[1]-1))
-        return [
-            Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
-                    for r,area in zip(np.linspace(self.intRad, self.extRad, self.divs[1]), areas)
-                for theta in np.linspace(self.startAng, self.endAng, self.divs[0])
-        ]
-    
+
+        elif self.kwds.get("rule", "mid") == "mid":
+            ri, ro = self.intRad, self.extRad
+            dr = (self.extRad - self.intRad)/self.divs[1]
+            dt = (self.endAng - self.startAng)/self.divs[0]
+            areas = (0.5*dt*((ri+(i+1)*dr)**2 - (ri+i*dr)**2) for i in range(self.divs[1]))
+            return [
+                Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                    for r,area in zip(np.linspace(self.intRad+dr/2, self.extRad-dr/2, self.divs[1]), areas)
+                    #for theta in np.linspace(self.startAng+dt/2, self.endAng-dt/2, self.divs[0])
+                        for theta in np.arange(self.startAng, self.endAng, dt)
+            ]
+
+        elif self.kwds.get("rule",None) == "uniform": 
+            return [
+                Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                for r,theta,area in rtuniform(n=self.divs[1], rmax=self.extRad, m=self.divs[0], rmin=self.intRad)
+            ]
+
+        elif self.kwds.get("rule",None) == "uniform-2": 
+            return [
+                Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                for r, theta, area in rtuniform(n=self.divs[1], rmax=self.extRad, m=self.divs[0])
+                if (r*np.cos(theta), r*np.sin(theta)) in self
+            ]
+        elif self.kwds.get("rule",None) == "uniform-3": 
+            return [
+                Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                for r, theta, area in rtpairs(
+                    np.linspace(self.intRad, self.extRad, self.divs[2]), 
+                    np.arange(self.divs[1], self.divs[2]+self.divs[1]+1)*self.divs[0]
+                )
+                if (r*np.cos(theta), r*np.sin(theta)) in self
+            ]
+        elif self.kwds.get("rule",None) == "uniform-4":
+            return [
+                Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                for r, theta, area in rtpairs(
+                    np.linspace(0.0, self.extRad, self.divs[2]), 
+                    np.arange(self.divs[1], self.divs[2]+self.divs[1]+1)*self.divs[0]
+                )
+                if (r*np.cos(theta), r*np.sin(theta)) in self
+            ]
+        else:
+            raise ValueError(f"Unknown quadrature rule, '{self.kwds['rule']}'.")
+
     @property
     def moic(self):
         if self._moic is None:
@@ -383,37 +420,54 @@ layer = LibCmd("layer",
         about="The layer command is used to generate a number of fibers along a line or a circular arc.",
 )
 
-class reinf:
-    @staticmethod
-    def circ(bar_no, count, radius, center=None):
-        pass
+class ReinforcingLayer:
+    ACIBar = {
+        "3" : {"area": 0.11},
+        "4" : {"area": 0.20},
+        "5" : {"area": 0.31},
+        "6" : {"area": 0.44},
+        "7" : {"area": 0.60},
+        "8" : {"area": 0.79},
+        "9" : {"area": 1.00},
+        "10": {"area": 1.27},
+        "11": {"area": 1.56},
+        "14": {"area": 2.25},
+        "18": {"area": 2.25},
+    }
+    def init(self):
+        if "bar" in self.kwds:
+            assert self.fiber_area is None
+            assert "units" in self.kwds
+            self.fiber_area = ReinforcingLayer.ACIBar[self.kwds["bar"]]["area"]*self.kwds["units"].in2
 
+class _layer_namespace:
+    @layer
+    class circ(ReinforcingLayer):
+        _args = [
+                Ref("material",  type=Material,
+                     about="material tag of previously created material "\
+                           "(UniaxialMaterial tag for a FiberSection or "\
+                           "NDMaterial tag for use in an NDFiberSection)"),
+                Int("divs",  about="number of fibers along arc"),
+                Num("area", field="fiber_area", about="area of each fiber"),
+                Grp("center", args=[Num("y"), Num("z")],
+                    about="$y$ and $z$-coordinates of center of circular arc"),
+                Num("radius", about="radius of circular arc"),
+                Grp("arc", default=[0., 2.*np.pi], args=[
+                  Num("startAng",  about="starting angle"),
+                  Num("endAng",    about="ending angle"),
+                ])
+        ]
 
-# @layer
-# class circ:
-#     _args = [
-#             Ref("material",  type=Material,
-#                  about="material tag of previously created material "\
-#                        "(UniaxialMaterial tag for a FiberSection or "\
-#                        "NDMaterial tag for use in an NDFiberSection)"),
-#             Int("divs",  about="number of fibers along arc"),
-#             Num("area", field="fiber_area", about="area of each fiber"),
-#             Grp("center", args=[Num("y"), Num("z")],
-#                 about="$y$ and $z$-coordinates of center of circular arc"),
-#             Num("radius", about="radius of circular arc"),
-#             Grp("arc", args=[
-#               Num("startAng",  about="starting angle (optional, default = 0.0)"),
-#               Num("endAng",    about="ending angle (optional, default = 360.0 - 360/$numFiber)"),
-#             ])
-#     ]
-#     @property
-#     def fibers(self):
-#         return [Fiber([x, y], self.fiber_area, self.material) 
-#                 for x,y in np.linspace(*self.vertices, self.divs)]
+        @property
+        def fibers(self):
+            r = self.radius
+            return [Fiber([r*np.cos(t), r*np.sin(t)], self.fiber_area, self.material) 
+                    for t in np.linspace(*self.arc, self.divs)]
 
 
 @layer
-class line:
+class line(ReinforcingLayer):
     _img = "straightLayer.svg"
     _args = [
       Ref("material", type=Material, about="""Reference to previously created material 
@@ -519,4 +573,47 @@ lt6 = _Interpolant(
             [4*r + 4*s - 3, 0, 4*s - 1, -4*r, 4*r, -4*r - 8*s + 4]])
 )
 
+def rtpairs(R,N):
+    """
+    R - list of radii
+    N - list of points per radius
+    
+    Takes two list arguments containing the desired radii
+    and the number of equally spread points per radii respectively.
+    The generator, when iterated, will return radius-angle polar
+    coordinate pairs, in metres and radians, which can be used 
+    to plot shapes, e.g. a disc in the x-y plane. 
+    """
+    for i in range(len(R)-1):
+        theta = 0.
+        dTheta = 2*np.pi/N[i]
+        for j in range(N[i]):
+            theta = j*dTheta   
+            area = 0.5*dTheta*(R[i+1]**2 - R[i]**2)
+            yield (R[i+1]+R[i])/2, theta, area
+            
+
+def rtuniform(n,rmax,m,rmin=0.0):
+    """
+    n - number of radii
+    rmax - maximum radius
+    m - scaling of points with radius
+    
+    This generator will return a disc of radius rmax, 
+    with equally spread out points within it. The number 
+    of points within the disc depends on the n and m parameters.
+    """
+    if not isinstance(n,int):
+        n0, n = n
+    else:
+        n0 = 1
+    R = [rmin]
+    N = [n0]
+    rmax_f = float(rmax)    
+    for i in range(int(n)):
+        ri = rmin + (i+1)*((rmax_f-rmin)/int(n))
+        ni = int(m)*(i+1)
+        R.append(ri)
+        N.append(ni)
+    return rtpairs(R,N)
 

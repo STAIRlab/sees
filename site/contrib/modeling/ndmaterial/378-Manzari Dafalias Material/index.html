@@ -3034,7 +3034,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../160-Drucker%20Prager/" class="md-nav__link">
-        Drucker Prager
+        DruckerPrager
 
       </a>
     </li>
@@ -11316,6 +11316,10 @@ Removal During Simulation
       
         
           
+            
+          
+        
+          
         
           
         
@@ -11349,10 +11353,16 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_6_3_2">
-          Backbone
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../libraries/modeling/backbone/">Backbone</a>
+          
+            <label for="__nav_6_3_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Backbone" data-md-level="3">
         <label class="md-nav__title" for="__nav_6_3_2">
@@ -11360,6 +11370,8 @@ Removal During Simulation
           Backbone
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -13277,23 +13289,13 @@ Removal During Simulation
       
         
           
-            
-          
-        
-          
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../reference/runtime/">Runtime</a>
-          
-            <label for="__nav_7_6">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_7_6">
+          Runtime
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Runtime" data-md-level="2">
         <label class="md-nav__title" for="__nav_7_6">
@@ -13301,8 +13303,6 @@ Removal During Simulation
           Runtime
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
           
             
               
@@ -13724,22 +13724,9 @@ Elasticity
 <p>
 Elastic moduli are considered to be functions of p and current void ratio:
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; G = G_0 p_{atm}()^{1/2}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>
-&lt;/math&gt;
-</p>
+<span class="math display">\[ G = G_0
+p_{atm}\frac{\left(2.97-e\right)^2}{1+e}\left(\frac{p}{p_{atm}}\right)^{1/2}
+\]</span>
 <dl>
 <dt>
 </dt>
@@ -13756,38 +13743,10 @@ Elastic moduli are considered to be functions of p and current void ratio:
 <p>
 The elastic stress-strain relationship is:
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; d^ = 
-</dd>
-</dl>
-</dd>
-</dl>
-<p>
-&lt;/math&gt;
-</p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; d^_v = 
-</dd>
-</dl>
-</dd>
-</dl>
-<p>
-&lt;/math&gt;
-</p>
+<p><span class="math display">\[ d\mathbf{e}^\mathrm{e} = \frac{d\mathbf{s}}{2G}
+\]</span></p>
+<span class="math display">\[ d\varepsilon^\mathrm{e}_v = \frac{dp}{K}
+\]</span>
 <h3 id="critical_state_line">
 Critical State Line
 </h3>
@@ -13817,15 +13776,7 @@ Yield Surface
 <p>
 Yield surface is a stress-ratio dependent surface in this model and is defined as
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; |  - p  | - pm = 0 &lt;/math&gt;
+$$ |  - p  | - pm = 0 &lt;/math&gt;
 </dd>
 </dl>
 </dd>
@@ -13839,34 +13790,12 @@ Plastic Strain Increment
 <p>
 The increment of the plastic strain tensor is given by
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; d^p = L 
-</dd>
-</dl>
-</dd>
-</dl>
-<p>
-&lt;/math&gt;
-</p>
+<span class="math display">\[ d\mathbf{\varepsilon}^p = \langle L \rangle \mathbf{R}
+\]</span>
 <p>
 where
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt;  =  +  D  &lt;/math&gt;
+$$  =  +  D  &lt;/math&gt;
 </dd>
 </dl>
 </dd>
@@ -13874,15 +13803,7 @@ where
 <p>
 therefore
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; d^p = L &lt;/math&gt; and $d^p_v = L D $
+$$ d^p = L &lt;/math&gt; and $d^p_v = L D $
 </dd>
 </dl>
 </dd>
@@ -13890,15 +13811,7 @@ therefore
 <p>
 The hardening modulus in this model is defined as
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; K_p =  p h (^b_{} - ): 
+$$ K_p =  p h (^b_{} - ): 
 </dd>
 </dl>
 </dd>
@@ -13906,15 +13819,7 @@ The hardening modulus in this model is defined as
 <p>
 &lt;/math&gt; where <span class="math inline">\(\mathbf{n}\)</span> is the deviatoric part of the gradient to yield surface.
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; ^b_{} =  
+$$ ^b_{} =  
 </dd>
 </dl>
 </dd>
@@ -13925,15 +13830,7 @@ The hardening modulus in this model is defined as
 <p>
 the hardening parameter $h $ is defined as
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; h = 
+$$ h = 
 </dd>
 </dl>
 </dd>
@@ -13958,47 +13855,13 @@ the hardening parameter $h $ is defined as
 <p>
 Also the dilation parameters are defined as
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; D = A_d (^d_{}-) : 
-</dd>
-</dl>
-</dd>
-</dl>
-<p>
-&lt;/math&gt;
-</p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; ^d_{} =  
-</dd>
-</dl>
-</dd>
-</dl>
-<p>
-&lt;/math&gt;
-</p>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; A_d = A_0 (1+) &lt;/math&gt;, where $ $ is the fabric tensor.
+<p><span class="math display">\[ D = A_d (\mathbf{\alpha}^d_{\theta}-\mathbf{\alpha}) :
+\mathbf{n}
+\]</span></p>
+<p><span class="math display">\[ \mathbf{\alpha}^d_{\theta} = \sqrt{\frac{2}{3}}
+\left[g(\theta,c) M_c exp(n^d\Psi) - m\right] \mathbf{n}
+\]</span></p>
+$$ A_d = A_0 (1+) &lt;/math&gt;, where $ $ is the fabric tensor.
 </dd>
 </dl>
 </dd>
@@ -14020,22 +13883,9 @@ The evolution of fabric and the back stress-ratio tensors are defined as
 </dl>
 </dd>
 </dl>
-<dl>
-<dt>
-</dt>
-<dd>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; d = L (2/3) h (^b_{} - )
-</dd>
-</dl>
-</dd>
-</dl>
-<p>
-&lt;/math&gt;
-</p>
+<span class="math display">\[ d\mathbf{\alpha} = \langle L \rangle (2/3) h
+(\mathbf{\alpha}^b_{\theta} - \mathbf{\alpha})
+\]</span>
 <h2 id="example">
 Example
 </h2>

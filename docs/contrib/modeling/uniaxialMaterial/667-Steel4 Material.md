@@ -1,25 +1,19 @@
- # Steel4
+# Steel4
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p>This command is used to construct a general uniaxial material
+<p>This command is used to construct a general uniaxial material
 with combined kinematic and isotropic hardening and optional
-non-symmetric behavior.</p></td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial Steel4 $matTag $f_y $E_0 &lt; -asym &gt;
-&lt; -kin $b_k $R_0 $r_1 $r_2 &lt; $b_kc $R_0c $r_1c $r_2c &gt; &gt;
-&lt; -iso $b_i $rho_i $b_l $R_i $l_yp &lt; $b_ic $rho_ic $b_lc $R_ic&gt;
-&gt; &lt; -ult $f_u $R_u &lt; $f_uc $R_uc &gt; &gt; &lt; -init $sig_init
-&gt; &lt; -mem $cycNum &gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+non-symmetric behavior.</p>
+
+```tcl
+uniaxialMaterial Steel4 $matTag $f_y $E_0 < -asym >
+  < -kin $b_k $R_0 $r_1 $r_2 < $b_kc $R_0c $r_1c $r_2c > >
+  < -iso $b_i $rho_i $b_l $R_i $l_yp < $b_ic $rho_ic $b_lc $R_ic > >
+  < -ult $f_u $R_u < $f_uc $R_uc > > 
+  < -init $sig_init > 
+  < -mem $cycNum >
+```
+
+
 <h2 id="parameters">Parameters</h2>
 <table>
 <tbody>

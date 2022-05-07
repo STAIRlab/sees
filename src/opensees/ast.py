@@ -197,6 +197,12 @@ class One(Arg): pass
 class Blk(Grp):
     def init(self):
         self.args = []
+    def get_value(self, value=None):
+        value = self.value if value is None else value
+        if "from_prop" in self.kwds:
+            return [p for v in value for p in getattr(v, self.kwds["from_prop"]) ]
+        else:
+            return value
 
     def as_tcl_list(self, value=None):
         value = self.value if value is None else value
