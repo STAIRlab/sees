@@ -3566,7 +3566,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/177-Elastic-No%20Tension%20Material/" class="md-nav__link">
-        Elastic-No Tension Material
+        Elastic-No Tension
 
       </a>
     </li>
@@ -3581,7 +3581,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/178-Elastic-Perfectly%20Plastic%20Gap%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Gap Material
+        Elastic-Perfectly Plastic Gap
 
       </a>
     </li>
@@ -3596,7 +3596,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/179-Elastic-Perfectly%20Plastic%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Material
+        Elastic-Perfectly Plastic
 
       </a>
     </li>
@@ -3746,7 +3746,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/29-BARSLIP%20Material/" class="md-nav__link">
-        BARSLIP
+        BarSlip
 
       </a>
     </li>
@@ -13475,13 +13475,34 @@ unique integer tag identifying element object
 <tr class="even">
 <td>
 <p>
-<strong>$iNode $jNode $kNode $lNode $mNode $nNode $pNode <span class="math inline">\(qNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the eight nodes defining the element, input in counterclockwise order (same node numbering scheme as for the &lt;a href=&quot;Brick_u-p_Element&quot; title=&quot;wikilink&quot;&gt; brickUP Element&lt;/a&gt;) (-ndm 3 -ndf 4)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique integer tag associated with previously-defined nDMaterial object&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fBulk&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;bulk modulus of the pore fluid&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fDen&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;mass density of the pore fluid&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>k1 $k2 <span class="math inline">\(k3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;permeability coefficients in global x-, y-, and z-directions, respectively&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;void&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;voids ratio&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;alpha&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;spatial pressure field stabilization parameter (see discussion below for more information)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>b1 $b2 <span class="math inline">\(b3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;constant body forces in global x-, y-, and z-directions, respectively (optional, default = 0.0) - &lt;strong&gt;See Note 3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;p&gt;The SSPbrickUP element is an extension of the &lt;a href=&quot;SSPbrick_Element&quot; title=&quot;wikilink&quot;&gt;SSPbrick Element&lt;/a&gt; for use in dynamic 3D analysis of fluid saturated porous media. A mixed displacement-pressure (u-p) formulation is used, based upon the work of Biot as extended by Zienkiewicz and Shiomi (1984).&lt;/p&gt; &lt;p&gt;The physical stabilization necessary to allow for reduced integration incorporates an enhanced assumed strain field, resulting in an element which is free from volumetric and shear locking. The elimination of shear locking results in greater coarse mesh accuracy in bending dominated problems, and the elimination of volumetric locking improves accuracy in nearly-incompressible problems. Analysis times are generally faster than corresponding full integration elements.&lt;/p&gt; &lt;p&gt;Equal-order interpolation is used for the displacement and pressure fields, thus, the SSPbrickUP element does not inherently pass the &lt;em&gt;inf-sup&lt;/em&gt; condition, and is not fully acceptable in the incompressible-impermeable limit (the &lt;a href=&quot;Brick_u-p_Element&quot; title=&quot;wikilink&quot;&gt; brickUP Element&lt;/a&gt; has the same issue). A stabilizing parameter is employed to permit the use of equal-order interpolation for the SSPbrickUP element. This parameter &lt;strong&gt;\)</span>alpha</strong> can be computed as
+<strong>$iNode $jNode $kNode $lNode $mNode $nNode $pNode <span class="math inline">\(qNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the eight nodes defining the element, input in counterclockwise order (same node numbering scheme as for the &lt;a href=&quot;Brick_u-p_Element&quot; title=&quot;wikilink&quot;&gt; brickUP Element&lt;/a&gt;) (-ndm 3 -ndf 4)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique integer tag associated with previously-defined nDMaterial object&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fBulk&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;bulk modulus of the pore fluid&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fDen&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;mass density of the pore fluid&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>k1 $k2 <span class="math inline">\(k3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;permeability coefficients in global x-, y-, and z-directions, respectively&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;void&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;voids ratio&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;alpha&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;spatial pressure field stabilization parameter (see discussion below for more information)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>b1 $b2 $b3</strong>
+</p>
+</td>
+<td>
+<p>
+constant body forces in global x-, y-, and z-directions, respectively (optional, default = 0.0) - <strong>See Note 3</strong>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>
+The SSPbrickUP element is an extension of the <a
+href="SSPbrick_Element" title="wikilink">SSPbrick Element</a> for use in dynamic 3D analysis of fluid saturated porous media. A mixed displacement-pressure (u-p) formulation is used, based upon the work of Biot as extended by Zienkiewicz and Shiomi (1984).
+</p>
+<p>
+The physical stabilization necessary to allow for reduced integration incorporates an enhanced assumed strain field, resulting in an element which is free from volumetric and shear locking. The elimination of shear locking results in greater coarse mesh accuracy in bending dominated problems, and the elimination of volumetric locking improves accuracy in nearly-incompressible problems. Analysis times are generally faster than corresponding full integration elements.
+</p>
+<p>
+Equal-order interpolation is used for the displacement and pressure fields, thus, the SSPbrickUP element does not inherently pass the <em>inf-sup</em> condition, and is not fully acceptable in the incompressible-impermeable limit (the <a href="Brick_u-p_Element"
+title="wikilink"> brickUP Element</a> has the same issue). A stabilizing parameter is employed to permit the use of equal-order interpolation for the SSPbrickUP element. This parameter <code class="tcl-variable">alpha</code> can be computed as
 </p>
 <p>
 alpha = h^2/(4<em>(Ks + (4/3)</em>Gs))
 </p>
 <p>
-where <strong>h</strong> is the element size, and <strong>Ks</strong> and <strong>Gs</strong> are the bulk and shear moduli for the solid phase. The <strong><span class="math inline">\(alpha&lt;/strong&gt; parameter should be a small number. With a properly defined &lt;strong&gt;\)</span>alpha</strong> parameter, the SSPbrickUP element can produce comparable results to a higher-order element such as the <a href="Twenty_Eight_Node_Brick_u-p_Element"
+where <strong>h</strong> is the element size, and <strong>Ks</strong> and <strong>Gs</strong> are the bulk and shear moduli for the solid phase. The <code class="tcl-variable">alpha</code> parameter should be a small number. With a properly defined <code class="tcl-variable">alpha</code> parameter, the SSPbrickUP element can produce comparable results to a higher-order element such as the <a href="Twenty_Eight_Node_Brick_u-p_Element"
 title="wikilink"> 20_8_BrickUP Element</a> at a significantly lower computational cost and with a greater ease in mesh generation.
 </p>
 <p>

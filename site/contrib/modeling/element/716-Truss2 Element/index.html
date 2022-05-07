@@ -3566,7 +3566,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/177-Elastic-No%20Tension%20Material/" class="md-nav__link">
-        Elastic-No Tension Material
+        Elastic-No Tension
 
       </a>
     </li>
@@ -3581,7 +3581,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/178-Elastic-Perfectly%20Plastic%20Gap%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Gap Material
+        Elastic-Perfectly Plastic Gap
 
       </a>
     </li>
@@ -3596,7 +3596,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/179-Elastic-Perfectly%20Plastic%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Material
+        Elastic-Perfectly Plastic
 
       </a>
     </li>
@@ -3746,7 +3746,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/29-BARSLIP%20Material/" class="md-nav__link">
-        BARSLIP
+        BarSlip
 
       </a>
     </li>
@@ -13483,7 +13483,89 @@ unique element object tag
 <tr class="even">
 <td>
 <p>
-<strong>$iNode <span class="math inline">\(jNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;end nodes of the truss element&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>mGNode <span class="math inline">\(nGNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;end nodes for the zero-stiffness gauge element&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;A&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;cross-sectional area of truss element&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tag of material used (see Note 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;Optional:&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;rho&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;mass per unit length, as in the &lt;strong&gt;&lt;a href=&quot;Truss_Element&quot; title=&quot;wikilink&quot;&gt; Truss&lt;/a&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;a href=&quot;Corotational_Truss_Element&quot; title=&quot;wikilink&quot;&gt; CorotTruss&lt;/a&gt;&lt;/strong&gt; Elements (default = 0.0)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;rFlag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;flag for Rayleigh damping, as in the &lt;strong&gt;&lt;a href=&quot;Truss_Element&quot; title=&quot;wikilink&quot;&gt; Truss&lt;/a&gt;&lt;/strong&gt; Element (default = 0; see Note 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;p&gt;(1) If the material used does not use biaxial effects, the element will behave like the uniaxial counterpart (&lt;strong&gt;&lt;a href=&quot;Truss_Element&quot; title=&quot;wikilink&quot;&gt;Truss&lt;/a&gt;&lt;/strong&gt; or &lt;strong&gt;&lt;a href=&quot;Corotational_Truss_Element&quot; title=&quot;wikilink&quot;&gt; CorotTruss&lt;/a&gt;&lt;/strong&gt;). For the &lt;strong&gt;&lt;a href=&quot;ConcretewBeta_Material&quot; title=&quot;wikilink&quot;&gt; ConcretewBeta&lt;/a&gt;&lt;/strong&gt; material, the normal strain will be passed to the material to be used in calculation of the material response.&lt;/p&gt; &lt;p&gt;(2) Consistent with the implementation of the &lt;strong&gt;&lt;a href=&quot;Truss_Element&quot; title=&quot;wikilink&quot;&gt; Truss&lt;/a&gt;&lt;/strong&gt; element, the Truss2 element does not include Rayleigh damping by default. Rayleigh damping can be included by using the -rayleigh option with &lt;strong&gt;\)</span>rFlag</strong> = 1.
+<strong>$iNode <span class="math inline">\(jNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;end nodes of the truss element&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>mGNode $nGNode</strong>
+</p>
+</td>
+<td>
+<p>
+end nodes for the zero-stiffness gauge element
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">A</code>
+</td>
+<td>
+<p>
+cross-sectional area of truss element
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">matTag</code>
+</td>
+<td>
+<p>
+tag of material used (see Note 1)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+Optional:
+</p>
+</td>
+<td>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">rho</code>
+</td>
+<td>
+<p>
+mass per unit length, as in the <strong><a href="Truss_Element"
+title="wikilink"> Truss</a></strong> and <strong><a
+href="Corotational_Truss_Element" title="wikilink"> CorotTruss</a></strong> Elements (default = 0.0)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">rFlag</code>
+</td>
+<td>
+<p>
+flag for Rayleigh damping, as in the <strong><a
+href="Truss_Element" title="wikilink"> Truss</a></strong> Element (default = 0; see Note 2)
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+NOTES:
+</p>
+<p>
+<ol type="1">
+<li>If the material used does not use biaxial effects, the element will behave like the uniaxial counterpart (<strong><a
+href="Truss_Element" title="wikilink">Truss</a></strong> or <strong><a
+href="Corotational_Truss_Element" title="wikilink"> CorotTruss</a></strong>). For the <strong><a
+href="ConcretewBeta_Material" title="wikilink"> ConcretewBeta</a></strong> material, the normal strain will be passed to the material to be used in calculation of the material response.
+</p>
+<p>
+<ol start="2" type="1">
+<li>Consistent with the implementation of the <strong><a
+href="Truss_Element" title="wikilink"> Truss</a></strong> element, the Truss2 element does not include Rayleigh damping by default. Rayleigh damping can be included by using the -rayleigh option with <code class="tcl-variable">rFlag</code> = 1.
 </p>
 <p>
 However, like the <strong><a href="Corotational_Truss_Element"
@@ -13545,6 +13627,8 @@ Panagiotou, M., Restrepo, J.I., Schoettler, M., and Kim G. (2012). “Nonlinear 
 <p>
 Code Developed by: <span style="color:blue"> Yuan Lu, UC Berkeley </span> and <span style="color:blue"> Marios Panagiotou, UC Berkeley </span>
 </p></li>
+</ol></li>
+</ol></li>
 </ol>
 
 

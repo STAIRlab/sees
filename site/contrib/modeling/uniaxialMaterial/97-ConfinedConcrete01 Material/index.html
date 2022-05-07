@@ -3558,7 +3558,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../177-Elastic-No%20Tension%20Material/" class="md-nav__link">
-        Elastic-No Tension Material
+        Elastic-No Tension
 
       </a>
     </li>
@@ -3573,7 +3573,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../178-Elastic-Perfectly%20Plastic%20Gap%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Gap Material
+        Elastic-Perfectly Plastic Gap
 
       </a>
     </li>
@@ -3588,7 +3588,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../179-Elastic-Perfectly%20Plastic%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Material
+        Elastic-Perfectly Plastic
 
       </a>
     </li>
@@ -3738,7 +3738,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../29-BARSLIP%20Material/" class="md-nav__link">
-        BARSLIP
+        BarSlip
 
       </a>
     </li>
@@ -13872,16 +13872,151 @@ optional parameters for defining the internal transverse reinforcement. If they 
 <tr class="odd">
 <td>
 <p>
-<strong>&lt;-wrap $cover $Am $Sw $ful <span class="math inline">\(Es0w&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;optional parameters required when section is strengthened with FRP wraps. See NOTE 5.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;p&gt;1) The following section types are available:&lt;/p&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;S1&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;square section with S1 type of transverse reinforcement with or without external FRP wrapping;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;S2&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;square section with S2 type of transverse reinforcement with or without external FRP wrapping;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;S3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;square section with S3 type of transverse reinforcement with or without external FRP wrapping;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;S4a&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;square section with S4a type of transverse reinforcement with or without external FRP wrapping;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;S4b&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;square section with S4b type of transverse reinforcement with or without external FRP wrapping;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;S5&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;square section with S5 type of transverse reinforcement with or without external FRP wrapping;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;C&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;circular section with or without external FRP wrapping;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;R&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;rectangular section with or without external FRP wrapping.&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;figure&gt; &lt;img src=&quot;/OpenSeesRT/contrib/static/SectionTypes.png&quot; title=&quot;SectionTypes.png&quot; width=&quot;300&quot; alt=&quot;SectionTypes.png&quot; /&gt; &lt;figcaption aria-hidden=&quot;true&quot;&gt;SectionTypes.png&lt;/figcaption&gt; &lt;/figure&gt; &lt;p&gt;2) The confined concrete ultimate strain is defined using &lt;strong&gt;-epscu&lt;/strong&gt; or &lt;strong&gt;-gamma&lt;/strong&gt;. When &lt;strong&gt;-gamma&lt;/strong&gt; option is specified, &lt;strong&gt;\)</span>gamma</strong> is the ratio of the strength corresponding to ultimate strain to the peak strength of the confined concrete stress-strain curve. If <strong><span class="math inline">\(gamma&lt;/strong&gt; cannot be achieved in the range [0, &lt;strong&gt;\)</span>epscuLimit</strong>] then <strong><span class="math inline">\(epscuLimit&lt;/strong&gt; (optional, default: 0.05) will be assumed as ultimate strain.&lt;/p&gt; &lt;p&gt;3) Poisson&#39;s Ratio is specified by one of these 3 methods: a) providing &lt;strong&gt;\)</span>nu</strong> using the <strong>-nu</strong> option. b) using the <strong>-varUB</strong> option in which Poisson’s ratio is defined as a function of axial strain by means of the expression proposed by Braga et al. (2006) with the upper bound equal to 0.5; or c) using the <strong>-varNoUB</strong> option in which case Poisson’s ratio is defined as a function of axial strain by means of the expression proposed by Braga et al. (2006) without any upper bound.
+<strong>&lt;-wrap $cover $Am $Sw $ful $Es0w&gt;</strong>
+</p>
+</td>
+<td>
+<p>
+optional parameters required when section is strengthened with FRP wraps. See NOTE 5.
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+NOTES:
+</p>
+<p>
+<ol type="1">
+<li>The following section types are available:
+</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>
+<p>
+<strong>S1</strong>
+</p>
+</td>
+<td>
+<p>
+square section with S1 type of transverse reinforcement with or without external FRP wrapping;
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>S2</strong>
+</p>
+</td>
+<td>
+<p>
+square section with S2 type of transverse reinforcement with or without external FRP wrapping;
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<strong>S3</strong>
+</p>
+</td>
+<td>
+<p>
+square section with S3 type of transverse reinforcement with or without external FRP wrapping;
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>S4a</strong>
+</p>
+</td>
+<td>
+<p>
+square section with S4a type of transverse reinforcement with or without external FRP wrapping;
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<strong>S4b</strong>
+</p>
+</td>
+<td>
+<p>
+square section with S4b type of transverse reinforcement with or without external FRP wrapping;
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>S5</strong>
+</p>
+</td>
+<td>
+<p>
+square section with S5 type of transverse reinforcement with or without external FRP wrapping;
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<strong>C</strong>
+</p>
+</td>
+<td>
+<p>
+circular section with or without external FRP wrapping;
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>R</strong>
+</p>
+</td>
+<td>
+<p>
+rectangular section with or without external FRP wrapping.
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SectionTypes.png" title="SectionTypes.png" width="300" alt="SectionTypes.png" />
+<figcaption aria-hidden="true">
+SectionTypes.png
+</figcaption>
+</figure>
+<p>
+<ol start="2" type="1">
+<li>The confined concrete ultimate strain is defined using <strong>-epscu</strong> or <strong>-gamma</strong>. When <strong>-gamma</strong> option is specified, <code>gamma</code> is the ratio of the strength corresponding to ultimate strain to the peak strength of the confined concrete stress-strain curve. If <code class="tcl-variable">gamma</code> cannot be achieved in the range [0, <code class="tcl-variable">epscuLimit</code>] then <code class="tcl-variable">epscuLimit</code> (optional, default: 0.05) will be assumed as ultimate strain.
+</p>
+<p>
+<ol start="3" type="1">
+<li>Poisson’s Ratio is specified by one of these 3 methods: a) providing <code class="tcl-variable">nu</code> using the <strong>-nu</strong> option. b) using the <strong>-varUB</strong> option in which Poisson’s ratio is defined as a function of axial strain by means of the expression proposed by Braga et al. (2006) with the upper bound equal to 0.5; or c) using the <strong>-varNoUB</strong> option in which case Poisson’s ratio is defined as a function of axial strain by means of the expression proposed by Braga et al. (2006) without any upper bound.
 </p>
 <p>
 <ol start="4" type="1">
-<li><strong><span class="math inline">\(L1&lt;/strong&gt; (2l), &lt;strong&gt;\)</span>L2</strong> (a) and <strong><span class="math inline">\(L3&lt;/strong&gt; (b) are required when either S4a or S4b section types is used. &lt;strong&gt;\)</span>L1</strong> (2d) and <strong>$L2</strong> (2c) must be used for rectangular section.
+<li><code class="tcl-variable">L1</code> (2l), <code class="tcl-variable">L2</code> (a) and <code class="tcl-variable">L3</code> (b) are required when either S4a or S4b section types is used. <code class="tcl-variable">L1</code> (2d) and <code class="tcl-variable">L2</code> (2c) must be used for rectangular section.
 </p>
 <p>
 <ol start="5" type="1">
 <li>When external stengthening is used must be specified the following parameters:
-</p>
+</p></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol>
 <table>
 <tbody>
 <tr class="odd">
@@ -13940,8 +14075,6 @@ elastic modulus of FRP wraps.
 <ol start="6" type="1">
 <li>Stresses and strains can be defined either as positive or as negative values. All commands are not case sensitive.
 </p></li>
-</ol></li>
-</ol></li>
 </ol>
 <h2 id="examples">Examples</h2>
 <p>

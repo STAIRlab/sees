@@ -3558,7 +3558,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../177-Elastic-No%20Tension%20Material/" class="md-nav__link">
-        Elastic-No Tension Material
+        Elastic-No Tension
 
       </a>
     </li>
@@ -3573,7 +3573,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../178-Elastic-Perfectly%20Plastic%20Gap%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Gap Material
+        Elastic-Perfectly Plastic Gap
 
       </a>
     </li>
@@ -3588,7 +3588,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../179-Elastic-Perfectly%20Plastic%20Material/" class="md-nav__link">
-        Elastic-Perfectly Plastic Material
+        Elastic-Perfectly Plastic
 
       </a>
     </li>
@@ -3738,7 +3738,7 @@ Nonlinear Elements
   
     <li class="md-nav__item">
       <a href="../29-BARSLIP%20Material/" class="md-nav__link">
-        BARSLIP
+        BarSlip
 
       </a>
     </li>
@@ -13520,11 +13520,20 @@ compressive strain corresponding to unconfined concrete compressive strength*
 <tr class="even">
 <td>
 <p>
-<strong>$fcint, <span class="math inline">\(ecint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate stress-strain point for compression post-peak envelope*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fcres, <span class="math inline">\(ecres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual stress-strain point for compression post-peak envelope*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;ftint&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tensile strength of concrete&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ftint, <span class="math inline">\(etint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate stress-strain point for tension softening envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ftres, <span class="math inline">\(etres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual stress-strain point for tension softening envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;Optional:&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;lambda&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;controls the path of unloading from compression strain (default 0.5)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;alpha&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;controls the path of unloading from tensile strain (default 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>bint <span class="math inline">\(ebint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate &amp;amp;beta;-strain point for for biaxial effect (default 1 and 0, respectively)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>bres <span class="math inline">\(ebres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual &amp;amp;beta;-strain point for for biaxial effect (default 1 and 0, respectively)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;M&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;factor for Stevens et al. (1991) tension stiffening (default 0; see Note 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;Ec&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;initial stiffness (default 2*&lt;strong&gt;\)</span>fpc</strong>/<strong><span class="math inline">\(ec0&lt;/strong&gt;; see Note 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fcc <span class="math inline">\(ecc&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;confined concrete peak compressive stress and corresponding strain* (see Eq. 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;p&gt;(1) *Parameters of concrete in compression should be specified as negative values.&lt;/p&gt; &lt;p&gt;(2) For non-zero &lt;strong&gt;\)</span>M</strong>, the tension stiffening behavior will govern the post-peak tension envelope. Tri-linear tension softening parameters <strong>$ftint, $etint, $ftres, <span class="math inline">\(etres&lt;/strong&gt; will have no effect, but dummy values must be specified.&lt;/p&gt; &lt;p&gt;(3) Value of &lt;strong&gt;\)</span>Ec</strong> must be between <strong><span class="math inline">\(fpc&lt;/strong&gt;/&lt;strong&gt;\)</span>ec0</strong> and 2*<strong><span class="math inline">\(fpc&lt;/strong&gt;/&lt;strong&gt;\)</span>ec0</strong> otherwise the closest value will be assigned.
+<strong>$fcint, <span class="math inline">\(ecint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate stress-strain point for compression post-peak envelope*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fcres, <span class="math inline">\(ecres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual stress-strain point for compression post-peak envelope*&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;ftint&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tensile strength of concrete&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ftint, <span class="math inline">\(etint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate stress-strain point for tension softening envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ftres, <span class="math inline">\(etres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual stress-strain point for tension softening envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;Optional:&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;lambda&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;controls the path of unloading from compression strain (default 0.5)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;alpha&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;controls the path of unloading from tensile strain (default 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>bint <span class="math inline">\(ebint&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;intermediate &amp;amp;beta;-strain point for for biaxial effect (default 1 and 0, respectively)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>bres <span class="math inline">\(ebres&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;residual &amp;amp;beta;-strain point for for biaxial effect (default 1 and 0, respectively)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;M&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;factor for Stevens et al. (1991) tension stiffening (default 0; see Note 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;Ec&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;initial stiffness (default 2*&lt;code class=&quot;tcl-variable&quot;&gt;fpc&lt;/code&gt;/&lt;code class=&quot;tcl-variable&quot;&gt;ec0&lt;/code&gt;; see Note 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>fcc <span class="math inline">\(ecc&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;confined concrete peak compressive stress and corresponding strain* (see Eq. 1)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;p&gt;NOTES:&lt;/p&gt; &lt;p&gt;(1) *Parameters of concrete in compression should be specified as negative values.&lt;/p&gt; &lt;p&gt;(2) For non-zero &lt;code class=&quot;tcl-variable&quot;&gt;M&lt;/code&gt;, the tension stiffening behavior will govern the post-peak tension envelope. Tri-linear tension softening parameters &lt;strong&gt;\)</span>ftint, $etint, $ftres, <span class="math inline">\(etres&lt;/strong&gt; will have no effect, but dummy values must be specified.&lt;/p&gt; &lt;p&gt;(3) Value of &lt;code class=&quot;tcl-variable&quot;&gt;Ec&lt;/code&gt; must be between &lt;code class=&quot;tcl-variable&quot;&gt;fpc&lt;/code&gt;/&lt;code class=&quot;tcl-variable&quot;&gt;ec0&lt;/code&gt; and 2*&lt;code class=&quot;tcl-variable&quot;&gt;fpc&lt;/code&gt;/&lt;code class=&quot;tcl-variable&quot;&gt;ec0&lt;/code&gt; otherwise the closest value will be assigned.&lt;/p&gt; &lt;h2 id=&quot;implementation&quot;&gt;Implementation&lt;/h2&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; &lt;a href=&quot;File:ConcwBeta_Eq1a.png&quot; title=&quot;wikilink&quot;&gt;thumb|upright=2.5|Equation 1.&lt;/a&gt; &lt;/dd&gt; &lt;dd&gt; &lt;a href=&quot;File:ConcwBeta_Eq2a.png&quot; title=&quot;wikilink&quot;&gt;thumb|upright=1.8|Equation 2.&lt;/a&gt; &lt;/dd&gt; &lt;dd&gt; &lt;a href=&quot;File:ConcwBeta_Eq3.png&quot; title=&quot;wikilink&quot;&gt;thumb|upright=1.8|Equation 3.&lt;/a&gt; &lt;/dd&gt; &lt;/dl&gt; &lt;/dd&gt; &lt;/dl&gt; &lt;h3 id=&quot;uniaxial_behavior&quot;&gt;Uniaxial Behavior&lt;/h3&gt; &lt;p&gt;&amp;amp;emsp;&amp;amp;emsp;Figure 1 shows the compression and tension envelopes and the input parameters. The confined concrete envelope is defined by Equation 1 up to strain &lt;code class=&quot;tcl-variable&quot;&gt;ecc&lt;/code&gt;. The default values of &lt;code class=&quot;tcl-variable&quot;&gt;fcc&lt;/code&gt; and &lt;strong&gt;\)</span>$ecc</strong> are equal to <code class="tcl-variable">fpc</code> and <code class="tcl-variable">ec0</code>, respectively, for an an unconfined behavior. Following this region, the compression envelope is tri-linear and passes through the points (<code class="tcl-variable">ecint</code>, <code class="tcl-variable">fcint</code>) and (<code class="tcl-variable">ecres</code>, <code class="tcl-variable">fcres</code>) in that order. For compression strains larger than <code class="tcl-variable">ecres</code>, the residual stress is <code class="tcl-variable">fcres</code>.
 </p>
-<h2 id="implementation">
-Implementation
-</h2>
+<p>
+&amp;emsp;&amp;emsp;For compression strain, the slope of the unloading branch is defined by Equation 2. After reaching zero stress, the material reloads linearly to the point with the largest tensile strain that occurred before.
+</p>
+<p>
+&amp;emsp;&amp;emsp;The tension envelope is linear until it reaches <code class="tcl-variable">ft</code>. If the tension stiffening parameter <code class="tcl-variable">M</code> is not specified, the tension envelope after reaching <code class="tcl-variable">ft</code> is tri-linear and passes through the points (<code class="tcl-variable">etint</code>, <code class="tcl-variable">ftint</code>) and (<code class="tcl-variable">etres</code>, <code class="tcl-variable">ftres</code>) in that order. For tensile strains larger than <code class="tcl-variable">etres</code>, the residual stress is <code class="tcl-variable">fcres</code>.
+</p>
+<p>
+&amp;emsp;&amp;emsp;If <code class="tcl-variable">M</code> is specified, the nonlinear tension stiffening behavior defined by Equation 3. It is suggested that <code class="tcl-variable">M</code> = (75 mm)*<em>&amp;rho;&lt;sub&gt;l&lt;/sub&gt;</em>/<em>d&lt;sub&gt;b&lt;/sub&gt;</em> where <em>&amp;rho;&lt;sub&gt;l&lt;/sub&gt;</em> is the steel ratio in the direction parallel to the material direction and <em>d&lt;sub&gt;b&lt;/sub&gt;</em> is the bar diameter in mm.
+</p>
+<p>
+&amp;emsp;&amp;emsp;The material unloads from tension strain using a slope of <code class="tcl-variable">Ec</code>. After reaching zero stress, the material targets the point (0, -<code class="tcl-variable">alpha</code><em><code class="tcl-variable">ft</code>). Thereafter, the material loads linearly to the point where the peak compressive strain previously occurred. In the case where the slope leading to this target point is less than that for the point (0, -<code class="tcl-variable">alpha</code></em><code class="tcl-variable">ft</code>), the material reloads directly to the point where peak compressive strain occurred.
+</p>
 <dl>
 <dt>
 </dt>
@@ -13533,31 +13542,36 @@ Implementation
 <dt>
 </dt>
 <dd>
-<a href="File:ConcwBeta_Eq1a.png"
-title="wikilink">thumb|upright=2.5|Equation 1.</a>
-</dd>
-<dd>
-<a href="File:ConcwBeta_Eq2a.png"
-title="wikilink">thumb|upright=1.8|Equation 2.</a>
-</dd>
-<dd>
-<a href="File:ConcwBeta_Eq3.png"
-title="wikilink">thumb|upright=1.8|Equation 3.</a>
+<a href="File:ConcwBeta_Fig1b.gif"
+title="wikilink">thumb|center|upright=4.0|alt=ConcretewBeta Figure 1 |Figure 1. ConcretewBeta material model behavior based on specified input parameters</a>
 </dd>
 </dl>
 </dd>
 </dl>
-<h3 id="uniaxial_behavior">
-Uniaxial Behavior
+<dl>
+<dt>
+</dt>
+<dd>
+<dl>
+<dt>
+</dt>
+<dd>
+<a href="File:ConcwBeta_Fig2b.gif"
+title="wikilink">thumb|upright=2.0|alt=ConcretewBeta Figure 2 |Figure 2. Relation between the concrete compressive stress reduction factor, &amp;beta;, and normal tensile strain, &amp;epsilon;&lt;sub&gt;n&lt;/sub&gt; </a>
+</dd>
+</dl>
+</dd>
+</dl>
+<h3 id="biaxial_behavior">
+Biaxial Behavior
 </h3>
 <p>
-&amp;emsp;&amp;emsp;Figure 1 shows the compression and tension envelopes and the input parameters. The confined concrete envelope is defined by Equation 1 up to strain <strong><span class="math inline">\(ecc&lt;/strong&gt;. The default values of &lt;strong&gt;\)</span>fcc</strong> and <strong>$<span class="math inline">\(ecc&lt;/strong&gt; are equal to &lt;strong&gt;\)</span>fpc</strong> and <strong><span class="math inline">\(ec0&lt;/strong&gt;, respectively, for an an unconfined behavior. Following this region, the compression envelope is tri-linear and passes through the points (&lt;strong&gt;\)</span>ecint</strong>, <strong><span class="math inline">\(fcint&lt;/strong&gt;) and (&lt;strong&gt;\)</span>ecres</strong>, <strong><span class="math inline">\(fcres&lt;/strong&gt;) in that order. For compression strains larger than &lt;strong&gt;\)</span>ecres</strong>, the residual stress is <strong><span class="math inline">\(fcres&lt;/strong&gt;.&lt;/p&gt; &lt;p&gt;&amp;amp;emsp;&amp;amp;emsp;For compression strain, the slope of the unloading branch is defined by Equation 2. After reaching zero stress, the material reloads linearly to the point with the largest tensile strain that occurred before.&lt;/p&gt; &lt;p&gt;&amp;amp;emsp;&amp;amp;emsp;The tension envelope is linear until it reaches &lt;strong&gt;\)</span>ft</strong>. If the tension stiffening parameter <strong><span class="math inline">\(M&lt;/strong&gt; is not specified, the tension envelope after reaching &lt;strong&gt;\)</span>ft</strong> is tri-linear and passes through the points (<strong><span class="math inline">\(etint&lt;/strong&gt;, &lt;strong&gt;\)</span>ftint</strong>) and (<strong><span class="math inline">\(etres&lt;/strong&gt;, &lt;strong&gt;\)</span>ftres</strong>) in that order. For tensile strains larger than <strong><span class="math inline">\(etres&lt;/strong&gt;, the residual stress is &lt;strong&gt;\)</span>fcres</strong>.
+&amp;emsp;&amp;emsp;The ConcretewBeta material model accounts for the biaxial strain field on the concrete compressive behavior when used in conjunction with the <strong><a href="Truss2_Element" title="wikilink"> Truss2</a></strong> element. The <strong><a href="Truss2_Element"
+title="wikilink"> Truss2</a></strong> element computes the strain normal to the direction of the element (see <strong><a href="Truss2_Element"
+title="wikilink"> Truss2 Element</a></strong>).
 </p>
 <p>
-&amp;emsp;&amp;emsp;If <strong><span class="math inline">\(M&lt;/strong&gt; is specified, the nonlinear tension stiffening behavior defined by Equation 3. It is suggested that &lt;strong&gt;\)</span>M</strong> = (75 mm)*<em>&amp;rho;&lt;sub&gt;l&lt;/sub&gt;</em>/<em>d&lt;sub&gt;b&lt;/sub&gt;</em> where <em>&amp;rho;&lt;sub&gt;l&lt;/sub&gt;</em> is the steel ratio in the direction parallel to the material direction and <em>d&lt;sub&gt;b&lt;/sub&gt;</em> is the bar diameter in mm.
-</p>
-<p>
-&amp;emsp;&amp;emsp;The material unloads from tension strain using a slope of <strong><span class="math inline">\(Ec&lt;/strong&gt;. After reaching zero stress, the material targets the point (0, -&lt;strong&gt;\)</span>alpha</strong><em><strong><span class="math inline">\(ft&lt;/strong&gt;). Thereafter, the material loads linearly to the point where the peak compressive strain previously occurred. In the case where the slope leading to this target point is less than that for the point (0, -&lt;strong&gt;\)</span>alpha</strong></em><strong><span class="math inline">\(ft&lt;/strong&gt;), the material reloads directly to the point where peak compressive strain occurred.&lt;/p&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; &lt;a href=&quot;File:ConcwBeta_Fig1b.gif&quot; title=&quot;wikilink&quot;&gt;thumb|center|upright=4.0|alt=ConcretewBeta Figure 1 |Figure 1. ConcretewBeta material model behavior based on specified input parameters&lt;/a&gt; &lt;/dd&gt; &lt;/dl&gt; &lt;/dd&gt; &lt;/dl&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; &lt;dl&gt; &lt;dt&gt;&lt;/dt&gt; &lt;dd&gt; &lt;a href=&quot;File:ConcwBeta_Fig2b.gif&quot; title=&quot;wikilink&quot;&gt;thumb|upright=2.0|alt=ConcretewBeta Figure 2 |Figure 2. Relation between the concrete compressive stress reduction factor, &amp;amp;beta;, and normal tensile strain, &amp;amp;epsilon;&amp;lt;sub&amp;gt;n&amp;lt;/sub&amp;gt; &lt;/a&gt; &lt;/dd&gt; &lt;/dl&gt; &lt;/dd&gt; &lt;/dl&gt; &lt;h3 id=&quot;biaxial_behavior&quot;&gt;Biaxial Behavior&lt;/h3&gt; &lt;p&gt;&amp;amp;emsp;&amp;amp;emsp;The ConcretewBeta material model accounts for the biaxial strain field on the concrete compressive behavior when used in conjunction with the &lt;strong&gt;&lt;a href=&quot;Truss2_Element&quot; title=&quot;wikilink&quot;&gt; Truss2&lt;/a&gt;&lt;/strong&gt; element. The &lt;strong&gt;&lt;a href=&quot;Truss2_Element&quot; title=&quot;wikilink&quot;&gt; Truss2&lt;/a&gt;&lt;/strong&gt; element computes the strain normal to the direction of the element (see &lt;strong&gt;&lt;a href=&quot;Truss2_Element&quot; title=&quot;wikilink&quot;&gt; Truss2 Element&lt;/a&gt;&lt;/strong&gt;).&lt;/p&gt; &lt;p&gt;&amp;amp;emsp;&amp;amp;emsp;Figure 2 shows the relationship between concrete compressive stress reduction factor, &lt;em&gt;&amp;amp;beta;&lt;/em&gt;, and the normal tensile strain, &amp;amp;epsilon;&amp;lt;sub&amp;gt;n&amp;lt;/sub&amp;gt;. For compressive stresses, the instantaneous stress value computed by the material is &lt;em&gt;&amp;amp;beta;&lt;/em&gt;*&lt;em&gt;f&amp;lt;sub&amp;gt;c&amp;lt;/sub&amp;gt;&lt;/em&gt; where &lt;em&gt;f&amp;lt;sub&amp;gt;c&amp;lt;/sub&amp;gt;&lt;/em&gt; is the compressive stress given by the uniaxial behavior described above. For positive (tensile) stress, &lt;em&gt;&amp;amp;beta;&lt;/em&gt; = 1. For compressive stress, the &lt;em&gt;&amp;amp;beta;&lt;/em&gt;-&amp;amp;epsilon;&amp;lt;sub&amp;gt;n&amp;lt;/sub&amp;gt; relationship is tri-linear and passes through the points (0,1), (&lt;strong&gt;\)</span>ebint</strong>, <strong><span class="math inline">\(bint&lt;/strong&gt;), and (&lt;strong&gt;\)</span>ebres</strong>, <strong><span class="math inline">\(bres&lt;/strong&gt;) in that order. For normal tensile strains larger than &lt;strong&gt;\)</span>ebres</strong>, <em>&amp;beta;</em> = <strong>$bres</strong>.
+&amp;emsp;&amp;emsp;Figure 2 shows the relationship between concrete compressive stress reduction factor, <em>&amp;beta;</em>, and the normal tensile strain, &amp;epsilon;&lt;sub&gt;n&lt;/sub&gt;. For compressive stresses, the instantaneous stress value computed by the material is <em>&amp;beta;</em>*<em>f&lt;sub&gt;c&lt;/sub&gt;</em> where <em>f&lt;sub&gt;c&lt;/sub&gt;</em> is the compressive stress given by the uniaxial behavior described above. For positive (tensile) stress, <em>&amp;beta;</em> = 1. For compressive stress, the <em>&amp;beta;</em>-&amp;epsilon;&lt;sub&gt;n&lt;/sub&gt; relationship is tri-linear and passes through the points (0,1), (<code class="tcl-variable">ebint</code>, <code class="tcl-variable">bint</code>), and (<code class="tcl-variable">ebres</code>, <code class="tcl-variable">bres</code>) in that order. For normal tensile strains larger than <code class="tcl-variable">ebres</code>, <em>&amp;beta;</em> = <code class="tcl-variable">bres</code>.
 </p>
 <h2 id="examples">
 Examples

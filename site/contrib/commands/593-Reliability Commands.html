@@ -11,9 +11,9 @@ objects from the OpenSees/Tcl workspace</li>
 <ul>
 <li><strong>randomVariable $tag pdfType -mean $mean -stdv $stdv</strong>
 -- creates a random variable object with unique identifying integer
-<strong>$tag</strong> and probability density function (PDF) of
-<strong>pdfType</strong>, mean <strong>$mean</strong>, and standard
-deviation <strong>$stdv</strong>
+<code class="tcl-variable">tag</code> and probability density function (PDF) of
+<strong>pdfType</strong>, mean <code class="tcl-variable">mean</code>, and standard
+deviation <code class="tcl-variable">stdv</code>
 <ul>
 <li>Available PDFs: normal, lognormal, uniform, <em>and more</em></li>
 <li>Example: randomVariable 1 normal -mean 5 -stdv 0.7</li>
@@ -22,7 +22,7 @@ deviation <strong>$stdv</strong>
 </ul>
 <ul>
 <li><strong>getPDF $tag $x</strong> -- returns the PDF evaluated at
-<strong>$x</strong> for random variable <strong>$tag</strong> -- p =
+<code class="tcl-variable">x</code> for random variable <code class="tcl-variable">tag</code> -- p =
 f(x)
 <ul>
 <li>Example: set p [getPDF 1 4.2] -- sets the Tcl variable p equal to
@@ -31,7 +31,7 @@ the PDF of random variable 1 evaluated at 4.2</li>
 </ul>
 <ul>
 <li><strong>getCDF $tag $x</strong> -- returns the CDF evaluated at
-<strong>$x</strong> for random variable <strong>$tag</strong> -- p =
+<code class="tcl-variable">x</code> for random variable <code class="tcl-variable">tag</code> -- p =
 F(x)
 <ul>
 <li>Example: set p [getCDF 1 4.2] -- sets the Tcl variable p equal to
@@ -40,10 +40,10 @@ the CDF of random variable 1 evaluated at 4.2</li>
 </ul>
 <ul>
 <li><strong>getInverseCDF $tag $p</strong> -- returns the inverse CDF
-evaluated at <strong>$p</strong> for random variable
-<strong>$tag</strong> -- x = F^{-1}(p)
+evaluated at <code class="tcl-variable">p</code> for random variable
+<code class="tcl-variable">tag</code> -- x = F^{-1}(p)
 <ul>
-<li>The argument <strong>$p</strong> must be in the range [0,1]</li>
+<li>The argument <code class="tcl-variable">p</code> must be in the range [0,1]</li>
 <li>Example: set x [getInverseCDF 1 0.2] -- sets the Tcl variable x
 equal to the inverse CDF of random variable 1 evaluated at 0.2</li>
 <li>Example: set x [getInverseCDF 4 [expr rand()]] -- sets the Tcl
@@ -58,7 +58,7 @@ facilitates Monte Carlo simulation</li>
 <ul>
 <li><strong>parameter $tag &lt;specific parameter args&gt;</strong> --
 creates a parameter object with unique identifying integer
-<strong>$tag</strong> and that points to an object of the finite element
+<code class="tcl-variable">tag</code> and that points to an object of the finite element
 domain that is identified using <strong>&lt;specific parameter
 args&gt;</strong>
 <ul>
@@ -79,7 +79,7 @@ issuing the <strong>reliability</strong> command</li>
 <li><strong>parameter $tag randomVariable $rvTag &lt;specific parameter
 args&gt;</strong> -- creates a parameter object that is associated with
 the previously defined random variable object with tag
-<strong>$rvTag</strong>
+<code class="tcl-variable">rvTag</code>
 <ul>
 <li>This is essentially the same functionality as
 <strong>randomVariablePositioner</strong> objects (now deprecated)</li>
@@ -95,7 +95,7 @@ links random variable 1 with fy of element 4</li>
 </ul>
 <ul>
 <li><strong>getParamValue $tag</strong> -- returns the current value of
-parameter <strong>$tag</strong>
+parameter <code class="tcl-variable">tag</code>
 <ul>
 <li>Example: set abc [getParamValue 4] -- sets the Tcl variable
 <em>abc</em> equal to the current value of parameter 4</li>
@@ -129,7 +129,7 @@ first issuing the <strong>reliability</strong> command</li>
 </ul>
 <ul>
 <li><strong>updateParameter $tag $newValue</strong> -- makes the value
-of parameter <strong>$tag</strong> equal to <strong>$newValue</strong>
+of parameter <code class="tcl-variable">tag</code> equal to <code class="tcl-variable">newValue</code>
 <ul>
 <li>Example: updateParameter 1 30000.0 -- sets the value of all objects
 associated with parameter 1 equal to 30000.0</li>
@@ -146,7 +146,7 @@ simulation</li>
 <ul>
 <li><strong>performanceFunction $tag $expression</strong> -- creates a
 performance function (or g-function) object with unique identifying
-integer <strong>$tag</strong> and string <strong>$expression</strong>
+integer <code class="tcl-variable">tag</code> and string <code class="tcl-variable">expression</code>
 <ul>
 <li>Example: performanceFunction 3 "0.02 - \$par(2)"</li>
 <li>The use of \$ will defer Tcl variable dereferencing to run-time.
