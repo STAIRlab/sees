@@ -1,4 +1,4 @@
- # TzSimple1
+# TzSimple1
 
 <p>This command is used to construct a TzSimple1 uniaxial material
 object:</p>

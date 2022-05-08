@@ -62,6 +62,7 @@ class Component:
             else:
                 setattr(partial, field, getattr(self, field))
         partial.kwds.update(kwds)
+        partial._init()
         return partial
 
     def _init(self):
@@ -92,8 +93,6 @@ class Component:
                 elif isinstance(arg, Grp):
                     typ = arg.type.type
                     yield from val
-                    #for i in val:
-                    #    yield i
             else:
                 val = getattr(self, ref)
                 if hasattr(val, "get_refs"):

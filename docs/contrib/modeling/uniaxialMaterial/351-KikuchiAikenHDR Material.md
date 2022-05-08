@@ -1,4 +1,4 @@
- # KikuchiAikenHDR
+# KikuchiAikenHDR
 
 <p>This command is used to construct a uniaxial KikuchiAikenHDR material
 object. This material model produces nonlinear hysteretic curves of high
@@ -31,19 +31,19 @@ uniaxialMaterial KikuchiAikenHDR $matTag $tp $ar $hr
 <tr class="odd">
 <td><p><strong>$cg $ch $cu</strong></p></td>
 <td><p>correction coefficients for equivalent shear modulus
-(<strong>$cg</strong>), equivalent viscous daming ratio
-(<strong>$ch</strong>), ratio of shear force at zero displacement
-(<strong>$cu</strong>).</p></td>
+(<code class="tcl-variable">cg</code>), equivalent viscous daming ratio
+(<code class="tcl-variable">ch</code>), ratio of shear force at zero displacement
+(<code class="tcl-variable">cu</code>).</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>$rs $rf</strong></p></td>
-<td><p>reduction rate for stiffness (<strong>$rs</strong>) and force
-(<strong>$rf</strong>) (see note 3)</p></td>
+<td><p>reduction rate for stiffness (<code class="tcl-variable">rs</code>) and force
+(<code class="tcl-variable">rf</code>) (see note 3)</p></td>
 </tr>
 </tbody>
 </table>
 <p>NOTES:</p>
-<p>1) Following rubber types for <strong>$tp</strong> are available:</p>
+<p>1) Following rubber types for <code class="tcl-variable">tp</code> are available:</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -79,12 +79,12 @@ strain</p></td>
 </tbody>
 </table>
 <p>2) This material uses SI unit in calculation formula.
-<strong>$ar</strong> and <strong>$hr</strong> must be converted into
+<code class="tcl-variable">ar</code> and <code class="tcl-variable">hr</code> must be converted into
 <strong>[m^2]</strong> and <strong>[m]</strong>, respectively.</p>
-<p>3) <strong>$rs</strong> and <strong>$rf</strong> are　available if
+<p>3) <code class="tcl-variable">rs</code> and <code class="tcl-variable">rf</code> are　available if
 this material is applied to multipleShearSpring (MSS) element.
-Recommended values are <strong>$rs</strong>=1/sum(i=0,n-1){
-sin(pi*i/n)^2} and <strong>$rf</strong>=1/sum(i=0,n-1){sin(pi*i/n)},
+Recommended values are <code class="tcl-variable">rs</code>=1/sum(i=0,n-1){
+sin(pi*i/n)^2} and <code class="tcl-variable">rf</code>=1/sum(i=0,n-1){sin(pi*i/n)},
 where n is the number of springs in the MSS. For example, when n=8,
 $rs=0.2500, $rf=0.1989.</p>
 <hr />

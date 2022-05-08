@@ -1,12 +1,13 @@
-# Elastic-Perfectly Plastic Gap Material
+# Elastic-Perfectly Plastic Gap
 
 <p>This command is used to construct an elastic perfectly-plastic gap
 uniaxial material object.</p>
 
 ```tcl
 uniaxialMaterial ElasticPPGap $matTag $E $Fy $gap
-        &lt;$eta&gt; &lt;damage&gt;
+        < $eta > < damage >
 ```
+
 <hr />
 <table>
 <tbody>

@@ -1,4 +1,4 @@
- # ElasticBilin
+# ElasticBilin
 
 <p>This command is used to construct an elastic bilinear uniaxial
 material object. Unlike all other bilinear materials, the unloading
@@ -6,7 +6,7 @@ curve follows the loading curve exactly.</p>
 
 ```tcl
 uniaxialMaterial ElasticBilin $matTag $EP1 $EP2 $epsP2
-        &lt;$EN1 $EN2 $epsN2&gt;
+        < $EN1 $EN2 $epsN2 >
 ```
 <hr />
 <table>
@@ -18,12 +18,12 @@ uniaxialMaterial ElasticBilin $matTag $EP1 $EP2 $epsP2
 <tr class="even">
 <td><p><code class="parameter-table-variable">EP1</code></p></td>
 <td><p>tangent in tension for stains: 0 &lt;= strains &lt;=
-$epsP2</p></td>
+<code>epsP2</code></p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">EP2</code></p></td>
-<td><p>tangent when material in tension with strains &gt;
-$epsP2</p></td>
+<td><p>tangent when material in tension with strains 
+<code>epsP2</code></p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">epsP2</code></p></td>
@@ -31,12 +31,12 @@ $epsP2</p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">EN1</code></p></td>
-<td><p>optional, default = $EP1. tangent in compression for stains: 0
-&lt; strains &lt;= $epsN2</p></td>
+<td><p>optional, default = <code>EP1</code>. tangent in compression for stains: 0
+&lt; strains &lt;= <code>epsN2</code></p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">EN2</code></p></td>
-<td><p>optional, default = $EP2. tangent in compression with strains
+<td><p>optional, default = <code>EP2</code>. tangent in compression with strains
 &lt; $epsN2</p></td>
 </tr>
 <tr class="odd">

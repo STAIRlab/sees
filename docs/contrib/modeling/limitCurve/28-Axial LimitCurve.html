@@ -5,15 +5,13 @@ used to define the point of axial failure for a LimitStateMaterial
 object. Point of axial failure based on model from Chapter 3 of PEER
 2003/01 report. After axial failure the response of LimitStateMaterial
 is forced to follow axial limit curve.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>limitCurve Axial $curveTag $eleTag $Fsw $Kdeg $Fres
-$defType $forType &lt;$ndI $ndJ $dof $perpDirn
-$delta&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+limitCurve Axial $curveTag $eleTag $Fsw $Kdeg $Fres
+        $defType $forType &lt;$ndI $ndJ $dof $perpDirn
+        $delta&gt;
+```
+
 <hr />
 <table>
 <tbody>
@@ -90,7 +88,9 @@ curve</p></td>
 <li>1 = X, 2 = Y, 3 = Z</li>
 </ol>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>&lt;tcl&gt;CenterColAxialSpring.tcl&lt;/tcl&gt;</p>
 <hr />
 <p>DESCRIPTION:</p>

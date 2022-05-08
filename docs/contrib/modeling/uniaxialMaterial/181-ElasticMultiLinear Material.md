@@ -1,4 +1,4 @@
- # ElasticMultiLinear
+# ElasticMultiLinear
 
 <p>This command is used to construct a multi-linear elastic uniaxial
 material object. The nonlinear stress-strain relationship is given by a

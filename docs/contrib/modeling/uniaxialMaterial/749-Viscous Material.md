@@ -1,4 +1,4 @@
- # Viscous
+# Viscous
 
 <p>This command is used to construct a uniaxial viscous material object.
 stress =C(strain-rate)^alpha</p>

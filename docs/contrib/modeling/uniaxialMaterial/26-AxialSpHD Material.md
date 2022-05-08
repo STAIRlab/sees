@@ -1,4 +1,4 @@
- # AxialSpHD
+# AxialSpHD
 
 <p>This command is used to construct a uniaxial AxialSpHD material
 object. This material model produces axial stress-strain curve of
@@ -21,14 +21,14 @@ uniaxialMaterial AxialSpHD $matTag $sce $fty $fcy
 </tr>
 <tr class="odd">
 <td><p><strong>$fty $fcy</strong></p></td>
-<td><p>yield stress under tension (<strong>$fty</strong>) and
-compression (<strong>$fcy</strong>) (see note 1)</p></td>
+<td><p>yield stress under tension (<code class="tcl-variable">fty</code>) and
+compression (<code class="tcl-variable">fcy</code>) (see note 1)</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>$bte $bty $bth $bcy</strong></p></td>
-<td><p>reduction rate for tensile elastic range (<strong>$bte</strong>),
-tensile yielding (<strong>$bty</strong>), tensile hardening
-(<strong>$bth</strong>) and compressive yielding (<strong>$bcy</strong>)
+<td><p>reduction rate for tensile elastic range (<code class="tcl-variable">bte</code>),
+tensile yielding (<code class="tcl-variable">bty</code>), tensile hardening
+(<code class="tcl-variable">bth</code>) and compressive yielding (<code class="tcl-variable">bcy</code>)
 (see note 1)</p></td>
 </tr>
 <tr class="odd">
@@ -43,12 +43,12 @@ tensile yielding (<strong>$bty</strong>), tensile hardening
 </table>
 <p>NOTES:</p>
 <p>1) Input parameters are required to satisfy followings.</p>
-<p><strong>$fcy</strong> &lt; 0.0 &lt; <strong>$fty</strong></p>
-<p>0.0 &lt;= <strong>$bty</strong> &lt; <strong>$bth</strong> &lt;
-<strong>$bte</strong> &lt;= 1.0</p>
-<p>0.0 &lt;= <strong>$bcy</strong> &lt;= 1.0</p>
-<p><strong>$fcy</strong> &lt;= <strong>$fcr</strong> &lt;= 0.0</p>
-<p>1.0 &lt;= <strong>$ath</strong></p>
+<p><code class="tcl-variable">fcy</code> &lt; 0.0 &lt; <code class="tcl-variable">fty</code></p>
+<p>0.0 &lt;= <code class="tcl-variable">bty</code> &lt; <code class="tcl-variable">bth</code> &lt;
+<code class="tcl-variable">bte</code> &lt;= 1.0</p>
+<p>0.0 &lt;= <code class="tcl-variable">bcy</code> &lt;= 1.0</p>
+<p><code class="tcl-variable">fcy</code> &lt;= <code class="tcl-variable">fcr</code> &lt;= 0.0</p>
+<p>1.0 &lt;= <code class="tcl-variable">ath</code></p>
 <p><img src="/OpenSeesRT/contrib/static/AxialSpHD_note1.png" title="AxialSpHD_note1.png"
 width="250" alt="AxialSpHD_note1.png" />
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img

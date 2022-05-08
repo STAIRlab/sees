@@ -1,0 +1,106 @@
+# Example 2 InputFile: 3D soil block subjected to static push over
+
+<p><a href="Tcl_input_files_for_the_provided_application_examples:"
+title="wikilink">Return to Tcl input files for the provided application
+examples:</a></p>
+<hr />
+<p>
+```tcl
+</p>
+<ol>
+<li>unit. meter, K-N, K-Pa,K-Kg</li>
+<li>refer to "Quan Gu, Joel P. Conte, Ahmed Elgamal and Zhaohui Yang.
+Response Sensitivity Analysis of a Multi-Yield-Surface J2 Plasticity
+Model by</li>
+<li>Direct Differentiation Method.June, 2009. Vol 198(30-32), Computer
+Methods in Applied Mechanics and Engineering, Pages 2272-2285.</li>
+<li>test by Lei Wang, July 2018</li>
+</ol>
+<ol>
+<li>create the ModelBuilder</li>
+</ol>
+<p>model BasicBuilder -ndm 3 -ndf 3 reliability</p>
+<ol>
+<li>massDen G B cohension peakshear</li>
+</ol>
+<p>nDMaterial MultiYieldSurfaceClay 2 3 1.5 60000.0 240000. 30.0 0.1</p>
+<ol>
+<li>updateMaterialStage -material 2 -stage 101</li>
+</ol>
+<ol>
+<li>create meshes</li>
+</ol>
+<p>node 1 0.00000 0.0000 0.00000 node 2 0.00000 0.0000 0.5000 node 3
+0.00000 0.0000 1.000000 node 4 0.00000 0.5000 0.00000 node 5 0.00000
+0.5000 0.5000 node 6 0.00000 0.5000 1.000000 node 7 0.00000 1.00000
+0.00000 node 8 0.00000 1.00000 0.5000 node 9 0.00000 1.00000 1.000000
+node 10 0.5000 0.0000 0.00000 node 11 0.5000 0.0000 0.5000 node 12
+0.5000 0.0000 1.000000 node 13 0.5000 0.5000 0.00000 node 14 0.5000
+0.5000 0.5000 node 15 0.5000 0.5000 1.000000 node 16 0.5000 1.00000
+0.00000 node 17 0.5000 1.00000 0.5000 node 18 0.5000 1.00000 1.000000
+node 19 1.000000 0.0000 0.00000 node 20 1.000000 0.0000 0.5000 node 21
+1.000000 0.0000 1.000000 node 22 1.000000 0.5000 0.00000 node 23
+1.000000 0.5000 0.5000 node 24 1.000000 0.5000 1.000000 node 25 1.000000
+1.00000 0.00000 node 26 1.000000 1.00000 0.50000 node 27 1.000000
+1.00000 1.000000</p>
+<ol>
+<li>ele Node mat</li>
+</ol>
+<p>element bbarBrickWithSensitivity 1 1 10 13 4 2 11 14 5 2 element
+bbarBrickWithSensitivity 2 2 11 14 5 3 12 15 6 2 element
+bbarBrickWithSensitivity 3 10 19 22 13 11 20 23 14 2 element
+bbarBrickWithSensitivity 4 11 20 23 14 12 21 24 15 2 element
+bbarBrickWithSensitivity 5 4 13 16 7 5 14 17 8 2 element
+bbarBrickWithSensitivity 6 13 22 25 16 14 23 26 17 2 element
+bbarBrickWithSensitivity 7 14 23 26 17 15 24 27 18 2 element
+bbarBrickWithSensitivity 8 5 14 17 8 6 15 18 9 2</p>
+<p>fix 1 1 1 1 0 0 0 fix 4 1 1 1 0 0 0 fix 7 1 1 1 0 0 0 fix 10 1 1 1 0
+0 0 fix 13 1 1 1 0 0 0 fix 16 1 1 1 0 0 0 fix 19 1 1 1 0 0 0 fix 22 1 1
+1 0 0 0 fix 25 1 1 1 0 0 0</p>
+<ol>
+<li>-------- define random variable
+---------------------------------</li>
+</ol>
+<p>set h K</p>
+<p>parameter 1 -element 1 -material $h addToParameter 1 -element 2
+-material $h addToParameter 1 -element 3 -material $h addToParameter 1
+-element 4 -material $h addToParameter 1 -element 5 -material $h
+addToParameter 1 -element 6 -material $h addToParameter 1 -element 7
+-material $h addToParameter 1 -element 8 -material $h</p>
+<p>set h G</p>
+<p>parameter 2 -element 1 -material $h addToParameter 2 -element 2
+-material $h addToParameter 2 -element 3 -material $h addToParameter 2
+-element 4 -material $h addToParameter 2 -element 5 -material $h
+addToParameter 2 -element 6 -material $h addToParameter 2 -element 7
+-material $h addToParameter 2 -element 8 -material $h</p>
+<p>set h cohesion</p>
+<p>parameter 3 -element 1 -material $h addToParameter 3 -element 2
+-material $h addToParameter 3 -element 3 -material $h addToParameter 3
+-element 4 -material $h addToParameter 3 -element 5 -material $h
+addToParameter 3 -element 6 -material $h addToParameter 3 -element 7
+-material $h addToParameter 3 -element 8 -material $h</p>
+<ol>
+<li>-------------- recorder
+------------------------------------------------</li>
+</ol>
+<p>recorder Node -file ddm3k.out -time -node 3 -dof 1 2 3 -precision 16
+"sensitivity 1" recorder Node -file ddm3G.out -time -node 3 -dof 1 2 3
+-precision 16 "sensitivity 2" recorder Node -file ddm3cohesion.out -time
+-node 3 -dof 1 2 3 -precision 16 "sensitivity 3"</p>
+<p>recorder Node -file disp3.out -time -node 3 -dof 1 2 3 -precision 16
+disp</p>
+<p>recorder Element -ele 1 -time -file stress.out material 2 stress
+recorder Element -ele 1 -time -file strain.out material 2 strain</p>
+<p>pattern Plain 1 "Sine 0.0 1000.0 10.0 -factor 0.8 " { load 3 2.5 0.0
+0 load 6 2.5 0.0 0 load 9 2.5 0.0 0 }</p>
+<p>pattern Plain 2 "Sine 0.0 1000.0 10.0 -shift 1.5708 -factor 0.8" {
+load 3 0.0 2.5 0 load 12 0.0 2.5 0 load 21 0.0 2.5 0 }</p>
+<p>system BandGeneral test NormDispIncr 1.E-12 50 2 constraints
+Transformation integrator LoadControl 1 1 1 1 algorithm Newton numberer
+RCM analysis Static</p>
+<p>sensitivityAlgorithm -computeAtEachStep</p>
+<p>set startT [clock seconds] analyze 50 set endT [clock seconds] puts
+"Execution time: [expr $endT-$startT] seconds."</p>
+<p>
+```
+</p>

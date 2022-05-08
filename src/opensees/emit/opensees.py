@@ -3,6 +3,10 @@ from opensees.ast import Arg
 
 class TclWriter:
     def Arg(this, self, value=None)->list:
+        if self.__class__.__name__ in dir(this):
+            getattr(this, self.__class__.__name__)(self, value=value)
+            return
+
         value = self._get_value(None, value)
         if isinstance(value, (type(None), )):
             if not self.reqd:
@@ -29,9 +33,15 @@ class TclWriter:
                 value = [None]*self.num
             else:
                 return []        
-        this.write(self.flag, " ".join(map(str,(
-            a for arg,v in zip(self.args,value) for a in arg.as_tcl_list(v)
-        ))))
+        if "reverse" in self.kwds and self.kwds["reverse"]:
+            value = reversed(value)
+        this.write(self.flag)
+        for a,v in zip(self.args, value):
+            this.Arg(a, value=v)
+        #this.write(self.flag, " ".join(map(str,(
+        #    a for arg,v in zip(self.args,value) for a in arg.as_tcl_list(v)
+        #))))
+        # [this.parent.send(v) for v in value]
     
     def Ref(this, self, value=None): 
         value = self._get_value(None, value)
@@ -42,7 +52,7 @@ class TclWriter:
         return this.write(self.flag,value)
 
     def Blk(this, self, value=None):
-        value = self.value if value is None else value
+        value = self.get_value(value=value)
         if value is None:
             value = [None]
         #this.write(" ".join(self.flag + ["{"]))
@@ -89,6 +99,13 @@ class ScriptBuilder:
                     print(f"{arg}", end=end, file=self.strm)
                 else:
                     pass
+                    # typ = arg.__class__.__name__
+                    # if typ in dir(self):
+                    #     self.write(getattr(self, typ)(arg))
+                    # elif isinstance(arg, Arg):
+                    #     self.write(w.Arg(arg))
+                    # else:
+                    #     raise ValueError()
 
         def endln(self):
             self.newline = True
@@ -111,7 +128,7 @@ class ScriptBuilder:
         w.write(" ".join(obj._cmd))
         for arg in obj._args:
             typ = arg.__class__.__name__
-            value = value=getattr(obj, arg.field)
+            value = getattr(obj, arg.field)
             if typ in dir(w):
                 w.write(getattr(w, typ)(arg, value=value))
             elif isinstance(arg, Arg):

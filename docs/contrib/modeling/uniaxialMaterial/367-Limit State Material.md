@@ -1,4 +1,4 @@
-# Limit State Material
+# LimitState
 
 <p>This command is used to construct a uniaxial hysteretic material
 object with pinching of force and deformation, damage due to ductility

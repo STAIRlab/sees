@@ -64,6 +64,7 @@ class _Polygon:
         self._moic = None
         self._moig = None
         self._area = None
+        self._fibers = None
 
     def __contains__(self, p:tuple) -> bool:
         v = np.asarray(self.vertices)
@@ -168,6 +169,7 @@ class rect(_Polygon):
         self._area = None
         self._rule = "mid"
         self._interp = None
+        self._fibers = None
 
         if len(self.corners) == 2:
             ll, ur = self.corners
@@ -175,26 +177,26 @@ class rect(_Polygon):
 
     @property
     def fibers(self):
-        if self.divs is None:
-            return []
-        from opensees.quadrature import iquad
-        interp = self._interp or lq4
-        rule = self._rule
+        if self._fibers is None:
+            if self.divs is None:
+                return []
+            from opensees.quadrature import iquad
+            interp = self._interp or lq4
+            rule = self._rule
 
-        loc, wght = zip(iquad(rule=rule, n=self.divs[0]), iquad(rule=rule, n=self.divs[1]))
+            loc, wght = zip(iquad(rule=rule, n=self.divs[0]), iquad(rule=rule, n=self.divs[1]))
 
-        x,y= zip(*(
-                interp(r,s)@self.vertices
-                        for r,s in itertools.product(*loc)
-        ))
+            x,y= zip(*(
+                    interp(r,s)@self.vertices
+                            for r,s in itertools.product(*loc)
+            ))
 
-        da = 0.25*np.fromiter(
-            (dx*dy*self.area  for dx,dy in itertools.product(*wght)), 
-            float, len(x)
-        )
-        #y, x, da = map(list, zip(*sorted(zip(y, x, da))))
-        return [Fiber([xi,yi], dai, self.material) for yi,xi,dai in sorted(zip(y,x,da))]
-    # return [Fiber([y,z], self.area, self.material) for y,z in np.linspace(self.vertices[0], self.vertices[2], self.divs)]
+            da = 0.25*np.fromiter(
+                (dx*dy*self.area  for dx,dy in itertools.product(*wght)), 
+                float, len(x)
+            )
+            self._fibers = [Fiber([xi,yi], dai, self.material) for yi,xi,dai in sorted(zip(y,x,da))]
+        return self._fibers
 
 
 @_patch
@@ -226,26 +228,29 @@ class quad(_Polygon):
         self._area = None
         self._interp = None
         self._rule = "mid"
+        self._fibers = None
 
     @property
     def fibers(self):
-        from opensees.quadrature import iquad
-        interp = self._interp or lq4
-        rule = self._rule
+        if self._fibers is None:
+            from opensees.quadrature import iquad
+            interp = self._interp or lq4
+            rule = self._rule
 
-        loc, wght = zip(iquad(rule=rule, n=self.divs[0]), iquad(rule=rule, n=self.divs[1]))
+            loc, wght = zip(iquad(rule=rule, n=self.divs[0]), iquad(rule=rule, n=self.divs[1]))
 
-        x,y= zip(*(
-                interp(r,s)@self.vertices
-                        for r,s in itertools.product(*loc)
-        ))
+            x,y= zip(*(
+                    interp(r,s)@self.vertices
+                            for r,s in itertools.product(*loc)
+            ))
 
-        da = 0.25*np.fromiter(
-            (dx*dy*self.area  for dx,dy in itertools.product(*wght)), 
-            float, len(x)
-        )
-        #y, x, da = map(list, zip(*sorted(zip(y, x, da))))
-        return [Fiber([xi,yi], dai, self.material) for yi,xi,dai in sorted(zip(y,x,da))]
+            da = 0.25*np.fromiter(
+                (dx*dy*self.area  for dx,dy in itertools.product(*wght)), 
+                float, len(x)
+            )
+            #y, x, da = map(list, zip(*sorted(zip(y, x, da))))
+            self._fibers = [Fiber([xi,yi], dai, self.material) for yi,xi,dai in sorted(zip(y,x,da))]
+        return self._fibers
 
 def rhom(center, height, width, slope=None, divs=(0,0)):
     vertices = [
@@ -305,59 +310,61 @@ class circ:
         self._moic = None
         self._moig = None
         self._area = None
+        self._fibers = None
         if "diameter" in self.kwds:
             self.extRad = self.kwds["diameter"]/2
 
     @property
     def fibers(self):
-        #print(self.divs, self.kwds.get
-        if self.divs is None:
-            return []
+        if self._fibers is None:
+            if self.divs is None:
+                self._fibers = []
 
-        elif self.kwds.get("rule", "mid") == "mid":
-            ri, ro = self.intRad, self.extRad
-            dr = (self.extRad - self.intRad)/self.divs[1]
-            dt = (self.endAng - self.startAng)/self.divs[0]
-            areas = (0.5*dt*((ri+(i+1)*dr)**2 - (ri+i*dr)**2) for i in range(self.divs[1]))
-            return [
-                Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
-                    for r,area in zip(np.linspace(self.intRad+dr/2, self.extRad-dr/2, self.divs[1]), areas)
-                    #for theta in np.linspace(self.startAng+dt/2, self.endAng-dt/2, self.divs[0])
-                        for theta in np.arange(self.startAng, self.endAng, dt)
-            ]
+            elif self.kwds.get("rule", "mid") == "mid":
+                ri, ro = self.intRad, self.extRad
+                dr = (self.extRad - self.intRad)/self.divs[1]
+                dt = (self.endAng - self.startAng)/self.divs[0]
+                areas = (0.5*dt*((ri+(i+1)*dr)**2 - (ri+i*dr)**2) for i in range(self.divs[1]))
+                self._fibers = [
+                    Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                        for r,area in zip(np.linspace(self.intRad+dr/2, self.extRad-dr/2, self.divs[1]), areas)
+                        #for theta in np.linspace(self.startAng+dt/2, self.endAng-dt/2, self.divs[0])
+                            for theta in np.arange(self.startAng, self.endAng, dt)
+                ]
 
-        elif self.kwds.get("rule",None) == "uniform": 
-            return [
-                Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
-                for r,theta,area in rtuniform(n=self.divs[1], rmax=self.extRad, m=self.divs[0], rmin=self.intRad)
-            ]
+            elif self.kwds.get("rule",None) == "uniform": 
+                self._fibers = [
+                    Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                    for r,theta,area in rtuniform(n=self.divs[1], rmax=self.extRad, m=self.divs[0], rmin=self.intRad)
+                ]
 
-        elif self.kwds.get("rule",None) == "uniform-2": 
-            return [
-                Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
-                for r, theta, area in rtuniform(n=self.divs[1], rmax=self.extRad, m=self.divs[0])
-                if (r*np.cos(theta), r*np.sin(theta)) in self
-            ]
-        elif self.kwds.get("rule",None) == "uniform-3": 
-            return [
-                Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
-                for r, theta, area in rtpairs(
-                    np.linspace(self.intRad, self.extRad, self.divs[2]), 
-                    np.arange(self.divs[1], self.divs[2]+self.divs[1]+1)*self.divs[0]
-                )
-                if (r*np.cos(theta), r*np.sin(theta)) in self
-            ]
-        elif self.kwds.get("rule",None) == "uniform-4":
-            return [
-                Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
-                for r, theta, area in rtpairs(
-                    np.linspace(0.0, self.extRad, self.divs[2]), 
-                    np.arange(self.divs[1], self.divs[2]+self.divs[1]+1)*self.divs[0]
-                )
-                if (r*np.cos(theta), r*np.sin(theta)) in self
-            ]
-        else:
-            raise ValueError(f"Unknown quadrature rule, '{self.kwds['rule']}'.")
+            elif self.kwds.get("rule",None) == "uniform-2": 
+                self._fibers = [
+                    Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                    for r, theta, area in rtuniform(n=self.divs[1], rmax=self.extRad, m=self.divs[0])
+                    if (r*np.cos(theta), r*np.sin(theta)) in self
+                ]
+            elif self.kwds.get("rule",None) == "uniform-3": 
+                self._fibers = [
+                    Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                    for r, theta, area in rtpairs(
+                        np.linspace(self.intRad, self.extRad, self.divs[2]), 
+                        np.arange(self.divs[1], self.divs[2]+self.divs[1]+1)*self.divs[0]
+                    )
+                    if (r*np.cos(theta), r*np.sin(theta)) in self
+                ]
+            elif self.kwds.get("rule",None) == "uniform-4":
+                self._fibers = [
+                    Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
+                    for r, theta, area in rtpairs(
+                        np.linspace(0.0, self.extRad, self.divs[2]), 
+                        np.arange(self.divs[1], self.divs[2]+self.divs[1]+1)*self.divs[0]
+                    )
+                    if (r*np.cos(theta), r*np.sin(theta)) in self
+                ]
+            else:
+                raise ValueError(f"Unknown quadrature rule, '{self.kwds['rule']}'.")
+        return self._fibers
 
     @property
     def moic(self):
@@ -435,10 +442,43 @@ class ReinforcingLayer:
         "18": {"area": 2.25},
     }
     def init(self):
+        self._moic = None
+        self._fibers = None
+        self._area = None
         if "bar" in self.kwds:
             assert self.fiber_area is None
             assert "units" in self.kwds
             self.fiber_area = ReinforcingLayer.ACIBar[self.kwds["bar"]]["area"]*self.kwds["units"].in2
+
+    def moi(self, reference):
+        xc = np.asarray(self.centroid)
+        return  np.diag(
+            sum(f.area*(f.coord - xc)**2 for f in self.fibers)
+        )
+
+    @property
+    def area(self):
+        if self._area is None:
+            self._area = sum(f.area for f in self.fibers)
+        return self._area
+
+    @property
+    def centroid(self):
+        return sum(np.array(fiber.coord) * fiber.area for fiber in self.fibers)/self.area
+
+    @property
+    def moic(self):
+        if self._moic is None:
+            self._moic = self.moi(self.centroid)
+        return self._moic
+
+    @property
+    def ixc(self):
+        return self.moic[0,0]
+
+    @property
+    def iyc(self):
+        return self.moic[1,1]
 
 class _layer_namespace:
     @layer
@@ -461,9 +501,11 @@ class _layer_namespace:
 
         @property
         def fibers(self):
-            r = self.radius
-            return [Fiber([r*np.cos(t), r*np.sin(t)], self.fiber_area, self.material) 
-                    for t in np.linspace(*self.arc, self.divs)]
+            if self._fibers is None:
+                r = self.radius
+                self._fibers = [Fiber([r*np.cos(t), r*np.sin(t)], self.fiber_area, self.material) 
+                        for t in np.linspace(*self.arc, self.divs)]
+            return self._fibers
 
 
 @layer
@@ -486,10 +528,12 @@ class line(ReinforcingLayer):
 
     @property
     def fibers(self):
-        if self.divs is None:
-            return []
-        return [Fiber([x, y], self.fiber_area, self.material) 
+        if self._fibers is None:
+            if self.divs is None:
+                return []
+            self._fibers = [Fiber([x, y], self.fiber_area, self.material) 
                 for x,y in np.linspace(*self.vertices, self.divs)]
+        return self._fibers
 
     def __contains__(self, point):
         a,b = np.asarray(self.vertices)

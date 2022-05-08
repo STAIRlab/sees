@@ -97,20 +97,20 @@ lies in the local x-y plane for the element</p></td>
 <tr class="even">
 <td><p><strong>$ci $cj</strong></p></td>
 <td><p>P-Delta moment adjustment for reaction force (default:
-<strong>$ci</strong>=0.5, <strong>$cj</strong>=0.5)</p></td>
+<code class="tcl-variable">ci</code>=0.5, <code class="tcl-variable">cj</code>=0.5)</p></td>
 </tr>
 <tr class="odd">
 <td><p><strong>$limFo $limFi $nIter</strong></p></td>
-<td><p>tolerance of external unbalanced force (<strong>$limFo</strong>),
-tolorance of internal unbalanced force (<strong>$limFi</strong>), number
+<td><p>tolerance of external unbalanced force (<code class="tcl-variable">limFo</code>),
+tolorance of internal unbalanced force (<code class="tcl-variable">limFi</code>), number
 of iterations to get rid of internal unbalanced force
-(<strong>$nIter</strong>)</p></td>
+(<code class="tcl-variable">nIter</code>)</p></td>
 </tr>
 </tbody>
 </table>
 <p>NOTES:</p>
-<p>1) If <strong>$limdisp</strong> is positive and the shear deformation
-of MSS exceeds <strong>$limdisp</strong>, this element calculates
+<p>1) If <code class="tcl-variable">limdisp</code> is positive and the shear deformation
+of MSS exceeds <code class="tcl-variable">limdisp</code>, this element calculates
 equivalent coefficient to adjust force and stiffness of MSS. The
 adjusted MSS force and stiffness reproduce the behavior of the
 previously defined uniaxial material under monotonic loading in every

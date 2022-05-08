@@ -1,4 +1,4 @@
- # UniaxialJ2Plasticity
+# UniaxialJ2Plasticity
 
 <p>This command is used to construct a uniaxial J2 Plasticity material
 object with isotropic and kinematic hardening.</p>

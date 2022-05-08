@@ -76,7 +76,7 @@ the material to be used in calculation of the material response.</p>
 href="Truss_Element" title="wikilink"> Truss</a></strong> element, the
 Truss2 element does not include Rayleigh damping by default. Rayleigh
 damping can be included by using the -rayleigh option with
-<strong>$rFlag</strong> = 1.</p>
+<code class="tcl-variable">rFlag</code> = 1.</p>
 <p>However, like the <strong><a href="Corotational_Truss_Element"
 title="wikilink"> CorotTruss</a></strong> element, the CorotTruss2
 element includes the Rayleigh damping by default so the -rayleigh option

@@ -1,4 +1,4 @@
- # CastFuse
+# CastFuse
 
 <p>This command is used to construct a CastFuse uniaxial material. The
 CastFuse material simulates the hysteretic response a cast yielding fuse

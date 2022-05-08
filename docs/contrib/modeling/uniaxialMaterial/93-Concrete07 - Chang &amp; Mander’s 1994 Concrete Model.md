@@ -1,4 +1,10 @@
-# Concrete07 - Chang &amp; Mander’s 1994 Concrete Model
+---
+title: Concrete07
+description: Chang & Mander’s 1994 Concrete Model
+...
+
+# Concrete07
+
 
 <p>Concrete07 is an implementation of Chang &amp; Mander's 1994 concrete
 model with simplified unloading and reloading curves. Additionally the

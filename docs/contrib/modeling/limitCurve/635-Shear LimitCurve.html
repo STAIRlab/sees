@@ -6,15 +6,13 @@ object. Point of shear failure is based on empirical drift capacity
 model from Chapter 2 of PEER 2003/01 report. After shear failure the
 response of LimitStateMaterial is forced to follow shear limit
 curve.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>limitCurve Shear $curveTag $eleTag $rho $fc $b $h $d $Fsw
-$Kdeg $Fres $defType $forType &lt;$ndI $ndJ $dof $perpDirn
-$delta&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+limitCurve Shear $curveTag $eleTag $rho $fc $b $h $d $Fsw
+        $Kdeg $Fres $defType $forType &lt;$ndI $ndJ $dof $perpDirn
+        $delta&gt;
+```
+
 <hr />
 <table>
 <tbody>
@@ -126,7 +124,9 @@ curve</p></td>
 <li>1 = X, 2 = Y, 3 = Z</li>
 </ol>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>&lt;tcl&gt;CenterColShearSpring.tcl&lt;/tcl&gt;</p>
 <hr />
 <p>DESCRIPTION:</p>

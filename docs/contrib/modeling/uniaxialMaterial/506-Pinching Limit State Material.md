@@ -12,6 +12,7 @@ where pinching and damage parameters are directly input; and 2)
 calibrated mode for shear-critical concrete columns, where only key
 column properties are input for model to fully define pinching and
 damage parameters.</p>
+
 <h2 id="mode_1_direct_input"><strong>MODE 1: Direct Input</strong></h2>
 <table>
 <tbody>
@@ -21,9 +22,9 @@ $nodeT $nodeB $driftAxis $Kelas $crvTyp $crvTag</strong>
 <strong>$YpinchUPN $YpinchRPN $XpinchRPN</strong> <strong>$YpinchUNP
 $YpinchRNP $XpinchRNP</strong> <strong>$dmgStrsLimE $dmgDispMax</strong>
 <strong>$dmgE1 $dmgE2 $dmgE3 $dmgE4 $dmgELim</strong> <strong>$dmgR1
-$dmgR2 $dmgR3 $dmgR4 $dmgRLim</strong> <strong>$dmgRCyc</strong>
+$dmgR2 $dmgR3 $dmgR4 $dmgRLim</strong> <code class="tcl-variable">dmgRCyc</code>
 <strong>$dmgS1 $dmgS2 $dmgS3 $dmgS4 $dmgSLim</strong>
-<strong>$dmgSCyc</strong></p></td>
+<code class="tcl-variable">dmgSCyc</code></p></td>
 </tr>
 </tbody>
 </table>

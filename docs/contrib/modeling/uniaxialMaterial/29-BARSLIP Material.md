@@ -1,4 +1,4 @@
- # BARSLIP
+# BarSlip
 
 <p>This command is used to construct a uniaxial material that simulates
 the bar force versus slip response of a reinforcing bar anchored in a
@@ -9,8 +9,9 @@ strength degradation.</p>
 
 ```tcl
 uniaxialMaterial BarSlip $matTag $fc $fy $Es $fu $Eh $db
-        $ld $nb $depth $height &lt;$ancLratio&gt; $bsFlag $type &lt;$damage
-        $unit&gt;
+        $ld $nb $depth $height 
+        &lt;$ancLratio&gt; $bsFlag $type 
+        &lt;$damage $unit&gt;
 ```
 
 <hr />
@@ -21,17 +22,17 @@ uniaxialMaterial BarSlip $matTag $fc $fy $Es $fu $Eh $db
 <td><p>unique material object integer tag</p></td>
 </tr>
 <tr class="even">
-<td><p>'''$fc</p></td>
+<td><code class="parameter-table-variable">fc</code></td>
 <td><p>positive floating point value defining the compressive strength
 of the concrete in which the reinforcing bar is anchored</p></td>
 </tr>
 <tr class="odd">
-<td><p>'''$fy</p></td>
+<td><code class="parameter-table-variable">fy</code></td>
 <td><p>positive floating point value defining the yield strength of the
 reinforcing steel</p></td>
 </tr>
 <tr class="even">
-<td><p>'''$Es</p></td>
+<td><code class="parameter-table-variable">Es</code></td>
 <td><p>floating point value defining the modulus of elasticity of the
 reinforcing steel</p></td>
 </tr>

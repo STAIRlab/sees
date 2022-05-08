@@ -1,4 +1,8 @@
-# Concrete01 Material With Stuff in the Cracks
+---
+description: Concrete01 Material With Stuff in the Cracks
+...
+
+# Concrete01WithSITC
 
 <p>This command is used to construct a modified uniaxial Kent-Scott-Park
 concrete material object with degraded linear unloading/reloading

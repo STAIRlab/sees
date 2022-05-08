@@ -1,4 +1,4 @@
- # TzLiq1
+# TzLiq1
 
 <p>The command constructs a uniaxial t-z material that incorporates
 liquefaction effects. This t z material is used with a zeroLength

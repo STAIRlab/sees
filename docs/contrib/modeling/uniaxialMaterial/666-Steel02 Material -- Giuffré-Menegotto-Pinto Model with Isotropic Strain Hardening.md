@@ -1,4 +1,8 @@
-# Steel02 Material -- Giuffré-Menegotto-Pinto Model with Isotropic Strain Hardening
+---
+description: Giuffré-Menegotto-Pinto Model with Isotropic Strain Hardening
+...
+
+# Steel02 
 
 <p>This command is used to construct a uniaxial Giuffre-Menegotto-Pinto
 steel material object with isotropic strain hardening.</p>
@@ -30,8 +34,8 @@ initial elastic tangent)</p></td>
 <tr class="odd">
 <td><p><strong>$R0 $CR1 $CR2</strong></p></td>
 <td><p>parameters to control the transition from elastic to plastic
-branches. Recommended values: <strong>$R0</strong>=between 10 and 20,
-<strong>$cR1</strong>=0.925, <strong>$cR2</strong>=0.15</p></td>
+branches. Recommended values: <code class="tcl-variable">R0</code>=between 10 and 20,
+<code class="tcl-variable">cR1</code>=0.925, <code class="tcl-variable">cR2</code>=0.15</p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">a1</code></p></td>

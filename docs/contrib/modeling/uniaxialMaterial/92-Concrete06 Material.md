@@ -1,4 +1,4 @@
- # Concrete06
+# Concrete06
 
 <p>This command is used to construct a uniaxial concrete material object
 with tensile strength, nonlinear tension stiffening and compressive
@@ -8,6 +8,7 @@ behavior based on Thorenfeldt curve.</p>
 uniaxialMaterial Concrete06 $matTag $fc $e0 $n $k $alpha1
         $fcr $ecr $b $alpha2
 ```
+
 <hr />
 <table>
 <tbody>
@@ -42,7 +43,7 @@ plastic strain definition</p></td>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">ecr</code></td>
-<td><p>tensile strain at peak stress ($fcr)</p></td>
+<td><p>tensile strain at peak stress (<code>fcr</code>)</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">b</code></td>
@@ -60,6 +61,7 @@ strain definition</p></td>
 alt="Concrete06C.png" />
 <figcaption aria-hidden="true">Concrete06C.png</figcaption>
 </figure>
+
 <p>NOTE:</p>
 <ol>
 <li>Compressive concrete parameters should be input as negative

@@ -1,0 +1,21 @@
+# TestNorms
+
+<p>Returns the norms from the convergence test for the last analysis
+step.</p>
+
+```tcl
+testNorms
+```
+<p>NOTES: The size of norms will be equal to the max number of
+iterations specified. The first <strong>testIter</strong> of these will
+be non-zero, the remaining ones will be zero.</p>
+<hr />
+
+## Examples
+
+<p>set norms [testNorms]</p>
+<p>set norm1 [lindex $norms 0]</p>
+<p>set normN [lindex $norms [testNorms]]</p>
+<hr />
+<p>Code Developed by: <span style="color:blue"> fmk
+</span></p>

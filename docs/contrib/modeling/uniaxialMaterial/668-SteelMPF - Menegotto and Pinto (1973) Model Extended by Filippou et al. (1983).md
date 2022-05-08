@@ -1,4 +1,8 @@
-# SteelMPF - Menegotto and Pinto (1973) Model Extended by Filippou et al. (1983)
+---
+description: Menegotto and Pinto (1973) Model Extended by Filippou et al. (1983)
+...
+
+# SteelMPF
 
 <p><strong>Developed and Implemented by:</strong></p>
 <p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>

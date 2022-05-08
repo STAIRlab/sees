@@ -1,12 +1,12 @@
-# Elastic-Perfectly Plastic Material
+# Elastic-Perfectly Plastic
 
 <p>This command is used to construct an elastic perfectly-plastic
 uniaxial material object.</p>
 
 ```tcl
-uniaxialMaterial ElasticPP $matTag $E $epsyP &lt;$epsyN
-        $eps0&gt;
+uniaxialMaterial ElasticPP $matTag $E $epsyP < $epsyN $eps0 >
 ```
+
 <hr />
 <table>
 <tbody>

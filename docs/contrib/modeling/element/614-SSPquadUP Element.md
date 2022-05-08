@@ -78,13 +78,13 @@ incompressible-impermeable limit (the <a
 href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/1098.htm">QuadUP
 Element</a> has the same issue). A stabilizing parameter is employed to
 permit the use of equal-order interpolation for the SSPquadUP element.
-This parameter <strong>$alpha</strong> can be computed as</p>
+This parameter <code class="tcl-variable">alpha</code> can be computed as</p>
 <p>alpha = 0.25*(h^2)/(den*c^2)</p>
 <p>where <strong>h</strong> is the element size, <strong>c</strong> is
 the speed of elastic wave propagation in the solid phase, and
 <strong>den</strong> is the mass density of the solid phase. The
-<strong>$alpha</strong> parameter should be a small number. With a
-properly defined <strong>$alpha</strong> parameter, the SSPquadUP
+<code class="tcl-variable">alpha</code> parameter should be a small number. With a
+properly defined <code class="tcl-variable">alpha</code> parameter, the SSPquadUP
 element can produce comparable results to a higher-order element such as
 the <a href="Nine_Four_Node_Quad_u-p_Element" title="wikilink">
 9_4_QuadUP Element</a> at a significantly lower computational cost and

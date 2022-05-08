@@ -1,4 +1,4 @@
- # Hardening
+# Hardening
 
 <p>This command is used to construct a uniaxial material object with
 combined linear kinematic and isotropic hardening. The model includes

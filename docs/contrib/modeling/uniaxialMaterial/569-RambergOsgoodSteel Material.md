@@ -1,4 +1,4 @@
- # RambergOsgoodSteel
+# RambergOsgoodSteel
 
 <p>This command is used to construct a Ramberg-Osgood steel material
 object.</p>

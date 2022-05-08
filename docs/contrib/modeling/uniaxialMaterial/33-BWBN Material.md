@@ -1,4 +1,4 @@
- # BWBN
+# BWBN
 
 <p>This command is used to construct a uniaxial Bouc-Wen pinching
 hysteretic material object. This material model is an extension of the

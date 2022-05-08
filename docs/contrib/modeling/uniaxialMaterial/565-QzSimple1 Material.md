@@ -1,4 +1,4 @@
- # QzSimple1
+# QzSimple1
 
 <p>This command is used to construct a QzSimple1 uniaxial material
 object:</p>

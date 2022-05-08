@@ -125,7 +125,7 @@ in MPa (see ACI 318)</p>
 psi (see ACI 318)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ni</strong>'</p></td>
+<td><p><code class="tcl-variable">ni</code>'</p></td>
 <td><p>= 0.15 (from comparison with tests by Kupfer Hilsdorf Rusch
 1969)</p></td>
 </tr>

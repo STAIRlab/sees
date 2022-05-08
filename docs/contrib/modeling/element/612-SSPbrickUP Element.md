@@ -75,13 +75,13 @@ fields, thus, the SSPbrickUP element does not inherently pass the
 incompressible-impermeable limit (the <a href="Brick_u-p_Element"
 title="wikilink"> brickUP Element</a> has the same issue). A stabilizing
 parameter is employed to permit the use of equal-order interpolation for
-the SSPbrickUP element. This parameter <strong>$alpha</strong> can be
+the SSPbrickUP element. This parameter <code class="tcl-variable">alpha</code> can be
 computed as</p>
 <p>alpha = h^2/(4*(Ks + (4/3)*Gs))</p>
 <p>where <strong>h</strong> is the element size, and <strong>Ks</strong>
 and <strong>Gs</strong> are the bulk and shear moduli for the solid
-phase. The <strong>$alpha</strong> parameter should be a small number.
-With a properly defined <strong>$alpha</strong> parameter, the
+phase. The <code class="tcl-variable">alpha</code> parameter should be a small number.
+With a properly defined <code class="tcl-variable">alpha</code> parameter, the
 SSPbrickUP element can produce comparable results to a higher-order
 element such as the <a href="Twenty_Eight_Node_Brick_u-p_Element"
 title="wikilink"> 20_8_BrickUP Element</a> at a significantly lower

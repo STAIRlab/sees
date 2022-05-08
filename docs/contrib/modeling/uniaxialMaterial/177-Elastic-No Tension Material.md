@@ -1,4 +1,4 @@
-# Elastic-No Tension Material
+# Elastic-No Tension
 
 <p>This command is used to construct a uniaxial elastic-no tension
 material object.</p>

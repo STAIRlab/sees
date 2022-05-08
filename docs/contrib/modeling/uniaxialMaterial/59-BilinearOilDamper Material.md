@@ -1,4 +1,4 @@
- # BilinearOilDamper
+# BilinearOilDamper
 
 <p>This command is used to construct a BilinearOilDamper material, which
 simulates the hysteretic response of bilinear oil dampers with relief

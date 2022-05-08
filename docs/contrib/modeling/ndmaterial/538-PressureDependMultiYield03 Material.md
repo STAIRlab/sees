@@ -1,4 +1,4 @@
- # PressureDependMultiYield03
+# PressureDependMultiYield03
 
 <p>(The reference for <strong>PressureDependMultiYield03</strong>
 material: Khosravifar, A., Elgamal, A., Lu, J., and Li, J. [2018]. "A 3D

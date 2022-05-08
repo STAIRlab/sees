@@ -1,4 +1,4 @@
- # Fatigue
+# Fatigue
 
 <p>The fatigue material uses a modified rainflow cycle counting
 algorithm to accumulate damage in a material using Miner’s Rule. Element

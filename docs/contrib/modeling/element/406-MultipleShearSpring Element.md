@@ -53,12 +53,12 @@ lies in the local x-y plane for the element</p></td>
 </tbody>
 </table>
 <p>NOTES:</p>
-<p>1) If <strong>$dsp</strong> is positive and the shear deformation of
-MSS exceeds <strong>$dsp</strong>, this element calculates equivalent
+<p>1) If <code class="tcl-variable">dsp</code> is positive and the shear deformation of
+MSS exceeds <code class="tcl-variable">dsp</code>, this element calculates equivalent
 coefficient to adjust force and stiffness of MSS. The adjusted MSS force
 and stiffness reproduce the behavior of the previously defined uniaxial
 material under monotonic loading in every direction. If
-<strong>$dsp</strong> is zero, the element does not calculate the
+<code class="tcl-variable">dsp</code> is zero, the element does not calculate the
 equivalent coefficient.</p>
 <p>2) The valid queries to a multipleShearSpring element when creating
 an ElementRecorder object are 'globalForce', 'localForce', 'basicForce',

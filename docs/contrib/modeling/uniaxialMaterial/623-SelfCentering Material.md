@@ -1,4 +1,4 @@
- # SelfCentering
+# SelfCentering
 
 <p>This command is used to construct a uniaxial self-centering
 (flag-shaped) material object with optional non-recoverable slip

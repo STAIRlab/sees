@@ -1,4 +1,8 @@
-# Modified Ibarra-Medina-Krawinkler Deterioration Model with Bilinear Hysteretic Response (Bilin Material)
+---
+description: Modified Ibarra-Medina-Krawinkler Deterioration Model with Bilinear Hysteretic Response (Bilin Material)
+...
+
+# ModIMKBilin
 
 <p>This command is used to construct a bilin material. The bilin
 material simulates the modified Ibarra-Krawinkler deterioration model

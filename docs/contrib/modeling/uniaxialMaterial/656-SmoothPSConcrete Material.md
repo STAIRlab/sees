@@ -1,4 +1,4 @@
- # SmoothPSConcrete
+# SmoothPSConcrete
 
 <p>This command is used to construct a uniaxial smoothed Popovics-Saenz
 concrete material object.</p>

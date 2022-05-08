@@ -1,4 +1,4 @@
-# Drucker Prager
+# DruckerPrager
 
 <p>This command is used to construct an multi dimensional material
 object that has a Drucker-Prager yield criterium.</p>
@@ -33,13 +33,12 @@ nDMaterial DruckerPrager $matTag $k $G $sigmaY $rho
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">rhoBar</code></td>
-<td><p>controls evolution of plastic volume change, 0 &amp;le; $rhoBar
-&amp;le; $rho</p></td>
+<td><p>controls evolution of plastic volume change, $0 \le \texttt{rhoBar}
+\le \texttt{rho}$</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">Kinf</code></td>
-<td><p>nonlinear isotropic strain hardening parameter, $Kinf &amp;ge;
-0</p></td>
+<td><p>nonlinear isotropic strain hardening parameter, $\texttt{Kinf} \ge 0$</p></td>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">Ko</code></td>
@@ -53,16 +52,16 @@ nDMaterial DruckerPrager $matTag $k $G $sigmaY $rho
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">delta2</code></p></td>
-<td><p>tension softening parameter, $delta2 &amp;ge; 0</p></td>
+<td><p>tension softening parameter, $\texttt{delta2} \ge 0$</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">H</code></td>
-<td><p>linear strain hardening parameter, $H &amp;ge; 0</p></td>
+<td><p>linear strain hardening parameter, $\texttt{H} \ge 0$</p></td>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">theta</code></td>
 <td><p>controls relative proportions of isotropic and kinematic
-hardening, 0 &amp;le; $theta &amp;le; 1</p></td>
+hardening, $0 \le \texttt{theta} \le 1$</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">density</code></td>
@@ -85,6 +84,7 @@ Mackenzie, U Washington</a></span> and the great
 href="http://www.ce.washington.edu/people/faculty/bios/arduino_p.html">Pedro
 Arduino, U Washington</a></span></p>
 <hr />
+
 <h2 id="theory">Theory</h2>
 <p>The yield condition for the Drucker-Prager model can be expressed
 as</p>
@@ -94,113 +94,47 @@ as</p>
 <dl>
 <dt></dt>
 <dd>
-&lt;math&gt; f\left(\mathbf{\sigma}, q^{iso}, \mathbf{q}^{kin}\right) =
+$$f\left(\mathbf{\sigma}, q^{iso}, \mathbf{q}^{kin}\right) =
 \left\| \mathbf{s} + \mathbf{q}^{kin} \right\| + \rho I_1 +
 \sqrt{\frac{2}{3}} q^{iso} - \sqrt{\frac{2}{3}} \sigma_Y^{} \leq 0
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+$$
+
 <p>in which</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \mathbf{s} = \mathrm{dev} (\mathbf{\sigma}) =
+
+$$ \mathbf{s} = \mathrm{dev} (\mathbf{\sigma}) =
 \mathbf{\sigma} - \frac{1}{3} I_1 \mathbf{1}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+$$
 <p>is the deviatoric stress tensor,</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; I_1 = \mathrm{tr}(\mathbf{\sigma})
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+
+$$ I_1 = \mathrm{tr}(\mathbf{\sigma})
+$$
 <p>is the first invariant of the stress tensor, and the parameters
 $\rho_{}^{}$ and
 $\sigma_Y^{}$ are positive material
 constants.</p>
 <p>The isotropic hardening stress is defined as</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; q^{iso} = \theta H \alpha^{iso} + (K_{\infty} - K_o)
+
+$$ q^{iso} = \theta H \alpha^{iso} + (K_{\infty} - K_o)
 \exp(-\delta_1 \alpha^{iso})
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+$$
 <p>The kinematic hardening stress (or back-stress) is defined as</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \mathbf{q}^{kin} = -(1 - \theta) \frac{2}{3} H
+
+$$ \mathbf{q}^{kin} = -(1 - \theta) \frac{2}{3} H
 \mathbb{I}^{dev} : \mathbf{\alpha}^{kin}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+$$
 <p>The yield condition for the tension cutoff yield surface is defined
 as</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; f_2(\mathbf{\sigma}, q^{ten}) = I_1 + q^{ten} \leq 0
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+
+$$ f_2(\mathbf{\sigma}, q^{ten}) = I_1 + q^{ten} \leq 0
+$$
 <p>where</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; q^{ten} = T_o \exp(-\delta_2^{} \alpha^{ten})
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+
+$$ q^{ten} = T_o \exp(-\delta_2^{} \alpha^{ten})
+$$
 <p>and</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; T_o = \sqrt{\frac{2}{3}} \frac{\sigma_Y}{\rho}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+
+$$ T_o = \sqrt{\frac{2}{3}} \frac{\sigma_Y}{\rho}
+$$
 <p>Further, general, information on theory for the Drucker-Prager yield
 criterion can be found at wikipedia <a
 href="http://en.wikipedia.org/wiki/Drucker_Prager_yield_criterion">here</a></p>
@@ -238,38 +172,19 @@ Column 4 - Norm of the deviatoric plastic strain tensor, &lt;math&gt;
 </dl>
 </dd>
 </dl>
-<p>The Drucker-Prager strength parameters &lt;math&gt; \rho
-&lt;/math&gt; and $\sigma_Y $ can be related to
-the Mohr-Coulomb friction angle, $\phi $, and
-cohesive intercept, $c $, by evaluating the
+<p>The Drucker-Prager strength parameters $\rho$ and $\sigma_Y$ can be related to
+the Mohr-Coulomb friction angle, $\phi$, and
+cohesive intercept, $c$, by evaluating the
 yield surfaces in a deviatoric plane as described by Chen and Saleeb
 (1994). By relating the two yield surfaces in triaxial compression, the
 following expressions are determined</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \rho = \frac{2 \sqrt{2} \sin \phi}{\sqrt{3} (3 - \sin
+
+$$ \rho = \frac{2 \sqrt{2} \sin \phi}{\sqrt{3} (3 - \sin
 \phi)}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \sigma_Y = \frac{6 c \cos \phi}{\sqrt{2} (3 - \sin \phi)}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+$$
+
+$$ \sigma_Y = \frac{6 c \cos \phi}{\sqrt{2} (3 - \sin \phi)}
+$$
 <h2 id="example">Example</h2>
 <p>This example provides the input file and corresponding results for a
 confined triaxial compression (CTC) test using a single 8-node brick
@@ -283,35 +198,19 @@ stress-controlled analysis.</p>
 <p><img src="/OpenSeesRT/contrib/static/CtcTest.png" title="CtcTest.png" alt="CtcTest.png" /> <img
 src="CtcResults.png" title="CtcResults.png" alt="CtcResults.png" /></p>
 <p>
+
 ```tcl
-</p>
-<ol>
-<li><ol>
-<li></li>
-</ol></li>
-<li>#</li>
-<li>File is generated for the purposes of testing the #</li>
-<li>Drucker-Prager model --&gt; conventional triaxial #</li>
-<li>compression test #</li>
-<li>#</li>
-<li>Created: 03.16.2009 CRM #</li>
-<li>Updated: 12.02.2011 CRM #</li>
-<li>#</li>
-<li>---&gt; Basic units used are kN and meters #</li>
-<li>#
-<ol>
-<li><ol>
-<li></li>
-</ol></li>
-</ol></li>
-</ol>
-<ol>
-<li><hr /></li>
-<li>create the modelBuilder and build the model</li>
-<li><hr /></li>
-</ol>
-<p>wipe</p>
-<p>model BasicBuilder -ndm 3 -ndf 3</p>
+# File is generated for the purposes of testing the 
+# Drucker-Prager model -->; conventional triaxial 
+# compression test 
+#
+# Created: 03.16.2009 CRM 
+# Updated: 12.02.2011 CRM
+#---> Basic units used are kN and meters 
+##
+# create the modelBuilder and build the model</li>
+wipe
+model BasicBuilder -ndm 3 -ndf 3
 <ol>
 <li>--create the nodes</li>
 </ol>
@@ -426,6 +325,7 @@ finished..." puts "loading analysis execution time: [expr $endT-$startT]
 seconds."</p>
 <p>wipe 
 ```
+
 </p>
 <h2 id="references">References</h2>
 <p>Drucker, D. C. and Prager, W., "Soil mechanics and plastic analysis

@@ -1,4 +1,7 @@
-# Engineered Cementitious Composites Material
+---
+description: Engineered Cementitious Composites Material
+...
+# ECC01
 
 <p>This command is used to construct a uniaxial Engineered Cementitious
 Composites (ECC)material object based on the ECC material model of Han,

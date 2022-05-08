@@ -1,4 +1,4 @@
- # Hysteretic
+# Hysteretic
 
 <p>This command is used to construct a uniaxial bilinear hysteretic
 material object with pinching of force and deformation, damage due to

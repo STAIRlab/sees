@@ -1,10 +1,17 @@
-# Concrete02 Material -- Linear Tension Softening
+---
+title: Concrete02
+description: Hognestad curve with linear tension softening
+...
+
+# Concrete02
+
 
 
 ```tcl
-uniaxialMaterial Concrete02 $matTag $fpc $epsc0 $fpcu
-        $epsU $lambda $ft $Ets
+uniaxialMaterial Concrete02 $matTag $fpc $epsc0 $fpcu $epsU 
+        $lambda $ft $Ets
 ```
+
 <hr />
 <table>
 <tbody>

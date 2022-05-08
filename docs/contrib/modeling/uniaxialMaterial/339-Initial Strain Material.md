@@ -1,4 +1,4 @@
-# Initial Strain Material
+# InitialStrainMaterial
 
 <p>This command is used to construct an Initial Strain material object.
 The stress-strain behaviour for this material is defined by another

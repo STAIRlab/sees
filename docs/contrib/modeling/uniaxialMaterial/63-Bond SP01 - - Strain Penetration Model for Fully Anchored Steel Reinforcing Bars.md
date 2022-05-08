@@ -1,4 +1,8 @@
-# Bond SP01 - - Strain Penetration Model for Fully Anchored Steel Reinforcing Bars
+---
+description: Strain Penetration Model for Fully Anchored Steel Reinforcing Bars
+...
+
+# BondSP01
 
 <p>This command is used to construct a uniaxial material object for
 capturing strain penetration effects at the column-to-footing,
@@ -72,8 +76,9 @@ alt="BondSPCyclic.png" />
 alt="BondSPPinching.png" />
 <figcaption aria-hidden="true">BondSPPinching.png</figcaption>
 </figure>
+
 <p>NOTES:</p>
-<p><strong>$Sy</strong> Rebar slip at member interface under yield
+<p><code>Sy</code> Rebar slip at member interface under yield
 stress and may be obtained from</p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/BondSP_Sy1.png" title="BondSP_Sy1.png" alt="BondSP_Sy1.png" />
@@ -87,7 +92,7 @@ stress and may be obtained from</p>
 <p>where:</p>
 <ol>
 <li><strong>db</strong> is rebar diameter</li>
-<li><strong>$Fy</strong>is yield strength of the reinforcement
+<li><code class="tcl-variable">Fy</code>is yield strength of the reinforcement
 steel</li>
 <li><strong>fc</strong>' is concrete compressive strength of the
 adjoining connection member</li>

@@ -1,4 +1,4 @@
- # Series
+# Series
 
 <p>This command is used to construct a series material object made up of
 an arbitrary number of previously-constructed UniaxialMaterial

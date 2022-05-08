@@ -1,8 +1,13 @@
-# Plane Stress Concrete Materials
+---
+description: Plane Stress Concrete Materials
+...
+
+# ReinforcedConcretePlaneStress
 
 <p><span style="color:red"> WARNING .. AT PRESENT CODE AS
 SUBMITTED DOES NOT APPEAR TO WORK .. LOOK AT CONVERGENCE IN
 EXAMPLE</span></p>
+
 <p>A number of Reinforced and Prestressed Concrete Plane Stress
 Materials are available. The ones on this page have been provided the
 University of Houston and are based on the Cyclic Softened Membrane

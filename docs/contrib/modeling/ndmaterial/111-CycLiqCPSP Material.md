@@ -1,4 +1,4 @@
- # CycLiqCPSP
+# CycLiqCPSP
 
 <p>This command is used to construct a multi-dimensional material object
 based on a unified plasticity model for large post-liquefaction shear

@@ -79,20 +79,20 @@ class FiberSection(_FiberCollection):
     @property
     def area(self):
         if self._area is None:
-            self._area = sum(i.area for i in self.patches)
+            self._area = sum(i.area for i in self.areas)
         return self._area
     
     @property
     def centroid(self):
         # TODO: cache
-        return sum(i.centroid * i.area for i in self.patches) / self.area
+        return sum(i.centroid * i.area for i in self.areas) / self.area
      
     @property
     def ixc(self):
         # TODO: cache
         yc = self.centroid[1]
         return sum(
-            p.ixc + (p.centroid[1]-yc)**2*p.area for p in self.patches
+            p.ixc + (p.centroid[1]-yc)**2*p.area for p in self.areas
         )
     
     @property
@@ -100,7 +100,7 @@ class FiberSection(_FiberCollection):
         # TODO: cache
         xc = self.centroid[0]
         return sum(
-            p.iyc + (p.centroid[0]-xc)**2*p.area for p in self.patches
+            p.iyc + (p.centroid[0]-xc)**2*p.area for p in self.areas
         )
 
 
@@ -109,8 +109,15 @@ class FiberSection(_FiberCollection):
         # TODO: cache
         return [
             [p.moi[i] + p.centroid[i]**2*p.area for i in range(2)] + [p.moi[-1]]
-            for p in self.patches
+            for p in self.areas
         ]
+
+    def print_properties(self):
+        import textwrap
+        print(textwrap.dedent(f"""
+        Ixx (centroid)    |   {self.ixc:9.0f}
+        Iyy (centroid)    |   {self.iyc:9.0f}
+        """))
 
 
 def PolygonRing(n, extRad, intRad):
@@ -422,6 +429,8 @@ class MomentCurvatureAnalysis:
     def __init__(self, axial):
         pass
 
+def MomentSearch(section, ):
+    pass
 
 class MomentAxialLocus:
     def __init__(self, section, axial):

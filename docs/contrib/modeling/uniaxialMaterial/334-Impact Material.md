@@ -1,4 +1,4 @@
- # Impact
+# ImpactMaterial
 
 <p>This command is used to construct an impact material object</p>
 <table>

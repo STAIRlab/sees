@@ -1,4 +1,4 @@
- # Bilin
+# IMKBilin
 
 <p>This command is used to construct a bilin material. The bilin
 material simulates the modified Ibarra-Medina-Krawinkler deterioration
@@ -13,7 +13,7 @@ and have been adopted by PEER/ATC (2010).
 
 
 ```tcl
-uniaxialMaterial Bilin $matTag $K0 $as_Plus $as_Neg
+uniaxialMaterial IMKBilin $matTag $K0 $as_Plus $as_Neg
         $My_Plus $My_Neg $Lamda_S $Lamda_C $Lamda_A $Lamda_K $c_S $c_C $c_A $c_K
         $theta_p_Plus $theta_p_Neg $theta_pc_Plus $theta_pc_Neg $Res_Pos
         $Res_Neg $theta_u_Plus $theta_u_Neg $D_Plus $D_Neg

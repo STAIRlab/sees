@@ -216,3 +216,13 @@ class Tag(Int):
         self.name = "name"
         self.field = "name"
 
+class Alt(Arg):
+    def __init__(self, name, alts, **kwds):
+        Arg.__init__(self, name, **kwds)
+        self._alts = alts
+
+    def _get_value(self, value=None):
+        pass
+
+
+

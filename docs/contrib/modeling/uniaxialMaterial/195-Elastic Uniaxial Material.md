@@ -1,4 +1,4 @@
-# Elastic Uniaxial Material
+# Elastic 
 
 <p>This command is used to construct an elastic uniaxial material
 object.</p>

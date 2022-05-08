@@ -136,19 +136,10 @@ stress</p>
 <h3 id="elasticity">Elasticity</h3>
 <p>Elastic moduli are considered to be functions of p and current void
 ratio:</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; G = G_0
+
+$$ G = G_0
 p_{atm}\frac{\left(2.97-e\right)^2}{1+e}\left(\frac{p}{p_{atm}}\right)^{1/2}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+$$
 <dl>
 <dt></dt>
 <dd>
@@ -163,30 +154,12 @@ $$K = \frac{2(1+\nu)}{3(1-2\nu)} G $$
 </dd>
 </dl>
 <p>The elastic stress-strain relationship is:</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; d\mathbf{e}^\mathrm{e} = \frac{d\mathbf{s}}{2G}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; d\varepsilon^\mathrm{e}_v = \frac{dp}{K}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+
+$$ d\mathbf{e}^\mathrm{e} = \frac{d\mathbf{s}}{2G}
+$$
+
+$$ d\varepsilon^\mathrm{e}_v = \frac{dp}{K}
+$$
 <h3 id="critical_state_line">Critical State Line</h3>
 <p>A power relationship is assumed for the critical state line:</p>
 <dl>
@@ -209,13 +182,8 @@ $\xi $ constants.</p>
 <h3 id="yield_surface">Yield Surface</h3>
 <p>Yield surface is a stress-ratio dependent surface in this model and
 is defined as</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \left\| \mathbf{s} - p \mathbf{\alpha} \right\| -
+
+$$ \left\| \mathbf{s} - p \mathbf{\alpha} \right\| -
 \sqrt\frac{2}{3}pm = 0 &lt;/math&gt;
 </dd>
 </dl>
@@ -225,52 +193,28 @@ is defined as</p>
 back stress-ratio.</p>
 <h3 id="plastic_strain_increment">Plastic Strain Increment</h3>
 <p>The increment of the plastic strain tensor is given by</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; d\mathbf{\varepsilon}^p = \langle L \rangle \mathbf{R}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+
+$$ d\mathbf{\varepsilon}^p = \langle L \rangle \mathbf{R}
+$$
 <p>where</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \mathbf{R} = \mathbf{R'} + \frac{1}{3} D \mathbf{1}
+
+$$ \mathbf{R} = \mathbf{R'} + \frac{1}{3} D \mathbf{1}
 &lt;/math&gt;
 </dd>
 </dl>
 </dd>
 </dl>
 <p>therefore</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; d\mathbf{e}^p = \langle L \rangle \mathbf{R'}&lt;/math&gt;
+
+$$ d\mathbf{e}^p = \langle L \rangle \mathbf{R'}&lt;/math&gt;
 and $d\varepsilon^p_v = \langle L \rangle D $
 </dd>
 </dl>
 </dd>
 </dl>
 <p>The hardening modulus in this model is defined as</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; K_p = \frac{2}{3} p h (\mathbf{\alpha}^b_{\theta} -
+
+$$ K_p = \frac{2}{3} p h (\mathbf{\alpha}^b_{\theta} -
 \mathbf{\alpha}): \mathbf{n}
 </dd>
 </dl>
@@ -278,13 +222,8 @@ and $d\varepsilon^p_v = \langle L \rangle D $
 </dl>
 <p>&lt;/math&gt; where $\mathbf{n}$ is the
 deviatoric part of the gradient to yield surface.</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \mathbf{\alpha}^b_{\theta} = \sqrt{\frac{2}{3}}
+
+$$ \mathbf{\alpha}^b_{\theta} = \sqrt{\frac{2}{3}}
 \left[g(\theta,c) M_c exp(-n^b\Psi) - m\right] \mathbf{n}
 </dd>
 </dl>
@@ -294,13 +233,8 @@ deviatoric part of the gradient to yield surface.</p>
 parameter.</p>
 <p>the hardening parameter $h $ is defined
 as</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; h =
+
+$$ h =
 \frac{b_0}{(\mathbf{\alpha}-\mathbf{\alpha_{in}}):\mathbf{n}}
 </dd>
 </dl>
@@ -324,39 +258,16 @@ $$b_0 = G_0 h_0 (1-c_h e)
 </dd>
 </dl>
 <p>Also the dilation parameters are defined as</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; D = A_d (\mathbf{\alpha}^d_{\theta}-\mathbf{\alpha}) :
+
+$$ D = A_d (\mathbf{\alpha}^d_{\theta}-\mathbf{\alpha}) :
 \mathbf{n}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \mathbf{\alpha}^d_{\theta} = \sqrt{\frac{2}{3}}
+$$
+
+$$ \mathbf{\alpha}^d_{\theta} = \sqrt{\frac{2}{3}}
 \left[g(\theta,c) M_c exp(n^d\Psi) - m\right] \mathbf{n}
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; A_d = A_0 (1+\langle \mathbf{z : n}\rangle) &lt;/math&gt;,
+$$
+
+$$ A_d = A_0 (1+\langle \mathbf{z : n}\rangle) &lt;/math&gt;,
 where $\mathbf{z} $ is the fabric tensor.
 </dd>
 </dl>
@@ -378,19 +289,10 @@ $$d\mathbf{z} = - c_z \langle -d\varepsilon^p_v \rangle
 </dl>
 </dd>
 </dl>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; d\mathbf{\alpha} = \langle L \rangle (2/3) h
+
+$$ d\mathbf{\alpha} = \langle L \rangle (2/3) h
 (\mathbf{\alpha}^b_{\theta} - \mathbf{\alpha})
-</dd>
-</dl>
-</dd>
-</dl>
-<p>&lt;/math&gt;</p>
+$$
 <h2 id="example">Example</h2>
 <p>This example, provides an undrained confined triaxial compression
 test using one 8-node SSPBrickUP element and ManzariDafalias material

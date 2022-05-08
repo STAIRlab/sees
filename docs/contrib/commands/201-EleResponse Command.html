@@ -11,7 +11,7 @@ eleResponse $eleTag $arg1 $arg2
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$eleTag</strong></p></td>
+<td><p><code class="parameter-table-variable">eleTag</code></p></td>
 <td><p>integer tag identifying element</p></td>
 </tr>
 <tr class="even">
@@ -22,16 +22,26 @@ the type of element being used.</p></td>
 </tr>
 </tbody>
 </table>
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>For a simple truss example if these are the recorder commands
 used:</p>
-<p>&lt;source lang="tcl"&gt; recorder Element -time -ele 1 2 3 -file
+<p>
+```tcl
+ recorder Element -time -ele 1 2 3 -file
 a.out axialForce</p>
 <p>recorder Element -time -ele 1 2 3 -file b.out material stress
-&lt;/source&gt;</p>
+
+```
+</p>
 <p>then these are the corresponding eleResponse commands</p>
-<p>&lt;source lang="tcl"&gt; set a [eleResponse 1 forces]</p>
-<p>set b [eleResponse 1 material stress] &lt;/source&gt;</p>
+<p>
+```tcl
+ set a [eleResponse 1 forces]</p>
+<p>set b [eleResponse 1 material stress] 
+```
+</p>
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

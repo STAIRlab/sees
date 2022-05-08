@@ -1,0 +1,43 @@
+# BWBNParameterEstimation
+
+<p>The Example file (<a
+href="http://opensees.berkeley.edu/wiki/images/3/31/BW_pinch.zip">BW_pinch.m</a>)
+uses Simulink S-Function (<a
+href="http://opensees.berkeley.edu/wiki/images/9/9b/BWBNpinch.zip">BWBNpinch.mdl</a>)
+for the pinching parameters estimation.</p>
+<hr />
+<p>NOTE:</p>
+<p>Parameters required for the non-degrading pinching hysteretic BWBN
+model can be divided into the following two categories — hysteretic
+parameters ($alpha, $ko, $n, $gamma, $beta, $Ao) and pinching parameters
+($q, $zetas, $p, $Shi, $deltaShi, $lambda). Hysteretic parameters
+controls the shape of the curve, whilst the pinching parameters define
+the pinching inducing function h(z).</p>
+<hr />
+<p>TIPS:</p>
+<p>Estimates the Parameters in two steps,</p>
+<p>1. Set h = 1 in the BWBNpinch.mdl to convert it as a Non-Pinching
+BoucWen Material. Estimate the hysteretic parameters ($alpha, $ko, $n,
+$gamma, $beta, $Ao). Set $Ao = 1 as it is a redundant parameter (See
+References).</p>
+<p>2. Find the pinching parameters ($q, $zetas, $p, $Shi, $deltaShi,
+$lambda) by setting the hysteretic parameters as constant.</p>
+<hr />
+<p>REFERENCES:</p>
+<p><a
+href="http://www.sciencedirect.com/science/article/pii/S0141029613003568">Hossain,
+M. R., Ashraf, M., &amp; Padgett, J. E. (2013). "Risk-based seismic
+performance assessment of Yielding Shear Panel Device." Engineering
+Structures, 56, 1570-1579.</a></p>
+<p><a
+href="http://www.sciencedirect.com/science/article/pii/S0263823112001206">Hossain,
+M. R., &amp; Ashraf, M. (2012). "Mathematical modelling of yielding
+shear panel device." Thin-Walled Structures, 59, 153-161.</a></p>
+<hr />
+<p>DEVELOPED BY:</p>
+<p><a
+href="http://scholar.google.com.au/citations?user=I_li3qkAAAAJ&amp;hl=en&amp;oi=ao">Raquib
+Hossain</a>, <a href="http://www.uq.edu.au/">The University of
+Queensland (UQ), Australia</a> &amp; <a
+href="http://www.buet.ac.bd/">Bangladesh University of Engineering and
+Technology (BUET), Bangladesh.</a></p>

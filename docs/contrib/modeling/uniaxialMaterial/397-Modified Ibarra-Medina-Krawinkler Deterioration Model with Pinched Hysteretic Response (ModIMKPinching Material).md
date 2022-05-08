@@ -1,4 +1,8 @@
-# Modified Ibarra-Medina-Krawinkler Deterioration Model with Pinched Hysteretic Response (ModIMKPinching Material)
+---
+description: Modified Ibarra-Medina-Krawinkler Deterioration Model with Pinched Hysteretic Response (ModIMKPinching Material)
+...
+
+# ModIMKPinching
 
 <p>This command is used to construct a ModIMKPinching material. This
 material simulates the modified Ibarra-Medina-Krawinkler deterioration

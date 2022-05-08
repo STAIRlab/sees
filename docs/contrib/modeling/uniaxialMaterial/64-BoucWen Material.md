@@ -1,4 +1,4 @@
- # BoucWen
+# BoucWen
 
 <p>This command is used to construct a uniaxial Bouc-Wen smooth
 hysteretic material object. This material model is an extension of the

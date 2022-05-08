@@ -1,4 +1,8 @@
-# Modified Ibarra-Medina-Krawinkler Deterioration Model with Peak-Oriented Hysteretic Response (ModIMKPeakOriented Material)
+---
+description: Modified Ibarra-Medina-Krawinkler Deterioration Model with Peak-Oriented Hysteretic Response (ModIMKPeakOriented Material)
+...
+
+# ModIMKPeakOriented
 
 <p>This command is used to construct a ModIMKPeakOriented material. This
 material simulates the modified Ibarra-Medina-Krawinkler deterioration

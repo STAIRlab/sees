@@ -1,4 +1,4 @@
- # Parallel
+# Parallel
 
 <p>This command is used to construct a parallel material object made up
 of an arbitrary number of previously-constructed UniaxialMaterial

@@ -1,4 +1,4 @@
- # Elastic
+# Elastic
 
 <p>This command is used to construct a linear elastic uniaxial material
 object (with optional material damping)</p>

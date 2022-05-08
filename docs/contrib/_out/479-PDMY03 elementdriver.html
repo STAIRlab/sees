@@ -1,0 +1,616 @@
+# PDMY03 elementdriver
+
+<table>
+<tbody>
+<tr class="odd">
+<td><p>&lt;center&gt;<strong>Element Drivers for
+PressureDependMultiYield03 Material</strong>&lt;/center&gt;</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="dss_main.tcl_file">DSS_main.tcl file</h2>
+<p>&lt;syntaxhighlight lang="tcl"&gt;</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+<li>Model with 9-4-quad-UP element and PDMY03 material #</li>
+<li>By: Arash Khosravifar January 2009 #</li>
+<li>Last edit: August 2018 #
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+</ol></li>
+</ol>
+<p>wipe; wipe all; set startT [clock seconds];</p>
+<ol>
+<li><ol>
+<li>MAIN USER INPUTS #################################</li>
+</ol></li>
+</ol>
+<p>set matTag 2; # 1 for (N1)60=35, 2 for (N1)60=25, 3 for (N1)60=15 and
+4 for (N1)60=5 set vertPress [expr 1.0*100]; # kPa vertical confining
+pressure set loadbias 0.3; # Alpha = tau_xy/s'vo set Analysis_case
+"undrained_cyclic"</p>
+<ol>
+<li>Options:</li>
+<li>undrained_cyclic</li>
+<li>undrained_monotonic: define target max shear strain</li>
+<li>drained_cyclic: applies 2 cycles for each strain (9 shear strain
+ranging from 0.0003% to 3%) for the purpose of G/Gmax and Damping
+curves</li>
+<li>drained_monotonic: define target max shear strain
+<ol>
+<li><ol>
+<li>END OF MAIN USER INPUTS ###########################</li>
+</ol></li>
+</ol></li>
+</ol>
+<ol>
+<li>Load material properties</li>
+</ol>
+<p>source DSS_material_properties.tcl</p>
+<ol>
+<li>Some variables for the ELEMENT</li>
+</ol>
+<p>set fluidDen 1.0; # Fluid mass density set waterbulk 2.2e6; # kPa set
+kdrain 1.e1; # permeability for drained loading set kundrain 1.e-8; #
+permeability for undrained loading set gravY 0.0; set gravX 0.0;</p>
+<ol>
+<li>Some loading related variables</li>
+</ol>
+<p>if {$Analysis_case == "undrained_cyclic"} { set target_shear_strain
+[expr 3.0/100.] set csr 0.45; set period 1.; set deltaT 0.005; set kPerm
+$kundrain } if {$Analysis_case == "undrained_monotonic"} { set
+target_shear_strain [expr 3.0/100.] set period 1.; set deltaT 0.005; set
+numSteps 200; set kPerm $kundrain</p>
+<ol>
+<li>also change penalty from 1e15 and 1e5 for sand to clay</li>
+</ol>
+<p>} if {$Analysis_case == "drained_monotonic"} {</p>
+<ol>
+<li>also change the damping to 0.005</li>
+</ol>
+<p>set target_shear_strain [expr 1.0/100.]; #unit in strain - it will be
+multiplied by ySize later. Note: DON'T forget the ".0" in 1.0 set period
+1.; set deltaT 0.005; set numSteps 3000;</p>
+<p>set kPerm $kdrain set phaseTransAng $frinctionAng set contraction_a
+0.0; set contraction_b 0.0; set contraction_c 0.0; set contraction_d
+0.0; set contraction_e 0.0; set dilation_a 0.0; set dilation_b 0.0; set
+dilation_c 0.0; set liqParam1 0.0; set liqParam2 0.0; } if
+{$Analysis_case == "drained_cyclic"} { set period 10.; set deltaT 0.005;
+set numSteps 4000;</p>
+<p>set kPerm $kdrain set phaseTransAng $frinctionAng set contraction_a
+0.0; set contraction_b 0.0; set contraction_c 0.0; set contraction_d
+0.0; set contraction_e 0.0; set dilation_a 0.0; set dilation_b 0.0; set
+dilation_c 0.0; set liqParam1 0.0; set liqParam2 0.0; }</p>
+<ol>
+<li>Define Rayleigh Damping</li>
+</ol>
+<p>set rayleigh_damping1 0.001; set rayleigh_damping2 0.001; set
+rayleigh_w1 [expr 2*3.14/$period]; set rayleigh_w2 [expr
+2*3.14/($period/2.0)]; set Kinitproprayleigh [expr
+2*$rayleigh_w1*$rayleigh_w2/($rayleigh_w1*$rayleigh_w1-$rayleigh_w2*$rayleigh_w2)*(-1*$rayleigh_damping1/$rayleigh_w1+1*$rayleigh_damping2/$rayleigh_w2)];
+#This is a1 [expr 2*$dampratio/(2*3.1416/0.02)]; set Mproprayleigh [expr
+2*$rayleigh_w1*$rayleigh_w2/($rayleigh_w1*$rayleigh_w1-$rayleigh_w2*$rayleigh_w2)*($rayleigh_damping1*$rayleigh_w1-$rayleigh_damping2*$rayleigh_w2)];
+#This is a0 [expr 2*$dampratio*(2*3.1416/2.0)];</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+</ol>
+<p>set xsize 0.1; set ysize 0.1; set thickness 0.1;</p>
+<ol>
+<li>define the 3DOF nodes</li>
+</ol>
+<p>model basic -ndm 2 -ndf 3 node 1 0.0 0.0 node 2 $xsize 0.0 node 3
+$xsize $ysize node 4 0.0 $ysize</p>
+<p>fix 1 1 1 0 fix 2 1 1 0 fix 3 0 0 1 fix 4 0 0 1 equalDOF 1 2 3
+equalDOF 3 4 1 2</p>
+<ol>
+<li>define the 2DOF nodes</li>
+</ol>
+<p>model basic -ndm 2 -ndf 2 node 5 [expr $xsize/2] 0.0 node 6 $xsize
+[expr $ysize/2] node 7 [expr $xsize/2] $ysize node 8 0.0 [expr $ysize/2]
+node 9 [expr $xsize/2] [expr $ysize/2]</p>
+<p>fix 5 1 1 equalDOF 3 7 1 2 equalDOF 6 8 1 2</p>
+<ol>
+<li>equalDOF 6 9 1 2</li>
+</ol>
+<ol>
+<li><ol>
+<li>define material ##################################</li>
+</ol></li>
+</ol>
+<p>nDMaterial PressureDependMultiYield03 $matTag 2 $massDen $refG $refB
+$frinctionAng \ $peakShearStrain $refPress $pressDependCoe
+$phaseTransAng \ 0 $contraction_a $contraction_b $contraction_c
+$contraction_d $contraction_e \ $dilation_a $dilation_b $dilation_c \
+$noYieldSurf $liqParam1 $liqParam2 \ $pa $S0;</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+<li>define the element thick maTag bulk fmass hPerm vPerm</li>
+</ol>
+<p>element 9_4_QuadUP 1 1 2 3 4 5 6 7 8 9 $thickness $matTag [expr
+$waterbulk/0.4] $fluidDen $kPerm $kPerm $gravX $gravY;</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+<li>Recorders</li>
+</ol>
+<p>file mkdir output eval "recorder Node -file
+output/disp1_$Analysis_case.out -time -node 1 2 3 4 5 6 7 8 9 -dof 1
+disp"; eval "recorder Node -file output/disp2_$Analysis_case.out -time
+-node 1 2 3 4 5 6 7 8 9 -dof 2 disp"; eval "recorder Node -file
+output/pwp_$Analysis_case.out -time -node 1 2 3 4 -dof 3 vel"; eval
+"recorder Element -file output/stress_$Analysis_case.out -time -ele 1
+material 9 stress"; # s11 s22 s33 s12 eta (EFFECTIVE stresses) eval
+"recorder Element -file output/strain_$Analysis_case.out -time -ele 1
+material 9 strain"; # e11 e22 gama12 (it is not e33 nor e12) eval
+"recorder Element -file output/backbone_$Analysis_case.out -ele 1
+material 9 backbone 100 1600";</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+<li>GRAVITY APPLICATION (elastic behavior)</li>
+</ol>
+<p>model basic -ndm 2 -ndf 3 pattern Plain 1 Constant { load 3 [expr
+$loadbias*$vertPress*$xsize*$thickness*0.25] [expr
+-$vertPress*$xsize*$thickness*0.25] 0 load 4 [expr
+$loadbias*$vertPress*$xsize*$thickness*0.25] [expr
+-$vertPress*$xsize*$thickness*0.25] 0 } model basic -ndm 2 -ndf 2
+pattern Plain 2 Constant { load 7 [expr
+$loadbias*$vertPress*$xsize*$thickness*0.5] [expr
+-$vertPress*$xsize*$thickness*0.5] }</p>
+<p>numberer RCM system ProfileSPD test NormDispIncr 1.e-5 50 2
+constraints Plain; #Penalty 1.e18 1.e18 rayleigh [expr
+1.0*$Mproprayleigh] 0.0 $Kinitproprayleigh 0.0 set gama 1.5; set betta
+[expr pow($gama+0.5, 2)/4]; #[expr 1./4.]; # 0.25 for const accel, 1/6
+for linear accel (in this case deltaT&lt;period/pi) integrator Newmark
+$gama $betta; algorithm KrylovNewton analysis VariableTransient</p>
+<p>updateMaterialStage -material 1 -stage 0 updateMaterialStage
+-material 2 -stage 0 updateMaterialStage -material 3 -stage 0
+updateMaterialStage -material 4 -stage 0 for {set i 1} {$i &lt;= 100}
+{incr i 1} { analyze 1 1000 set tCurrent [getTime] puts "time =
+$tCurrent sec" } for {set i 1} {$i &lt;= 100} {incr i 1} { analyze 1
+1000 set tCurrent [getTime] puts "time = $tCurrent sec" } puts "Done
+Elastic" updateMaterialStage -material 1 -stage 1 updateMaterialStage
+-material 2 -stage 1 updateMaterialStage -material 3 -stage 1
+updateMaterialStage -material 4 -stage 1 for {set i 1} {$i &lt;= 100}
+{incr i 1} { analyze 1 100 set tCurrent [getTime] puts "time = $tCurrent
+sec" }</p>
+<p>for {set i 1} {$i &lt;= 200} {incr i 1} { analyze 1 1000 set tCurrent
+[getTime] puts "time = $tCurrent sec" } puts "Done Plastic" puts
+"Gravity Done!"</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+<li>Adjust some fixities for shear loading</li>
+</ol>
+<ol>
+<li>remove surface pwp fixity</li>
+</ol>
+<p>model basic -ndm 2 -ndf 3 remove sp 3 3 remove sp 4 3 equalDOF 3 4
+3</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+</ol>
+<p>loadConst -time 0.0 wipeAnalysis</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+<li>NOW APPLY LOADING SEQUENCE AND ANALYZE (plastic)</li>
+</ol>
+<ol>
+<li>Load control cyclic</li>
+</ol>
+<p>if {$Analysis_case == "undrained_cyclic"} {</p>
+<ol>
+<li>Define analysis parameters</li>
+</ol>
+<p>numberer RCM system ProfileSPD test NormDispIncr 1.e-5 50 0
+constraints Plain rayleigh $Mproprayleigh 0.0 $Kinitproprayleigh 0.0 set
+gama 1.5; #0.5; #gama=alfa in other texts set betta [expr pow($gama+0.5,
+2)/4]; # 0.25 for const accel, 1/6 for linear accel (in this case
+deltaT&lt;period/pi) integrator Newmark $gama $betta; algorithm
+KrylovNewton analysis VariableTransient</p>
+<p>model basic -ndm 2 -ndf 3 pattern Plain 4 "Sine 0 [expr $period*1000]
+$period" { load 3 [expr $csr*$vertPress*$xsize*$thickness*0.25] 0 0 load
+4 [expr $csr*$vertPress*$xsize*$thickness*0.25] 0 0 } model basic -ndm 2
+-ndf 2 pattern Plain 5 "Sine 0 [expr $period*1000] $period" { load 7
+[expr $csr*$vertPress*$xsize*$thickness*0.5] 0 } puts "$Analysis_case"
+while {[expr abs([nodeDisp 7 1]/$ysize)]&lt;$target_shear_strain} {</p>
+<ol>
+<li>while {[getTime]&lt;0.25}</li>
+</ol>
+<p>analyze 1 $deltaT [expr $deltaT/100] $deltaT 20 puts "time =
+[getTime] sec" } }</p>
+<ol>
+<li>Disp control monotonic</li>
+</ol>
+<p>if {$Analysis_case == "undrained_monotonic"} {</p>
+<ol>
+<li>Define analysis parameters</li>
+</ol>
+<p>numberer RCM system BandGeneral; #ProfileSPD test NormDispIncr 1.e-5
+50 0; #1.e-5 50 0 constraints Penalty 1.e10 1.e10; #for clay use 1.e5,
+for sand use 1.e15 rayleigh $Mproprayleigh 0.0 $Kinitproprayleigh 0.0
+set gama 1.5; #0.5; #gama=alfa in other texts set betta [expr
+pow($gama+0.5, 2)/4]; # 0.25 for const accel, 1/6 for linear accel (in
+this case deltaT&lt;period/pi) integrator Newmark $gama $betta;
+algorithm KrylovNewton analysis VariableTransient</p>
+<p>model basic -ndm 2 -ndf 2 pattern Plain 14 Linear { sp 3 1 [expr
+$ysize*$target_shear_strain] sp 4 1 [expr $ysize*$target_shear_strain]
+sp 7 1 [expr $ysize*$target_shear_strain] } puts "$Analysis_case" for
+{set i 1} {$i &lt;= [expr $numSteps]} {incr i 1} { analyze 1 $deltaT
+[expr $deltaT/100] $deltaT 20 set tCurrent [getTime] puts "time =
+$tCurrent sec" } }</p>
+<ol>
+<li>Disp cotrol monotonic</li>
+</ol>
+<p>if {$Analysis_case == "drained_monotonic"} {</p>
+<ol>
+<li>Define analysis parameters</li>
+</ol>
+<p>numberer RCM system BandGeneral; #ProfileSPD test NormDispIncr 1.e-5
+50 0 constraints Penalty 1.e18 1.e18 rayleigh $Mproprayleigh 0.0
+$Kinitproprayleigh 0.0 set gama 1.5; #0.5; #gama=alfa in other texts set
+betta [expr pow($gama+0.5, 2)/4]; # 0.25 for const accel, 1/6 for linear
+accel (in this case deltaT&lt;period/pi) integrator Newmark $gama
+$betta; algorithm KrylovNewton analysis VariableTransient</p>
+<p>model basic -ndm 2 -ndf 3 pattern Plain 15 Linear { sp 3 1 [expr
+$ysize*$target_shear_strain] sp 4 1 [expr $ysize*$target_shear_strain]
+sp 7 1 [expr $ysize*$target_shear_strain] } puts "$Analysis_case" for
+{set i 1} {$i &lt;= [expr $numSteps]} {incr i 1} { analyze 1 $deltaT
+[expr $deltaT/100] $deltaT 20 set tCurrent [getTime] puts "time =
+$tCurrent sec" } }</p>
+<ol>
+<li>Disp control cyclic for G/Gmax and Xi curves</li>
+</ol>
+<p>if {$Analysis_case == "drained_cyclic"} {</p>
+<ol>
+<li>Define analysis parameters</li>
+</ol>
+<p>numberer RCM system BandGeneral; #ProfileSPD test NormDispIncr 1.e-5
+50 0 constraints Penalty 1.e18 1.e18 rayleigh $Mproprayleigh 0.0
+$Kinitproprayleigh 0.0 set gama 1.5; #0.5; #gama=alfa in other texts set
+betta [expr pow($gama+0.5, 2)/4]; # 0.25 for const accel, 1/6 for linear
+accel (in this case deltaT&lt;period/pi) integrator Newmark $gama
+$betta; algorithm KrylovNewton analysis VariableTransient</p>
+<p>model basic -ndm 2 -ndf 2 pattern Plain 4 "Sine 0 1000 $period" { sp
+3 1 [expr $ysize*0.0003/100.] } puts "$Analysis_case" for {set i 1} {$i
+&lt;= $numSteps} {incr i 1} { analyze 1 $deltaT [expr $deltaT/100]
+$deltaT 20 set tCurrent [getTime] puts "time = $tCurrent sec" } remove
+loadPattern 4 loadConst;</p>
+<p>pattern Plain 5 "Sine 0 1000 $period" { sp 3 1 [expr
+$ysize*0.001/100.] } for {set i 1} {$i &lt;= $numSteps} {incr i 1} {
+analyze 1 $deltaT [expr $deltaT/100] $deltaT 20 set tCurrent [getTime]
+puts "time = $tCurrent sec" } remove loadPattern 5 loadConst</p>
+<p>pattern Plain 6 "Sine 0 1000 $period" { sp 3 1 [expr
+$ysize*0.003*0.01] } for {set i 1} {$i &lt;= $numSteps} {incr i 1} {
+analyze 1 $deltaT [expr $deltaT/100] $deltaT 20 set tCurrent [getTime]
+puts "time = $tCurrent sec" } remove loadPattern 6 loadConst</p>
+<p>pattern Plain 7 "Sine 0 1000 $period" { sp 3 1 [expr
+$ysize*0.01*0.01] } for {set i 1} {$i &lt;= $numSteps} {incr i 1} {
+analyze 1 $deltaT [expr $deltaT/100] $deltaT 20 set tCurrent [getTime]
+puts "time = $tCurrent sec" } remove loadPattern 7 loadConst</p>
+<p>pattern Plain 8 "Sine 0 1000 $period" { sp 3 1 [expr
+$ysize*0.03*0.01] } for {set i 1} {$i &lt;= $numSteps} {incr i 1} {
+analyze 1 $deltaT [expr $deltaT/100] $deltaT 20 set tCurrent [getTime]
+puts "time = $tCurrent sec" } remove loadPattern 8 loadConst</p>
+<p>pattern Plain 9 "Sine 0 1000 $period" { sp 3 1 [expr $ysize*0.1*0.01]
+} for {set i 1} {$i &lt;= $numSteps} {incr i 1} { analyze 1 $deltaT
+[expr $deltaT/100] $deltaT 20 set tCurrent [getTime] puts "time =
+$tCurrent sec" } remove loadPattern 9 loadConst</p>
+<p>pattern Plain 10 "Sine 0 1000 $period" { sp 3 1 [expr
+$ysize*0.3*0.01] } for {set i 1} {$i &lt;= $numSteps} {incr i 1} {
+analyze 1 $deltaT [expr $deltaT/100] $deltaT 20 set tCurrent [getTime]
+puts "time = $tCurrent sec" } remove loadPattern 10 loadConst</p>
+<p>pattern Plain 11 "Sine 0 1000 $period" { sp 3 1 [expr
+$ysize*1.0*0.01] } for {set i 1} {$i &lt;= $numSteps} {incr i 1} {
+analyze 1 $deltaT [expr $deltaT/100] $deltaT 20 set tCurrent [getTime]
+puts "time = $tCurrent sec" } remove loadPattern 11 loadConst</p>
+<p>pattern Plain 12 "Sine 0 1000 $period" { sp 3 1 [expr
+$ysize*3.0*0.01] } for {set i 1} {$i &lt;= [expr $numSteps*1.25]} {incr
+i 1} { analyze 1 $deltaT [expr $deltaT/100] $deltaT 20 set tCurrent
+[getTime] puts "time = $tCurrent sec" } }</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+</ol>
+<p>set endT [clock seconds] puts "Execution time: [expr $endT-$startT]
+seconds." puts "Finished with cyclic loading" wipe all; wipe; # flush
+ouput stream &lt;/syntaxhighlight&gt;</p>
+<h2 id="dss_material_properties.tcl_file">DSS_material_properties.tcl
+file</h2>
+<p>&lt;syntaxhighlight lang="tcl"&gt;</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+<li>PDMY03 input parameters materials #</li>
+<li>By: Arash Khosravifar January 2009 #</li>
+<li>Last edit: August 2018 #
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+</ol></li>
+</ol>
+<p>if {$matTag == 1} {</p>
+<ol>
+<li>defined variables for Sand (N1)60=35 "nonliq" (Mat 1)</li>
+</ol>
+<p>set massDen 2.06; # (ton/m3) set refG 111.9e3;# (kPa) set refB
+298.3e3;# (kPa) set frinctionAng 42.2; # (degree) set peakShearStrain
+0.1; set refPress 100.; # (kPa) set pressDependCoe 0.5; set
+phaseTransAng 37.2; # (degree)</p>
+<p>set contraction_a 0.001; # Contraction rate. set contraction_b 0.0; #
+fabric damage set contraction_c 0.8; # k_sigma effect set contraction_d
+2.2; # ~CRR*[3/(1+2k0)]/2 set contraction_e 0.0; set dilation_a 0.6; set
+dilation_b 3.0; set dilation_c -0.5; # k_sigma effect</p>
+<p>set liqParam1 1.0; set liqParam2 0.0;</p>
+<p>set noYieldSurf 20;</p>
+<ol>
+<li>set void 0.55;</li>
+<li>set cs1 0.9;</li>
+<li>set cs2 0.02;</li>
+<li>set cs3 0.0;</li>
+</ol>
+<p>set pa 100; # (kPa) set S0 1.73; # (kPa) }</p>
+<p>if {$matTag == 2} {</p>
+<ol>
+<li>defined variables for Sand (N1)60=25 (Mat 2)</li>
+</ol>
+<p>set massDen 2.03; #(ton/m3) set refG 94.6e3; # (kPa) set refB
+252.6e3;# (kPa) set frinctionAng 35.8; set peakShearStrain 0.1; set
+refPress 100; # (kPa) set pressDependCoe 0.5; set phaseTransAng
+30.8;</p>
+<p>set contraction_a 0.005; set contraction_b 1.0; set contraction_c
+0.6; set contraction_d 4.6; # ~CRR*[3/(1+2k0)]/2 set contraction_e -1.0;
+set dilation_a 0.45; set dilation_b 3.0; set dilation_c -0.4;</p>
+<p>set liqParam1 1.0; set liqParam2 0.0;</p>
+<p>set noYieldSurf 20;</p>
+<ol>
+<li>set void 0.60;</li>
+<li>set cs1 0.9;</li>
+<li>set cs2 0.02;</li>
+<li>set cs3 0.0;</li>
+</ol>
+<p>set pa 100; # (kPa) set S0 1.73; # (kPa) }</p>
+<p>if {$matTag == 3} {</p>
+<ol>
+<li>defined variables for Sand (N1)60=15 (Mat 3)</li>
+</ol>
+<p>set massDen 1.99; #(ton/m3) set refG 73.7e3; # (kPa) set refB
+196.8e3;# (kPa) set frinctionAng 30.3; set peakShearStrain 0.1; set
+refPress 100; # (kPa) set pressDependCoe 0.5; set phaseTransAng
+25.3;</p>
+<p>set contraction_a 0.012; set contraction_b 3.0; set contraction_c
+0.4; set contraction_d 9.0; # ~CRR*[3/(1+2k0)]/2 set contraction_e 0.0;
+set dilation_a 0.3; set dilation_b 3.0; set dilation_c -0.3;</p>
+<p>set liqParam1 1.0; set liqParam2 0.0;</p>
+<p>set noYieldSurf 20;</p>
+<ol>
+<li>set void 0.67;</li>
+<li>set cs1 0.9;</li>
+<li>set cs2 0.02;</li>
+<li>set cs3 0.0;</li>
+</ol>
+<p>set pa 100; # (kPa) set S0 1.73; # (kPa) }</p>
+<p>if {$matTag == 4} {</p>
+<ol>
+<li>defined variables for Sand (N1)60=5 (Mat 4)</li>
+</ol>
+<p>set massDen 1.94; #(ton/m3) set refG 46.9e3; # (kPa) set refB
+125.1e3;# (kPa) set frinctionAng 25.4; set peakShearStrain 0.1; set
+refPress 100; # (kPa) set pressDependCoe 0.5; set phaseTransAng
+20.0;</p>
+<p>set contraction_a 0.03; set contraction_b 5.0; set contraction_c 0.2;
+set contraction_d 16.0; # ~CRR*[3/(1+2k0)]/2 set contraction_e 2.0; set
+dilation_a 0.15; set dilation_b 3.0; set dilation_c -0.2;</p>
+<p>set liqParam1 1.0; set liqParam2 0.0;</p>
+<p>set noYieldSurf 20;</p>
+<ol>
+<li>set void 0.76;</li>
+<li>set cs1 0.9;</li>
+<li>set cs2 0.02;</li>
+<li>set cs3 0.0;</li>
+</ol>
+<p>set pa 100; # (kPa) set S0 1.73; # (kPa) }
+&lt;/syntaxhighlight&gt;</p>
+<h2 id="matlab_plotting_file">MATLAB Plotting File</h2>
+<p>&lt;syntaxhighlight lang="matlab"&gt;
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% % Post
+processor for 9-4quadUP element % % By: Arash Khosravifar January 2009 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+<p>clc clear all close all</p>
+<p>% Type of analysis. Options: % undrained_cyclic % undrained_monotonic
+% drained_cyclic % drained_monotonic Analysis_case =
+'undrained_cyclic';</p>
+<p>% Loading files input_disp1 =
+load(['output\disp1_',Analysis_case,'.out']); input_disp2 =
+load(['output\disp2_',Analysis_case,'.out']); input_stress =
+load(['output\stress_',Analysis_case,'.out']); input_strain =
+load(['output\strain_',Analysis_case,'.out']); input_pwp =
+load(['output\pwp_',Analysis_case,'.out']); input_backbone =
+load(['output\backbone_',Analysis_case,'.out']);</p>
+<p>% Displacements Disp_1 = input_disp1(:,2:end); Disp_2 =
+input_disp2(:,2:end); % Stresses compression:+ tension:- s_11 =
+-input_stress(:,2); s_22 = -input_stress(:,3); s_33 =
+-input_stress(:,4); s_12 = input_stress(:,5); eta = input_stress(:,6); %
+defined in the manual - not used</p>
+<p>tau_oct = 1/3*sqrt((s_11-s_22).^2 + (s_11-s_33).^2 + (s_22-s_33).^2 +
+6*s_12.^2); % Octahedral shear stress q = 3/sqrt(2)*tau_oct;
+%1/3*sign(s_12).*sqrt((s_11-s_22).^2 + (s_11-s_33).^2 + (s_22-s_33).^2 +
+6*s_12.^2); pwp =
+(input_pwp(:,2)+input_pwp(:,3)+input_pwp(:,4)+input_pwp(:,5))/4; p =
+(s_11 + s_22 + s_33)/3; p_tot = p + pwp; time = input_pwp(:,1);</p>
+<p>%Note: The stresses are already effective. no need to subtract %
+Strains Upward (dilation):- Downward (contraction):+ e_11 =
+-input_strain(:,2); e_22 = -input_strain(:,3); gama_12 =
+input_strain(:,4); e_33 = zeros(size(e_11)); % plain strain e_v = e_11 +
+e_22 + e_33; % e_33 is zero gama_oct =
+2/3*sqrt((e_11-e_22).^2+(e_22-e_33).^2+(e_11-e_33).^2+6*(gama_12/2).^2);</p>
+<p>% CSL line cs1 = 0.9; cs2 = 0.1; cs3 = 1.0; void_i = 0.8; % initial
+void ratio void = void_i - e_22*(1+void_i);</p>
+<p>% Number of steps in "consolidation phase" consol_step = 500;
+total_step = size(gama_12,1);</p>
+<p>% Ru ru_1 = pwp./max(p,0.001); ru_2 = pwp/p(consol_step); ru_3 =
+pwp/s_22(consol_step);</p>
+<p>%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+if strcmp(Analysis_case,'drained_cyclic') == 1 period = 10; cycle =
+time/period;</p>
+<p>% G/Gmax NoStepsCycle = 2000; NoCycleEach = 2; corr_steps =
+[consol_step+NoStepsCycle/4:NoStepsCycle*NoCycleEach :
+consol_step+9*NoStepsCycle*NoCycleEach]; G_sec =
+s_12(corr_steps)./gama_12(corr_steps); %Secant stiffness G_max =
+s_12(consol_step+1)/gama_12(consol_step+1); %Secant stiffness at the
+first load incr. G_max_oct =
+tau_oct(consol_step+1)/gama_oct(consol_step+1); % Note that the Gmax,r
+assigned for the material by the user is not the % conventional Gmax
+(s_12/gama_12), but it is the OCTAHEDRAL one % (tau_oct/gama_oct)</p>
+<p>% EPRI 1993 GratioEPRI6 =
+[1,0.98,0.919,0.751,0.519,0.271,0.121,0.045,0.024]; % EPRI1993 for 0-6m
+corresponding to
+strain=[0.000003,0.00001,0.00003,0.0001,0.0003,0.001,0.003,0.01,0.03]
+GratioEPRI76 = [1,0.999,0.982,0.9,0.752,0.502,0.282,0.124,0.07]; %
+EPRI1993 for 36-76m gama_EPRI =
+[0.000003,0.00001,0.00003,0.0001,0.0003,0.001,0.003,0.01,0.03];
+gama_EPRI_oct =
+2/3*sqrt((e_11(500)-e_22(500)).^2+(e_22(500)-e_33(500)).^2+(e_11(500)-e_33(500)).^2+6*(gama_EPRI/2).^2);</p>
+<p>% Use backbone record backbone = input_backbone(1,:)';
+gama_backbone_100_oct = input_backbone(5:4:end); G_backbone_100 =
+input_backbone(6:4:end); gama_backbone_1600_oct =
+input_backbone(7:4:end); G_backbone_1600 = input_backbone(8:4:end);</p>
+<p>% Xi for ii = 1:length(corr_steps) hysteresis =
+trapz(gama_12(corr_steps(ii):corr_steps(ii)+NoStepsCycle),s_12(corr_steps(ii):corr_steps(ii)+NoStepsCycle));
+triangle = 1/2*gama_12(corr_steps(ii))*s_12(corr_steps(ii)); Xi(ii) =
+hysteresis/(4*pi*triangle)*100; %(%) end XiEPRI6 =
+[0.791,1.27,2.28,4.26,7.75,14.74,22.03,27.12,30.21]; % (%) EPRI1993 for
+0-6m corresponding to
+strain=[0.000003,0.00001,0.00003,0.0001,0.0003,0.001,0.003,0.01,0.03]
+XiEPRI76 = [0.591,0.88,1.271,2.46,4.551,8.34,14.13,21.22,25.31]; % (%)
+EPRI1993 for 36-76m</p>
+<p>% Plots figure
+semilogx(gama_12(corr_steps),G_sec/G_max,'-ob','LineWidth',2); hold on;
+grid on; semilogx(gama_EPRI,GratioEPRI6,'--r','LineWidth',2);
+semilogx(gama_EPRI,GratioEPRI76,'--r','LineWidth',2);
+xlabel('\gamma_{12}'); ylabel('G_{sec}/G_{max}'); legend('PDMY03 -
+\sigma_{vo}=100 KPa','EPRI1993 0-6m','EPRI1993 36-76m')</p>
+<p>% Xi figure semilogx(gama_12(corr_steps),Xi,'-ob','LineWidth',2);
+hold on; grid on;
+semilogx(gama_12(corr_steps),XiEPRI6,'--r','LineWidth',2);
+semilogx(gama_12(corr_steps),XiEPRI76,'--r','LineWidth',2);
+xlabel('\gamma_{12}'); ylabel('Equivalent damping ratio (%)');
+legend('PDMY03 - \sigma_{vo}=100 KPa','EPRI1993 0-6m','EPRI1993
+36-76m')</p>
+<p>figure subplot(2,1,1); plot(gama_12,s_12/s_22(consol_step),'blue');
+xlabel('\gamma_{12}'); ylabel('CSR = (\sigma_{12}/\sigma<em>_{vc})');
+title(['\sigma</em>_{vc} = ',num2str(s_22(consol_step)),' kPa']);</p>
+<p>subplot(2,1,2);
+plot(cycle(consol_step+1:end),gama_12(consol_step+1:end),'blue');
+xlabel('No. of cycles'); ylabel('\gamma_{12}');</p>
+<p>end; % (end of drained_cyclic) %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+<p>%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+if strcmp(Analysis_case,'undrained_cyclic') == 1 period = 1; cycle =
+time/period;</p>
+<p>% find "Liquefaction Triggering" time gama_consol =
+gama_12(consol_step);</p>
+<p>T_1 = find(abs(gama_12-gama_consol)&gt;0.01,1); if any(T_1) == 0 T_1
+= consol_step+1; end N_1 = cycle(T_1)</p>
+<p>T_3 = find(abs(gama_12-gama_consol)&gt;0.03,1); if any(T_3) == 0 T_3
+= consol_step+1; end N_3 = cycle(T_3)</p>
+<p>% T_r = find(ru_3(consol_step:total_step)&gt;0.98,1); T_r =
+find(ru_3&gt;0.98,1); if any(T_r) == 0 T_r = consol_step+1; end N_r =
+cycle(T_r)</p>
+<p>% Plotting figure subplot(2,2,1);
+plot(gama_12,s_12/s_22(consol_step));grid on; hold
+on;xlabel('\gamma_{12}');ylabel('CSR = (\sigma_{12}/\sigma<em>_{vc})')
+plot(gama_12(T_1),s_12(T_1)/s_22(consol_step),'g.','MarkerSize',15);
+plot(gama_12(T_3),s_12(T_3)/s_22(consol_step),'r.','MarkerSize',15);
+plot(gama_12(T_r),s_12(T_r)/s_22(consol_step),'m.','MarkerSize',15);
+title(['CSR = ',num2str(max(abs(s_12))/s_22(consol_step),2),' and
+\sigma</em>_{vc} = ',num2str(s_22(consol_step)),' kPa']); %
+xlim([-0.1,0.1]);</p>
+<p>subplot(2,2,2);plot(s_22/s_22(consol_step),s_12/s_22(consol_step));grid
+on; hold on;xlabel('vertical effective stress ratio
+(\sigma<em>_{v}/\sigma</em>_{vc})');ylabel('CSR =
+(\sigma_{12}/\sigma<em>_{vc})');
+plot(s_22(T_1)/s_22(consol_step),s_12(T_1)/s_22(consol_step),'g.','MarkerSize',15);
+plot(s_22(T_3)/s_22(consol_step),s_12(T_3)/s_22(consol_step),'r.','MarkerSize',15);
+plot(s_22(T_r)/s_22(consol_step),s_12(T_r)/s_22(consol_step),'m.','MarkerSize',15);
+xlim([min(0,min(s_22/s_22(consol_step))),max(s_22)/s_22(consol_step)]);
+title(['CSR = ',num2str(max(abs(s_12))/s_22(consol_step),2),' and
+\sigma</em>_{vc} = ',num2str(s_22(consol_step)),' kPa']);</p>
+<p>subplot(2,2,3);plot(cycle(consol_step+1:end),pwp(consol_step+1:end));grid
+on;ylabel('PWP (kPa)');xlabel('No. of cycles'); hold on;
+plot(cycle(T_1),pwp(T_1),'g.','MarkerSize',15);
+plot(cycle(T_3),pwp(T_3),'r.','MarkerSize',15);
+plot(cycle(T_r),pwp(T_r),'m.','MarkerSize',15); ylim([-10,100]);</p>
+<p>subplot(2,2,4);plot(cycle(consol_step+1:end),gama_12(consol_step+1:end));grid
+on;xlabel('No. of cycles');ylabel('\gamma_{12}');</p>
+<p>end; % (end of undrained_cyclic) %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+<p>%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+if strcmp(Analysis_case,'drained_monotonic') == 1</p>
+<p>G_max = s_12(consol_step+1)/gama_12(consol_step+1); G_max_oct =
+tau_oct(consol_step+1)/gama_oct(consol_step+1);</p>
+<p>figure subplot(1,2,1);hold on; grid on;
+plot(gama_12(consol_step+1:end),s_12(consol_step+1:end));
+plot(gama_oct(consol_step+1:end),tau_oct(consol_step+1:end),'r');
+legend('\sigma_{12} vs \gamma_{12}','\tau_{oct} vs \gamma_{oct}',4);
+xlabel('\gamma_{12} and \gamma_{oct}');ylabel('\sigma_{12} and
+\tau_{oct}'); ylim([0,60]); title(['\sigma''_{vc} (kPa) =
+',num2str(s_22(consol_step))]);</p>
+<p>subplot(1,2,2);grid on;hold on
+plot(p(consol_step+1:end),tau_oct(consol_step+1:end),'r');
+plot(s_22(consol_step+1:end),s_12(consol_step+1:end),'b')
+ylim([0,60]);</p>
+<p>slope_oct = tau_oct(end)/p(end); Phi_oct_back_calculated =
+asin(3*slope_oct/(2*sqrt(2)+slope_oct))/3.1416*180; slope_conventional =
+s_12(end)/s_22(end); Phi_conventional_back_calculated =
+atan(slope_conventional)/3.1416*180;</p>
+<p>plot([0,max(p)*1.2],[0,(max(p)*1.2)*slope_oct],'--r')
+plot([0,max(s_22)*1.2],[0,(max(s_22)*1.2)*slope_conventional],'--b')
+xlabel('\sigma<em>_{v} and p</em> (kPa)');ylabel('\sigma_{12} and
+\tau_{oct}'); xlim([0,max(p)*1.2]); legend(['\phi_{oct} =
+',num2str(Phi_oct_back_calculated)],['\phi_{DSS} =
+',num2str(Phi_conventional_back_calculated)],2)</p>
+<p>end; % (end of drained_monotonic) %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</p>
+<p>%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+if strcmp(Analysis_case,'undrained_monotonic') == 1 figure
+subplot(2,2,1);plot(gama_12(consol_step+1:end),s_12(consol_step+1:end));
+grid on; xlabel('\gamma_{12}'); ylabel('\sigma_{12} (kPa)');</p>
+<p>subplot(2,2,2);plot(s_22(consol_step+1:end),s_12(consol_step+1:end));
+grid on; hold on; xlim([0,max(s_22)])
+plot([0,s_22(end)],[0,s_12(end)],'r') xlabel('\sigma''_{v} (kPa)');
+ylabel('\sigma_{12} (kPa)'); slope_conventional = s_12(end)/s_22(end);
+Phi_conventional_back_calculated = atan(slope_conventional)/3.1416*180;
+legend(['\phi_{DSS} =
+',num2str(Phi_conventional_back_calculated)],2)</p>
+<p>subplot(2,2,3);plot(gama_12,pwp);grid on; xlabel('\gamma_{12}')
+ylabel('pwp (kPa)') subplot(2,2,4) plot(gama_12,e_v-e_v(consol_step));
+grid on; set(gca,'YDir','rev'); xlabel('\gamma_{12}') ylabel('Vomuletric
+strain \epsilon_v - \epsilon_o');</p>
+<p>end; % (end of undrained_monotonic') %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+&lt;/syntaxhighlight&gt;</p>
+<hr />
+<p>Return to: </p>

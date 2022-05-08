@@ -1,0 +1,459 @@
+# Example 1 InputFile: 2D soil column subjected to earthquake base excitation
+
+<p><a href="Tcl_input_files_for_the_provided_application_examples:"
+title="wikilink">Return to Tcl input files for the provided application
+examples:</a></p>
+<hr />
+<p>
+```tcl
+</p>
+<ol>
+<li>unit. meter, K-N, K-Pa,K-Kg</li>
+</ol>
+<ol>
+<li>refer to</li>
+<li>Quan Gu, Joel P. Conte, Ahmed Elgamal and Zhaohui Yang. Response
+Sensitivity Analysis of a Multi-Yield-Surface J2 Plasticity</li>
+<li>Model by Direct Differentiation Method.June, 2009. Vol 198(30-32),
+Computer Methods in Applied Mechanics and Engineering, Pages
+2272-2285.</li>
+<li>test by Lei Wang in July 2018</li>
+</ol>
+<p>set h G set g -9.8 model basic -ndm 2 -ndf 2</p>
+<ol>
+<li>29---------------58</li>
+<li>| |</li>
+<li>| |</li>
+<li>| |</li>
+<li>| 1(#1) |</li>
+<li>| |</li>
+<li>| |</li>
+<li>28---------------57</li>
+<li>| |</li>
+<li>| | element material#</li>
+<li>| | 1-2 1</li>
+<li>| 2(#1) | 3-6 2</li>
+<li>| | 7-8 3</li>
+<li>--------------- 9-14 4</li>
+<li>| | 15-22 5</li>
+<li>| | 23-28 6</li>
+<li>| |</li>
+<li>| |</li>
+<li>| |</li>
+<li><hr /></li>
+<li>| |</li>
+<li>| |</li>
+<li>| |</li>
+<li>| |</li>
+<li>| |</li>
+<li><hr /></li>
+<li>| |</li>
+<li>.| |</li>
+<li>.| |</li>
+<li>| |</li>
+<li>| |</li>
+<li>3 ---------------32</li>
+<li>| |</li>
+<li>| |</li>
+<li>| |</li>
+<li>| 27(#6) |</li>
+<li>| |</li>
+<li>| |</li>
+<li>2 ---------------31</li>
+<li>| |</li>
+<li>| |</li>
+<li>| |</li>
+<li>| 28(#6) |</li>
+<li>1| |30</li>
+<li><hr /></li>
+</ol>
+<ol>
+<li><hr /></li>
+<li>Nodes Definition</li>
+<li><hr /></li>
+</ol>
+<p>node 1 272.9 -43.426 -mass 0 0 node 2 272.9 -38.728 -mass 0 0 node 3
+272.9 -34.031 -mass 0 0 node 4 272.9 -29.334 -mass 0 0 node 5 272.9
+-24.636 -mass 0 0 node 6 272.9 -19.939 -mass 0 0 node 7 272.9 -15.242
+-mass 0 0 node 8 272.9 -11.813 -mass 0 0 node 9 272.9 -8.3835 -mass 0 0
+node 10 272.9 -4.9543 -mass 0 0 node 11 272.9 -1.5252 -mass 0 0 node 12
+272.9 1.904 -mass 0 0 node 13 272.9 5.3331 -mass 0 0 node 14 272.9
+8.7623 -mass 0 0 node 15 272.9 12.191 -mass 0 0 node 16 272.9 14.096
+-mass 0 0 node 17 272.9 16.001 -mass 0 0 node 18 272.9 17.905 -mass 0 0
+node 19 272.9 19.81 -mass 0 0 node 20 272.9 20.877 -mass 0 0 node 21
+272.9 21.945 -mass 0 0 node 22 272.9 22.402 -mass 0 0 node 23 272.9
+22.859 -mass 0 0 node 24 272.9 24.459 -mass 0 0 node 25 272.9 26.059
+-mass 0 0 node 26 272.9 27.659 -mass 0 0 node 27 272.9 29.259 -mass 0 0
+node 28 272.9 29.602 -mass 0 0 node 29 272.9 29.945 -mass 0 0 node 30
+267.27 -43.426 -mass 0 0 node 31 267.27 -38.728 -mass 0 0 node 32 267.27
+-34.031 -mass 0 0 node 33 267.27 -29.334 -mass 0 0 node 34 267.27
+-24.636 -mass 0 0 node 35 267.27 -19.939 -mass 0 0 node 36 267.27
+-15.242 -mass 0 0 node 37 267.27 -11.813 -mass 0 0 node 38 267.27
+-8.3835 -mass 0 0 node 39 267.27 -4.9543 -mass 0 0 node 40 267.27
+-1.5252 -mass 0 0 node 41 267.27 1.904 -mass 0 0 node 42 267.27 5.3331
+-mass 0 0 node 43 267.27 8.7623 -mass 0 0 node 44 267.27 12.191 -mass 0
+0 node 45 267.27 14.096 -mass 0 0 node 46 267.27 16.001 -mass 0 0 node
+47 267.27 17.905 -mass 0 0 node 48 267.27 19.81 -mass 0 0 node 49 267.27
+20.877 -mass 0 0 node 50 267.27 21.945 -mass 0 0 node 51 267.27 22.402
+-mass 0 0 node 52 267.27 22.859 -mass 0 0 node 53 267.27 24.432 -mass 0
+0 node 54 267.27 26.012 -mass 0 0 node 55 267.27 27.593 -mass 0 0 node
+56 267.27 29.166 -mass 0 0 node 57 267.27 29.497 -mass 0 0 node 58
+267.27 29.828 -mass 0 0</p>
+<ol>
+<li>massDen G B cohension PeakShearStrain</li>
+</ol>
+<p>nDMaterial MultiYieldSurfaceClay 1 2 0.0 54450 1.6e5 33. .1
+nDMaterial MultiYieldSurfaceClay 2 2 0.0 33800 1.0e5 26. .1 nDMaterial
+MultiYieldSurfaceClay 3 2 0.0 96800 2.9e5 44. .1 nDMaterial
+MultiYieldSurfaceClay 4 2 0.0 61250 1.8e5 35. .1 nDMaterial
+MultiYieldSurfaceClay 5 2 0.0 180000 5.4e5 60. .1 nDMaterial
+MultiYieldSurfaceClay 6 2 0.0 369800 1.1e6 86. .1</p>
+<ol>
+<li><hr /></li>
+<li>Soil Elememets Definition</li>
+<li><hr /></li>
+<li>thick material Mat Press mDensity gravity</li>
+</ol>
+<p>element quadWithSensitivity 1 57 28 29 58 6.0957 "PlaneStrain" 1 0
+2.0 0 $g element quadWithSensitivity 2 56 27 28 57 6.0957 "PlaneStrain"
+1 0 2.0 0 $g element quadWithSensitivity 3 55 26 27 56 6.0957
+"PlaneStrain" 2 0 2.0 0 $g element quadWithSensitivity 4 54 25 26 55
+6.0957 "PlaneStrain" 2 0 2.0 0 $g element quadWithSensitivity 5 53 24 25
+54 6.0957 "PlaneStrain" 2 0 2.0 0 $g element quadWithSensitivity 6 52 23
+24 53 6.0957 "PlaneStrain" 2 0 2.0 0 $g element quadWithSensitivity 7 51
+22 23 52 6.0957 "PlaneStrain" 3 0 2.0 0 $g element quadWithSensitivity 8
+50 21 22 51 6.0957 "PlaneStrain" 3 0 2.0 0 $g element
+quadWithSensitivity 14 15 16 45 44 6.0957 "PlaneStrain" 4 0 2.0 0 $g
+element quadWithSensitivity 13 16 17 46 45 6.0957 "PlaneStrain" 4 0 2.0
+0 $g element quadWithSensitivity 12 17 18 47 46 6.0957 "PlaneStrain" 4 0
+2.0 0 $g element quadWithSensitivity 11 18 19 48 47 6.0957 "PlaneStrain"
+4 0 2.0 0 $g element quadWithSensitivity 10 19 20 49 48 6.0957
+"PlaneStrain" 4 0 2.0 0 $g element quadWithSensitivity 9 20 21 50 49
+6.0957 "PlaneStrain" 4 0 2.0 0 $g element quadWithSensitivity 15 44 43
+14 15 6.0957 "PlaneStrain" 5 0 2.0 0 $g element quadWithSensitivity 16
+43 42 13 14 6.0957 "PlaneStrain" 5 0 2.0 0 $g element
+quadWithSensitivity 17 42 41 12 13 6.0957 "PlaneStrain" 5 0 2.0 0 $g
+element quadWithSensitivity 18 41 40 11 12 6.0957 "PlaneStrain" 5 0 2.0
+0 $g element quadWithSensitivity 19 40 39 10 11 6.0957 "PlaneStrain" 5 0
+2.0 0 $g element quadWithSensitivity 20 39 38 9 10 6.0957 "PlaneStrain"
+5 0 2.0 0 $g element quadWithSensitivity 21 38 37 8 9 6.0957
+"PlaneStrain" 5 0 2.0 0 $g element quadWithSensitivity 22 37 36 7 8
+6.0957 "PlaneStrain" 5 0 2.0 0 $g element quadWithSensitivity 23 36 35 6
+7 6.0957 "PlaneStrain" 6 0 2.0 0 $g element quadWithSensitivity 24 35 34
+5 6 6.0957 "PlaneStrain" 6 0 2.0 0 $g element quadWithSensitivity 25 34
+33 4 5 6.0957 "PlaneStrain" 6 0 2.0 0 $g element quadWithSensitivity 26
+33 32 3 4 6.0957 "PlaneStrain" 6 0 2.0 0 $g element quadWithSensitivity
+27 32 31 2 3 6.0957 "PlaneStrain" 6 0 2.0 0 $g element
+quadWithSensitivity 28 31 30 1 2 6.0957 "PlaneStrain" 6 0 2.0 0 $g</p>
+<ol>
+<li>updateMaterialStage -material 1 -stage 101</li>
+<li>updateMaterialStage -material 2 -stage 101</li>
+<li>updateMaterialStage -material 3 -stage 101</li>
+<li>updateMaterialStage -material 4 -stage 101</li>
+<li>updateMaterialStage -material 5 -stage 101</li>
+<li>updateMaterialStage -material 6 -stage 101</li>
+</ol>
+<p>fix 1 1 1 fix 30 1 1</p>
+<p>equalDOF 29 58 1 2 equalDOF 28 57 1 2 equalDOF 27 56 1 2 equalDOF 26
+55 1 2 equalDOF 25 54 1 2 equalDOF 24 53 1 2 equalDOF 23 52 1 2 equalDOF
+22 51 1 2 equalDOF 21 50 1 2 equalDOF 20 49 1 2 equalDOF 19 48 1 2
+equalDOF 18 47 1 2 equalDOF 17 46 1 2 equalDOF 16 45 1 2 equalDOF 15 44
+1 2 equalDOF 14 43 1 2 equalDOF 13 42 1 2 equalDOF 12 41 1 2 equalDOF 11
+40 1 2 equalDOF 10 39 1 2 equalDOF 9 38 1 2 equalDOF 8 37 1 2 equalDOF 7
+36 1 2 equalDOF 6 35 1 2 equalDOF 5 34 1 2 equalDOF 4 33 1 2 equalDOF 3
+32 1 2 equalDOF 2 31 1 2</p>
+<ol>
+<li>------------------------- add sensitivity
+------------------------</li>
+</ol>
+<p>reliability</p>
+<p>set h G</p>
+<ol>
+<li>--- G1 ---</li>
+</ol>
+<p>parameter 1 -element 1 -material $h addToParameter 1 -element 2
+-material $h</p>
+<ol>
+<li>--- G2 ---</li>
+</ol>
+<p>parameter 2 -element 3 -material $h addToParameter 2 -element 4
+-material $h addToParameter 2 -element 5 -material $h addToParameter 2
+-element 6 -material $h</p>
+<ol>
+<li>--- G3 ---</li>
+</ol>
+<p>parameter 3 -element 7 -material $h addToParameter 3 -element 8
+-material $h</p>
+<ol>
+<li>--- G4 ---</li>
+</ol>
+<p>parameter 4 -element 9 -material $h addToParameter 4 -element 10
+-material $h addToParameter 4 -element 11 -material $h addToParameter 4
+-element 12 -material $h addToParameter 4 -element 13 -material $h
+addToParameter 4 -element 14 -material $h</p>
+<ol>
+<li>--- G5 -----</li>
+</ol>
+<p>parameter 5 -element 15 -material $h addToParameter 5 -element 16
+-material $h addToParameter 5 -element 17 -material $h addToParameter 5
+-element 18 -material $h addToParameter 5 -element 19 -material $h
+addToParameter 5 -element 20 -material $h addToParameter 5 -element 21
+-material $h addToParameter 5 -element 22 -material $h</p>
+<ol>
+<li>---- G6 -----</li>
+</ol>
+<p>parameter 6 -element 23 -material $h addToParameter 6 -element 24
+-material $h addToParameter 6 -element 25 -material $h addToParameter 6
+-element 26 -material $h addToParameter 6 -element 27 -material $h
+addToParameter 6 -element 28 -material $h</p>
+<ol>
+<li><hr /></li>
+</ol>
+<p>set h cohesion</p>
+<ol>
+<li>---- h7 --------</li>
+</ol>
+<p>parameter 7 -element 1 -material $h addToParameter 7 -element 2
+-material $h</p>
+<ol>
+<li>---- h8 --------</li>
+</ol>
+<p>parameter 8 -element 3 -material $h addToParameter 8 -element 4
+-material $h addToParameter 8 -element 5 -material $h addToParameter 8
+-element 6 -material $h</p>
+<ol>
+<li>---- h9 --------</li>
+</ol>
+<p>parameter 9 -element 7 -material $h addToParameter 9 -element 8
+-material $h</p>
+<ol>
+<li>---- h10 --------</li>
+</ol>
+<p>parameter 10 -element 9 -material $h addToParameter 10 -element 10
+-material $h addToParameter 10 -element 11 -material $h addToParameter
+10 -element 12 -material $h addToParameter 10 -element 13 -material $h
+addToParameter 10 -element 14 -material $h</p>
+<ol>
+<li>---- h11 --------</li>
+</ol>
+<p>parameter 11 -element 15 -material $h addToParameter 11 -element 16
+-material $h addToParameter 11 -element 17 -material $h addToParameter
+11 -element 18 -material $h addToParameter 11 -element 19 -material $h
+addToParameter 11 -element 20 -material $h addToParameter 11 -element 21
+-material $h addToParameter 11 -element 22 -material $h</p>
+<ol>
+<li>---- h12 --------</li>
+</ol>
+<p>parameter 12 -element 23 -material $h addToParameter 12 -element 24
+-material $h addToParameter 12 -element 25 -material $h addToParameter
+12 -element 26 -material $h addToParameter 12 -element 27 -material $h
+addToParameter 12 -element 28 -material $h</p>
+<ol>
+<li><hr /></li>
+</ol>
+<p>set h K</p>
+<ol>
+<li>------ k13 --------</li>
+</ol>
+<p>parameter 13 -element 1 -material $h addToParameter 13 -element 2
+-material $h</p>
+<ol>
+<li>------ k14 --------</li>
+</ol>
+<p>parameter 14 -element 3 -material $h addToParameter 14 -element 4
+-material $h addToParameter 14 -element 5 -material $h addToParameter 14
+-element 6 -material $h</p>
+<ol>
+<li>------ k15 --------</li>
+</ol>
+<p>parameter 15 -element 7 -material $h addToParameter 15 -element 8
+-material $h</p>
+<ol>
+<li>------ k16 --------</li>
+</ol>
+<p>parameter 16 -element 9 -material $h addToParameter 16 -element 10
+-material $h addToParameter 16 -element 11 -material $h addToParameter
+16 -element 12 -material $h addToParameter 16 -element 13 -material $h
+addToParameter 16 -element 14 -material $h</p>
+<ol>
+<li>------ k17 --------</li>
+</ol>
+<p>parameter 17 -element 15 -material $h addToParameter 17 -element 16
+-material $h addToParameter 17 -element 17 -material $h addToParameter
+17 -element 18 -material $h addToParameter 17 -element 19 -material $h
+addToParameter 17 -element 20 -material $h addToParameter 17 -element 21
+-material $h addToParameter 17 -element 22 -material $h</p>
+<ol>
+<li>------ k18 --------</li>
+</ol>
+<p>parameter 18 -element 23 -material $h addToParameter 18 -element 24
+-material $h addToParameter 18 -element 25 -material $h addToParameter
+18 -element 26 -material $h addToParameter 18 -element 27 -material $h
+addToParameter 18 -element 28 -material $h</p>
+<ol>
+<li>------------------------ recorder
+----------------------------------</li>
+</ol>
+<p>recorder Node -file disp29.out -time -node 29 -precision 16 -dof 1
+disp recorder Node -file disp27.out -time -node 27 -dof 1 disp recorder
+Node -file disp23.out -time -node 23 -dof 1 disp recorder Node -file
+disp21.out -time -node 21 -dof 1 disp recorder Node -file disp15.out
+-time -node 15 -dof 1 disp recorder Node -file disp7.out -time -node 7
+-dof 1 disp</p>
+<p>recorder Node -file ddm29G1.out -time -node 29 -dof 1 -precision 16
+"sensitivity 1" recorder Node -file ddm27G1.out -time -node 27 -dof 1
+-precision 16 "sensitivity 1" recorder Node -file ddm23G1.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 1" recorder Node -file
+ddm21G1.out -time -node 21 -dof 1 -precision 16 "sensitivity 1" recorder
+Node -file ddm15G1.out -time -node 15 -dof 1 -precision 16 "sensitivity
+1" recorder Node -file ddm7G1.out -time -node 7 -dof 1 -precision 16
+"sensitivity 1"</p>
+<p>recorder Node -file ddm29G2.out -time -node 29 -dof 1 -precision 16
+"sensitivity 2" recorder Node -file ddm27G2.out -time -node 27 -dof 1
+-precision 16 "sensitivity 2" recorder Node -file ddm23G2.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 2" recorder Node -file
+ddm21G2.out -time -node 21 -dof 1 -precision 16 "sensitivity 2" recorder
+Node -file ddm15G2.out -time -node 15 -dof 1 -precision 16 "sensitivity
+2" recorder Node -file ddm7G2.out -time -node 7 -dof 1 -precision 16
+"sensitivity 2"</p>
+<p>recorder Node -file ddm29G3.out -time -node 29 -dof 1 -precision 16
+"sensitivity 3" recorder Node -file ddm27G3.out -time -node 27 -dof 1
+-precision 16 "sensitivity 3" recorder Node -file ddm23G3.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 3" recorder Node -file
+ddm21G3.out -time -node 21 -dof 1 -precision 16 "sensitivity 3" recorder
+Node -file ddm15G3.out -time -node 15 -dof 1 -precision 16 "sensitivity
+3" recorder Node -file ddm7G3.out -time -node 7 -dof 1 -precision 16
+"sensitivity 3"</p>
+<p>recorder Node -file ddm29G4.out -time -node 29 -dof 1 -precision 16
+"sensitivity 4" recorder Node -file ddm27G4.out -time -node 27 -dof 1
+-precision 16 "sensitivity 4" recorder Node -file ddm23G4.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 4" recorder Node -file
+ddm21G4.out -time -node 21 -dof 1 -precision 16 "sensitivity 4" recorder
+Node -file ddm15G4.out -time -node 15 -dof 1 -precision 16 "sensitivity
+4" recorder Node -file ddm7G4.out -time -node 7 -dof 1 -precision 16
+"sensitivity 4"</p>
+<p>recorder Node -file ddm29G5.out -time -node 29 -dof 1 -precision 16
+"sensitivity 5" recorder Node -file ddm27G5.out -time -node 27 -dof 1
+-precision 16 "sensitivity 5" recorder Node -file ddm23G5.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 5" recorder Node -file
+ddm21G5.out -time -node 21 -dof 1 -precision 16 "sensitivity 5" recorder
+Node -file ddm15G5.out -time -node 15 -dof 1 -precision 16 "sensitivity
+5" recorder Node -file ddm7G5.out -time -node 7 -dof 1 -precision 16
+"sensitivity 5"</p>
+<p>recorder Node -file ddm29G6.out -time -node 29 -dof 1 -precision 16
+"sensitivity 6" recorder Node -file ddm27G6.out -time -node 27 -dof 1
+-precision 16 "sensitivity 6" recorder Node -file ddm23G6.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 6" recorder Node -file
+ddm21G6.out -time -node 21 -dof 1 -precision 16 "sensitivity 6" recorder
+Node -file ddm15G6.out -time -node 15 -dof 1 -precision 16 "sensitivity
+6" recorder Node -file ddm7G6.out -time -node 7 -dof 1 -precision 16
+"sensitivity 6"</p>
+<ol>
+<li><ol>
+<li></li>
+</ol></li>
+</ol>
+<p>recorder Node -file ddm29t1.out -time -node 29 -dof 1 -precision 16
+"sensitivity 7" recorder Node -file ddm27t1.out -time -node 27 -dof 1
+-precision 16 "sensitivity 7" recorder Node -file ddm23t1.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 7" recorder Node -file
+ddm21t1.out -time -node 21 -dof 1 -precision 16 "sensitivity 7" recorder
+Node -file ddm15t1.out -time -node 15 -dof 1 -precision 16 "sensitivity
+7" recorder Node -file ddm7t1.out -time -node 7 -dof 1 -precision 16
+"sensitivity 7"</p>
+<p>recorder Node -file ddm29t2.out -time -node 29 -dof 1 -precision 16
+"sensitivity 8" recorder Node -file ddm27t2.out -time -node 27 -dof 1
+-precision 16 "sensitivity 8" recorder Node -file ddm23t2.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 8" recorder Node -file
+ddm21t2.out -time -node 21 -dof 1 -precision 16 "sensitivity 8" recorder
+Node -file ddm15t2.out -time -node 15 -dof 1 -precision 16 "sensitivity
+8" recorder Node -file ddm7t2.out -time -node 7 -dof 1 -precision 16
+"sensitivity 8"</p>
+<p>recorder Node -file ddm29t3.out -time -node 29 -dof 1 -precision 16
+"sensitivity 9" recorder Node -file ddm27t3.out -time -node 27 -dof 1
+-precision 16 "sensitivity 9" recorder Node -file ddm23t3.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 9" recorder Node -file
+ddm21t3.out -time -node 21 -dof 1 -precision 16 "sensitivity 9" recorder
+Node -file ddm15t3.out -time -node 15 -dof 1 -precision 16 "sensitivity
+9" recorder Node -file ddm7t3.out -time -node 7 -dof 1 -precision 16
+"sensitivity 9"</p>
+<p>recorder Node -file ddm29t4.out -time -node 29 -dof 1 -precision 16
+"sensitivity 10" recorder Node -file ddm27t4.out -time -node 27 -dof 1
+-precision 16 "sensitivity 10" recorder Node -file ddm23t4.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 10" recorder Node -file
+ddm21t4.out -time -node 21 -dof 1 -precision 16 "sensitivity 10"
+recorder Node -file ddm15t4.out -time -node 15 -dof 1 -precision 16
+"sensitivity 10" recorder Node -file ddm7t4.out -time -node 7 -dof 1
+-precision 16 "sensitivity 10"</p>
+<p>recorder Node -file ddm29t5.out -time -node 29 -dof 1 -precision 16
+"sensitivity 11" recorder Node -file ddm27t5.out -time -node 27 -dof 1
+-precision 16 "sensitivity 11" recorder Node -file ddm23t5.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 11" recorder Node -file
+ddm21t5.out -time -node 21 -dof 1 -precision 16 "sensitivity 11"
+recorder Node -file ddm15t5.out -time -node 15 -dof 1 -precision 16
+"sensitivity 11" recorder Node -file ddm7t5.out -time -node 7 -dof 1
+-precision 16 "sensitivity 11"</p>
+<p>recorder Node -file ddm29t6.out -time -node 29 -dof 1 -precision 16
+"sensitivity 12" recorder Node -file ddm27t6.out -time -node 27 -dof 1
+-precision 16 "sensitivity 12" recorder Node -file ddm23t6.out -time
+-node 23 -dof 1 -precision 16 "sensitivity 12" recorder Node -file
+ddm21t6.out -time -node 21 -dof 1 -precision 16 "sensitivity 12"
+recorder Node -file ddm15t6.out -time -node 15 -dof 1 -precision 16
+"sensitivity 12" recorder Node -file ddm7t6.out -time -node 7 -dof 1
+-precision 16 "sensitivity 12"</p>
+<ol>
+<li><hr /></li>
+</ol>
+<p>recorder Node -file ddm29k1.out -time -node 29 -dof 1 -precision 16
+"sensitivity 13" recorder Node -file ddm29k2.out -time -node 29 -dof 1
+-precision 16 "sensitivity 14" recorder Node -file ddm29k3.out -time
+-node 29 -dof 1 -precision 16 "sensitivity 15" recorder Node -file
+ddm29k4.out -time -node 29 -dof 1 -precision 16 "sensitivity 16"
+recorder Node -file ddm29k5.out -time -node 29 -dof 1 -precision 16
+"sensitivity 17" recorder Node -file ddm29k6.out -time -node 29 -dof 1
+-precision 16 "sensitivity 18"</p>
+<ol>
+<li><hr /></li>
+</ol>
+<p>recorder Element -element 1 -time -file stress1.out material 1 stress
+-dT 0.01 recorder Element -element 1 -time -file strain1.out material 1
+strain -dT 0.01 recorder Element -element 15 -time -file stress15.out
+material 1 stress -dT 0.01 recorder Element -element 15 -time -file
+strain15.out material 1 strain -dT 0.01 recorder Element -element 22
+-time -file stress22.out material 1 stress -dT 0.01 recorder Element
+-element 22 -time -file strain22.out material 1 strain -dT 0.01 recorder
+Element -element 28 -time -file stress28.out material 1 stress -dT 0.01
+recorder Element -element 28 -time -file strain28.out material 1 strain
+-dT 0.01</p>
+<ol>
+<li><hr /></li>
+<li>Soil Gravity Analysis Model Definition</li>
+<li><hr /></li>
+</ol>
+<p>system BandGeneral test NormDispIncr 1.E-12 50 2 constraints
+Transformation integrator LoadControl 1 1 1 1 algorithm Newton numberer
+RCM</p>
+<ol>
+<li>---------------- add sensitivity ---------------------</li>
+</ol>
+<p>analysis Static sensitivityAlgorithm -computeAtEachStep</p>
+<p>analyze 1</p>
+<ol>
+<li><ol>
+<li></li>
+<li></li>
+</ol></li>
+</ol>
+<p>puts "soil gravity nonlinear analysis completed ..."</p>
+<p>wipeAnalysis</p>
+<p>constraints Transformation test NormDispIncr 1.E-12 50 2 algorithm
+Newton numberer RCM system BandGeneral</p>
+<p>integrator Newmark 0.55 0.2756 analysis Transient
+sensitivityAlgorithm -computeAtEachStep</p>
+<p>pattern UniformExcitation 1 1 -accel "Series -factor 1 -filePath
+acce.txt -dt 0.01"</p>
+<p>set startT [clock seconds] analyze 1000 0.01 set endT [clock seconds]
+puts "Execution time: [expr $endT-$startT] seconds."</p>
+<p>
+```
+</p>

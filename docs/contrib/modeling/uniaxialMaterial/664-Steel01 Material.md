@@ -1,12 +1,12 @@
- # Steel01
+# Steel01
 
 <p>This command is used to construct a uniaxial bilinear steel material
 object with kinematic hardening and optional isotropic hardening
 described by a non-linear evolution equation (REF: Fedeas).</p>
 
 ```tcl
-uniaxialMaterial Steel01 $matTag $Fy $E0 $b &lt;$a1 $a2
-        $a3 $a4&gt;
+uniaxialMaterial Steel01 $matTag $Fy $E0 $b
+        < $a1 $a2 $a3 $a4 >
 ```
 <hr />
 <table>

@@ -29,14 +29,14 @@ uniaxialMaterial ReinforcingSteel $matTag $fy $fu $Es $Esh $esh $eult
 <hr />
 <table>
 <tbody>
-<tr class="odd">
-<td></td>
-</tr>
+
 <tr class="even">
-<td><code class="parameter-table-variable">matTag</code></td>
+  <td><code class="parameter-table-variable">matTag</code></td>
+  <td>Material tag.</td>
 </tr>
 <tr class="odd">
-<td><code class="parameter-table-variable">fy</code></td>
+  <td><code class="parameter-table-variable">fy</code></td>
+  <td>yield stress.</td>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">fu</code></td>
@@ -55,10 +55,13 @@ uniaxialMaterial ReinforcingSteel $matTag $fy $fu $Es $Esh $esh $eult
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-GABuck</code></p></td>
+<td>
+<!--
 </tr>
 </tbody>
 </table>
 <p>&lt;blockquote&gt;</p>
+-->
 <table>
 <tbody>
 <tr class="odd">
@@ -82,7 +85,7 @@ r can be a real number between [0.0 and 1.0]
 <dl>
 <dt></dt>
 <dd>
-r=1.0 full reduction (no buckling)
+`r=1.0` full reduction (no buckling)
 </dd>
 </dl>
 <dl>
@@ -105,16 +108,24 @@ curves
 </tr>
 </tbody>
 </table>
+</td>
+</tr>
+
+<!--
 <p>&lt;/blockquote&gt;</p>
 <table>
 <tbody>
+-->
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-DMBuck</code></p></td>
-<td><p>Buckling model based on Dhakal and Maekawa (2002)</p></td>
+<td><p>Buckling model based on Dhakal and Maekawa (2002)</p>
+<!--
+</td>
 </tr>
 </tbody>
 </table>
 <p>&lt;blockquote&gt;</p>
+-->
 <table>
 <tbody>
 <tr class="odd">
@@ -133,16 +144,23 @@ Default: alpha=1.0, this parameter is optional.
 </tr>
 </tbody>
 </table>
+</tr>
+
+<!--
 <p>&lt;/blockquote&gt;</p>
 <table>
 <tbody>
+-->
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-CMFatigue</code></p></td>
-<td><p>Coffin-Manson Fatigue and Strength Reduction</p></td>
+<td><p>Coffin-Manson Fatigue and Strength Reduction</p>
+<!--
+</td>
 </tr>
 </tbody>
 </table>
 <p>&lt;blockquote&gt;</p>
+-->
 <table>
 <tbody>
 <tr class="odd">
@@ -151,7 +169,8 @@ Default: alpha=1.0, this parameter is optional.
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">alpha</code></td>
-<td><p>Coffin-Manson constant a (see Figure 5)</p></td>
+<td><p>Coffin-Manson constant a (see Figure 5)</p>
+</td>
 </tr>
 <tr class="odd">
 <td><p><strong>$C<sub
@@ -161,16 +180,24 @@ class="subscript">d</sub></strong></p></td>
 </tr>
 </tbody>
 </table>
+</td></tr>
+
+<!--
 <p>&lt;/blockquote&gt;</p>
 <table>
 <tbody>
 <tr class="odd">
+-->
 <td><p><code class="parameter-table-flag">-IsoHard</code></p></td>
-<td><p>Isotropic Hardening / Diminishing Yield Plateau</p></td>
+<td><p>Isotropic Hardening / Diminishing Yield Plateau</p>
+<!--
+</td>
 </tr>
 </tbody>
 </table>
 <p>&lt;blockquote&gt;</p>
+-->
+
 <table>
 <tbody>
 <tr class="odd">
@@ -190,16 +217,24 @@ Limit =1.0, then no reduction takes place (default =0.01)
 </tr>
 </tbody>
 </table>
+</td>
+</tr>
+
+<!--
 <p>&lt;/blockquote&gt;</p>
 <table>
 <tbody>
+-->
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-MPCurveParams</code></p></td>
-<td><p>Menegotto and Pinto Curve Parameters see Fig 6b</p></td>
+<td><p>Menegotto and Pinto Curve Parameters see Fig 6b</p>
+<!--
+</td>
 </tr>
 </tbody>
 </table>
 <p>&lt;blockquote&gt;</p>
+-->
 <table>
 <tbody>
 <tr class="odd">
@@ -216,7 +251,13 @@ Limit =1.0, then no reduction takes place (default =0.01)
 </tr>
 </tbody>
 </table>
-<p>&lt;/blockquote&gt;</p>
+</td>
+</tr>
+</tbody>
+</table>
+
+<!-- <p>&lt;/blockquote&gt;</p> -->
+
 <p><strong>NOTE:</strong> This simulation is based on the Chang and
 Mander(1994) uniaxial steel model. The simulation has incorporated
 additional reversal memory locations to better control stress
@@ -236,6 +277,7 @@ alt="ReinfSteel2430.png" />
 <figcaption aria-hidden="true">ReinfSteel2430.png</figcaption>
 </figure>
 <p><em>Figure 1: Material Constants</em></p>
+
 <p><strong>BACKBONE CURVE:</strong> The backbone curve shown in Figure 1
 is used as a bounding surface for the reinforcing bar simulation. This
 backbone curve is shifted as described by Chang and Mander (1994) to
@@ -422,13 +464,13 @@ values of C<sub class="subscript">f</sub> and a are used
 with C<sub class="subscript">d</sub>=0.6. Making the value
 of C<sub class="subscript">d</sub> larger results in less
 strength reduction due to damage. The response on the lower right once
-again returns to the suggested values but C<sub
-class="subscript">f</sub> is changed to 0.15. This results in a
+again returns to the suggested values but C<sub class="subscript">f</sub> is changed to 0.15. This results in a
 more rapid accumulation of damage causing the bar to fail sooner. Note
 however that the strength degradation is unaffected by the more rapid
 accumulation of damage. The strength reduction and failure are not
 interdependent making the model easier to calibrate.</p>
-<p><strong>References</strong></p>
+
+## References
 <ul>
 <li>Chang, G. and Mander, J. (1994). "Seismic Energy Based Fatigue
 Damage Analysis of Bridge Columns: Part I - Evaluation of Seismic

@@ -1,4 +1,4 @@
- # PyLiq1
+# PyLiq1
 
 <p>This command constructs a uniaxial p-y material that incorporates
 liquefaction effects. This p y material is used with a zeroLength

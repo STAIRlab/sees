@@ -17,16 +17,16 @@ patch quad $matTag $numSubdivIJ $numSubdivJK $yI $zI $yJ
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><p><code class="parameter-table-variable">matTag</code></p></td>
 <td><p>tag of previously defined material (UniaxialMaterial tag for a
 FiberSection or NDMaterial tag for use in an NDFiberSection)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$numSubdivIJ</strong></p></td>
+<td><p><code class="parameter-table-variable">numSubdivIJ</code></p></td>
 <td><p>number of subdivisions (fibers) in the IJ direction.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$numSubdivJK</strong></p></td>
+<td><p><code class="parameter-table-variable">numSubdivJK</code></p></td>
 <td><p>number of subdivisions (fibers) in the JK direction.</p></td>
 </tr>
 <tr class="even">
@@ -70,17 +70,17 @@ patch rect $matTag $numSubdivY $numSubdivZ $yI $zI $yJ
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><p><code class="parameter-table-variable">matTag</code></p></td>
 <td><p>tag of previously defined material (UniaxialMaterial tag for a
 FiberSection or NDMaterial tag for use in an NDFiberSection)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$numSubdivY</strong></p></td>
+<td><p><code class="parameter-table-variable">numSubdivY</code></p></td>
 <td><p>number of subdivisions (fibers) in the local y
 direction.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$numSubdivZ</strong></p></td>
+<td><p><code class="parameter-table-variable">numSubdivZ</code></p></td>
 <td><p>number of subdivisions (fibers) in the local z
 direction.</p></td>
 </tr>
@@ -111,17 +111,17 @@ patch circ $matTag $numSubdivCirc $numSubdivRad $yCenter
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$matTag</strong></p></td>
+<td><p><code class="parameter-table-variable">matTag</code></p></td>
 <td><p>tag of previously defined material (UniaxialMaterial tag for a
 FiberSection or NDMaterial tag for use in an NDFiberSection)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$numSubdivCirc</strong></p></td>
+<td><p><code class="parameter-table-variable">numSubdivCirc</code></p></td>
 <td><p>number of subdivisions (fibers) in the circumferential direction
 (number of wedges)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$numSubdivRad</strong></p></td>
+<td><p><code class="parameter-table-variable">numSubdivRad</code></p></td>
 <td><p>number of subdivisions (fibers) in the radial direction (number
 of rings)</p></td>
 </tr>
@@ -130,19 +130,19 @@ of rings)</p></td>
 <td><p>y &amp; z-coordinates of the center of the circle</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$intRad</strong></p></td>
+<td><p><code class="parameter-table-variable">intRad</code></p></td>
 <td><p>internal radius</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$extRad</strong></p></td>
+<td><p><code class="parameter-table-variable">extRad</code></p></td>
 <td><p>external radius</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$startAng</strong></p></td>
+<td><p><code class="parameter-table-variable">startAng</code></p></td>
 <td><p>starting angle</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$endAng</strong></p></td>
+<td><p><code class="parameter-table-variable">endAng</code></p></td>
 <td><p>ending angle</p></td>
 </tr>
 </tbody>
@@ -154,7 +154,9 @@ of rings)</p></td>
 <hr />
 <p>NOTES:</p>
 <hr />
-<p>EXAMPLE:</p>
+
+## Examples
+
 <p>patch circ $coreMatTag 8 8 0.0 0.0 0.0 $h; # define solid circular
 section with 64 fibers with radius $h using $coreMatTag material</p>
 <p>patch quad $coreMatTag 8 8 -$b -$h $b -$h $b $h -$b $h; # define core

@@ -1,0 +1,130 @@
+# ShallowFoundationGen
+
+<p>ShallowFoundationGen command generates (i) the node numbers and
+corresponding coordinates for foundation and spring elements, (ii)
+material type and properties of each created element, and (iii) nodal
+fixity required to define a two-dimensional
+Beam-on-Nonlinear-Winkler-Foundation (BNWF) model.</p>
+
+```tcl
+ShallowFoundationGen $FoundationTag $ConnectNode
+        $InputFileName $FootingCondition
+```
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><code class="parameter-table-variable">foundationTag</code></p></td>
+<td><p>integer tag of foundation node</p></td>
+</tr>
+<tr class="even">
+<td><p><code class="parameter-table-variable">connectNode</code></p></td>
+<td><p>integer tag of connection node</p></td>
+</tr>
+<tr class="odd">
+<td><p><code class="parameter-table-variable">inputFileName</code></p></td>
+<td><p>name of file containing soil, footing, and mesh properties (see
+below).</p></td>
+</tr>
+<tr class="even">
+<td><p><code class="parameter-table-variable">footingCondition</code></p></td>
+<td><p>integer code for footing condition (see below).</p></td>
+</tr>
+</tbody>
+</table>
+<p>NOTE:</p>
+<ol>
+<li>that QzSimple2, PxSimple1 and TxSimple1 materials (Raychowdhury
+2008) are modified versions of QzSimple1, PySimple1 and TzSimple1
+materials introduced by Boulanger (2000).</li>
+<li>An intermediate file containing the mesh details will be generated
+and will be named as per the FoundationTag specified. For example, if a
+structure has three shallow foundations, and the foundations are
+numbered as 1, 2 and 3, then the FoundationTags for those three
+foundations would be 1, 2 and 3, respectively, and the OpenSees
+generated intermediate output files will automatically be named as
+"Foundation_1.tcl", "Foundation_2.tcl" and "Foundation_3.tcl",
+respectively.</li>
+<li>the code assumes that the structure is supported at the center of a
+symmetric footing. For example, if the user specifies the ConnectNode to
+be 1, node 1 of the structure will be connected to the mid node of the
+shallow foundation, and the degrees of freedom of these two nodes will
+be the same (i.e. same generalized displacements for these two
+nodes).</li>
+<li>The uncommented lines (lines that are not starting with #) of this
+file should be in the following sequence:</li>
+</ol>
+<ul>
+<li><ul>
+<li>SoilProp $SoilType $c $phi $gamma $G $nu $crad $TP</li>
+<li>FootProp $Lf $Bf $Hf $Df $Ef $Wg $beta</li>
+<li>MeshProp $Rk $Re $Se</li>
+</ul></li>
+</ul>
+<p>where SoilType implies type of soil (i.e., sand or clay). SoilType =
+1 represents clay and SoilType = 2 represents sand. Intermediate soil
+types (such as silt) have to be represented by either sand or clay
+depending upon their relative dominance; c =Cohesion, phi = Friction
+angle (in degree), gamma = Unit weight, G = Shear modulus, nu =
+Poisson's ratio, crad = Radiation damping (in fraction), TP = Tension
+capacity (in fraction of bearing capacity, maximum value is 0.1), Lf =
+Length of footing, Bf = Width of footing, Hf = Height of footing, Df =
+Depth of embedment, Ef = Young's modulus for footing material, beta
+=Inclination of the load on the foundation with respect to vertical
+direction, (in degree), Rk = Stiffness intensity ratio of vertical
+springs (kend/kmid), Re = End length ratio (Lend/Lf ) and Se = vertical
+spring spacing as a fraction of total footing length (le/Lf ).</p>
+<p>If user wants to input the foundation strength and stiffness directly
+instead of allowing the command to calculate those, first command line
+can be replaced with the following alternate command line:</p>
+<ul>
+<li><ul>
+<li>CapSoil $Qult $Pult $Tult $Kv $Kh</li>
+</ul></li>
+</ul>
+<p>where, Qult = Vertical bearing capacity, Pult = Passive resistance
+capacity, Tult = Sliding resistance capacity, Kv = Vertical stiffness of
+footing and Kh = Lateral stiffness of footing.</p>
+<ol>
+<li>Footings with different base conditions will be generated as
+follows:</li>
+</ol>
+<table>
+<tbody>
+<tr class="odd">
+<td><p>$FootingCondition = 1</p></td>
+<td><p>Foundation is fixed</p></td>
+</tr>
+<tr class="even">
+<td><p>$FootingCondition = 2</p></td>
+<td><p>ZeroLength Elastic springs in the vertical direction, sliding
+restrained |-|</p></td>
+</tr>
+<tr class="odd">
+<td><p>$FootingCondition = 4</p></td>
+<td><p>ZeroLength springs with QzSimple2 material in the vertical
+direction, sliding restrained</p></td>
+</tr>
+<tr class="even">
+<td><p>$FootingCondition = 5</p></td>
+<td><p>ZeroLength springs with QzSimple2 material in the vertical
+direction, two ZeroLength springs one with PxSimple1 material and the
+other with TxSimple1 material in the horizontal direction</p></td>
+</tr>
+</tbody>
+</table>
+<p>DISCUSSION AND EXAMPLES:</p>
+<p>For discussion and examples can be found <embed
+src="ShallowDocumentation.pdf" title="ShallowDocumentation.pdf" /></p>
+<figure>
+<img src="ShallowMeshGenExample1.jpg" title="ShallowMeshGenExample1.jpg"
+alt="ShallowMeshGenExample1.jpg" />
+<figcaption aria-hidden="true">ShallowMeshGenExample1.jpg</figcaption>
+</figure>
+<p>REFERENCES:</p>
+<p>Raychowdhury, P. (2008). "Nonlinear Winkler-based Shallow Foundation
+Model for Performance Assessment of Seismically Loaded Structures". PhD
+Dissertation, University of California, San Diego.</p>
+<hr />
+<p>Code Developed by: <span style="color:blue"> fmk
+</span></p>

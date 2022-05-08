@@ -1,0 +1,56 @@
+# Plain GroundMotion
+
+<p>This command is used to construct a plain GroundMotion object. Each
+GroundMotion object is associated with a number of TimeSeries objects,
+which define the acceleration, velocity and displacement records for
+that ground motion. The command is as follows:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>groundMotion $gmTag Plain &lt;-accel $tsTag&gt; &lt;-vel
+$tsTag&gt; &lt;-disp $tsTag&gt; &lt;-int (IntegratorType intArgs)&gt;
+&lt;-fact $cFactor&gt;</strong></p></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>where</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><p><code class="parameter-table-variable">gmTag</code></p></td>
+<td><p>unique tag among ground motions in load pattern</p></td>
+</tr>
+<tr class="even">
+<td><p><code class="parameter-table-variable">tsTag</code></p></td>
+<td><p>tag of TimeSeries object created using <a
+href="Time_Series_Command" title="wikilink"> timeSeries</a>
+command.</p></td>
+</tr>
+<tr class="odd">
+<td><p><strong>integratorType ...</strong></p></td>
+<td><p>Trapezoidal or Simpson numerical integration method (optional,
+default=Trapezoidal). See NOTES below.</p></td>
+</tr>
+<tr class="even">
+<td><p><code class="parameter-table-variable">cFactor</code></p></td>
+<td><p>constant factor (optional, default=1.0)</p></td>
+</tr>
+</tbody>
+</table>
+<p>NOTES:</p>
+<ol>
+<li>The displacements are the ones used in the ImposedMotions to set
+nodal response.</li>
+<li>If only the acceleration TimeSeries is provided, numerical
+integration will be used to determine the velocities and
+displacements.</li>
+<li>For earthquake excitations it is important that the user provide the
+displacement time history, as the one generated using the trapezoidal
+method will not provide good results.</li>
+<li>Any combination of the acceleration, velocity and displacement
+time-series can be specified.</li>
+</ol>
+<hr />
+<p>Code Developed by: <span style="color:blue"> fmk
+</span></p>

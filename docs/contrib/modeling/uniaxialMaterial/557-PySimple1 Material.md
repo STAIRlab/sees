@@ -1,4 +1,4 @@
- # PySimple1
+# PySimple1
 
 <p>This command is used to construct a PySimple1 uniaxial material
 object:</p>

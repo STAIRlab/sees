@@ -1,4 +1,8 @@
-# UVCuniaxial (Updated Voce-Chaboche)
+---
+description: Uniaxial updated Voce-Chaboche material
+...
+
+# UVCuniaxial 
 
 <p>This command is used to construct an Updated Voce-Chaboche (UVC)
 material for uniaxial stress states (e.g., beam elements). This material

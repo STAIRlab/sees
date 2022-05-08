@@ -65,7 +65,6 @@ class uniaxial:
             Num("G",    field="shear_modulus",    reqd=False),
         ]
     )
-
     ElasticPP = Uni("ElasticPP", "ElasticPP",
         # uniaxialMaterial ElasticPP $matTag $E $epsyP <$epsyN $eps0>
         about="This command is used to construct an elastic perfectly-plastic uniaxial material object.",
@@ -75,6 +74,11 @@ class uniaxial:
             Num("epsyP",  about="strain or deformation at which material reaches plastic state in tension"),
             Num("epsyN", reqd=False, about="strain or deformation at which material reaches plastic state in compression. (optional, default is tension value)"),
             Num("eps0",  reqd=False, about="initial strain (optional, default: zero)")
+    ])
+
+    RambergOsgoodSteel = Uni("RambergOsgoodSteel", "RambergOsgoodSteel", args=[
+        Tag(), Yng(), Num("fy", about="yield strength"), Num("a", about="yield offset parameter"),
+        Num("n", about="")
     ])
 
     Steel02 = Uni("Steel02",
@@ -108,6 +112,72 @@ class uniaxial:
         ],
     )
 
+    ConfinedConcrete01  = Uni("ConfinedConcrete01", "ConfinedConcrete01", args=[
+         Tag(),
+         Str("secType", enum={
+             'S1' : "square section with S1 type of transverse reinforcement with or without external FRP wrapping",
+             'S2' : "square section with S2 type of transverse reinforcement with or without external FRP wrapping",
+             'S3' : "square section with S3 type of transverse reinforcement with or without external FRP wrapping",
+             'S4a': "square section with S4a type of transverse reinforcement with or without external FRP wrapping",
+             'S4b': "square section with S4b type of transverse reinforcement with or without external FRP wrapping",
+             'S5' : "square section with S5 type of transverse reinforcement with or without external FRP wrapping",
+             'C'  : "circular section with or without external FRP wrapping",
+             'R'  : "rectangular section with or without external FRP wrapping."
+         }),
+         Num("fpc"),
+         Yng(),
+         Alt("eps_ult", [
+               Num("epscu", flag="-epscu", about="confined concrete ultimate strain"),
+               Num("gamma", flag="-gamma", 
+                     about="the ratio of the strength corresponding to "\
+                         "ultimate strain to the peak strength of the "\
+                         "confined concrete stress-strain curve. "\
+                         "If gamma cannot be achieved in the range "\
+                         "`[0, epscuLimit]` then epscuLimit "\
+                         "(optional, default: 0.05) will be assumed as ultimate strain.")
+            ]
+          ),
+          Alt("poisson", [
+                Num("nu",      flag="-nu"),
+                Flg("varub",   flag="-varub"),
+                Flg("varnoub", flag="-varnoub"),
+            ]
+          ),
+          Num("L1",
+              about="length/diameter of square/circular core section measured respect to the hoop center line."),
+          Num("L2",  reqd=False,  about="additional dimensions when multiple hoops are being used."),
+          Num("L3",  reqd=False,  about="additional dimensions when multiple hoops are being used."),
+          Num("phis",    
+              about="hoop diameter. If section arrangement has multiple hoops it refers to the external hoop."),
+          Num("S",       about="hoop spacing."),
+          Num("fyh",     about="yielding strength of the hoop steel."),
+          Num("Es0",     about="elastic modulus of the hoop steel."),
+          Num("haRatio", about="hardening ratio of the hoop steel."),
+          Num("mu",      about="ductility factor of the hoop steel."),
+          Num("phiLon",  about="diameter of longitudinal bars."),
+          Grp("internals", flag="-internal", reqd=False,
+              about="optional parameters for defining the internal transverse reinforcement."\
+                    "If they are not specified they will be assumed equal to the external ones "\
+                    "(for S2, S3, S4a, S4b and S5 typed).",
+              args = [
+                  Num("phisi"), Num("Si"), Num("fyhi"), Num("Es0i"), Num("haRatioi"), Num("mui"),
+              ]
+          ),
+          Grp("wrap", flag="-wrap", reqd=False, args=[
+              Num("cover", about="cover thickness measured from the outer line of hoop."),
+              Num("Am",    about="total area of FRP wraps (number of layers x wrap thickness x wrap width)."),
+              Num("Sw",    about="spacing of FRP wraps (if continuous wraps are used the spacing is equal to the wrap width)."),
+              Num("ful",   about="ultimate strength of FRP wraps."),
+              Num("Es0w",  about="elastic modulus of FRP wraps."),
+          ]),
+          Flg("gravel", reqd=False),
+          Flg("silica", reqd=False),
+          Num("tol"       , flag="-tol",         reqd=False),
+          Num("maxNumIter", flag="-maxNumIter",  reqd=False),
+          Num("epscuLimit", flag="-epscuLimit",  reqd=False),
+          Num("stRatio"   , flag="-stRatio",     reqd=False),
+    ])
+
     Concrete02 = Uni("Concrete02",
         "Concrete02",
         args=[
@@ -119,7 +189,7 @@ class uniaxial:
           Num("lamda", about="ratio between unloading slope at `epscu` and initial slope"),
           Num("ft",    about="tensile strength"),
           Num("Ets",   about="tension softening stiffness (absolute value) " +
-                           "(slope of the linear tension softening branch)"),
+                             "(slope of the linear tension softening branch)"),
         ],
         about="""This command is used to construct a uniaxial Kent-Scott-Park
             concrete material object with degraded linear unloading/reloading

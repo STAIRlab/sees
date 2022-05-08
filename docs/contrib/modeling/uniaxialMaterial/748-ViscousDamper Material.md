@@ -1,4 +1,4 @@
- # ViscousDamper
+# ViscousDamper
 
 <p>This command is used to construct a ViscousDamper material, which
 represents the <a

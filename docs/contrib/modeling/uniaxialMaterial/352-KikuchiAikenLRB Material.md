@@ -1,4 +1,4 @@
- # KikuchiAikenLRB
+# KikuchiAikenLRB
 
 <p>This command is used to construct a uniaxial KikuchiAikenLRB material
 object. This material model produces nonlinear hysteretic curves of
@@ -56,18 +56,18 @@ N/m^2]</strong></p></td>
 </tr>
 <tr class="odd">
 <td><p><strong>$rk $rq</strong></p></td>
-<td><p>reduction rate for yielding stiffness (<strong>$rk</strong>) and
-force at zero displacement (<strong>$rq</strong>)</p></td>
+<td><p>reduction rate for yielding stiffness (<code class="tcl-variable">rk</code>) and
+force at zero displacement (<code class="tcl-variable">rq</code>)</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>$rs $rf</strong></p></td>
-<td><p>reduction rate for stiffness (<strong>$rs</strong>) and force
-(<strong>$rf</strong>) (see note 3)</p></td>
+<td><p>reduction rate for stiffness (<code class="tcl-variable">rs</code>) and force
+(<code class="tcl-variable">rf</code>) (see note 3)</p></td>
 </tr>
 </tbody>
 </table>
 <p>NOTES:</p>
-<p>1) Following rubber types for <strong>$type</strong> are
+<p>1) Following rubber types for <code class="tcl-variable">type</code> are
 available:</p>
 <table>
 <tbody>
@@ -81,10 +81,10 @@ available:</p>
 <p>2) This material uses SI unit in calculation formula. Input arguments
 must be converted into <strong>[m]</strong>, <strong>[m^2]</strong>,
 <strong>[N/m^2]</strong>.</p>
-<p>3) <strong>$rs</strong> and <strong>$rf</strong> are available if
+<p>3) <code class="tcl-variable">rs</code> and <code class="tcl-variable">rf</code> are available if
 this material is applied to multipleShearSpring (MSS) element.
-Recommended values are <strong>$rs</strong>=1/sum(i=0,n-1){
-sin(pi*i/n)^2} and <strong>$rf</strong>=1/sum(i=0,n-1){sin(pi*i/n)},
+Recommended values are <code class="tcl-variable">rs</code>=1/sum(i=0,n-1){
+sin(pi*i/n)^2} and <code class="tcl-variable">rf</code>=1/sum(i=0,n-1){sin(pi*i/n)},
 where n is the number of springs in the MSS. For example, when n=8,
 $rs=0.2500 and $rf=0.1989.</p>
 <hr />

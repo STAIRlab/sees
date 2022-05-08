@@ -1,54 +1,16 @@
-# MVLEM - Multiple-Vertical-Line-Element-Model for RC Walls
+---
+description: Multiple-Vertical-Line-Element-Model for RC Walls
+...
 
-<p><strong>Developed and Implemented by:</strong></p>
-<p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>
-<span style="color:black"></a>, California State University, Fullerton</p>
-<p><span style="color:blue"> Kutay Orakcal&lt;span
-style="color:black"&gt;, Bogazici University, Istanbul, Turkey</p>
-<p><span style="color:blue"> John Wallace&lt;span
-style="color:black"&gt;, Univeristy of California, Los Angeles</p>
-<p>The <strong>MVLEM</strong> element command is used to generate a
-two-dimensional Multiple-Vertical-Line-Element-Model (MVLEM; Vulcano et
-al., 1988; Orakcal et al., 2004, Kolozvari et al., 2015) for simulation
-of flexure-dominated RC wall behavior. A single model element
-incorporates six global degrees of freedom, three of each located at the
-center of rigid top and bottom beams, as illustrated in Figure 1a. The
-axial/flexural response of the <strong>MVLEM</strong> is simulated by a
-series of uniaxial elements (or macro-fibers) connected to the rigid
-beams at the top and bottom (e.g., floor) levels, whereas the shear
-response is described by a shear spring located at height <em>ch</em>
-from the bottom of the wall element (Figure 1a). Shear and flexural
-responses of the model element are uncoupled. The relative rotation
-between top and bottom faces of the wall element occurs about the point
-located on the central axis of the element at height <em>ch</em> (Figure
-1b). Rotations and resulting transverse displacements are calculated
-based on the wall curvature, derived from section and material
-properties, corresponding to the bending moment at height <em>ch</em> of
-each element (Figure 1b). A value of <em>c</em>=0.4 was recommended by
-Vulcano et al. (1988) based on comparison of the model response with
-experimental results.</p>
-<p><strong>Source:</strong>
-/usr/local/cvs/OpenSees/SRC/element/MVLEM/</p>
-<figure>
-<img src="/OpenSeesRT/contrib/static/MVLEM.JPG"
-title="Figure 1. a) MVLEM Element, b) MVLEM Rotations and Displacements"
-width="700"
-alt="Figure 1. a) MVLEM Element, b) MVLEM Rotations and Displacements" />
-<figcaption aria-hidden="true">Figure 1. a) MVLEM Element, b) MVLEM
-Rotations and Displacements</figcaption>
-</figure>
-<hr />
-<p><strong>Input Format:</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Element MVLEM $eleTag $Dens $iNode $jNode $m $c -thick
-{Thicknesses} -width {Widths} -rho {Reinforcing_ratios} -matConcrete
-{Concrete_tags} -matSteel {Steel_tags} -matShear
-{Shear_tag}</strong></p></td>
-</tr>
-</tbody>
-</table>
+# MVLEM 
+
+```tcl
+element MVLEM $eleTag $Dens $iNode $jNode $m $c -thick {Thicknesses} \
+    -width {Widths} -rho {Reinforcing_ratios} \
+    -matConcrete {Concrete_tags} -matSteel {Steel_tags} \
+    -matShear {Shear_tag}
+```
+
 <table>
 <tbody>
 <tr class="odd">
@@ -139,17 +101,67 @@ cross-section</p></td>
 </tr>
 </tbody>
 </table>
+
+<p><strong>Developed and Implemented by:</strong></p>
+<p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>
+<span style="color:black"></a>, California State University, Fullerton</p>
+<p><span style="color:blue"> Kutay Orakcal&lt;span
+style="color:black"&gt;, Bogazici University, Istanbul, Turkey</p>
+<p><span style="color:blue"> John Wallace&lt;span
+style="color:black"&gt;, Univeristy of California, Los Angeles</p>
+<p>The <strong>MVLEM</strong> element command is used to generate a
+two-dimensional Multiple-Vertical-Line-Element-Model (MVLEM; Vulcano et
+al., 1988; Orakcal et al., 2004, Kolozvari et al., 2015) for simulation
+of flexure-dominated RC wall behavior. A single model element
+incorporates six global degrees of freedom, three of each located at the
+center of rigid top and bottom beams, as illustrated in Figure 1a. The
+axial/flexural response of the <strong>MVLEM</strong> is simulated by a
+series of uniaxial elements (or macro-fibers) connected to the rigid
+beams at the top and bottom (e.g., floor) levels, whereas the shear
+response is described by a shear spring located at height <em>ch</em>
+from the bottom of the wall element (Figure 1a). Shear and flexural
+responses of the model element are uncoupled. The relative rotation
+between top and bottom faces of the wall element occurs about the point
+located on the central axis of the element at height <em>ch</em> (Figure
+1b). Rotations and resulting transverse displacements are calculated
+based on the wall curvature, derived from section and material
+properties, corresponding to the bending moment at height <em>ch</em> of
+each element (Figure 1b). A value of <em>c</em>=0.4 was recommended by
+Vulcano et al. (1988) based on comparison of the model response with
+experimental results.</p>
+
+<p><strong>Source:</strong>
+/usr/local/cvs/OpenSees/SRC/element/MVLEM/</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/MVLEM.JPG"
+title="Figure 1. a) MVLEM Element, b) MVLEM Rotations and Displacements"
+width="700"
+alt="Figure 1. a) MVLEM Element, b) MVLEM Rotations and Displacements" />
+<figcaption aria-hidden="true">Figure 1. a) MVLEM Element, b) MVLEM
+Rotations and Displacements</figcaption>
+</figure>
 <hr />
-<p><strong>Examples:</strong></p>
-<p>Element MVLEM 1 0.0 1 2 8 0.4 -thick 4 4 4 4 4 4 4 4 -width 7.5 1.5
-7.5 7.5 7.5 7.5 1.5 7.5 -rho 0.0293 0.0 0.0033 0.0033</p>
-<p>0.0033 0.0033 0.0 0.0293 -matConcrete 3 4 4 4 4 4 4 3 -matSteel 1 2 2
-2 2 2 2 1 -matShear 5</p>
-<p>Recorder Element -file MVLEM_Fgl.out -time -ele 1 globalForce</p>
-<p>Recorder Element -file MVLEM_FiberStrain.out -time -ele 1
-Fiber_Strain</p>
+
+<p><strong>Input Format:</strong></p>
+
 <hr />
-<p><strong>References:</strong></p>
+
+## Examples
+
+```tcl
+Element MVLEM 1 0.0 1 2 8 0.4 -thick 4 4 4 4 4 4 4 4 \
+    -width 7.5 1.5 7.5 7.5 7.5 7.5 1.5 7.5 \
+    -rho 0.0293 0.0 0.0033 0.0033 0.0033 0.0033 0.0 0.0293 \
+    -matConcrete 3 4 4 4 4 4 4 3 -matSteel 1 2 2 2 2 2 2 1 \
+    -matShear 5
+Recorder Element -file MVLEM_Fgl.out -time -ele 1 globalForce
+Recorder Element -file MVLEM_FiberStrain.out -time -ele 1 Fiber_Strain
+```
+
+---------------------------
+
+## References
+
 <p>1) Kolozvari K., Orakcal K., and Wallace J. W. (2015). "Shear-Flexure
 Interaction Modeling of reinforced Concrete Structural Walls and Columns
 under Reversed Cyclic Loading", Pacific Earthquake Engineering Research

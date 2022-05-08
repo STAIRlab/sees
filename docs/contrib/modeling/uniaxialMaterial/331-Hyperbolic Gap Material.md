@@ -1,4 +1,4 @@
-# Hyperbolic Gap Material
+# HyperbolicGapMaterial
 
 <p>This command is used to construct a hyperbolic gap material
 object.</p>
@@ -39,7 +39,7 @@ uniaxialMaterial HyperbolicGapMaterial $matTag $Kmax $Kur
 <p>NOTES:</p>
 <ul>
 <li>This material is implemented as a compression-only gap material.
-<strong>$Fult</strong> and <strong>$gap</strong> should be input as
+<code class="tcl-variable">Fult</code> and <code class="tcl-variable">gap</code> should be input as
 negative values.</li>
 <li>Recomended Values:</li>
 </ul>

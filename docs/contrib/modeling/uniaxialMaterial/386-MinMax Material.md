@@ -1,4 +1,4 @@
- # MinMax
+# MinMax
 
 <p>This command is used to construct a MinMax material object. This
 stress-strain behaviour for this material is provided by another

@@ -1,4 +1,4 @@
- # MultiLinear
+# MultiLinear
 
 <p>This command is used to construct a uniaxial multilinear material
 object.</p>

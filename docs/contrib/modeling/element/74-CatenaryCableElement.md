@@ -67,9 +67,9 @@ An iterative scheme is used internally to compute equilibrium. At each
 iteration, node i is considered fixed while node j is free. End-forces
 are applied at node-j and its displacements computed. Corrections to
 these forces are applied iteratively using a Newton-Rhapson scheme (with
-optional sub-stepping via <strong>$Nsubsteps</strong>) until nodal
+optional sub-stepping via <code class="tcl-variable">Nsubsteps</code>) until nodal
 displacements are within the provided tolerance
-(<strong>$errortol</strong>). When convergence is reached, a stiffness
+(<code class="tcl-variable">errortol</code>). When convergence is reached, a stiffness
 matrix is computed by inversion of the flexibility matrix and rigid-body
 mode injection.</p>
 <p>Notes:</p>

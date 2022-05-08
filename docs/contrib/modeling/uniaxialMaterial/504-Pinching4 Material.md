@@ -1,4 +1,4 @@
- # Pinching4
+# Pinching4
 
 <p>This command is used to construct a uniaxial material that represents
 a 'pinched' load-deformation response and exhibits degradation under
