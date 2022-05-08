@@ -1,6 +1,8 @@
 #!/bin/env python
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.collections
+from math import sqrt
 
 def show(): plt.show()
 
@@ -19,7 +21,6 @@ class MplPlotter:
         self.ax = ax
         self.kwds = kwds
     def get_section_layers(self, section, **kwds):
-        import matplotlib.collections
         import matplotlib.lines as lines
         for layer in section.layers:
             if hasattr(layer, "plot_opts"):
@@ -36,7 +37,6 @@ class MplPlotter:
         might be a solution:
         https://docs.bokeh.org/en/latest/docs/reference/models/glyphs/arc.html
         """
-        import matplotlib.collections
         import matplotlib.patches as mplp
         collection = []
         for patch in section.patches:
@@ -65,6 +65,7 @@ class MplPlotter:
         section,
         show_properties=False,
         plain=True,
+        true_fibers=False,
         set_limits=False,
         show = None,
         show_dims=True,
@@ -128,16 +129,29 @@ class MplPlotter:
                 ax.add_line(l)
 
         if "fiber" in show: 
-            try:
+            if true_fibers:
+                circles = [
+                    plt.Circle(f.coord, radius=sqrt(f.area/np.pi), linewidth=0) 
+                        for layer in section.layers for f in layer.fibers
+                ] + [
+                    plt.Circle(f.coord, radius=sqrt(f.area/np.pi), linewidth=0) 
+                        for patch in section.patches for f in patch.fibers
+                ]
+                c = matplotlib.collections.PatchCollection(circles)
+                ax.add_collection(c)
+            else:
+                # TODO: clean this up
                 ax.scatter(*zip(*(f.coord for patch in section.patches for f in patch.fibers)), s=0.1)
-            except:
-                pass
+                try:
+                    ax.scatter(*zip(*(f.coord for patch in section.patches for f in patch.fibers)), s=0.1)
+                except Exception as e:
+                    print(e)
 
-            try:
-                coords, areas = zip(*((f.coord, 20*f.area) for layer in section.layers for f in layer.fibers))
-                ax.scatter(*zip(*coords), s=areas, color="k")
-            except:
-                pass
+                try:
+                    coords, areas = zip(*((f.coord, 20*f.area) for layer in section.layers for f in layer.fibers))
+                    ax.scatter(*zip(*coords), s=areas, color="k")
+                except Exception as e:
+                    print(e)
         # show centroid
         #ax.scatter(*section.centroid)
         # show origin

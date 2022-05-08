@@ -65,6 +65,16 @@ class uniaxial:
             Num("G",    field="shear_modulus",    reqd=False),
         ]
     )
+
+    Hardening = Uni("HardeningMaterial", "Hardening", args=[
+        Tag(),
+        Yng(),
+        Num("sigmaY", about="yield stress or force"),
+        Num("H_iso", about="isotropic hardening Modulus"),
+        Num("H_kin", about="kinematic hardening Modulus"),
+        Num("eta",   reqd=False, about="visco-plastic coefficient (optional, default=0.0)"),
+    ])
+
     ElasticPP = Uni("ElasticPP", "ElasticPP",
         # uniaxialMaterial ElasticPP $matTag $E $epsyP <$epsyN $eps0>
         about="This command is used to construct an elastic perfectly-plastic uniaxial material object.",
