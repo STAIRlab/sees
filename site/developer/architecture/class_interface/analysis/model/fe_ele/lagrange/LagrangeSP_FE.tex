@@ -18,9 +18,10 @@ FE\_Element
 \indent LagrangeSP\_FE is a subclass of FE\_Element used to enforce a
 single point constraint. It does this by adding to the tangent and the
 residual:
-\[ \left[ \begin{array}{cc} 0 & \alpha \\ \alpha & 0 \end{array}
+$$ \left[ \begin{array}{cc} 0 & \alpha \\ \alpha & 0 \end{array}
 \right] ,
-\left\{ \begin{array}{c} 0 \\ \alpha(u_s - u_t) \end{array} \right\} \]
+\left\{ \begin{array}{c} 0 \\ \alpha(u_s - u_t) \end{array} \right\} $$
+
 \noindent at the locations
 corresponding to the constrained degree-of-freedom specified by the
 SP\_Constraint and the lagrange multiplier degree-of-freedom
@@ -89,7 +90,8 @@ Returns the tangent Matrix created in the constructor. \\
 {\em virtual const Vector \&getResidual(Integrator *theIntegrator);} 
 
 Sets the FE\_Elements contribution to the residual:
-\[ \left\{ \begin{array}{c} 0 \\ \alpha(u_s - u_t) \end{array} \right\} \]
+$$ \left\{ \begin{array}{c} 0 \\ \alpha(u_s - u_t) \end{array} \right\} $$
+
 where $U_s$ is the specified value of the
 constraint and $U_t$ the current trial displacement at the node
 corresponding to constrained degree-of-freedom. Prints a warning
@@ -100,7 +102,8 @@ degree-of-freedom is invalid. Returns this residual Vector.\\
 {\em virtual const Vector \&getTangForce(const Vector \&disp, double
 fact = 1.0);    }\\
 Sets the FE\_Elements contribution to the residual:
-\[ \left\{ \begin{array}{c} 0 \\ \alpha(u_s - u_t) \end{array} \right\} \]
+$$ \left\{ \begin{array}{c} 0 \\ \alpha(u_s - u_t) \end{array} \right\} $$
+
 where $U_s$ is the specified value of the
 constraint and $U_t$ the current trial displacement in {\em disp}
 corresponding to constrained degree-of-freedom. Prints a warning

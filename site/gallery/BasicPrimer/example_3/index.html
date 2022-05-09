@@ -13228,11 +13228,11 @@ Removal During Simulation
 <h1 id="portal-frame-examples">Portal Frame Examples</h1>
 <p>This next set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model. In addition, Tcl language features such as variable and command substitution, expression evaluation, the if-then-else control structure, and procedures are demonstrated in several elaborations of the example.</p>
 <h2 id="example-3.1---gravity-analysis">Example 3.1 - Gravity Analysis</h2>
-<p>This example is of a reinforced concrete portal frame, as shown in figure <a href="#example3" data-reference-type="ref" data-reference="example3">[example3]</a>, subject to gravity loads.</p>
+<p>This example is of a reinforced concrete portal frame, as shown in figure <a href="#example3" data-reference-type="ref" data-reference="example3">[example3$$</a>, subject to gravity loads.</p>
 <ol type="1">
 <li><code>Example3.1.tcl</code></li>
 </ol>
-<p>A nonlinear model of the portal frame shown in figure <a href="#example3" data-reference-type="ref" data-reference="example3">[example3]</a> is created. The model consists of four nodes, two nonlinear beam-column elements, 1 and 2, to model the columns and an elastic beam element, 3, to model the beam. For the column elements a section, identical to the section used in Example 2, is created using steel and concrete fibers.</p>
+<p>A nonlinear model of the portal frame shown in figure <a href="#example3" data-reference-type="ref" data-reference="example3">[example3$$</a> is created. The model consists of four nodes, two nonlinear beam-column elements, 1 and 2, to model the columns and an elastic beam element, 3, to model the beam. For the column elements a section, identical to the section used in Example 2, is created using steel and concrete fibers.</p>
 <div class="center">
 <figure>
 <img src="../fig_files/Example2.svg" id="fig:example3" alt="Example 3.1" /><figcaption aria-hidden="true">Example 3.1</figcaption>
@@ -13564,7 +13564,7 @@ Removal During Simulation
 <span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>            Coordinates  : <span class="dv">0</span> <span class="dv">144</span> </span>
 <span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>            commitDisps: <span class="dv">6</span> <span class="fl">0.488625</span><span class="ot"> -0</span><span class="fl">.00851377</span> </span>
 <span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>            unbalanced Load: <span class="fl">71.8819</span><span class="ot"> -180</span> <span class="dv">0</span> </span></code></pre></div>
-<p>In addition to what is displayed on the screen, the file node32.out and ele32.out have been created by the script. Each line of node32.out contains the time, DX, DY and RZ for node 3 and DX, DY and RZ for node 4 at the end of an iteration. Each line of eleForce.out contains the time, and the element end forces in the local coordinate system. A plot of the load-displacement relationship at node 3 is shown in figure <a href="#lateral32" data-reference-type="ref" data-reference="lateral32">[lateral32]</a>.</p>
+<p>In addition to what is displayed on the screen, the file node32.out and ele32.out have been created by the script. Each line of node32.out contains the time, DX, DY and RZ for node 3 and DX, DY and RZ for node 4 at the end of an iteration. Each line of eleForce.out contains the time, and the element end forces in the local coordinate system. A plot of the load-displacement relationship at node 3 is shown in figure <a href="#lateral32" data-reference-type="ref" data-reference="lateral32">[lateral32$$</a>.</p>
 <div class="center">
 <figure>
 <img src="../fig_files/ExampleOut3.2.svg" id="fig:lateral32" alt="Load displacement curve for node 3" /><figcaption aria-hidden="true">Load displacement curve for node 3</figcaption>
@@ -13754,7 +13754,13 @@ Removal During Simulation
            -0.00179081 0.00612275 
            0.00663473 3.21404e-05 </code></pre>
 <p>The two eigenvalues for the eigenvalue analysis are printed to the screen. The state of node 3 at the end of the analysis is also printed. The information contains the last committed displacements, velocities and accelerations at the node, the unbalanced nodal forces and the nodal masses. In addition, the eigenvector components of the eigenvector pertaining to the node 3 is also displayed.</p>
-<p>In addition to the contents displayed on the screen, three files have been created. Each line of nodeTransient.out contains the domain time, and DX, DY and RZ for node 3. Plotting the first and second columns of this file the lateral displacement versus time for node 3 can be obtained as shown in figure <a href="#lateral33" data-reference-type="ref" data-reference="lateral33">[lateral33]</a>. Each line of the files ele1secForce.out and ele1secDef.out contain the domain time and the forces and deformations for section 1 (the base section) of element 1. These can be used to generate the moment-curvature time history of the base section of column 1 as shown in figure <a href="#element1MK" data-reference-type="ref" data-reference="element1MK">[element1MK]</a>.</p>
+<p>In addition to the contents displayed on the screen, three files have been created. Each line of nodeTransient.out contains the domain time, and DX, DY and RZ for node 3. Plotting the first and second columns of this file the lateral displacement versus time for node 3 can be obtained as shown in figure <a href="#element1MK" data-reference-type="ref" data-reference="element1MK">[lateral33<span class="math display">\[
+](#lateral33){reference-type=&quot;ref&quot;
+reference=&quot;lateral33&quot;}. Each line of the files ele1secForce.out and
+ele1secDef.out contain the domain time and the forces and deformations
+for section 1 (the base section) of element 1. These can be used to
+generate the moment-curvature time history of the base section of column
+1 as shown in figure [\[element1MK\]</span></a>.</p>
 <div class="center">
 <figure>
 <img src="../fig_files/newNode3.3.svg" id="fig:element1MK" alt="Lateral displacement at node 3" /><figcaption aria-hidden="true">Lateral displacement at node 3</figcaption>

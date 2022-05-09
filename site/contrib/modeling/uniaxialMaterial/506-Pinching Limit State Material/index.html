@@ -13235,17 +13235,16 @@ href="RotationShearCurve" title="wikilink">RotationShearCurve</a> limit surface 
 <h2 id="mode_1_direct_input">
 <strong>MODE 1: Direct Input</strong>
 </h2>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>uniaxialMaterial PinchingLimitStateMaterial $matTag $nodeT $nodeB $driftAxis $Kelas $crvTyp <span class="math inline">\(crvTag&lt;/strong&gt; &lt;strong&gt;\)</span>YpinchUPN $YpinchRPN <span class="math inline">\(XpinchRPN&lt;/strong&gt; &lt;strong&gt;\)</span>YpinchUNP $YpinchRNP <span class="math inline">\(XpinchRNP&lt;/strong&gt; &lt;strong&gt;\)</span>dmgStrsLimE <span class="math inline">\(dmgDispMax&lt;/strong&gt; &lt;strong&gt;\)</span>dmgE1 $dmgE2 $dmgE3 $dmgE4 <span class="math inline">\(dmgELim&lt;/strong&gt; &lt;strong&gt;\)</span>dmgR1 $dmgR2 $dmgR3 $dmgR4 <span class="math inline">\(dmgRLim&lt;/strong&gt; &lt;code class=&quot;tcl-variable&quot;&gt;dmgRCyc&lt;/code&gt; &lt;strong&gt;\)</span>dmgS1 $dmgS2 $dmgS3 $dmgS4 $dmgSLim</strong> <code class="tcl-variable">dmgSCyc</code>
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial PinchingLimitStateMaterial <span class="dt">$matTag</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$nodeT</span> <span class="dt">$nodeB</span> <span class="dt">$driftAxis</span> <span class="dt">$Kelas</span> <span class="dt">$crvTyp</span> <span class="dt">$crvTag</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$YpinchUPN</span> <span class="dt">$YpinchRPN</span> <span class="dt">$XpinchRPN</span> <span class="dt">$YpinchUNP</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$YpinchRNP</span> <span class="dt">$XpinchRNP</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$dmgStrsLimE</span> <span class="dt">$dmgDispMax</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$dmgE1</span> <span class="dt">$dmgE2</span> <span class="dt">$dmgE3</span> <span class="dt">$dmgE4</span> <span class="dt">$dmgELim</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$dmgR1</span> <span class="dt">$dmgR2</span> <span class="dt">$dmgR3</span> <span class="dt">$dmgR4</span> <span class="dt">$dmgRLim</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        &lt;code <span class="ot">class</span>=<span class="st">&quot;tcl-variable&quot;</span>&gt;dmgRCyc&lt;/code&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$dmgS1</span> <span class="dt">$dmgS2</span> <span class="dt">$dmgS3</span> <span class="dt">$dmgS4</span> <span class="dt">$dmgSLim</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        &lt;code <span class="ot">class</span>=<span class="st">&quot;tcl-variable&quot;</span>&gt;dmgSCyc&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -13692,9 +13691,7 @@ PinchingLimitStateMaterial1-2.jpg
 The material model coupled with the <a href="RotationShearCurve"
 title="wikilink">RotationShearCurve</a> limit surface: 1) has the ability to continually monitor forces and deformations in the flexural elements for conditions that trigger lateral-strength degradation, 2) has a built-in function that compensates for flexural deformation offsets that arise from the degrading behavior of the material in shear springs, and 3) is able to trigger lateral-strength degradation through either a limiting lateral force or element deformations (whichever is reached first). The material introduces several functionalities that give users a high degree of control over the triggering of strength degradation and the ensuing cyclic degrading behavior. Damage algorithms are implemented to control the degrading behavior through elastic stiffness, reloading stiffness, and backbone strength degradation (Fig. 2). The rate of damage accumulation can be controlled by energy-, displacement-, and cycle-based damage computation algorithms.
 </p>
-<p>
-During the degrading behavior, the model automatically adjusts reloading stiffness to achieve a symmetric global-element lateral load-vs lateral displacement behavior. The model does so by automatically adjusting the reloading stiffness and backbone curve of the material model to compensate for dissymmetry introduced by the unloading of the flexural elements in series with shear springs governed by the model.
-</p>
+<p>During the degrading behavior, the model automatically adjusts reloading stiffness to achieve a symmetric global-element lateral load-vs lateral displacement behavior. The model does so by automatically adjusting the reloading stiffness and backbone curve of the material model to compensate for dissymmetry introduced by the unloading of the flexural elements in series with shear springs governed by the model.</p>
 <p>
 DAMAGE:
 </p>
@@ -13719,20 +13716,11 @@ PinchingLimitStateMaterialEq1.png
 title="wikilink">PinchingLimitStateMaterial Example</a>
 </p>
 <hr />
-<p>
-REFERENCES:
-</p>
-<p>
+<h2 id="references">References</h2>
 <ol type="1">
-<li>LeBorgne M. R., 2012, “Modeling the Post Shear Failure Behavior of Reinforced Concrete Columns.” Austin, Texas: University of Texas at Austin, PhD, 301.
-</p>
-<p>
-<ol start="2" type="1">
-<li>LeBorgne, M.R., Ghannoum, W.M., 2014, “Analytical Element for Simulating Lateral-Strength Degradation in Reinforced Concrete Columns and Other Frame Members,” Journal of Structural Engineering, V. 140, No. 7, pp. 04014038 1-12.
-</p>
-<p>
-<ol start="3" type="1">
-<li>LeBorgne, M.R., Ghannoum, W.M., 2014, “Calibrated Analytical Element for Lateral-Strength Degradation of Reinforced Concrete Columns,” Engineering Structures, V. 81, pp. 35-48.
+<li><p>LeBorgne M. R., 2012, “Modeling the Post Shear Failure Behavior of Reinforced Concrete Columns.” Austin, Texas: University of Texas at Austin, PhD, 301.</p></li>
+<li><p>LeBorgne, M.R., Ghannoum, W.M., 2014, “Analytical Element for Simulating Lateral-Strength Degradation in Reinforced Concrete Columns and Other Frame Members,” Journal of Structural Engineering, V. 140, No. 7, pp. 04014038 1-12.</p></li>
+<li><p>LeBorgne, M.R., Ghannoum, W.M., 2014, “Calibrated Analytical Element for Lateral-Strength Degradation of Reinforced Concrete Columns,” Engineering Structures, V. 81, pp. 35-48.</p>
 </p>
 <p>
 <ol start="3" type="1">
@@ -13746,8 +13734,6 @@ REFERENCES:
 <p>
 Code Developed by: <span style="color:blue"> Matthew Leborgne and Wassim M. Ghannoum, University of Texas at Austin</span>
 </p></li>
-</ol></li>
-</ol></li>
 </ol></li>
 </ol></li>
 </ol>

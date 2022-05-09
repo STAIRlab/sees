@@ -13241,11 +13241,11 @@ IncrementalIntegrator<br />
 StaticIntegrator<br />
 </p>
 <p><br />
-LoadControl is a subclass of StaticIntegrator, it is used to when performing a static analysis on the FE_Model using the load control method. In the load control method, the following constraint equation is added to equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor]</a> of the StaticIntegrator class:</p>
+LoadControl is a subclass of StaticIntegrator, it is used to when performing a static analysis on the FE_Model using the load control method. In the load control method, the following constraint equation is added to equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor$$</a> of the StaticIntegrator class:</p>
 <p><span class="math display">\[\lambda_n^{(i)} - \lambda_{n-1} = \delta \lambda_n\]</span></p>
 <p>where <span class="math inline">\(\delta \lambda_n\)</span> depends on <span class="math inline">\(\delta \lambda_{n-1}\)</span>, the load increment at the previous time step, <span class="math inline">\(J_{n-1}\)</span>, the number of iterations required to achieve convergence in the previous load step, and <span class="math inline">\(Jd\)</span>, the desired number of iteraions. <span class="math inline">\(\delta \lambda_n\)</span> is bounded by <span class="math inline">\(\delta \lambda_{min}\)</span> and <span class="math inline">\(\delta \lambda_{max}\)</span>. <span class="math display">\[\delta \lambda_n = max \left( \delta \lambda_{min}, min \left(
 \frac{Jd}{J_{n-1}} \delta \lambda_{n-1}, \delta \lambda_{max} \right) \right)\]</span></p>
-<p>Knowing <span class="math inline">\(\lambda_n^{(i)}\)</span> prior to each iteration, the <span class="math inline">\(N+1\)</span> unknowns in equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor]</a>, is reduced to <span class="math inline">\(N\)</span> unknowns and results in the following equation:</p>
+<p>Knowing <span class="math inline">\(\lambda_n^{(i)}\)</span> prior to each iteration, the <span class="math inline">\(N+1\)</span> unknowns in equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor$$</a>, is reduced to <span class="math inline">\(N\)</span> unknowns and results in the following equation:</p>
 <p><span class="math display">\[\R({\bf U}_{n}) = \lambda_n^{(i)} {\bf P} 
  - {\bf F}_{R}\left({\bf U}_{n}^{(i)} \right) - 
 {\bf K}_n^{(i)} 

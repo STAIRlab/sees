@@ -13328,7 +13328,8 @@ The nonlinear q-z behavior is conceptualized as consisting of elastic (q- <span 
 <p><span class="math display">\[-C_r q_\text{ult} &amp;lt; q &amp;lt; C_r q_\text{ult}\]</span></p>
 with <span class="math inline">\(C_r\)</span> = the ratio of <span class="math inline">\(\frac{q}{q_{\text{ult}}}\)</span> when plastic yielding first occurs in virgin loading. The rigid range of q, which is initially <span class="math inline">\(2 C_r q_\text{ult}\)</span> , translates and grows with plastic yielding. The rigid range of q is constrained to a maximum size of <span class="math inline">\(0.7q_{\text{ult}}\)</span>. Beyond the rigid range, loading of the plastic ( <span class="math inline">\(q-z^p\)</span> ) component is described by:
 </p>
-<p>[q = q_{} - (q_{} - q_0) ]</p>
+<p><span class="math display">\[q = q_{\text{ult}} - (q_{\text{ult}} - q_0) \left [\frac{c *
+z_{50}}{c * z_{50} + | z_p - z^p_0|} \right ] \]</span></p>
 <p>
 where <span class="math inline">\(q_ult\)</span> = the ultimate resistance of the <span class="math inline">\(q-z\)</span> material in the current loading direction, <span class="math inline">\(q_o = q\)</span> at the start of the current plastic loading cycle, p <span class="math inline">\(z^p_o = z^p\)</span> at the start of the current plastic loading cycle, and c and n are constants that control the shape of <span class="math inline">\(q-z^p\)</span> curve.
 </p>
@@ -13338,7 +13339,8 @@ The closure ( <span class="math inline">\(q^c-z^g\)</span> ) component is simply
 <p>
 The nonlinear drag ( <span class="math inline">\(q^d-z^g\)</span> ) component is used to allow thethe specification of some minimum “suction” on the pile tip during uplift. It is described by:
 </p>
-<p>[q^d = C_d q_ - (C_d q_{} - q^d_0) ]</p>
+<p><span class="math display">\[q^d = C_d q_\text{ult} - (C_d q_{\text{ult}} - q^d_0) \left
+[\frac{z_{50}}{z_{50} + 2| z^g - z^g_0|} \right ] \]</span></p>
 <p>
 where <span class="math inline">\(C_d\)</span> = ratio of the maximum drag (suction) force to the ultimate resistance of the <span class="math inline">\(q-z\)</span> material, &lt;math&gt;q^d_o = q^d&lt;/math&gt; at the start of the current loading cycle, and <span class="math inline">\(z^g_o = z^g\)</span> at the start of the current loading cycle.
 </p>

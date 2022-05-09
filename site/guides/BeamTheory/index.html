@@ -13230,7 +13230,7 @@ Removal During Simulation
 <div class="center">
 <p><img src="BeamTransf.svg" alt="Beam transformation" />   {#fig:Transformation}</p>
 </div>
-<p>As seen in figure <a href="#fig:BeamClass" data-reference-type="ref" data-reference="fig:BeamClass">[fig:BeamClass]</a>, a beam-column element acquires geometric nonlinearity from the <code>CoordTransformation</code> class, and material nonlinearity from the <code>SectionForceDeformation</code> class.</p>
+<p>As seen in figure <a href="#fig:BeamClass" data-reference-type="ref" data-reference="fig:BeamClass">[fig:BeamClass$$</a>, a beam-column element acquires geometric nonlinearity from the <code>CoordTransformation</code> class, and material nonlinearity from the <code>SectionForceDeformation</code> class.</p>
 <h2 id="material-nonlinearity">Material Nonlinearity</h2>
 <p>At every cross-section along the element length, a force-deformation relationship holds, providing section stress resultants, <span class="math inline">\(\mathbf{s}\)</span>, as a function of section deformations, <span class="math inline">\(\mathbf{e}\)</span>,</p>
 <p><span class="math display">\[%\label{eq:s=s(e)}
@@ -13240,9 +13240,9 @@ Removal During Simulation
 \Delta\mathbf{s} &amp;= \frac{\partial\mathbf{s}}{\partial\mathbf{e}} \Delta\mathbf{e} \\
 \Delta\mathbf{s} &amp;= \mathbf{k}_s \Delta\mathbf{e},\end{aligned}\]</span></p>
 <p>where <span class="math inline">\(\mathbf{k}_s = \frac{\partial\mathbf{s}}{\partial\mathbf{e}}\)</span>, the partial derivative of the section stress resultants with respect to the section deformations.</p>
-<p>A beam-column element obtains material nonlinearity through use of the <code>SectionForceDeformation</code> class, as seen in figure <a href="#fig:BeamClass" data-reference-type="ref" data-reference="fig:BeamClass">[fig:BeamClass]</a>.</p>
+<p>A beam-column element obtains material nonlinearity through use of the <code>SectionForceDeformation</code> class, as seen in figure <a href="#fig:BeamClass" data-reference-type="ref" data-reference="fig:BeamClass">[fig:BeamClass$$</a>.</p>
 <h2 id="class-hierarchy">Class Hierarchy</h2>
-<p>Figure <a href="#fig:BeamClass" data-reference-type="ref" data-reference="fig:BeamClass">[fig:BeamClass]</a> shows the class interaction between a beam-column element and the <code>CoordTransformation</code> and <code>SectionForceDeformation</code> classes. An element can use any one of Linear, <span class="math inline">\(P-\Delta\)</span>, or Corotational transformations; and any one of <code>ElasticSection</code> or <code>FiberSection</code> constitutive models. When a new transformation or section class is added to the framework, the element can use the new class without modification.</p>
+<p>Figure <a href="#fig:BeamClass" data-reference-type="ref" data-reference="fig:BeamClass">[fig:BeamClass$$</a> shows the class interaction between a beam-column element and the <code>CoordTransformation</code> and <code>SectionForceDeformation</code> classes. An element can use any one of Linear, <span class="math inline">\(P-\Delta\)</span>, or Corotational transformations; and any one of <code>ElasticSection</code> or <code>FiberSection</code> constitutive models. When a new transformation or section class is added to the framework, the element can use the new class without modification.</p>
 <div class="center">
 <p><img src="BeamClass.svg" alt="Beam class" /> </p>
 </div>
@@ -13269,7 +13269,7 @@ N_{1,x} &amp; 0 &amp; 0 \\ \\
 0 &amp; N_{2,xx} &amp; N_{3,xx}
 \end{array}
 \right].\]</span></p>
-<p>Using the shape functions defined in equation <a href="#eq:N" data-reference-type="ref" data-reference="eq:N">[eq:N]</a>, the strain-displacement matrix is then,</p>
+<p>Using the shape functions defined in equation <a href="#eq:N" data-reference-type="ref" data-reference="eq:N">[eq:N$$</a>, the strain-displacement matrix is then,</p>
 <p><span class="math display">\[\mathbf{a}(x) = \frac{1}{L} \left[ \begin{array}{ccc}
 1 &amp; 0 &amp; 0 \\ \\
 0 &amp; -4+6\frac{x}{L} &amp; -2+6\frac{x}{L}
@@ -13283,9 +13283,9 @@ N_{1,x} &amp; 0 &amp; 0 \\ \\
 <p>where the section stress resultants are the axial force, <span class="math inline">\(P\)</span>, and bending moment, <span class="math inline">\(M\)</span>,</p>
 <p><span class="math display">\[\mathbf{s}(x) =
 \left[ \begin{array}{c} P(x) \\ M(x) \end{array} \right].\]</span></p>
-<p>To obtain the current value of section stress resultants, <span class="math inline">\(\mathbf{s}\)</span>, the method <code>getStressResultant()</code> must be invoked. To perform the transformation from basic to global resisting force (equation <a href="#eq:p=p(q,u)" data-reference-type="ref" data-reference="eq:p=p(q,u)">[eq:p=p(q,u)]</a>), the method <code>getGlobalResistingForce()</code> should be invoked.</p>
+<p>To obtain the current value of section stress resultants, <span class="math inline">\(\mathbf{s}\)</span>, the method <code>getStressResultant()</code> must be invoked. To perform the transformation from basic to global resisting force (equation <a href="#eq:p=p(q,u)" data-reference-type="ref" data-reference="eq:p=p(q,u)">[eq:p=p(q,u)$$</a>), the method <code>getGlobalResistingForce()</code> should be invoked.</p>
 <h3 id="element-stiffness">Element Stiffness</h3>
-<p>To solve the structural system of equations, the element stiffness must be assembled along with the resisting force. The element stiffness is obtained by taking the partial derivative of equation <a href="#eq:p=p(q,u)" data-reference-type="ref" data-reference="eq:p=p(q,u)">[eq:p=p(q,u)]</a> with respect to displacements, <span class="math inline">\(\mathbf{u}\)</span>.</p>
+<p>To solve the structural system of equations, the element stiffness must be assembled along with the resisting force. The element stiffness is obtained by taking the partial derivative of equation <a href="#eq:p=p(q,u)" data-reference-type="ref" data-reference="eq:p=p(q,u)">[eq:p=p(q,u)$$</a> with respect to displacements, <span class="math inline">\(\mathbf{u}\)</span>.</p>
 <p><span class="math display">\[\begin{aligned}
 \mathbf{k} &amp;= \frac{\partial\mathbf{p}}{\partial\mathbf{q}}\frac{\partial\mathbf{q}}{\partial\mathbf{u}} + \left.\frac{\partial\mathbf{p}}{\partial\mathbf{u}}\right|_\mathbf{q} \\
 &amp;= \frac{\partial\mathbf{p}}{\partial\mathbf{q}} \frac{\partial\mathbf{q}}{\partial\mathbf{v}} \frac{\partial\mathbf{v}}{\partial\mathbf{u}} +
@@ -13293,7 +13293,7 @@ N_{1,x} &amp; 0 &amp; 0 \\ \\
 \mathbf{k} &amp;= %\label{eq:stiff} 
 \frac{\partial\mathbf{p}}{\partial\mathbf{q}} \mathbf{k}_b \frac{\partial\mathbf{v}}{\partial\mathbf{u}} +
 \left.\frac{\partial\mathbf{p}}{\partial\mathbf{u}}\right|_\mathbf{q}\end{aligned}\]</span></p>
-<p>The basic element stiffness, <span class="math inline">\(\mathbf{k}_b\)</span>, is the partial derivative of the basic forces, <span class="math inline">\(\mathbf{q}\)</span>, with respect to the basic displacements, <span class="math inline">\(\mathbf{v}\)</span>. Differentiating equation <a href="#eq:q" data-reference-type="ref" data-reference="eq:q">[eq:q]</a> gives,</p>
+<p>The basic element stiffness, <span class="math inline">\(\mathbf{k}_b\)</span>, is the partial derivative of the basic forces, <span class="math inline">\(\mathbf{q}\)</span>, with respect to the basic displacements, <span class="math inline">\(\mathbf{v}\)</span>. Differentiating equation <a href="#eq:q" data-reference-type="ref" data-reference="eq:q">[eq:q$$</a> gives,</p>
 <p><span class="math display">\[\begin{aligned}
 \mathbf{k}_b &amp;= \frac{\partial\mathbf{q}}{\partial\mathbf{v}} \\
 &amp;= \int_0^L \mathbf{a}(x)^T \frac{\partial\mathbf{s}}{\partial\mathbf{v}} \: dx \\
@@ -13302,9 +13302,14 @@ N_{1,x} &amp; 0 &amp; 0 \\ \\
 \boxed{
 \int_0^L \mathbf{a}(x)^T \mathbf{k}_s(x) \mathbf{a}(x) \: dx}
 \end{aligned}\]</span></p>
-<p>The section tangent stiffness matrix, <span class="math inline">\(\mathbf{k}_s\)</span>, is returned upon invoking the method <code>getSectionTangent()</code>. After computing the basic stiffness, <span class="math inline">\(\mathbf{k}_b\)</span>, the method <code>getGlobalStiffMatrix()</code> should be invoked to perform the transformation in equation <a href="#eq:stiff" data-reference-type="ref" data-reference="eq:stiff">[eq:stiff]</a>. The remaining partial derivatives in equation <a href="#eq:stiff" data-reference-type="ref" data-reference="eq:stiff">[eq:stiff]</a> are computed by the <code>getGlobalStiffMatrix()</code> method.</p>
+<p>The section tangent stiffness matrix, <span class="math inline">\(\mathbf{k}_s\)</span>, is returned upon invoking the method <code>getSectionTangent()</code>. After computing the basic stiffness, <span class="math inline">\(\mathbf{k}_b\)</span>, the method <code>getGlobalStiffMatrix()</code> should be invoked to perform the transformation in equation <a href="#eq:stiff" data-reference-type="ref" data-reference="eq:stiff">[eq:stiff<span class="math display">\[
+](#eq:stiff){reference-type=&quot;ref&quot;
+reference=&quot;eq:stiff&quot;}. The remaining partial derivatives in
+equation [\[eq:stiff\]</span></a> are computed by the <code>getGlobalStiffMatrix()</code> method.</p>
 <h3 id="numerical-quadrature">Numerical Quadrature</h3>
-<p>In general, the element integrals, equations <a href="#eq:q" data-reference-type="ref" data-reference="eq:q">[eq:q]</a> and <a href="#eq:kb" data-reference-type="ref" data-reference="eq:kb">[eq:kb]</a>, cannot be evaluated in closed form due to nonlinearities in the section constitutive model. These integrals must be approximately evaluated by numerical quadrature,</p>
+<p>In general, the element integrals, equations <a href="#eq:kb" data-reference-type="ref" data-reference="eq:kb">[eq:q<span class="math display">\[
+](#eq:q){reference-type=&quot;ref&quot; reference=&quot;eq:q&quot;}
+and [\[eq:kb\]</span></a>, cannot be evaluated in closed form due to nonlinearities in the section constitutive model. These integrals must be approximately evaluated by numerical quadrature,</p>
 <p><span class="math display">\[\begin{aligned}
 %\label{eq:qapprox}
 \mathbf{q} &amp;\approx
@@ -13317,7 +13322,10 @@ N_{1,x} &amp; 0 &amp; 0 \\ \\
 <p><span class="math display">\[\begin{aligned}
 x_i &amp;= \frac{L}{2} \left( \xi_i+1 \right) \\
 W_i &amp;= \frac{L}{2} \: \omega_i .\end{aligned}\]</span></p>
-<p>After mapping the points and weights to the element domain, equations <a href="#eq:qapprox" data-reference-type="ref" data-reference="eq:qapprox">[eq:qapprox]</a> and <a href="#eq:kbapprox" data-reference-type="ref" data-reference="eq:kbapprox">[eq:kbapprox]</a> can be evaluated.</p>
+<p>After mapping the points and weights to the element domain, equations <a href="#eq:kbapprox" data-reference-type="ref" data-reference="eq:kbapprox">[eq:qapprox<span class="math display">\[
+](#eq:qapprox){reference-type=&quot;ref&quot;
+reference=&quot;eq:qapprox&quot;}
+and [\[eq:kbapprox\]</span></a> can be evaluated.</p>
 <div class="center">
 <p><strong>Michael H. Scott</strong></p>
 <p><strong>August 22, 2001</strong></p>

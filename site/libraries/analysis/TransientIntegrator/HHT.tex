@@ -23,27 +23,31 @@ the Hilber-Hughes-Taylor (HHT) method. In the HHT method, to determine the
 velocities, accelerations and displacements at time $t + \Delta t$,
 by solving the following equilibrium equation
 
-\[ \R (\U_{t + \Delta t}) = \P(t + \Delta t) -
+$$ \R (\U_{t + \Delta t}) = \P(t + \Delta t) -
 \F_I(\Udd_{t+\Delta t}) - \F_R(\Ud_{t + \alpha \Delta t},\U_{t +
-\alpha \Delta t}) \] 
+\alpha \Delta t}) $$
+ 
 
 \noindent where
 
-\[ \U_{t + \alpha} = \left( 1 - \alpha \right) \U_t + \alpha \U_{t +
-\Delta t} \]
+$$ \U_{t + \alpha} = \left( 1 - \alpha \right) \U_t + \alpha \U_{t +
+\Delta t} $$
 
-\[ \Ud_{t + \alpha} = \left( 1 - \alpha \right) \Ud_t + \alpha \Ud_{t +
-\Delta t} \]
+
+$$ \Ud_{t + \alpha} = \left( 1 - \alpha \right) \Ud_t + \alpha \Ud_{t +
+\Delta t} $$
+
 
 \noindent and the velocities and accelerations at time $t + \Delta t$
 are determined using the Newmark relations. The HHT method results in
 the following for determining the response at $t + \Delta t$
 
-\[ \left[ \frac{1}{\beta \Delta t^2} \M + \frac{\alpha \gamma}{\beta
+$$ \left[ \frac{1}{\beta \Delta t^2} \M + \frac{\alpha \gamma}{\beta
 \Delta t} \C + \alpha \K \right] \Delta \U_{t + \Delta t}^{(i)} = \P(t
 + \Delta t) - \F_I\left(\Udd_{t+\Delta  t}^{(i-1)}\right)
 - \F_R\left(\Ud_{t + \alpha \Delta t}^{(i-1)},\U_{t + \alpha \Delta
-t}^{(i-1)}\right) \] 
+t}^{(i-1)}\right) $$
+ 
 \\
 
 \noindent {\bf Class Interface} \\
