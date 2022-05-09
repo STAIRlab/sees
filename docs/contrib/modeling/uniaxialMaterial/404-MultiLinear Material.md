@@ -15,22 +15,22 @@ uniaxialMaterial MultiLinear $matTag $u1 $f1 $u2 $f2 $u3
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$u1 $f1</strong></p></td>
+<td><p><code class="parameter-table-variable">u1 f1</code></p></td>
 <td><p>strain and stress (or deformation &amp; force) at first point of
 the envelope</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$u2 $f2</strong></p></td>
+<td><p><code class="parameter-table-variable">u2 f2</code></p></td>
 <td><p>strain and stress (or deformation &amp; force) at second point of
 the envelope</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$u3 $f3</strong></p></td>
+<td><p><code class="parameter-table-variable">u3 f3</code></p></td>
 <td><p>strain and stress (or deformation &amp; force) at third point of
 the envelope</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$u4 $f4</strong></p></td>
+<td><p><code class="parameter-table-variable">u4 f4</code></p></td>
 <td><p>strain and stress (or deformation &amp; force) at fourth point of
 the envelope</p></td>
 </tr>

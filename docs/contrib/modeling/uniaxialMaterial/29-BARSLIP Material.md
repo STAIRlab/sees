@@ -10,8 +10,9 @@ strength degradation.</p>
 ```tcl
 uniaxialMaterial BarSlip $matTag $fc $fy $Es $fu $Eh $db
         $ld $nb $depth $height 
-        &lt;$ancLratio&gt; $bsFlag $type 
-        &lt;$damage $unit&gt;
+        < $ancLratio > 
+        $bsFlag $type 
+        < $damage $unit >
 ```
 
 <hr />
@@ -112,8 +113,9 @@ demand exceeds 3mm (0.12 in), strength deterioration due to cyclic
 loading initiates. As a result the bond-slip springs always exhibit
 positive stiffness, but strength deterioration upon reloading to a
 previously observed slip demand. Reloading and Unloading Stiffness
-deterioration are also simulated.</p>
-<p>The damage index for unloading and reloading stiffness degradation is
+deterioration are also simulated.
+
+The damage index for unloading and reloading stiffness degradation is
 evaluated the same say as the Pinching4 material (ref. Pinching4
 material doc.) but the index for strength degradation is specified
 as</p>
@@ -127,12 +129,14 @@ necessity to include in Units in this material model. For default one
 can specify units in psi (i.e. pounds/inch2) or in MPa (i.e. N/mm2). The
 code detects units in psi if the compressive strength of concrete is
 greater than 1000 otherwise it takes it as MPa system. The optional
-variable $unit will help the user to specify other different types of
+variable `unit` will help the user to specify other different types of
 unit systems according to one's choice, but currently it is limited to
 the unit systems as specified above. The user should also take care to
 specify the units of length in the corresponding matching units. (note:
 Pa = N/m2; ksf = kilo-pound/ft2)</li>
 </ul>
+
 <hr />
+
 <p>Code Developed by: <span style="color:blue"> Nilanjan Mitra,
 CalPoly State University </span></p>

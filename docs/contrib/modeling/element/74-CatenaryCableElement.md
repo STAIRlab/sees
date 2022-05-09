@@ -17,7 +17,7 @@ element CatenaryCable $tag $iNode $jNode $weight $E $A
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode</code></p></td>
 <td><p>end nodes (3 dof per node)</p></td>
 </tr>
 <tr class="odd">

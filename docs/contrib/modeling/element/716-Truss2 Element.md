@@ -25,11 +25,11 @@ element CorotTruss2 $eleTag $iNode $jNode $mGNode $nGNode
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode</code></p></td>
 <td><p>end nodes of the truss element</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$mGNode $nGNode</strong></p></td>
+<td><p><code class="parameter-table-variable">mGNode nGNode</code></p></td>
 <td><p>end nodes for the zero-stiffness gauge element</p></td>
 </tr>
 <tr class="even">

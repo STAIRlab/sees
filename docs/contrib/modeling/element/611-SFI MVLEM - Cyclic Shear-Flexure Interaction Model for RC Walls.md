@@ -45,7 +45,7 @@ Element SFI_MVLEM $eleTag $iNode $jNode $m $c -thick
 <td><p>Unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode</code></p></td>
 <td><p>End node tags</p></td>
 </tr>
 <tr class="odd">

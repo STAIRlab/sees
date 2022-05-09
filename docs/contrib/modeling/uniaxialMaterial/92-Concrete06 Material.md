@@ -80,14 +80,12 @@ curves have been modified to represent concrete behavior in membrane
 elements. Compressive constitutive material law (?c-?c) is defined as
 the Thorenfeldt-base curve, which is similar to Popovic (1973)
 definition:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;\sigma_c = f^'_c \frac{n \left
+
+$$\sigma_c = f^'_c \frac{n \left
 (\frac{\epsilon_c}{\epsilon_0}\right)}{n-1+\left (
-\frac{\epsilon_c}{\epsilon_0} \right )^{nk}}&lt;/math&gt;
-</dd>
-</dl>
+\frac{\epsilon_c}{\epsilon_0} \right )^{nk}}$$
+
+
 <p>where f'c is the compressive strength,
 $\epsilon_0$ is the strain at peak compressive
 stress, and n and k are parameters.</p>

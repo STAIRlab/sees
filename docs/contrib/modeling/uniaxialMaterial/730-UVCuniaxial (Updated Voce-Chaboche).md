@@ -80,15 +80,17 @@ component 1.</p></td>
 component 1.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>&lt;$C2 $gamma2 $C3 $gamma3 … $C8
-$gamma8&gt;</strong></p></td>
+<td><p><code>&lt;C2 gamma2 C3 gamma3 ... C8
+gamma8&gt;</strong></p></td>
 <td><p>Additional backstress parameters, up to 8 may be specified. If C
 is specified, then the corresponding gamma must also be specified. Note
 that only the first N backstresses will be read by the parser.</p></td>
 </tr>
 </tbody>
 </table>
+
 <hr />
+
 <p><strong>Examples</strong></p>
 <p><strong><em>1. Validation with Abaqus:</em></strong></p>
 <p>This first example compares the response of the UVC model with the
@@ -105,6 +107,7 @@ hardening material model provided in Abaqus and many other finite
 element simulation platforms. The finite element models used to validate
 the Abaqus and OpenSees responses can be found at <a
 href="https://github.com/ahartloper/UVC_MatMod">https://github.com/ahartloper/UVC_MatMod</a>.</p>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/UVC_Opensees_valid_s22.png"
 title="Figure 1. Validation of UVC model with built-in nonlinear isotropic/kinematic material in Abaqus."

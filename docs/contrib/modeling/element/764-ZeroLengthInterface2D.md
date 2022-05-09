@@ -28,7 +28,7 @@ element zeroLengthInterface2D $eleTag -cNdNum $cNdNum
 <td><p>Number of Retained nodes</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$cdof $rdof</strong></p></td>
+<td><p><code class="parameter-table-variable">cdof rdof</code></p></td>
 <td><p>Constrained and Retained degree of freedom</p></td>
 </tr>
 <tr class="odd">

@@ -4,7 +4,7 @@
 
 ```tcl
 uniaxialMaterial Dodd_Restrepo $tag $Fy $Fsu $ESH $ESU
-        $Youngs $ESHI $FSHI &lt;$OmegaFac&gt;
+        $Youngs $ESHI $FSHI < $OmegaFac >
 ```
 <hr />
 <table>

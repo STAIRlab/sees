@@ -1,10 +1,10 @@
 # LimitState
 
-<p>This command is used to construct a uniaxial hysteretic material
+This command is used to construct a uniaxial hysteretic material
 object with pinching of force and deformation, damage due to ductility
 and energy, and degraded unloading stiffness based on ductility. Failure
 of the material is defined by the associated <a href="Limit_Curve"
-title="wikilink">Limit Curve</a>.</p>
+title="wikilink">Limit Curve</a>.
 
 ```tcl
 uniaxialMaterial LimitState $matTag $s1p $e1p $s2p $e2p
@@ -20,32 +20,32 @@ uniaxialMaterial LimitState $matTag $s1p $e1p $s2p $e2p
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$s1p $e1p</strong></p></td>
+<td><p><code class="parameter-table-variable">s1p e1p</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at first point of
 the envelope in the positive direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$s2p $e2p</strong></p></td>
+<td><p><code class="parameter-table-variable">s2p e2p</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at second point of
 the envelope in the positive direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$s3p $e3p</strong></p></td>
+<td><p><code class="parameter-table-variable">s3p e3p</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at third point of
 the envelope in the positive direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$s1n $e1n</strong></p></td>
+<td><p><code class="parameter-table-variable">s1n e1n</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at first point of
 the envelope in the negative direction*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$s2n $e2n</strong></p></td>
+<td><p><code class="parameter-table-variable">s2n e2n</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at second point of
 the envelope in the negative direction*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$s3n $e3n</strong></p></td>
+<td><p><code class="parameter-table-variable">s3n e3n</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at third point of
 the envelope in the negative direction*</p></td>
 </tr>
@@ -108,12 +108,14 @@ title="wikilink">LimitStateMaterialExampleDebugged</a></li>
 Limit State Material - Example Manual</a></li>
 </ul>
 <hr />
-<p>DESCRIPTION:</p>
+
+## Description
 <p>Modeling Failures in Existing Reinforced Concrete Columns by Ken
 Elwood: <a href="file:ElwoodCJCE2004.pdf"
 title="wikilink">file:ElwoodCJCE2004.pdf</a></p>
 <hr />
-<p>REFERENCES:</p>
+
+## References
 <p>Elwood, K.J and Moehle, J.P., "Shake Table Tests and Analystical
 Studies on the Gravity Load Collapse of Reinforced Concrete Frames",
 Pacific Earthquake Engineering Research Center, University of

@@ -68,7 +68,7 @@ hardening, $0 \le \texttt{theta} \le 1$</p></td>
 <td><p>mass density of the material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>&lt;$atmPressure&gt;</strong></p></td>
+<td><p><code>atmPressure</code></p></td>
 <td><p>optional atmospheric pressure for update of elastic bulk and
 shear moduli (default = 101 kPa)</p></td>
 </tr>

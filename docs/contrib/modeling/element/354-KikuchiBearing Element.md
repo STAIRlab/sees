@@ -24,7 +24,7 @@ $nIter&gt;</strong></p></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$inode $jnode</strong></p></td>
+<td><p><code class="parameter-table-variable">inode jnode</code></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
@@ -73,12 +73,12 @@ shape)</p></td>
 (see note 2)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$x1 $x2 $x3</strong></p></td>
+<td><p><code class="parameter-table-variable">x1 x2 x3</code></p></td>
 <td><p>vector components in global coordinates defining local
 x-axis</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$yp1 $yp2 $yp3</strong></p></td>
+<td><p><code class="parameter-table-variable">yp1 yp2 yp3</code></p></td>
 <td><p>vector components in global coordinates defining vector yp which
 lies in the local x-y plane for the element</p></td>
 </tr>
@@ -95,12 +95,12 @@ lies in the local x-y plane for the element</p></td>
 <td><p>not consider tilt of rigid link</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ci $cj</strong></p></td>
+<td><p><code class="parameter-table-variable">ci cj</code></p></td>
 <td><p>P-Delta moment adjustment for reaction force (default:
 <code class="tcl-variable">ci</code>=0.5, <code class="tcl-variable">cj</code>=0.5)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$limFo $limFi $nIter</strong></p></td>
+<td><p><code class="parameter-table-variable">limFo limFi nIter</code></p></td>
 <td><p>tolerance of external unbalanced force (<code class="tcl-variable">limFo</code>),
 tolorance of internal unbalanced force (<code class="tcl-variable">limFi</code>), number
 of iterations to get rid of internal unbalanced force

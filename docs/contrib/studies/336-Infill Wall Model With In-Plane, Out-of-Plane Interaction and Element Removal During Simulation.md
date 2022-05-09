@@ -45,7 +45,7 @@ discretization of the cross section is shown in Figure 2a. In this
 figure, the vector used to define the local-coordinate system in
 OpenSees, “vecxz”, is (0 0 -1) corresponding to the global axes shown in
 Figure 1. Each fiber is defined with the area
-&lt;math&gt;\mathrm{A_i}\,&lt;/math&gt;, z-coordinate
+ $\mathrm{A_i}\,$ , z-coordinate
 $\mathrm{z_i}\,$ and a bilinear stress-strain
 relationship. The strain hardening slope is chosen to be very small,
 hence the yield stress $\mathrm{f_{yi}}\,$ and
@@ -62,8 +62,8 @@ absolute value for the tensile and compression yield strengths.</p>
 <p>The parameters defining a fiber section
 (&lt;math&gt;\mathrm{A_i}\,&lt;/math&gt;,
 &lt;math&gt;\mathrm{z_i}\,&lt;/math&gt;,
-&lt;math&gt;\mathrm{f_{yi}}\,&lt;/math&gt;, and
-&lt;math&gt;\mathrm{{\epsilon}_{yi}}\,&lt;/math&gt;) are set such that
+ $\mathrm{f_{yi}}\,$ , and
+ $\mathrm{{\epsilon}_{yi}}\,$ ) are set such that
 the intended strength interaction (Figure 2b) and the IP axial and OOP
 bending stiffness values of the diagonal infill wall element are
 properly simulated. In the current formulation, FEMA-356[3] or
@@ -82,7 +82,7 @@ equations, since FEMA-356 document is accessible from FEMA website.
 However, Equations of FEMA-356 and ASCE-41 are very similar and ASCE-41
 equations may be replaced with FEMA-356 equations.</p>
 <p>1. Calculate the IP axial force capacity of the equivalent diagonal
-element (&lt;math&gt;\mathrm{P_{IP0}}\,&lt;/math&gt;), Equation 1.</p>
+element ($\mathrm{P_{IP0}}\,$, Equation 1.</p>
 <figure>
 <img src="Eq1.jpg" title="Eq1.jpg" alt="Eq1.jpg" />
 <figcaption aria-hidden="true">Eq1.jpg</figcaption>
@@ -124,11 +124,11 @@ power curve is based on the OOP and IP capacity points obtained from the
 analyses of a nonlinear finite element (FE) model of an infill panel[3].
 In Equation 3, $\mathrm{P_{IP}}\,$ is the IP
 axial strength in the presence of OOP force,
-&lt;math&gt;\mathrm{P_{IP0}}\,&lt;/math&gt;, which is calculated in step
+ $\mathrm{P_{IP0}}\,$ , which is calculated in step
 1, is the IP axial strength without OOP force,
 $\mathrm{M_{OOP}}\,$ is the OOP bending strength
 in the presence of IP force, and
-&lt;math&gt;\mathrm{M_{OOP0}}\,&lt;/math&gt;, which is calculated in
+ $\mathrm{M_{OOP0}}\,$ , which is calculated in
 step 2, is the OOP bending strength without IP force.</p>
 <figure>
 <img src="Eq3.jpg" title="Eq3.jpg" alt="Eq3.jpg" />
@@ -144,7 +144,7 @@ diagrams. However, this limitation is not considered to be serious,
 since a concave interaction diagram is rarely encountered.</p>
 <p>The interaction diagram should be discretized at N pairs (N pairs
 including the (&lt;math&gt;\mathrm{M_{OOP0}}\,&lt;/math&gt;, 0) and (0,
-&lt;math&gt;\mathrm{P_{IP0}}\,&lt;/math&gt;) pairs), where 2(N-1) is the
+ $\mathrm{P_{IP0}}\,$ ) pairs), where 2(N-1) is the
 total number of fibers in the section (N-1 fibers are placed at one side
 of the y-axis and N-1 fibers on the other side symmetrically as shown in
 Figure 2). Typically, 10 fibers along the section could be sufficient
@@ -179,7 +179,7 @@ $\mathrm{I_{eq}}\,$ is calculated with Equation
 represents the reduction in moment of inertia due to cracking.</p>
 <p>6. Calculate the distance of the
 $\mathrm{i^{th}}\,$ fiber to the centroid
-(&lt;math&gt;\mathrm{z_{i}}\,&lt;/math&gt;), Equation 6.</p>
+($\mathrm{z_{i}}\,$, Equation 6.</p>
 <figure>
 <img src="Eq6.jpg" title="Eq6.jpg" alt="Eq6.jpg" />
 <figcaption aria-hidden="true">Eq6.jpg</figcaption>
@@ -191,7 +191,7 @@ the P−M diagram. The index i increases sequentially in the section as
 progressing inward to the y-axis and in the interaction diagram in the
 direction of decreasing P as shown in Figure 3. It should be noted that
 the coordinates of the points
-(&lt;math&gt;\mathrm{z_{i}}\,&lt;/math&gt;) on one side of the y axis
+($\mathrm{z_{i}}\,$ on one side of the y axis
 (positive z) are calculated with Equation 6 but coordinates of the
 points on the other side are calculated as the negative of the values
 calculated with Equation 6.</p>
@@ -208,7 +208,7 @@ the fibers is equal to the cross sectional area of the equivalent
 diagonal element (&lt;math&gt;\mathrm{t_{inf}}\,&lt;/math&gt;×a)
 calculated in step 4 and sum of the second moment of the fibers is equal
 to the equivalent moment of inertia in OOP direction
-(&lt;math&gt;\mathrm{I_{eq}}\,&lt;/math&gt;) calculated in step 5.</p>
+($\mathrm{I_{eq}}\,$ calculated in step 5.</p>
 <figure>
 <img src="Eq7a.jpg" title="Eq7a.jpg" alt="Eq7a.jpg" />
 <figcaption aria-hidden="true">Eq7a.jpg</figcaption>

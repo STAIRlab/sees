@@ -1,14 +1,15 @@
 # BWBN
 
-<p>This command is used to construct a uniaxial Bouc-Wen pinching
+This command is used to construct a uniaxial Bouc-Wen pinching
 hysteretic material object. This material model is an extension of the
 original Bouc-Wen model that includes pinching (Baber and Noori (1986)
-and Foliente (1995)).</p>
+and Foliente (1995)).
 
 ```tcl
 uniaxialMaterial BWBN $matTag $alpha $ko $n $gamma $beta
         $Ao $q $zetas $p $Shi $deltaShi $lambda $tol $maxIter
 ```
+
 <hr />
 <table>
 <tbody>
@@ -18,8 +19,8 @@ uniaxialMaterial BWBN $matTag $alpha $ko $n $gamma $beta
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">alpha</code></td>
-<td><p>ratio of post-yield stiffness to the initial elastic stiffenss
-(0&lt; &lt;math&gt;\alpha&lt;/math&gt; &lt;1)</p></td>
+<td>ratio of post-yield stiffness to the initial elastic stiffenss
+( $0 \lt \alpha \lt 1$ )</td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">ko</code></td>
@@ -32,7 +33,7 @@ uniaxialMaterial BWBN $matTag $alpha $ko $n $gamma $beta
 equal to 1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$gamma $beta</strong></p></td>
+<td><p><code class="parameter-table-variable">gamma beta</code></p></td>
 <td><p>parameters that control shape of hysteresis loop; depending on
 the values of $\gamma$ and
 $\beta$ softening, hardening or quasi-linearity
@@ -45,7 +46,7 @@ Material</a>)</p></td>
 <td><p>parameter that controls tangent stiffness</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$q $zetas $p $Shi $deltaShi $lambda</strong></p></td>
+<td><p><code class="parameter-table-variable">q zetas p Shi deltaShi lambda</code></p></td>
 <td><p>parameters that control pinching</p></td>
 </tr>
 <tr class="even">
@@ -59,12 +60,13 @@ Material</a>)</p></td>
 </tbody>
 </table>
 <figure>
-<img src="BWBN_YSPD.jpg‎" title="BWBN_YSPD.jpg‎" alt="BWBN_YSPD.jpg‎" />
-<figcaption aria-hidden="true">BWBN_YSPD.jpg‎</figcaption>
+<img src="BWBN_YSPD.jpg" title="BWBN_YSPD.jpg" alt="BWBN_YSPD.jpg" />
+<figcaption aria-hidden="true">BWBN_YSPD.jpg</figcaption>
 </figure>
 <p>Fig. Cyclic force displacement relationship of the YSPDs generated
 using the BWBN material model</p>
 <hr />
+
 <p>PARAMETER ESTIMATION:</p>
 <p><a href="BWBNParameterEstimation"
 title="wikilink">BWBNParameterEstimation</a></p>

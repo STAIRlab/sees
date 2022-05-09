@@ -120,7 +120,7 @@ nDMaterial FAFourSteelPCPlaneStress matTag? rho? t1? t2?
 <td><p>material density</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$t1 $t2</strong></p></td>
+<td><p><code class="parameter-table-variable">t1 t2</code></p></td>
 <td><p>material tags for uniaxial materials of type
 <strong>TendonL01</strong></p></td>
 </tr>
@@ -130,7 +130,7 @@ nDMaterial FAFourSteelPCPlaneStress matTag? rho? t1? t2?
 <strong>SteelZ01</strong></p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$c1 $c2</strong></p></td>
+<td><p><code class="parameter-table-variable">c1 c2</code></p></td>
 <td><p>material tags for uniaxial materials of type <strong>ConcreteL01,
 ConcreteZ01</strong></p></td>
 </tr>
@@ -143,7 +143,7 @@ ConcreteZ01</strong></p></td>
 <td><p>steel ratio of the i'th layer.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$pstrain1 $pstrain2</strong></p></td>
+<td><p><code class="parameter-table-variable">pstrain1 pstrain2</code></p></td>
 <td><p>initial strain in tendons</p></td>
 </tr>
 <tr class="odd">

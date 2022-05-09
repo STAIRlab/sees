@@ -19,7 +19,7 @@ element zeroLength $eleTag $iNode $jNode -mat $matTag1
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode</code></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
@@ -41,12 +41,12 @@ respectively;</p></td>
 <td><p>4,5,6 - rotation about local x,y,z axes, respectively</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$x1 $x2 $x3</strong></p></td>
+<td><p><code class="parameter-table-variable">x1 x2 x3</code></p></td>
 <td><p>vector components in global coordinates defining local x-axis
 (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$yp1 $yp2 $yp3</strong></p></td>
+<td><p><code class="parameter-table-variable">yp1 yp2 yp3</code></p></td>
 <td><p>vector components in global coordinates defining vector yp which
 lies in the local x-y plane for the element. (optional)</p></td>
 </tr>

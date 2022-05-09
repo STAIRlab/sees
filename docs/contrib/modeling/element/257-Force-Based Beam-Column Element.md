@@ -23,7 +23,7 @@ $maxIters $tol&gt;</strong></p></td>
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode</code></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">

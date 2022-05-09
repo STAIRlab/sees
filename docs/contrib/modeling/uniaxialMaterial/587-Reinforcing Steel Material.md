@@ -360,6 +360,7 @@ by the constants shown.</p>
 alt="ReinfSteel2435.png" />
 <figcaption aria-hidden="true">ReinfSteel2435.png</figcaption>
 </figure>
+
 <p>Figure 4: Effect of Sample Parameters in the Gomes and Appleton
 Buckling Model</p>
 <p>DHAKAL AND MAEKAWA BUCKLED CURVE: The buckling model described in

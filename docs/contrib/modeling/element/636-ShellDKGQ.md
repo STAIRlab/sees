@@ -16,7 +16,7 @@ element ShellDKGQ $eleTag $iNode $jNode $kNode $lNode
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode $kNode $lNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode kNode lNode</code></p></td>
 <td><p>four nodes defining element boundaries, input in clockwise or
 counter-clockwise order around the element.</p></td>
 </tr>

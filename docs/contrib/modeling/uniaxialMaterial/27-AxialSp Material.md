@@ -5,9 +5,12 @@ This material model produces axial stress-strain curve of elastomeric
 bearings.</p>
 
 ```tcl
-uniaxialMaterial AxialSp $matTag $sce $fty $fcy &lt;$bte $bty $bcy $fcr&gt;
+uniaxialMaterial AxialSp $matTag $sce $fty $fcy \ 
+        < $bte $bty $bcy $fcr >
 ```
+
 <hr />
+
 <table>
 <tbody>
 <tr class="odd">
@@ -19,12 +22,12 @@ uniaxialMaterial AxialSp $matTag $sce $fty $fcy &lt;$bte $bty $bcy $fcr&gt;
 <td><p>compressive modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fty $fcy</strong></p></td>
+<td><p><code class="parameter-table-variable">fty fcy</code></p></td>
 <td><p>yield stress under tension (<code class="tcl-variable">fty</code>) and
 compression (<code class="tcl-variable">fcy</code>) (see note 1)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$bte $bty $bcy</strong></p></td>
+<td><p><code class="parameter-table-variable">bte bty bcy</code></p></td>
 <td><p>reduction rate for tensile elastic range (<code class="tcl-variable">bte</code>),
 tensile yielding (<code class="tcl-variable">bty</code>) and compressive yielding
 (<code class="tcl-variable">bcy</code>) (see note 1)</p></td>
@@ -59,5 +62,5 @@ width="300" alt="AxialSp_StressStrain.png" />
 <figcaption aria-hidden="true">AxialSp_StressStrain.png</figcaption>
 </figure>
 <hr />
-<p>Code Developed by: <span style="color:blue"> mkiku
+<p>Code Developed by: <span style="color:blue">mkiku
 </span></p>

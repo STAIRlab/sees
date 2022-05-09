@@ -31,7 +31,7 @@ element ElastomericX $eleTag $Nd1 $Nd2 $Fy $alpha $Gr
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Nd1 $Nd2</strong></p></td>
+<td><p><code class="parameter-table-variable">Nd1 Nd2</code></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
@@ -71,12 +71,12 @@ element ElastomericX $eleTag $Nd1 $Nd2 $Fy $alpha $Gr
 <td><p>number of rubber layers</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$x1 $x2 $x3</strong></p></td>
+<td><p><code class="parameter-table-variable">x1 x2 x3</code></p></td>
 <td><p>vector components in global coordinates defining local x-axis
 (optional)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$y1 $y2 $y3</strong></p></td>
+<td><p><code class="parameter-table-variable">y1 y2 y3</code></p></td>
 <td><p>vector components in global coordinates defining local y-axis
 (optional)</p></td>
 </tr>

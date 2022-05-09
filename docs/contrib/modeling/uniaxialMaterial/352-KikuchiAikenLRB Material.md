@@ -6,8 +6,10 @@ lead-rubber bearings.</p>
 
 ```tcl
 uniaxialMaterial KikuchiAikenLRB $matTag $type $ar $hr
-        $gr $ap $tp $alph $beta &lt;-T $temp&gt; &lt;-coKQ $rk $rq&gt;
-        &lt;-coMSS $rs $rf&gt;
+        $gr $ap $tp $alph $beta 
+        < -T $temp > 
+        < -coKQ $rk $rq >
+        < -coMSS $rs $rf >
 ```
 
 <hr />
@@ -55,12 +57,12 @@ N/m^2]</strong></p></td>
 <td><p>temperature <strong>[unit: &amp;deg;C]</strong></p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rk $rq</strong></p></td>
+<td><p><code>rk rq</code></p></td>
 <td><p>reduction rate for yielding stiffness (<code class="tcl-variable">rk</code>) and
 force at zero displacement (<code class="tcl-variable">rq</code>)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$rs $rf</strong></p></td>
+<td><p><code>rs rf</code></p></td>
 <td><p>reduction rate for stiffness (<code class="tcl-variable">rs</code>) and force
 (<code class="tcl-variable">rf</code>) (see note 3)</p></td>
 </tr>
@@ -98,8 +100,9 @@ title="wikilink">KikuchiAikenLRB_sample.tcl</a></p>
 title="KikuchiAikenLRB_ForceStrain.png" width="300"
 alt="KikuchiAikenLRB_ForceStrain.png" />
 <figcaption
-aria-hidden="true">KikuchiAikenLRB_ForceStrain.png</figcaption>
+aria-hidden="true">KikuchiAikenLRB Force Strain</figcaption>
 </figure>
+
 <p>REFERENCES:</p>
 <p>M. Kikuchi, T. Nakamura, I. D. Aiken, "Three-dimensional analysis for
 square seismic isolation bearings under large shear deformations and

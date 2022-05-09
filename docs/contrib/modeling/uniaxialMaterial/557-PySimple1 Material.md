@@ -67,7 +67,7 @@ $(p-ye)$ of the displacement rate. The gap
 component consists of a nonlinear closure spring (pc-yg) in parallel
 with a nonlinear drag spring $(p^d-y^g)$. Note
 that $y = y^e + y^p + y^g$, and that
-&lt;math&gt;p = p^d + p^c&lt;/math&gt;.</p>
+ $p = p^d + p^c$ .</p>
 <p>The plastic component has an initial range of rigid behavior between
 
 $$-C_r p_\text{ult} &lt; p &lt; C_r p_\text{ult}$$
@@ -79,17 +79,15 @@ which is initially $2 C_r p_\text{ult}$,
 translates with plastic yielding (kinematic hardening). The rigid range
 of $p$ can be constrained to maintain a minimum
 size on both the positive and negative loading sides (e.g., 25% of
-&lt;math&gt;p\text{ult}&lt;/math&gt;), and this is accomplished by
+ $p\text{ult}$ ), and this is accomplished by
 allowing the rigid range to expand or contract as necessary. Beyond the
 rigid range, loading of the plastic $(p-y^p)$
 component is described by:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;p = p_{\text{ult}} - (p_{\text{ult}} - p_o) \left [\frac{c
-y_{50}}{c y_{50} + | z_p - z^p_0|} \right ]^n &lt;/math&gt;
-</dd>
-</dl>
+
+$$p = p_{\text{ult}} - (p_{\text{ult}} - p_o) \left [\frac{c
+y_{50}}{c y_{50} + | z_p - z^p_0|} \right ]^n $$
+
+
 <p>where $p_\text{ult}$ = the ultimate resistance
 of the $p-y$ material in the current loading
 direction, $p_o = p$ at the start of the current
@@ -118,7 +116,7 @@ set as $y_{50}/100$ and &lt;math&gt;-
 y_{50}/100&lt;/math&gt;, respectively. The factor of 1.8 brings
 $p^c$ up to $p_\text{ult}$
 during virgin loading to $y_o^+$ (or
-&lt;math&gt;y_o^-&lt;/math&gt;). Gap enlargement follows logic similar
+ $y_o^-$ ). Gap enlargement follows logic similar
 to that of Matlock et al. (1978). The gap grows on the positive side
 when the plastic deformation occurs on the negative loading side.
 Consequently, the $y_o^+$ value equals the
@@ -127,18 +125,16 @@ y^g + 1.5 y_{50}&lt;/math&gt; where the
 $1.5y_{50}$ represents some rebounding of the
 gap. Similarly, the $y_o^-$ value equals the
 opposite value of the largest past positive value of
-&lt;math&gt;y^p+y^g-1.5y_{50}&lt;/math&gt;. This closure spring allows
+ $y^p+y^g-1.5y_{50}$ . This closure spring allows
 for a smooth transition in the load displacement behavior as the gap
 opens or closes.</p>
 <p>The nonlinear drag $(p^d-y^g)$ spring is
 described by:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;p^d = C_d p_{\text{ult}} - (C_d p_{\text{ult}} - p^d_o)
-\left [\frac{y_{50}}{y_{50} + 2| y^g - y^g_o|} \right ]^n &lt;/math&gt;
-</dd>
-</dl>
+
+$$p^d = C_d p_{\text{ult}} - (C_d p_{\text{ult}} - p^d_o)
+\left [\frac{y_{50}}{y_{50} + 2| y^g - y^g_o|} \right ]^n $$
+
+
 <p>where $C_d =$ ratio of the maximum drag force
 to the ultimate resistance of the p-y material, &lt;math&gt;d^p_o
 =p^d&lt;/math&gt; at the start of the current loading cycle, and
@@ -147,13 +143,13 @@ cycle.</p>
 <p>The flexibility of the above equations can be used to approximate
 different p-y backbone relations. Matlock’s (1970) recommended backbone
 for soft clay is closely approximated using &lt;math&gt;c =
-10&lt;/math&gt;, $n = 5$, and &lt;math&gt;C_r =
-0.35&lt;/math&gt;. API’s (1993) recommended backbone for drained sand is
+10&lt;/math&gt;, $n = 5$, and  $C_r =
+0.35$ . API’s (1993) recommended backbone for drained sand is
 closely approximated using $c = 0.5$,
-&lt;math&gt;n = 2&lt;/math&gt;, and $C_r = 0.2$.
+ $n = 2$ , and $C_r = 0.2$.
 PySimple1 is currently implemented to allow use of these two default
 sets of values. Values of $p_\text{ult}$,
-&lt;math&gt;y_{50}&lt;/math&gt;, and $C_d$ must
+ $y_{50}$ , and $C_d$ must
 then be specified to define the $p-y$ material
 behavior.</p>
 <p>Viscous damping on the far-field (elastic) component of the p-y

@@ -19,7 +19,7 @@ element Joint2D $eleTag $Nd1 $Nd2 $Nd3 $Nd4 $NdC
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Nd1 $Nd2 $Nd3 $Nd4</strong></p></td>
+<td><p><code class="parameter-table-variable">Nd1 Nd2 Nd3 Nd4</code></p></td>
 <td><p>integer tags indicating four external nodes where the joint
 element is connected to the adjoining beam-column element</p></td>
 </tr>

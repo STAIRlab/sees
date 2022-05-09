@@ -36,7 +36,7 @@ element TFP $eleTag $iNode $jNode $R1 $R2 $R3 $R4 $D1 $D2
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode</code></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">

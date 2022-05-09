@@ -14,20 +14,20 @@ column properties are input for model to fully define pinching and
 damage parameters.</p>
 
 <h2 id="mode_1_direct_input"><strong>MODE 1: Direct Input</strong></h2>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial PinchingLimitStateMaterial $matTag
-$nodeT $nodeB $driftAxis $Kelas $crvTyp $crvTag</strong>
-<strong>$YpinchUPN $YpinchRPN $XpinchRPN</strong> <strong>$YpinchUNP
-$YpinchRNP $XpinchRNP</strong> <strong>$dmgStrsLimE $dmgDispMax</strong>
-<strong>$dmgE1 $dmgE2 $dmgE3 $dmgE4 $dmgELim</strong> <strong>$dmgR1
-$dmgR2 $dmgR3 $dmgR4 $dmgRLim</strong> <code class="tcl-variable">dmgRCyc</code>
-<strong>$dmgS1 $dmgS2 $dmgS3 $dmgS4 $dmgSLim</strong>
-<code class="tcl-variable">dmgSCyc</code></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial PinchingLimitStateMaterial $matTag
+        $nodeT $nodeB $driftAxis $Kelas $crvTyp $crvTag
+        $YpinchUPN $YpinchRPN $XpinchRPN $YpinchUNP
+        $YpinchRNP $XpinchRNP
+        $dmgStrsLimE $dmgDispMax
+        $dmgE1 $dmgE2 $dmgE3 $dmgE4 $dmgELim
+        $dmgR1 $dmgR2 $dmgR3 $dmgR4 $dmgRLim
+        <code class="tcl-variable">dmgRCyc</code>
+        $dmgS1 $dmgS2 $dmgS3 $dmgS4 $dmgSLim
+        <code class="tcl-variable">dmgSCyc</code></p></td>
+```
+
 <hr />
 <table>
 <tbody>
@@ -162,7 +162,7 @@ $dmgS3, $dmgS4, and $dmgSLim to zero if reloading strength damage is not
 required</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dmgE1 $dmgE2 $dmgE3 $dmgE4</strong></p></td>
+<td><p><code class="parameter-table-variable">dmgE1 dmgE2 dmgE3 dmgE4</code></p></td>
 <td><p>floating point elastic stiffness damage factors
 <em>α1,α2,α3,α4</em> shown in Eq. 1</p></td>
 </tr>
@@ -172,7 +172,7 @@ required</p></td>
 in Eq. 1; Note: This value must be between zero and unity</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dmgR1 $dmgR2 $dmgR3 $dmgR4</strong></p></td>
+<td><p><code class="parameter-table-variable">dmgR1 dmgR2 dmgR3 dmgR4</code></p></td>
 <td><p>floating point reloading stiffness damage factors
 <em>α1,α2,α3,α4</em> shown in Eq. 1</p></td>
 </tr>
@@ -187,7 +187,7 @@ shown in Eq. 1; Note: This value must be between zero and unity</p></td>
 This value must be between zero and unity</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dmgS1 $dmgS2 $dmgS3 $dmgS4</strong></p></td>
+<td><p><code class="parameter-table-variable">dmgS1 dmgS2 dmgS3 dmgS4</code></p></td>
 <td><p>floating point backbone strength damage factors
 <em>α1,α2,α3,α4</em> shown in Eq. 1</p></td>
 </tr>
@@ -372,13 +372,15 @@ are implemented to control the degrading behavior through elastic
 stiffness, reloading stiffness, and backbone strength degradation (Fig.
 2). The rate of damage accumulation can be controlled by energy-,
 displacement-, and cycle-based damage computation algorithms.</p>
-<p>During the degrading behavior, the model automatically adjusts
+
+During the degrading behavior, the model automatically adjusts
 reloading stiffness to achieve a symmetric global-element lateral
 load-vs lateral displacement behavior. The model does so by
 automatically adjusting the reloading stiffness and backbone curve of
 the material model to compensate for dissymmetry introduced by the
 unloading of the flexural elements in series with shear springs governed
-by the model.</p>
+by the model.
+
 <p>DAMAGE:</p>
 <p>Damage accumulations effects based on numbers of cycles can be
 introduced to reloading stiffness and backbone strength through the
@@ -401,23 +403,30 @@ aria-hidden="true">PinchingLimitStateMaterialEq1.png</figcaption>
 <p><a href="PinchingLimitStateMaterial_Example"
 title="wikilink">PinchingLimitStateMaterial Example</a></p>
 <hr />
-<p>REFERENCES:</p>
-<p>1. LeBorgne M. R., 2012, "Modeling the Post Shear Failure Behavior of
+
+## References
+1. LeBorgne M. R., 2012, "Modeling the Post Shear Failure Behavior of
 Reinforced Concrete Columns." Austin, Texas: University of Texas at
-Austin, PhD, 301.</p>
-<p>2. LeBorgne, M.R., Ghannoum, W.M., 2014, "Analytical Element for
+Austin, PhD, 301.
+
+2. LeBorgne, M.R., Ghannoum, W.M., 2014, "Analytical Element for
 Simulating Lateral-Strength Degradation in Reinforced Concrete Columns
 and Other Frame Members," Journal of Structural Engineering, V. 140, No.
-7, pp. 04014038 1-12.</p>
-<p>3. LeBorgne, M.R., Ghannoum, W.M., 2014, "Calibrated Analytical
+7, pp. 04014038 1-12.
+
+3. LeBorgne, M.R., Ghannoum, W.M., 2014, "Calibrated Analytical
 Element for Lateral-Strength Degradation of Reinforced Concrete
-Columns," Engineering Structures, V. 81, pp. 35-48.</p>
-<p>3. Ghannoum W. M., Moehle J. P., 2012, "Rotation-Based Shear Failure
+Columns," Engineering Structures, V. 81, pp. 35-48.
+
+3. Ghannoum W. M., Moehle J. P., 2012, "Rotation-Based Shear Failure
 Model for Lightly Confined Reinforced Concrete Columns," Journal of
-Structural Engineering, V. 138, No. 10, 1267-78.</p>
-<p>4. Mitra Nilanjan, Lowes Laura N., 2007, "Evaluation, Calibration,
+Structural Engineering, V. 138, No. 10, 1267-78.
+
+4. Mitra Nilanjan, Lowes Laura N., 2007, "Evaluation, Calibration,
 and Verification of a Reinforced Concrete Beam--Column Joint Model,"
-Journal of Structural Engineering, V. 133, No. 1, 105-20.</p>
+Journal of Structural Engineering, V. 133, No. 1, 105-20.
+
 <hr />
+
 <p>Code Developed by: <span style="color:blue"> Matthew Leborgne
 and Wassim M. Ghannoum, University of Texas at Austin</span></p>

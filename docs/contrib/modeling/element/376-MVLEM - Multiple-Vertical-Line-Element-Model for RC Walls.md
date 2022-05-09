@@ -22,7 +22,7 @@ element MVLEM $eleTag $Dens $iNode $jNode $m $c -thick {Thicknesses} \
 <td><p>Wall density</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$iNode $jNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode</code></p></td>
 <td><p>End node tags</p></td>
 </tr>
 <tr class="even">
@@ -133,7 +133,7 @@ experimental results.</p>
 <p><strong>Source:</strong>
 /usr/local/cvs/OpenSees/SRC/element/MVLEM/</p>
 <figure>
-<img src="/OpenSeesRT/contrib/static/MVLEM.JPG"
+<img src="/OpenSeesRT/contrib/static/MVLEM.jpg"
 title="Figure 1. a) MVLEM Element, b) MVLEM Rotations and Displacements"
 width="700"
 alt="Figure 1. a) MVLEM Element, b) MVLEM Rotations and Displacements" />

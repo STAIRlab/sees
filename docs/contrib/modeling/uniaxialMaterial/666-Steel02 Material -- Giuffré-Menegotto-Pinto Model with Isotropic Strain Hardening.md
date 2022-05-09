@@ -32,7 +32,7 @@ uniaxialMaterial Steel02 $matTag $Fy $E $b $R0 $cR1 $cR2
 initial elastic tangent)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$R0 $CR1 $CR2</strong></p></td>
+<td><p><code class="parameter-table-variable">R0 CR1 CR2</code></p></td>
 <td><p>parameters to control the transition from elastic to plastic
 branches. Recommended values: <code class="tcl-variable">R0</code>=between 10 and 20,
 <code class="tcl-variable">cR1</code>=0.925, <code class="tcl-variable">cR2</code>=0.15</p></td>

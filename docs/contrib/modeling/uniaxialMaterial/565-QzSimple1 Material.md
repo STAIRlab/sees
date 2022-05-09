@@ -65,16 +65,16 @@ Engineering, ASCE, 125(9): 750-759. Modifications were required for
 representing the different responses of a $q-z$
 material in compression versus uplift.</p>
 <p>The nonlinear q-z behavior is conceptualized as consisting of elastic
-(q-&lt;math&gt;z^e&lt;/math&gt;), plastic
+(q- $z^e$ ), plastic $z^e$ ) $z^e$ )
 (q-&lt;math&gt;z^p&lt;/math&gt;), and gap
 (&lt;math&gt;q-z^g&lt;/math&gt;) components in series. Radiation damping
 is modeled by a dashpot on the “far-field” elastic component
-(&lt;math&gt;q-z^e&lt;/math&gt;) of the displacement rate. The gap
+( $q-z^e$ ) of the displacement rate. The gap
 component consists of a bilinear closure spring
-(&lt;math&gt;q^c-z^g&lt;/math&gt;) in parallel with a nonlinear drag
-spring (&lt;math&gt;q^d-z^g&lt;/math&gt;). Note that &lt;math&gt;z = z^e
-+ z^p + z^g&lt;/math&gt;, and that &lt;math&gt;q = q^d +
-q^c&lt;/math&gt;.</p>
+( $q^c-z^g$ ) in parallel with a nonlinear drag $q^c-z^g$ )
+spring (&lt;math&gt;q^d-z^g&lt;/math&gt;). Note that  $z = z^e
++ z^p + z^g$ , and that  $q = q^d +
+q^c$ .</p>
 <p>The plastic component has an initial range of rigid behavior between
 
 $$-C_r q_\text{ult} &lt; q &lt; C_r q_\text{ult}$$
@@ -82,37 +82,33 @@ $$-C_r q_\text{ult} &lt; q &lt; C_r q_\text{ult}$$
 with $C_r$ = the ratio of
 $\frac{q}{q_{\text{ult}}}$ when plastic yielding
 first occurs in virgin loading. The rigid range of q, which is initially
-&lt;math&gt;2 C_r q_\text{ult}&lt;/math&gt;, translates and grows with
+ $2 C_r q_\text{ult}$ , translates and grows with
 plastic yielding. The rigid range of q is constrained to a maximum size
 of $0.7q_{\text{ult}}$. Beyond the rigid range,
-loading of the plastic (&lt;math&gt;q-z^p&lt;/math&gt;) component is
+loading of the plastic ( $q-z^p$ ) component is
 described by:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;q = q_{\text{ult}} - (q_{\text{ult}} - q_0) \left [\frac{c *
-z_{50}}{c * z_{50} + | z_p - z^p_0|} \right ] &lt;/math&gt;
-</dd>
-</dl>
+
+$$q = q_{\text{ult}} - (q_{\text{ult}} - q_0) \left [\frac{c *
+z_{50}}{c * z_{50} + | z_p - z^p_0|} \right ] $$
+
+
 <p>where $q_ult$ = the ultimate resistance of the
 $q-z$ material in the current loading direction,
 $q_o = q$ at the start of the current plastic
 loading cycle, p $z^p_o = z^p$ at the start of
 the current plastic loading cycle, and c and n are constants that
 control the shape of $q-z^p$ curve.</p>
-<p>The closure (&lt;math&gt;q^c-z^g&lt;/math&gt;) component is simply a
+<p>The closure ( $q^c-z^g$ ) component is simply a
 bilinear elastic spring, which is relatively rigid in compression and
 extremely flexible in tension (uplift).</p>
-<p>The nonlinear drag (&lt;math&gt;q^d-z^g&lt;/math&gt;) component is
+<p>The nonlinear drag ( $q^d-z^g$ ) component is
 used to allow thethe specification of some minimum “suction” on the pile
 tip during uplift. It is described by:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;q^d = C_d q_\text{ult} - (C_d q_{\text{ult}} - q^d_0) \left
-[\frac{z_{50}}{z_{50} + 2| z^g - z^g_0|} \right ] &lt;/math&gt;
-</dd>
-</dl>
+
+$$q^d = C_d q_\text{ult} - (C_d q_{\text{ult}} - q^d_0) \left
+[\frac{z_{50}}{z_{50} + 2| z^g - z^g_0|} \right ] $$
+
+
 <p>where $C_d$ = ratio of the maximum drag
 (suction) force to the ultimate resistance of the
 $q-z$ material, &lt;math&gt;q^d_o =
@@ -123,14 +119,14 @@ cycle.</p>
 different q-z backbone relations. Reese and O’Neill’s (1987) recommended
 backbone for drilled shafts in clay is closely approximated using
 &lt;math&gt;c = 0.35&lt;/math&gt;, $n = 1.2$, and
-&lt;math&gt;C_r = 0.2&lt;/math&gt;. Vijayvergiya’s (1977) recommended
+ $C_r = 0.2$ . Vijayvergiya’s (1977) recommended
 backbone for piles in sand is closely approximated using &lt;math&gt;c =
-12.3&lt;/math&gt;, $n = 5.5$, and &lt;math&gt;C_r
-= 0.3&lt;/math&gt;.</p>
+12.3&lt;/math&gt;, $n = 5.5$, and  $C_r
+= 0.3$ .</p>
 <p>QzSimple1 is currently implemented to allow use of these two default
 sets of values. Values of $q_\text{ult}$,
-&lt;math&gt;z_50&lt;/math&gt;, and suction (i.e.,
-&lt;math&gt;C_d&lt;/math&gt;) must then be specified to define the
+ $z_50$ , and suction (i.e.,
+ $C_d$ ) must then be specified to define the
 $q-z$ material behavior.</p>
 <p>Viscous damping on the far-field (elastic) component of the
 $q-z$ material is included for approximating

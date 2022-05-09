@@ -19,32 +19,32 @@ uniaxialMaterial Hysteretic $matTag $s1p $e1p $s2p $e2p
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$s1p $e1p</strong></p></td>
+<td><p><code class="parameter-table-variable">s1p e1p</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at first point of
 the envelope in the positive direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$s2p $e2p</strong></p></td>
+<td><p><code class="parameter-table-variable">s2p e2p</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at second point of
 the envelope in the positive direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$s3p $e3p</strong></p></td>
+<td><p><code class="parameter-table-variable">s3p e3p</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at third point of
 the envelope in the positive direction (optional)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$s1n $e1n</strong></p></td>
+<td><p><code class="parameter-table-variable">s1n e1n</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at first point of
 the envelope in the negative direction</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$s2n $e2n</strong></p></td>
+<td><p><code class="parameter-table-variable">s2n e2n</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at second point of
 the envelope in the negative direction</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$s3n $e3n</strong></p></td>
+<td><p><code class="parameter-table-variable">s3n e3n</code></p></td>
 <td><p>stress and strain (or force &amp; deformation) at third point of
 the envelope in the negative direction (optional)</p></td>
 </tr>

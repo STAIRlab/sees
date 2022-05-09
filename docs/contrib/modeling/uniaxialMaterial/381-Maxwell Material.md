@@ -11,7 +11,7 @@ damper with a high-precision accuracy.</p>
 
 ```tcl
 uniaxialMaterial ViscousDamper $matTag $K $Cd $alpha
-        &lt;$LGap&gt; &lt; $NM $RelTol $AbsTol $MaxHalf&gt;
+        < $LGap > < $NM $RelTol $AbsTol $MaxHalf >
 ```
 <hr />
 <table>

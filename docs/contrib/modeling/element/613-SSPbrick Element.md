@@ -28,7 +28,7 @@ href="Standard_Brick_Element" title="wikilink"> stdBrick Element</a>)
 object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b1 $b2 $b3</strong></p></td>
+<td><p><code class="parameter-table-variable">b1 b2 b3</code></p></td>
 <td><p>constant body forces in global x-, y-, and z-directions,
 respectively (optional, default = 0.0)</p></td>
 </tr>

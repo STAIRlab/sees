@@ -111,12 +111,12 @@ envelope</p></td>
 1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$bint $ebint</strong></p></td>
+<td><p><code class="parameter-table-variable">bint ebint</code></p></td>
 <td><p>intermediate &amp;beta;-strain point for for biaxial effect
 (default 1 and 0, respectively)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$bres $ebres</strong></p></td>
+<td><p><code class="parameter-table-variable">bres ebres</code></p></td>
 <td><p>residual &amp;beta;-strain point for for biaxial effect (default
 1 and 0, respectively)</p></td>
 </tr>
@@ -131,7 +131,7 @@ see Note 2)</p></td>
 2*<code class="tcl-variable">fpc</code>/<code class="tcl-variable">ec0</code>; see Note 3)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fcc $ecc</strong></p></td>
+<td><p><code class="parameter-table-variable">fcc ecc</code></p></td>
 <td><p>confined concrete peak compressive stress and corresponding
 strain* (see Eq. 1)</p></td>
 </tr>

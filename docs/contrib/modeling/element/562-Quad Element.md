@@ -15,7 +15,7 @@ element quad $eleTag $iNode $jNode $kNode $lNode $thick
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode $kNode $lNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode kNode lNode</code></p></td>
 <td><p>four nodes defining element boundaries, input in
 counter-clockwise order around the element.</p></td>
 </tr>
@@ -42,7 +42,7 @@ either "PlaneStrain" or "PlaneStress."</p></td>
 element mass matrix is computed (optional, default=0.0)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b1 $b2</strong></p></td>
+<td><p><code class="parameter-table-variable">b1 b2</code></p></td>
 <td><p>constant body forces defined in the isoparametric domain
 (optional, default=0.0)</p></td>
 </tr>

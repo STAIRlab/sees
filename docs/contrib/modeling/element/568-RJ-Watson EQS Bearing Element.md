@@ -47,7 +47,7 @@ element RJWatsonEqsBearing $eleTag $iNode $jNode
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode</code></p></td>
 <td><p>end nodes</p></td>
 </tr>
 <tr class="odd">
@@ -93,12 +93,12 @@ direction around local y-axis</p></td>
 direction around local z-axis</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$x1 $x2 $x3</strong></p></td>
+<td><p><code class="parameter-table-variable">x1 x2 x3</code></p></td>
 <td><p>vector components in global coordinates defining local x-axis
 (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$y1 $y2 $y3</strong></p></td>
+<td><p><code class="parameter-table-variable">y1 y2 y3</code></p></td>
 <td><p>vector components in global coordinates defining local y-axis
 (optional)</p></td>
 </tr>

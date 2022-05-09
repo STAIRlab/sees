@@ -22,12 +22,12 @@ recorder plot $fileName $windowTitle $xLoc $yLoc $xPixels
 <td><p>title of window to be opened</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$xLoc $yLoc</strong></p></td>
+<td><p><code class="parameter-table-variable">xLoc yLoc</code></p></td>
 <td><p>$xLoc, $yLoc specifies location on screen of top left corner of
 window</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$xPixels $yPixels</strong></p></td>
+<td><p><code class="parameter-table-variable">xPixels yPixels</code></p></td>
 <td><p>$xPixels, $yPixels specifies width and height in pixels of window
 to open</p></td>
 </tr>

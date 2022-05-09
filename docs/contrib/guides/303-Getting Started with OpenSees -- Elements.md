@@ -58,8 +58,8 @@ elasticBeamColumn 3 3 4 5760 4227 4423680 1
 </p>
 <p>The element connectivity is shown in the following figure:</p>
 <figure>
-<img src="GettingStartedNodes.JPG" title="GettingStartedNodes.JPG"
-alt="GettingStartedNodes.JPG" />
+<img src="GettingStartedNodes.jpg" title="GettingStartedNodes.jpg"
+alt="GettingStartedNodes.jpg" />
 <figcaption aria-hidden="true">GettingStartedNodes.JPG</figcaption>
 </figure>
 <hr />

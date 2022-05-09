@@ -184,9 +184,9 @@ $\xi $ constants.</p>
 is defined as</p>
 
 $$ \left\| \mathbf{s} - p \mathbf{\alpha} \right\| -
-\sqrt\frac{2}{3}pm = 0 &lt;/math&gt;
-</dd>
-</dl>
+\sqrt\frac{2}{3}pm = 0 $$
+
+
 </dd>
 </dl>
 <p>with $\mathbf{\alpha} $ being the deviatoric
@@ -199,9 +199,9 @@ $$
 <p>where</p>
 
 $$ \mathbf{R} = \mathbf{R'} + \frac{1}{3} D \mathbf{1}
-&lt;/math&gt;
-</dd>
-</dl>
+$$
+
+
 </dd>
 </dl>
 <p>therefore</p>

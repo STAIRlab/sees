@@ -19,7 +19,7 @@ element beamColumnJoint $eleTag $Nd1 $Nd2 $Nd3 $Nd4 $Mat1
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Nd1 $Nd2 $Nd3 $Nd4</strong></p></td>
+<td><p><code class="parameter-table-variable">Nd1 Nd2 Nd3 Nd4</code></p></td>
 <td><p>four nodes</p></td>
 </tr>
 <tr class="odd">

@@ -162,7 +162,7 @@ concentrated plastic hinge elements (optional, default = 0).</p></td>
 </tbody>
 </table>
 <figure>
-<img src="/OpenSeesRT/contrib/static/ModIKModel.PNG" title="ModIKModel.PNG" alt="ModIKModel.PNG" />
+<img src="/OpenSeesRT/contrib/static/ModIKModel.png" title="ModIKModel.png" alt="ModIKModel.png" />
 <figcaption aria-hidden="true">ModIKModel.PNG</figcaption>
 </figure>
 <p><strong>Image from: Lignos et al. (2011)</strong></p>

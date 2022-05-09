@@ -4,8 +4,7 @@
 object:</p>
 
 ```tcl
-uniaxialMaterial TzSimple1 $matTag $tzType $tult $z50
-        &lt;$c&gt;
+uniaxialMaterial TzSimple1 $matTag $tzType $tult $z50 < $c >
 ```
 <hr />
 <table>
@@ -50,34 +49,35 @@ stress times the tributary area of the pile].</p>
 <li>Nonzero c values are used to represent radiation damping
 effects</li>
 </ol>
-<p>EQUATIONS and EXAMPLERESPONSES:</p>
+
+<p>EQUATIONS and EXAMPLE RESPONSES:</p>
 <p>The equations describing PySimple1 behavior are described in
 Boulanger, R. W., Curras, C. J., Kutter, B. L., Wilson, D. W., and
 Abghari, A. (1999). "Seismic soil-pile-structure interaction experiments
 and analyses." Journal of Geotechnical and Geoenvironmental Engineering,
 ASCE, 125(9): 750-759. Only minor changes have been made in its
 implementation for OpenSees.</p>
-<p>The nonlinear t-z behavior is conceptualized as consisting of elastic
-(&lt;math&gt;t-z^e&lt;/math&gt;) and plastic
-(&lt;math&gt;t-z^p&lt;/math&gt;) components in series. Radiation damping
+
+The nonlinear t-z behavior is conceptualized as consisting of elastic
+( $t-z^e$ ) and plastic
+( $t-z^p$ ) components in series. Radiation damping
 is modeled by a dashpot on the “far-field” elastic component
-(&lt;math&gt;t-z^e&lt;/math&gt;) of the displacement rate. Note that
-&lt;math&gt;z = z^e + z^p&lt;/math&gt;, and that &lt;math&gt;t = t^e =
-t^p&lt;/math&gt;.</p>
+( $t-z^e$ ) of the displacement rate. Note that
+ $z = z^e + z^p$ , and that  $t = t^e = t^p$ .
+
 <p>The plastic component is described by:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;t^p = t_{\text{ult}} - (t_{\text{ult}} - t^p_0) \left
-[\frac{c z_{50}}{c z_{50} + | z_p - z^p_0|} \right ] &lt;/math&gt;
-</dd>
-</dl>
-<p>where $t_{ult} = $ the ultimate resistance of
-the t-z material in the current loading direction, &lt;math&gt;t^p_o =
-t^p&lt;/math&gt; at the start of the current plastic loading cycle,
+
+$$t^p = t_{\text{ult}} - (t_{\text{ult}} - t^p_0) \left
+[\frac{c z_{50}}{c z_{50} + | z_p - z^p_0|} \right ] $$
+
+
+
+where $t_{ult} = $ the ultimate resistance of
+the t-z material in the current loading direction, $t^p_o = t^p$ at the start of the current plastic loading cycle,
 $z^p_0 = z^P$ at the start of the current plastic
 loading cycle, and c = a constant and n = an exponent that define the
-shape of the $t-z^p$ curve.</p>
+shape of the $t-z^p$ curve.
+
 <p>The elastic component can be conveniently expressed as:</p>
 <dl>
 <dt></dt>
@@ -87,11 +87,12 @@ $$t^e = C_e \frac{t_{\text{ult}}}{z_{50}} z^e$$
 
 </dd>
 </dl>
-<p>where $C_e$ = a constant that defines the
+
+where $C_e$ = a constant that defines the
 normalized elastic stiffness. The value of $C_e$
 is not an independent parameter, but rather depends on the constants c
-&amp; n (along with the fact that &lt;math&gt;t = 0.5
-t_{\text{ult}}&lt;/math&gt; at $z = z_{50}$).</p>
+&amp; n (along with the fact that $t = 0.5 t_{\text{ult}}$ at $z = z_{50}$).
+
 <p>The flexibility of the above equations can be used to approximate
 different t-z backbone relations. Reese and O’Neill’s (1987) recommended
 backbone for drilled shafts is closely approximated using c = 0.5, n =

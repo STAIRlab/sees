@@ -20,12 +20,12 @@ uniaxialMaterial AxialSpHD $matTag $sce $fty $fcy
 <td><p>compressive modulus</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fty $fcy</strong></p></td>
+<td><p><code class="parameter-table-variable">fty fcy</code></p></td>
 <td><p>yield stress under tension (<code class="tcl-variable">fty</code>) and
 compression (<code class="tcl-variable">fcy</code>) (see note 1)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$bte $bty $bth $bcy</strong></p></td>
+<td><p><code class="parameter-table-variable">bte bty bth bcy</code></p></td>
 <td><p>reduction rate for tensile elastic range (<code class="tcl-variable">bte</code>),
 tensile yielding (<code class="tcl-variable">bty</code>), tensile hardening
 (<code class="tcl-variable">bth</code>) and compressive yielding (<code class="tcl-variable">bcy</code>)

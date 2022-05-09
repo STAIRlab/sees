@@ -32,13 +32,11 @@ loads.</p></td>
 
 <p>If we write the governing finite element equation at &lt;math&gt;t +
 \Delta t\!&lt;/math&gt;as:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; R(U_{t+\Delta t}, \lambda_{t+\Delta t}) = \lambda_{t+\Delta
-t} F^{ext} - F(U_{t+\Delta t}) \!&lt;/math&gt;
-</dd>
-</dl>
+
+$$ R(U_{t+\Delta t}, \lambda_{t+\Delta t}) = \lambda_{t+\Delta
+t} F^{ext} - F(U_{t+\Delta t}) \!$$
+
+
 <p>where &lt;math&gt;F(U_{t+\Delta t})\!&lt;/math&gt; are the internal
 forces which are a function of the displacements &lt;math&gt;U_{t+\Delta
 t}\!&lt;/math&gt;, &lt;math&gt;F^{ext}\!&lt;/math&gt; is the set of
@@ -60,12 +58,10 @@ For displacement control, we introduce a new constraint equation in
 which in each analysis step we set to ensure that the displacement
 increment for the degree-of-freedom $\text{dof}$
 at the specified node is:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \!&lt;/math&gt;
-</dd>
-</dl>
+
+$$ \!$$
+
+
 <p>MORE TO COME:</p>
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk

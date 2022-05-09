@@ -79,20 +79,16 @@ R(U^0) \parallel \!&lt;/math&gt; is very small to being with.</li>
 ## Theory
 
 <p>If the system of equations formed by the integrator is:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;K \Delta U^i = R(U^i)\,\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$K \Delta U^i = R(U^i)\,\!$$
+
+
 <p>This integrator is testing:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;\frac{\parallel R(U^i) \parallel}{\parallel R(U^0)
-\parallel} &lt; \text{tol} \!&lt;/math&gt;
-</dd>
-</dl>
+
+$$\frac{\parallel R(U^i) \parallel}{\parallel R(U^0)
+\parallel} &lt; \text{tol} \!$$
+
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

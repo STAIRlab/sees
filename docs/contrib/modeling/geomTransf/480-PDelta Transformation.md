@@ -1,11 +1,13 @@
 # PDelta
 
-<p>This command is used to construct the P-Delta Coordinate
+This command is used to construct the P-Delta Coordinate
 Transformation (PDeltaCrdTransf) object, which performs a linear
 geometric transformation of beam stiffness and resisting force from the
 basic system to the global coordinate system, considering second-order
-P-Delta effects. NOTE: P LARGE Delta effects do not include P small
-delta effects.</p>
+P-Delta effects. 
+>NOTE: $P$ - $\Delta$ effects do not include $P$ - 
+$\delta$ effects.
+
 <p>For a two-dimensional problem:</p>
 
 ```tcl
@@ -25,7 +27,7 @@ geomTransf PDelta $transfTag $vecxzX $vecxzY $vecxzZ
 <td><p>integer tag identifying transformation</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$vecxzX $vecxzY $vecxzZ</strong></p></td>
+<td><p><code class="parameter-table-variable">vecxzX vecxzY vecxzZ</code></p></td>
 <td><p>X, Y, and Z components of vecxz, the vector used to define the
 local x-z plane of the local-coordinate system. The local y-axis is
 defined by taking the cross product of the vecxz vector and the
@@ -37,7 +39,7 @@ local-coordinate system.</p>
 problem.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>dXi dYi dZi</strong></p></td>
+<td><p><code>dXi dYi dZi</code></p></td>
 <td><p>joint offset values -- offsets specified with respect to the
 global coordinate system for element-end node i (the number of arguments
 depends on the dimensions of the current model). The offset vector is
@@ -45,7 +47,7 @@ oriented from node i to node j as shown in a figure below.
 (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>dXj dYj dZj</strong></p></td>
+<td><p><code>dXj dYj dZj</code></p></td>
 <td><p>joint offset values -- offsets specified with respect to the
 global coordinate system for element-end node j (the number of arguments
 depends on the dimensions of the current model). The offset vector is
@@ -81,24 +83,27 @@ alt="RigidElementOffsets.gif" />
 alt="ElementCrossSection.png" />
 <figcaption aria-hidden="true">ElementCrossSection.png</figcaption>
 </figure>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElementOrientation.png" title="ElementOrientation.png"
 alt="ElementOrientation.png" />
 <figcaption aria-hidden="true">ElementOrientation.png</figcaption>
 </figure>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElementVectors.png" title="ElementVectors.png"
 alt="ElementVectors.png" />
 <figcaption aria-hidden="true">ElementVectors.png</figcaption>
 </figure>
-<ol>
-<li>Element 1 : tag 1 : vecxZ = zaxis</li>
-</ol>
-<p>geomTransf PDelta 1 0 0 -1</p>
-<ol>
-<li>Element 2 : tag 2 : vecxZ = y axis</li>
-</ol>
-<p>geomTransf PDelta 2 0 1 0</p>
+
+```tcl
+# Element 1 : tag 1 : vecxZ = zaxis
+geomTransf PDelta 1 0 0 -1</p>
+
+# Element 2 : tag 2 : vecxZ = y axis
+geomTransf PDelta 2 0 1 0
+```
+
 <p>Code Developed by: <span style="color:blue"> Remo Magalhaes de
 Souza </span></p>
 <p>Images Developed by: <span style="color:blue"> Silvia Mazzoni

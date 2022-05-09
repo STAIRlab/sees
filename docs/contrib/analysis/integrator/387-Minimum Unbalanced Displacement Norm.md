@@ -38,7 +38,7 @@ $dLambda1 for both)</p></td>
 ## Theory
 
 <p>The load increment at iteration i,
-&lt;math&gt;d\lambda_{1,i}&lt;/math&gt;, is related to the load
+ $d\lambda_{1,i}$ , is related to the load
 increment at (i-1), $d\lambda_{1,i-1}$, and the
 number of iterations at (i-1), $J_{i-1}$, by the
 following:</p>

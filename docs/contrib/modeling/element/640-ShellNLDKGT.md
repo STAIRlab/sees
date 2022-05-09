@@ -17,7 +17,7 @@ element ShellNLDKGT $eleTag $iNode $jNode $kNode
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode $kNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode kNode</code></p></td>
 <td><p>three nodes defining element boundaries, input in clockwise or
 counter-clockwise order around the element.</p></td>
 </tr>

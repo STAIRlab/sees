@@ -25,7 +25,7 @@ geomTransf Corotational $transfTag $vecxzX $vecxzY
 <td><p>integer tag identifying transformation</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$vecxzX $vecxzY $vecxzZ</strong></p></td>
+<td><p><code class="parameter-table-variable">vecxzX vecxzY vecxzZ</code></p></td>
 <td><p>X, Y, and Z components of vecxz, the vector used to define the
 local x-z plane of the local-coordinate system. The local y-axis is
 defined by taking the cross product of the vecxz vector and the
@@ -37,12 +37,12 @@ local-coordinate system.</p>
 problem.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dXi $dYi</strong></p></td>
+<td><p><code class="parameter-table-variable">dXi dYi</code></p></td>
 <td><p>joint offset values -- absolute offsets specified with respect to
 the global coordinate system for element-end node i (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dXj $dYj</strong></p></td>
+<td><p><code class="parameter-table-variable">dXj dYj</code></p></td>
 <td><p>joint offset values -- absolute offsets specified with respect to
 the global coordinate system for element-end node j (optional)</p></td>
 </tr>

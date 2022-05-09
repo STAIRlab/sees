@@ -15,7 +15,7 @@ element SimpleContact2D $eleTag $iNode $jNode $cNode
 <td><p>unique integer tag identifying element object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode</code></p></td>
 <td><p>retained nodes (-ndm 2 -ndf 2)</p></td>
 </tr>
 <tr class="odd">

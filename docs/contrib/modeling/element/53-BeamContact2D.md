@@ -14,7 +14,7 @@ element BeamContact2D $eleTag $iNode $jNode $cNode $lNode
 <td><p>unique integer tag identifying element object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode</code></p></td>
 <td><p>retained nodes (-ndm 2 -ndf 3)</p></td>
 </tr>
 <tr class="odd">

@@ -15,7 +15,7 @@ element SimpleContact3D $eleTag $iNode $jNode $kNode
 <td><p>unique integer tag identifying element object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode $kNode $lNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode kNode lNode</code></p></td>
 <td><p>retained nodes (-ndm 3 -ndf 3)</p></td>
 </tr>
 <tr class="odd">

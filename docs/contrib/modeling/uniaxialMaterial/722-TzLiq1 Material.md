@@ -48,7 +48,7 @@ loading.</p></td>
 component of the displacement rate (velocity).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ele1 $ele2</strong></p></td>
+<td><p><code class="parameter-table-variable">ele1 ele2</code></p></td>
 <td><p>are the eleTag (element numbers) for the two solid elements from
 which PyLiq1 will obtain mean effective stresses and excess pore
 pressures</p></td>

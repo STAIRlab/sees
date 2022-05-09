@@ -8,8 +8,8 @@ loading and initial conditions.</p>
 
 ```tcl
 nDMaterial stressDensity $matTag $mDen $eNot $A $n $nu
-        $a1 $b1 $a2 $b2 $a3 $b3 $fd $muNot $muCyc $sc $M $patm &lt;$ssl1 $ssl2
-        $ssl3 $ssl4 $ssl5 $ssl6 $ssl7 $hsl $pmin&gt;
+        $a1 $b1 $a2 $b2 $a3 $b3 $fd $muNot $muCyc $sc $M $patm 
+        < $ssl1 $ssl2 $ssl3 $ssl4 $ssl5 $ssl6 $ssl7 $hsl $pmin >
 ```
 
 <table>
@@ -93,47 +93,47 @@ be careful with units)</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>&lt;$ssl1&gt;</strong></p></td>
+<td><p><code>ssl1</code></p></td>
 <td><p>void ratio of quasi steady state (QSS-line) at pressure $pmin
 (default = 0.877)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>&lt;$ssl2&gt;</strong></p></td>
+<td><p><code>ssl2</code></p></td>
 <td><p>void ratio of quasi steady state (QSS-line) at 10 kPa (default =
 0.877)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>&lt;$ssl3&gt;</strong></p></td>
+<td><p><code>ssl3</code></p></td>
 <td><p>void ratio of quasi steady state (QSS-line) at 30 kPa (default =
 0.873)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>&lt;$ssl4&gt;</strong></p></td>
+<td><p><code>ssl4</code></p></td>
 <td><p>void ratio of quasi steady state (QSS-line) at 50 kPa (default =
 0.870)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>&lt;$ssl5&gt;</strong></p></td>
+<td><p><code>ssl5</code></p></td>
 <td><p>void ratio of quasi steady state (QSS-line) at 100 kPa (default =
 0.860)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>&lt;$ssl6&gt;</strong></p></td>
+<td><p><code>ssl6</code></p></td>
 <td><p>void ratio of quasi steady state (QSS-line) at 200 kPa (default =
 0.850)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>&lt;$ssl7&gt;</strong></p></td>
+<td><p><code>ssl7</code></p></td>
 <td><p>void ratio of quasi steady state (QSS-line) at 400 kPa (default =
 0.833)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>&lt;$hsl&gt;</strong></p></td>
+<td><p><code>hsl</code></p></td>
 <td><p>void ratio of upper reference state (UR-line) for all pressures
 (default = 0.895)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>&lt;$pmin&gt;</strong></p></td>
+<td><p><code>pmin</code></p></td>
 <td><p>pressure corresponding to $ssl1 (default = 1.0 kPa)</p></td>
 </tr>
 </tbody>

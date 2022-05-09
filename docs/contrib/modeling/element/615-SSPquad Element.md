@@ -14,7 +14,7 @@ element SSPquad $eleTag $iNode $jNode $kNode $lNode
 <td><p>unique integer tag identifying element object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$iNode $jNode $kNode $lNode</strong></p></td>
+<td><p><code class="parameter-table-variable">iNode jNode kNode lNode</code></p></td>
 <td><p>the four nodes defining the element, input in counterclockwise
 order (-ndm 2 -ndf 2)</p></td>
 </tr>
@@ -33,7 +33,7 @@ order (-ndm 2 -ndf 2)</p></td>
 object</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$b1 $b2</strong></p></td>
+<td><p><code class="parameter-table-variable">b1 b2</code></p></td>
 <td><p>constant body forces in global x- and y-directions, respectively
 (optional, default = 0.0)</p></td>
 </tr>

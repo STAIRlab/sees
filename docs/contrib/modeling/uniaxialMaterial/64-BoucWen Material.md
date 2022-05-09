@@ -32,18 +32,18 @@ uniaxialMaterial BoucWen $matTag $alpha $ko $n $gamma
 equal to 1)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$gamma $beta</strong></p></td>
+<td><p><code class="parameter-table-variable">gamma beta</code></p></td>
 <td><p>parameters that control shape of hysteresis loop; depending on
 the values of $\gamma$ and
 $\beta$ softening, hardening or quasi-linearity
 can be simulated (look at the NOTES)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$Ao $deltaA</strong></p></td>
+<td><p><code class="parameter-table-variable">Ao deltaA</code></p></td>
 <td><p>parameters that control tangent stiffness</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$deltaNu $deltaEta</strong></p></td>
+<td><p><code class="parameter-table-variable">deltaNu deltaEta</code></p></td>
 <td><p>parameters that control material degradation</p></td>
 </tr>
 </tbody>

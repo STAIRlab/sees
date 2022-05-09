@@ -24,7 +24,7 @@ geomTransf Linear $transfTag $vecxzX $vecxzY $vecxzZ
 <td><p>integer tag identifying transformation</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$vecxzX $vecxzY $vecxzZ</strong></p></td>
+<td><p><code class="parameter-table-variable">vecxzX vecxzY vecxzZ</code></p></td>
 <td><p>X, Y, and Z components of vecxz, the vector used to define the
 local x-z plane of the local-coordinate system. The local y-axis is
 defined by taking the cross product of the vecxz vector and the
@@ -36,13 +36,13 @@ local-coordinate system.</p>
 problem.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dXi $dYi $dZi</strong></p></td>
+<td><p><code class="parameter-table-variable">dXi dYi dZi</code></p></td>
 <td><p>joint offset values -- offsets specified with respect to the
 global coordinate system for element-end node i (optional, the number of
 arguments depends on the dimensions of the current model).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dXj $dYj $dZj</strong></p></td>
+<td><p><code class="parameter-table-variable">dXj dYj dZj</code></p></td>
 <td><p>joint offset values -- offsets specified with respect to the
 global coordinate system for element-end node j (optional, the number of
 arguments depends on the dimensions of the current model).</p></td>

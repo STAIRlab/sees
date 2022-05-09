@@ -33,10 +33,10 @@ Otherwise the method is implicit and requires an iterative solution
 process.</li>
 <li>Two common sets of choices are
 <ol>
-<li>Average Acceleration Method (&lt;math&gt;\gamma=\tfrac{1}{2}, \beta
-= \tfrac{1}{4}&lt;/math&gt;)</li>
-<li>Linear Acceleration Method (&lt;math&gt;\gamma=\tfrac{1}{2}, \beta =
-\tfrac{1}{6}&lt;/math&gt;)</li>
+<li>Average Acceleration Method ($\gamma=\tfrac{1}{2}, \beta
+= \tfrac{1}{4}$</li>
+<li>Linear Acceleration Method ($\gamma=\tfrac{1}{2}, \beta =
+\tfrac{1}{6}$</li>
 </ol></li>
 <li>$\gamma &gt; \tfrac{1}{2}$ results in
 numerical damping proportional to &lt;math&gt; \gamma -
@@ -145,10 +145,10 @@ $\gamma=\tfrac{1}{2}$ there is no numerical
 damping; for $\gamma&gt;=\tfrac{1}{2}$ numerical
 damping is introduced. Two well known and commonly used cases are:</p>
 <ol>
-<li>Average Acceleration Method (&lt;math&gt;\gamma=\tfrac{1}{2}, \beta
-= \tfrac{1}{4}&lt;/math&gt;)</li>
-<li>Constant Acceleration Method (&lt;math&gt;\gamma=\tfrac{1}{2}, \beta
-= \tfrac{1}{6}&lt;/math&gt;)</li>
+<li>Average Acceleration Method ($\gamma=\tfrac{1}{2}, \beta
+= \tfrac{1}{4}$</li>
+<li>Constant Acceleration Method ($\gamma=\tfrac{1}{2}, \beta
+= \tfrac{1}{6}$</li>
 </ol>
 <p>The linearization of the Newmark equations gives:</p>
 <dl>

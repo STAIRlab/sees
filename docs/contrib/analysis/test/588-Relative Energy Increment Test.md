@@ -77,20 +77,16 @@ Lagrange multiplies.</li>
 ## Theory
 
 <p>If the system of equations formed by the integrator is:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;K \Delta U^i = R(U^i)\,\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$K \Delta U^i = R(U^i)\,\!$$
+
+
 <p>This integrator is testing:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \frac{\Delta U^i R(U^i)}{\Delta U^0 R(U^0)} &lt; \text{tol}
-\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$ \frac{\Delta U^i R(U^i)}{\Delta U^0 R(U^0)} &lt; \text{tol}
+\!$$
+
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

@@ -35,7 +35,7 @@ object</p></td>
 <td><p>mass density of the pore fluid</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$k1 $k2 $k3</strong></p></td>
+<td><p><code class="parameter-table-variable">k1 k2 k3</code></p></td>
 <td><p>permeability coefficients in global x-, y-, and z-directions,
 respectively</p></td>
 </tr>
@@ -49,7 +49,7 @@ respectively</p></td>
 below for more information)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$b1 $b2 $b3</strong></p></td>
+<td><p><code class="parameter-table-variable">b1 b2 b3</code></p></td>
 <td><p>constant body forces in global x-, y-, and z-directions,
 respectively (optional, default = 0.0) - <strong>See Note
 3</strong></p></td>

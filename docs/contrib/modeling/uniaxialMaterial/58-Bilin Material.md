@@ -1,6 +1,6 @@
 # IMKBilin
 
-<p>This command is used to construct a bilin material. The bilin
+This command is used to construct a bilin material. The bilin
 material simulates the modified Ibarra-Medina-Krawinkler deterioration
 model with bilinear hysteretic response. Note that the hysteretic
 response of this material has been calibrated with respect to more than
@@ -9,7 +9,7 @@ multivariate regression formulas are provided to estimate the
 deterioration parameters of the model for different connection types.
 These relationships were developed by Lignos and Krawinkler (2009, 2011)
 and have been adopted by PEER/ATC (2010). 
-</p>
+
 
 
 ```tcl
@@ -17,7 +17,7 @@ uniaxialMaterial IMKBilin $matTag $K0 $as_Plus $as_Neg
         $My_Plus $My_Neg $Lamda_S $Lamda_C $Lamda_A $Lamda_K $c_S $c_C $c_A $c_K
         $theta_p_Plus $theta_p_Neg $theta_pc_Plus $theta_pc_Neg $Res_Pos
         $Res_Neg $theta_u_Plus $theta_u_Neg $D_Plus $D_Neg
-        &lt;$nFactor&gt;
+        < $nFactor >
 ```
 
 <hr />
@@ -153,7 +153,7 @@ concentrated plastic hinge elements (optional, default = 0).</p></td>
 </tbody>
 </table>
 <figure>
-<img src="/OpenSeesRT/contrib/static/ModIKModel.PNG" title="ModIKModel.PNG" alt="ModIKModel.PNG" />
+<img src="/OpenSeesRT/contrib/static/ModIKModel.png" title="ModIKModel.png" alt="ModIKModel.png" />
 <figcaption aria-hidden="true">ModIKModel.PNG</figcaption>
 </figure>
 <p><strong>Image from: Lignos et al. (2011)</strong></p>
