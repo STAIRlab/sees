@@ -24,9 +24,10 @@ load control method. In the load control method, the following
 constraint equation is added to equation~\ref{staticFormTaylor} of the
 StaticIntegrator class: 
 
-\[ 
+$$ 
 \lambda_n^{(i)} - \lambda_{n-1} = \delta \lambda_n
-\]
+$$
+
 
 \noindent where $\delta \lambda_n$ depends on $\delta \lambda_{n-1}$,
 the load increment at the previous time step, $J_{n-1}$,
@@ -35,10 +36,11 @@ previous load step, and $Jd$, the desired number of iteraions. $\delta
 \lambda_n$ is bounded by $\delta \lambda_{min}$  and $\delta \lambda_{max}$. \\
 
 
-\[ 
+$$ 
 \delta \lambda_n = max \left( \delta \lambda_{min}, min \left(
 \frac{Jd}{J_{n-1}} \delta \lambda_{n-1}, \delta \lambda_{max} \right) \right)
-\]
+$$
+
 
 Knowing $\lambda_n^{(i)}$ prior to each iteration, the $N+1$ unknowns
 in equation~\ref{staticFormTaylor}, is reduced to $N$ unknowns and
@@ -99,10 +101,11 @@ Does nothing. \\
 The object obtains the current value of $\lambda$ from the AnalysisModel
 object. It increments this by $\delta \lambda_n $.
 
-\[ 
+$$ 
 \delta \lambda_n = max \left( \delta \lambda_{min}, min \left(
 \frac{Jd}{J_{n-1}} \delta \lambda_{n-1}, \delta \lambda_{max} \right) \right)
-\]
+$$
+
 
 \noindent It will then invoke
 {\em applyLoadDomain(0.0, $\lambda$)} on the AnalysisModel

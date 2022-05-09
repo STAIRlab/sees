@@ -13302,40 +13302,40 @@ Removal During Simulation
 <p>where the parameters are defined in the following. Here “input" means that the subroutine expects the user to provide the necessary input data and”output" means that the routine passes back information in the variable or array indicated. All parameters are linear arrays except variables <strong>N</strong>, <strong>NW</strong>, and <strong>IER</strong>. Moreover, all parameters may be altered by the subroutine call except variables <strong>N</strong> and <strong>NW</strong>. (See Section <a href="#notes" data-reference-type="ref" data-reference="notes">7</a> for additional details.)</p>
 <dl>
 <dt>N</dt>
-<dd><p>is the order of the linear system. [integer; input]</p>
+<dd><p>is the order of the linear system. [integer; input$$</p>
 </dd>
 <dt>IA(*)</dt>
-<dd><p>is a vector of length <span class="math inline">\({\bf N+1}\)</span> used in the sparse matrix storage format. It contains the row pointers into <strong>JA(*)</strong> and <strong>A(*)</strong>. [integer array; input]</p>
+<dd><p>is a vector of length <span class="math inline">\({\bf N+1}\)</span> used in the sparse matrix storage format. It contains the row pointers into <strong>JA(*)</strong> and <strong>A(*)</strong>. [integer array; input$$</p>
 </dd>
 <dt>JA(*)</dt>
-<dd><p>is a vector of length <strong>NZ</strong> (defined in <strong>A(*)</strong> below) used in the sparse matrix storage format. It contains the column numbers for the corresponding entries in <strong>A(*)</strong>. [integer array; input]</p>
+<dd><p>is a vector of length <strong>NZ</strong> (defined in <strong>A(*)</strong> below) used in the sparse matrix storage format. It contains the column numbers for the corresponding entries in <strong>A(*)</strong>. [integer array; input$$</p>
 </dd>
 <dt>A(*)</dt>
-<dd><p>is a vector of length <strong>NZ</strong> used in the sparse matrix storage format. It contains the nonzero entries of the coefficient matrix with positive diagonal elements. (<strong>NZ</strong> is the number of nonzero entries in the upper triangular part of the coefficient matrix when symmetric storage is used and is the total number of nonzeros when nonsymmetric storage is used.) [real array; input]</p>
+<dd><p>is a vector of length <strong>NZ</strong> used in the sparse matrix storage format. It contains the nonzero entries of the coefficient matrix with positive diagonal elements. (<strong>NZ</strong> is the number of nonzero entries in the upper triangular part of the coefficient matrix when symmetric storage is used and is the total number of nonzeros when nonsymmetric storage is used.) [real array; input$$</p>
 </dd>
 <dt>RHS(*)</dt>
-<dd><p>is a vector of length <strong>N</strong> containing the right-hand side of the linear system. [real array; input]</p>
+<dd><p>is a vector of length <strong>N</strong> containing the right-hand side of the linear system. [real array; input$$</p>
 </dd>
 <dt>U(*)</dt>
-<dd><p>is a vector of length <strong>N</strong> containing the initial guess to the solution of the linear system on input and the latest approximate solution on output. [real array; input/output]</p>
+<dd><p>is a vector of length <strong>N</strong> containing the initial guess to the solution of the linear system on input and the latest approximate solution on output. [real array; input/output$$</p>
 </dd>
 <dt>IWKSP(*)</dt>
-<dd><p>is a vector of length <span class="math inline">\({\bf 3*N}\)</span> used for integer workspace. When reindexing for red-black ordering, the first <strong>N</strong> locations contain on output the permutation vector for the red-black indexing, the next <strong>N</strong> locations contain its inverse, and the last <strong>N</strong> are used for integer workspace.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> [integer array; output]</p>
+<dd><p>is a vector of length <span class="math inline">\({\bf 3*N}\)</span> used for integer workspace. When reindexing for red-black ordering, the first <strong>N</strong> locations contain on output the permutation vector for the red-black indexing, the next <strong>N</strong> locations contain its inverse, and the last <strong>N</strong> are used for integer workspace.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> [integer array; output$$</p>
 </dd>
 <dt>NW</dt>
-<dd><p>is a scalar. On input, <strong>NW</strong> is the available length for <strong>WKSP(*)</strong>. On output, <strong>IPARM(8)</strong> is the actual amount used (or needed). [integer; input]</p>
+<dd><p>is a scalar. On input, <strong>NW</strong> is the available length for <strong>WKSP(*)</strong>. On output, <strong>IPARM(8)</strong> is the actual amount used (or needed). [integer; input$$</p>
 </dd>
 <dt>WKSP(*)</dt>
-<dd><p>is a vector used for real working space whose length depends on the iterative method being used. It must be at least <strong>NW</strong> entries long. (See the table near the end of this section for the required amount of workspace for each method.) [real array]</p>
+<dd><p>is a vector used for real working space whose length depends on the iterative method being used. It must be at least <strong>NW</strong> entries long. (See the table near the end of this section for the required amount of workspace for each method.) [real array$$</p>
 </dd>
 <dt>IPARM(*)</dt>
-<dd><p>is a vector of length 12 used to initialize various integer and logical parameters. Default values may be set by calling subroutine <strong>DFAULT()</strong> described below. On output, <strong>IPARM(*)</strong> contains the values of the parameters that were changed. (Further details are given later in this section.) [integer array; input/output]</p>
+<dd><p>is a vector of length 12 used to initialize various integer and logical parameters. Default values may be set by calling subroutine <strong>DFAULT()</strong> described below. On output, <strong>IPARM(*)</strong> contains the values of the parameters that were changed. (Further details are given later in this section.) [integer array; input/output$$</p>
 </dd>
 <dt>RPARM(*)</dt>
-<dd><p>is a vector of length 12 used to initialize various real parameters on input. Default values may be set by calling subroutine <strong>DFAULT()</strong> described below. On output, <strong>RPARM(*)</strong> contains the final values of the parameters that were changed. (Further details are given later in this section.) [real array; input/output]</p>
+<dd><p>is a vector of length 12 used to initialize various real parameters on input. Default values may be set by calling subroutine <strong>DFAULT()</strong> described below. On output, <strong>RPARM(*)</strong> contains the final values of the parameters that were changed. (Further details are given later in this section.) [real array; input/output$$</p>
 </dd>
 <dt>IER</dt>
-<dd><p>is the error flag which is set to zero for normal convergence and to a nonzero integer when an error condition is present. (See the table at the end of this section for the meaning of nonzero values.) [integer; output]</p>
+<dd><p>is the error flag which is set to zero for normal convergence and to a nonzero integer when an error condition is present. (See the table at the end of this section for the meaning of nonzero values.) [integer; output$$</p>
 </dd>
 </dl>
 <p>The user may supply nondefault values for selected quantities in <strong>IPARM(*)</strong> and by first executing</p>
@@ -13797,7 +13797,10 @@ Removal During Simulation
 <p>Scaling of the linear system is done as follows to reduce the number of arithmetic operations. The diagonal entries of the linear system are checked for positivity and are moved to the first <strong>N</strong> locations of the array <strong>A(*)</strong>. The nonzero off-diagonal entries of the linear system <span class="math inline">\(Au=b\)</span> are scaled. The scaling involves the diagonal matrix <span class="math inline">\(D^{\frac{1}{2}}\)</span> of square roots of the diagonal entries of the linear system, that is, <span class="math display">\[(D^{-\frac{1}{2}}AD^{-\frac{1}{2}})(D^{\frac{1}{2}}u) = (D^{-\frac{1}{2}}b).\]</span> The algorithms iterate until convergence is reached based on the relative accuracy requested via the stopping criterion set in <strong>RPARM(1)</strong> for the scaled solution vector <span class="math inline">\((D^{\frac{1}{2}}u)\)</span>. Unscaling solves for <span class="math inline">\(u\)</span> and returns the linear system to its original form subject to roundoff errors in the arithmetic and to possible movement of entries within contiguous blocks of data.</p>
 <p>When requested, a red-black permutation of the data will be done before and after the iterative algorithm is called. Otherwise, the linear system is used in the order it is given which we call the “natural ordering."</p>
 <p>The Successive Overrelaxation (SOR) method has been shown to be more effective with the red-black ordering than with the natural ordering for some problems <span class="citation" data-cites="18">[@18]</span>. In the SOR algorithm, the first iteration uses <span class="math inline">\(\omega= 1\)</span> and the stopping criterion is set to a large value so that at least one Gauss-Seidel iteration is performed before an approximate value for the optimum relaxation parameter is computed.</p>
-<p>Optional features of this package are red-black ordering, effective removal of rows and columns when the diagonal entry is extremely large, and error analysis. In the event that one is not using some of these options and needs additional memory space for a very large linear system, the relevant subroutines which can be replaced with dummy subroutines are as follows: red-black ordering [<strong>PRBNDX()</strong>, <strong>PERMAT()</strong>, <strong>PERVEC()</strong>, <strong>QSORT()</strong>], removal of rows [<strong>SBELM()</strong>], error analysis [<strong>PERROR()</strong>].</p>
+<p>Optional features of this package are red-black ordering, effective removal of rows and columns when the diagonal entry is extremely large, and error analysis. In the event that one is not using some of these options and needs additional memory space for a very large linear system, the relevant subroutines which can be replaced with dummy subroutines are as follows: red-black ordering [<strong>PRBNDX()</strong>, <strong>PERMAT()</strong>, <strong>PERVEC()</strong>, <strong>QSORT()</strong><span class="math display">\[
+, removal of rows
+\]</span><strong>SBELM()</strong><span class="math display">\[
+, error analysis \[**PERROR()**\]</span> .</p>
 <p>The timing routine <strong>TIMER()</strong> should call a routine which returns the run time in seconds.</p>
 <p>The value of the machine relative precision is contained in the variable <strong>SRELPR</strong> which is set in the subroutine <strong>DFAULT()</strong> and in the test program. This and other default values may be permanently changed when the code is installed by changing their values in the subroutine <strong>DFAULT()</strong>. <strong>SRELPR</strong> must be changed when moving the code to another computer. If the installer of this package does not know its value, an approximate value can be determined from a simple FORTRAN program given in the comment statements of subroutine <strong>DFAULT()</strong>.</p>
 <p>Since the amount of precision may change from computer to computer, the relative accuracy requested in the stopping criterion <strong>ZETA</strong> must not be less than about <span class="math inline">\(500\)</span> times the machine relative precision <strong>SRELPR</strong>. If a value of <strong>ZETA</strong> is requested that is too small then the code resets it to this value. The current default value for <strong>ZETA</strong>, <span class="math inline">\(5 \times 10^{-6}\)</span>, is set by the routine <strong>DFAULT()</strong> into <strong>RPARM(1)</strong>.</p>

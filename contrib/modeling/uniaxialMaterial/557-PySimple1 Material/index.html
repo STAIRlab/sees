@@ -13323,7 +13323,8 @@ The nonlinear <span class="math inline">\(p-y\)</span> behavior is conceptualize
 <p><span class="math display">\[-C_r p_\text{ult} &amp;lt; p &amp;lt; C_r p_\text{ult}\]</span></p>
 with <span class="math inline">\(C_r\)</span> = the ratio of $p/p_ $ when plastic yielding first occurs in virgin loading. The rigid range of <span class="math inline">\(p\)</span>, which is initially <span class="math inline">\(2 C_r p_\text{ult}\)</span>, translates with plastic yielding (kinematic hardening). The rigid range of <span class="math inline">\(p\)</span> can be constrained to maintain a minimum size on both the positive and negative loading sides (e.g., 25% of <span class="math inline">\(p\text{ult}\)</span> ), and this is accomplished by allowing the rigid range to expand or contract as necessary. Beyond the rigid range, loading of the plastic <span class="math inline">\((p-y^p)\)</span> component is described by:
 </p>
-<p>[p = p_{} - (p_{} - p_o) ^n ]</p>
+<p><span class="math display">\[p = p_{\text{ult}} - (p_{\text{ult}} - p_o) \left [\frac{c
+y_{50}}{c y_{50} + | z_p - z^p_0|} \right ]^n \]</span></p>
 <p>
 where <span class="math inline">\(p_\text{ult}\)</span> = the ultimate resistance of the <span class="math inline">\(p-y\)</span> material in the current loading direction, <span class="math inline">\(p_o = p\)</span> at the start of the current plastic loading cycle, <span class="math inline">\(y^p_o = y_p\)</span> at the start of the current plastic loading cycle, <span class="math inline">\(c\)</span> = constant to control the tangent modulus at the start of plastic yielding, and n = an exponent to control sharpness of the <span class="math inline">\(p-y^p\)</span> curve.
 </p>
@@ -13345,7 +13346,8 @@ where <span class="math inline">\(y_o^+\)</span> = memory term for the positive 
 <p>
 The nonlinear drag <span class="math inline">\((p^d-y^g)\)</span> spring is described by:
 </p>
-<p>[p^d = C_d p_{} - (C_d p_{} - p^d_o) ^n ]</p>
+<p><span class="math display">\[p^d = C_d p_{\text{ult}} - (C_d p_{\text{ult}} - p^d_o)
+\left [\frac{y_{50}}{y_{50} + 2| y^g - y^g_o|} \right ]^n \]</span></p>
 <p>
 where <span class="math inline">\(C_d =\)</span> ratio of the maximum drag force to the ultimate resistance of the p-y material, &lt;math&gt;d^p_o =p^d&lt;/math&gt; at the start of the current loading cycle, and <span class="math inline">\(y^g_o = y^g\)</span> at the start of the current loading cycle.
 </p>

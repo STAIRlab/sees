@@ -13271,7 +13271,8 @@ integrator ArcLength 1.0 0.1;
 <p>
 If we write the governing finite element equation at &lt;math&gt;t + t!&lt;/math&gt;as:
 </p>
-<p>[ R(U_{t+t}, <em>{t+t}) = </em>{t+ t} F^{ext} - F(U_{t+t}) !]</p>
+<p><span class="math display">\[ R(U_{t+\Delta t}, \lambda_{t+\Delta t}) = \lambda_{t+\Delta
+t} F^{ext} - F(U_{t+\Delta t}) \!\]</span></p>
 <p>
 where &lt;math&gt;F(U_{t+t})!&lt;/math&gt; are the internal forces which are a function of the displacements &lt;math&gt;U_{t+ t}!&lt;/math&gt;, &lt;math&gt;F^{ext}!&lt;/math&gt; is the set of reference loads and &lt;math&gt;!&lt;/math&gt; is the load multiplier. Linearizing the equation results in:
 </p>
@@ -13287,7 +13288,7 @@ F(U_{t+\Delta t})\]</span></p>
 <p>
 This equation represents n equations in <span class="math inline">\(n+1\)</span> unknowns, and so an additional equation is needed to solve the equation. For displacement control, we introduce a new constraint equation in which in each analysis step we set to ensure that the displacement increment for the degree-of-freedom <span class="math inline">\(\text{dof}\)</span> at the specified node is:
 </p>
-<p>[ !]</p>
+<p><span class="math display">\[ \!\]</span></p>
 <p>
 MORE TO COME:
 </p>

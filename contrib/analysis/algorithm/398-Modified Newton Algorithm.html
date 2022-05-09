@@ -32,14 +32,17 @@ is thus an iterative method in which, starting at a good initial guess
 $U_0$ we keep iterating until &lt;math&gt;\Delta
 U&lt;/math&gt; is small enough using the following:</p>
 
-\[ \Delta U = - K_0^{-1}R(U_n),\!\]
+$$ \Delta U = - K_0^{-1}R(U_n),\!$$
 
 
-\[ U_{n+1} = U_n + \Delta U\,\!\]
+
+$$ U_{n+1} = U_n + \Delta U\,\!$$
+
 
 <p>where:</p>
 
-\[K_0 = \frac{\partial R(U_0)}{\partial U}\,\!\]
+$$K_0 = \frac{\partial R(U_0)}{\partial U}\,\!$$
+
 
 <p>The advantage of this method over the regular Newton method, is that
 the system Jacobian is formed only once at the start of the step and

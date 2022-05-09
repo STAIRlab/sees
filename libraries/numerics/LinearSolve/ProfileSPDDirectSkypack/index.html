@@ -13238,7 +13238,11 @@ ProfileSPDLinSolver<br />
 </p>
 <p><br />
 A ProfileSPDLinDirectSkypackSolver object can be constructed to solve a ProfileSPDLinSOE object. It does this by direct means using the routines supplied in the SKYPACK library, a library which uses the BLAS levels 1,2 and 3 for the factorization and substitution.</p>
-<p>The routines in SKYPACK require a number of work areas: <em>int block[3]</em> and <em>double invD[size]</em>. In addition, to allow the use of the BLAS 2 and 3, work areas <em>double rw[mRows x mCols]</em>, <em>double tw[mRows x mRows]</em> and <em>int index[max(mCols,mRows)]</em> are created.</p>
+<p>The routines in SKYPACK require a number of work areas: <em>int block[3<span class="math display">\[
+*
+and *double invD\[size\]</span> </em>. In addition, to allow the use of the BLAS 2 and 3, work areas <em>double rw[mRows x mCols<span class="math display">\[
+*, *double tw\[mRows x
+mRows\]</span> </em> and <em>int index[max(mCols,mRows)$$ </em> are created.</p>
 <p>Constructors<br />
 </p>
 <p><br />
@@ -13259,7 +13263,8 @@ A unique class tag (defined in <code>&lt;classTags.h&gt;</code>) is passed to th
 Invokes delete on any work areas that have been constructed.</p>
 <p><br />
 The solver first copies the B vector into X and then solves the BandSPDLinSOE system. If the matrix has not been factored, the matrix is first factored using the SKYPACK routine <em>skysf2()</em>, if <em>mCols</em> and <em>mRows</em> equal <span class="math inline">\(0\)</span>, or <em>skypf2()</em>. <em>skysf2()</em> is a routine which uses the BLAS level 1 routines, <em>skypf2()</em> is a routine which uses BLAS levels 2 and 3. If <em>skypf2()</em> has been called, <em>invD</em> is set up. Once the matrix has been factored, <code>skyss()</code> is called. If the solution is successfully obtained, i.e. the <code>skyss()</code> routine returns <span class="math inline">\(0\)</span> in the INFO argument, <span class="math inline">\(0\)</span> is returned, otherwise it prints a warning message and returns INFO. The solve process changes <span class="math inline">\(A\)</span> and <span class="math inline">\(X\)</span>.</p>
-<p>Is responsible for setting the <em>block</em> information required by the SKYPACK routines (block[0]=1; block[1]=size, block[2]=1) and for creating space for the <em>invD</em> work array. Returns <span class="math inline">\(0\)</span> if successful, otherwise a warning message is printed and a <span class="math inline">\(-1\)</span> is returned.</p>
+<p>Is responsible for setting the <em>block</em> information required by the SKYPACK routines (block[0<span class="math display">\[
+=1; block\[1\]</span> =size, block[2$$ =1) and for creating space for the <em>invD</em> work array. Returns <span class="math inline">\(0\)</span> if successful, otherwise a warning message is printed and a <span class="math inline">\(-1\)</span> is returned.</p>
 <p>Does nothing but return <span class="math inline">\(0\)</span>.</p>
 <p>Does nothing but return <span class="math inline">\(0\)</span>.</p>
 

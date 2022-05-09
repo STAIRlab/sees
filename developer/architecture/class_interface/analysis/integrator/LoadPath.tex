@@ -23,9 +23,10 @@ used to when performing a static analysis on the FE\_Model using a
 user specified load path. The load path is specified in a Vector, {\em
 path}, to the objects constructor and at each step in the analysis:
 
-\[ 
+$$ 
 \lambda_n^{(i)} - \lambda_{n-1} = path(n) - path(n-1)
-\]
+$$
+
 
 Knowing $\lambda_n^{(i)} = path(n)$ prior to each iteration, the $N+1$
 unknowns in equation~\ref{staticFormTaylor}, is reduced to $N$ unknowns and

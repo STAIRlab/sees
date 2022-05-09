@@ -25,63 +25,71 @@ the equilibrium equation (expressed for the TransientIntegrator) is
 typically solved at time $t + \Delta t$ for $\U_{t+\Delta t}$,
 i.e. solve: 
 
-\[ \R (\U_{t + \Delta t}) = \P(t + \Delta t) - \F_I(\Udd_{t+\Delta t})
-- \F_R(\Ud_{t + \Delta t},\U_{t + \Delta t}) \]
+$$ \R (\U_{t + \Delta t}) = \P(t + \Delta t) - \F_I(\Udd_{t+\Delta t})
+- \F_R(\Ud_{t + \Delta t},\U_{t + \Delta t}) $$
+
 
 \noindent for $\U_{t+\Delta t}$. The following difference relations
 are used to relate $\Ud_{t + \Delta t}$ and $\Udd_{t + \Delta t}$ to
 $\U_{t + \Delta t}$ and the response quantities at time $t$:
 
-\[
+$$
 \dot \U_{t + \Delta t} = \frac{\gamma}{\beta \Delta t}
 \left( \U_{t + \Delta t} - \U_t \right)
  + \left( 1 - \frac{\gamma}{\beta}\right) \dot \U_t + \Delta t \left(1
 - \frac{\gamma}{2 \beta}\right) \ddot \U_t 
-\]
+$$
 
-\[
+
+$$
 \ddot \U_{t + \Delta t} = \frac{1}{\beta {\Delta t}^2}
 \left( \U_{t+\Delta t} - \U_t \right)
  - \frac{1}{\beta \Delta t} \dot \U_t + \left( 1 - \frac{1}{2
 \beta} \right) \ddot \U_t 
-\]
+$$
+
 
 \noindent which  results in the following 
 
-\[ \left[ \frac{1}{\beta \Delta t^2} \M + \frac{\gamma}{\beta \Delta t}
+$$ \left[ \frac{1}{\beta \Delta t^2} \M + \frac{\gamma}{\beta \Delta t}
 \C + \K \right] \Delta \U_{t + \Delta t}^{(i)} = \P(t + \Delta t) -
 \F_I\left(\Udd_{t+\Delta  t}^{(i-1)}\right)
-- \F_R\left(\Ud_{t + \Delta t}^{(i-1)},\U_{t + \Delta t}^{(i-1)}\right) \]
+- \F_R\left(\Ud_{t + \Delta t}^{(i-1)},\U_{t + \Delta t}^{(i-1)}\right) $$
+
 
 \noindent An alternative approach, which does not involve $\Delta t$
 in the denumerator (useful for impulse problems), is to solve for the
 accelerations at time $t + \Delta t$ 
 
-\[ \R (\Udd_{t + \Delta t}) = \P(t + \Delta t) - \F_I(\Udd_{t+\Delta t})
-- \F_R(\Ud_{t + \Delta t},\U_{t + \Delta t}) \]
+$$ \R (\Udd_{t + \Delta t}) = \P(t + \Delta t) - \F_I(\Udd_{t+\Delta t})
+- \F_R(\Ud_{t + \Delta t},\U_{t + \Delta t}) $$
+
 
 \noindent where we use following functions to relate $\U_{t + \Delta
 t}$ and $\Ud_{t + \Delta t}$ to $\Udd_{t + \Delta t}$ and the response
 quantities at time $t$:
 
-\[
+$$
 \U_{t + \Delta t} = \U_t + \Delta t \Ud_t + \left[
 \left(\frac{1}{2} - \beta\right)\Udd_t + \beta \Udd_{t + \Delta
 t}\right] \Delta t^2
-\]
+$$
 
-\[
+
+$$
 \Ud_{t + \Delta t} = \Ud_t + \left[ \left(1 - \gamma\right)\Udd_t +
 \gamma\Udd_{t + \Delta t}\right] \Delta t
-\]
+$$
+
 
 \noindent which results in the following 
 
-\[ \left[ \M + \gamma \Delta t \C + \beta \Delta t^2 \K \right] \Delta
+$$ \left[ \M + \gamma \Delta t \C + \beta \Delta t^2 \K \right] \Delta
 \Udd_{t + \Delta t}^{(i)} = \P(t + \Delta t) - \F_I\left(\Udd_{t+\Delta 
 t}^{(i-1)}\right)
 - \F_R\left(\Ud_{t + \Delta t}^{(i-1)},\U_{t + \Delta
-t}^{(i-1)}\right) \]
+t}^{(i-1)}\right) $$
+
 
 
 \pagebreak

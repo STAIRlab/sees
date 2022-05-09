@@ -13236,14 +13236,20 @@ Removal During Simulation
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    Integrator</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    IncrementalIntegrator</span></code></pre></div>
 <p><br />
-ArcLength1 is a subclass of StaticIntegrator, it is used to when performing a static analysis on the FE_Model using a simplified form of the arc length method. In the arc length method implemented by this class, the following constraint equation is added to equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor]</a> of the StaticIntegrator class:</p>
+ArcLength1 is a subclass of StaticIntegrator, it is used to when performing a static analysis on the FE_Model using a simplified form of the arc length method. In the arc length method implemented by this class, the following constraint equation is added to equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor$$</a> of the StaticIntegrator class:</p>
 <p><span class="math display">\[\Delta {\bf U}_n^T \Delta {\bf U}_n  + \alpha^2 \Delta \lambda_n^2  = \Delta s^2\]</span></p>
 <p>where</p>
 <p><span class="math display">\[\Delta {\bf U}_n = \sum_{j=1}^{i} \Delta {\bf U}_n^{(j)} = \Delta {\bf U}_n^{(i)} +
 d{\bf U}^{(i)}\]</span></p>
 <p><span class="math display">\[\Delta \lambda_n = \sum_{j=1}^{i} \Delta \lambda_n^{(j)} = \Delta \lambda_n^{(i)} +
 d\lambda^{(i)}\]</span></p>
-<p>this equation cannot be added directly into equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor]</a> to produce a linear system of <span class="math inline">\(N+1\)</span> unknowns. To add this equation we make some assumptions ala Yang (REF), which in so doing allows us to solve a system of <span class="math inline">\(N\)</span> unknowns using the method of ??(REF). Rewriting equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor]</a> as</p>
+<p>this equation cannot be added directly into equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor<span class="math display">\[
+](#staticFormTaylor){reference-type=&quot;ref&quot;
+reference=&quot;staticFormTaylor&quot;} to produce a linear system of $N+1$
+unknowns. To add this equation we make some assumptions ala Yang (REF),
+which in so doing allows us to solve a system of $N$ unknowns using the
+method of ??(REF). Rewriting
+equation [\[staticFormTaylor\]</span></a> as</p>
 <p><span class="math display">\[{\bf K}_n^{(i)} \Delta {\bf U}_n^{(i)} = \Delta \lambda_n^{(i)} {\bf P} +
 \lambda_n^{(i)} {\bf P} - {\bf F}_R({\bf U}_n^{(i)}) = \Delta \lambda_n^{(i)} {\bf P} + {\bf R}_n^{(i)}\]</span></p>
 <p>The idea of ?? is to separate this into two equations:</p>
@@ -13291,7 +13297,7 @@ d{\bf U}^{(i)} \right) + \alpha^2 \left( \Delta \lambda_n^{(i)} + d\lambda^{(i)}
 \lambda_n^{(i)} {\bf P} - {\bf F}_R({\bf U}_n^{(i)}) \\
 0
 \end{array} \right\}\]</span></p>
-<p>instead of solving an <span class="math inline">\(N+1\)</span> system, equation <a href="#splitForm" data-reference-type="ref" data-reference="splitForm">[splitForm]</a> is used to give</p>
+<p>instead of solving an <span class="math inline">\(N+1\)</span> system, equation <a href="#splitForm" data-reference-type="ref" data-reference="splitForm">[splitForm$$</a> is used to give</p>
 <p><span class="math display">\[{d{\bf U}^{(i)}}^T \left(\Delta \lambda_n^{(i)} \Delta \dot{\bf U}_n^{(i)} + \Delta
 \overline{\bf U}_n^{(i)}\right) 
 + \alpha^2 d\lambda^{(i)} \Delta \lambda_n^{(i)} = 0\]</span></p>

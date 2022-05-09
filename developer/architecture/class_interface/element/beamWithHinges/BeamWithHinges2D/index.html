@@ -13310,7 +13310,7 @@ Returns 2, the number of external nodes for this element.</p>
  \right]\]</span></p>
 <p>The hinge flexibilities, <span class="math inline">\(\mathbf{f}_I\)</span> and <span class="math inline">\(\mathbf{f}_J\)</span>, are obtained by the midpoint integration rule,</p>
 <p><span class="math display">\[{\mathbf{f}}_i = \bint(x_i)^T \fsec_i \bint(x_i) * l_i, \:\: i=I,J\]</span></p>
-<p>where <span class="math inline">\(x_i\)</span> is the midpoint of hinge <span class="math inline">\(i\)</span>, measured along the length of the beam, and is the point at which the force interpolation matrix, <span class="math inline">\(\bint\)</span> is evaluated. The flexiblity, <span class="math inline">\(\fsec_i\)</span>, is obtained from the constitutive relation for section <span class="math inline">\(i\)</span>. The element stiffness is then obtained by inversion of the element flexibility, given by Equation <a href="#eq:fele" data-reference-type="ref" data-reference="eq:fele">[eq:fele]</a>.</p>
+<p>where <span class="math inline">\(x_i\)</span> is the midpoint of hinge <span class="math inline">\(i\)</span>, measured along the length of the beam, and is the point at which the force interpolation matrix, <span class="math inline">\(\bint\)</span> is evaluated. The flexiblity, <span class="math inline">\(\fsec_i\)</span>, is obtained from the constitutive relation for section <span class="math inline">\(i\)</span>. The element stiffness is then obtained by inversion of the element flexibility, given by Equation <a href="#eq:fele" data-reference-type="ref" data-reference="eq:fele">[eq:fele$$</a>.</p>
 <p><span class="math display">\[\label{eq:kele}
 \kbas = \fbas^{-1}\]</span></p>
 <p>The element then obtains the matrix, <span class="math inline">\(\mathbf{A}\)</span>, which transforms the element basic stiffness from its corotating frame to the global frame of reference. The transformed stiffness matrix, <span class="math inline">\(\kele\)</span>, is then assembled into the structural system of equations.</p>
@@ -13336,7 +13336,7 @@ Returns 2, the number of external nodes for this element.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> zeroLoad<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>This is a method invoked to zero the element load contributions to the residual.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Vector <span class="op">&amp;</span>getResistingForce<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
-<p>Returns the element resisting force vector. The basic element force vector is obtained as the product of the basic element stiffness, <span class="math inline">\(\kbas\)</span>, given by Equation <a href="#eq:kele" data-reference-type="ref" data-reference="eq:kele">[eq:kele]</a>, and the basic element deformations, <span class="math inline">\(\vbas\)</span>.</p>
+<p>Returns the element resisting force vector. The basic element force vector is obtained as the product of the basic element stiffness, <span class="math inline">\(\kbas\)</span>, given by Equation <a href="#eq:kele" data-reference-type="ref" data-reference="eq:kele">[eq:kele$$</a>, and the basic element deformations, <span class="math inline">\(\vbas\)</span>.</p>
 <p><span class="math display">\[\qbas = \kbas \vbas\]</span></p>
 <p>The basic element force vector is then transformed from the corotating frame to the global frame of reference. The transformed force vector is then assembled into the structural system of equations.</p>
 <p><span class="math display">\[\label{eq:qele}
@@ -13345,7 +13345,9 @@ Returns 2, the number of external nodes for this element.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Vector <span class="op">&amp;</span>getResistingForceIncInertia<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Returns the element resisting force vector, <span class="math inline">\(\tilde{\qele}\)</span> with inertia forces included,</p>
 <p><span class="math display">\[\tilde{\qele} = \qele - \mele \ddot{\mathbf u}\]</span></p>
-<p>where <span class="math inline">\(\qele\)</span> and <span class="math inline">\(\mele\)</span> are obtained from Equations <a href="#eq:qele" data-reference-type="ref" data-reference="eq:qele">[eq:qele]</a> and <a href="#eq:mele" data-reference-type="ref" data-reference="eq:mele">[eq:mele]</a>, respectively, and <span class="math inline">\(\ddot{\mathbf u}\)</span> is the vector of trial nodal accelerations for the element.</p>
+<p>where <span class="math inline">\(\qele\)</span> and <span class="math inline">\(\mele\)</span> are obtained from Equations <a href="#eq:mele" data-reference-type="ref" data-reference="eq:mele">[eq:qele<span class="math display">\[
+](#eq:qele){reference-type=&quot;ref&quot; reference=&quot;eq:qele&quot;} and
+[\[eq:mele\]</span></a>, respectively, and <span class="math inline">\(\ddot{\mathbf u}\)</span> is the vector of trial nodal accelerations for the element.</p>
 
 
               
