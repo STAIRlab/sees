@@ -13227,7 +13227,7 @@ Removal During Simulation
 
 <h1 id="portal-frame-examples">Portal Frame Examples</h1>
 <p>This next set of examples covers the nonlinear analysis of a reinforced concrete frame. The nonlinear beam column element with a fiber discretization of the cross section is used in the model. In addition, Tcl language features such as variable and command substitution, expression evaluation, the if-then-else control structure, and procedures are demonstrated in several elaborations of the example.</p>
-<h2 id="example-3.1">Example 3.1</h2>
+<h2 id="example-3.1---gravity-analysis">Example 3.1 - Gravity Analysis</h2>
 <p>This example is of a reinforced concrete portal frame, as shown in figure <a href="#example3" data-reference-type="ref" data-reference="example3">[example3]</a>, subject to gravity loads.</p>
 <ol type="1">
 <li><code>Example3.1.tcl</code></li>
@@ -13455,7 +13455,7 @@ Removal During Simulation
 <span id="cb1-211"><a href="#cb1-211" aria-hidden="true" tabindex="-1"></a>        End <span class="dv">2</span> Forces (P V M):<span class="ot"> -180</span> <span class="dv">0</span> <span class="fl">8.88178e-16</span></span></code></pre></div>
 <p>For the two nodes, displacements and loads are given. For the beam-column elements, the element end forces in the local system are provided.</p>
 <p>The nodeGravity.out file contains ten lines, each line containing 7 entries. The first entry is time in the domain at end of the load step. The next 3 entries are the displacements at node 3, and the final 3 entries the displacements at node 4.</p>
-<h2 id="example-3.2">Example 3.2</h2>
+<h2 id="example-3.2---pushover-analysis">Example 3.2 - Pushover Analysis</h2>
 <p>In this example the nonlinear reinforced concrete portal frame which has undergone the gravity load analysis of Example 3.1 is now subjected to a pushover analysis.</p>
 <ol type="1">
 <li><p>Example3.2.tcl</p></li>
@@ -13570,7 +13570,7 @@ Removal During Simulation
 <img src="../fig_files/ExampleOut3.2.svg" id="fig:lateral32" alt="Load displacement curve for node 3" /><figcaption aria-hidden="true">Load displacement curve for node 3</figcaption>
 </figure>
 </div>
-<h2 id="example-3.3">Example 3.3</h2>
+<h2 id="example-3.3---transient-analysis">Example 3.3 - Transient Analysis</h2>
 <p>In this example the reinforced concrete portal frame which has undergone the gravity load analysis of Example 3.1 is now subjected to a uniform earthquake excitation.</p>
 <ol type="1">
 <li><p><code>Example3.3.tcl</code></p></li>
@@ -13579,10 +13579,10 @@ Removal During Simulation
 </ol>
 <p>After performing the gravity load analysis, the time in the domain is reset to 0.0 and the current value of all active loads is set to constant. Mass terms are added to nodes 3 and 4. A new uniform excitation load pattern is created. The excitation acts in the horizontal direction and reads the acceleration record and time interval from the file <code>ARL360.g3</code>. The file <code>ARL360.g3</code> is created from the PEER Strong Motion Database (http://peer.berkeley.edu/smcat/) record <code>ARL360.at2</code> using the Tcl procedure <code>ReadSMDFile</code> contained in the file <code>ReadSMDFile.tcl</code>.</p>
 <p>The static analysis object and its components are first deleted so that a new transient analysis object can be created.</p>
-<p>A new solution Algorithm of type Newton is then created. The solution algorithm uses a ConvergenceTest which tests convergence on the norm of the displacement increment vector. The integrator for this analysis will be of type Newmark with a <span class="math inline">\(\gamma\)</span> of 0.25 and a <span class="math inline">\(\beta\)</span> of 0.5. The integrator will add some stiffness proportional damping to the system, the damping term will be based on the last committed stifness of the elements, i.e. <span class="math inline">\(C = a_c K_{commit}\)</span> with <span class="math inline">\(a_c = 0.000625\)</span>. The equations are formed using a banded storage scheme, so the System is BandGeneral. The equations are numbered using an RCM (reverse Cuthill-McKee) numberer. The constraints are enforced with a Plain constraint handler.</p>
+<p>A new solution Algorithm of type <code>Newton</code> is then created. The solution algorithm uses a <code>ConvergenceTest</code> which tests convergence on the norm of the displacement increment vector. The integrator for this analysis will be of type Newmark with a <span class="math inline">\(\gamma\)</span> of 0.25 and a <span class="math inline">\(\beta\)</span> of 0.5. The integrator will add some stiffness proportional damping to the system, the damping term will be based on the last committed stifness of the elements, i.e. <span class="math inline">\(C = a_c K_{commit}\)</span> with <span class="math inline">\(a_c = 0.000625\)</span>. The equations are formed using a banded storage scheme, so the System is BandGeneral. The equations are numbered using an RCM (reverse Cuthill-McKee) numberer. The constraints are enforced with a Plain constraint handler.</p>
 <p>Once all the components of an analysis are defined, the Analysis object itself is created. For this problem a Transient Analysis object is used. 2000 time steps are performed with a time step of 0.01.</p>
 <p>In addition to the transient analysis, two eigenvalue analysis are performed on the model. The first is performed after the gravity analysis and the second after the transient analysis.</p>
-<p>For this analysis the nodal displacenments at Nodes 3 and 4 will be stored in the file nodeTransient.out for post-processing. In addition the section forces and deformations for the section at the base of column 1 will also be stored in two seperate files. The results of the eigenvalue analysis will be displayed on the screen.</p>
+<p>For this analysis the nodal displacenments at Nodes 3 and 4 will be stored in the file <code>nodeTransient.out</code> for post-processing. In addition the section forces and deformations for the section at the base of column 1 will also be stored in two seperate files. The results of the eigenvalue analysis will be displayed on the screen.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OpenSees Example 3.3</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># OpenSees Primer</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>

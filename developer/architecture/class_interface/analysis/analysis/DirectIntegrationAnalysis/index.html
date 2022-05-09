@@ -13247,41 +13247,34 @@ Removal During Simulation
 <li><p><strong>TransientIntegrator</strong> - an algorithmic class which provides methods which are invoked by the <code>FE_Element</code> to determine their current tangent and residual matrices; that is this is the class that sets up the system of equations. It also provides the <code>update()</code> method which is invoked to set up the appropriate dof response values once the solution algorithm has formed and solved the system of equations.</p></li>
 <li><p><strong>EquiSolnAlgo</strong> - an algorithmic class specifying the sequence of operations to be performed in setting up and solving the finite element equation which can be represented by the equation K(U) U = P(U).</p></li>
 </ul>
-<h3 id="constructor">Constructor</h3>
-<p><br />
-### Destructor</p>
-<p><br />
-// Public Methods<br />
-</p>
-<p><br />
-</p>
-<p><br />
-// Public Methods to vary the type of Analysis<br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-<em>tStart</em>, <em>tFinish</em> and <em>thDomain</em> are passed to the TransientAnalysis class constructor. The constructor is responsible for setting up all links needed by the objects in the aggregation. It invokes <code>setLinks(theDomain)</code> on <em>theModel</em>, <em>setLinks(theDomain,theModel,theIntegrator)</em> on <em>theHandler</em>, <code>setLinks(theModel)</code> on <em>theNumberer</em>, <code class="sourceCode cpp">setLinks<span class="op">(</span>theModel<span class="op">,</span> theSOE<span class="op">)</span></code> on <em>theIntegrator</em> and <em>setLinks(theModel,theAnalysis, theIntegrator, theSOE)</em> on <em>theSolnAlgo</em>.</p>
-<p><br />
-Does nothing. <code>clearAll()</code> must be invoked if the destructor on the objects in the aggregation need to be invoked.</p>
-<p><br />
-Invoked to perform a transient analysis on the FE_Model. The method checks to see if the domain has changed before it performs the analysis. The DirectIntegrationAnalysis object performs the following:</p>
-<div class="tabbing">
-<p>while ̄ while w̄hile ̄ double time = tStart;<br />
-while (theDomain-<span class="math inline">\(&gt;\)</span>getCurrntTime() <span class="math inline">\(&lt;\)</span> tFinish) {<br />
-if (theDomain-<span class="math inline">\(&gt;\)</span>hasDomainChanged() == true)<br />
-this-<span class="math inline">\(&gt;\)</span>domainChanged();<br />
-theIntegrator-<span class="math inline">\(&gt;\)</span>newStep(<span class="math inline">\(\delta t\)</span>);<br />
-theAlgorithm-<span class="math inline">\(&gt;\)</span>solveCurrentStep();<br />
-theIntegrator-<span class="math inline">\(&gt;\)</span>commit();<br />
-}</p>
-</div>
+<h3 id="constructor-and-destructor">Constructor and Destructor</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DirectIntegrationAnalysis<span class="op">(</span><span class="dt">double</span> tStart<span class="op">,</span> <span class="dt">double</span> tFinal<span class="op">,</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>     <span class="dt">double</span>              <span class="dt">delta_t</span><span class="op">,</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     Domain              <span class="op">&amp;</span>theDomain<span class="op">,</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     ConstraintHandler   <span class="op">&amp;</span>theHandler<span class="op">,</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     DOF_Numberer        <span class="op">&amp;</span>theNumberer<span class="op">,</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>     AnalysisModel       <span class="op">&amp;</span>theModel<span class="op">,</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>     EquiSolnAlgo        <span class="op">&amp;</span>theSolnAlgo<span class="op">,</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>     LinearSOE           <span class="op">&amp;</span>theSOE<span class="op">,</span> </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>     TransientIntegrator <span class="op">&amp;</span>theIntegrator<span class="op">);</span></span></code></pre></div>
+<p><code>tStart</code>, <code>tFinish</code> and <code>thDomain</code> are passed to the TransientAnalysis class constructor. The constructor is responsible for setting up all links needed by the objects in the aggregation. It invokes <code>setLinks(theDomain)</code> on <code>theModel</code>, <code>setLinks(theDomain,theModel,theIntegrator)</code> on <code>theHandler</code>, <code>setLinks(theModel)</code> on <code>theNumberer</code>, <code class="sourceCode cpp">setLinks<span class="op">(</span>theModel<span class="op">,</span> theSOE<span class="op">)</span></code> on <code>theIntegrator</code> and <code>setLinks(theModel,theAnalysis, theIntegrator, theSOE)</code> on <code>theSolnAlgo</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">~</span>DirectIntegrationAnalysis</span></code></pre></div>
+<p>Does nothing. <code>clearAll()</code> must be invoked if the destructor on the objects in the aggregation need to be invoked.</p>
+<h3 id="public-methods">Public Methods</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> analyzeStep<span class="op">(</span><span class="dt">double</span> dT<span class="op">);</span></span></code></pre></div>
+<p>Invoked to perform a transient analysis on the FE_Model. The method checks to see if the domain has changed before it performs the analysis. The DirectIntegrationAnalysis object performs the following:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>theAnalysisModel<span class="op">-&gt;</span>analysisStep<span class="op">(</span>dT<span class="op">);</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>theDomain<span class="op">-&gt;</span>hasDomainChanged<span class="op">()</span> <span class="op">!=</span> <span class="kw">this</span><span class="op">-&gt;</span>domainStamp<span class="op">)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">this</span><span class="op">-&gt;</span>domainChanged<span class="op">();</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>theIntegrator<span class="op">-&gt;</span>newStep<span class="op">(</span>delta t<span class="op">);</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>theAlgorithm<span class="op">-&gt;</span>solveCurrentStep<span class="op">();</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>theIntegrator<span class="op">-&gt;</span>commit<span class="op">();</span></span></code></pre></div>
 <p>The type of analysis performed, depends on the type of the objects in the analysis aggregation. If any of the methods invoked returns a negative number, an error message is printed, <code>revertToLastCommit()</code> is invoked on the Domain, and a negative number is immediately returned. Returns a <span class="math inline">\(0\)</span> if the algorithm is successful.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> clearAll<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> clearAll<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Will invoke the destructor on all the objects in the aggregation. NOTE this means they must have been constructed using <code>new()</code>, otherwise a segmentation fault can occur.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> domainChange<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> domainChange<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>This is a method invoked by a domain which indicates to the analysis that the domain has changed. The method invokes the following:</p>
 <ol type="1">
 <li><p>It invokes <code>clearAll()</code> on <em>theModel</em> which causes the AnalysisModel to clear out its list of FE_Elements and DOF_Groups, and <code>clearAll()</code> on <em>theHandler</em>.</p></li>
@@ -13291,7 +13284,8 @@ theIntegrator-<span class="math inline">\(&gt;\)</span>commit();<br />
 <li><p>It invokes <code class="sourceCode cpp">setSize<span class="op">(</span>theModel<span class="op">.</span>getDOFGraph<span class="op">())</span></code> on <em>theSOE</em> which causes the system of equation to determine its size based on the connectivity of the dofs in the analysis model.</p></li>
 <li><p>Finally it invokes <code>domainChanged()</code> on <em>theIntegrator</em> and <em>theAlgorithm</em>. Returns <span class="math inline">\(0\)</span> if successful. At any stage above, if an error occurs the method is stopped, a warning message is printed and a negative number is returned.</p></li>
 </ol>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> setDeltaT<span class="op">(</span><span class="dt">double</span> <span class="er">$</span>\delta t<span class="er">$</span><span class="op">);</span></span></code></pre></div>
+<h3 id="public-methods-to-vary-the-type-of-analysis">Public Methods to vary the type of Analysis</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> setDeltaT<span class="op">(</span><span class="dt">double</span> <span class="er">$</span>\delta t<span class="er">$</span><span class="op">);</span></span></code></pre></div>
 <p>Sets the time increment used in the <code>analyze()</code> method to <span class="math inline">\(\delta t\)</span>. Returns <span class="math inline">\(0\)</span>.</p>
 <p>To change the algorithm between analysis. It first invokes the destructor on the old SolutionAlgorithm object associated with the analysis. It then sets the SolutionAlgorithm associated with the analysis to be <em>newAlgorithm</em> and sets the links for this object by invoking <code>setLinks()</code>. Checks then to see if the domain has changed, if true it invokes <code>domainChanged()</code>, otherwise it invokes <code>domainChanged()</code> on the new SolutionAlgorithm. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not.</p>
 <p>To change the integration scheme between analysis. It first invokes the destructor on the old Integrator object associated with the analysis. It then sets the SolutionAlgorithm associated with the analysis to be <em>newAlgorithm</em> and sets the links for this object by invoking <code>setLinks()</code>. It also invokes <code>setLinks()</code> on the ConstraintHandler and SolutionAlgorithm objects. Checks then to see if the domain has changed, if true it invokes <code>domainChanged()</code>, otherwise it invokes <code>domainChanged()</code> on the new Integrator. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not.</p>
