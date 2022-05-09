@@ -13232,10 +13232,12 @@ Removal During Simulation
 This command is used to construct a uniaxial material that represents a ‘pinched’ load-deformation response and exhibits degradation under cyclic loading. Cyclic degradation of strength and stiffness occurs in three ways: unloading stiffness degradation, reloading stiffness degradation, strength degradation.
 </p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial Pinching4 <span class="dt">$matTag</span> <span class="dt">$ePf1</span> <span class="dt">$ePd1</span> <span class="dt">$ePf2</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ePd2</span> <span class="dt">$ePf3</span> <span class="dt">$ePd3</span> <span class="dt">$ePf4</span> <span class="dt">$ePd4</span> &amp;lt;<span class="dt">$eNf1</span> <span class="dt">$eNd1</span> <span class="dt">$eNf2</span> <span class="dt">$eNd2</span> <span class="dt">$eNf3</span> <span class="dt">$eNd3</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$eNf4</span> <span class="dt">$eNd4</span>&amp;gt; <span class="dt">$rDispP</span> <span class="dt">$rForceP</span> <span class="dt">$uForceP</span> &amp;lt;<span class="dt">$rDispN</span> <span class="dt">$rForceN</span> <span class="dt">$uForceN</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &amp;gt; <span class="dt">$gK1</span> <span class="dt">$gK2</span> <span class="dt">$gK3</span> <span class="dt">$gK4</span> <span class="dt">$gKLim</span> <span class="dt">$gD1</span> <span class="dt">$gD2</span> <span class="dt">$gD3</span> <span class="dt">$gD4</span> <span class="dt">$gDLim</span> <span class="dt">$gF1</span> <span class="dt">$gF2</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$gF3</span> <span class="dt">$gF4</span> <span class="dt">$gFLim</span> <span class="dt">$gE</span> <span class="dt">$dmgType</span></span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ePd2</span> <span class="dt">$ePf3</span> <span class="dt">$ePd3</span> <span class="dt">$ePf4</span> <span class="dt">$ePd4</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$eNf1</span> <span class="dt">$eNd1</span> <span class="dt">$eNf2</span> <span class="dt">$eNd2</span> <span class="dt">$eNf3</span> <span class="dt">$eNd3</span> <span class="dt">$eNf4</span> <span class="dt">$eNd4</span> &gt; </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$rDispP</span> <span class="dt">$rForceP</span> <span class="dt">$uForceP</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$rDispN</span> <span class="dt">$rForceN</span> <span class="dt">$uForceN</span> &gt; </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$gK1</span> <span class="dt">$gK2</span> <span class="dt">$gK3</span> <span class="dt">$gK4</span> <span class="dt">$gKLim</span> <span class="dt">$gD1</span> <span class="dt">$gD2</span> <span class="dt">$gD3</span> <span class="dt">$gD4</span> <span class="dt">$gDLim</span> <span class="dt">$gF1</span> <span class="dt">$gF2</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$gF3</span> <span class="dt">$gF4</span> <span class="dt">$gFLim</span> <span class="dt">$gE</span> <span class="dt">$dmgType</span></span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -13252,7 +13254,139 @@ integer tag identifying material
 <tr class="even">
 <td>
 <p>
-<strong>$ePf1 $ePf2 $ePf3 <span class="math inline">\(ePf4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining force points on the positive response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>ePd1 $ePd2 $ePd3 <span class="math inline">\(ePd4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining deformation points on the positive response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>eNf1 $eNf2 $eNf3 <span class="math inline">\(eNf4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining force points on the negative response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>eNd1 $eNd2 $eNd3 <span class="math inline">\(eNd4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values defining deformation points on the negative response envelope&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;rDispP&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the deformation at which reloading occurs to the maximum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fFoceP&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the force at which reloading begins to force corresponding to the maximum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;uForceP&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of strength developed upon unloading from negative load to the maximum strength developed under monotonic loading&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;rDispN&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the deformation at which reloading occurs to the minimum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fFoceN&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of the force at which reloading begins to force corresponding to the minimum historic deformation demand&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;uForceN&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point value defining the ratio of strength developed upon unloading from negative load to the minimum strength developed under monotonic loading&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>gK1 $gK2 $gK3 $gK4 <span class="math inline">\(gKLim&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values controlling cyclic degradation model for unloading stiffness degradation&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>gD1 $gD2 $gD3 $gD4 <span class="math inline">\(gDLim&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point values controlling cyclic degradation model for reloading stiffness degradation&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>gF1 $gF2 $gF3 $gF4 $gFLim</strong>
+<code>ePf1 ePf2 ePf3 ePf4</code>
+</p>
+</td>
+<td>
+<p>
+floating point values defining force points on the positive response envelope
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code>ePd1 ePd2 ePd3 ePd4</code>
+</p>
+</td>
+<td>
+<p>
+floating point values defining deformation points on the positive response envelope
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>eNf1 eNf2 eNf3 eNf4</code>
+</p>
+</td>
+<td>
+<p>
+floating point values defining force points on the negative response envelope
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code>eNd1 eNd2 eNd3 eNd4</code>
+</p>
+</td>
+<td>
+<p>
+floating point values defining deformation points on the negative response envelope
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">rDispP</code>
+</td>
+<td>
+<p>
+floating point value defining the ratio of the deformation at which reloading occurs to the maximum historic deformation demand
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">fFoceP</code>
+</td>
+<td>
+<p>
+floating point value defining the ratio of the force at which reloading begins to force corresponding to the maximum historic deformation demand
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">uForceP</code>
+</td>
+<td>
+<p>
+floating point value defining the ratio of strength developed upon unloading from negative load to the maximum strength developed under monotonic loading
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">rDispN</code>
+</td>
+<td>
+<p>
+floating point value defining the ratio of the deformation at which reloading occurs to the minimum historic deformation demand
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">fFoceN</code>
+</td>
+<td>
+<p>
+floating point value defining the ratio of the force at which reloading begins to force corresponding to the minimum historic deformation demand
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">uForceN</code>
+</td>
+<td>
+<p>
+floating point value defining the ratio of strength developed upon unloading from negative load to the minimum strength developed under monotonic loading
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>gK1 gK2 gK3 gK4 gKLim</code>
+</p>
+</td>
+<td>
+<p>
+floating point values controlling cyclic degradation model for unloading stiffness degradation
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code>gD1 gD2 gD3 gD4 gDLim</code>
+</p>
+</td>
+<td>
+<p>
+floating point values controlling cyclic degradation model for reloading stiffness degradation
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>gF1 gF2 gF3 gF4 gFLim</code>
 </p>
 </td>
 <td>
@@ -13306,7 +13440,7 @@ Stiffness and strength are assumed to deteriorate due to the imposed “load” 
 </dd>
 </dl>
 <p>
-where <span class="math inline">\(k_i\)</span> is the unloading stiffness at time &lt;math&gt;t_i&lt;/math&gt;, <span class="math inline">\(k_0\)</span> is the initial unloading stiffness (for the case of no damage), and &lt;math&gt;k_i&lt;/math&gt;(defined below) is the value of the stiffness damage index at time <span class="math inline">\(t_i\)</span>.
+where <span class="math inline">\(k_i\)</span> is the unloading stiffness at time <span class="math inline">\(t_i\)</span>, <span class="math inline">\(k_0\)</span> is the initial unloading stiffness (for the case of no damage), and <span class="math inline">\(\delta k_i\)</span> (defined below) is the value of the stiffness damage index at time <span class="math inline">\(t_i\)</span>.
 </p>
 <dl>
 <dt>
@@ -13317,7 +13451,7 @@ d_i)\]</span></p>
 </dd>
 </dl>
 <p>
-where <span class="math inline">\(d_{\text{max i}}\)</span> is the deformation demand that defines the end of the reload cycle for increasing deformation demand, $d_{} $ is the maximum historic deformation demand (which would be the deformation demand defining the end of the reload cycle if degradation of reloading stiffness is ignored), and <span class="math inline">\(\delta d_i\)</span> (defined below) is the value of reloading stiffness damage index at time &lt;math&gt;t_i&lt;/math&gt;.
+where <span class="math inline">\(d_{\text{max i}}\)</span> is the deformation demand that defines the end of the reload cycle for increasing deformation demand, $d_{} $ is the maximum historic deformation demand (which would be the deformation demand defining the end of the reload cycle if degradation of reloading stiffness is ignored), and <span class="math inline">\(\delta d_i\)</span> (defined below) is the value of reloading stiffness damage index at time <span class="math inline">\(t_i\)</span>.
 </p>
 <dl>
 <dt>
@@ -13328,10 +13462,10 @@ f_i)\]</span></p>
 </dd>
 </dl>
 <p>
-where <span class="math inline">\(f_{\text{max i}}\)</span> is the current envelope maximum strength at time <span class="math inline">\(t_i\)</span>, $f_{} $ is the initial envelope maximum strength for the case of no damage, and &lt;math&gt; f_i&lt;/math&gt; (defined below) is the value of strength value index at time <span class="math inline">\(t_i\)</span>.
+where <span class="math inline">\(f_{\text{max i}}\)</span> is the current envelope maximum strength at time <span class="math inline">\(t_i\)</span>, $f_{} $ is the initial envelope maximum strength for the case of no damage, and <span class="math inline">\(\delta f_i\)</span> (defined below) is the value of strength value index at time <span class="math inline">\(t_i\)</span>.
 </p>
 <p>
-The damage indices <span class="math inline">\(\delta k_i\)</span>, &lt;math&gt;d_i&lt;/math&gt;, and &lt;math&gt; f_i&lt;/math&gt;, may be defined to be a function of displacement history only (<span class="math inline">\(dmgType = &quot;cycle&quot;) or displacement history and energy accumulation (\)</span>dmgType = “energy”). For either case, all of the damage indices are computed using the same basic equation.
+The damage indices <span class="math inline">\(\delta k_i\)</span>, <span class="math inline">\(\delta d_i\)</span>, and <span class="math inline">\(\delta f_i\)</span>, may be defined to be a function of displacement history only (<code>dmgType = "cycle"</code>) or displacement history and energy accumulation (<code>dmgType = "energy"</code>). For either case, all of the damage indices are computed using the same basic equation.
 </p>
 <p>
 If the damage indices are assumed to be a function of displacement history and energy accumulation, the unloading stiffness damage index, <span class="math inline">\(\delta k_i\)</span> is computed as follows:
