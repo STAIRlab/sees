@@ -13321,44 +13321,32 @@ EQUATIONS and EXAMPLE RESPONSES:
 The equations describing QzSimple1 behavior are similar to those for p-y materials by Boulanger, R. W., Curras, C. J., Kutter, B. L., Wilson, D. W., and Abghari, A. (1999). “Seismic soil-pile-structure interaction experiments and analyses.” Journal of Geotechnical and Geoenvironmental Engineering, ASCE, 125(9): 750-759. Modifications were required for representing the different responses of a <span class="math inline">\(q-z\)</span> material in compression versus uplift.
 </p>
 <p>
-The nonlinear q-z behavior is conceptualized as consisting of elastic (q-&lt;math&gt;z^e&lt;/math&gt;), plastic (q-&lt;math&gt;z^p&lt;/math&gt;), and gap (&lt;math&gt;q-z^g&lt;/math&gt;) components in series. Radiation damping is modeled by a dashpot on the “far-field” elastic component (&lt;math&gt;q-z^e&lt;/math&gt;) of the displacement rate. The gap component consists of a bilinear closure spring (&lt;math&gt;q<sup>c-z</sup>g&lt;/math&gt;) in parallel with a nonlinear drag spring (&lt;math&gt;q<sup>d-z</sup>g&lt;/math&gt;). Note that &lt;math&gt;z = z^e + z^p + z^g&lt;/math&gt;, and that &lt;math&gt;q = q^d + q^c&lt;/math&gt;.
+The nonlinear q-z behavior is conceptualized as consisting of elastic (q- <span class="math inline">\(z^e\)</span> ), plastic <span class="math inline">\(z^e\)</span> ) <span class="math inline">\(z^e\)</span> ) (q-&lt;math&gt;z^p&lt;/math&gt;), and gap (&lt;math&gt;q-z^g&lt;/math&gt;) components in series. Radiation damping is modeled by a dashpot on the “far-field” elastic component ( <span class="math inline">\(q-z^e\)</span> ) of the displacement rate. The gap component consists of a bilinear closure spring ( <span class="math inline">\(q^c-z^g\)</span> ) in parallel with a nonlinear drag <span class="math inline">\(q^c-z^g\)</span> ) spring (&lt;math&gt;q<sup>d-z</sup>g&lt;/math&gt;). Note that <span class="math inline">\(z = z^e + z^p + z^g\)</span> , and that <span class="math inline">\(q = q^d + q^c\)</span> .
 </p>
 <p>
 <p>The plastic component has an initial range of rigid behavior between</p>
 <p><span class="math display">\[-C_r q_\text{ult} &amp;lt; q &amp;lt; C_r q_\text{ult}\]</span></p>
-with <span class="math inline">\(C_r\)</span> = the ratio of <span class="math inline">\(\frac{q}{q_{\text{ult}}}\)</span> when plastic yielding first occurs in virgin loading. The rigid range of q, which is initially &lt;math&gt;2 C_r q_&lt;/math&gt;, translates and grows with plastic yielding. The rigid range of q is constrained to a maximum size of <span class="math inline">\(0.7q_{\text{ult}}\)</span>. Beyond the rigid range, loading of the plastic (&lt;math&gt;q-z^p&lt;/math&gt;) component is described by:
+with <span class="math inline">\(C_r\)</span> = the ratio of <span class="math inline">\(\frac{q}{q_{\text{ult}}}\)</span> when plastic yielding first occurs in virgin loading. The rigid range of q, which is initially <span class="math inline">\(2 C_r q_\text{ult}\)</span> , translates and grows with plastic yielding. The rigid range of q is constrained to a maximum size of <span class="math inline">\(0.7q_{\text{ult}}\)</span>. Beyond the rigid range, loading of the plastic ( <span class="math inline">\(q-z^p\)</span> ) component is described by:
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt;q = q_{} - (q_{} - q_0) &lt;/math&gt;
-</dd>
-</dl>
+<p>[q = q_{} - (q_{} - q_0) ]</p>
 <p>
 where <span class="math inline">\(q_ult\)</span> = the ultimate resistance of the <span class="math inline">\(q-z\)</span> material in the current loading direction, <span class="math inline">\(q_o = q\)</span> at the start of the current plastic loading cycle, p <span class="math inline">\(z^p_o = z^p\)</span> at the start of the current plastic loading cycle, and c and n are constants that control the shape of <span class="math inline">\(q-z^p\)</span> curve.
 </p>
 <p>
-The closure (&lt;math&gt;q<sup>c-z</sup>g&lt;/math&gt;) component is simply a bilinear elastic spring, which is relatively rigid in compression and extremely flexible in tension (uplift).
+The closure ( <span class="math inline">\(q^c-z^g\)</span> ) component is simply a bilinear elastic spring, which is relatively rigid in compression and extremely flexible in tension (uplift).
 </p>
 <p>
-The nonlinear drag (&lt;math&gt;q<sup>d-z</sup>g&lt;/math&gt;) component is used to allow thethe specification of some minimum “suction” on the pile tip during uplift. It is described by:
+The nonlinear drag ( <span class="math inline">\(q^d-z^g\)</span> ) component is used to allow thethe specification of some minimum “suction” on the pile tip during uplift. It is described by:
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt;q^d = C_d q_ - (C_d q_{} - q^d_0) &lt;/math&gt;
-</dd>
-</dl>
+<p>[q^d = C_d q_ - (C_d q_{} - q^d_0) ]</p>
 <p>
 where <span class="math inline">\(C_d\)</span> = ratio of the maximum drag (suction) force to the ultimate resistance of the <span class="math inline">\(q-z\)</span> material, &lt;math&gt;q^d_o = q^d&lt;/math&gt; at the start of the current loading cycle, and <span class="math inline">\(z^g_o = z^g\)</span> at the start of the current loading cycle.
 </p>
 <p>
-The flexibility of the above equations can be used to approximate different q-z backbone relations. Reese and O’Neill’s (1987) recommended backbone for drilled shafts in clay is closely approximated using &lt;math&gt;c = 0.35&lt;/math&gt;, <span class="math inline">\(n = 1.2\)</span>, and &lt;math&gt;C_r = 0.2&lt;/math&gt;. Vijayvergiya’s (1977) recommended backbone for piles in sand is closely approximated using &lt;math&gt;c = 12.3&lt;/math&gt;, <span class="math inline">\(n = 5.5\)</span>, and &lt;math&gt;C_r = 0.3&lt;/math&gt;.
+The flexibility of the above equations can be used to approximate different q-z backbone relations. Reese and O’Neill’s (1987) recommended backbone for drilled shafts in clay is closely approximated using &lt;math&gt;c = 0.35&lt;/math&gt;, <span class="math inline">\(n = 1.2\)</span>, and <span class="math inline">\(C_r = 0.2\)</span> . Vijayvergiya’s (1977) recommended backbone for piles in sand is closely approximated using &lt;math&gt;c = 12.3&lt;/math&gt;, <span class="math inline">\(n = 5.5\)</span>, and <span class="math inline">\(C_r = 0.3\)</span> .
 </p>
 <p>
-QzSimple1 is currently implemented to allow use of these two default sets of values. Values of <span class="math inline">\(q_\text{ult}\)</span>, &lt;math&gt;z_50&lt;/math&gt;, and suction (i.e., &lt;math&gt;C_d&lt;/math&gt;) must then be specified to define the <span class="math inline">\(q-z\)</span> material behavior.
+QzSimple1 is currently implemented to allow use of these two default sets of values. Values of <span class="math inline">\(q_\text{ult}\)</span>, <span class="math inline">\(z_50\)</span> , and suction (i.e., <span class="math inline">\(C_d\)</span> ) must then be specified to define the <span class="math inline">\(q-z\)</span> material behavior.
 </p>
 <p>
 Viscous damping on the far-field (elastic) component of the <span class="math inline">\(q-z\)</span> material is included for approximating radiation damping. For implementation in OpenSees the viscous damper is placed across the entire material, but the viscous force is calculated as proportional to the component of velocity (or displacement) that developed in the far-field elastic component of the material. For example, this correctly causes the damper force to become zero during load increments across a fully formed gap in uplift. In addition, the total force across the <span class="math inline">\(q-z\)</span> material is restricted to <span class="math inline">\(q_\text{ult}\)</span> in magnitude so that the viscous damper cannot cause the total force to exceed the near-field soil capacity. Users should also be familiar with numerical oscillations that can develop in viscous damper forces under transient loading with certain solution algorithms and damping ratios. In general, an HHT algorithm is preferred over a Newmark algorithm for reducing such oscillations in materials like QzSimple1.

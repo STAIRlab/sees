@@ -13269,13 +13269,7 @@ integrator DisplacementControl 1 2 0.1; # displacement control algorithm seking 
 <p>
 If we write the governing finite element equation at &lt;math&gt;t + t!&lt;/math&gt;as:
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; R(U_{t+t}, <em>{t+t}) = </em>{t+ t} F^{ext} - F(U_{t+t}) !&lt;/math&gt;
-</dd>
-</dl>
+<p>[ R(U_{t+t}, <em>{t+t}) = </em>{t+ t} F^{ext} - F(U_{t+t}) !]</p>
 <p>
 where &lt;math&gt;F(U_{t+t})!&lt;/math&gt; are the internal forces which are a function of the displacements &lt;math&gt;U_{t+ t}!&lt;/math&gt;, &lt;math&gt;F^{ext}!&lt;/math&gt; is the set of reference loads and &lt;math&gt;!&lt;/math&gt; is the load multiplier. Linearizing the equation results in:
 </p>
@@ -13291,13 +13285,7 @@ F(U_{t+\Delta t})\]</span></p>
 <p>
 This equation represents n equations in <span class="math inline">\(n+1\)</span> unknowns, and so an additional equation is needed to solve the equation. For displacement control, we introduce a new constraint equation in which in each analysis step we set to ensure that the displacement increment for the degree-of-freedom <span class="math inline">\(\text{dof}\)</span> at the specified node is:
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt; U_ = !&lt;/math&gt;
-</dd>
-</dl>
+<p>[ U_ = !]</p>
 <p>
 MORE TO COME:
 </p>

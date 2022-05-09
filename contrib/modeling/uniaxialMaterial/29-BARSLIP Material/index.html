@@ -13233,8 +13233,9 @@ This command is used to construct a uniaxial material that simulates the bar for
 </p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial BarSlip <span class="dt">$matTag</span> <span class="dt">$fc</span> <span class="dt">$fy</span> <span class="dt">$Es</span> <span class="dt">$fu</span> <span class="dt">$Eh</span> <span class="dt">$db</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ld</span> <span class="dt">$nb</span> <span class="dt">$depth</span> <span class="dt">$height</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$ancLratio</span>&amp;gt; <span class="dt">$bsFlag</span> <span class="dt">$type</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$damage</span> <span class="dt">$unit</span>&amp;gt;</span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$ancLratio</span> &gt; </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$bsFlag</span> <span class="dt">$type</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$damage</span> <span class="dt">$unit</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -13409,9 +13410,7 @@ Model Characteristics:
 </li>
 </ul>
 <p>
-The uniaxial material model uses the Pinching4 material model (Ref. Pinching4 material model). The response envelope for the bar-slip springs does not represent strength deterioration, but once the slip demand exceeds 3mm (0.12 in), strength deterioration due to cyclic loading initiates. As a result the bond-slip springs always exhibit positive stiffness, but strength deterioration upon reloading to a previously observed slip demand. Reloading and Unloading Stiffness deterioration are also simulated.
-</p>
-<p>
+<p>The uniaxial material model uses the Pinching4 material model (Ref. Pinching4 material model). The response envelope for the bar-slip springs does not represent strength deterioration, but once the slip demand exceeds 3mm (0.12 in), strength deterioration due to cyclic loading initiates. As a result the bond-slip springs always exhibit positive stiffness, but strength deterioration upon reloading to a previously observed slip demand. Reloading and Unloading Stiffness deterioration are also simulated.</p>
 The damage index for unloading and reloading stiffness degradation is evaluated the same say as the Pinching4 material (ref. Pinching4 material doc.) but the index for strength degradation is specified as
 </p>
 <p>
@@ -13419,7 +13418,7 @@ With degradation model parameters gF*. It should be noted in here that the deter
 </p>
 <ul>
 <li>
-The model includes predefined bond strengths, so there is the necessity to include in Units in this material model. For default one can specify units in psi (i.e. pounds/inch2) or in MPa (i.e. N/mm2). The code detects units in psi if the compressive strength of concrete is greater than 1000 otherwise it takes it as MPa system. The optional variable $unit will help the user to specify other different types of unit systems according to one’s choice, but currently it is limited to the unit systems as specified above. The user should also take care to specify the units of length in the corresponding matching units. (note: Pa = N/m2; ksf = kilo-pound/ft2)
+The model includes predefined bond strengths, so there is the necessity to include in Units in this material model. For default one can specify units in psi (i.e. pounds/inch2) or in MPa (i.e. N/mm2). The code detects units in psi if the compressive strength of concrete is greater than 1000 otherwise it takes it as MPa system. The optional variable <code>unit</code> will help the user to specify other different types of unit systems according to one’s choice, but currently it is limited to the unit systems as specified above. The user should also take care to specify the units of length in the corresponding matching units. (note: Pa = N/m2; ksf = kilo-pound/ft2)
 </li>
 </ul>
 <hr />
