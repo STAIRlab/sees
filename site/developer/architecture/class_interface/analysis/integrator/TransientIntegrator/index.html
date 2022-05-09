@@ -13234,11 +13234,10 @@ Removal During Simulation
 <h1 id="transientintegrator">TransientIntegrator</h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/integrator/TransientIntegrator.h&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TransientIntegrator<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   <span class="kw">public</span> Integrator</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>          MovableObject</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>          Integrator</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>          IncrementalIntegrator</span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TransientIntegrator<span class="op">:</span> <span class="kw">public</span> Integrator<span class="op">;</span></span></code></pre></div>
+<pre><code>      MovableObject
+      Integrator
+      IncrementalIntegrator</code></pre>
 <ul>
 <li><a href="Newmark">Newmark</a></li>
 <li><a href="HHT">HHT</a></li>
@@ -13284,31 +13283,28 @@ Removal During Simulation
 <p><br />
 </p>
 <p>The integer <code>classTag</code> is passed to the <code>IncrementalIntegrator</code> classes constructor.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"></code></pre></div>
-<p>Does nothing.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"></code></pre></div>
+<p>Does nothing.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"></code></pre></div>
 <p>Invoked to form the structure tangent matrix. The method is rewritten for this class to include inertia effects from the nodes. The method iterates over both the FE_Elements and DOF_Groups invoking methods to form their contributions to the <span class="math inline">\(A\)</span> matrix of the LinearSOE and then adding these contributions to the <span class="math inline">\(A\)</span> matrix. The method performs the following:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// while ̄ while w̄hile ̄ </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>theSysOfEqn<span class="op">.</span>zeroA<span class="op">();</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>DOF_EleIter <span class="op">&amp;</span>theDofs <span class="op">=</span> theAnalysisModel<span class="op">.</span>getDOFs<span class="op">();</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span><span class="op">((</span>dofPtr <span class="op">=</span> theDofs<span class="op">())</span> \neq <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>dofPtr<span class="op">-&gt;</span>formTangent<span class="op">(</span>theIntegrator<span class="op">);</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>theSOE<span class="op">.</span>addA<span class="op">(</span>dofPtr<span class="op">-&gt;</span>getTangent<span class="op">(</span><span class="kw">this</span><span class="op">),</span> dofPtr<span class="op">-&gt;</span>getID<span class="op">())</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>FE_EleIter <span class="op">&amp;</span>theEles <span class="op">=</span> theAnalysisModel<span class="op">.</span>getFEs<span class="op">();</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span><span class="op">((</span>elePtr <span class="op">=</span> theEles<span class="op">())</span> \neq <span class="dv">0</span><span class="op">)</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>theSOE<span class="op">.</span>addA<span class="op">(</span>elePtr<span class="op">-&gt;</span>getTangent<span class="op">(</span><span class="kw">this</span><span class="op">),</span> elePtr<span class="op">-&gt;</span>getID<span class="op">(),</span> <span class="fl">1.0</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>theSysOfEqn<span class="op">.</span>zeroA<span class="op">();</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>DOF_EleIter <span class="op">&amp;</span>theDofs <span class="op">=</span> theAnalysisModel<span class="op">.</span>getDOFs<span class="op">();</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span><span class="op">((</span>dofPtr <span class="op">=</span> theDofs<span class="op">())</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  dofPtr<span class="op">-&gt;</span>formTangent<span class="op">(</span>theIntegrator<span class="op">);</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  theSOE<span class="op">.</span>addA<span class="op">(</span>dofPtr<span class="op">-&gt;</span>getTangent<span class="op">(</span><span class="kw">this</span><span class="op">),</span> dofPtr<span class="op">-&gt;</span>getID<span class="op">())</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  FE_EleIter <span class="op">&amp;</span>theEles <span class="op">=</span> theAnalysisModel<span class="op">.</span>getFEs<span class="op">();</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span><span class="op">((</span>elePtr <span class="op">=</span> theEles<span class="op">())</span> <span class="op">!=</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  theSOE<span class="op">.</span>addA<span class="op">(</span>elePtr<span class="op">-&gt;</span>getTangent<span class="op">(</span><span class="kw">this</span><span class="op">),</span> elePtr<span class="op">-&gt;</span>getID<span class="op">(),</span> <span class="fl">1.0</span><span class="op">)</span></span></code></pre></div>
 <p>Returns <span class="math inline">\(0\)</span> if successful, otherwise a <span class="math inline">\(-1\)</span> if an error occurred while trying to add the stiffness. The two loops are introduced for the FE_Elements, to allow for efficient parallel programming when the FE_Elements are associated with a ShadowSubdomain.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formEleResidual<span class="op">(</span>FE_Element <span class="op">*</span>theEle<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formEleResidual<span class="op">(</span>FE_Element <span class="op">*</span>theEle<span class="op">);</span></span></code></pre></div>
 <p>Called upon by the <code>FE_Element</code> <em>theEle</em> to determine it’s contribution to the rhs of the equation. The following are invoked before <span class="math inline">\(0\)</span> is returned.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// while ̄ while w̄hile ̄ </span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>theEle<span class="op">-</span><span class="er">$</span><span class="op">&gt;</span><span class="er">$</span>zeroResidual<span class="op">()</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>theEle<span class="op">-</span><span class="er">$</span><span class="op">&gt;</span><span class="er">$</span>addRIncInertiaToResid<span class="op">()</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formNodUnbalance<span class="op">(</span>DOF_Group <span class="op">*</span>theDof<span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>theEle<span class="op">-</span><span class="er">$</span><span class="op">&gt;</span><span class="er">$</span>zeroResidual<span class="op">()</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>theEle<span class="op">-</span><span class="er">$</span><span class="op">&gt;</span><span class="er">$</span>addRIncInertiaToResid<span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formNodUnbalance<span class="op">(</span>DOF_Group <span class="op">*</span>theDof<span class="op">);</span></span></code></pre></div>
 <p>Called upon by the <code>DOF_Group</code> <code>theDof</code> to determine it’s contribution to the rhs of the equation. The following are invoked before <span class="math inline">\(0\)</span> is returned.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">// while ̄ while w̄hile ̄ </span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>theDof<span class="op">-&gt;</span>zeroUnbalance<span class="op">()</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>theDof<span class="op">-&gt;</span>addPIncInertiaToUnbalance<span class="op">()</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> newStep<span class="op">(</span><span class="dt">double</span> deltaT<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>theDof<span class="op">-&gt;</span>zeroUnbalance<span class="op">()</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>theDof<span class="op">-&gt;</span>addPIncInertiaToUnbalance<span class="op">()</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> newStep<span class="op">(</span><span class="dt">double</span> deltaT<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Invoked to inform the integrator that the transient analysis is proceeding to the next time step. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
 
 
