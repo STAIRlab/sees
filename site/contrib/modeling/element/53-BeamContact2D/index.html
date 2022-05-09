@@ -13248,16 +13248,91 @@ unique integer tag identifying element object
 <tr class="even">
 <td>
 <p>
-<strong>$iNode <span class="math inline">\(jNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;retained nodes (-ndm 2 -ndf 3)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;cNode&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;constrained node (-ndm 2 -ndf 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;lNode&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Lagrange multiplier node (-ndm 2 -ndf 2)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;matTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique integer tag associated with previously-defined nDMaterial object&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;width&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;the width of the wall represented by the beam element in plane strain&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;gTol&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;gap tolerance&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fTol&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;force tolerance&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;cFlag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;optional initial contact flag&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>cFlag = 0 &gt;&gt; contact between bodies is initially assumed (DEFAULT)
+<code class="parameter-table-variable">iNode jNode</code>
+</p>
+</td>
+<td>
+<p>
+retained nodes (-ndm 2 -ndf 3)
 </p>
 </td>
 </tr>
 <tr class="odd">
 <td>
+<code class="parameter-table-variable">cNode</code>
 </td>
 <td>
 <p>
-$cFlag = 1 &gt;&gt; no contact between bodies is initially assumed
+constrained node (-ndm 2 -ndf 2)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">lNode</code>
+</td>
+<td>
+<p>
+Lagrange multiplier node (-ndm 2 -ndf 2)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">matTag</code>
+</td>
+<td>
+<p>
+unique integer tag associated with previously-defined nDMaterial object
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">width</code>
+</td>
+<td>
+<p>
+the width of the wall represented by the beam element in plane strain
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">gTol</code>
+</td>
+<td>
+<p>
+gap tolerance
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">fTol</code>
+</td>
+<td>
+<p>
+force tolerance
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">cFlag</code>
+</td>
+<td>
+<p>
+optional initial contact flag
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+</td>
+<td>
+<p>
+<span class="math inline">\(cFlag = 0 &amp;gt;&amp;gt; contact between bodies is initially assumed (DEFAULT)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>cFlag = 1 &gt;&gt; no contact between bodies is initially assumed
 </p>
 </td>
 </tr>

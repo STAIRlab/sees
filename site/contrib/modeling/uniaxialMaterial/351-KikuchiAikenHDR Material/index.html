@@ -13229,10 +13229,11 @@ Removal During Simulation
 
 <h1 id="kikuchiaikenhdr">KikuchiAikenHDR</h1>
 <p>
-This command is used to construct a uniaxial KikuchiAikenHDR material object. This material model produces nonlinear hysteretic curves of high damping rubber bearings (HDRs).
+This command is used to construct a uniaxial <code>KikuchiAikenHDR</code> material object. This material model produces nonlinear hysteretic curves of high damping rubber bearings (HDRs).
 </p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial KikuchiAikenHDR <span class="dt">$matTag</span> <span class="dt">$tp</span> <span class="dt">$ar</span> <span class="dt">$hr</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;-coGHU <span class="dt">$cg</span> <span class="dt">$ch</span> <span class="dt">$cu</span>&amp;gt; &amp;lt;-coMSS <span class="dt">$rs</span> <span class="dt">$rf</span>&amp;gt;</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -coGHU</span> <span class="dt">$cg</span> <span class="dt">$ch</span> <span class="dt">$cu</span> &gt; </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -coMSS</span> <span class="dt">$rs</span> <span class="dt">$rf</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -13279,7 +13280,19 @@ total thickness of rubber <strong>[unit: m]</strong> (see note 2)
 <tr class="odd">
 <td>
 <p>
-<strong>$cg $ch <span class="math inline">\(cu&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;correction coefficients for equivalent shear modulus (&lt;code class=&quot;tcl-variable&quot;&gt;cg&lt;/code&gt;), equivalent viscous daming ratio (&lt;code class=&quot;tcl-variable&quot;&gt;ch&lt;/code&gt;), ratio of shear force at zero displacement (&lt;code class=&quot;tcl-variable&quot;&gt;cu&lt;/code&gt;).&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>rs $rf</strong>
+<code>cg ch cu</code>
+</p>
+</td>
+<td>
+<p>
+correction coefficients for equivalent shear modulus (<code class="tcl-variable">cg</code>), equivalent viscous daming ratio (<code class="tcl-variable">ch</code>), ratio of shear force at zero displacement (<code class="tcl-variable">cu</code>).
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>rs</code> <code>rf</code>
 </p>
 </td>
 <td>
@@ -13290,101 +13303,90 @@ reduction rate for stiffness (<code class="tcl-variable">rs</code>) and force (<
 </tr>
 </tbody>
 </table>
-<p>
-NOTES:
-</p>
-<p>
+<h2 id="notes">Notes</h2>
 <ol type="1">
-<li>Following rubber types for <code class="tcl-variable">tp</code> are available:
+<li><p>Following rubber types for <code class="tcl-variable">tp</code> are available:</p>
 </p>
 <table>
 <tbody>
 <tr class="odd">
 <td>
 <p>
-<strong>X0.6</strong>
+<p><strong>X0.6</strong></p>
 </p>
 </td>
 <td>
 <p>
-Bridgestone X0.6, standard compressive stress, up to 400% shear strain
+<p>Bridgestone X0.6, standard compressive stress, up to 400% shear strain</p>
 </p>
 </td>
 </tr>
 <tr class="even">
 <td>
 <p>
-<strong>X0.6-0MPa</strong>
+<p><strong>X0.6-0MPa</strong></p>
 </p>
 </td>
 <td>
 <p>
-Bridgestone X0.6, zero compressive stress, up to 400% shear strain
+<p>Bridgestone X0.6, zero compressive stress, up to 400% shear strain</p>
 </p>
 </td>
 </tr>
 <tr class="odd">
 <td>
 <p>
-<strong>X0.4</strong>
+<p><strong>X0.4</strong></p>
 </p>
 </td>
 <td>
 <p>
-Bridgestone X0.4, standard compressive stress, up to 400% shear strain
+<p>Bridgestone X0.4, standard compressive stress, up to 400% shear strain</p>
 </p>
 </td>
 </tr>
 <tr class="even">
 <td>
 <p>
-<strong>X0.4-0MPa</strong>
+<p><strong>X0.4-0MPa</strong></p>
 </p>
 </td>
 <td>
 <p>
-Bridgestone X0.4, zero compressive stress, up to 400% shear strain
+<p>Bridgestone X0.4, zero compressive stress, up to 400% shear strain</p>
 </p>
 </td>
 </tr>
 <tr class="odd">
 <td>
 <p>
-<strong>X0.3</strong>
+<p><strong>X0.3</strong></p>
 </p>
 </td>
 <td>
 <p>
-Bridgestone X0.3, standard compressive stress, up to 400% shear strain
+<p>Bridgestone X0.3, standard compressive stress, up to 400% shear strain</p>
 </p>
 </td>
 </tr>
 <tr class="even">
 <td>
 <p>
-<strong>X0.3-0MPa</strong>
+<p><strong>X0.3-0MPa</strong></p>
 </p>
 </td>
 <td>
 <p>
-Bridgestone X0.3, zero compressive stress, up to 400% shear strain
+<p>Bridgestone X0.3, zero compressive stress, up to 400% shear strain</p>
 </p>
 </td>
 </tr>
 </tbody>
-</table>
-<p>
-<ol start="2" type="1">
-<li>This material uses SI unit in calculation formula. <code class="tcl-variable">ar</code> and <code class="tcl-variable">hr</code> must be converted into <strong>[m^2]</strong> and <strong>[m]</strong>, respectively.
-</p>
-<p>
-<ol start="3" type="1">
-<li><code class="tcl-variable">rs</code> and <code class="tcl-variable">rf</code> are　available if this material is applied to multipleShearSpring (MSS) element. Recommended values are <code class="tcl-variable">rs</code>=1/sum(i=0,n-1){ sin(pi<em>i/n)^2} and <code class="tcl-variable">rf</code>=1/sum(i=0,n-1){sin(pi</em>i/n)}, where n is the number of springs in the MSS. For example, when n=8, $rs=0.2500, $rf=0.1989.
-</p>
-<hr /></li>
-</ol></li>
-</ol></li>
+</table></li>
+<li><p>This material uses SI unit in calculation formula. <code class="tcl-variable">ar</code> and <code class="tcl-variable">hr</code> must be converted into <strong>[m^2]</strong> and <strong>[m]</strong>, respectively.</p></li>
+<li><p><code class="tcl-variable">rs</code> and <code class="tcl-variable">rf</code> are　available if this material is applied to multipleShearSpring (MSS) element. Recommended values are <code class="tcl-variable">rs</code>=1/sum(i=0,n-1){ sin(pi<em>i/n)^2} and <code class="tcl-variable">rf</code>=1/sum(i=0,n-1){sin(pi</em>i/n)}, where n is the number of springs in the MSS. For example, when <code>n=8</code>, <code>rs=0.2500</code>, <code>rf=0.1989</code>.</p></li>
 </ol>
+<hr />
 <h2 id="examples">Examples</h2>
 <p>
 <a href="Media:KikuchiAikenHDR_sample.tcl"
@@ -13392,7 +13394,7 @@ title="wikilink">KikuchiAikenHDR_sample.tcl</a>
 </p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/KikuchiAikenHDR_StressStrain.png"
-title="KikuchiAikenHDR_StressStrain.png" width="300"
+title="KikuchiAikenHDR StressStrain.png" width="300"
 alt="KikuchiAikenHDR_StressStrain.png" />
 <figcaption aria-hidden="true">
 KikuchiAikenHDR_StressStrain.png

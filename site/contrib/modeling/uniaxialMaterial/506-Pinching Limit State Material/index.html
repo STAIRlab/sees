@@ -13486,7 +13486,68 @@ floating point for ultimate drift at failure (δmax Eq. 1) and is used for stren
 </td>
 <td>
 <p>
-This value is used to compute the monotonic energy at axial failure (Emono Eq. 2) by computing the area under the backbone in the positive loading direction up to δmax. Input 1 if this type of damage is not required and set $dmgR1, $dmgR2, $dmgR3, $dmgR4, and $dmgRLim to zero for reloading stiffness damage. Similarly set $dmgS1, $dmgS2, $dmgS3, $dmgS4, and <span class="math inline">\(dmgSLim to zero if reloading strength damage is not required&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dmgE1 $dmgE2 $dmgE3 <span class="math inline">\(dmgE4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point elastic stiffness damage factors &lt;em&gt;α1,α2,α3,α4&lt;/em&gt; shown in Eq. 1&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;dmgELim&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point elastic stiffness damage limit &lt;em&gt;Dlim&lt;/em&gt; shown in Eq. 1; Note: This value must be between zero and unity&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dmgR1 $dmgR2 $dmgR3 <span class="math inline">\(dmgR4&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point reloading stiffness damage factors &lt;em&gt;α1,α2,α3,α4&lt;/em&gt; shown in Eq. 1&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;dmgRLim&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point reloading stiffness damage limit &lt;em&gt;Dlim&lt;/em&gt; shown in Eq. 1; Note: This value must be between zero and unity&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;dmgRCyc&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;floating point cyclic reloading stiffness damage index; Note: This value must be between zero and unity&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dmgS1 $dmgS2 $dmgS3 $dmgS4</strong>
+This value is used to compute the monotonic energy at axial failure (Emono Eq. 2) by computing the area under the backbone in the positive loading direction up to δmax. Input 1 if this type of damage is not required and set $dmgR1, $dmgR2, $dmgR3, $dmgR4, and $dmgRLim to zero for reloading stiffness damage. Similarly set $dmgS1, $dmgS2, $dmgS3, $dmgS4, and $dmgSLim to zero if reloading strength damage is not required
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">dmgE1 dmgE2 dmgE3 dmgE4</code>
+</p>
+</td>
+<td>
+<p>
+floating point elastic stiffness damage factors <em>α1,α2,α3,α4</em> shown in Eq. 1
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">dmgELim</code>
+</td>
+<td>
+<p>
+floating point elastic stiffness damage limit <em>Dlim</em> shown in Eq. 1; Note: This value must be between zero and unity
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">dmgR1 dmgR2 dmgR3 dmgR4</code>
+</p>
+</td>
+<td>
+<p>
+floating point reloading stiffness damage factors <em>α1,α2,α3,α4</em> shown in Eq. 1
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">dmgRLim</code>
+</td>
+<td>
+<p>
+floating point reloading stiffness damage limit <em>Dlim</em> shown in Eq. 1; Note: This value must be between zero and unity
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">dmgRCyc</code>
+</td>
+<td>
+<p>
+floating point cyclic reloading stiffness damage index; Note: This value must be between zero and unity
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-variable">dmgS1 dmgS2 dmgS3 dmgS4</code>
 </p>
 </td>
 <td>

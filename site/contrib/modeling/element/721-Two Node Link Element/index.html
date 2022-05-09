@@ -13236,7 +13236,91 @@ This command is used to construct a twoNodeLink element object, which is defined
 <tr class="odd">
 <td>
 <p>
-<strong>element twoNodeLink $eleTag $iNode $jNode -mat $matTags -dir <span class="math inline">\(dirs &amp;lt;-orient &amp;lt;\)</span>x1 $x2 $x3&gt; $y1 $y2 $y3&gt; &lt;-pDelta (4 $Mratio)&gt; &lt;-shearDist (2 $sDratios)&gt; &lt;-doRayleigh&gt; &lt;-mass <span class="math inline">\(m&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;eleTag&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;unique element object tag&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>iNode <span class="math inline">\(jNode&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;end nodes&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;matTags&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags associated with previously-defined UniaxialMaterial objects&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;dirs&lt;/code&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;material directions:&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;&lt;em&gt;2D-case&lt;/em&gt;: 1,2 - translations along local x,y axes; 3 - rotation about local z axis&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;&lt;em&gt;3D-case&lt;/em&gt;: 1,2,3 - translations along local x,y,z axes; 4,5,6 - rotations about local x,y,z axes&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>x1 $x2 <span class="math inline">\(x3&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;vector components in global coordinates defining local x-axis (optional)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>y1 $y2 $y3</strong>
+<strong>element twoNodeLink $eleTag $iNode $jNode -mat $matTags -dir <span class="math inline">\(dirs &amp;lt;-orient &amp;lt;\)</span>x1 $x2 $x3&gt; $y1 $y2 $y3&gt; &lt;-pDelta (4 $Mratio)&gt; &lt;-shearDist (2 $sDratios)&gt; &lt;-doRayleigh&gt; &lt;-mass $m&gt;</strong>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">eleTag</code>
+</td>
+<td>
+<p>
+unique element object tag
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">iNode jNode</code>
+</p>
+</td>
+<td>
+<p>
+end nodes
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">matTags</code>
+</td>
+<td>
+<p>
+tags associated with previously-defined UniaxialMaterial objects
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">dirs</code>
+</td>
+<td>
+<p>
+material directions:
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+</td>
+<td>
+<p>
+<em>2D-case</em>: 1,2 - translations along local x,y axes; 3 - rotation about local z axis
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+</td>
+<td>
+<p>
+<em>3D-case</em>: 1,2,3 - translations along local x,y,z axes; 4,5,6 - rotations about local x,y,z axes
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-variable">x1 x2 x3</code>
+</p>
+</td>
+<td>
+<p>
+vector components in global coordinates defining local x-axis (optional)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">y1 y2 y3</code>
 </p>
 </td>
 <td>

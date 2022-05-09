@@ -13232,8 +13232,8 @@ Removal During Simulation
 This command is used to construct a multi-dimensional stress density material object for modeling sand behaviour following the work of Cubrinovski and Ishihara (1998a,b). Note that as of January 2020 this material is still undergoing verification testing for more complex loading and initial conditions.
 </p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nDMaterial stressDensity <span class="dt">$matTag</span> <span class="dt">$mDen</span> <span class="dt">$eNot</span> <span class="dt">$A</span> <span class="dt">$n</span> <span class="dt">$nu</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$a1</span> <span class="dt">$b1</span> <span class="dt">$a2</span> <span class="dt">$b2</span> <span class="dt">$a3</span> <span class="dt">$b3</span> <span class="dt">$fd</span> <span class="dt">$muNot</span> <span class="dt">$muCyc</span> <span class="dt">$sc</span> <span class="dt">$M</span> <span class="dt">$patm</span> &amp;lt;<span class="dt">$ssl1</span> <span class="dt">$ssl2</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ssl3</span> <span class="dt">$ssl4</span> <span class="dt">$ssl5</span> <span class="dt">$ssl6</span> <span class="dt">$ssl7</span> <span class="dt">$hsl</span> <span class="dt">$pmin</span>&amp;gt;</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$a1</span> <span class="dt">$b1</span> <span class="dt">$a2</span> <span class="dt">$b2</span> <span class="dt">$a3</span> <span class="dt">$b3</span> <span class="dt">$fd</span> <span class="dt">$muNot</span> <span class="dt">$muCyc</span> <span class="dt">$sc</span> <span class="dt">$M</span> <span class="dt">$patm</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$ssl1</span> <span class="dt">$ssl2</span> <span class="dt">$ssl3</span> <span class="dt">$ssl4</span> <span class="dt">$ssl5</span> <span class="dt">$ssl6</span> <span class="dt">$ssl7</span> <span class="dt">$hsl</span> <span class="dt">$pmin</span> &gt;</span></code></pre></div>
 <table>
 <tbody>
 <tr class="odd">
@@ -13438,12 +13438,19 @@ Optional steady state line parameters (default values shown for each, be careful
 <tr class="odd">
 <td>
 <p>
-<strong>&lt;$ssl1&gt;</strong>
+<code>ssl1</code>
 </p>
 </td>
 <td>
 <p>
-void ratio of quasi steady state (QSS-line) at pressure <span class="math inline">\(pmin (default = 0.877)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;&amp;lt;\)</span>ssl2&gt;</strong>
+void ratio of quasi steady state (QSS-line) at pressure $pmin (default = 0.877)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>ssl2</code>
 </p>
 </td>
 <td>
@@ -13455,7 +13462,19 @@ void ratio of quasi steady state (QSS-line) at 10 kPa (default = 0.877)
 <tr class="odd">
 <td>
 <p>
-<strong>&lt;<span class="math inline">\(ssl3&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;void ratio of quasi steady state (QSS-line) at 30 kPa (default = 0.873)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;&amp;lt;\)</span>ssl4&gt;</strong>
+<code>ssl3</code>
+</p>
+</td>
+<td>
+<p>
+void ratio of quasi steady state (QSS-line) at 30 kPa (default = 0.873)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>ssl4</code>
 </p>
 </td>
 <td>
@@ -13467,7 +13486,19 @@ void ratio of quasi steady state (QSS-line) at 50 kPa (default = 0.870)
 <tr class="odd">
 <td>
 <p>
-<strong>&lt;<span class="math inline">\(ssl5&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;void ratio of quasi steady state (QSS-line) at 100 kPa (default = 0.860)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;&amp;lt;\)</span>ssl6&gt;</strong>
+<code>ssl5</code>
+</p>
+</td>
+<td>
+<p>
+void ratio of quasi steady state (QSS-line) at 100 kPa (default = 0.860)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>ssl6</code>
 </p>
 </td>
 <td>
@@ -13479,7 +13510,19 @@ void ratio of quasi steady state (QSS-line) at 200 kPa (default = 0.850)
 <tr class="odd">
 <td>
 <p>
-<strong>&lt;<span class="math inline">\(ssl7&amp;gt;&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;void ratio of quasi steady state (QSS-line) at 400 kPa (default = 0.833)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;&amp;lt;\)</span>hsl&gt;</strong>
+<code>ssl7</code>
+</p>
+</td>
+<td>
+<p>
+void ratio of quasi steady state (QSS-line) at 400 kPa (default = 0.833)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>hsl</code>
 </p>
 </td>
 <td>
@@ -13491,7 +13534,7 @@ void ratio of upper reference state (UR-line) for all pressures (default = 0.895
 <tr class="odd">
 <td>
 <p>
-<strong>&lt;$pmin&gt;</strong>
+<code>pmin</code>
 </p>
 </td>
 <td>
