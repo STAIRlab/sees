@@ -13231,8 +13231,7 @@ Removal During Simulation
 <p>
 This command is used to construct a TzSimple1 uniaxial material object:
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial TzSimple1 <span class="dt">$matTag</span> <span class="dt">$tzType</span> <span class="dt">$tult</span> <span class="dt">$z50</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$c</span>&amp;gt;</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial TzSimple1 <span class="dt">$matTag</span> <span class="dt">$tzType</span> <span class="dt">$tult</span> <span class="dt">$z50</span> &lt; <span class="dt">$c</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -13310,27 +13309,17 @@ Nonzero c values are used to represent radiation damping effects
 </li>
 </ol>
 <p>
-EQUATIONS and EXAMPLERESPONSES:
+EQUATIONS and EXAMPLE RESPONSES:
 </p>
 <p>
 The equations describing PySimple1 behavior are described in Boulanger, R. W., Curras, C. J., Kutter, B. L., Wilson, D. W., and Abghari, A. (1999). “Seismic soil-pile-structure interaction experiments and analyses.” Journal of Geotechnical and Geoenvironmental Engineering, ASCE, 125(9): 750-759. Only minor changes have been made in its implementation for OpenSees.
 </p>
-<p>
-The nonlinear t-z behavior is conceptualized as consisting of elastic (&lt;math&gt;t-z^e&lt;/math&gt;) and plastic (&lt;math&gt;t-z^p&lt;/math&gt;) components in series. Radiation damping is modeled by a dashpot on the “far-field” elastic component (&lt;math&gt;t-z^e&lt;/math&gt;) of the displacement rate. Note that &lt;math&gt;z = z^e + z^p&lt;/math&gt;, and that &lt;math&gt;t = t^e = t^p&lt;/math&gt;.
-</p>
+<p>The nonlinear t-z behavior is conceptualized as consisting of elastic ( <span class="math inline">\(t-z^e\)</span> ) and plastic ( <span class="math inline">\(t-z^p\)</span> ) components in series. Radiation damping is modeled by a dashpot on the “far-field” elastic component ( <span class="math inline">\(t-z^e\)</span> ) of the displacement rate. Note that <span class="math inline">\(z = z^e + z^p\)</span> , and that <span class="math inline">\(t = t^e = t^p\)</span> .</p>
 <p>
 The plastic component is described by:
 </p>
-<dl>
-<dt>
-</dt>
-<dd>
-&lt;math&gt;t^p = t_{} - (t_{} - t^p_0) &lt;/math&gt;
-</dd>
-</dl>
-<p>
-where $t_{ult} = $ the ultimate resistance of the t-z material in the current loading direction, &lt;math&gt;t^p_o = t^p&lt;/math&gt; at the start of the current plastic loading cycle, <span class="math inline">\(z^p_0 = z^P\)</span> at the start of the current plastic loading cycle, and c = a constant and n = an exponent that define the shape of the <span class="math inline">\(t-z^p\)</span> curve.
-</p>
+<p>[t^p = t_{} - (t_{} - t^p_0) ]</p>
+<p>where $t_{ult} = $ the ultimate resistance of the t-z material in the current loading direction, <span class="math inline">\(t^p_o = t^p\)</span> at the start of the current plastic loading cycle, <span class="math inline">\(z^p_0 = z^P\)</span> at the start of the current plastic loading cycle, and c = a constant and n = an exponent that define the shape of the <span class="math inline">\(t-z^p\)</span> curve.</p>
 <p>
 The elastic component can be conveniently expressed as:
 </p>
@@ -13341,9 +13330,7 @@ The elastic component can be conveniently expressed as:
 <p><span class="math display">\[t^e = C_e \frac{t_{\text{ult}}}{z_{50}} z^e\]</span></p>
 </dd>
 </dl>
-<p>
-where <span class="math inline">\(C_e\)</span> = a constant that defines the normalized elastic stiffness. The value of <span class="math inline">\(C_e\)</span> is not an independent parameter, but rather depends on the constants c &amp; n (along with the fact that &lt;math&gt;t = 0.5 t_{}&lt;/math&gt; at <span class="math inline">\(z = z_{50}\)</span>).
-</p>
+<p>where <span class="math inline">\(C_e\)</span> = a constant that defines the normalized elastic stiffness. The value of <span class="math inline">\(C_e\)</span> is not an independent parameter, but rather depends on the constants c &amp; n (along with the fact that <span class="math inline">\(t = 0.5 t_{\text{ult}}\)</span> at <span class="math inline">\(z = z_{50}\)</span>).</p>
 <p>
 The flexibility of the above equations can be used to approximate different t-z backbone relations. Reese and O’Neill’s (1987) recommended backbone for drilled shafts is closely approximated using c = 0.5, n = 1.5, and Ce = 0.708. Mosher’s (1984) recommended backbone for axially loaded piles in sand is closely approximated using c = 0.6, n = 0.85, and Ce = 2.05. TzSimple1 is currently implemented to allow use of these two default sets of values. Values of tult and z50 must then be specified to define the t-z material behavior.
 </p>

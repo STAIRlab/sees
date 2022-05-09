@@ -13252,7 +13252,7 @@ Figure1.jpg
 Discretization of Inelastic Fiber Section and Calculation of OOP mass
 </h3>
 <p>
-The inelastic fiber section of the beamWithhinges element is modeled by strategically locating a collection of nonlinear fiber elements[1,2]. The fibers are located along a line in the OOP direction (Z-direction in Figure 1). By this way, the beam-column element acts as a truss element and a flexural element in the IP and OOP directions, respectively. The discretization of the cross section is shown in Figure 2a. In this figure, the vector used to define the local-coordinate system in OpenSees, “vecxz”, is (0 0 -1) corresponding to the global axes shown in Figure 1. Each fiber is defined with the area &lt;math&gt;,&lt;/math&gt;, z-coordinate <span class="math inline">\(\mathrm{z_i}\,\)</span> and a bilinear stress-strain relationship. The strain hardening slope is chosen to be very small, hence the yield stress <span class="math inline">\(\mathrm{f_{yi}}\,\)</span> and the yield strain <span class="math inline">\(\mathrm{{\epsilon}_{yi}}\,\)</span> define the stress-strain relationship of the <span class="math inline">\(\mathrm{i_{th}}\,\)</span> fiber. Since only one diagonal is utilized in the model, it has both tension and compression strengths. Therefore, the fibers are considered to have the same absolute value for the tensile and compression yield strengths.
+The inelastic fiber section of the beamWithhinges element is modeled by strategically locating a collection of nonlinear fiber elements[1,2]. The fibers are located along a line in the OOP direction (Z-direction in Figure 1). By this way, the beam-column element acts as a truss element and a flexural element in the IP and OOP directions, respectively. The discretization of the cross section is shown in Figure 2a. In this figure, the vector used to define the local-coordinate system in OpenSees, “vecxz”, is (0 0 -1) corresponding to the global axes shown in Figure 1. Each fiber is defined with the area <span class="math inline">\(\mathrm{A_i}\,\)</span> , z-coordinate <span class="math inline">\(\mathrm{z_i}\,\)</span> and a bilinear stress-strain relationship. The strain hardening slope is chosen to be very small, hence the yield stress <span class="math inline">\(\mathrm{f_{yi}}\,\)</span> and the yield strain <span class="math inline">\(\mathrm{{\epsilon}_{yi}}\,\)</span> define the stress-strain relationship of the <span class="math inline">\(\mathrm{i_{th}}\,\)</span> fiber. Since only one diagonal is utilized in the model, it has both tension and compression strengths. Therefore, the fibers are considered to have the same absolute value for the tensile and compression yield strengths.
 </p>
 <figure>
 <img src="Figure2-1.jpg" title="Figure2-1.jpg" alt="Figure2-1.jpg" />
@@ -13261,11 +13261,11 @@ Figure2-1.jpg
 </figcaption>
 </figure>
 <p>
-The parameters defining a fiber section (&lt;math&gt;,&lt;/math&gt;, &lt;math&gt;,&lt;/math&gt;, &lt;math&gt;,&lt;/math&gt;, and &lt;math&gt;,&lt;/math&gt;) are set such that the intended strength interaction (Figure 2b) and the IP axial and OOP bending stiffness values of the diagonal infill wall element are properly simulated. In the current formulation, FEMA-356[3] or ASCE-41[4] equations are used for calculating the axial stiffness and unidirectional strength in the IP direction. However, any other relationships that the user considers as suitable can also be employed. The OOP mass, stiffness and unidirectional bending strength are calculated such that the model has the same natural frequency as the original infill wall, it should produce the same support reactions where it is attached to the surrounding frame for a given support motion (story acceleration), and it should exhibit initial yielding at the same level of support motion that causes the original infill wall to yield. Discretization of the inelastic fiber section is explained below. In the explanation, equations of FEMA-356 are referred to rather than ASCE-41 equations, since FEMA-356 document is accessible from FEMA website. However, Equations of FEMA-356 and ASCE-41 are very similar and ASCE-41 equations may be replaced with FEMA-356 equations.
+The parameters defining a fiber section (&lt;math&gt;,&lt;/math&gt;, &lt;math&gt;,&lt;/math&gt;, <span class="math inline">\(\mathrm{f_{yi}}\,\)</span> , and <span class="math inline">\(\mathrm{{\epsilon}_{yi}}\,\)</span> ) are set such that the intended strength interaction (Figure 2b) and the IP axial and OOP bending stiffness values of the diagonal infill wall element are properly simulated. In the current formulation, FEMA-356[3] or ASCE-41[4] equations are used for calculating the axial stiffness and unidirectional strength in the IP direction. However, any other relationships that the user considers as suitable can also be employed. The OOP mass, stiffness and unidirectional bending strength are calculated such that the model has the same natural frequency as the original infill wall, it should produce the same support reactions where it is attached to the surrounding frame for a given support motion (story acceleration), and it should exhibit initial yielding at the same level of support motion that causes the original infill wall to yield. Discretization of the inelastic fiber section is explained below. In the explanation, equations of FEMA-356 are referred to rather than ASCE-41 equations, since FEMA-356 document is accessible from FEMA website. However, Equations of FEMA-356 and ASCE-41 are very similar and ASCE-41 equations may be replaced with FEMA-356 equations.
 </p>
 <p>
 <ol type="1">
-<li>Calculate the IP axial force capacity of the equivalent diagonal element (&lt;math&gt;,&lt;/math&gt;), Equation 1.
+<li>Calculate the IP axial force capacity of the equivalent diagonal element (<span class="math inline">\(\mathrm{P_{IP0}}\,\)</span>, Equation 1.
 </p>
 <figure>
 <img src="Eq1.jpg" title="Eq1.jpg" alt="Eq1.jpg" />
@@ -13294,7 +13294,7 @@ Equation 2 is based on the assumption that the yield moment in the equivalent di
 </p>
 <p>
 <ol start="3" type="1">
-<li>Construct the IP axial and OOP bending strength interaction curve accepted as a 3/2-power curve[1, 2] represented with Equation 3. The 3/2 power curve is based on the OOP and IP capacity points obtained from the analyses of a nonlinear finite element (FE) model of an infill panel[3]. In Equation 3, <span class="math inline">\(\mathrm{P_{IP}}\,\)</span> is the IP axial strength in the presence of OOP force, &lt;math&gt;,&lt;/math&gt;, which is calculated in step 1, is the IP axial strength without OOP force, <span class="math inline">\(\mathrm{M_{OOP}}\,\)</span> is the OOP bending strength in the presence of IP force, and &lt;math&gt;,&lt;/math&gt;, which is calculated in step 2, is the OOP bending strength without IP force.
+<li>Construct the IP axial and OOP bending strength interaction curve accepted as a 3/2-power curve[1, 2] represented with Equation 3. The 3/2 power curve is based on the OOP and IP capacity points obtained from the analyses of a nonlinear finite element (FE) model of an infill panel[3]. In Equation 3, <span class="math inline">\(\mathrm{P_{IP}}\,\)</span> is the IP axial strength in the presence of OOP force, <span class="math inline">\(\mathrm{P_{IP0}}\,\)</span> , which is calculated in step 1, is the IP axial strength without OOP force, <span class="math inline">\(\mathrm{M_{OOP}}\,\)</span> is the OOP bending strength in the presence of IP force, and <span class="math inline">\(\mathrm{M_{OOP0}}\,\)</span> , which is calculated in step 2, is the OOP bending strength without IP force.
 </p>
 <figure>
 <img src="Eq3.jpg" title="Eq3.jpg" alt="Eq3.jpg" />
@@ -13306,7 +13306,7 @@ Eq3.jpg
 It should be noted that steps 1, 2 and 3 consist of the construction of the IP axial and OOP bending strength interaction based on the explained methodology. The user is free to use any other interaction curve which might be based on experimental data or FE simulations, as long as the chosen interaction curve is not concave, since the equations used for calculation of the fiber locations are not suitable for concave diagrams. However, this limitation is not considered to be serious, since a concave interaction diagram is rarely encountered.
 </p>
 <p>
-The interaction diagram should be discretized at N pairs (N pairs including the (&lt;math&gt;,&lt;/math&gt;, 0) and (0, &lt;math&gt;,&lt;/math&gt;) pairs), where 2(N-1) is the total number of fibers in the section (N-1 fibers are placed at one side of the y-axis and N-1 fibers on the other side symmetrically as shown in Figure 2). Typically, 10 fibers along the section could be sufficient which corresponds to 6 data pairs on the interaction diagram.
+The interaction diagram should be discretized at N pairs (N pairs including the (&lt;math&gt;,&lt;/math&gt;, 0) and (0, <span class="math inline">\(\mathrm{P_{IP0}}\,\)</span> ) pairs), where 2(N-1) is the total number of fibers in the section (N-1 fibers are placed at one side of the y-axis and N-1 fibers on the other side symmetrically as shown in Figure 2). Typically, 10 fibers along the section could be sufficient which corresponds to 6 data pairs on the interaction diagram.
 </p>
 <p>
 <ol start="4" type="1">
@@ -13336,7 +13336,7 @@ where <span class="math inline">\(\mathrm{\kappa}\,\)</span> is a factor which r
 </p>
 <p>
 <ol start="6" type="1">
-<li>Calculate the distance of the <span class="math inline">\(\mathrm{i^{th}}\,\)</span> fiber to the centroid (&lt;math&gt;,&lt;/math&gt;), Equation 6.
+<li>Calculate the distance of the <span class="math inline">\(\mathrm{i^{th}}\,\)</span> fiber to the centroid (<span class="math inline">\(\mathrm{z_{i}}\,\)</span>, Equation 6.
 </p>
 <figure>
 <img src="Eq6.jpg" title="Eq6.jpg" alt="Eq6.jpg" />
@@ -13345,7 +13345,7 @@ Eq6.jpg
 </figcaption>
 </figure>
 <p>
-where M and P represent the OOP bending moment and IP axial force capacities in the interaction diagram (Figure 3). i=1 corresponds to the fiber farthest from the centroid and the point of pure compression on the P−M diagram. The index i increases sequentially in the section as progressing inward to the y-axis and in the interaction diagram in the direction of decreasing P as shown in Figure 3. It should be noted that the coordinates of the points (&lt;math&gt;,&lt;/math&gt;) on one side of the y axis (positive z) are calculated with Equation 6 but coordinates of the points on the other side are calculated as the negative of the values calculated with Equation 6.
+where M and P represent the OOP bending moment and IP axial force capacities in the interaction diagram (Figure 3). i=1 corresponds to the fiber farthest from the centroid and the point of pure compression on the P−M diagram. The index i increases sequentially in the section as progressing inward to the y-axis and in the interaction diagram in the direction of decreasing P as shown in Figure 3. It should be noted that the coordinates of the points (<span class="math inline">\(\mathrm{z_{i}}\,\)</span> on one side of the y axis (positive z) are calculated with Equation 6 but coordinates of the points on the other side are calculated as the negative of the values calculated with Equation 6.
 </p>
 <p>
 Equation 6 is obtained from the consideration of the changes in the plastic axial force and moment that occur as the plastic neutral axis is “swept through” the section. Derivation of this equation is explained in reference [2].
@@ -13358,7 +13358,7 @@ Figure3.jpg
 </figure>
 <p>
 <ol start="7" type="1">
-<li>Area of each fiber is calculated such that the sum of the areas of the fibers is equal to the cross sectional area of the equivalent diagonal element (&lt;math&gt;,&lt;/math&gt;×a) calculated in step 4 and sum of the second moment of the fibers is equal to the equivalent moment of inertia in OOP direction (&lt;math&gt;,&lt;/math&gt;) calculated in step 5.
+<li>Area of each fiber is calculated such that the sum of the areas of the fibers is equal to the cross sectional area of the equivalent diagonal element (&lt;math&gt;,&lt;/math&gt;×a) calculated in step 4 and sum of the second moment of the fibers is equal to the equivalent moment of inertia in OOP direction (<span class="math inline">\(\mathrm{I_{eq}}\,\)</span> calculated in step 5.
 </p>
 <figure>
 <img src="Eq7a.jpg" title="Eq7a.jpg" alt="Eq7a.jpg" />

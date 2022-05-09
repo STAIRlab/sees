@@ -13228,9 +13228,7 @@ Removal During Simulation
 
 
 <h1 id="pdelta">PDelta</h1>
-<p>
-This command is used to construct the P-Delta Coordinate Transformation (PDeltaCrdTransf) object, which performs a linear geometric transformation of beam stiffness and resisting force from the basic system to the global coordinate system, considering second-order P-Delta effects. NOTE: P LARGE Delta effects do not include P small delta effects.
-</p>
+<p>This command is used to construct the P-Delta Coordinate Transformation (PDeltaCrdTransf) object, which performs a linear geometric transformation of beam stiffness and resisting force from the basic system to the global coordinate system, considering second-order P-Delta effects. &gt;NOTE: <span class="math inline">\(P\)</span> - <span class="math inline">\(\Delta\)</span> effects do not include <span class="math inline">\(P\)</span> - <span class="math inline">\(\delta\)</span> effects.</p>
 <p>
 For a two-dimensional problem:
 </p>
@@ -13340,22 +13338,11 @@ alt="ElementVectors.png" />
 ElementVectors.png
 </figcaption>
 </figure>
-<ol>
-<li>
-Element 1 : tag 1 : vecxZ = zaxis
-</li>
-</ol>
-<p>
-geomTransf PDelta 1 0 0 -1
-</p>
-<ol>
-<li>
-Element 2 : tag 2 : vecxZ = y axis
-</li>
-</ol>
-<p>
-geomTransf PDelta 2 0 1 0
-</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Element 1 : tag 1 : vecxZ = zaxis</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>geomTransf PDelta <span class="dv">1</span> <span class="dv">0</span> <span class="dv">0</span><span class="ot"> -1</span>&lt;/p&gt;</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Element 2 : tag 2 : vecxZ = y axis</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>geomTransf PDelta <span class="dv">2</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">0</span></span></code></pre></div>
 <p>
 Code Developed by: <span style="color:blue"> Remo Magalhaes de Souza </span>
 </p>
