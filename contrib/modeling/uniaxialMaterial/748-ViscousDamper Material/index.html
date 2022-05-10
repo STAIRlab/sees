@@ -11868,6 +11868,12 @@ Removal During Simulation
       
         
           
+            
+          
+        
+          
+        
+          
         
           
         
@@ -11887,10 +11893,16 @@ Removal During Simulation
         
       
       
-        <label class="md-nav__link" for="__nav_6_3_9">
-          Uniaxial
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../libraries/modeling/uniaxial/">Uniaxial</a>
+          
+            <label for="__nav_6_3_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Uniaxial" data-md-level="3">
         <label class="md-nav__title" for="__nav_6_3_9">
@@ -11898,6 +11910,8 @@ Removal During Simulation
           Uniaxial
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -11994,11 +12008,26 @@ Removal During Simulation
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../libraries/modeling/uniaxial/index2/" class="md-nav__link">
+        UniaxialMaterial Command
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_7" type="checkbox" id="__nav_6_3_9_7" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_9" type="checkbox" id="__nav_6_3_9_9" >
       
       
       
@@ -12017,7 +12046,7 @@ Removal During Simulation
         </div>
       
       <nav class="md-nav" aria-label="ConcreteCM" data-md-level="4">
-        <label class="md-nav__title" for="__nav_6_3_9_7">
+        <label class="md-nav__title" for="__nav_6_3_9_9">
           <span class="md-nav__icon md-icon"></span>
           ConcreteCM
         </label>
@@ -12041,7 +12070,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_8" type="checkbox" id="__nav_6_3_9_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_10" type="checkbox" id="__nav_6_3_9_10" >
       
       
       
@@ -12059,14 +12088,14 @@ Removal During Simulation
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../../../libraries/modeling/uniaxial/PyTzQz/">PyTzQz</a>
           
-            <label for="__nav_6_3_9_8">
+            <label for="__nav_6_3_9_10">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="PyTzQz" data-md-level="4">
-        <label class="md-nav__title" for="__nav_6_3_9_8">
+        <label class="md-nav__title" for="__nav_6_3_9_10">
           <span class="md-nav__icon md-icon"></span>
           PyTzQz
         </label>
@@ -12105,7 +12134,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_9" type="checkbox" id="__nav_6_3_9_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_11" type="checkbox" id="__nav_6_3_9_11" >
       
       
       
@@ -12124,7 +12153,7 @@ Removal During Simulation
         </div>
       
       <nav class="md-nav" aria-label="ScottHysteretic" data-md-level="4">
-        <label class="md-nav__title" for="__nav_6_3_9_9">
+        <label class="md-nav__title" for="__nav_6_3_9_11">
           <span class="md-nav__icon md-icon"></span>
           ScottHysteretic
         </label>
@@ -13216,7 +13245,7 @@ This command is used to construct a ViscousDamper material, which represents the
 href="http://en.wikipedia.org/wiki/Maxwell_material">Maxwell Model</a> (linear spring and nonlinear dashpot in series). The ViscousDamper material simulates the hysteretic response of nonlinear viscous dampers. An adaptive iterative algorithm has been implemented and validated to solve numerically the constitutive equations within a nonlinear viscous damper with a high-precision accuracy.
 </p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ViscousDamper <span class="dt">$matTag</span> <span class="dt">$K</span> <span class="dt">$Cd</span> <span class="dt">$alpha</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$LGap</span>&amp;gt; &amp;lt; <span class="dt">$NM</span> <span class="dt">$RelTol</span> <span class="dt">$AbsTol</span> <span class="dt">$MaxHalf</span>&amp;gt;</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$LGap</span> &gt; &lt; <span class="dt">$NM</span> <span class="dt">$RelTol</span> <span class="dt">$AbsTol</span> <span class="dt">$MaxHalf</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -13319,104 +13348,28 @@ Maximum number of sub-step iterations within an integration step (default value 
 </tbody>
 </table>
 <hr />
-<p>
-<strong>Examples:</strong>
-</p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<strong><em>1. Input parameters:</em></strong>
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-Assume a viscous damper with axial stiffness K=300.0kN/mm, damping coefficient Cd=280.3kN(s/mm)&lt;sup&gt;0.3&lt;/sup&gt;, and exponent a=0.30.
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-The input parameters for the material should be as follows:
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-</td>
-</tr>
-<tr class="odd">
-<td>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-uniaxialMaterial ViscousDamper 1 300 280.3 0.30
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-Using these properties, Figure 1 shows the hysteretic response of this damper for sinusoidal displacement increments of 12, 24 and 36mm and a frequency f = 0.5Hz.
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-The sensitivity of the viscous damper with respect to its velocity exponent is shown in Figures 2 to 4 for the following set of parameters:
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
+<h2 id="examples">Examples</h2>
+<ol type="1">
+<li><p>Input parameters:</p>
+<p>Assume a viscous damper with axial stiffness K=300.0kN/mm, damping coefficient <code>Cd=280.3kN</code>(s/mm)<sup>0.3</sup>, and exponent a=0.30.</p>
+<p>The input parameters for the material should be as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ViscousDamper <span class="dv">1</span> <span class="dv">300</span> <span class="fl">280.3</span> <span class="fl">0.30</span></span></code></pre></div>
+<p>Using these properties, Figure 1 shows the hysteretic response of this damper for sinusoidal displacement increments of 12, 24 and 36mm and a frequency f = 0.5Hz.</p>
+<p>The sensitivity of the viscous damper with respect to its velocity exponent is shown in Figures 2 to 4 for the following set of parameters:</p></li>
+</ol>
 <figure>
 <img src="/OpenSeesRT/contrib/static/Fig2_ViscousDampers.png"
-title=" Viscous Damper with various input parameter variations"
-width="850"
-alt=" Viscous Damper with various input parameter variations" />
+  title=" Viscous Damper with various input parameter variations"
+  width="850"
+  alt=" Viscous Damper with various input parameter variations" />
 <figcaption aria-hidden="true">
 Viscous Damper with various input parameter variations
 </figcaption>
 </figure>
-</td>
-</tr>
-<tr class="odd">
-<td>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong><em><a
-href="http://opensees.berkeley.edu/wiki/index.php/Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers">2. Single story single bay frame with viscous damper</a></em></strong>
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-</td>
-</tr>
-<tr class="even">
-<td>
-</td>
-</tr>
-</tbody>
-</table>
+<p><strong><em><a
+href="http://opensees.berkeley.edu/wiki/index.php/Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers">2. Single story single bay frame with viscous damper</a></em></strong></p>
 <hr />
-<p>
-<strong>References</strong>:
-</p>
+<h2 id="references">References</h2>
 <table>
 <tbody>
 <tr class="odd">
