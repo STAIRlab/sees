@@ -151,16 +151,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/commands/206-Element%20Command/</loc>
-         <lastmod>2022-05-12</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/commands/207-Element%20Commands/</loc>
-         <lastmod>2022-05-12</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/commands/380-Material%20Commands/</loc>
          <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
@@ -1216,6 +1206,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/sensitivity/207-Element%20Commands/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/studies/336-Infill%20Wall%20Model%20With%20In-Plane%2C%20Out-of-Plane%20Interaction%20and%20Element%20Removal%20During%20Simulation/</loc>
          <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
@@ -2267,6 +2262,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/damping/rayleigh/</loc>
+         <lastmod>2022-05-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/element/</loc>
          <lastmod>2022-05-12</lastmod>
          <changefreq>daily</changefreq>
     </url>
