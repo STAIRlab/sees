@@ -13546,9 +13546,13 @@ Implementation
 <a href="File:ConcwBeta_Eq1a.png"
 title="wikilink">thumb|upright=2.5|Equation 1.</a>
 </dd>
-<dd>
-<a href="File:ConcwBeta_Eq2a.png"
-title="wikilink">thumb|upright=1.8|Equation 2.</a>
+<dd></li>
+</ol></li>
+</ol></li>
+</ol>
+<p><span class="math display">\[
+\$ \boldsymbol{E} \boldsymbol{u}=\$ \text { lambda } \cdot\left(\frac{f}{\varepsilon}\right)+(1-\$ \text { lambda }) \cdot \$ \boldsymbol{E c}
+\]</span></p>
 </dd>
 <dd>
 <a href="File:ConcwBeta_Eq3.png"
@@ -13561,10 +13565,7 @@ title="wikilink">thumb|upright=1.8|Equation 3.</a>
 Uniaxial Behavior
 </h3>
 <p>
-  Figure 1 shows the compression and tension envelopes and the input parameters. The confined concrete envelope is defined by Equation 1 up to strain <code class="tcl-variable">ecc</code>. The default values of <code>fcc</code> and <code>ecc</code> are equal to <code class="tcl-variable">fpc</code> and <code class="tcl-variable">ec0</code>, respectively, for an an unconfined behavior. Following this region, the compression envelope is tri-linear and passes through the points (<code class="tcl-variable">ecint</code>, <code class="tcl-variable">fcint</code>) and (<code class="tcl-variable">ecres</code>, <code class="tcl-variable">fcres</code>) in that order. For compression strains larger than <code class="tcl-variable">ecres</code>, the residual stress is <code class="tcl-variable">fcres</code>.</li>
-</ol></li>
-</ol></li>
-</ol>
+<p>  Figure 1 shows the compression and tension envelopes and the input parameters. The confined concrete envelope is defined by Equation 1 up to strain <code class="tcl-variable">ecc</code>. The default values of <code>fcc</code> and <code>ecc</code> are equal to <code class="tcl-variable">fpc</code> and <code class="tcl-variable">ec0</code>, respectively, for an an unconfined behavior. Following this region, the compression envelope is tri-linear and passes through the points (<code class="tcl-variable">ecint</code>, <code class="tcl-variable">fcint</code>) and (<code class="tcl-variable">ecres</code>, <code class="tcl-variable">fcres</code>) in that order. For compression strains larger than <code class="tcl-variable">ecres</code>, the residual stress is <code class="tcl-variable">fcres</code>.</p>
 <p>  For compression strain, the slope of the unloading branch is defined by Equation 2. After reaching zero stress, the material reloads linearly to the point with the largest tensile strain that occurred before.</p>
 <p>
   The tension envelope is linear until it reaches <code class="tcl-variable">ft</code>. If the tension stiffening parameter <code class="tcl-variable">M</code> is not specified, the tension envelope after reaching <code class="tcl-variable">ft</code> is tri-linear and passes through the points (<code class="tcl-variable">etint</code>, <code class="tcl-variable">ftint</code>) and (<code class="tcl-variable">etres</code>, <code class="tcl-variable">ftres</code>) in that order. For tensile strains larger than <code class="tcl-variable">etres</code>, the residual stress is <code class="tcl-variable">fcres</code>.
