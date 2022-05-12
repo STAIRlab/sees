@@ -109,13 +109,14 @@ the Abaqus and OpenSees responses can be found at <a
 href="https://github.com/ahartloper/UVC_MatMod">https://github.com/ahartloper/UVC_MatMod</a>.</p>
 
 <figure>
-<img src="/OpenSeesRT/contrib/static/UVC_Opensees_valid_s22.png"
+ <img src="/OpenSeesRT/contrib/static/UVC_Opensees_valid_s22.png"
 title="Figure 1. Validation of UVC model with built-in nonlinear isotropic/kinematic material in Abaqus."
 width="400"
 alt="Figure 1. Validation of UVC model with built-in nonlinear isotropic/kinematic material in Abaqus." />
 <figcaption aria-hidden="true">Figure 1. Validation of UVC model with
 built-in nonlinear isotropic/kinematic material in Abaqus.</figcaption>
 </figure>
+
 <p><strong><em>2. Comparison with structural steels:</em></strong></p>
 <p>The applicability of the UVC material model for structural steels is
 demonstrated through two comparisons with experimental data from
@@ -127,13 +128,19 @@ stress as well as the material behavior in later loading cycles.</p>
 <p>The parameters used for the A992 Gr. 50 and S355J2+N steels, along
 with other common structural steels, are provided and discussed in the
 next section.</p>
-<p>&lt;center&gt; &lt;gallery widths=400px heights=300px&gt; <a
-href="File:A992_flange_UVC.png">File:A992_flange_UVC.png</a> | Figure 2.
+<p>
+<center>
+<div class="gallery" widths=400px heights=300px > 
+<a href="File:A992_flange_UVC.png">File:A992_flange_UVC.png</a> | Figure 2.
 Comparison of UVC model with uniaxial coupon test data from the A992 Gr.
 50 W14X82 flange data set. <a
 href="File:S355j2_UVC.png">File:S355j2_UVC.png</a> | Figure 3.
 Comparison of UVC model with uniaxial coupon test data from the S355J2+N
-25 mm plate data set. &lt;/gallery&gt; &lt;/center&gt;</p>
+25 mm plate data set. 
+</div> 
+</center>
+</p>
+
 <hr />
 <p><strong>UVC model parameters for structural steels</strong></p>
 <p>Below is a list of UVC model parameters for twelve structural steels
@@ -161,57 +168,196 @@ href="https://pypi.org/project/RESSPyLab/">RESSPyLab</a> web page.</p>
 <p>Note that the parameters provided in the table below were calibrated
 using the true stress-strain definition, i.e., e_true =
 ln(1+(L-L_0)/L_0) and s_true = F/A_0 * (1 + (L-L_0)/L_0).</p>
+
+
 <table>
-<thead>
-<tr class="header">
-<th><p>UVC Material Parameters</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><p>Material</p></td>
-</tr>
-<tr class="even">
-<td><p>-</p></td>
-</tr>
-<tr class="odd">
-<td><p>S355J2+N (25 mm plate)</p></td>
-</tr>
-<tr class="even">
-<td><p>S355J2+N (50 mm plate)</p></td>
-</tr>
-<tr class="odd">
-<td><p>S355J2+N (HEB500 flange)</p></td>
-</tr>
-<tr class="even">
-<td><p>S355J2+N (HEB500 web)</p></td>
-</tr>
-<tr class="odd">
-<td><p>S460NL (25 mm plate)</p></td>
-</tr>
-<tr class="even">
-<td><p>S690QL (25 mm plate)</p></td>
-</tr>
-<tr class="odd">
-<td><p>A992 Gr. 50 (W14X82 web)</p></td>
-</tr>
-<tr class="even">
-<td><p>A992 Gr. 50 (W14X82 flange)</p></td>
-</tr>
-<tr class="odd">
-<td><p>A500 Gr. B (HSS305X16)</p></td>
-</tr>
-<tr class="even">
-<td><p>BCP325 (22 mm plate)</p></td>
-</tr>
-<tr class="odd">
-<td><p>BCR295 (HSS350X22)</p></td>
-</tr>
-<tr class="even">
-<td><p>HYP400 (27mm plate)</p></td>
-</tr>
-</tbody>
-</table>
+<tbody><tr>
+<th colspan="11">UVC Material Parameters
+</th></tr>
+<tr>
+<td>Material</td>
+<td>E</td>
+<td>f<sub>y</sub></td>
+<td>Q<sub>Inf</sub></td>
+<td>b</td>
+<td>D<sub>Inf</sub></td>
+<td>a</td>
+<td>C<sub>1</sub></td>
+<td>gamma<sub>1</sub></td>
+<td>C<sub>2</sub></td>
+<td>gamma<sub>2</sub>
+</td></tr>
+<tr>
+<td>-</td>
+<td>[GPa]</td>
+<td>[MPa]</td>
+<td>[MPa]</td>
+<td>-</td>
+<td>[MPa]</td>
+<td>-</td>
+<td>[MPa]</td>
+<td>-</td>
+<td>[MPa]</td>
+<td>-
+</td></tr>
+<tr>
+<td>S355J2+N (25 mm plate)</td>
+<td>197.41</td>
+<td>338.80</td>
+<td>134.34</td>
+<td>14.71</td>
+<td>133.75</td>
+<td>229.25</td>
+<td>26242.00</td>
+<td>199.04</td>
+<td>2445.30</td>
+<td>11.66
+</td></tr>
+<tr>
+<td>S355J2+N (50 mm plate)</td>
+<td>185.97</td>
+<td>332.18</td>
+<td>120.48</td>
+<td>8.14</td>
+<td>93.15</td>
+<td>261.75</td>
+<td>21102.00</td>
+<td>173.60</td>
+<td>2300.60</td>
+<td>10.42
+</td></tr>
+<tr>
+<td>S355J2+N (HEB500 flange)</td>
+<td>192.13</td>
+<td>315.04</td>
+<td>138.01</td>
+<td>11.36</td>
+<td>96.16</td>
+<td>223.66</td>
+<td>18587.84</td>
+<td>257.31</td>
+<td>1351.98</td>
+<td>6.52
+</td></tr>
+<tr>
+<td>S355J2+N (HEB500 web)</td>
+<td>199.68</td>
+<td>334.94</td>
+<td>139.32</td>
+<td>14.07</td>
+<td>120.33</td>
+<td>274.73</td>
+<td>28528.03</td>
+<td>315.17</td>
+<td>2569.45</td>
+<td>24.68
+</td></tr>
+<tr>
+<td>S460NL (25 mm plate)</td>
+<td>187.61</td>
+<td>439.20</td>
+<td>97.35</td>
+<td>14.02</td>
+<td>136.64</td>
+<td>226.40</td>
+<td>26691.00</td>
+<td>188.75</td>
+<td>2892.40</td>
+<td>10.44
+</td></tr>
+<tr>
+<td>S690QL (25 mm plate)</td>
+<td>188.63</td>
+<td>685.39</td>
+<td>0.11</td>
+<td>0.11</td>
+<td>132.30</td>
+<td>285.15</td>
+<td>34575.00</td>
+<td>185.16</td>
+<td>3154.20</td>
+<td>20.14
+</td></tr>
+<tr>
+<td>A992 Gr. 50 (W14X82 web)</td>
+<td>210.74</td>
+<td>378.83</td>
+<td>122.63</td>
+<td>19.74</td>
+<td>143.49</td>
+<td>248.14</td>
+<td>31638.00</td>
+<td>277.32</td>
+<td>1548.60</td>
+<td>9.04
+</td></tr>
+<tr>
+<td>A992 Gr. 50 (W14X82 flange)</td>
+<td>191.02</td>
+<td>373.72</td>
+<td>141.47</td>
+<td>15.20</td>
+<td>135.95</td>
+<td>211.16</td>
+<td>25621.00</td>
+<td>235.12</td>
+<td>942.18</td>
+<td>3.16
+</td></tr>
+<tr>
+<td>A500 Gr. B (HSS305X16)</td>
+<td>191.21</td>
+<td>324.09</td>
+<td>228.02</td>
+<td>0.11</td>
+<td>50.41</td>
+<td>270.40</td>
+<td>17707.00</td>
+<td>207.18</td>
+<td>1526.20</td>
+<td>6.22
+</td></tr>
+<tr>
+<td>BCP325 (22 mm plate)</td>
+<td>178.61</td>
+<td>368.03</td>
+<td>112.25</td>
+<td>10.78</td>
+<td>105.95</td>
+<td>221.92</td>
+<td>20104.00</td>
+<td>200.43</td>
+<td>2203.00</td>
+<td>11.76
+</td></tr>
+<tr>
+<td>BCR295 (HSS350X22)</td>
+<td>178.74</td>
+<td>412.21</td>
+<td>0.09</td>
+<td>0.09</td>
+<td>103.30</td>
+<td>212.83</td>
+<td>20750.59</td>
+<td>225.26</td>
+<td>1245.04</td>
+<td>2.09
+</td></tr>
+<tr>
+<td>HYP400 (27mm plate)</td>
+<td>189.36</td>
+<td>454.46</td>
+<td>62.63</td>
+<td>16.57</td>
+<td>109.28</td>
+<td>145.74</td>
+<td>13860.00</td>
+<td>141.61</td>
+<td>1031.10</td>
+<td>3.53
+</td></tr></tbody></table>
+
+
 <hr />
 <p><strong>References</strong>:</p>
 <p>Please use Reference [1] when citing the UVC model.</p>

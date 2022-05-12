@@ -17,10 +17,15 @@ ProfileSPDLinSOE object. It does this by direct means using the routines
 supplied in the SKYPACK library, a library which uses the BLAS levels
 1,2 and 3 for the factorization and substitution.
 
-The routines in SKYPACK require a number of work areas: *int block\[3\]*
-and *double invD\[size\]*. In addition, to allow the use of the BLAS 2
-and 3, work areas *double rw\[mRows x mCols\]*, *double tw\[mRows x
-mRows\]* and *int index\[max(mCols,mRows)\]* are created.
+The routines in SKYPACK require a number of work areas: *int block\[3$$
+*
+and *double invD\[size$$
+*. In addition, to allow the use of the BLAS 2
+and 3, work areas *double rw\[mRows x mCols$$
+*, *double tw\[mRows x
+mRows$$
+* and *int index\[max(mCols,mRows)$$
+* are created.
 
 Constructors\
 
@@ -62,7 +67,10 @@ $0$ is returned, otherwise it prints a warning message and returns INFO.
 The solve process changes $A$ and $X$.
 
 Is responsible for setting the *block* information required by the
-SKYPACK routines (block\[0\]=1; block\[1\]=size, block\[2\]=1) and for
+SKYPACK routines (block\[0$$
+=1; block\[1$$
+=size, block\[2$$
+=1) and for
 creating space for the *invD* work array. Returns $0$ if successful,
 otherwise a warning message is printed and a $-1$ is returned.
 

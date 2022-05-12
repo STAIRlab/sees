@@ -3,7 +3,8 @@
 ## Example 5.1
 
 This example is of a three-dimensional reinforced concrete rigid frame,
-as shown in figure [\[example5\]](#example5){reference-type="ref"
+as shown in figure [\[example5$$
+](#example5){reference-type="ref"
 reference="example5"}, subjected to bi-directional earthquake ground
 motion.
 
@@ -16,7 +17,8 @@ motion.
 4.  `tabasFP.txt`
 
 A model of the rigid frame shown in
-figure [\[example5\]](#example5){reference-type="ref"
+figure [\[example5$$
+](#example5){reference-type="ref"
 reference="example5"} is created. The model consists of three stories
 and one bay in each direction. Rigid diaphragm multi-point constraints
 are used to enforce the rigid in-plane stiffness assumption for the
@@ -333,7 +335,8 @@ every time step. Each line contains the time and the horizontal and
 vertical displacements at the diaphragm retained nodes (9, 14 and 19)
 i.e. time Dx9 Dy9 Dx14 Dy14 Dx19 Dy19. The horizontal displacement time
 history of the first floor diaphragm node 9 is shown in
-figure [\[example4disp\]](#example4disp){reference-type="ref"
+figure [\[example4disp$$
+](#example4disp){reference-type="ref"
 reference="example4disp"}. Notice the increase in period after about 10
 seconds of earthquake excitation, when the large pulse in the ground
 motion propogates through the structure. The displacement profile over

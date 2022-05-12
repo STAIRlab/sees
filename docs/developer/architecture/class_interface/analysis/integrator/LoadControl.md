@@ -17,7 +17,8 @@ LoadControl is a subclass of StaticIntegrator, it is used to when
 performing a static analysis on the FE_Model using the load control
 method. In the load control method, the following constraint equation is
 added to
-equation [\[staticFormTaylor\]](#staticFormTaylor){reference-type="ref"
+equation [\[staticFormTaylor$$
+](#staticFormTaylor){reference-type="ref"
 reference="staticFormTaylor"} of the StaticIntegrator class:
 
 $$\lambda_n^{(i)} - \lambda_{n-1} = \delta \lambda_n$$
@@ -32,7 +33,8 @@ $$\delta \lambda_n = max \left( \delta \lambda_{min}, min \left(
 \frac{Jd}{J_{n-1}} \delta \lambda_{n-1}, \delta \lambda_{max} \right) \right)$$
 
 Knowing $\lambda_n^{(i)}$ prior to each iteration, the $N+1$ unknowns in
-equation [\[staticFormTaylor\]](#staticFormTaylor){reference-type="ref"
+equation [\[staticFormTaylor$$
+](#staticFormTaylor){reference-type="ref"
 reference="staticFormTaylor"}, is reduced to $N$ unknowns and results in
 the following equation:
 

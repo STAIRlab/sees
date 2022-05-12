@@ -40,10 +40,8 @@ non-zero elements are confined).</p>
 <p>and matrices are usually stored by storing the diagonals in the band;
 the rest is implicitly zero.</p>
 <p>For example, 6-by-6 a matrix with bandwidth 3:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;
+
+$$
 </dd>
 </dl>
 <p>\begin{bmatrix} B_{11} &amp; B_{12} &amp; 0 &amp; \cdots &amp; \cdots
@@ -54,10 +52,8 @@ B_{45} &amp; 0 \\ \vdots &amp; \ddots &amp; \ddots &amp; B_{54} &amp;
 B_{55} &amp; B_{56} \\ 0 &amp; \cdots &amp; \cdots &amp; 0 &amp; B_{65}
 &amp; B_{66} \end{bmatrix} &lt;/math&gt; is stored as the 6-by-3
 matrix</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;
+
+$$
 </dd>
 </dl>
 <p>\begin{bmatrix} 0 &amp; B_{11} &amp; B_{12}\\ B_{21} &amp; B_{22}

@@ -66,48 +66,38 @@ system Jacobian</li>
 title="wikilink"> Newton-Raphson method</a> is used to compute the
 &lt;math&gt;\Delta U\,\!&lt;/math&gt;, but the update that is used is
 modified. The modified update is:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; U_{n+1} = U_n + \eta \Delta U\,\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$ U_{n+1} = U_n + \eta \Delta U\,\!$$
+
+
 <p>The different line search algorithms use different root finding
 methods to obtain &lt;math&gt;\eta\,\!&lt;/math&gt;, a root to the
 function $s(\eta)$ defined as:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; s(\eta) = \Delta U R(U_{n} + \eta \Delta
-U)\,\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$ s(\eta) = \Delta U R(U_{n} + \eta \Delta
+U)\,\!$$
+
+
 <p>with</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; s_0 = \Delta U R(U_n),\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$ s_0 = \Delta U R(U_n),\!$$
+
+
 <h2 id="interpolated_line_search">Interpolated Line Search:</h2>
 <p>while (&lt;math&gt;\frac{s_n}{s_0}\!&lt;/math&gt; &gt; $tol
 &amp;&amp; count &lt; $maxIter} {</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \eta_{n+1} = \frac{\eta_n *s0}{s0 -s_{n+1}}
-,\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$ \eta_{n+1} = \frac{\eta_n *s0}{s0 -s_{n+1}}
+,\!$$
+
+
 <p>}</p>
 <p>__NOTOC__</p>
 <h2 id="regulafalsi_line_search">RegulaFalsi Line Search:</h2>
 <p>while (&lt;math&gt;\frac{s_n}{s_0}\!&lt;/math&gt; &gt; $tol
 &amp;&amp; count &lt; $maxIter} {</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \eta_{n+1} = \eta_U - \frac{s_U*(\eta_L-\eta_U)}{s_L-S_U}
+
+$$ \eta_{n+1} = \eta_U - \frac{s_U*(\eta_L-\eta_U)}{s_L-S_U}
 ,\!&lt;/math&gt;
 </dd>
 <dd>
@@ -116,17 +106,15 @@ s_U = s_{n+1},\!&lt;/math&gt;
 </dd>
 <dd>
 if &lt;math&gt; s_{n+1} * s_U &lt; 0 \Rightarrow \eta_L = \eta_{n+1},
-s_L = s_{n+1},\!&lt;/math&gt;
-</dd>
-</dl>
+s_L = s_{n+1},\!$$
+
+
 <p>}</p>
 <h2 id="bisection_line_search">Bisection Line Search:</h2>
 <p>while (&lt;math&gt;\frac{s_n}{s_0}\!&lt;/math&gt; &gt; $tol
 &amp;&amp; count &lt; $maxIter} {</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \eta_{n+1} = \frac{\eta_L - \eta_U}{2.0} ,\!&lt;/math&gt;
+
+$$ \eta_{n+1} = \frac{\eta_L - \eta_U}{2.0} ,\!&lt;/math&gt;
 </dd>
 <dd>
 if &lt;math&gt; s_{n+1} * s_L &lt; 0 \Rightarrow \eta_U = \eta_{n+1},
@@ -134,17 +122,15 @@ s_U = s_{n+1},\!&lt;/math&gt;
 </dd>
 <dd>
 if &lt;math&gt; s_{n+1} * s_U &lt; 0 \Rightarrow \eta_L = \eta_{n+1},
-s_L = s_{n+1},\!&lt;/math&gt;
-</dd>
-</dl>
+s_L = s_{n+1},\!$$
+
+
 <p>}</p>
 <h2 id="secant_line_search">Secant Line Search:</h2>
 <p>while (&lt;math&gt;\frac{s_n}{s_0}\!&lt;/math&gt; &gt; $tol
 &amp;&amp; count &lt; $maxIter} {</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \eta_{n+1} = \eta_j -
+
+$$ \eta_{n+1} = \eta_j -
 \frac{s_j*(\eta_{j-1}-\eta_j)}{s_{j-1}-S_j} ,\!&lt;/math&gt;
 </dd>
 <dd>
@@ -153,9 +139,9 @@ s_U = s_{n+1},\!&lt;/math&gt;
 </dd>
 <dd>
 if &lt;math&gt; s_{n+1} * s_U &lt; 0 \Rightarrow \eta_L = \eta_{n+1},
-s_L = s_{n+1},\!&lt;/math&gt;
-</dd>
-</dl>
+s_L = s_{n+1},\!$$
+
+
 <p>}</p>
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk

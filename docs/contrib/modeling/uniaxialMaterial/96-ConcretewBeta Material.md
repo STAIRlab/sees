@@ -46,10 +46,11 @@ described in <a href="#Examples" title="wikilink">the examples</a>.</a>
 
 ```tcl
 uniaxialMaterial ConcretewBeta $matTag $fpc $ec0 $fcint
-        $ecint $fcres $ecres $ft $ftint $etint $ftres $etres &lt;-lambda
-        $lambda&gt; &lt;-alpha $alpha&gt; &lt;-beta $bint $ebint $bres
-        $ebres&gt; &lt;-M $M&gt; &lt;-E $Ec&gt; &lt;-conf $fcc
-        $ecc&gt;
+        $ecint $fcres $ecres $ft $ftint $etint $ftres $etres 
+        < -lambda $lambda > 
+        < -alpha $alpha&gt; &lt;-beta $bint $ebint $bres $ebres > 
+        < -M $M > < -E $Ec >
+        < -conf $fcc $ecc >
 ```
 
 <hr />
@@ -69,12 +70,12 @@ uniaxialMaterial ConcretewBeta $matTag $fpc $ec0 $fcint
 compressive strength*</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$fcint, $ecint</strong></p></td>
+<td><p><code>fcint, ecint</code></p></td>
 <td><p>intermediate stress-strain point for compression post-peak
 envelope*</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fcres, $ecres</strong></p></td>
+<td><p><code>fcres, ecres</code></p></td>
 <td><p>residual stress-strain point for compression post-peak
 envelope*</p></td>
 </tr>
@@ -83,12 +84,12 @@ envelope*</p></td>
 <td><p>tensile strength of concrete</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ftint, $etint</strong></p></td>
+<td><p><code>ftint, etint</code></p></td>
 <td><p>intermediate stress-strain point for tension softening
 envelope</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$ftres, $etres</strong></p></td>
+<td><p><code>ftres, etres</code></p></td>
 <td><p>residual stress-strain point for tension softening
 envelope</p></td>
 </tr>
@@ -112,12 +113,12 @@ envelope</p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">bint ebint</code></p></td>
-<td><p>intermediate &amp;beta;-strain point for for biaxial effect
+<td><p>intermediate &beta;-strain point for for biaxial effect
 (default 1 and 0, respectively)</p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">bres ebres</code></p></td>
-<td><p>residual &amp;beta;-strain point for for biaxial effect (default
+<td><p>residual &beta;-strain point for for biaxial effect (default
 1 and 0, respectively)</p></td>
 </tr>
 <tr class="odd">
@@ -137,12 +138,14 @@ strain* (see Eq. 1)</p></td>
 </tr>
 </tbody>
 </table>
+
+
 <p>NOTES:</p>
 <p>(1) *Parameters of concrete in compression should be specified as
 negative values.</p>
 <p>(2) For non-zero <code class="tcl-variable">M</code>, the tension stiffening behavior
 will govern the post-peak tension envelope. Tri-linear tension softening
-parameters <strong>$ftint, $etint, $ftres, $etres</strong> will have no
+parameters <code>ftint, etint, ftres, etres</code> will have no
 effect, but dummy values must be specified.</p>
 <p>(3) Value of <code class="tcl-variable">Ec</code> must be between
 <code class="tcl-variable">fpc</code>/<code class="tcl-variable">ec0</code> and
@@ -159,8 +162,11 @@ value will be assigned.</p>
 title="wikilink">thumb|upright=2.5|Equation 1.</a>
 </dd>
 <dd>
-<a href="File:ConcwBeta_Eq2a.png"
-title="wikilink">thumb|upright=1.8|Equation 2.</a>
+
+$$
+\$ \boldsymbol{E} \boldsymbol{u}=\$ \text { lambda } \cdot\left(\frac{f}{\varepsilon}\right)+(1-\$ \text { lambda }) \cdot \$ \boldsymbol{E c}
+$$
+
 </dd>
 <dd>
 <a href="File:ConcwBeta_Eq3.png"
@@ -173,18 +179,20 @@ title="wikilink">thumb|upright=1.8|Equation 3.</a>
 <p>&emsp;&emsp;Figure 1 shows the compression and tension
 envelopes and the input parameters. The confined concrete envelope is
 defined by Equation 1 up to strain <code class="tcl-variable">ecc</code>. The default
-values of <code class="tcl-variable">fcc</code> and <strong>$$ecc</strong> are equal to
+values of `fcc` and `ecc` are equal to
 <code class="tcl-variable">fpc</code> and <code class="tcl-variable">ec0</code>, respectively, for an an
 unconfined behavior. Following this region, the compression envelope is
 tri-linear and passes through the points (<code class="tcl-variable">ecint</code>,
 <code class="tcl-variable">fcint</code>) and (<code class="tcl-variable">ecres</code>,
 <code class="tcl-variable">fcres</code>) in that order. For compression strains larger
 than <code class="tcl-variable">ecres</code>, the residual stress is
-<code class="tcl-variable">fcres</code>.</p>
-<p>&emsp;&emsp;For compression strain, the slope of the
+<code class="tcl-variable">fcres</code>.
+
+&emsp;&emsp;For compression strain, the slope of the
 unloading branch is defined by Equation 2. After reaching zero stress,
 the material reloads linearly to the point with the largest tensile
-strain that occurred before.</p>
+strain that occurred before.
+
 <p>&emsp;&emsp;The tension envelope is linear until it reaches
 <code class="tcl-variable">ft</code>. If the tension stiffening parameter
 <code class="tcl-variable">M</code> is not specified, the tension envelope after
@@ -199,7 +207,7 @@ suggested that <code class="tcl-variable">M</code> = (75
 mm)*<em>&amp;rho;&lt;sub&gt;l&lt;/sub&gt;</em>/<em>d&lt;sub&gt;b&lt;/sub&gt;</em>
 where <em>&amp;rho;&lt;sub&gt;l&lt;/sub&gt;</em> is the steel ratio in
 the direction parallel to the material direction and
-<em>d&lt;sub&gt;b&lt;/sub&gt;</em> is the bar diameter in mm.</p>
+<em>d<sub>b</sub></em> is the bar diameter in mm.</p>
 <p>&emsp;&emsp;The material unloads from tension strain using a
 slope of <code class="tcl-variable">Ec</code>. After reaching zero stress, the material
 targets the point (0, -<code class="tcl-variable">alpha</code>*<code class="tcl-variable">ft</code>).
@@ -231,12 +239,14 @@ input parameters</a>
 <a href="File:ConcwBeta_Fig2b.gif"
 title="wikilink">thumb|upright=2.0|alt=ConcretewBeta Figure 2 |Figure 2.
 Relation between the concrete compressive stress reduction factor,
-&amp;beta;, and normal tensile strain,
-&amp;epsilon;&lt;sub&gt;n&lt;/sub&gt; </a>
+$\beta$, and normal tensile strain,
+$\epsilon_n$</a>
+
 </dd>
 </dl>
 </dd>
 </dl>
+
 <h3 id="biaxial_behavior">Biaxial Behavior</h3>
 <p>&emsp;&emsp;The ConcretewBeta material model accounts for the
 biaxial strain field on the concrete compressive behavior when used in
@@ -249,16 +259,17 @@ title="wikilink"> Truss2 Element</a></strong>).</p>
 compressive stress reduction factor, <em>&amp;beta;</em>, and the normal
 tensile strain, &amp;epsilon;&lt;sub&gt;n&lt;/sub&gt;. For compressive
 stresses, the instantaneous stress value computed by the material is
-<em>&amp;beta;</em>*<em>f&lt;sub&gt;c&lt;/sub&gt;</em> where
-<em>f&lt;sub&gt;c&lt;/sub&gt;</em> is the compressive stress given by
+$\beta f_c$ where
+$f_c$ is the compressive stress given by
 the uniaxial behavior described above. For positive (tensile) stress,
-<em>&amp;beta;</em> = 1. For compressive stress, the
-<em>&amp;beta;</em>-&amp;epsilon;&lt;sub&gt;n&lt;/sub&gt; relationship
+$\beta = 1$. For compressive stress, the
+$\beta - \epsilon_n$ relationship
 is tri-linear and passes through the points (0,1),
 (<code class="tcl-variable">ebint</code>, <code class="tcl-variable">bint</code>), and
 (<code class="tcl-variable">ebres</code>, <code class="tcl-variable">bres</code>) in that order. For
 normal tensile strains larger than <code class="tcl-variable">ebres</code>,
 <em>&amp;beta;</em> = <code class="tcl-variable">bres</code>.</p>
+
 <h2 id="examples">Examples</h2>
 <h3
 id="story_rc_core_wall_buildings_conventional_fixed_base_video_rocking_wall_video_and_base_isolation_with_rocking_wall_video">20-story
@@ -279,6 +290,7 @@ simulation</a></strong></h3>
 alt="5story_samplePic.png" />
 <figcaption aria-hidden="true">5story_samplePic.png</figcaption>
 </figure>
+
 <h3
 id="see_truss_model___mestyanek_1986_squat_rc_wall_and_video_of_the_simulation">See:
 <strong><a href="Truss_Model_Example_-_Mestyanek_Squat_Wall"
@@ -286,11 +298,13 @@ title="wikilink"> Truss Model - Mestyanek (1986) Squat RC
 Wall</a></strong> and <strong><a
 href="http://youtu.be/lQpzwHF_Z94">Video of the
 simulation</a></strong></h3>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/Mestyanek_resultsPlot2.png" title="Mestyanek_resultsPlot2.png"
 width="800" alt="Mestyanek_resultsPlot2.png" />
 <figcaption aria-hidden="true">Mestyanek_resultsPlot2.png</figcaption>
 </figure>
+
 <h3
 id="see_beam_truss_model___beyer_et_al._2008_rc_wall_and_video_of_the_simulation">See:
 <strong><a href="Beam-truss_Model_Example_-_C-shaped_RC_Wall"
@@ -298,11 +312,13 @@ title="wikilink"> Beam-truss Model - Beyer et al. (2008) RC
 Wall</a></strong> and <strong><a
 href="http://youtu.be/9O9Mev62Ilw">Video of the
 simulation</a></strong></h3>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/BeyerWall_fig2.png" title="BeyerWall_fig2.png" width="800"
 alt="BeyerWall_fig2.png" />
 <figcaption aria-hidden="true">BeyerWall_fig2.png</figcaption>
 </figure>
+
 <h3
 id="see_truss_model___massone_sanchez_2005_squat_rc_wall_and_video_of_the_simulation">See:
 <strong><a href="Truss_Model_Example_-_Squat_RC_Wall" title="wikilink">
@@ -314,6 +330,7 @@ simulation</a></strong></h3>
 width="400" alt="MassoneWall_displ1a.jpg" />
 <figcaption aria-hidden="true">MassoneWall_displ1a.jpg</figcaption>
 </figure>
+
 <h2 id="references">References</h2>
 <p>Lu, Y., Panagiotou, M, and Koutromanos, I. (2014). "Three-dimensional
 beam-truss model for reinforced concrete walls and slabs subjected to

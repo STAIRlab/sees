@@ -30,7 +30,8 @@ $$\R(\U, \lambda) = \lambda {\bf P} - {\bf F}_R(\U) = \zero
 \label{staticGenForm}$$
 
 The most widely used technique for solving the non-linear finite element
-equation, equation [\[femGenForm\]](#femGenForm){reference-type="ref"
+equation, equation [\[femGenForm$$
+](#femGenForm){reference-type="ref"
 reference="femGenForm"}, is to use an incremental scheme. In the
 incremental formulation, a solution to the equation is sought at
 successive incremental steps.
@@ -44,7 +45,8 @@ $\lambda_n^{(i)}$), $i=1,2, ..$ is obtained which converges to the
 solution (${\bf U}_n$, $\lambda_n)$. The most frequently used iterative
 schemes, such as Newton-Raphson, modified Newton, and quasi Newton
 schemes, are based on a Taylor expansion of
-equation [\[staticIncForm\]](#staticIncForm){reference-type="ref"
+equation [\[staticIncForm$$
+](#staticIncForm){reference-type="ref"
 reference="staticIncForm"} about (${\bf U}_{n}$, $\lambda_n$):
 
 $$\R({\bf U}_{n},\lambda_n) = \lambda_n^{(i)} {\bf P} 

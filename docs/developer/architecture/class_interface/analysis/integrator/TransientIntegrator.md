@@ -3,12 +3,11 @@
 ```cpp
 #include <analysis/integrator/TransientIntegrator.h>
 
-class TransientIntegrator: 
-   public Integrator
+class TransientIntegrator: public Integrator;
+```
           MovableObject
           Integrator
           IncrementalIntegrator
-```
 
 - [Newmark](Newmark)
 - [HHT](HHT)
@@ -29,7 +28,8 @@ $$
 
 The most widely used technique for solving the transient non-linear
 finite element equation,
-equation [\[femGenForm\]](#femGenForm){reference-type="ref"
+equation [\[femGenForm$$
+](#femGenForm){reference-type="ref"
 reference="femGenForm"}, is to use an incremental direct integration
 scheme. In the incremental formulation, a solution to the equation is
 sought at successive time steps $\Delta
@@ -54,7 +54,8 @@ $$\ddot {\bf U}_{t} = {\I}_2 ({\bf U}_t, {\bf U}_{t-\Delta t}, \dot {\bf U}_{t-\
 \label{I2}$$
 
 These allow us to rewrite
-equation [\[fullTimeForm\]](#fullTimeForm){reference-type="ref"
+equation [\[fullTimeForm$$
+](#fullTimeForm){reference-type="ref"
 reference="fullTimeForm"}, in terms of a single response quantity,
 typically the displacement:
 
@@ -67,7 +68,8 @@ ${\bf U}_{t}^{(0)}$ a sequence of approximations ${\bf U}_{t}^{(i)}$, $i=1,2, ..
 is obtained which converges (we hope) to the solution ${\bf U}_{t}$. The most
 frequently used iterative schemes, such as Newton-Raphson, modified
 Newton, and quasi Newton schemes, are based on a Taylor expansion of
-equation [\[genForm\]](#genForm){reference-type="ref"
+equation [\[genForm$$
+](#genForm){reference-type="ref"
 reference="genForm"} about ${\bf U}_{t}$:
 
 $$\R({\bf U}_{t}) = 
@@ -125,15 +127,14 @@ adding these contributions to the $A$ matrix. The method performs the
 following:
 
 ```cpp
-// while ̄ while w̄hile ̄ 
 theSysOfEqn.zeroA();
 DOF_EleIter &theDofs = theAnalysisModel.getDOFs();
-while((dofPtr = theDofs()) \neq 0)
-dofPtr->formTangent(theIntegrator);
-theSOE.addA(dofPtr->getTangent(this), dofPtr->getID())
-FE_EleIter &theEles = theAnalysisModel.getFEs();
-while((elePtr = theEles()) \neq 0)
-theSOE.addA(elePtr->getTangent(this), elePtr->getID(), 1.0)
+while((dofPtr = theDofs()) != 0)
+  dofPtr->formTangent(theIntegrator);
+  theSOE.addA(dofPtr->getTangent(this), dofPtr->getID())
+  FE_EleIter &theEles = theAnalysisModel.getFEs();
+while((elePtr = theEles()) != 0)
+  theSOE.addA(elePtr->getTangent(this), elePtr->getID(), 1.0)
 ```
 
 Returns $0$ if successful, otherwise a $-1$ if an error occurred while
@@ -150,7 +151,6 @@ the rhs of the equation. The following are invoked before $0$ is
 returned.
 
 ```cpp
-// while ̄ while w̄hile ̄ 
 theEle-$>$zeroResidual()
 theEle-$>$addRIncInertiaToResid()
 ```
@@ -165,7 +165,6 @@ the rhs of the equation. The following are invoked before $0$ is
 returned.
 
 ```cpp
-// while ̄ while w̄hile ̄ 
 theDof->zeroUnbalance()
 theDof->addPIncInertiaToUnbalance()
 ```
@@ -178,3 +177,4 @@ virtual int newStep(double deltaT) =0;
 Invoked to inform the integrator that the transient analysis is
 proceeding to the next time step. To return $0$ if successful, a
 negative number if not.
+

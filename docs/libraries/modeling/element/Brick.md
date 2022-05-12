@@ -68,7 +68,5 @@ equivalent deviatoric plastic strain from each Gauss point is output in
 the same order as the coordinates are printed.
 
 ::: center
-![Node numbering for 20 node three dimensional
-element.](/home/jeremic/tex/works/Thesis/ZhaohuiYang/Appendex/brick20.eps){#20node
-width="9cm"}
+![Node numbering for 20 node three dimensional element.](/home/jeremic/tex/works/Thesis/ZhaohuiYang/Appendex/brick20.eps){#20node width="9cm"}
 :::

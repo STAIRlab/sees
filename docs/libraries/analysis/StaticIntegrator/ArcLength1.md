@@ -10,12 +10,13 @@ public StaticIntegrator
     IncrementalIntegrator
 ```
 
-\
+
 ArcLength1 is a subclass of StaticIntegrator, it is used to when
 performing a static analysis on the FE_Model using a simplified form of
 the arc length method. In the arc length method implemented by this
 class, the following constraint equation is added to
-equation [\[staticFormTaylor\]](#staticFormTaylor){reference-type="ref"
+equation [\[staticFormTaylor$$
+](#staticFormTaylor){reference-type="ref"
 reference="staticFormTaylor"} of the StaticIntegrator class:
 
 $$\Delta {\bf U}_n^T \Delta {\bf U}_n  + \alpha^2 \Delta \lambda_n^2  = \Delta s^2$$
@@ -29,12 +30,14 @@ $$\Delta \lambda_n = \sum_{j=1}^{i} \Delta \lambda_n^{(j)} = \Delta \lambda_n^{(
 d\lambda^{(i)}$$
 
 this equation cannot be added directly into
-equation [\[staticFormTaylor\]](#staticFormTaylor){reference-type="ref"
+equation [\[staticFormTaylor$$
+](#staticFormTaylor){reference-type="ref"
 reference="staticFormTaylor"} to produce a linear system of $N+1$
 unknowns. To add this equation we make some assumptions ala Yang (REF),
 which in so doing allows us to solve a system of $N$ unknowns using the
 method of ??(REF). Rewriting
-equation [\[staticFormTaylor\]](#staticFormTaylor){reference-type="ref"
+equation [\[staticFormTaylor$$
+](#staticFormTaylor){reference-type="ref"
 reference="staticFormTaylor"} as
 
 $${\bf K}_n^{(i)} \Delta {\bf U}_n^{(i)} = \Delta \lambda_n^{(i)} {\bf P} +
@@ -117,7 +120,8 @@ We now rewrite the constraint equation based on two conditions:
     \end{array} \right\}$$
 
     instead of solving an $N+1$ system,
-    equation [\[splitForm\]](#splitForm){reference-type="ref"
+    equation [\[splitForm$$
+](#splitForm){reference-type="ref"
     reference="splitForm"} is used to give
 
     $${d{\bf U}^{(i)}}^T \left(\Delta \lambda_n^{(i)} \Delta \dot{\bf U}_n^{(i)} + \Delta

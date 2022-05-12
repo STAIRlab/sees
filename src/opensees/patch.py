@@ -362,6 +362,13 @@ class circ:
                     )
                     if (r*np.cos(theta), r*np.sin(theta)) in self
                 ]
+            elif self.kwds.get("rule",None) == "sunflower":
+                area = self.area / self.divs[0]
+                self._fibers = [
+                    Fiber([x,y], area, self.material)
+                    for x,y in sunflower(self.divs[0], self.extRad)
+                    if (x,y) in self
+                ]
             else:
                 raise ValueError(f"Unknown quadrature rule, '{self.kwds['rule']}'.")
         return self._fibers
@@ -660,4 +667,24 @@ def rtuniform(n,rmax,m,rmin=0.0):
         R.append(ri)
         N.append(ni)
     return rtpairs(R,N)
+
+
+
+def sunflower(n, rad, alpha=0, geodesic=False):
+    from math import sqrt, sin, cos, pi
+    phi = (1 + sqrt(5)) / 2  # golden ratio
+    def radius(k, n, b):
+        if k > n - b:
+            return 1.0
+        else:
+            return sqrt(k - 0.5) / sqrt(n - (b + 1) / 2)
+    points = []
+    angle_stride = 360 * phi if geodesic else 2 * pi / phi ** 2
+    b = round(alpha * sqrt(n))  # number of boundary points
+    for k in range(1, n + 1):
+        r = rad*radius(k, n, b)
+        theta = k * angle_stride
+        points.append((r * cos(theta), r * sin(theta)))
+    return points
+
 

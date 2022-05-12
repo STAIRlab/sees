@@ -37,22 +37,18 @@ $$a_{i,j} = a_{j,i}\,$$
 
 </dd>
 </dl>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; y^T A y != 0 \,&lt;/math&gt; for all non-zero vectors
-<em>y</em> with real entries (&lt;math&gt;y \in
-\mathbb{R}^n&lt;/math&gt;),
+
+$$ y^T A y != 0 \,&lt;/math&gt; for all non-zero vectors
+<em>y</em> with real entries ($y \in
+\mathbb{R}^n$,
 </dd>
 </dl>
 <p>The <em>bandwidth</em> of the matrix is
 <em>k</em>&amp;nbsp;+&amp;nbsp;<em>k</em>&amp;nbsp;+&amp;nbsp;1.</p>
 <p>For example, a symmetric 6-by-6 matrix with a right bandwidth of
 2:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;
+
+$$
 </dd>
 </dl>
 <p>\begin{bmatrix} A_{11} &amp; A_{12} &amp; A_{13} &amp; 0 &amp; \cdots
@@ -62,10 +58,8 @@ $$a_{i,j} = a_{j,i}\,$$
 &amp; A_{55} &amp; A_{56} \\ &amp; &amp; &amp; &amp; &amp; A_{66}
 \end{bmatrix}. &lt;/math&gt; This matrix is stored as the 6-by-3
 matrix:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;
+
+$$
 </dd>
 </dl>
 <p>\begin{bmatrix} A_{11} &amp; A_{12} &amp; A_{13} \\ A_{22} &amp;

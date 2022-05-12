@@ -22,7 +22,8 @@ $$\lambda_n^{(i)} - \lambda_{n-1} = path(n) - path(n-1)$$
 
 Knowing $\lambda_n^{(i)} = path(n)$ prior to each iteration, the $N+1$
 unknowns in
-equation [\[staticFormTaylor\]](#staticFormTaylor){reference-type="ref"
+equation [\[staticFormTaylor$$
+](#staticFormTaylor){reference-type="ref"
 reference="staticFormTaylor"}, is reduced to $N$ unknowns and results in
 the following equation:
 

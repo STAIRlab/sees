@@ -6,7 +6,8 @@ control structure for building models is demonstrated.
 ## Example 4.1
 
 This example is of a reinforced concrete multibay two story frame, as
-shown in figure [\[example4\]](#example4){reference-type="ref"
+shown in figure [\[example4$$
+](#example4){reference-type="ref"
 reference="example4"}, subject to gravity loads.
 
 1. `Example4.1.tcl`
@@ -369,7 +370,8 @@ The output consists of the file Node41.out containing a line for each
 step of the lateral load analysis. Each line contains the load factor,
 the lateral displacements at nodes 2 and 3. A plot of the
 load-displacement curve for the frame is given in
-figure [\[twostory\]](#twostory){reference-type="ref"
+figure [\[twostory$$
+](#twostory){reference-type="ref"
 reference="twostory"}.
 
 ::: {.center}

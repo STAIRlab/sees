@@ -18,7 +18,8 @@ when performing a static analysis on the FE_Model using the displacement
 control method. In the displacement control method the displacement at a
 specified degree-of-freedom Uc is specified for each iteration. The
 following constraint equation is added to
-equation [\[staticFormTaylor\]](#staticFormTaylor){reference-type="ref"
+equation [\[staticFormTaylor$$
+](#staticFormTaylor){reference-type="ref"
 reference="staticFormTaylor"} of the StaticIntegrator class:
 
 $$Uc_n^{(i)} - Uc_{n-1} = \delta Uc_n$$

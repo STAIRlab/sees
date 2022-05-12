@@ -3,19 +3,23 @@
 <p>This command is used to construct a KikuchiBearing element object,
 which is defined by two nodes. This element consists of multiple shear
 spring model (MSS) and multiple normal spring model (MNS).</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element KikuchiBearing $eleTag $iNode $jNode -shape
-$shape -size $size $totalRubber &lt;-totalHeight $totalHeight&gt; -nMSS
-$nMSS -matMSS $matMSSTag &lt;-limDisp $limDisp&gt; -nMNS $nMNS -matMNS
-$matMNSTag &lt;-lambda $lambda&gt; &lt;-orient &lt;$x1 $x2 $x3&gt; $yp1
-$yp2 $yp3&gt; &lt;-mass $m&gt; &lt;-noPDInput&gt; &lt;-noTilt&gt;
-&lt;-adjustPDOutput $ci $cj&gt; &lt;-doBalance $limFo $limFi
-$nIter&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element KikuchiBearing $eleTag $iNode $jNode
+        -shape $shape -size $size $totalRubber
+        < -totalHeight $totalHeight >
+        -nMSS $nMSS -matMSS $matMSSTag
+        < -limDisp $limDisp >
+        -nMNS $nMNS -matMNS $matMNSTag 
+        < -lambda $lambda > 
+        < -orient < $x1 $x2 $x3 > $yp1 $yp2 $yp3 > 
+        < -mass $m > 
+        < -noPDInput > 
+        < -noTilt > 
+        < -adjustPDOutput $ci $cj > 
+        < -doBalance $limFo $limFi $nIter >
+```
+
 <hr />
 <table>
 <tbody>

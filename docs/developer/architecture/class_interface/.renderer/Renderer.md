@@ -184,4 +184,5 @@ important to note that the eye location is specified in the new local
 coordinate system.
 
 Sets the portwindow. The portwindow is that region of the display into
-which the image is displayed. The range is \[-1,1.-1.1\].
+which the image is displayed. The range is \[-1,1.-1.1$$
+.

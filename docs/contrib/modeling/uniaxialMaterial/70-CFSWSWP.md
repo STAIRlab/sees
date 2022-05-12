@@ -1,3 +1,8 @@
+---
+tags:
+- wood-sheathed cold-formed steel shear wall panel (CFS-SWP)
+...
+
 # CFSWSWP
 
 <p>This command is used to construct a uniaxialMaterial model that

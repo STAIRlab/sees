@@ -42,52 +42,54 @@ Domain. The following are the aggregates of such an analysis type:
     P(U).
 
 
-### Constructor
+### Constructor and Destructor
 
-\
-### Destructor
+```cpp
+DirectIntegrationAnalysis(double tStart, double tFinal,
+     double              delta_t, 
+     Domain              &theDomain, 
+     ConstraintHandler   &theHandler, 
+     DOF_Numberer        &theNumberer, 
+     AnalysisModel       &theModel,
+     EquiSolnAlgo        &theSolnAlgo,
+     LinearSOE           &theSOE, 
+     TransientIntegrator &theIntegrator);
+```
 
-\
-// Public Methods\
-
-\
-
-\
-// Public Methods to vary the type of Analysis\
-
-\
-
-\
-
-\
-*tStart*, *tFinish* and *thDomain* are passed to the TransientAnalysis
+`tStart`, `tFinish` and `thDomain` are passed to the TransientAnalysis
 class constructor. The constructor is responsible for setting up all
 links needed by the objects in the aggregation. It invokes
-`setLinks(theDomain)` on *theModel*,
-*setLinks(theDomain,theModel,theIntegrator)* on *theHandler*,
-`setLinks(theModel)` on *theNumberer*, `setLinks(theModel, theSOE)`{.cpp} on
-*theIntegrator* and *setLinks(theModel,theAnalysis, theIntegrator,
-theSOE)* on *theSolnAlgo*.
+`setLinks(theDomain)` on `theModel`,
+`setLinks(theDomain,theModel,theIntegrator)` on `theHandler`,
+`setLinks(theModel)` on `theNumberer`, `setLinks(theModel, theSOE)`{.cpp} on
+`theIntegrator` and `setLinks(theModel,theAnalysis, theIntegrator, theSOE)` 
+on `theSolnAlgo`.
 
-\
+```cpp
+~DirectIntegrationAnalysis
+```
 Does nothing. `clearAll()` must be invoked if the destructor on the
 objects in the aggregation need to be invoked.
 
-\
+### Public Methods
+
+```cpp
+int analyzeStep(double dT);
+```
 Invoked to perform a transient analysis on the FE_Model. The method
 checks to see if the domain has changed before it performs the analysis.
 The DirectIntegrationAnalysis object performs the following:
 
-::: {.tabbing}
-while ̄ while w̄hile ̄ double time = tStart;\
-while (theDomain-$>$getCurrntTime() $<$ tFinish) {\
-if (theDomain-$>$hasDomainChanged() == true)\
-this-$>$domainChanged();\
-theIntegrator-$>$newStep($\delta t$);\
-theAlgorithm-$>$solveCurrentStep();\
-theIntegrator-$>$commit();\
-}
-:::
+  ```cpp
+  theAnalysisModel->analysisStep(dT);
+
+  if (theDomain->hasDomainChanged() != this->domainStamp)
+    this->domainChanged();
+
+  theIntegrator->newStep(delta t);
+  theAlgorithm->solveCurrentStep();
+  theIntegrator->commit();
+  ```
 
 The type of analysis performed, depends on the type of the objects in
 the analysis aggregation. If any of the methods invoked returns a
@@ -138,6 +140,8 @@ that the domain has changed. The method invokes the following:
     error occurs the method is stopped, a warning message is printed and
     a negative number is returned.
 
+
+### Public Methods to vary the type of Analysis
 
 ```{.cpp}
 int setDeltaT(double $\delta t$);

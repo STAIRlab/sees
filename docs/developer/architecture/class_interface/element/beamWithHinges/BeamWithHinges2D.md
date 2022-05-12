@@ -157,7 +157,8 @@ $\bint$ is evaluated. The flexiblity, $\fsec_i$, is obtained from the
 constitutive relation for section $i$.
 The element stiffness is then obtained by inversion of the element
 flexibility, given by Equation
-[\[eq:fele\]](#eq:fele){reference-type="ref" reference="eq:fele"}.
+[\[eq:fele$$
+](#eq:fele){reference-type="ref" reference="eq:fele"}.
 
 $$\label{eq:kele}
 \kbas = \fbas^{-1}$$
@@ -216,7 +217,8 @@ const Vector &getResistingForce(void);
 
 Returns the element resisting force vector. The basic element force
 vector is obtained as the product of the basic element stiffness,
-$\kbas$, given by Equation [\[eq:kele\]](#eq:kele){reference-type="ref"
+$\kbas$, given by Equation [\[eq:kele$$
+](#eq:kele){reference-type="ref"
 reference="eq:kele"}, and the basic element deformations, $\vbas$.
 
 $$\qbas = \kbas \vbas$$
@@ -238,7 +240,9 @@ forces included,
 $$\tilde{\qele} = \qele - \mele \ddot{\mathbf u}$$
 
 where $\qele$ and $\mele$ are obtained from Equations
-[\[eq:qele\]](#eq:qele){reference-type="ref" reference="eq:qele"} and
-[\[eq:mele\]](#eq:mele){reference-type="ref" reference="eq:mele"},
+[\[eq:qele$$
+](#eq:qele){reference-type="ref" reference="eq:qele"} and
+[\[eq:mele$$
+](#eq:mele){reference-type="ref" reference="eq:mele"},
 respectively, and $\ddot{\mathbf u}$ is the vector of trial nodal
 accelerations for the element.

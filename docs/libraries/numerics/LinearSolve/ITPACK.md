@@ -151,19 +151,22 @@ additional details.)
 
 N
 
-:   is the order of the linear system. \[integer; input\]
+:   is the order of the linear system. \[integer; input$$
+
 
 IA(\*)
 
 :   is a vector of length ${\bf N+1}$ used in the sparse matrix storage
     format. It contains the row pointers into **JA(\*)** and **A(\*)**.
-    \[integer array; input\]
+    \[integer array; input$$
+
 
 JA(\*)
 
 :   is a vector of length **NZ** (defined in **A(\*)** below) used in
     the sparse matrix storage format. It contains the column numbers for
-    the corresponding entries in **A(\*)**. \[integer array; input\]
+    the corresponding entries in **A(\*)**. \[integer array; input$$
+
 
 A(\*)
 
@@ -172,18 +175,21 @@ A(\*)
     with positive diagonal elements. (**NZ** is the number of nonzero
     entries in the upper triangular part of the coefficient matrix when
     symmetric storage is used and is the total number of nonzeros when
-    nonsymmetric storage is used.) \[real array; input\]
+    nonsymmetric storage is used.) \[real array; input$$
+
 
 RHS(\*)
 
 :   is a vector of length **N** containing the right-hand side of the
-    linear system. \[real array; input\]
+    linear system. \[real array; input$$
+
 
 U(\*)
 
 :   is a vector of length **N** containing the initial guess to the
     solution of the linear system on input and the latest approximate
-    solution on output. \[real array; input/output\]
+    solution on output. \[real array; input/output$$
+
 
 IWKSP(\*)
 
@@ -191,20 +197,23 @@ IWKSP(\*)
     reindexing for red-black ordering, the first **N** locations contain
     on output the permutation vector for the red-black indexing, the
     next **N** locations contain its inverse, and the last **N** are
-    used for integer workspace.[^5] \[integer array; output\]
+    used for integer workspace.[^5] \[integer array; output$$
+
 
 NW
 
 :   is a scalar. On input, **NW** is the available length for
     **WKSP(\*)**. On output, **IPARM(8)** is the actual amount used (or
-    needed). \[integer; input\]
+    needed). \[integer; input$$
+
 
 WKSP(\*)
 
 :   is a vector used for real working space whose length depends on the
     iterative method being used. It must be at least **NW** entries
     long. (See the table near the end of this section for the required
-    amount of workspace for each method.) \[real array\]
+    amount of workspace for each method.) \[real array$$
+
 
 IPARM(\*)
 
@@ -212,7 +221,8 @@ IPARM(\*)
     logical parameters. Default values may be set by calling subroutine
     **DFAULT()** described below. On output, **IPARM(\*)** contains the
     values of the parameters that were changed. (Further details are
-    given later in this section.) \[integer array; input/output\]
+    given later in this section.) \[integer array; input/output$$
+
 
 RPARM(\*)
 
@@ -220,14 +230,16 @@ RPARM(\*)
     on input. Default values may be set by calling subroutine
     **DFAULT()** described below. On output, **RPARM(\*)** contains the
     final values of the parameters that were changed. (Further details
-    are given later in this section.) \[real array; input/output\]
+    are given later in this section.) \[real array; input/output$$
+
 
 IER
 
 :   is the error flag which is set to zero for normal convergence and to
     a nonzero integer when an error condition is present. (See the table
     at the end of this section for the meaning of nonzero values.)
-    \[integer; output\]
+    \[integer; output$$
+
 
 The user may supply nondefault values for selected quantities in
 **IPARM(\*)** and by first executing
@@ -677,8 +689,11 @@ and error analysis. In the event that one is not using some of these
 options and needs additional memory space for a very large linear
 system, the relevant subroutines which can be replaced with dummy
 subroutines are as follows: red-black ordering \[**PRBNDX()**,
-**PERMAT()**, **PERVEC()**, **QSORT()**\], removal of rows
-\[**SBELM()**\], error analysis \[**PERROR()**\].
+**PERMAT()**, **PERVEC()**, **QSORT()**$$
+, removal of rows
+$$**SBELM()**$$
+, error analysis \[**PERROR()**$$
+.
 
 The timing routine **TIMER()** should call a routine which returns the
 run time in seconds.

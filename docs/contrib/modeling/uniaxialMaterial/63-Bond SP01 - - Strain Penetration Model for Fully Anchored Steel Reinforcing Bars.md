@@ -80,10 +80,10 @@ alt="BondSPPinching.png" />
 <p>NOTES:</p>
 <p><code>Sy</code> Rebar slip at member interface under yield
 stress and may be obtained from</p>
-<figure>
-<img src="/OpenSeesRT/contrib/static/BondSP_Sy1.png" title="BondSP_Sy1.png" alt="BondSP_Sy1.png" />
-<figcaption aria-hidden="true">BondSP_Sy1.png</figcaption>
-</figure>
+$$
+\texttt{Sy}(\textrm{in})=0.1\left(\frac{d_{b}(\textrm{in})}{4000} \frac{\texttt{Fy}(\textrm{psi})}{\sqrt{f_{c}^{\prime}(p s i)}}\left(2^{*} \texttt{alpha}+1\right)\right)^{1 / \texttt{alpha}}+0.013(\textrm{in})
+$$
+
 <p>or</p>
 <figure>
 <img src="BondSP_Sy2.bmp" title="BondSP_Sy2.bmp" alt="BondSP_Sy2.bmp" />

@@ -7,16 +7,18 @@ Tcl language features such as variable and command substitution,
 expression evaluation, the if-then-else control structure, and
 procedures are demonstrated in several elaborations of the example.
 
-## Example 3.1
+## Example 3.1 - Gravity Analysis
 
 This example is of a reinforced concrete portal frame, as shown in
-figure [\[example3\]](#example3){reference-type="ref"
+figure [\[example3$$
+](#example3){reference-type="ref"
 reference="example3"}, subject to gravity loads.
 
 1. `Example3.1.tcl`
 
 A nonlinear model of the portal frame shown in
-figure [\[example3\]](#example3){reference-type="ref"
+figure [\[example3$$
+](#example3){reference-type="ref"
 reference="example3"} is created. The model consists of four nodes, two
 nonlinear beam-column elements, 1 and 2, to model the columns and an
 elastic beam element, 3, to model the beam. For the column elements a
@@ -273,7 +275,7 @@ entries. The first entry is time in the domain at end of the load step.
 The next 3 entries are the displacements at node 3, and the final 3
 entries the displacements at node 4.
 
-## Example 3.2
+## Example 3.2 - Pushover Analysis
 
 In this example the nonlinear reinforced concrete portal frame which has
 undergone the gravity load analysis of Example 3.1 is now subjected to a
@@ -409,14 +411,15 @@ contains the time, DX, DY and RZ for node 3 and DX, DY and RZ for node 4
 at the end of an iteration. Each line of eleForce.out contains the time,
 and the element end forces in the local coordinate system. A plot of the
 load-displacement relationship at node 3 is shown in
-figure [\[lateral32\]](#lateral32){reference-type="ref"
+figure [\[lateral32$$
+](#lateral32){reference-type="ref"
 reference="lateral32"}.
 
 ::: {.center}
 ![Load displacement curve for node 3](../fig_files/ExampleOut3.2.svg){#fig:lateral32}
 :::
 
-## Example 3.3
+## Example 3.3 - Transient Analysis
 
 In this example the reinforced concrete portal frame which has undergone
 the gravity load analysis of Example 3.1 is now subjected to a uniform
@@ -441,8 +444,8 @@ Strong Motion Database (http://peer.berkeley.edu/smcat/) record
 The static analysis object and its components are first deleted so that
 a new transient analysis object can be created.
 
-A new solution Algorithm of type Newton is then created. The solution
-algorithm uses a ConvergenceTest which tests convergence on the norm of
+A new solution Algorithm of type `Newton` is then created. The solution
+algorithm uses a `ConvergenceTest` which tests convergence on the norm of
 the displacement increment vector. The integrator for this analysis will
 be of type Newmark with a $\gamma$ of 0.25 and a $\beta$ of 0.5. The
 integrator will add some stiffness proportional damping to the system,
@@ -461,7 +464,7 @@ performed on the model. The first is performed after the gravity
 analysis and the second after the transient analysis.
 
 For this analysis the nodal displacenments at Nodes 3 and 4 will be
-stored in the file nodeTransient.out for post-processing. In addition
+stored in the file `nodeTransient.out` for post-processing. In addition
 the section forces and deformations for the section at the base of
 column 1 will also be stored in two seperate files. The results of the
 eigenvalue analysis will be displayed on the screen.
@@ -655,12 +658,14 @@ been created. Each line of nodeTransient.out contains the domain time,
 and DX, DY and RZ for node 3. Plotting the first and second columns of
 this file the lateral displacement versus time for node 3 can be
 obtained as shown in
-figure [\[lateral33\]](#lateral33){reference-type="ref"
+figure [\[lateral33$$
+](#lateral33){reference-type="ref"
 reference="lateral33"}. Each line of the files ele1secForce.out and
 ele1secDef.out contain the domain time and the forces and deformations
 for section 1 (the base section) of element 1. These can be used to
 generate the moment-curvature time history of the base section of column
-1 as shown in figure [\[element1MK\]](#element1MK){reference-type="ref"
+1 as shown in figure [\[element1MK$$
+](#element1MK){reference-type="ref"
 reference="element1MK"}.
 
 ::: {.center}

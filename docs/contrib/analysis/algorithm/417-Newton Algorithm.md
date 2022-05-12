@@ -45,81 +45,63 @@ reserved to the application of Newton's method for computing square
 roots.</p>
 <p>The Taylor series of &lt;math&gt;r(x)\,\!&lt;/math&gt; about the
 point &lt;math&gt;x=x_n+\Delta x\,\!&lt;/math&gt; is given by</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;f(x_n+\Delta x) = f(x_n)+r^{'}(x_n)\Delta x + 1/2r^{''}(x_n)
-\Delta x^2+....\,\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$f(x_n+\Delta x) = f(x_n)+r^{'}(x_n)\Delta x + 1/2r^{''}(x_n)
+\Delta x^2+....\,\!$$
+
+
 <p>Keeping terms only to first order,</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;f(x_n+\Delta x) \approx f(x_n)+r^'(x_n)\Delta x = f(x_n)+
-\frac{df(x_n)}{dx}\Delta x&lt;/math&gt;
-</dd>
-</dl>
-<p>and since at the root we wish to find &lt;math&gt;x_n + \Delta
-x&lt;/math&gt;, the function equates to 0, i.e. &lt;math&gt;f(x_n+\Delta
+
+$$f(x_n+\Delta x) \approx f(x_n)+r^'(x_n)\Delta x = f(x_n)+
+\frac{df(x_n)}{dx}\Delta x$$
+
+
+<p>and since at the root we wish to find  $x_n + \Delta
+x$ , the function equates to 0, i.e. &lt;math&gt;f(x_n+\Delta
 x) = 0&lt;/math&gt;, we can solve for an approximate &lt;math&gt;\Delta
 x&lt;/math&gt;</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \Delta x \approx -\frac{f(x_n)}{f^'(x_n)} = -
-\frac{df(x_n)}{dx}^{-1}f(x_n)&lt;/math&gt;
-</dd>
-</dl>
+
+$$ \Delta x \approx -\frac{f(x_n)}{f^'(x_n)} = -
+\frac{df(x_n)}{dx}^{-1}f(x_n)$$
+
+
 <p>The Newmark method is thus an iterative method in which, starting at
 a good initial guess &lt;math&gt;x_0\,\!&lt;/math&gt; we keep iterating
 until our convergence criteria is met with the following:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \Delta x = - \frac{df(x_n)}{dx}^{-1}f(x_n)\,\!&lt;/math&gt;
-</dd>
-</dl>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; x_{n+1} = x_n + \Delta x\,\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$ \Delta x = - \frac{df(x_n)}{dx}^{-1}f(x_n)\,\!$$
+
+
+
+$$ x_{n+1} = x_n + \Delta x\,\!$$
+
+
 <p>The method is generalized to n unknowns by replacing the above scalar
 equations with matrix ones.</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;R(U_n+\Delta x) = R(U_n)+\frac{\partial R(U_n)}{\partial U}
-\Delta U + O(\Delta U ^2) \,\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$R(U_n+\Delta x) = R(U_n)+\frac{\partial R(U_n)}{\partial U}
+\Delta U + O(\Delta U ^2) \,\!$$
+
+
 <p>The matrix &lt;math&gt;\frac{\partial R(U_n)}{\partial
 U}\,\!&lt;/math&gt; is called the system Jacobian matrix and will be
 denoted K:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt;K = \frac{\partial R(U_n)}{\partial U}\,\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$K = \frac{\partial R(U_n)}{\partial U}\,\!$$
+
+
 <p>resulting in our iterative procedure where starting from a good
 initial guess we iterate until our <a href="Test_Command"
 title="wikilink"> convergence criteria</a> is met with the
 following:</p>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; \Delta U = - K^{-1}R(U_n),\!&lt;/math&gt;
-</dd>
-</dl>
-<dl>
-<dt></dt>
-<dd>
-&lt;math&gt; U_{n+1} = U_n + \Delta U\,\!&lt;/math&gt;
-</dd>
-</dl>
+
+$$ \Delta U = - K^{-1}R(U_n),\!$$
+
+
+
+$$ U_{n+1} = U_n + \Delta U\,\!$$
+
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

@@ -118,33 +118,33 @@ This tangent for each `FE_Element` is defined to be ${\bf K}_e = c1 {\bf K} + c2
 of the `newStep()` method. The method returns $0$ after performing the
 following operations:
 
-::: {.tabbing}
-while ̄ while w̄hile ̄ if (RayleighDamping == false) {\
-theEle-$>$zeroTang()\
-theEle-$>$addKtoTang(c1)\
-theEle-$>$addCtoTang(c2)\
-theEle-$>$addMtoTang(c3)\
-} else {\
-theEle-$>$zeroTang()\
-theEle-$>$addKtoTang(c1 + c2 \* $\beta_K$)\
-theEle-$>$addMtoTang(c3 + c2 \* $\alpha_M$)\
+```cpp
+if (RayleighDamping == false) {
+  theEle->zeroTang()
+  theEle->addKtoTang(c1)
+  theEle->addCtoTang(c2)
+  theEle->addMtoTang(c3)
+} else {
+  theEle->zeroTang()
+  theEle->addKtoTang(c1 + c2 * beta_K)
+  theEle->addMtoTang(c3 + c2 * alpha_M)
 }
-:::
+```
 
 
 ```{.cpp}
-int formNodTangent(DOF_Group \*theDof);
+int formNodTangent(DOF_Group *theDof);
 ```
 
 The method returns $0$ after performing the following operations:
 
-::: {.tabbing}
-while ̄ while w̄hile ̄ theDof-$>$zeroUnbalance()\
-if (RayleighDamping == false)\
-theDof-$>$addMtoTang(c3)\
-else\
-theDof-$>$addMtoTang(c3 + c2 \* $\alpha_M$)\
-:::
+```cpp
+theDof->zeroUnbalance()
+if (RayleighDamping == false)
+  theDof->addMtoTang(c3)
+else
+  theDof->addMtoTang(c3 + c2 * alpha_M)
+```
 
 
 ```{.cpp}
@@ -153,7 +153,7 @@ int domainChanged(void);
 
 If the size of the LinearSOE has changed, the object deletes any old
 Vectors created and then creates $6$ new Vector objects of size equal to
-*theLinearSOE-$>$getNumEqn()*. There is a Vector object created to store
+`theLinearSOE->getNumEqn()`. There is a Vector object created to store
 the current displacement, velocity and accelerations at times $t$ and
 $t + \Delta t$. The response quantities at time $t + \Delta t$ are then
 set by iterating over the `DOF_Group` objects in the model and obtaining
@@ -167,19 +167,19 @@ int newStep(double $\Delta t$);
 
 The following are performed when this method is invoked:
 
-1.  First sets the values of the three constants *c1*, *c2* and *c3*
+1.  First sets the values of the three constants `c1`, `c2` and `c3`
     depending on the flag indicating whether incremental displacements
     or accelerations are being solved for at each iteration. If
-    *dispFlag* was *true*, *c1* is set to $1.0$, *c2* to
-    $\gamma / (\beta \Delta t)$ and *c3* to $1/ (\beta \Delta t^2)$. If
-    the flag is *false* *c1* is set to $\beta \Delta t^2$, *c2* to
-    $\gamma \Delta t$ and *c3* to $1.0$.
+    `dispFlag` was `true`, `c1` is set to $1.0$, `c2` to
+    $\gamma / (\beta \Delta t)$ and `c3` to $1/ (\beta \Delta t^2)$. If
+    the flag is `false` `c1` is set to $\beta \Delta t^2$, `c2` to
+    $\gamma \Delta t$ and `c3` to $1.0$.
 
 2.  Then the Vectors for response quantities at time $t$ are set equal
     to those at time $t + \Delta t$.
 
     ::: {.tabbing}
-    while w̄hile w̄hile w̄hile ̄ ${\bf U}_t = {\bf U}_{t + \Delta t}$\
+    ${\bf U}_t = {\bf U}_{t + \Delta t}$\
     $\dot{\bf U}_t = \dot{\bf U}_{t + \Delta t}$\
     $\ddot{\bf U}_t = \ddot{\bf U}_{t + \Delta t}$
     :::
@@ -189,17 +189,17 @@ The following are performed when this method is invoked:
     was *true*. (displacement and velocity if *false*).
 
     ::: {.tabbing}
-    while w̄hile w̄hile w̄hile ̄ if (displIncr == true) {\
-    $\dot {\bf U}_{t + \Delta t} = 
-     \left( 1 - \frac{\gamma}{\beta}\right) \dot {\bf U}_t + \Delta t \left(1
-    - \frac{\gamma}{2 \beta}\right) \ddot {\bf U}_t$\
-    $\ddot {\bf U}_{t + \Delta t} = 
-     - \frac{1}{\beta \Delta t} \dot {\bf U}_t + \left( 1 - \frac{1}{2
-    \beta} \right) \ddot {\bf U}_t$\
-    } else {\
-    ${\bf U}_{t + \Delta t} = {\bf U}_t + \Delta t \dot{\bf U}_t + \frac{\Delta
-    t^2}{2}\ddot{\bf U}_t$\
-    $\dot{\bf U}_{t + \Delta t} = \dot{\bf U}_t +  \Delta t \ddot{\bf U}_t$\
+    if (displIncr == true) {
+      $\dot {\bf U}_{t + \Delta t} = 
+       \left( 1 - \frac{\gamma}{\beta}\right) \dot {\bf U}_t + \Delta t \left(1
+      - \frac{\gamma}{2 \beta}\right) \ddot {\bf U}_t$\
+      $\ddot {\bf U}_{t + \Delta t} = 
+       - \frac{1}{\beta \Delta t} \dot {\bf U}_t + \left( 1 - \frac{1}{2
+      \beta} \right) \ddot {\bf U}_t$\
+    } else {
+      ${\bf U}_{t + \Delta t} = {\bf U}_t + \Delta t \dot{\bf U}_t + \frac{\Delta
+      t^2}{2}\ddot{\bf U}_t$\
+      $\dot{\bf U}_{t + \Delta t} = \dot{\bf U}_t +  \Delta t \ddot{\bf U}_t$\
     }
     :::
 
@@ -208,7 +208,6 @@ The following are performed when this method is invoked:
     AnalysisModel with new quantities for time $t + \Delta t$.
 
     ::: {.tabbing}
-    while w̄hile w̄hile w̄hile ̄
     theModel-$>$setResponse$({\bf U}_{t + \Delta t}, \dot{\bf U}_{t+\Delta t},
     \ddot{\bf U}_{t+\Delta t})$
     :::
@@ -237,18 +236,18 @@ AnalysisModel with quantities at time $t +
 \Delta t$. Finally `updateDomain()` is invoked on the AnalysisModel.
 
 ::: {.tabbing}
-while w̄hile w̄hile w̄hile ̄ if (displIncr == true) {\
-${\bf U}_{t + \Delta t} += \Delta \U$\
-$\dot {\bf U}_{t + \Delta t} += \frac{\gamma}{\beta \Delta t} \Delta \U$\
-$\ddot {\bf U}_{t + \Delta t} += \frac{1}{\beta {\Delta t}^2} \Delta
-\U$\
-} else {\
-$\ddot{\bf U}_{t + \Delta t} += \Delta \Udd$\
-${\bf U}_{t + \Delta t} += \beta \Delta t^2 \Delta \Udd$\
-$\dot{\bf U}_{t + \Delta t} += \gamma \Delta t \Delta \Udd$\
-}\
+if (displIncr == true) {
+  ${\bf U}_{t + \Delta t} += \Delta \U$\
+  $\dot {\bf U}_{t + \Delta t} += \frac{\gamma}{\beta \Delta t} \Delta \U$
+  $\ddot {\bf U}_{t + \Delta t} += \frac{1}{\beta {\Delta t}^2} \Delta
+  \U$\
+} else {
+  $\ddot{\bf U}_{t + \Delta t} += \Delta \Udd$
+  ${\bf U}_{t + \Delta t} += \beta \Delta t^2 \Delta \Udd$
+  $\dot{\bf U}_{t + \Delta t} += \gamma \Delta t \Delta \Udd$
+}
 theModel-$>$setResponse$({\bf U}_{t + \Delta t}, \dot{\bf U}_{t+\Delta t},
-\ddot{\bf U}_{t+\Delta t})$\
+\ddot{\bf U}_{t+\Delta t})$
 theModel-$>$setUpdateDomain()
 :::
 
@@ -277,3 +276,4 @@ int Print(OPS_Stream &s, int flag = 0);
 The object sends to $s$ its type, the current time, $\gamma$ and
 $\beta$. If Rayleigh damping is specified, the constants $\alpha_M$ and
 $\beta_K$ are also printed.
+

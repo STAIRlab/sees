@@ -83,15 +83,21 @@ partitions. On completion of the routine each vertex will be assigned a
 color $1$ through *numPart*, the color assigned indicating the partition
 to which the vertex belongs.
 
-To partition a number of integer arrays are created, *options\[5\]*,
-*partition\[numVertex+1\]*, *xadj\[numVertex+1\]* and
-*adjncy\[2\*numEdge\]* (CURRENTLY ASSUMING GRAPH IS SYMMETRIC - THIS MAY
+To partition a number of integer arrays are created, *options\[5$$
+*,
+*partition\[numVertex+1$$
+*, *xadj\[numVertex+1$$
+* and
+*adjncy\[2\*numEdge$$
+* (CURRENTLY ASSUMING GRAPH IS SYMMETRIC - THIS MAY
 CHANGE & xadj and partition 1 LARGER THAN REQUIRED). If not enough
 memory is available for the arrays, a warning message is printed and
 $-2$ is returned. The data for *xadj* and *adjncy* are determined from
 the Vertices of the Graph by iterating over each Vertex from $0$ through
-*numVertex* $-1$. If default options are specified *options\[0\]* is set
-to $0$, otherwise $1$ with *options\[1:4\] = coarsenTo, mType, ipType,
+*numVertex* $-1$. If default options are specified *options\[0$$
+* is set
+to $0$, otherwise $1$ with *options\[1:4$$
+ = coarsenTo, mType, ipType,
 rType*. if *pType* equals $1$ *PMETIS* is called, otherwise *KMETIS* is
 called. Both are called with the following arguments: *numVertex,
 xadj,adjncy, 0, 0, &weightFlag, options, numPart, &numbering, &edgecut,

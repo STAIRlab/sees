@@ -11,7 +11,7 @@ damper with a high-precision accuracy.</p>
 
 ```tcl
 uniaxialMaterial ViscousDamper $matTag $K $Cd $alpha
-        &lt;$LGap&gt; &lt; $NM $RelTol $AbsTol $MaxHalf&gt;
+        < $LGap > < $NM $RelTol $AbsTol $MaxHalf >
 ```
 <hr />
 <table>
@@ -67,72 +67,48 @@ algorithm (default value 10^-10)</p></td>
 </tbody>
 </table>
 <hr />
-<p><strong>Examples:</strong></p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong><em>1. Input parameters:</em></strong></p></td>
-</tr>
-<tr class="even">
-<td><p>Assume a viscous damper with axial stiffness K=300.0kN/mm,
-damping coefficient Cd=280.3kN(s/mm)&lt;sup&gt;0.3&lt;/sup&gt;, and
-exponent a=0.30.</p></td>
-</tr>
-<tr class="odd">
-<td><p>The input parameters for the material should be as
-follows:</p></td>
-</tr>
-<tr class="even">
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-</tr>
-<tr class="even">
-<td><p>uniaxialMaterial ViscousDamper 1 300 280.3 0.30</p></td>
-</tr>
-<tr class="odd">
-<td></td>
-</tr>
-<tr class="even">
-<td><p>Using these properties, Figure 1 shows the hysteretic response of
-this damper for sinusoidal displacement increments of 12, 24 and 36mm
-and a frequency f = 0.5Hz.</p></td>
-</tr>
-<tr class="odd">
-<td><p>The sensitivity of the viscous damper with respect to its
-velocity exponent is shown in Figures 2 to 4 for the following set of
-parameters:</p></td>
-</tr>
-<tr class="even">
-<td><figure>
-<img src="/OpenSeesRT/contrib/static/Fig2_ViscousDampers.png"
-title=" Viscous Damper with various input parameter variations"
-width="850"
-alt=" Viscous Damper with various input parameter variations" />
-<figcaption aria-hidden="true"> Viscous Damper with various input
-parameter variations</figcaption>
-</figure></td>
-</tr>
-<tr class="odd">
-<td></td>
-</tr>
-<tr class="even">
-<td><p><strong><em><a
-href="http://opensees.berkeley.edu/wiki/index.php/Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers">2.
-Single story single bay frame with viscous
-damper</a></em></strong></p></td>
-</tr>
-<tr class="odd">
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-</tr>
-</tbody>
-</table>
+
+## Examples
+
+
+1. Input parameters:
+
+   Assume a viscous damper with axial stiffness K=300.0kN/mm,
+   damping coefficient `Cd=280.3kN`(s/mm)<sup>0.3</sup>, and
+   exponent a=0.30.
+
+   The input parameters for the material should be as
+   follows:
+
+   ```tcl
+   uniaxialMaterial ViscousDamper 1 300 280.3 0.30
+   ```
+
+   Using these properties, Figure 1 shows the hysteretic response of
+   this damper for sinusoidal displacement increments of 12, 24 and 36mm
+   and a frequency f = 0.5Hz.
+
+   The sensitivity of the viscous damper with respect to its
+   velocity exponent is shown in Figures 2 to 4 for the following set of
+   parameters:
+
+  <figure>
+  <img src="/OpenSeesRT/contrib/static/Fig2_ViscousDampers.png"
+  title=" Viscous Damper with various input parameter variations"
+  width="850"
+  alt=" Viscous Damper with various input parameter variations" />
+  <figcaption aria-hidden="true"> Viscous Damper with various input
+  parameter variations</figcaption>
+  </figure>
+
+
+<strong><em><a
+href="http://opensees.berkeley.edu/wiki/index.php/Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers">2. Single story single bay frame with viscous damper</a></em></strong>
+
 <hr />
-<p><strong>References</strong>:</p>
+
+## References
+
 <table>
 <tbody>
 <tr class="odd">
@@ -177,9 +153,11 @@ Symposium 2001, Yokohama, Japan (in Japanese).</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>Code Developed and Implemented by : <span style="color:blue">
 <strong><em><a href="http://sarvenakcelyan.com">Sarven
 Akcelyan</a><strong><em>&amp;</em></strong><a
 href="http://dimitrios-lignos.research.mcgill.ca/PLignos.html">Prof.
 Dimitrios G. Lignos</a></em></strong>, (McGill University)
 </span></p>
+

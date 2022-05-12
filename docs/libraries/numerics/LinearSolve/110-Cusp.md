@@ -38,19 +38,19 @@ system CuSP -rTol $RTOL -mInt $MINT -pre $PRE -solver
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>$RTOL</strong></p></td>
+<td><p><code class="parameter-table-variable">RTOL</code></p></td>
 <td><p>Set the relative tolerance.</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$MINT</strong></p></td>
+<td><p><code class="parameter-table-variable">MINT</code></p></td>
 <td><p>Set the maximum number of iterations.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$PRE</strong></p></td>
+<td><p><code class="parameter-table-variable">PRE</code></p></td>
 <td><p>Set the preconditioner. can be none, diagonal, and ainv</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$SOLVER</strong></p></td>
+<td><p><code class="parameter-table-variable">SOLVER</code></p></td>
 <td><p>Set the iterative solver. can be bicg, bicgstab, cg, and
 gmres.</p></td>
 </tr>
