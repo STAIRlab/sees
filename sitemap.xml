@@ -176,17 +176,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/134-Discovering%20OpenSees%20--%20Force-based%20Element%20vs.%20Displacement-based%20Element/</loc>
-         <lastmod>2022-05-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/258-Force-based%20Element%20vs.%20Displacement-based%20Element%2C%20Dec%202011/</loc>
-         <lastmod>2022-05-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/303-Getting%20Started%20with%20OpenSees%20--%20Elements/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/discovering/134-Discovering%20OpenSees%20--%20Force-based%20Element%20vs.%20Displacement-based%20Element/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -217,6 +207,16 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/extending/14-Add%20a%20New%20UniaxialMaterial%20C%2B%2B/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/getting_started/303-Getting%20Started%20with%20OpenSees%20--%20Elements/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/guides/seminars/258-Force-based%20Element%20vs.%20Displacement-based%20Element%2C%20Dec%202011/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2651,12 +2651,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/user/core/</loc>
-         <lastmod>2022-05-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/user/framework/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/user/analysis/MomentCurvature/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2667,21 +2662,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/user/modeling/element/</loc>
-         <lastmod>2022-05-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/user/modeling/layer/</loc>
-         <lastmod>2022-05-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/user/modeling/patch/</loc>
-         <lastmod>2022-05-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/user/modeling/section/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2706,17 +2686,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/user/modeling/section/torsion/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/user/pattern/Plain/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/user/pattern/UniformExcitation/</loc>
-         <lastmod>2022-05-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/user/runtime/MomentCurvature/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
