@@ -1,0 +1,43 @@
+# FixX command
+
+<p>This command is used to construct multiple homogeneous single-point
+boundary constraints for all nodes whose x-coordinate lies within a
+specified distance from a specified coordinate.</p>
+
+```tcl
+fixX $xCoordinate (ndf $ConstrValues) &lt;-tol
+        $tol&gt;
+```
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><code class="parameter-table-variable">xCoordinate</code></p></td>
+<td><p>x-coordinate of nodes to be constrained</p></td>
+</tr>
+<tr class="even">
+<td><p><code class="parameter-table-variable">constrValues</code></p></td>
+<td><p>ndf constraint values (0 or 1) corresponding to the ndf
+degrees-of-freedom.</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p><strong>0</strong> unconstrained (or free)</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p><strong>1</strong> constrained (or fixed)</p></td>
+</tr>
+<tr class="odd">
+<td><p><code class="parameter-table-variable">tol</code></p></td>
+<td><p>user-defined tolerance (optional, default = 1e-10)</p></td>
+</tr>
+</tbody>
+</table>
+
+## Examples
+
+<p>fixX 0.0 1 1 1 1 1 1; # fully restrain all nodes in y-z plane at
+origin (x=0.0)</p>
+<p>Code Developed by: <span style="color:blue"> fmk
+</span></p>

@@ -1,0 +1,38 @@
+# Fix command
+
+<p>This command is used to construct single-point homogeneous boundary
+constraints.</p>
+
+```tcl
+fix $nodeTag (ndf $constrValues)
+```
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><code class="parameter-table-variable">nodeTag</code></p></td>
+<td><p>integer tag identifying the node to be constrained</p></td>
+</tr>
+<tr class="even">
+<td><p><code class="parameter-table-variable">constrValues</code></p></td>
+<td><p>ndf constraint values (0 or 1) corresponding to the ndf
+degrees-of-freedom.</p></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td><p><strong>0</strong> unconstrained (or free)</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p><strong>1</strong> constrained (or fixed)</p></td>
+</tr>
+</tbody>
+</table>
+
+## Examples
+
+<p>fix 1 1 1 1 1 1 1; # node 1: fully fixed</p>
+<p>fix 2 0 1 0 0 1 0 # node 2: homogeneous constraints (movement = 0) at
+dof 2 and 5 only.</p>
+<p>Code Developed by: <span style="color:blue"> fmk
+</span></p>
