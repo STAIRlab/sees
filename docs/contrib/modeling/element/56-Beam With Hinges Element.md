@@ -1,4 +1,4 @@
-# Beam With Hinges Element
+# BeamWithHinges
 
 <p>This command is used to construct a forceBeamColumn element object,
 which is based on the non-iterative (or iterative) flexibility

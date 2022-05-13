@@ -13,7 +13,8 @@ evaluation, and procedures are demonstrated.
 ## Example 2.1
 
 In this example, a moment-curvature analysis of the fiber section is
-undertaken. Figure [\[rcsection4\]](#rcsection4){reference-type="ref"
+undertaken. Figure [\[rcsection4$$
+](#rcsection4){reference-type="ref"
 reference="rcsection4"} shows the fiber discretization for the section.
 
 1.  `Example2.1.tcl`
@@ -22,12 +23,15 @@ reference="rcsection4"} shows the fiber discretization for the section.
 
 The model consists of two nodes and a ZeroLengthSection element. A
 depiction of the element geometry is shown in
-figure [\[zerolength\]](#zerolength){reference-type="ref"
+figure [\[zerolength$$
+](#zerolength){reference-type="ref"
 reference="zerolength"}. The drawing on the left of
-figure [\[zerolength\]](#zerolength){reference-type="ref"
+figure [\[zerolength$$
+](#zerolength){reference-type="ref"
 reference="zerolength"} shows an edge view of the element where the
 local z-axis, as seen on the right side of the figure and in
-figure [\[rcsection0\]](#rcsection0){reference-type="ref"
+figure [\[rcsection0$$
+](#rcsection0){reference-type="ref"
 reference="rcsection0"}, is coming out of the page. Node 1 is completely
 restrained, while the applied loads act on node 2. A compressive axial
 load, P, of 180 kips is applied to the section during the
@@ -44,7 +48,8 @@ concrete in the column core, unconfined concrete in the column cover,
 and reinforcing steel.
 
 The dimensions of the fiber section are shown in
-figure [\[rcsection0\]](#rcsection0){reference-type="ref"
+figure [\[rcsection0$$
+](#rcsection0){reference-type="ref"
 reference="rcsection0"}. The section depth is 24 inches, the width is 15
 inches, and there are 1.5 inches of cover around the entire section.
 Strong axis bending is about the section z-axis. In fact, the section
@@ -54,7 +59,8 @@ regions, for which separate fiber discretizations will be generated.
 Reinforcing steel bars will be placed around the boundary of the
 confined and unconfined regions. The fiber discretization for the
 section is shown in
-figure [\[rcsection4\]](#rcsection4){reference-type="ref"
+figure [\[rcsection4$$
+](#rcsection4){reference-type="ref"
 reference="rcsection4"}.
 
 ::: {.center}
@@ -249,7 +255,8 @@ fact the curvature of the element with zero thickness.
 The file section1.out contains for each committed state a line with the
 load factor and the rotation at node 3. This can be used to plot the
 moment-curvature relationship as shown in
-figure [\[momcurv\]](#momcurv){reference-type="ref"
+figure [\[momcurv$$
+](#momcurv){reference-type="ref"
 reference="momcurv"}.
 
 ::: {.center}

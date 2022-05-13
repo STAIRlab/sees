@@ -179,7 +179,8 @@ step $\Delta t := 0.50$.
 The results consist of the file Node.out, which contains a line for
 every time step. Each line contains the time and the vertical
 displacement at the bottom center of the beam. The time history is shown
-in figure [\[beamdisp\]](#beamdisp){reference-type="ref"
+in figure [\[beamdisp$$
+](#beamdisp){reference-type="ref"
 reference="beamdisp"}.
 
 ::: {.center}

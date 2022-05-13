@@ -1,5 +1,9 @@
 # Raynor
 
+## References
+
+- Raynor, D. J., Lehman, D. L., and Stanton, J. F. 2002. “Bond-slip response of reinforcing bars grouted in ducts.” ACI Struct. J., 995, 568–576.
+
 ## C++ Interface
 
 ```cpp

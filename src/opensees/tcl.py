@@ -3,6 +3,7 @@ import sys
 import tkinter
 import pathlib
 from opensees.obj import Component
+from .runtime import AbstractRuntime
 
 def TclInterpreter():
     if "OPENSEESRT_LIB" in os.environ:
@@ -11,8 +12,19 @@ def TclInterpreter():
         install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
         libOpenSeesRT_path = install_dir/'libOpenSeesRT.so'
     interp = tkinter.Tcl()
+    #from . import libOpenSeesRT
     interp.eval(f"load {libOpenSeesRT_path}")
     return interp
+
+def eval(script: str):
+    interp = TclInterpreter()
+    interp.eval(f"""
+
+    {script}
+
+    """)
+    return interp
+
 
 def dumps(model):
     if not isinstance(model, Component):
@@ -28,11 +40,12 @@ def dumps(model):
         return writer.send(model).getstr()
 
 
-class TclRuntime:
+class TclRuntime(AbstractRuntime):
     def __init__(self,  model=None):
         from functools import partial
         self._partial = partial
         self._c_domain = None
+        self._c_rt = None
         self._interp = TclInterpreter()
         if model is not None:
             self.model(model)
@@ -47,15 +60,22 @@ class TclRuntime:
                 pass
             else:
                 self.eval("model basic 2 3")
+                print(dumps(arg))
                 self.eval(dumps(arg))
 
     @property
+    def _rt(self):
+        if self._c_rt is None:
+            from . import libOpenSeesRT
+            self._c_rt = libOpenSeesRT.getRuntime(self._interp.tk.interpaddr())
+        return self._c_rt
+
+    @property
     def _domain(self):
-        if self._c_domain:
-            return self._c_domain
-        else:
-            self._c_domain = _pyg3.get_domain(self._interp.tk.interpaddr())
-            return self._c_domain
+        if self._c_domain is None:
+            from . import libOpenSeesRT
+            self._c_domain = libOpenSeesRT.get_domain(self._rt)
+        return self._c_domain
 
     @classmethod
     def _as_tcl_arg(cls, arg):
@@ -99,40 +119,31 @@ class TclRuntime:
             if isinstance(k, int):
                 self.eval(v.cmd)            
 
-class BasicBuilder(TclRuntime):
-    def __init__(self, ndm=None, ndf=None):
-        super().__init__()
-        self.model("basic", "-ndm", ndm, "-ndf", ndf)
+# class BasicBuilder(TclRuntime):
+#     def __init__(self, ndm=None, ndf=None):
+#         super().__init__()
+#         self.model("basic", "-ndm", ndm, "-ndf", ndf)
+# 
+# class SafeBuilder(TclRuntime):
+#     def __init__(self, ndm=None, ndf=None):
+#         super().__init__()
+#         self.model("safe", "-ndm", ndm, "-ndf", ndf)
 
-class SafeBuilder(TclRuntime):
-    def __init__(self, ndm=None, ndf=None):
-        super().__init__()
-        self.model("safe", "-ndm", ndm, "-ndf", ndf)
+# def model(typ, *args, **kwds):
+#     builder = TclRuntime()
+#     builder.model(typ, *args, **kwds)
+#     return builder
 
-def model(typ, *args, **kwds):
-    builder = TclRuntime()
-    builder.model(typ, *args, **kwds)
-    return builder
-
-def eval(script: str):
-    interp = TclInterpreter()
-    interp.eval(f"""
-
-    {script}
-
-    """)
-    return interp
-
-def read_tcl_domain(script: str):
-    interp = TclInterpreter()
-    interp.eval(f"""
-
-    {script}
-
-    """)
-    builder = builders.TclModelBuilder(interp.tk.interpaddr())
-    domain = builder.getDomain()
-    return domain
+# def read_tcl_domain(script: str):
+#     interp = TclInterpreter()
+#     interp.eval(f"""
+# 
+#     {script}
+# 
+#     """)
+#     builder = builders.TclModelBuilder(interp.tk.interpaddr())
+#     domain = builder.getDomain()
+#     return domain
 
 #
 # Analysis

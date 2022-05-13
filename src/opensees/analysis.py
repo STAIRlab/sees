@@ -1,10 +1,11 @@
 from opensees.ast import Num
-from opensees.obj import LibCmd
-
-import numpy as np
 
 
-class AnalysisModel: pass
+def eigen(model, num):
+    pass
+
+def modes(model, num):
+    pass
 
 class Analysis:
     def __init__(self, model, strategy, patterns):
@@ -68,7 +69,7 @@ class DirectIntegrationAnalysis(Analysis):
     """
 
     def __init__(self,
-        model:     AnalysisModel,
+        model,
         patterns:  dict,
         strategy:  dict,
         recorders: list,
@@ -76,7 +77,6 @@ class DirectIntegrationAnalysis(Analysis):
         gravity:   dict = None
     ):
         super().__init__(self, model, strategy=strategy, patterns=patterns)
-    pass
 
 
 

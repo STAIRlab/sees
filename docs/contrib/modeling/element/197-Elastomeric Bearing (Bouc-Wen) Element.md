@@ -1,4 +1,4 @@
-# Elastomeric Bearing (Bouc-Wen) Element
+# Elastomeric Bearing (Bouc-Wen)
 
 <p>This command is used to construct an elastomericBearing element
 object, which is defined by two nodes. The element can have zero length
@@ -127,7 +127,7 @@ no Rayleigh damping contribution)</p></td>
 <p><img src="/OpenSeesRT/contrib/static/ElastomericBearingBoucWenFig01.png"
 title="ElastomericBearingBoucWenFig01.png" width="600"
 alt="ElastomericBearingBoucWenFig01.png" /> <img
-src="ElastomericBearingBoucWenFig02.png"
+src="/OpenSeesRT/contrib/static/ElastomericBearingBoucWenFig02.png"
 title="ElastomericBearingBoucWenFig02.png" width="400"
 alt="ElastomericBearingBoucWenFig02.png" /></p>
 <hr />

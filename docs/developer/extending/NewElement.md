@@ -39,7 +39,8 @@ code and example scripts mentioned in this document can be found in
 
 In this section the example script, example1.tcl, for the static
 analysis of the simple linear three bar truss example shown in
-figure [\[example1\]](#example1){reference-type="ref"
+figure [\[example1$$
+](#example1){reference-type="ref"
 reference="example1"} is presented. For a more comprehensive set of
 examples showing the reader should is referred to the OpenSees examples
 manual, which can be found at

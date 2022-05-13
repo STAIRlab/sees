@@ -21,6 +21,14 @@ class TclWriter:
         #this.write(" ".join(map(str,self.flag + [value])))
         this.write(self.flag, str(value))
 
+    def Tag(this, self, value=None):
+        value = self.value if value is None else value
+        if not isinstance(value, int):
+            value = this.current_tag
+            this.current_tag += 1
+        self.value = value
+        this.write(value)
+
     def Flg(this, self, value=None): 
         value = self.value if value is None else value
         if value: this.write(self.flag)
@@ -89,6 +97,7 @@ class ScriptBuilder:
             self.parent = parent
             self.refs = set()
             self.newline = True
+            self.current_tag = 1
 
         def write(self, *args, end=" "):
             if self.newline:

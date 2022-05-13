@@ -91,6 +91,19 @@ class uniaxial:
         Num("n", about="")
     ])
 
+    DoddRestrepo = Uni("Dodd_Restrepo", "Dodd_Restrepo", args=[
+        Tag(),
+        Num("Fy", about="Yield strength"),
+        Num("Fsu", about="Ultimate tensile strength (UTS)"),
+        Num("esh", about="Tensile strain at initiation of strain hardening"),
+        Num("esu", about="Tensile strain at the UTS"),
+        Yng(),
+        Num("eshI", about="Tensile strain for a point on strain hardening curve, recommended range of values for eshI: [ (ESU + 5esh)/6, (ESU + 3esh)/4]"),
+        Num("fshI", about="Tensile stress at point on strain hardening curve corresponding to eshI"),
+        Num("OmegaFac", reqd=False, about="Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: [0.75, 1.15]. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0."),
+    ])
+
+
     Steel02 = Uni("Steel02",
         "Steel02",
         about="""
@@ -188,8 +201,7 @@ class uniaxial:
           Num("stRatio"   , flag="-stRatio",     reqd=False),
     ])
 
-    Concrete02 = Uni("Concrete02",
-        "Concrete02",
+    Concrete02 = Uni("Concrete02", "Concrete02",
         args=[
           Tag(about="integer tag identifying material"),
           Num("fpc",   about="concrete compressive strength at 28 days (compression is negative)"),
@@ -382,9 +394,9 @@ class backbone:
 
     #Material = Backbone("Material tag? matTag?")
 
-    Mander = Backbone("Mander",
+    Popovics = Mander = Backbone("Mander",
         args = [
-          Tag()
+          Tag(), Num("fc"), Num("epsc"), Num("Ec")
         ]
     )
     ReeseSoftClay = Backbone("ReeseSoftClay",

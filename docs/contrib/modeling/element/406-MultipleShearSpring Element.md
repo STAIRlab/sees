@@ -1,4 +1,4 @@
-# MultipleShearSpring Element
+# MultipleShearSpring
 
 <p>This command is used to construct a multipleShearSpring (MSS) element
 object, which is defined by two nodes. This element consists of a series
@@ -85,13 +85,13 @@ title="wikilink">MultipleShearSpring_input_Y.tcl</a></p>
 title="MultipleShearSpring_ForceDeformation_1y.png" width="250"
 alt="MultipleShearSpring_ForceDeformation_1y.png" />
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img
-src="MultipleShearSpring_path.png" title="MultipleShearSpring_path.png"
+src="/OpenSeesRT/contrib/static/MultipleShearSpring_path.png" title="MultipleShearSpring_path.png"
 width="250" alt="MultipleShearSpring_path.png" /></p>
 <p><img src="/OpenSeesRT/contrib/static/MultipleShearSpring_ForceDeformation_2y.png"
 title="MultipleShearSpring_ForceDeformation_2y.png" width="250"
 alt="MultipleShearSpring_ForceDeformation_2y.png" />
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img
-src="MultipleShearSpring_ForceDeformation_2z.png"
+src="/OpenSeesRT/contrib/static/MultipleShearSpring_ForceDeformation_2z.png"
 title="MultipleShearSpring_ForceDeformation_2z.png" width="250"
 alt="MultipleShearSpring_ForceDeformation_2z.png" /></p>
 <p>REFERENCES:</p>

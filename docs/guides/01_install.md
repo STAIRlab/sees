@@ -9,6 +9,9 @@ pip install opensees
 
 ## New to Python
 
-If you are new to Python, a great way to get started is to install
-Anaconda.
+- [Windows Store](https://www.microsoft.com/store/productId/9PJPW5LDXLZ5)
+
+
+- [VS Code](https://code.visualstudio.com/download)
+
 

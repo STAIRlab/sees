@@ -1,4 +1,4 @@
-# Displacement-Based Beam-Column Element
+# Displacement-Based Beam-Column
 
 <p>This command is used to construct a displacement beam element object,
 which is based on the displacement formulation, and considers the spread

@@ -8,9 +8,9 @@ method when convergence is slow due to roughness of the residual. The
 command is of the following form:</p>
 
 ```tcl
-algorithm NewtonLineSearch &lt;-type $typeSearch&gt;
-        &lt;-tol $tol&gt; &lt;-maxIter $maxIter&gt; &lt;-minEta $minEta&gt;
-        &lt;-maxEta $maxEta&gt;
+algorithm NewtonLineSearch < -type $typeSearch >
+        < -tol $tol > < -maxIter $maxIter > 
+        < -minEta $minEta > < -maxEta $maxEta >
 ```
 
 <table>

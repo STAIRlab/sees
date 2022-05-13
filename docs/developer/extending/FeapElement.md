@@ -155,7 +155,8 @@ modifications to allow the introduction of the new command
 into g3 are similar to those outlined in 'How to Introduce a New Element
 into g3'. The example g3tcl script for the static analysis of a simple
 linear three bar truss example, shown in
-figure [\[example1\]](#example1){reference-type="ref"
+figure [\[example1$$
+](#example1){reference-type="ref"
 reference="example1"}, is given below:
 
 <details class="note"><summary>Tcl script</summary>

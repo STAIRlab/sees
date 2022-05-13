@@ -1,4 +1,4 @@
-# BbarBrick u-p Element
+# BbarBrick u-p
 
 <p><strong>bbarBrickUP</strong> is a 8-node mixed volume/pressure
 element, which uses a tri-linear isoparametric formulation.</p>

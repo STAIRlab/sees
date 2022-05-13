@@ -1,4 +1,4 @@
-# BeamColumnJoint Element
+# BeamColumnJoint
 
 <p>This command is used to construct a two-dimensional beam-column-joint
 element object. The element may be used with both two-dimensional and

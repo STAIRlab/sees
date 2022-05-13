@@ -52,7 +52,7 @@ tensile yielding (<code class="tcl-variable">bty</code>), tensile hardening
 <p><img src="/OpenSeesRT/contrib/static/AxialSpHD_note1.png" title="AxialSpHD_note1.png"
 width="250" alt="AxialSpHD_note1.png" />
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img
-src="AxialSpHD_note2.png" title="AxialSpHD_note2.png" width="250"
+src="/OpenSeesRT/contrib/static/AxialSpHD_note2.png" title="AxialSpHD_note2.png" width="250"
 alt="AxialSpHD_note2.png" /></p>
 <hr />
 

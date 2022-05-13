@@ -1,4 +1,4 @@
-# Bbar Plane Strain Quadrilateral Element
+# Bbar Plane Strain Quadrilateral
 
 <p>This command is used to construct a four-node quadrilateral element
 object, which uses a bilinear isoparametric formulation along with a

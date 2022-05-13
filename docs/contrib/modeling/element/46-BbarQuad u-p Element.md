@@ -1,4 +1,4 @@
-# BbarQuad u-p Element
+# BbarQuad u-p
 
 <p><strong>bbarQuadUP</strong> is a four-node plane-strain mixed
 volume/pressure element, which uses a tri-linear isoparametric

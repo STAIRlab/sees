@@ -54,7 +54,8 @@ as scalar values describe the behavior of a one-dimensional model.
 :::
 
 As indicated in
-figure [\[fig:Material\]](#fig:Material){reference-type="ref"
+figure [\[fig:Material$$
+](#fig:Material){reference-type="ref"
 reference="fig:Material"}, each material abstraction is a subclass of
 Material. The Material class is a subclass of both the TaggedObject and
 MovableObject classes, and therefore inherits the functionality of these
@@ -612,9 +613,12 @@ line.
 
 The above command is split into an array of character strings (argv) by
 the Tcl interpreter, then sent to the
-*TclModelBuilderUniaxialMaterialCommand* function. argv\[0\] contains
-the command name "uniaxialMaterial," argv\[1\] holds the material
-keyword "Hardening," argv\[2\] contains the material tag, and the
+*TclModelBuilderUniaxialMaterialCommand* function. argv\[0$$
+ contains
+the command name "uniaxialMaterial," argv\[1$$
+ holds the material
+keyword "Hardening," argv\[2$$
+ contains the material tag, and the
 remaining entries in the argv array hold the specific material
 parameters. These parameters are the arguments needed to call the
 HardeningMaterial constructor. The number of elements in the argv array
@@ -796,7 +800,8 @@ as well as for swapping trial and committed history variables.
 :::
 
 FedeasMaterial is a subclass of UniaxialMaterial, as shown in
-figure [\[fig:Fedeas\]](#fig:Fedeas){reference-type="ref"
+figure [\[fig:Fedeas$$
+](#fig:Fedeas){reference-type="ref"
 reference="fig:Fedeas"}. Subclasses of FedeasMaterial are responsible
 for defining constructors which take the appropriate material
 parameters. All other functionality (state determination, swapping of

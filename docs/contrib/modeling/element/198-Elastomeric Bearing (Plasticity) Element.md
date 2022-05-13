@@ -1,4 +1,4 @@
-# Elastomeric Bearing (Plasticity) Element
+# Elastomeric Bearing (Plasticity)
 
 <p>This command is used to construct an elastomericBearing element
 object, which is defined by two nodes. The element can have zero length

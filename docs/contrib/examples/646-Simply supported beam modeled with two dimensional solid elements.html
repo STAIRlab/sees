@@ -20,7 +20,7 @@ adopted for this example are: kip, inch, sec. Fig. 2 shows the global
 coordinate system, finite element mesh, and nodal numeration in case the
 mesh is generated with 8 x 2 elements.</p>
 <figure>
-<img src="Beam1.PNG" title="Beam1.PNG" alt="Beam1.PNG" />
+<img src="/OpenSeesRT/contrib/static/Beam1.png" title="Beam1.png" alt="Beam1.png" />
 <figcaption aria-hidden="true">Beam1.PNG</figcaption>
 </figure>
 <h2 id="instructions_on_how_to_run_this_example">Instructions on how to
@@ -162,8 +162,8 @@ acceleration in one time step of analysis, &lt;math&gt;\gamma =
 is unconditionally stable and energy conserving for linear problems.
 Additionally, this integrator conserves linear and angular momentum for
 both linear and non-linear problems. The dynamic analysis is performed
-using 1500 time increments with a time step of &lt;math&gt;\delta
-t=0.5&lt;/math&gt;.</p>
+using 1500 time increments with a time step of  $\delta
+t=0.5$ .</p>
 <p>&lt;pre style="background:yellow;color:black;width:650px"&gt; test
 EnergyIncr 1.0e-12 10 0 algorithm Newton numberer RCM constraints Plain
 integrator Newmark 0.5 0.25 system BandGeneral analysis Transient</p>
@@ -175,7 +175,7 @@ First 10 sec on the figure show the response of the beam to the static
 load, while the rest of the response corresponds to vibrations caused by
 the load removal.</p>
 <figure>
-<img src="BeamResponse1.png" title="BeamResponse1.png"
+<img src="/OpenSeesRT/contrib/static/BeamResponse1.png" title="BeamResponse1.png"
 alt="BeamResponse1.png" />
 <figcaption aria-hidden="true">BeamResponse1.png</figcaption>
 </figure>

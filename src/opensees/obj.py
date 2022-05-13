@@ -18,10 +18,18 @@ class Component:
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
             handle = self._builder.getUniaxialMaterial("1")
 
-        if self._cmd[0] == "section":
+        elif self._cmd[0] == "section":
             rt.model(self)
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
             handle = self._builder.getSection(str(self.name))
+
+        elif self._cmd[0] == "backbone":
+            rt.model(self)
+            self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
+            handle = self._builder.getHystereticBackbone(str(self.name))
+
+        else:
+            raise TypeError("Unimplemented type")
 
         self._rt = rt
         return handle

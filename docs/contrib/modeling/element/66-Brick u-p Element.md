@@ -1,4 +1,4 @@
-# Brick u-p Element
+# Brick u-p
 
 <p><strong>BrickUP</strong> is an 8-node hexahedral linear isoparametric
 element. Each node has 4 degrees-of-freedom (DOF): DOFs 1 to 3 for solid

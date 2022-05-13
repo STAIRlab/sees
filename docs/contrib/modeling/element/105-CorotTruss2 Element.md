@@ -1,3 +1,3 @@
-# CorotTruss2 Element
+# CorotTruss2
 
 

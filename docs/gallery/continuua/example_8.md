@@ -184,7 +184,8 @@ for every time step. Each line contains the time and the horizontal
 displacement at the upper right corner the beam. The time history is as
 plotted on the screen.
 
-figure [\[cantileverdisp\]](#cantileverdisp){reference-type="ref"
+figure [\[cantileverdisp$$
+](#cantileverdisp){reference-type="ref"
 reference="cantileverdisp"}.
 
 ::: {.center}

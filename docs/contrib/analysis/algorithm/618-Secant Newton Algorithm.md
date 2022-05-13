@@ -5,8 +5,8 @@ which uses the two-term update to accelerate the convergence of the
 modified newton method. The command is of the following form:</p>
 
 ```tcl
-algorithm SecantNewton &lt;-iterate $tangIter&gt;
-        &lt;-increment $tangIncr&gt; &lt;-maxDim $maxDim&gt;
+algorithm SecantNewton < -iterate $tangIter >
+        < -increment $tangIncr > < -maxDim $maxDim >
 ```
 
 <table>

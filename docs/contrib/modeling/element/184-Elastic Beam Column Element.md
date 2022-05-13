@@ -1,4 +1,4 @@
-# Elastic Beam Column Element
+# ElasticBeamColumn
 
 <p>This command is used to construct an elasticBeamColumn element
 object. The arguments for the construction of an elastic beam-column

@@ -48,7 +48,7 @@ tensile yielding (<code class="tcl-variable">bty</code>) and compressive yieldin
 <p><img src="/OpenSeesRT/contrib/static/AxialSp_note1.png" title="AxialSp_note1.png" width="250"
 alt="AxialSp_note1.png" />
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img
-src="AxialSp_note2.png" title="AxialSp_note2.png" width="250"
+src="/OpenSeesRT/contrib/static/AxialSp_note2.png" title="AxialSp_note2.png" width="250"
 alt="AxialSp_note2.png" /></p>
 <hr />
 

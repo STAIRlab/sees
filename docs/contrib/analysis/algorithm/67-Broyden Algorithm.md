@@ -1,15 +1,14 @@
 # Broyden Algorithm
 
-<p>This command is used to construct a Broyden algorithm object for
+This command is used to construct a Broyden algorithm object for
 general unsymmetric systems which performs successive rank-one updates
-of the tangent at the first iteration of the current time step.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>algorithm Broyden &lt;$count&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+of the tangent at the first iteration of the current time step.
+
+
+```tcl
+algorithm Broyden < $count >
+```
+
 <table>
 <tbody>
 <tr class="odd">

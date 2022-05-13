@@ -1,4 +1,4 @@
-# KikuchiBearing Element
+# KikuchiBearing
 
 <p>This command is used to construct a KikuchiBearing element object,
 which is defined by two nodes. This element consists of multiple shear
@@ -157,18 +157,21 @@ compression modulus</p></td>
 </tr>
 </tbody>
 </table>
-<p><img src="/OpenSeesRT/contrib/static/KikuchiBearing_ForceDeformation_case1_v2.png"
-title="KikuchiBearing_ForceDeformation_case1_v2.png" width="250"
-alt="KikuchiBearing_ForceDeformation_case1_v2.png" />
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img
-src="KikuchiBearing_ForceDeformation_case2_v2.png"
-title="KikuchiBearing_ForceDeformation_case2_v2.png" width="250"
-alt="KikuchiBearing_ForceDeformation_case2_v2.png" />
-&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img
-src="KikuchiBearing_ForceDeformation_case3_v2.png"
-title="KikuchiBearing_ForceDeformation_case3_v2.png" width="250"
-alt="KikuchiBearing_ForceDeformation_case3_v2.png" /></p>
-<p>REFERENCES:</p>
+<p><img 
+  src="/OpenSeesRT/contrib/static/KikuchiBearing_ForceDeformation_case1_v2.png"
+  title="KikuchiBearing_ForceDeformation_case1_v2.png" width="250"
+  alt="KikuchiBearing_ForceDeformation_case1_v2.png" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img
+  src="/OpenSeesRT/contrib/static/KikuchiBearing_ForceDeformation_case2_v2.png"
+  title="KikuchiBearing_ForceDeformation_case2_v2.png" 
+  width="250"
+  alt="KikuchiBearing_ForceDeformation_case2_v2.png" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img
+  src="/OpenSeesRT/contrib/static/KikuchiBearing_ForceDeformation_case3_v2.png"
+  title="KikuchiBearing_ForceDeformation_case3_v2.png" width="250"
+  alt="KikuchiBearing_ForceDeformation_case3_v2.png" /></p>
+
+## References
 <p>M. Kikuchi , I. D. Aiken and A. Kasalanati , "Simulation analysis for
 the ultimate behavior of full-scale lead-rubber seismic isolation
 bearings", <em>15th World Conference on Earthquake Engineering</em>, No.

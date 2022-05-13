@@ -1,6 +1,11 @@
-# Section Building
+---
+title:  Rectilinear Cross Sections
+...
+
+# Rectilinear Cross Sections
 
 <div class="mw-parser-output">
+
 <!-- <div id="toc" class="toc"> -->
 <!-- <input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none"> -->
 <!-- <div class="toctitle" lang="en" dir="ltr"> -->

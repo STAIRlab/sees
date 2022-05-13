@@ -1,4 +1,4 @@
-# ElasticTubularJoint Element
+# ElasticTubularJoint
 
 <p>This command is used to construct an ElasticTubularJoint element
 object, which models joint flexibility of tubular joints in two

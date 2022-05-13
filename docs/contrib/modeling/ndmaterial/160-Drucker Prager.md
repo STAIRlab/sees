@@ -196,7 +196,7 @@ on the meridian plane. As shown, the element is loaded until failure, at
 which point the model can no longer converge, as this is a
 stress-controlled analysis.</p>
 <p><img src="/OpenSeesRT/contrib/static/CtcTest.png" title="CtcTest.png" alt="CtcTest.png" /> <img
-src="CtcResults.png" title="CtcResults.png" alt="CtcResults.png" /></p>
+src="/OpenSeesRT/contrib/static/CtcResults.png" title="CtcResults.png" alt="CtcResults.png" /></p>
 <p>
 
 ```tcl

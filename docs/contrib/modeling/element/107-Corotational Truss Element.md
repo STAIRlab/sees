@@ -1,4 +1,4 @@
-# Corotational Truss Element
+# Corotational Truss
 
 <p>This command is used to construct a corotational truss element
 object. There are two ways to construct a corotational truss element

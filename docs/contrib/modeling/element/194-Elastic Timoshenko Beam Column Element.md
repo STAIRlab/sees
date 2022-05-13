@@ -1,4 +1,4 @@
-# Elastic Timoshenko Beam Column Element
+# Elastic Timoshenko Beam Column
 
 <p>This command is used to construct an ElasticTimoshenkoBeam element
 object. A Timoshenko beam is a frame member that accounts for shear

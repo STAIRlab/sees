@@ -72,11 +72,11 @@ bearing)</p></td>
 <figcaption aria-hidden="true">SC1.png</figcaption>
 </figure>
 <p><img src="/OpenSeesRT/contrib/static/SC2.png" title="SC2.png" alt="SC2.png" /> <img
-src="SC3.png" title="SC3.png" alt="SC3.png" /></p>
+src="/OpenSeesRT/contrib/static/SC3.png" title="SC3.png" alt="SC3.png" /></p>
 <p><img src="/OpenSeesRT/contrib/static/SC4.png" title="SC4.png" alt="SC4.png" /> <img
-src="SC5.png" title="SC5.png" alt="SC5.png" /></p>
+src="/OpenSeesRT/contrib/static/SC5.png" title="SC5.png" alt="SC5.png" /></p>
 <p><img src="/OpenSeesRT/contrib/static/SC6.png" title="SC6.png" alt="SC6.png" /> <img
-src="SC7.png" title="SC7.png" alt="SC7.png" /></p>
+src="/OpenSeesRT/contrib/static/SC7.png" title="SC7.png" alt="SC7.png" /></p>
 <hr />
 <p>REFERENCES:</p>
 <p>Christopoulos, C., Tremblay, R., Kim, H.-J., and Lacerte, M. (2008).

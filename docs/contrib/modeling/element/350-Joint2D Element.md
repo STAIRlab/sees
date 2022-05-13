@@ -1,4 +1,4 @@
-# Joint2D Element
+# Joint2D
 
 <p>This command is used to construct a two-dimensional beam-column-joint
 element object. The two dimensional beam-column joint is idealized as a

@@ -174,7 +174,8 @@ step $\Delta t := 0.50$.
 The results consist of the file Node.out, which contains a line for
 every time step. Each line contains the time and the vertical
 displacement at the upper center of the hoop structure. The time history
-is shown in figure [\[shelldisp\]](#shelldisp){reference-type="ref"
+is shown in figure [\[shelldisp$$
+](#shelldisp){reference-type="ref"
 reference="shelldisp"}.
 
 ::: {.center}

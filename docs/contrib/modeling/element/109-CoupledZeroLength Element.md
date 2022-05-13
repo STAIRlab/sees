@@ -1,4 +1,4 @@
-# CoupledZeroLength Element
+# CoupledZeroLength
 
 <p>This command is used to construct a CoupledZeroLength element object,
 which is defined by two nodes at the same location. The nodes are

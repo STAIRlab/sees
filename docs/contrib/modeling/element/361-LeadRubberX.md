@@ -172,7 +172,7 @@ figures.</p>
 <p><img src="/OpenSeesRT/contrib/static/Elastomeric3DModel.png"
 title="inline|Physical continuum model" height="300"
 alt="inline|Physical continuum model" /> <img
-src="ElastomericDiscreteSpring.png"
+src="/OpenSeesRT/contrib/static/ElastomericDiscreteSpring.png"
 title="inline|Discrete spring representation" height="300"
 alt="inline|Discrete spring representation" /></p>
 <p>The general form of element force vector, $$,

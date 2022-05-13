@@ -9,12 +9,14 @@ A simulation with `opensees` is generally configured in the following steps:
     model. 
 
 2.  **Analysis**: Once a model is defined, the next step is to create
-    an Analysis. The following are some common analysis routines:
+    an Analysis. Some common analysis routines are the following:
 
     - [Static Analysis]() Load or displacement controlled
     - [Spectral Decomposition]()
     - [Transient Direct Integration]()
     - [Transient Modal Integration]()
+    - [Moment-Curvature Analysis]()
+    - [Ultimate N-M Surface Analysis]()
 
     These routines are configured and refined in terms of analysis 
     abstractions which generally may include an `Integrator`, 
