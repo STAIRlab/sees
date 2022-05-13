@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13797,7 +13847,9 @@ Removal During Simulation
 
 
 <h1 id="channel">Channel</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;actor/channel/Channel.h&gt;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;actor/channel/Channel.h&gt;</span><span class="cp"></span>
+</pre></div>
+
 <p>class Channel<br />
 </p>
 <p><br />
@@ -13831,9 +13883,13 @@ Does nothing. Provided so that a subclasses destructor will be invoked.</p>
 <p><br />
 When creating remote actors the channels created in the actor space need to know how to contact the shadows channels. This information is provided in the string returned from this method. It is used by the machine broker when starting the remote process. It places this information as the last arguments to the program.</p>
 <p>A method invoked in the local address space by a shadow object. The method is to be invoked concurrently with a <code>setUpShadow()</code> invocation on a channel object in all the remote actor processes.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> setUpActor<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setUpActor</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method invoked in the remote address space by the actor. The method is invoked concurrently with a corresponding <code>setUpShadow()</code> invocation on a channel in a local actor process by the shadow object that created the running actor process. If the method fails returns a negative number. For actors with only one Channel this should cause the termination of the actor.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> setNextAddress<span class="op">(</span>ChannelAddress <span class="op">&amp;</span>theNextAddress<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setNextAddress</span><span class="p">(</span><span class="n">ChannelAddress</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theNextAddress</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method invoked to set specify the next address that the next messages to be sent if <code>sendMessage()</code> or received if <code>recvMessage()</code> is invoked with a null pointer.</p>
 <p>To return the next available database tag, must be an integer value greater than <span class="math inline">\(0\)</span>, <span class="math inline">\(0\)</span> is used my the objects to check if they have yet been assigned a database tag. The method defined for the Channel base class always returns <span class="math inline">\(0\)</span>, only database channel objects need worry about assigning unique integer values.</p>
 <p>To send the object <em>theObject</em> and the commit tag <em>commitTag</em> to a remote Channel whose address is given by <em>theAddress</em>. If <em>theAddress</em> is <span class="math inline">\(0\)</span>, the Channel sends to the Channel with the address last set in a <em>send..()</em>, <em>recv..()</em>, or <code>setNextAddress()</code> operation. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>

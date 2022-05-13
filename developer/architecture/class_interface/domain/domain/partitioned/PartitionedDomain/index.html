@@ -5872,10 +5872,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13860,65 +13910,111 @@ Constructs an empty PartitionedDomain. A link with the domain partitioner <em>th
 Deletes the storage components.</p>
 <p><br />
 Method which first checks that subdomains with tags 1 through <em>numPartitions</em> exist in the PartitionedDomain. Then it invokes <em>setPartitionedDomain(*this)</em> on the DomainPartitioner and finally it returns the result of invoking <em>partition(numPartitions</em> on the DomainPartitioner, which will return 0 if successful, a negative number if not.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">bool</span> addSubdomain<span class="op">(</span>Subdomain \<span class="op">*</span>theSubdomainPtr<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">addSubdomain</span><span class="p">(</span><span class="n">Subdomain</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theSubdomainPtr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Adds the subdomain pointed to by theSubdomainPtr to the domain. The domain is responsible for checking that no other subdomain with a similar tag, has been previously added to the domain. If successful the domain is responsible for invoking <code>setDomain(this)</code> on the Subdomain. The domain is also responsible for invoking <code>domainChange()</code>. The call returns <em>false</em> if the subdomain was not added, otherwise <em>true</em> is returned.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumSubdomains<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumSubdomains</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Method which returns the number of Subdomains (partitions).</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Subdomain \<span class="op">*</span>getSubdomainPtr<span class="op">(</span><span class="dt">int</span> tag<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Subdomain</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getSubdomainPtr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the Subdomain whose tag is given by <em>tag</em>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> SubdomainIter <span class="op">&amp;</span>getSubdomains<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">SubdomainIter</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getSubdomains</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Returns an iter for the Subdomains of the PartitionedDomain. <em>Node *removeExternalNode(int tag);</em><br />
 A method to remove a Node whose tag is given by <em>tag</em> from the PartitionedDomain, but will not remove the Node from any Subdomains. <em>Graph &amp;getSubdomainGraph(void);</em><br />
 This will create a new graph each time it is invoked; deleting the old graph. THIS WILL BE CHANGED. A vertex is created for each Subdomain, with an edge to each Subdomain the Subdomain is connected to, a tag equal to the Subdomain tag, and a weight equal to the result of invoking <code>getCost()</code> on the Subdomain.</p>
 <p><br />
 To add the element pointed to by theElementPtr to the domain. If <em>check</em> is <em>true</em> the domain is responsible for checking to see that: 1) no other element with a similar tag, element number, exists in any of the subdomains. If check is successful the partitioned domain attempts to add the element to the storage arrey. The call returns <em>false</em> if the element was not added, otherwise <em>true</em> is returned.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">bool</span> addNode<span class="op">(</span>Node \<span class="op">*</span>theNodePtr<span class="op">,</span> <span class="dt">bool</span> check <span class="op">=</span> <span class="kw">false</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">addNode</span><span class="p">(</span><span class="n">Node</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theNodePtr</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Adds the node pointed to by theNodePtr to the domain. If <em>check</em> is <em>true</em> the domain is responsible for checking that no other node with a similar tag, node number, exists in any of the subdomains. If successful the partition domain attempts to add the node by invoking <em>Domain::addNode</em>. The call returns <em>false</em> if the node was not added, otherwise <em>true</em> is returned. <em>virtual bool addSP_Constraint(SP_Constraint *theSPptr, bool check = false);</em><br />
 Adds the single point constraint pointed to by theSPptr to the domain. The domain performs some checks is <em>check</em> is true. If successful the domain adds the constraint using <em>Domain::addSP_Constraint()</em>. The call returns <em>false</em> if the constraint was not added, otherwise <em>true</em> is returned.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">bool</span> addMP<span class="op">(</span>MP_Constraint \<span class="op">*</span>theMPptr<span class="op">,</span> <span class="dt">bool</span> check <span class="op">=</span> <span class="kw">false</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">addMP</span><span class="p">(</span><span class="n">MP_Constraint</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theMPptr</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Adds the multiple point constraint pointed to by theMPptr, to the domain. The domain performs some checks is <em>check</em> is true. If successful the domain adds the constraint using <em>Domain::addMP_Constraint()</em>. The call returns <em>false</em> if the constraint was not added, otherwise <em>true</em> is returned.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">bool</span> addLoadCase<span class="op">(</span>LoadCase \<span class="op">*</span>theLCptr<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">addLoadCase</span><span class="p">(</span><span class="n">LoadCase</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theLCptr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p><br />
 </p>
 <p>It returns an <em>PartionedDomEleIter</em> for the elements of the domain. This is an iter which goes through all the subdomains, invoking <code>getElements()</code> on the subdomain to get an ElementIter. The PartitionedDomEleIter uses this iter to go through the elements of the subdomain until it begins returning <span class="math inline">\(0\)</span>; at which point it goes on to the next subdomain.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Element \<span class="op">*</span>getElement<span class="op">(</span><span class="dt">int</span> tag<span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Element</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getElement</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns a pointer to the element whose tag is given by <em>tag</em>. If no such element exists <span class="math inline">\(0\)</span> is returned. This is done by invoking <code>getElement(tag)</code> on the subdomains until the element is found or no more subdomains exist; in which case a <span class="math inline">\(0\)</span> is returned.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Node \<span class="op">*</span>getNode<span class="op">(</span><span class="dt">int</span> tag<span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns a pointer to the node whose tag is given by <em>tag</em>. If no such node exists <span class="math inline">\(0\)</span> is returned. This is done by invoking <code>getNode(tag)</code> on the subdomains until the element is found or no more subdomains exist; in which case a <span class="math inline">\(0\)</span> is returned.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> LoadCase \<span class="op">*</span>getLoadCasePtr<span class="op">(</span><span class="dt">int</span> tag<span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">LoadCase</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getLoadCasePtr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns a pointer to the element whose tag is given by <em>tag</em>. If no such load case exists <span class="math inline">\(0\)</span> is returned.</p>
 <p>Sets the current load case of the domain to be that whose tag is given by LCtag. It iterates through all the subdomains invoking the same operation on them. Returns <em>false</em> if no such load case exists, otherwise returns <em>true</em>.</p>
 <p>Sets the current load case of the domain to be that whose tag is given by <em>newTime</em>. It iterates through all the subdomains invoking the same operation on them.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> applyLoad<span class="op">(</span><span class="dt">double</span> time <span class="op">=</span> <span class="fl">0.0</span><span class="op">,</span> <span class="dt">double</span> loadFactor <span class="op">=</span> <span class="fl">1.0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">applyLoad</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">loadFactor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The partitioned domain iterates through all the subdomains invoking <em>applyLoad(double timeStamp)</em> on them.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> linearize<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">linearize</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The partitioned domain iterates through all the subdomains invoking <code>linearize()</code> on them.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> commit<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">commit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The partitioned domain iterates through all the subdomains invoking <code>commit()</code> on them.</p>
 <p><br />
 Returns the tag of the current load case set for the domain. If no load case is set <span class="math inline">\(-1\)</span> is returned.</p>
 <p>Returns the currentTime set for the domain. If no load case is set <span class="math inline">\(0\)</span> is returned.</p>
 <p><br />
 Returns the number of elements in the domain. This number is obtained by summing the contributions from each subdomain.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumNodes<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumNodes</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the number of nodes in the domain. This number is obtained by summing the contributions from each subdomain.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumSPs<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumSPs</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the number of SP_Constraints in the domain. This number is obtained by summing the contributions from each subdomain.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumMPs<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumMPs</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the number of MP_Constraints in the domain. This number is obtained by summing the contributions from each subdomain.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumLCs<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumLCs</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the number of LoadCases in the domain.  This number is obtained by summing the contributions from each subdomain.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Domain \<span class="op">*</span>getEmptyDomainCopy<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Domain</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getEmptyDomainCopy</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Returns an empty copy of the actual domain.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Element \<span class="op">*</span>removeElement<span class="op">(</span><span class="dt">int</span> tag<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Element</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">removeElement</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To remove the element whose tag is given by <em>tag</em> from the domain. The method Returns <span class="math inline">\(0\)</span> if no such element exists in the domain. Otherwise the domain invokes <code class="sourceCode cpp">setDomain<span class="op">(</span><span class="dv">0</span><span class="op">)</span></code> on the element and <em>setDomainChange(true,true,false)</em> on itself before a pointer to the element is returned.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Node \<span class="op">*</span>removeNode<span class="op">(</span><span class="dt">int</span> tag<span class="op">,</span> <span class="dt">bool</span> checkNeeded <span class="op">=</span> <span class="kw">true</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">removeNode</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">checkNeeded</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To remove the node whose tag is given by <em>tag</em> from the domain. Returns <span class="math inline">\(0\)</span> if no such node exists in the domain. Otherwise if the <em>checkNeeded</em> is <em>true</em> before the node is removed a check is made to see that the node is not referenced by any element, constraint or load. If it is referenced the Node will not be removed and <span class="math inline">\(0\)</span> is returned. If the node is to be removed the domain invokes <code class="sourceCode cpp">setDomain<span class="op">(</span><span class="dv">0</span><span class="op">)</span></code> on the node and <em>setDomainChange(true,false,true)</em> on itself before a pointer to the Node is returned.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> LoadCase \<span class="op">*</span>removeLoadCase<span class="op">(</span><span class="dt">int</span> tag<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">LoadCase</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">removeLoadCase</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To remove the load case whose tag is given by <em>tag</em> from the domain. Returns <span class="math inline">\(0\)</span> if the load case was not in the domain, otherwise returns a pointer to the load case that was removed. Invokes <code class="sourceCode cpp">setDomain<span class="op">(</span><span class="dv">0</span><span class="op">)</span></code> on the load case before it is returned.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> SP_Constraint \<span class="op">*</span>removeSP_Constraint<span class="op">(</span><span class="dt">int</span> tag<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">SP_Constraint</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">removeSP_Constraint</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To remove the SP_Constraint whose tag is given by <em>tag</em> from the domain. Returns <span class="math inline">\(0\)</span> if the constraint was not in the domain, otherwise the domain invokes <code class="sourceCode cpp">setDomain<span class="op">(</span><span class="dv">0</span><span class="op">)</span></code> on the constraint and <em>setDomainChange(true,false,false)</em> on itself before a pointer to the constraint is returned.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="er">`</span>MP_Constraint<span class="er">`</span> \<span class="op">*</span>removeMP_Constraint<span class="op">(</span><span class="dt">int</span> tag<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="err">`</span><span class="n">MP_Constraint</span><span class="err">`</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">removeMP_Constraint</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To remove the <code>MP_Constraint</code> whose tag is given by <em>tag</em> from the domain. Returns <span class="math inline">\(0\)</span> if the constraint was not in the domain, otherwise the domain invokes <code class="sourceCode cpp">setDomain<span class="op">(</span><span class="dv">0</span><span class="op">)</span></code> on the constraint and <em>setDomainChange(true,false,false)</em> on itself before a pointer to the constraint is returned.</p>
 <p><br />
 Will return a pointer to the DomainPartitioner object associated with the PartitionedDomain. <em>virtual int buildEleGraph(Graph &amp;theEleGraph)</em><br />

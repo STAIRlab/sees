@@ -5869,10 +5869,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13794,11 +13844,15 @@ Removal During Simulation
 
 <h1 id="newtonraphson">NewtonRaphson</h1>
 <h2 id="c-interface">C++ Interface</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/algorithm/equiSolnAlgo/NewtonRaphson.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> NewtonRaphson<span class="op">:</span> <span class="kw">public</span> EquiSolnAlg<span class="op">;</span></span></code></pre></div>
-<pre><code>MovableObject / SolutionAlgorithm / EquiSolnAlgo</code></pre>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/algorithm/equiSolnAlgo/NewtonRaphson.h&gt;</span><span class="cp"></span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">NewtonRaphson</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">EquiSolnAlg</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>MovableObject / SolutionAlgorithm / EquiSolnAlgo
+</pre></div>
+
 <p>The NewtonRaphson class is an algorithmic class which obtains a solution to a non-linear system using the Newton-Raphson iteration scheme. The iteration scheme is based on a Taylor expansion of the non-linear system of equations <span class="math inline">\(\R(\U) = \zero\)</span> about an approximate solution <span class="math inline">\({\bf U}^{(i)}\)</span>:</p>
 <p><span class="math display">\[\R(\U) = 
 \R({\bf U}^{(i)}) +
@@ -13828,22 +13882,32 @@ Removal During Simulation
 Does nothing.</p>
 <p><br />
 When invoked the object first sets itself as the EquiSolnAlgo object that the ConvergenceTest is testing and then it performs the Newton-Raphson iteration algorithm:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>theTest<span class="op">-&gt;</span>start<span class="op">()</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>theIntegrator<span class="op">-&gt;</span>formUnbalance<span class="op">();</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">do</span> <span class="op">{</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  theIntegrator<span class="op">-&gt;</span>formTangent<span class="op">();</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  theSOE<span class="op">-&gt;</span>solveX<span class="op">();</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  theIntegrator<span class="op">-&gt;</span>update<span class="op">(</span>theSOE<span class="op">-&gt;</span>getX<span class="op">());</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  theIntegrator<span class="op">-&gt;</span>formUnbalance<span class="op">();</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">while</span> <span class="op">(</span>theTest<span class="op">-&gt;</span>test<span class="op">()</span> <span class="op">==</span> <span class="kw">false</span><span class="op">)</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">theTest</span><span class="o">-&gt;</span><span class="n">start</span><span class="p">()</span><span class="w"></span>
+<span class="n">theIntegrator</span><span class="o">-&gt;</span><span class="n">formUnbalance</span><span class="p">();</span><span class="w"></span>
+<span class="k">do</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">theIntegrator</span><span class="o">-&gt;</span><span class="n">formTangent</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">theSOE</span><span class="o">-&gt;</span><span class="n">solveX</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">theIntegrator</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="n">theSOE</span><span class="o">-&gt;</span><span class="n">getX</span><span class="p">());</span><span class="w"></span>
+<span class="w">  </span><span class="n">theIntegrator</span><span class="o">-&gt;</span><span class="n">formUnbalance</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">theTest</span><span class="o">-&gt;</span><span class="n">test</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
 <p>The method returns a 0 if successful, otherwise a negative number is returned; a <span class="math inline">\(-1\)</span> if error during <code>formTangent()</code>, a <span class="math inline">\(-2\)</span> if error during <code>formUnbalance()</code>, a <span class="math inline">\(-3\)</span> if error during <code>solve()</code>, and a <span class="math inline">\(-4\)</span> if error during <code>update()</code>. If an error occurs in any of the above operations the method stops at that routine, none of the subsequent operations are invoked. A <span class="math inline">\(-5\)</span> is returned if any one of the links has not been setup. NOTE it is up to ConvergenceTest to ensure an infinite loop situation is not encountered.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setTest<span class="op">(</span>ConvergenceTest <span class="op">&amp;</span>theTest<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">setTest</span><span class="p">(</span><span class="n">ConvergenceTest</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theTest</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method to set the ConvergenceTest object associated with the Algorithm to be <em>theTest</em>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sendSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>theChannel<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">sendSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Creates an ID object, puts the values of the <em>theTest</em> objects class and database tags into this ID. It then invokes <code>sendVector()</code> on the Channel object <em>theChannel</em> to send the data to the remote object. It then invokes <code>sendSelf()</code> on <em>theTest</em>. Returns <span class="math inline">\(0\)</span> if successful, the channel error if not.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">*</span><span class="dt">int</span> recvSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>theChannel<span class="op">,</span> FEM_ObjectBroker <span class="op">&amp;</span>theBroker<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="o">*</span><span class="kt">int</span><span class="w"> </span><span class="n">recvSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">,</span><span class="w"> </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theBroker</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Creates an ID object, invokes <code>recvVector()</code> on the Channel object. Uses the data in the ID to create a ConvergenceTest object of appropriate type and sets its dbTag. It then invokes <code>recvSelf()</code> on this test object.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Sends the string ‘NewtonRaphson’ to the stream if <code>flag</code> equals <span class="math inline">\(0\)</span>.</p>
 
 

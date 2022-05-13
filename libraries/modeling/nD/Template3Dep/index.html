@@ -5869,10 +5869,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13794,64 +13844,98 @@ Removal During Simulation
 
 <h1 id="EPTemplate_commands">Template Elasto-Plastic Framework</h1>
 <h2 id="YS_Command">Yield Surface Command</h2>
-<pre><code>set ys &quot;-YieldSurfaceType &lt;parameter list&gt;&quot;</code></pre>
+<div class="highlight"><pre><span></span>set ys &quot;-YieldSurfaceType &lt;parameter list&gt;&quot;
+</pre></div>
+
 <p>This command sets the yield surface variable <code>ys</code> to be the specified type. A list of paramaters can be passed to define the yield surface and the number of parameters depend on the type of yield surface. Valid strings for YieldSurfaceType are <code>DP</code>, <code>VM</code>, <code>CC</code>, and <code>RMC01</code>, which are described in the following subsections.</p>
 <h3 id="dp_ys">Drucker-Prager Yield Surface</h3>
-<pre><code>set ys &quot;-DP&quot;</code></pre>
+<div class="highlight"><pre><span></span>set ys &quot;-DP&quot;
+</pre></div>
+
 <p><code>DP</code> stands for Drucker-Prager type, i.e. cone shaped yield surface. In this case, no parameter needs to be supplied since the slope <span class="math inline">\(\alpha\)</span> is treated as an internal variable.</p>
 <h3 id="vm_ys">von Mises Yield Surface</h3>
-<pre><code>set ys &quot;-VM&quot;</code></pre>
+<div class="highlight"><pre><span></span>set ys &quot;-VM&quot;
+</pre></div>
+
 <p><code>VM</code> stands for von Mises type, i.e. cylinder shaped yield surface. In this case, no parameter needs to be supplied since the size of the cylinder is treated as an internal variable.</p>
 <h3 id="cc_ys">Cam-Clay Yield Surface</h3>
-<pre><code>set ys &quot;-CC M?&quot;</code></pre>
+<div class="highlight"><pre><span></span>set ys &quot;-CC M?&quot;
+</pre></div>
+
 <p><code>CC</code> stands for Cam-Clay type, i.e. ellipsoid shaped yield surface. For <code>CC</code> type yield surface, the slope of the critical state line in p–q space, i.e. M, need to be supplied.</p>
 <h3 id="rmc01_ys">Rounded Mohr-Coulomb (Willam-Warnke) Yield Surface</h3>
-<pre><code>set ys &quot;-RMC01&quot;</code></pre>
+<div class="highlight"><pre><span></span>set ys &quot;-RMC01&quot;
+</pre></div>
+
 <p><code>RMC01</code> stands for rounded Mohr-Coulomb (Willam-Warnke) type, i.e. cone shaped yield surface. In this case, no parameter needs to be supplied, this is similar to the Drucker-Prager yield surface.</p>
 <h2 id="PS_Command">Potential Surface Command</h2>
-<pre><code>set ps &quot;-PotentialSurfaceType &lt;parameter list&gt;&quot;</code></pre>
+<div class="highlight"><pre><span></span>set ps &quot;-PotentialSurfaceType &lt;parameter list&gt;&quot;
+</pre></div>
+
 <p>This command sets the potential surface variable <code>ps</code> to be the specified type. A list of paramaters can be passed to define the potential surface and the number of parameters depend on the type of potential surface. Valid strings for PotentialSurfaceType are <code>DP</code>, <code>VM</code>, and <code>CC</code>, which are described in the following subsections.</p>
 <h3 id="dp_ps">Drucker-Prager Potential Surface</h3>
-<pre><code>set ps &quot;-DP&quot;</code></pre>
+<div class="highlight"><pre><span></span>set ps &quot;-DP&quot;
+</pre></div>
+
 <p><code>DP</code> stands for Drucker-Prager type, i.e. cone shaped potential surface. In this case, no parameter needs to be supplied since the slope <span class="math inline">\(\alpha\)</span> is treated as an internal variable.</p>
 <h3 id="vm_ps">von Mises Potential Surface</h3>
-<pre><code>set ps &quot;-VM&quot;</code></pre>
+<div class="highlight"><pre><span></span>set ps &quot;-VM&quot;
+</pre></div>
+
 <p><code>VM</code> stands for von Mises type, i.e. cylinder shaped potential surface. In this case, no parameter needs to be supplied since the size of the cylinder is treated as an internal variable.</p>
 <h3 id="cc_ps">Cam-Clay Potential Surface</h3>
-<pre><code>set ps &quot;-CC M?&quot;</code></pre>
+<div class="highlight"><pre><span></span>set ps &quot;-CC M?&quot;
+</pre></div>
+
 <p><code>CC</code> stands for Cam-Clay type, i.e. ellipsoid shaped potential surface. For <code>CC</code> type potential surface, the slope of the critical state line in p–q space, i.e. M, need to be supplied.</p>
 <h3 id="rmc01_ps">Rounded Mohr-Coulomb (Willam-Warnke) Potential Surface</h3>
-<pre><code>set ps &quot;-RMC01&quot;</code></pre>
+<div class="highlight"><pre><span></span>set ps &quot;-RMC01&quot;
+</pre></div>
+
 <p><code>RMC01</code> stands for rounded Mohr-Coulomb (Willam-Warnke) type, i.e. cone shaped Potential surface. In this case, no parameter needs to be supplied, this is similar to the Drucker-Prager Potential surface.</p>
 <h2 id="EL_Command">Evolution Law Command</h2>
-<pre><code>set el &quot;-EvolutionLawType &lt;parameter list&gt;&quot;</code></pre>
+<div class="highlight"><pre><span></span>set el &quot;-EvolutionLawType &lt;parameter list&gt;&quot;
+</pre></div>
+
 <p>This command sets the evolution law variable <code>el</code> to be the specified type. A list of paramaters can be passed to define the potential surface and the number of parameters depend on the type of potential surface. Valid strings for EvolutionLawType are <code>Leq</code>, <code>NLp</code>, and ``, which are described in the following subsections.</p>
 <h3 id="leq_el">Linear Scalar Evolution Law</h3>
-<pre><code>set el &quot;-Leq a?&quot;</code></pre>
+<div class="highlight"><pre><span></span>set el &quot;-Leq a?&quot;
+</pre></div>
+
 <p><code>Leq</code> stands for Linear Scalar Evolution Law. This hardening rule is based on the equivalent deviatoric plastic strain <span class="math inline">\(\epsilon_q^{pl}\)</span>. In this case, linear hardening coefficient <code>a</code> needs to be supplied. This hardening rule can be applied to any scalar internal variable, such as the slope of Drucker–Prager yield surface, the diameter of von Mises yield surface, and so on.</p>
 <h3 id="nlp_el">Nonlinear Scalar Evolution Law</h3>
-<pre><code>set el &quot;-NLp e0? lambda? kappa? &quot;</code></pre>
+<div class="highlight"><pre><span></span>set el &quot;-NLp e0? lambda? kappa? &quot;
+</pre></div>
+
 <p><code>NLp</code> stands for Nonlinear Scalar Evolution Law. This hardening rule is based on the volumetic plastic strain <span class="math inline">\(\epsilon_p^{pl}\)</span>. In this case, parameters including void ration <code>e0</code>, <code>lambda</code> and <code>kappa</code> need to be supplied. This hardening rule is primarily for the evolution of the tip stress <span class="math inline">\(p^{&#39;}_{o}\)</span> in Cam-Clay model.</p>
 <h3 id="LEij">Linear Tensorial Evolution Law</h3>
-<pre><code>set et &quot;-LEij a?&quot;</code></pre>
+<div class="highlight"><pre><span></span>set et &quot;-LEij a?&quot;
+</pre></div>
+
 <p><code>LEij</code> stands for Linear Tensorial Evolution Law. This hardening rule is based on the plastic strain <span class="math inline">\(\epsilon_{ij}^{pl}\)</span>. In this case, linear hardening coefficient <code>a</code> needs to be supplied. This hardening rule can be applied to any tensorial internal variable, such as the the center <span class="math inline">\(\alpha_{ij}\)</span> of Drucker–Prager yield surface or von Mises yield surface, and so on.</p>
 <h3 id="NLEij">Nonlinear Tensorial Evolution Law (Armstrong-Frederick model )</h3>
-<pre><code>set et &quot;-NLEij ha? Cr?&quot; </code></pre>
+<div class="highlight"><pre><span></span>set et &quot;-NLEij ha? Cr?&quot; 
+</pre></div>
+
 <p><code>NLEij</code> stands for Nonlinear Tensorial Evolution Law from Armstrong–Frederick nonlinear model. This kinematic hardening law is based on the plastic strain <span class="math inline">\(\epsilon_{ij}^{pl}\)</span>. In this case, nonlinear hardening coefficients <code>ha</code> and <code>Cr</code> need to be supplied. This hardening rule can be applied to any tensorial internal variable, such as the the center <span class="math inline">\(\alpha_{ij}\)</span> of Drucker–Prager yield surface or von Mises yield surface, and so on.</p>
 <h2 id="ep_Command">EPState Command</h2>
-<pre><code>&lt;set sts &quot;Sxx? Sxy? Sxz? Syx? Syy? Syz? Szx? Szy? Szz?&quot;&gt; 
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">set</span> <span class="n">sts</span> <span class="s">&quot;Sxx? Sxy? Sxz? Syx? Syy? Syz? Szx? Szy? Szz?&quot;</span><span class="o">&gt;</span> 
 
-set eps &quot;&lt;-NOD nt?&gt; -NOS ns? sc1? sc2? ... &lt;-stressp sts&gt;&quot;</code></pre>
+<span class="n">set</span> <span class="n">eps</span> <span class="s">&quot;&lt;-NOD nt?&gt; -NOS ns? sc1? sc2? ... &lt;-stressp sts&gt;&quot;</span>
+</pre></div>
+
 <p>First statement sets the initial stress tensor to variable <code>sts</code> (if it is not stated here, no initial stress by default). Second statement assigns to the Elasto-Plastic state variable <code>eps</code> the specified state parameters, including number of tensorial internal variables <code>nt</code> (if it is not stated here, <span class="math inline">\(nt=0\)</span> by default), number of scalar internal variables <code>ns</code> and corresponding initial values <code>sc1</code>, <code>sc2</code>, ..., and initial stresses defined in <code>$sts</code> (if it has been previously defined).</p>
 <h2 id="temp_Command">Template Elasto-Plastic Material Command</h2>
-<pre><code>nDMaterial Template3Dep mTag? -YS $ys? -PS $ps? -EPS $eps? &lt;-ELS1 $el?&gt; 
-&lt;$-ELT1 et?&gt;</code></pre>
+<div class="highlight"><pre><span></span><span class="n">nDMaterial</span> <span class="n">Template3Dep</span> <span class="n">mTag</span><span class="o">?</span> <span class="o">-</span><span class="n">YS</span> <span class="o">$</span><span class="n">ys</span><span class="o">?</span> <span class="o">-</span><span class="n">PS</span> <span class="o">$</span><span class="n">ps</span><span class="o">?</span> <span class="o">-</span><span class="n">EPS</span> <span class="o">$</span><span class="n">eps</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">ELS1</span> <span class="o">$</span><span class="n">el</span><span class="o">?&gt;</span> 
+<span class="o">&lt;$-</span><span class="n">ELT1</span> <span class="n">et</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>A template elasto-plastic material is constructed using <code>nDMaterial</code> command. The argument <code>mTag</code> is used to uniquely identify this nDMaterial object among nDMaterial objects in the BasicBuilder object. The other parameters include previously defined yield surface object <code>ys</code>, potential surface object <code>ps</code>, elasto-plastic state object <code>eps</code>, scalar evolution law object <code>el</code>, and tensorial evolution law object <code>et</code>.</p>
 <h2 id="ep_command_Examples">Examples</h2>
 <h3 id="von-mises-model">von Mises Model</h3>
 <p> </p>
 <div class="small">
-<pre><code># Yield surface 
+<div class="highlight"><pre><span></span># Yield surface 
 set ys &quot;-VM&quot;
 
 # Potential surface
@@ -13865,57 +13949,63 @@ set ES1  &quot;-Leq  1.10&quot;
 set EPS &quot;-NOD 0 -NOS 1 20&quot;#
 
 # Creating nDMaterial using Template Elastic-Plastic Model
-nDMaterial Template3Dep 1 -YS $ys -PS $ps -EPS $EPS -ELS1 $ES1</code></pre>
+nDMaterial Template3Dep 1 -YS $ys -PS $ps -EPS $EPS -ELS1 $ES1
+</pre></div>
+
 </div>
 <details>
 <summary>
 Drucker–Prager Model
 </summary>
-<div class="sourceCode" id="cb19"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Yield surface </span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> ys <span class="st">&quot;-DP&quot;</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Potential surface</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> ps <span class="st">&quot;-DP 0.1&quot;</span></span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scalar evolution law: linear hardening coef = 1.0</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> ES1  <span class="st">&quot;-Leq  1.10&quot;</span></span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initial stress</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> sts <span class="st">&quot;0.10 0 0  0 0.10 0  0 0 0.10&quot;</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># EPState</span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">#______________alpha___k</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> EPS <span class="st">&quot;-NOD 0 -NOS 2 0.2 0.0 -stressp </span><span class="dt">$</span><span class="st">sts&quot;</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># where</span></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">#alpha = 2 sin(phi) / (3^0.5) / (3-sin(phi) ), phi is the friction angle</span></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># and k is the cohesion</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Creating nDMaterial using Template Elastic-Plastic Model</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    nDMaterial Template3Dep <span class="dv">1</span><span class="ot"> -YS</span> <span class="dt">$ys</span><span class="ot"> -PS</span> <span class="dt">$ps</span><span class="ot"> -EPS</span> <span class="dt">$EPS</span><span class="ot"> -ELS1</span> <span class="dt">$ES1</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="c"># Yield surface </span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ys<span class="w"> </span><span class="s2">&quot;-DP&quot;</span>
+
+<span class="w">    </span><span class="c"># Potential surface</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ps<span class="w"> </span><span class="s2">&quot;-DP 0.1&quot;</span>
+
+<span class="w">    </span><span class="c"># Scalar evolution law: linear hardening coef = 1.0</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ES1<span class="w">  </span><span class="s2">&quot;-Leq  1.10&quot;</span>
+
+<span class="w">    </span><span class="c"># Initial stress</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>sts<span class="w"> </span><span class="s2">&quot;0.10 0 0  0 0.10 0  0 0 0.10&quot;</span>
+
+<span class="w">    </span><span class="c"># EPState</span>
+<span class="w">    </span><span class="c">#______________alpha___k</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>EPS<span class="w"> </span><span class="s2">&quot;-NOD 0 -NOS 2 0.2 0.0 -stressp $sts&quot;</span>
+<span class="w">    </span><span class="c">#</span>
+<span class="w">    </span><span class="c"># where</span>
+<span class="w">    </span><span class="c">#alpha = 2 sin(phi) / (3^0.5) / (3-sin(phi) ), phi is the friction angle</span>
+<span class="w">    </span><span class="c"># and k is the cohesion</span>
+
+<span class="w">    </span><span class="c"># Creating nDMaterial using Template Elastic-Plastic Model</span>
+<span class="w">    </span><span class="nv">nDMaterial</span><span class="w"> </span>Template3Dep<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>YS<span class="w"> </span><span class="nv">$ys</span><span class="w"> </span><span class="o">-</span>PS<span class="w"> </span><span class="nv">$ps</span><span class="w"> </span><span class="o">-</span>EPS<span class="w"> </span><span class="nv">$EPS</span><span class="w"> </span><span class="o">-</span>ELS1<span class="w"> </span><span class="nv">$ES1</span>
+</pre></div>
+
 </details>
  
 <details>
 <summary>
 Cam-clay Model
 </summary>
-<div class="sourceCode" id="cb20"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Yield surface M = 1.2</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> ys <span class="st">&quot;-CC 1.2&quot;</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Potential surface M = 1.2</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> ps <span class="st">&quot;-CC 1.2&quot;</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Scalar evolution law___void ratio___Lamda___Kappa </span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> ES1  <span class="st">&quot;-NLp           0.85        0.19   0.06&quot;</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initial stress</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> sts <span class="st">&quot;0.10 0 0  0 0.10 0  0 0 0.10&quot;</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">#________________po</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">set</span> EPS <span class="st">&quot;-NOS 1 200.1 -stressp </span><span class="dt">$</span><span class="st">sts&quot;</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">#</span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    nDMaterial Template3Dep <span class="dv">1</span><span class="ot"> -YS</span> <span class="dt">$ys</span><span class="ot"> -PS</span> <span class="dt">$ps</span><span class="ot"> -EPS</span> <span class="dt">$EPS</span><span class="ot"> -ELS1</span> <span class="dt">$ES1</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="c"># Yield surface M = 1.2</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ys<span class="w"> </span><span class="s2">&quot;-CC 1.2&quot;</span>
+
+<span class="w">    </span><span class="c"># Potential surface M = 1.2</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ps<span class="w"> </span><span class="s2">&quot;-CC 1.2&quot;</span>
+
+<span class="w">    </span><span class="c"># Scalar evolution law___void ratio___Lamda___Kappa </span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>ES1<span class="w">  </span><span class="s2">&quot;-NLp           0.85        0.19   0.06&quot;</span>
+
+<span class="w">    </span><span class="c"># Initial stress</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>sts<span class="w"> </span><span class="s2">&quot;0.10 0 0  0 0.10 0  0 0 0.10&quot;</span>
+
+<span class="w">    </span><span class="c">#________________po</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>EPS<span class="w"> </span><span class="s2">&quot;-NOS 1 200.1 -stressp $sts&quot;</span>
+
+<span class="w">    </span><span class="c">#</span>
+<span class="w">    </span><span class="nv">nDMaterial</span><span class="w"> </span>Template3Dep<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>YS<span class="w"> </span><span class="nv">$ys</span><span class="w"> </span><span class="o">-</span>PS<span class="w"> </span><span class="nv">$ps</span><span class="w"> </span><span class="o">-</span>EPS<span class="w"> </span><span class="nv">$EPS</span><span class="w"> </span><span class="o">-</span>ELS1<span class="w"> </span><span class="nv">$ES1</span>
+</pre></div>
+
 </details>
 
 

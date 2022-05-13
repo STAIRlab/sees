@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13798,13 +13848,15 @@ Removal During Simulation
 
 <h1 id="displacementcontrol">DisplacementControl</h1>
 <p>UNDER CONSTRUCTION.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/integrator/DisplacementControl.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DisplacementControl<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> StaticIntegrator</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    MovableObject</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    Integrator</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    IncrementalIntegrator</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/integrator/DisplacementControl.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DisplacementControl</span><span class="o">:</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="n">StaticIntegrator</span><span class="w"></span>
+<span class="w">    </span><span class="n">MovableObject</span><span class="w"></span>
+<span class="w">    </span><span class="n">Integrator</span><span class="w"></span>
+<span class="w">    </span><span class="n">IncrementalIntegrator</span><span class="w"></span>
+</pre></div>
+
 <p>DisplacementControl is a subclass of StaticIntegrator, it is used to when performing a static analysis on the FE_Model using the displacement control method. In the displacement control method the displacement at a specified degree-of-freedom Uc is specified for each iteration. The following constraint equation is added to equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor$$</a> of the StaticIntegrator class:</p>
 <p><span class="math display">\[Uc_n^{(i)} - Uc_{n-1} = \delta Uc_n\]</span></p>
 <p>where <span class="math inline">\(\delta Uc_n\)</span> depends on <span class="math inline">\(\delta Uc_{n-1}\)</span>, the displacement increment at the previous time step, <span class="math inline">\(J_{n-1}\)</span>, the number of iterations required to achieve convergence in the previous load step, and <span class="math inline">\(Jd\)</span>, the desired number of iteraions. <span class="math inline">\(\delta Uc_n\)</span> is bounded by <span class="math inline">\(\delta Uc_{min}\)</span> and <span class="math inline">\(\delta Uc_{max}\)</span>. <span class="math display">\[\delta Ucn = max \left( \delta Uc{min}, min \left(
@@ -13828,17 +13880,23 @@ Removal During Simulation
 <p>The integer <code>INTEGRATOR_TAGS_DisplacementControl</code> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the StaticIntegrator classes constructor. <span class="math inline">\(\delta Uc_1\)</span> is the load factor used in the first step. The arguments <span class="math inline">\(Jd\)</span>, <span class="math inline">\(\delta Uc_{min}\)</span>, and <span class="math inline">\(\delta Uc_{max}\)</span> are used in the determination of the increment in the load factor at each step.</p>
 <p><br />
 Does nothing.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> newStep<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">newStep</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>WHAT DO I DO?<br />
 </p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> update<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span><span class="er">$</span>\Delta U<span class="er">$</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">$</span><span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">U$</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>WHAT DO I DO?<br />
 <em>int sendSelf(int commitTag, Channel &amp;theChannel);</em><br />
 WHAT DO I DO?<br />
 <em>int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</em><br />
 WHAT DO I DO?<br />
 </p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>WHAT DO I DO?</p>
 
 

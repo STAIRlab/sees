@@ -5871,10 +5871,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13799,17 +13849,21 @@ Removal During Simulation
 </ol>
 <p>Before getting started, make sure that you have installed CMake and have suitable C/C++ and Fortran compiler tool chains configured on your computer (see <code class="interpreted-text" role="ref">build-chain</code>).</p>
 <p>The OpenSees source code repository is hosted on Github and can be downloaded directly from <a href="https://github.com/OpenSees/OpenSees" class="uri">https://github.com/OpenSees/OpenSees</a>. Alternatively, you can clone the repository from a terminal by running the following command:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/OpenSees/OpenSees</span></code></pre></div>
+<div class="highlight"><pre><span></span>git clone https://github.com/OpenSees/OpenSees
+</pre></div>
+
 <p>If you are planning to contribute changes back to the OpenSees project, you should first <em>fork</em> the repository as mentioned in <code class="interpreted-text" role="ref">build-src</code>.</p>
 <p>Tcl is the only dependency required for a basic OpenSees build that is not already bundled into the source repository on Github. Most Linux distributions and MacOS will already have this installed. A package manager offers the simplest and cleanest way to install such dependencies (see <code class="interpreted-text" role="ref">build-pkg</code>).</p>
 <p><strong>Explanation needed for adding Tcl paths to CMake config</strong></p>
 <p>The final step is to generate and run a build system. Users on any platform should be able to use Option I below from a suitable command line environment. Option II outlines an alternative process for building with the graphical Visual Studio environment on Windows.</p>
 <h2 id="terminal-build">Option I: Command line</h2>
 <p>Open a terminal that is aware of you compiler tool-chain and package manager, or make sure to run any necessary activation scripts to this end. For example, if you are using Anaconda on Windows to manage dependencies, the following steps should be executed through the Anaconda Prompt (on MacOS or Linux this is likely integrated directly into your default terminal application).</p>
-<pre class="shell"><code>OpenSees $ mkdir build
-OpenSees $ cd build
+<div class="highlight"><pre><span></span>OpenSees $ mkdir build
+OpenSees $ <span class="nb">cd</span> build
 build $ cmake ..
-build $ cmake --build . --target OpenSeesTcl</code></pre>
+build $ cmake --build . --target OpenSeesTcl
+</pre></div>
+
 <div class="toctree">
 <p>compile/basic-vs.rst</p>
 </div>

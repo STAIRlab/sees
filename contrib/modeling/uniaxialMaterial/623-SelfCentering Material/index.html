@@ -5883,10 +5883,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13802,8 +13852,10 @@ This material is primarily used to model a self-centering energy-dissipative (SC
 <p>
 This material type could potentially be used for any comparable self-centering system that exhibits a flag-shaped hysteretic response (for example: rocking wall systems if the uniaxial material is used as a moment/rotation hysteresis).
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial SelfCentering <span class="dt">$matTag</span> <span class="dt">$k1</span> <span class="dt">$k2</span> <span class="dt">$sigAct</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$beta</span> &amp;lt;<span class="dt">$epsSlip</span>&amp;gt; &amp;lt;<span class="dt">$epsBear</span>&amp;gt; &amp;lt;rBear&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>SelfCentering<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$k1</span><span class="w"> </span><span class="nv">$k2</span><span class="w"> </span><span class="nv">$sigAct</span>
+<span class="w">        </span><span class="nv">$beta</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$epsSlip</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$epsBear</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">rBear</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

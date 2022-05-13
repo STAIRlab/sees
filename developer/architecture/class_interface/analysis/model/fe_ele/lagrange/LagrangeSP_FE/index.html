@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13801,10 +13851,12 @@ Removal During Simulation
 
 
 <h1 id="lagrangesp_fe">LagrangeSP_FE</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/fe_ele/lagrange/LagrangeSP_FE.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LagrangeSP_FE<span class="op">:</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> FE_Element</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/fe_ele/lagrange/LagrangeSP_FE.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LagrangeSP_FE</span><span class="o">:</span><span class="w"></span>
+<span class="k">public</span><span class="w"> </span><span class="n">FE_Element</span><span class="w"></span>
+</pre></div>
+
 <p><code>LagrangeSP_FE</code> is a subclass of <a href="../FE_Element"><code>FE_Element</code></a> used to enforce a single point constraint. It does this by adding to the tangent and the residual: <span class="math display">\[\left[ \begin{array}{cc} 0 &amp; \alpha \\ \alpha &amp; 0 \end{array}
 \right] ,
 \left\{ \begin{array}{c} 0 \\ \alpha(u_s - u_t) \end{array} \right\}\]</span> at the locations corresponding to the constrained degree-of-freedom specified by the SP_Constraint and the lagrange multiplier degree-of-freedom introduced by the LagrangeConstraintHandler for this constraint, where <span class="math inline">\(U_s\)</span> is the specified value of the constraint and <span class="math inline">\(U_t\)</span> the current trial displacement at the node corresponding to the constraint.</p>
@@ -13826,7 +13878,9 @@ Invokes the destructor on the Matrix and Vector objects created in the construct
 Causes the LagrangeSP_FE to determine the mapping between it’s equation numbers and the degrees-of-freedom. From the Node object link, created in the constructor, the <code>DOF_Group</code> corresponding to the Node associated with the constraint is determined. From this <em>DOF_Group</em> object the mapping for the constrained degree of freedom is determined and the myID(0) in the base class is set. The myID(1) is determined from the Lagrange <code>DOF_Group</code> <em>theGroup</em> passed in the constructor. Returns <span class="math inline">\(0\)</span> if successful. Prints a warning message and returns a negative number if an error occurs: <span class="math inline">\(-2\)</span> if the Node has no associated DOF_Group, <span class="math inline">\(-3\)</span> if the constrained DOF specified is invalid for this Node and <span class="math inline">\(-4\)</span> if the ID in the <code>DOF_Group</code> is too small for the Node.</p>
 <p>Returns the tangent Matrix created in the constructor.</p>
 <p>Sets the FE_Elements contribution to the residual: <span class="math display">\[\left\{ \begin{array}{c} 0 \\ \alpha(u_s - u_t) \end{array} \right\}\]</span> where <span class="math inline">\(U_s\)</span> is the specified value of the constraint and <span class="math inline">\(U_t\)</span> the current trial displacement at the node corresponding to constrained degree-of-freedom. Prints a warning message and sets this contribution to <span class="math inline">\(0\)</span> if the specified constrained degree-of-freedom is invalid. Returns this residual Vector.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="at">const</span> Vector <span class="op">&amp;</span>getTangForce<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span>disp<span class="op">,</span> <span class="dt">double</span> fact <span class="op">=</span> <span class="fl">1.0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getTangForce</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disp</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Sets the <code>FE_Elements</code> contribution to the residual: <span class="math display">\[\left\{ \begin{array}{c} 0 \\ \alpha(u_s - u_t) \end{array} \right\}\]</span> where <span class="math inline">\(U_s\)</span> is the specified value of the constraint and <span class="math inline">\(U_t\)</span> the current trial displacement in <code>disp</code> corresponding to constrained degree-of-freedom. Prints a warning message and sets this contribution to <span class="math inline">\(0\)</span> if the specified constrained degree-of-freedom is invalid.</p>
 
 

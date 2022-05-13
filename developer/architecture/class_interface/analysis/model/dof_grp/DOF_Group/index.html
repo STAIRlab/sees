@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13800,7 +13850,9 @@ Removal During Simulation
 
 <p>NEED A GETTANGFORCE() LIKE <code>FE_Element</code> FOR ELE_BY_ELE SOLVERS. KEEP A POINTER TO LAST INTEGRATOR.</p>
 <h1 id="dof_group"><code>DOF_Group</code></h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/dof_grp/DOF_Group.h&gt;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/dof_grp/DOF_Group.h&gt;</span><span class="cp"></span>
+</pre></div>
+
 <p>class DOF_Group;<br />
 </p>
 <p>DOF_Group is a base class. An object of type <code>DOF_Group</code> represents an unconstrained node of the domain in the model. Each node in the domain is associated with one DOF_Group. DOF_Groups are called upon in the analysis to provide their contributions of unbalanced load to the system of equations. Subclasses are used by the constraint handler to to introduce new dofs into the analysis.</p>
@@ -13842,23 +13894,37 @@ Removal During Simulation
 <p><br />
 </p>
 <p>Constructs a <code>DOF_Group</code> with an associated node given by <em>theNode</em> and a tag given by <em>tag</em>. During construction it determines the number of unknown dofs from the node, <em>numDOF</em>, and creates an Vector object to hold the unbalance information and an ID object to hold mapping between degrees-of-freedom and equation numbers. All values of the ID are set to <span class="math inline">\(-2\)</span> initially. It creates a Vector to hold the unbalance loads and an ID to hold the mapping information, both of size equal to the number of unknowns. If the size of the Vector or the ID is <span class="math inline">\(0\)</span>, i.e. ran out of memory, a warning message is orinted and <em>numDOF</em> set to <span class="math inline">\(0\)</span>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>DOF_Group<span class="op">(</span><span class="dt">int</span> tag<span class="op">,</span> <span class="dt">int</span> numDOF<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">DOF_Group</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numDOF</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Provided for subclasses. Constructs a <code>DOF_Group</code> with the number of unknown dofs given by <em>numDOF</em> and a tag given by <em>tag</em>. No Node is associated with this DOF_Group. Creates a Vector of size <em>numDOF</em> to hold the unbalance information and an ID object to hold mapping between degrees-of-freedom and equation numbers. All values of the ID are set to <span class="math inline">\(-2\)</span> initially. If the size of the Vector or the ID is <span class="math inline">\(0\)</span>, i.e. ran out of memory, a warning message is orinted and <em>numDOF</em> set to <span class="math inline">\(0\)</span>.</p>
 <p><br />
 Invokes the destructor on the Vector created to hold the unbalance.</p>
 <p><br />
 Operation to set the equation number of the <em>dof’th</em> DOF in the DOF_Group to <em>value</em>. In this base class, if <em>index</em> is a valid location, <span class="math inline">\(0 &lt; index &lt; numDOF-1\)</span> the operator <em>(index) = value</em> is invoked on the ID object created for the mapping, otherwise an error message is printed.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> setID<span class="op">(</span><span class="at">const</span> ID <span class="op">&amp;</span>values<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setID</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="n">values</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>An operation to set the equation numbers of all the DOFs in the DOF_Group to be those given in the ID <em>values</em>. In this base class, the operator <em>= values</em> is invoked on the ID object created for the mapping.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="at">const</span> ID <span class="op">&amp;</span>getID<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getID</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A const member function which returns in an ID object the equation numbers associated with the degrees-of-freedom in the DOF_Group. The size of the ID object is equal to the number of degrees-of-freedom represented by the DOF_Group. This base class returns the ID created for the mapping.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getTag<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getTag</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A const member function which returns the integer identifier <em>tag</em> passed in the constructor.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumDOF<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumDOF</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the total number of DOFs in the DOF_Group. This base class returns <em>numDOF</em>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumFreeDOF<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumFreeDOF</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the total number of <em>free</em> DOFs in the DOF_Group, i.e. number of dof in the group who have not been assigned a negative equation number. Determines this by looping through the ID containing the mapping information.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumConstrainedDOF<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumConstrainedDOF</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the total number of <em>constrained</em> DOFs in the DOF_Group, i.e. number of dof in the group who have been assigned a negative equation number. Determines this by looping through the ID containing the mapping information.</p>
 <p><br />
 Returns the current tangent matrix for the DOF_Group. If no tangent matrix has been created, one of size(numDOF,numDOF) is constructed. If not enough space is available for a new tangent matrix, an error message is printed and an error Matrix is returned..</p>
@@ -13869,9 +13935,13 @@ Returns the current tangent matrix for the DOF_Group. If no tangent matrix has b
 To zero the unbalance vector. Invokes <code>Zero()</code> on the vector object used to store the unbalance information. <em>virtual void formUnbalance(Integrator *theIntegrator);</em><br />
 Causes the <code>DOF_Group</code> to form its contribution to the residual. Invokes <code>formNodUnbalance(this)</code> on <em>theIntegrator</em>. <em>virtual const Vector &amp;getUnbalance() const;</em><br />
 Returns the vector holding the unbalance.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> addPtoUnbalance<span class="op">(</span><span class="dt">double</span> fact <span class="op">=</span> <span class="fl">1.0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addPtoUnbalance</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Adds the product of the unbalanced load at the node and <em>fact</em> to the unbalance vector. A warning message is printed and nothing is done if no node is associated with the DOF_Group, otherwise <em>addVector(theNode-<span class="math inline">\(&gt;\)</span>getUnbalancedLoad(),fact)</em> is invoked on the unbalance vector and a warning message is printed if this method returns a negative value.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> addMtoTang<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span><span class="er">$</span>\ddot u<span class="er">$</span><span class="op">,</span> <span class="dt">double</span> fact<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">addMtoTang</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">$</span><span class="err">\</span><span class="n">ddot</span><span class="w"> </span><span class="n">u$</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fact</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Adds <em>fact</em> times the product of the associated nodes mass matrix and the Vector <span class="math inline">\(\ddot u\)</span> to the unbalance vector. A warning message is printed and nothing is done if no node is associated with the DOF_Group.</p>
 <p><br />
 To return the committed displacement at the node. Returns the result of invoking <code>getDisp()</code> on the Node. If there is no associated node object, an error message is printed and an error Vector is returned.</p>
@@ -13879,10 +13949,14 @@ To return the committed displacement at the node. Returns the result of invoking
 <p>To return the committed velocity at the node. Returns result of invoking <code>getAccel()</code> on the Node. If there is no associated node object, an error message is printed and an error Vector is returned.</p>
 <p>This operation sets the value of the nodal trial displacement at the associated node. The vector <em>u</em> is of size equal to the number of equations in the AnalysisModel (this is not checked by the DOF_Group). The <code>DOF_Group</code> object accesses the contents of the Vector <em>u</em> using its assigned equation numbers. If a <span class="math inline">\(-1\)</span> exists for a DOF a <span class="math inline">\(0\)</span> value is set as the corresponding nodal displacement for the node. Creates a Vector to store the correct components of <em>u</em>, then invokes <code>setTrialDisp()</code> on the node object; if no node object an error message is printed. CURRENTLY THERE IS NO CHECK TO SEE IF myID(i) DOES NOT OVERFLOW ADMISSIBLE VALUES IN U - THIS NEEDS TO CHANGE<br />
 </p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> setNodeVel<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span><span class="er">$</span>u<span class="op">^{.}</span><span class="er">$</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setNodeVel</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">$u</span><span class="o">^</span><span class="p">{.}</span><span class="n">$</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>This operation sets the value of the nodal trial velocity at the associated node. The vector <em><span class="math inline">\(u^{.}\)</span></em> is of size equal to the number of equations in the AnalysisModel (this is not checked by the DOF_Group). The <code>DOF_Group</code> object accesses the contents of the Vector <em><span class="math inline">\(u^{.}\)</span></em> using its assigned equation numbers. If a <span class="math inline">\(-1\)</span> exists for a DOF a <span class="math inline">\(0\)</span> value is set as the corresponding nodal velocity for the node. Creates a Vector to store the correct components of <em>u</em>, then invokes <code>setTrialVel()</code> on the node object; if no node object an error message is printed. MUST CHANGE AS setNodeDisp<br />
 </p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> setNodeAccel<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span><span class="er">$</span>u<span class="op">^{..}</span><span class="er">$</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setNodeAccel</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">$u</span><span class="o">^</span><span class="p">{..}</span><span class="n">$</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>This operation sets the value of the nodal trial acceleration at the associated node. The vector <em><span class="math inline">\(u^{..}\)</span></em> is of size equal to the number of equations in the AnalysisModel (this is not checked by the DOF_Group). The <code>DOF_Group</code> object accesses the contents of the Vector <em><span class="math inline">\(u^{..}\)</span></em> using its assigned equation numbers. If a <span class="math inline">\(-1\)</span> exists for a DOF a <span class="math inline">\(0\)</span> value is set as the corresponding nodal acceleration for the node. The return value is as outlined above for <em>setNodeAccel().</em> Creates a Vector to store the correct components of <em>u</em>, then invokes <code>setTrialAccel()</code> on the node object; if no node object an error message is printed. MUST CHANGE AS setNodeDisp<br />
 </p>
 <p><br />

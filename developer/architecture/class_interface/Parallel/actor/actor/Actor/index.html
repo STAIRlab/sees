@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13799,7 +13849,9 @@ Removal During Simulation
 
 
 <h1 id="actor">Actor</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;actor/actor/Actor.h&gt;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;actor/actor/Actor.h&gt;</span><span class="cp"></span>
+</pre></div>
+
 <p>class Actor<br />
 </p>
 <p><br />
@@ -13835,9 +13887,13 @@ Removal During Simulation
 Provided so subclass destructor will be called.</p>
 <p><br />
 A method to add as a function to the actor object the function <em>fp</em>, this function is identified by the <em>tag</em> value. This function will be invoked by the actor on invocation of <code>processMethod()</code> with <em>tag</em> as the argument. The object checks to see that the <em>tag</em> has not been used previously. If it has not and the number of functions so far added is less than <em>numActorMethods</em> the function is added and <span class="math inline">\(0\)</span> is returned, otherwise a <span class="math inline">\(-1\)</span> (if <em>tag</em> was already used) or <span class="math inline">\(-2\)</span> (if <em>numActorMethods</em> already added) or a <span class="math inline">\(-3\)</span> (if running out of space) is returned to indicate the function was not added.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getMethod<span class="op">();</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getMethod</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns the next integer value sitting in the actors channel. This int value corresponds to the <em>tag</em> of the next method that the shadow object wants the actor to perform. If an error occurs <span class="math inline">\(-1\)</span> will be returned.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> processMethod<span class="op">(</span><span class="dt">int</span> tag<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">processMethod</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>This causes the actor object to invoke the function that was added to the actor with the <em>tag</em> identifier. If no method with <em>tag</em> exists a <span class="math inline">\(-1\)</span> is returned. <em>virtual int sendObject(MovableObject &amp;theObject, ChannelAddress *theAddress =0);</em><br />
 A method which will send <em>theObject</em> through the actors channel either to the address given by <em>theAddress</em> or to the address of the shadow object that created the actor if no address is specified.</p>
 <p>Returns the result of invoking <em>sendObj(0, theObject,theBroker,theAddress)</em> on the actors channel object if an address is specified, otherwise the result of invoking <em>sendObj(theMessage,theBroker,this-&gt;getShadowAdressPtr())</em> on the actors channel object is returned. <em>virtual int recvObject(MovableObject &amp;theObject, ChannelAddress *theAddress =0);</em><br />
@@ -13845,30 +13901,46 @@ A method which will receive <em>theObject</em> from the actors channel either fr
 <p>Returns the result of invoking <em>recvObj(0, theObject,theBroker,theAddress)</em> on the actors channel object if an address is specified, otherwise the result of invoking <em>recvObj(theMessage,theBroker,this-&gt;getShadowAdressPtr())</em> on the actors channel object is returned. <em>virtual int sendMessage(Message &amp;theMessage, ChannelAddress *theAddress =0);</em><br />
 A method which will send the data in the message <em>theMessage</em> through the actors channel either to the address given by <em>theAddress</em> or to the address of the shadow object that created the actor if no address is specified.</p>
 <p>Returns the result of invoking <code class="sourceCode cpp">sendMsg<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>theMessage<span class="op">,</span>theAddress<span class="op">)</span></code> on the actors channel object if an address is specified, otherwise the result of invoking <code class="sourceCode cpp">sendMsg<span class="op">(</span>theMessage<span class="op">,</span><span class="kw">this</span><span class="op">-</span>\<span class="op">&gt;</span>getShadowAdressPtr<span class="op">())</span></code> on the actors channel object is returned.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> recvMessage<span class="op">(</span>Message <span class="op">&amp;</span>theMessage<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">recvMessage</span><span class="p">(</span><span class="n">Message</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theMessage</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which will receive the data in the message <em>theMessage</em> from the actors channel either from the address given by <em>theAddress</em> or from the address of the shadow object that created the actor if no address is specified.</p>
 <p>Returns the result of invoking <code class="sourceCode cpp">recvMsg<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>theMessage<span class="op">,</span>theAddress<span class="op">)</span></code> on the actors channel object if an address is specified, otherwise the result of invoking <em>recvMsg(0,0,theMessage,this-&gt;getShadowAdressPtr())</em> on the actors channel object is returned. <em>virtual int sendMatrix(Matrix &amp;theMatrix, ChannelAddress *theAddress =0);</em><br />
 A method which will send <em>theMatrix</em> through the actors channel either to the address given by <em>theAddress</em> or to the address of the shadow object that created the actor if no address is specified.</p>
 <p>Returns the result of invoking <code class="sourceCode cpp">sendMatrix<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>theMatrix<span class="op">,</span>theAddress<span class="op">)</span></code> on the actors channel object if an address is specified, otherwise the result of invoking <em>sendMatrix(0,0,theMatrix,this-&gt;getShadowAdressPtr())</em> on the actors channel object is returned.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> recvMatrix<span class="op">(</span>Matrix <span class="op">&amp;</span>theMatrix<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">recvMatrix</span><span class="p">(</span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theMatrix</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which will receive <em>theMatrix</em> from the actors channel either from the address given by <em>theAddress</em> or from the address of the shadow object that created the actor if no address is specified.</p>
 <p>Returns the result of invoking <code class="sourceCode cpp">recvMatrix<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>theMatrix<span class="op">,</span>theAddress<span class="op">)</span></code> on the actors channel object if an address is specified, otherwise the result of invoking <em>recvMatrix(0,0,theMatrix,this-&gt;getShadowAdressPtr())</em> on the actors channel object is returned. <em>virtual int sendVector(Vector &amp;theVector, ChannelAddress *theAddress =0);</em><br />
 A method which will send <em>theVector</em> through the actors channel either to the address given by <em>theAddress</em> or to the address of the shadow object that created the actor if no address is specified.</p>
 <p>Returns the result of invoking <code class="sourceCode cpp">sendVector<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>theVector<span class="op">,</span>theAddress<span class="op">)</span></code> on the actors channel object if an address is specified, otherwise the result of invoking <em>sendVector(0,0,theVector,this-&gt;getShadowAdressPtr())</em> on the actors channel object is returned.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> recvVector<span class="op">(</span>Vector <span class="op">&amp;</span>theVector<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">recvVector</span><span class="p">(</span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theVector</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which will receive <em>theVector</em> from the actors channel either from the address given by <em>theAddress</em> or from the address of the shadow object that created the actor if no address is specified.</p>
 <p>Returns the result of invoking <code class="sourceCode cpp">recvVector<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>theVector<span class="op">,</span>theAddress<span class="op">)</span></code> on the actors channel object if an address is specified, otherwise the result of invoking <em>recvVector(0,0,theVector,this-&gt;getShadowAdressPtr())</em> on the actors channel object is returned.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> sendID<span class="op">(</span>ID <span class="op">&amp;</span>theID<span class="op">,</span> ChannelAddress \<span class="op">*</span>theAddress <span class="op">=</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sendID</span><span class="p">(</span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theID</span><span class="p">,</span><span class="w"> </span><span class="n">ChannelAddress</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theAddress</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which will send <em>theID</em> through the actors channel either to the address given by <em>theAddress</em> or to the address of the shadow object that created the actor if no address is specified.</p>
 <p>Returns the result of invoking <code class="sourceCode cpp">sendID<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>theID<span class="op">,</span>theAddress<span class="op">)</span></code> on the actors channel object if an address is specified, otherwise the result of invoking <code class="sourceCode cpp">sendID<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>theID<span class="op">,</span><span class="kw">this</span><span class="op">-</span>\<span class="op">&gt;</span>getShadowAdressPtr<span class="op">())</span></code> on the actors channel object is returned.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> recvID<span class="op">(</span>ID <span class="op">&amp;</span>theID<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">recvID</span><span class="p">(</span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theID</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which will receive <em>theID</em> from the actors channel either from the address given by <em>theAddress</em> or from the address of the shadow object that created the actor if no address is specified.</p>
 <p>Returns the result of invoking <code class="sourceCode cpp">recvID<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>theID<span class="op">,</span>theAddress<span class="op">)</span></code> on the actors channel object if an address is specified, otherwise the result of invoking <code class="sourceCode cpp">recvID<span class="op">(</span><span class="dv">0</span><span class="op">,</span><span class="dv">0</span><span class="op">,</span>theID<span class="op">,</span><span class="kw">this</span><span class="op">-</span>\<span class="op">&gt;</span>getShadowAdressPtr<span class="op">())</span></code> on the actors channel object is returned.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Channel \<span class="op">*</span>getChannelPtr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getChannelPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns a pointer to the channel passed in the constructor.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> FEM_ObjectBroker \<span class="op">*</span>getObjectBrokerPtr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getObjectBrokerPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns a pointer to the FEM_ObjectBroker passed in the constructor.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> ChannelAddress \<span class="op">*</span>getChannelAddressPtr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">ChannelAddress</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getChannelAddressPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns a pointer to the channel address for the shadow object that created the actor.</p>
 
 

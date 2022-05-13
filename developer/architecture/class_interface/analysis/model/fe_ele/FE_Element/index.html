@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13799,9 +13849,11 @@ Removal During Simulation
 
 
 <h1 id="fe_element">FE_Element</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/fe_ele/FE_Element.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FE_Element<span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/fe_ele/FE_Element.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FE_Element</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p><code>FE_Element</code> is a base class, subtypes of which are used to enforce the constraints on the domain. An object of type <code>FE_Element</code> represents an element of the domain in the analysis. It enforces no constraints other than single point homogeneous boundary conditions, imposed on any of the elements nodes. It provides a similar interface to that of an Element but modified to provide features useful to an Analysis class. The FE_Element is responsible for:</p>
 <ol type="1">
 <li><p>Holding information about the mapping between equation numbers and the degrees-of-freedom at the element ends, this mapping is determined from the <code>DOF_Group</code> objects associated with the elements Node objects.</p></li>
@@ -13818,16 +13870,26 @@ Removal During Simulation
 <p>// Public Methods to allow Element-by-Element strategies</p>
 <p>// Public Methods added for Domain Decomposition</p>
 <p>Constructs an empty <code>FE_Element</code> with an associated element given by <code>theElement</code>. During construction it determines the number of unknown dofs from the element. Constructs an ID for the mapping between dof’s of the element and equation numbers in the system of equation and an ID to hold the tag of the <code>DOF_Group</code> objects associated with each Node of the element. If the result of invoking <code>theElementPtr-&gt;isSubdomain()</code> is <code>true</code> invokes <code>setFE_Element(this)</code> on the Subdomain; if false creates a Matrix for the tangent and a Vector for the residual to be stored. An error message is printed and the program is terminated if no Domain object is associated with the Element, a Node of the Element does not exist in the Domain, each Node has not yet been associated with a DOF_Group object, or there is not enough memory for the Vectors and Matrices required.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FE_Element<span class="op">(</span><span class="dt">int</span> numDOFGroup<span class="op">,</span> <span class="dt">int</span> numDOF<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">FE_Element</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numDOFGroup</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numDOF</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Provided for subclasses. Constructs an empty <code>FE_Element</code> with the number of unknown dofs given by <code>numDOF</code> and the number of associated DOF_Group objects given by <code>numDOFGroup</code>, two empty IDs are constructed to hold the mapping and the tags of the DOF_Groups. The subclass must fill in the ID for the tags of the DOF_Groups in order that <code>setID()</code> will work. No element is associated with this FE_Element. No space is allocated for the tangent and residual matrix and vector, this is the responsibility of the subclass.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">~</span>FE_Element<span class="op">();</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="o">~</span><span class="n">FE_Element</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+
 <p>Deletes the IDs, Vectors and Matrices created by the constructor.</p>
 <p>Returns a const ID containing the unique tag number of the DOF_Group objects associated with that FE_Element. For this base class, these are obtained from the DOF_Groups associated with the Node objects that are associated with the Element object passed in the constructor. This ID is computed only once, during the creation of the object.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="at">const</span> ID <span class="op">&amp;</span>getID<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getID</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns a const ID containing the equation numbers associated with its matrices and vectors. This ID will contain <span class="math inline">\(0\)</span>’s unless the <code>setID()</code> method has been called.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setAnalysisModel<span class="op">(</span>AnalysisModel <span class="op">&amp;</span>theModel<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">setAnalysisModel</span><span class="p">(</span><span class="n">AnalysisModel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theModel</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To set a link to the AnalysisModel in which the <code>FE_Element</code> resides; this link is needed in <code>setID()</code>. Is invoked by the AnalysisModel when the <code>FE_element</code> is added to the AnalysisModel.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> setID<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setID</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Causes the <code>FE_Element</code> to determine the mapping between it’s equation numbers and the degrees-of-freedom. The <span class="math inline">\(i-1\)</span> component of the ID contains the equation number that is associated with <span class="math inline">\(i\)</span>’th degree-of-freedom (a consequence of C indexing for IDs). The method is to be invoked by the DOF_Numberer after the DOF_Groups have been assigned their equation numbers. The base class uses the ID containing the tags of the <code>DOF_Group</code> objects to determine this by looping over the DOF_Group objects (identified in the <code>DOF_Group</code> ID and obtained from the AnalysisModel) and getting their mapping by invoking <code>getID()</code>. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number is returned if an error occurs: <span class="math inline">\(-1\)</span> returned if no AnalysisModel link has been set, <span class="math inline">\(-2\)</span> if a <code>DOF_Group</code> object does not exist in the AnalysisModel and a <span class="math inline">\(-3\)</span> if there are more dof’s in the DOF_Groups than dof’s identified for the FE_Element.</p>
 <p><br />
 Causes the <code>FE_Element</code> to determine it’s contribution to the tangent matrix and to return this matrix. If the Element is a Subdomain it invokes <code>computeTangent()</code> and <code>getTang()</code> on the Subdomain. Otherwise <code>formEleTangent(this)</code> is invoked on <em>theIntegrator</em> and the new tangent matrix is returned. Subclasses must provide their own implementation. If no Element is passed in the constructor, a warning message is printed and an error Matrix of size 1X1 is returned.</p>
@@ -13849,13 +13911,21 @@ Adds the product of <em>fact</em> times the element’s secant stiffness matrix 
 <p><em>virtual const Vector &amp;getTangForce(const Vector &amp;disp, double fact=1.0);</em> Returns the product of FE_Elements current tangent matrix and a Vector whose values are obtained by taking the product of <em>fact</em> and those elements of the Vector <em>disp</em> associated with the FE_Elements equation numbers. If the element associated with the <code>FE_Element</code> is a subdomain, the tangent is obtained by invoking <code>getTang()</code> on the subdomain, otherwise the tangent is formed by invoking <code>formEleTang(this)</code> on the integrator object last used in a <code>getTangent()</code> or <code>getResidual()</code>. If no element is associated with the <code>FE_Element</code> a zero vector is returned and an error message is printed. An error message is also printed if invoking <code>addMatrixVector()</code> on the force vector returns <span class="math inline">\(&lt; 0\)</span>.</p>
 <p><em>virtual const Vector &amp;getKtForce(const Vector &amp;disp, double fact=1.0);</em> Returns the product of elements current tangent stiffness matrix and a Vector whose values are obtained by taking the product of <em>fact</em> and those elements of the Vector <em>disp</em> associated with the FE_Elements equation numbers. If no element is associated with the <code>FE_Element</code> or the associated element is a Subdomain an error vector is returned and a warning message printed.</p>
 <p><em>virtual const Vector &amp;getKsForce(const Vector &amp;disp, double fact = 1.0);</em> Returns the product of elements current secant stiffness matrix and a Vector whose values are obtained by taking the product of <em>fact</em> and those elements of the Vector <em>disp</em> associated with the FE_Elements equation numbers. If no element is associated with the <code>FE_Element</code> or the associated element is a Subdomain an error vector is returned and a warning message printed.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="at">const</span> Vector <span class="op">&amp;</span>getD_Force<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span>vel<span class="op">,</span> <span class="dt">double</span> fact <span class="op">=</span> <span class="fl">1.0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getD_Force</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vel</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the product of elements current damping matrix and a Vector whose values are obtained by taking the product of <em>fact</em> and those elements of the Vector <em>vel</em> associated with the FE_Elements equation numbers. If no element is associated with the <code>FE_Element</code> or the associated element is a Subdomain a warning message is printed and an error Vector is returned.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="at">const</span> Vector <span class="op">&amp;</span>getM_Force<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span>accel<span class="op">,</span> <span class="dt">double</span> fcat <span class="op">=</span> <span class="fl">1.0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getM_Force</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">accel</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fcat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the product of elements current mass matrix and a Vector whose values are obtained by taking the product of <code>fact</code> and those elements of the Vector <code>accel</code> associated with the FE_Elements equation numbers. If no element is associated with the <code>FE_Element</code> or the associated element is a Subdomain a warning message is printed and an error Vector is returned.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Integrator <span class="op">*</span>getLastIntegrator<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">Integrator</span><span class="w"> </span><span class="o">*</span><span class="nf">getLastIntegrator</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Method which returns the last integrator supplied in a <code>formTangent()</code> or a <code>formResidual()</code> invocation.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Vector <span class="op">&amp;</span>getLastResponse<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getLastResponse</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which invokes <code>getLastResponse()</code> on the Integrator object that was last passed as an argument to any of the routines. The <code>FE_Element</code>s ID and the force Vector object is passed as arguments. Returns the force Vector object if successful. If no element is associated with the FE_Element or no integrator has yet to be passed, a warning message is printed and an error Vector is returned.</p>
 
 

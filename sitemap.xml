@@ -1331,7 +1331,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/TclInterpreter/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/Tcl/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/Tcl/commands/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13794,12 +13844,14 @@ Removal During Simulation
 
 <h1 id="c-api">C API</h1>
 <h2 id="io-api">IO API</h2>
-<pre><code>int  OPS_GetIntInput(int* numData, int* data);
+<div class="highlight"><pre><span></span>int  OPS_GetIntInput(int* numData, int* data);
 int  OPS_GetDoubleInput(int* numData, double* data);
 int  OPS_GetString(char* cArray, int sizeArray);
-int  OPS_Error(char*, int length);</code></pre>
+int  OPS_Error(char*, int length);
+</pre></div>
+
 <h2 id="model-building-api">Model Building API</h2>
-<pre><code>matObj* OPS_GetMaterial(int* matTag, int* matType);
+<div class="highlight"><pre><span></span>matObj* OPS_GetMaterial(int* matTag, int* matType);
 void    OPS_GetMaterialPtr(int*, matObj*);
 eleObj* OPS_GetElement(int*);
 matObj* OPS_GetMaterialType(char* type, int sizeType);
@@ -13819,94 +13871,105 @@ int    OPS_GetNodeDisp(int* nodeTag, int* sizeData, double* data);
 int    OPS_GetNodeVel(int* nodeTag, int* sizeData, double* data);
 int    OPS_GetNodeAcc(int* nodeTag, int* sizeData, double* data);
 int    OPS_GetNodeIncrDisp(int* nodeTag, int* sizeData, double* data);
-int    OPS_GetNodeIncrDeltaDisp(int* nodeTag, int* sizeData, double* data);</code></pre>
+int    OPS_GetNodeIncrDeltaDisp(int* nodeTag, int* sizeData, double* data);
+</pre></div>
+
 <h2 id="runtime-api">Runtime API</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span>     OPS_GetNDF<span class="op">();</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span>     OPS_GetNDM<span class="op">();</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>AnalysisModel<span class="op">**</span> OPS_GetAnalysisModel<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>EquiSolnAlgo<span class="op">**</span> OPS_GetAlgorithm<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>ConstraintHandler<span class="op">**</span> OPS_GetHandler<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>DOF_Numberer<span class="op">**</span> OPS_GetNumberer<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>LinearSOE<span class="op">**</span> OPS_GetSOE<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>EigenSOE<span class="op">**</span> OPS_GetEigenSOE<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>StaticAnalysis<span class="op">**</span> OPS_GetStaticAnalysis<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>DirectIntegrationAnalysis<span class="op">**</span> OPS_GetTransientAnalysis<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>VariableTimeStepDirectIntegrationAnalysis<span class="op">**</span> OPS_GetVariableTimeStepTransientAnalysis<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span><span class="op">*</span> OPS_GetNumEigen<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>StaticIntegrator<span class="op">**</span> OPS_GetStaticIntegrator<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>TransientIntegrator<span class="op">**</span> OPS_GetTransientIntegrator<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>ConvergenceTest<span class="op">**</span>     OPS_GetTest<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="dt">bool</span><span class="op">*</span>                 OPS_builtModel<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ISW_INIT 0</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ISW_COMMIT 1</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ISW_REVERT 2</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ISW_FORM_TANG_AND_RESID 3</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ISW_FORM_MASS 4</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ISW_REVERT_TO_START 5</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ISW_DELETE 6</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ISW_SET_RESPONSE 7</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="pp">#define ISW_GET_RESPONSE 8</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#define OPS_UNIAXIAL_MATERIAL_TYPE 1</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="pp">#define OPS_SECTION2D_TYPE 2</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="pp">#define OPS_SECTION3D_TYPE 3</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="pp">#define OPS_PLANESTRESS_TYPE 4</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="pp">#define OPS_PLANESTRAIN_TYPE 5</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="pp">#define OPS_THREEDIMENSIONAL_TYPE 6</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="pp">#define OPS_SECTION_TYPE 7</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> modState modelState<span class="op">;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="dt">void</span> <span class="op">(*</span>matFunct<span class="op">)(</span><span class="kw">struct</span> matObject<span class="op">*,</span> modelState<span class="op">*,</span> <span class="dt">double</span><span class="op">*</span> strain<span class="op">,</span> <span class="dt">double</span><span class="op">*</span> tang<span class="op">,</span> <span class="dt">double</span><span class="op">*</span> stress<span class="op">,</span> <span class="dt">int</span><span class="op">*</span> isw<span class="op">,</span> <span class="dt">int</span><span class="op">*</span> error<span class="op">);</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> limCrvObject limCrvObj<span class="op">;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="dt">void</span> <span class="op">(*</span>eleFunct<span class="op">)(</span><span class="kw">struct</span> eleObject<span class="op">*,</span> modelState<span class="op">*,</span> <span class="dt">double</span><span class="op">*</span> tang<span class="op">,</span> <span class="dt">double</span><span class="op">*</span> resid<span class="op">,</span> <span class="dt">int</span><span class="op">*</span> isw<span class="op">,</span> <span class="dt">int</span><span class="op">*</span> error<span class="op">);</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> eleObject eleObj<span class="op">;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="kw">struct</span> matObject matObj<span class="op">;</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="kw">typedef</span> <span class="dt">void</span> <span class="op">(*</span>limCrvFunct<span class="op">)(</span><span class="kw">struct</span> limCrvObject<span class="op">*,</span> modelState<span class="op">*,</span> <span class="dt">double</span><span class="op">*</span> strain<span class="op">,</span> <span class="dt">double</span><span class="op">*</span> tang<span class="op">,</span> <span class="dt">double</span><span class="op">*</span> stress<span class="op">,</span> <span class="dt">int</span><span class="op">*</span> isw<span class="op">,</span> <span class="dt">int</span><span class="op">*</span> error<span class="op">);</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> modState <span class="op">{</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> time<span class="op">;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span> dt<span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> matObject <span class="op">{</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> tag<span class="op">;</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> matType<span class="op">;</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> nParam<span class="op">;</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> nState<span class="op">;</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span><span class="op">*</span> theParam<span class="op">;</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span><span class="op">*</span> cState<span class="op">;</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span><span class="op">*</span> tState<span class="op">;</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    matFunct matFunctPtr<span class="op">;</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span><span class="op">*</span> matObjectPtr<span class="op">;</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> limCrvObject <span class="op">{</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> tag<span class="op">;</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> nParam<span class="op">;</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> nState<span class="op">;</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span><span class="op">*</span> theParam<span class="op">;</span></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span><span class="op">*</span> cState<span class="op">;</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span><span class="op">*</span> tState<span class="op">;</span></span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    limCrvFunct limCrvFunctPtr<span class="op">;</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">void</span><span class="op">*</span> limCrvObjectPtr<span class="op">;</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="kw">struct</span> eleObject <span class="op">{</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> tag<span class="op">;</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> nNode<span class="op">;</span></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> nDOF<span class="op">;</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> nParam<span class="op">;</span></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> nState<span class="op">;</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span> nMat<span class="op">;</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>    <span class="dt">int</span><span class="op">*</span> node<span class="op">;</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span><span class="op">*</span> param<span class="op">;</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span><span class="op">*</span> cState<span class="op">;</span></span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    <span class="dt">double</span><span class="op">*</span> tState<span class="op">;</span></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    matObj<span class="op">**</span> mats<span class="op">;</span></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    eleFunct eleFunctPtr<span class="op">;</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w">     </span><span class="nf">OPS_GetNDF</span><span class="p">();</span><span class="w"></span>
+<span class="kt">int</span><span class="w">     </span><span class="nf">OPS_GetNDM</span><span class="p">();</span><span class="w"></span>
+
+<span class="n">AnalysisModel</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetAnalysisModel</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">EquiSolnAlgo</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetAlgorithm</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">ConstraintHandler</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetHandler</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">DOF_Numberer</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetNumberer</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">LinearSOE</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetSOE</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">EigenSOE</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetEigenSOE</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">StaticAnalysis</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetStaticAnalysis</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">DirectIntegrationAnalysis</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetTransientAnalysis</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">VariableTimeStepDirectIntegrationAnalysis</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetVariableTimeStepTransientAnalysis</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="nf">OPS_GetNumEigen</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">StaticIntegrator</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetStaticIntegrator</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">TransientIntegrator</span><span class="o">**</span><span class="w"> </span><span class="nf">OPS_GetTransientIntegrator</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="n">ConvergenceTest</span><span class="o">**</span><span class="w">     </span><span class="nf">OPS_GetTest</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+<span class="kt">bool</span><span class="o">*</span><span class="w">                 </span><span class="nf">OPS_builtModel</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="cp">#define ISW_INIT 0</span>
+<span class="cp">#define ISW_COMMIT 1</span>
+<span class="cp">#define ISW_REVERT 2</span>
+<span class="cp">#define ISW_FORM_TANG_AND_RESID 3</span>
+<span class="cp">#define ISW_FORM_MASS 4</span>
+<span class="cp">#define ISW_REVERT_TO_START 5</span>
+<span class="cp">#define ISW_DELETE 6</span>
+
+<span class="cp">#define ISW_SET_RESPONSE 7</span>
+<span class="cp">#define ISW_GET_RESPONSE 8</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="cp">#define OPS_UNIAXIAL_MATERIAL_TYPE 1</span>
+<span class="cp">#define OPS_SECTION2D_TYPE 2</span>
+<span class="cp">#define OPS_SECTION3D_TYPE 3</span>
+<span class="cp">#define OPS_PLANESTRESS_TYPE 4</span>
+<span class="cp">#define OPS_PLANESTRAIN_TYPE 5</span>
+<span class="cp">#define OPS_THREEDIMENSIONAL_TYPE 6</span>
+<span class="cp">#define OPS_SECTION_TYPE 7</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">modState</span><span class="w"> </span><span class="n">modelState</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">matFunct</span><span class="p">)(</span><span class="k">struct</span><span class="w"> </span><span class="nc">matObject</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">modelState</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">tang</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">stress</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">isw</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">error</span><span class="p">);</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">limCrvObject</span><span class="w"> </span><span class="n">limCrvObj</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">eleFunct</span><span class="p">)(</span><span class="k">struct</span><span class="w"> </span><span class="nc">eleObject</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">modelState</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">tang</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">resid</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">isw</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">error</span><span class="p">);</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">eleObject</span><span class="w"> </span><span class="n">eleObj</span><span class="p">;</span><span class="w"></span>
+
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">matObject</span><span class="w"> </span><span class="n">matObj</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">limCrvFunct</span><span class="p">)(</span><span class="k">struct</span><span class="w"> </span><span class="nc">limCrvObject</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">modelState</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">tang</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">stress</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">isw</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">error</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">modState</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">time</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">dt</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">matObject</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">matType</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nParam</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nState</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">theParam</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">cState</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">tState</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">matFunct</span><span class="w"> </span><span class="n">matFunctPtr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">matObjectPtr</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">limCrvObject</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nParam</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nState</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">theParam</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">cState</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">tState</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">limCrvFunct</span><span class="w"> </span><span class="n">limCrvFunctPtr</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">limCrvObjectPtr</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">struct</span><span class="w"> </span><span class="nc">eleObject</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nNode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nDOF</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nParam</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nState</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">nMat</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="o">*</span><span class="w"> </span><span class="n">node</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">param</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">cState</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">tState</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">matObj</span><span class="o">**</span><span class="w"> </span><span class="n">mats</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">eleFunct</span><span class="w"> </span><span class="n">eleFunctPtr</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
 
 
               

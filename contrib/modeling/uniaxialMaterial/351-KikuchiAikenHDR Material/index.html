@@ -5883,10 +5883,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13796,9 +13846,11 @@ Removal During Simulation
 <p>
 This command is used to construct a uniaxial <code>KikuchiAikenHDR</code> material object. This material model produces nonlinear hysteretic curves of high damping rubber bearings (HDRs).
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial KikuchiAikenHDR <span class="dt">$matTag</span> <span class="dt">$tp</span> <span class="dt">$ar</span> <span class="dt">$hr</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -coGHU</span> <span class="dt">$cg</span> <span class="dt">$ch</span> <span class="dt">$cu</span> &gt; </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -coMSS</span> <span class="dt">$rs</span> <span class="dt">$rf</span> &gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>KikuchiAikenHDR<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$tp</span><span class="w"> </span><span class="nv">$ar</span><span class="w"> </span><span class="nv">$hr</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-coGHU</span><span class="w"> </span><span class="nv">$cg</span><span class="w"> </span><span class="nv">$ch</span><span class="w"> </span><span class="nv">$cu</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>coMSS<span class="w"> </span><span class="nv">$rs</span><span class="w"> </span><span class="nv">$rf</span><span class="w"> </span><span class="o">&gt;</span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13790,30 +13840,31 @@ Removal During Simulation
 
 <h1 id="analysis-model">Analysis Model</h1>
 <p>The AnalysisModel object is a container class for storing and providing access to the following types of objects:</p>
-<pre><code>1. **DOF_Group**: The **DOF_Group** objects represent the
-   degrees-of-freedom at the **Node**s or new degrees-of-freedom
-   introduced into the analysis to enforce the constraints.
+<div class="highlight"><pre><span></span><span class="mf">1.</span><span class="w"> </span><span class="o">**</span><span class="n">DOF_Group</span><span class="o">**</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="o">**</span><span class="n">DOF_Group</span><span class="o">**</span><span class="w"> </span><span class="n">objects</span><span class="w"> </span><span class="n">represent</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="w">   </span><span class="n">degrees</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">freedom</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="o">**</span><span class="n">Node</span><span class="o">**</span><span class="n">s</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">degrees</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">freedom</span><span class="w"></span>
+<span class="w">   </span><span class="n">introduced</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">enforce</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">constraints</span><span class="o">.</span><span class="w"></span>
 
-2. [`FE_Element`](model/fe_ele): The `FE_Element` objects represent the
-   `Elements` in the `Domain` or they are introduced to add
-   stiffness and/or load to the system of equations in order to
-   enforce the constraints.
+<span class="mf">2.</span><span class="w"> </span><span class="p">[</span><span class="err">`</span><span class="n">FE_Element</span><span class="err">`</span><span class="p">](</span><span class="n">model</span><span class="o">/</span><span class="n">fe_ele</span><span class="p">):</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="err">`</span><span class="n">FE_Element</span><span class="err">`</span><span class="w"> </span><span class="n">objects</span><span class="w"> </span><span class="n">represent</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="w">   </span><span class="err">`</span><span class="n">Elements</span><span class="err">`</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">Domain</span><span class="err">`</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">they</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">introduced</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">add</span><span class="w"></span>
+<span class="w">   </span><span class="n">stiffness</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">equations</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">order</span><span class="w"> </span><span class="n">to</span><span class="w"></span>
+<span class="w">   </span><span class="n">enforce</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">constraints</span><span class="o">.</span><span class="w"></span>
 
-The `FE_Element`s and `DOF_Group`s are important to the design
-because:
+<span class="n">The</span><span class="w"> </span><span class="err">`</span><span class="n">FE_Element</span><span class="err">`</span><span class="n">s</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="err">`</span><span class="n">DOF_Group</span><span class="err">`</span><span class="n">s</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">important</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">design</span><span class="w"></span>
+<span class="n">because</span><span class="p">:</span><span class="w"></span>
 
-1. They remove from the `Node` and `Element` objects the need
-   to worry about the mapping between degrees-of-freedoms and
-   equation numbers.
+<span class="mf">1.</span><span class="w"> </span><span class="n">They</span><span class="w"> </span><span class="n">remove</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">Node</span><span class="err">`</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="err">`</span><span class="n">Element</span><span class="err">`</span><span class="w"> </span><span class="n">objects</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">need</span><span class="w"></span>
+<span class="w">   </span><span class="n">to</span><span class="w"> </span><span class="n">worry</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mapping</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">degrees</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">freedoms</span><span class="w"> </span><span class="ow">and</span><span class="w"></span>
+<span class="w">   </span><span class="n">equation</span><span class="w"> </span><span class="n">numbers</span><span class="o">.</span><span class="w"></span>
 
-2. They also remove from the `Node` and `Element` class
-   interfaces methods for forming tangent and residual vectors,
-   that are used to form the system of equations.
+<span class="mf">2.</span><span class="w"> </span><span class="n">They</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">remove</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="err">`</span><span class="n">Node</span><span class="err">`</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="err">`</span><span class="n">Element</span><span class="err">`</span><span class="w"> </span><span class="k">class</span><span class="w"></span>
+<span class="w">   </span><span class="n">interfaces</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">forming</span><span class="w"> </span><span class="n">tangent</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">residual</span><span class="w"> </span><span class="n">vectors</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">that</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">equations</span><span class="o">.</span><span class="w"></span>
 
-3. The subclasses of `FE_Element` and `DOF_Group` are
-   responsible for handling the constraints. This removes from the
-   rest of the objects the analysis aggregation the need to deal
-   with the constraints.</code></pre>
+<span class="mf">3.</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">subclasses</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="err">`</span><span class="n">FE_Element</span><span class="err">`</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="err">`</span><span class="n">DOF_Group</span><span class="err">`</span><span class="w"> </span><span class="n">are</span><span class="w"></span>
+<span class="w">   </span><span class="n">responsible</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">handling</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">constraints</span><span class="o">.</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">removes</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="w">   </span><span class="n">rest</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">objects</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">analysis</span><span class="w"> </span><span class="n">aggregation</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">deal</span><span class="w"></span>
+<span class="w">   </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">constraints</span><span class="o">.</span><span class="w"></span>
+</pre></div>
 
 
               

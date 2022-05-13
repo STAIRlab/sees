@@ -5883,10 +5883,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13796,9 +13846,11 @@ Removal During Simulation
 <p>
 This command is used to construct a multi-dimensional stress density material object for modeling sand behaviour following the work of Cubrinovski and Ishihara (1998a,b). Note that as of January 2020 this material is still undergoing verification testing for more complex loading and initial conditions.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nDMaterial stressDensity <span class="dt">$matTag</span> <span class="dt">$mDen</span> <span class="dt">$eNot</span> <span class="dt">$A</span> <span class="dt">$n</span> <span class="dt">$nu</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$a1</span> <span class="dt">$b1</span> <span class="dt">$a2</span> <span class="dt">$b2</span> <span class="dt">$a3</span> <span class="dt">$b3</span> <span class="dt">$fd</span> <span class="dt">$muNot</span> <span class="dt">$muCyc</span> <span class="dt">$sc</span> <span class="dt">$M</span> <span class="dt">$patm</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$ssl1</span> <span class="dt">$ssl2</span> <span class="dt">$ssl3</span> <span class="dt">$ssl4</span> <span class="dt">$ssl5</span> <span class="dt">$ssl6</span> <span class="dt">$ssl7</span> <span class="dt">$hsl</span> <span class="dt">$pmin</span> &gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">nDMaterial</span><span class="w"> </span>stressDensity<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$mDen</span><span class="w"> </span><span class="nv">$eNot</span><span class="w"> </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$n</span><span class="w"> </span><span class="nv">$nu</span>
+<span class="w">        </span><span class="nv">$a1</span><span class="w"> </span><span class="nv">$b1</span><span class="w"> </span><span class="nv">$a2</span><span class="w"> </span><span class="nv">$b2</span><span class="w"> </span><span class="nv">$a3</span><span class="w"> </span><span class="nv">$b3</span><span class="w"> </span><span class="nv">$fd</span><span class="w"> </span><span class="nv">$muNot</span><span class="w"> </span><span class="nv">$muCyc</span><span class="w"> </span><span class="nv">$sc</span><span class="w"> </span><span class="nv">$M</span><span class="w"> </span><span class="nv">$patm</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$ssl1</span><span class="w"> </span><span class="nv">$ssl2</span><span class="w"> </span><span class="nv">$ssl3</span><span class="w"> </span><span class="nv">$ssl4</span><span class="w"> </span><span class="nv">$ssl5</span><span class="w"> </span><span class="nv">$ssl6</span><span class="w"> </span><span class="nv">$ssl7</span><span class="w"> </span><span class="nv">$hsl</span><span class="w"> </span><span class="nv">$pmin</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">

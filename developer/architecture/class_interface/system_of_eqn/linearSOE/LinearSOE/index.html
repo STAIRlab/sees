@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13797,11 +13847,13 @@ Removal During Simulation
 
 
 <h1 id="linearsoe">LinearSOE</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;system_of_eqn/linearSOE/LinearSOE.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LinearSOE<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">public</span> SystmOfEqn</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>           MovableObject</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/LinearSOE.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">LinearSOE</span><span class="o">:</span><span class="w"> </span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">SystmOfEqn</span><span class="w"></span>
+<span class="w">           </span><span class="n">MovableObject</span><span class="w"></span>
+</pre></div>
+
 <p>LinearSOE is an abstract class. A LinearSOE object provides an abstraction of a system of linear equations. A linear system of equation of order <span class="math inline">\(n\)</span>:</p>
 <p><span class="math display">\[\begin{array}{ccccccccc}
 a_{0,0}x_0 &amp; + &amp; a_{0,1}x_1  &amp; + &amp; ... &amp; + &amp; a_{0,n-1}x_{n-1} &amp; = &amp; b_0  \\
@@ -13822,19 +13874,33 @@ Causes the SystemOfEqn object to invoke <code>solve()</code> on the currently as
 <p>Invoked to allow the LinearSOE object to determine the size and sparsity of the matrix <span class="math inline">\(A\)</span> and vectors <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span>. This information can be deduced from the number of vertices and the connectivity between the vertices in the Graph object <em>G</em>. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
 <p>The LinearSOE object assembles <em>fact</em> times the Matrix <em>M</em> into the matrix <span class="math inline">\(A\)</span>. The Matrix is assembled into <span class="math inline">\(A\)</span> at the locations given by the ID object <em>loc</em>, i.e. <span class="math inline">\(a_{loc(i),loc(j)} += M(i,j)\)</span>. Numbering in <span class="math inline">\(A\)</span> starts at <span class="math inline">\((0,0)\)</span>, i.e. C style. If a location specified is outside the range, i.e. <span class="math inline">\((-1,-1)\)</span> the corresponding entry in <em>M</em> is not added to <span class="math inline">\(A\)</span>. To return <span class="math inline">\(0\)</span> if successful, a negative number if not. <em>virtual int addB(const Vector &amp; theVector, const ID &amp; loc, double fact = 1.0) =0;</em><br />
 The LinearSOE object assembles <em>fact</em> times the Vector <em>V</em> into the vector <span class="math inline">\(b\)</span>. The Vector is assembled into <span class="math inline">\(b\)</span> at the locations given by the ID object <em>loc</em>, i.e. <span class="math inline">\(b_{loc(i)} += V(i)\)</span>. If a location specified is outside the range, e.g. <span class="math inline">\(-1\)</span>, the corresponding entry in <em>V</em> is not added to <span class="math inline">\(b\)</span>. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> setB<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span> theVector<span class="op">,</span> <span class="dt">double</span> fact <span class="op">=</span> <span class="fl">1.0</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setB</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">theVector</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>The LinearSOE object sets the vector <em>b</em> to be <em>fact</em> times the Vector <em>V</em>. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> zeroA<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">zeroA</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>To zero the matrix <span class="math inline">\(A\)</span>, i.e. set all the components of <span class="math inline">\(A\)</span> to <span class="math inline">\(0\)</span>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> zeroB<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">zeroB</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>To zero the vector <span class="math inline">\(b\)</span>, i.e. set all the components of <span class="math inline">\(b\)</span> to <span class="math inline">\(0\)</span>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="at">const</span> Vector <span class="op">&amp;</span>getX<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getX</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>To return, as a Vector object, the vector <span class="math inline">\(x\)</span>. A const reference is returned, meaning the Vector that is returned cannot be modified, i.e. no non-const method can be invoked on the Vector.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="at">const</span> Vector <span class="op">&amp;</span>getB<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getB</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>To return as a Vector object the vector <span class="math inline">\(b\)</span>. A const reference is returned, meaning the Vector that is returned cannot be modified, i.e. no non-const method can be invoked on the Vector.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">double</span> normRHS<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">normRHS</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>To return the 2-norm of the vector <span class="math inline">\(x\)</span>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> setX<span class="op">(</span><span class="dt">int</span> loc<span class="op">,</span> <span class="dt">double</span> value<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setX</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">loc</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>The LinearSOE object is responsible for setting <span class="math inline">\(x(loc) = value\)</span>. This is needed in domain decomposition methods and could be useful in iterative solution strategies when an initial approximation is known.</p>
 <p>This is invoked to set the currently associated LinearSOESolver object to be <em>newSolver</em>. Each subclass will provide it’s own variation of <code>setSolver()</code> method (needed so subclasses can verify type of Solver object passed). the subclasses in their variation of the <code>setSolver()</code> method (unless they wish to implement their own <code>solve()</code> method) invoke this method. Returns <span class="math inline">\(0\)</span>.</p>
 <p>Returns a pointer to the associated LinearSOESolver object.</p>

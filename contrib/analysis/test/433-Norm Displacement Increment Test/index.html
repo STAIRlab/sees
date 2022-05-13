@@ -5883,10 +5883,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13796,8 +13846,10 @@ Removal During Simulation
 <p>
 This command is used to construct a convergence test which uses the norm of the left hand side solution vector of the matrix equation to determine if convergence has been reached. What the solution vector of the matrix equation is depends on integrator and constraint handler chosen. Usually, though not always, it is equal to the displacement increments that are to be applied to the model. The command to create a NormDispIncr test is the following:
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>test NormDispIncr <span class="dt">$tol</span> <span class="dt">$iter</span> &amp;lt;<span class="dt">$pFlag</span>&amp;gt;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$nType</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">test</span><span class="w"> </span>NormDispIncr<span class="w"> </span><span class="nv">$tol</span><span class="w"> </span><span class="nv">$iter</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">$pFlag</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$nType</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">

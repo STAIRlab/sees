@@ -5883,10 +5883,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13822,11 +13872,13 @@ href="http://cee.engr.ucdvis.edu/faculty/kunnath/kunnath.htm">http://cee.engr.uc
 <p>
 This command is used to construct a ReinforcingSteel uniaxial material object. This object is intended to be used in a reinforced concrete fiber section as the steel reinforcing material.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ReinforcingSteel <span class="dt">$matTag</span> <span class="dt">$fy</span> <span class="dt">$fu</span> <span class="dt">$Es</span> <span class="dt">$Esh</span> <span class="dt">$esh</span> <span class="dt">$eult</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -GABuck</span> <span class="dt">$lsr</span> <span class="dt">$beta</span> <span class="dt">$r</span> <span class="dt">$gama</span> &gt;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -DMBuck</span> <span class="dt">$lsr</span> &lt; <span class="dt">$alpha</span> &gt; &gt;</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -CMFatigue</span> <span class="dt">$Cf</span> <span class="dt">$alpha</span> <span class="dt">$Cd</span> &gt; </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -IsoHard</span> &lt; <span class="dt">$a1</span> &lt; <span class="dt">$limit</span> &gt; &gt; &gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ReinforcingSteel<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fy</span><span class="w"> </span><span class="nv">$fu</span><span class="w"> </span><span class="nv">$Es</span><span class="w"> </span><span class="nv">$Esh</span><span class="w"> </span><span class="nv">$esh</span><span class="w"> </span><span class="nv">$eult</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>GABuck<span class="w"> </span><span class="nv">$lsr</span><span class="w"> </span><span class="nv">$beta</span><span class="w"> </span><span class="nv">$r</span><span class="w"> </span><span class="nv">$gama</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-DMBuck</span><span class="w"> </span><span class="nv">$lsr</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-CMFatigue</span><span class="w"> </span><span class="nv">$Cf</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="nv">$Cd</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>IsoHard<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$a1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$limit</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

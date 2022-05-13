@@ -5883,10 +5883,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13891,9 +13941,11 @@ tolerance for satisfaction of element compatibility (optional, default=10-12)
 <p>
 Original command that assumes Gauss-Lobatto integration with a copy of the same section force-deformation model at each integration point:
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element forceBeamColumn <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$numIntgrPts</span> <span class="dt">$secTag</span> <span class="dt">$transfTag</span> &amp;lt;-mass <span class="dt">$massDens</span>&amp;gt; &amp;lt;-iter</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$maxIters</span> <span class="dt">$tol</span>&amp;gt; &amp;lt;-integration <span class="dt">$intType</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>forceBeamColumn<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span>
+<span class="w">        </span><span class="nv">$numIntgrPts</span><span class="w"> </span><span class="nv">$secTag</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-iter</span>
+<span class="w">        </span><span class="nv">$maxIters</span><span class="w"> </span><span class="nv">$tol</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-integration</span><span class="w"> </span><span class="nv">$intType</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -13931,9 +13983,11 @@ identifier for previously-defined section object
 <p>
 Alternative command (kept for backward compatability):
 </p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>element nonlinearBeamColumn <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$numIntgrPts</span> <span class="dt">$secTag</span> <span class="dt">$transfTag</span> &amp;lt;-mass <span class="dt">$massDens</span>&amp;gt; &amp;lt;-iter</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$maxIters</span> <span class="dt">$tol</span>&amp;gt; &amp;lt;-integration <span class="dt">$intType</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>nonlinearBeamColumn<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span>
+<span class="w">        </span><span class="nv">$numIntgrPts</span><span class="w"> </span><span class="nv">$secTag</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-iter</span>
+<span class="w">        </span><span class="nv">$maxIters</span><span class="w"> </span><span class="nv">$tol</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-integration</span><span class="w"> </span><span class="nv">$intType</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">

@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13799,11 +13849,15 @@ Removal During Simulation
 
 
 <h1 id="bandgenlinsolver">BandGenLinSolver</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;~/system_of_eqn/linearSOE/bandGEN/BandGenLinSolver.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BandGenLinSolver<span class="op">:</span> <span class="kw">public</span> LinearSOESolver</span></code></pre></div>
-<pre><code>MovableObject
-Solver</code></pre>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;~/system_of_eqn/linearSOE/bandGEN/BandGenLinSolver.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BandGenLinSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOESolver</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>MovableObject
+Solver
+</pre></div>
+
 <p><code>BandGenLinSolver</code> is an abstract class. The BandGenLinSolver class provides access for each subclass to the BandGenLinSOE object through the pointer <code>theSOE</code>, which is a protected pointer.</p>
 <h3 id="constructor">Constructor</h3>
 <h3 id="destructor">Destructor</h3>
@@ -13811,7 +13865,9 @@ Solver</code></pre>
 <p>The integer <code>classTag</code> is passed to the LinearSOESolver classes constructor.</p>
 <p><br />
 Does nothing, provided so the subclasses destructor will be called.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> setLinearSOE<span class="op">(</span>BandGenLinSOE <span class="op">&amp;</span>theSOE<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setLinearSOE</span><span class="p">(</span><span class="n">BandGenLinSOE</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theSOE</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The method sets up the link between the BandGenLinSOE object and the BandGenLinSolver, that it is sets the pointer the subclasses use.</p>
 
 

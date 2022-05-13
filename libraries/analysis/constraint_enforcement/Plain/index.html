@@ -5869,10 +5869,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13793,7 +13843,9 @@ Removal During Simulation
 
 
 <h1 id="plain">Plain</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/handler/PlainHandler.h&gt;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/handler/PlainHandler.h&gt;</span><span class="cp"></span>
+</pre></div>
+
 <p>class PlainHandler: public ConstraintHandler<br />
 </p>
 <p>MovableObject<br />
@@ -13818,7 +13870,9 @@ The PlainHandler class is a class which only deals with homogeneous single point
 Invokes the destructor on all the <code>FE_Element</code> and <code>DOF_Group</code> objects created in <em>handle</em>. Then invokes the destructor on the two pointer arrays.</p>
 <p><br />
 Determines the number of FE_Elements and DOF_Groups needed from the Domain (a one to one mapping between Elements and FE_Elements and Nodes and DOF_Groups) Creates two arrays of pointers to store the FE_elements and DOF_Groups, returning a warning message and a <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span> if not enough memory is available for these arrays. Then the object will iterate through the Nodes of the Domain, creating a <code>DOF_Group</code> for each node and setting the initial id for each dof to <span class="math inline">\(-2\)</span> if no SP_Constraint exists for the dof, or <span class="math inline">\(-1\)</span> if a SP_Constraint exists or <span class="math inline">\(-3\)</span> if the node identifier is in <em>nodesToBeNumberedLast</em>. The object then iterates through the Elements of the Domain creating a <code>FE_Element</code> for each Element, if the Element is a Subdomain <code>setFE_ElementPtr()</code> is invoked on the Subdomain with the new <code>FE_Element</code> as the argument. If not enough memory is available for any <code>DOF_Group</code> or <code>FE_Element</code> a warning message is printed and a <span class="math inline">\(-4\)</span> or <span class="math inline">\(-5\)</span> is returned. If any <code>MP_Constraint</code> objects exist in the Domain a warning message is printed and <span class="math inline">\(-6\)</span> is returned. If all is successful, the method returns the number of degrees-of-freedom associated with the DOF_Groups in <em>nodesToBeNumberedLast</em>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> clearAll<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">clearAll</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Currently this invokes delete on all the <code>FE_Element</code> and DOF_Group objects created in <code>handle()</code> and the arrays used to store pointers to these objects. FOR ANALYSIS INVOLVING DYNAMIC LOAD BALANCING, RE-MESHING AND CONTACT THIS MUST CHANGE. <em>int sendSelf(int commitTag, Channel &amp;theChannel);</em><br />
 Returns <span class="math inline">\(0\)</span>. <em>int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</em><br />
 Returns <span class="math inline">\(0\)</span>.</p>
