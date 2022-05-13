@@ -5870,10 +5870,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13800,674 +13850,734 @@ Removal During Simulation
 <p> </p>
 </div>
 <p>In the script, the analyst first creates a ModelBuilder object. In this example a BasicBuilder object is created. The construction of this object adds new commands to the interpreter, i.e. node, material, element, fix and load. It is these commands which can be used by the analyst to construct the model.</p>
-<pre><code># create the ModelBuilder object
-model BasicBuilder -ndm 2 -ndf 2</code></pre>
+<div class="highlight"><pre><span></span># create the ModelBuilder object
+model BasicBuilder -ndm 2 -ndf 2
+</pre></div>
+
 <p>The analyst then constructs the model. This is done by creating the four Node objects, a Material object, three Element objects, some Constraint objects, and finally a Load object.</p>
-<pre><code># build the model 
-# node nodeId xLoc yLoc
-node 1   0   0 
-node 2 144   0 
-node 3 168   0
-node 4  72  96
+<div class="highlight"><pre><span></span><span class="c1"># build the model </span><span class="w"></span>
+<span class="c1"># node nodeId xLoc yLoc</span><span class="w"></span>
+<span class="n">node</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="mi">0</span><span class="w">   </span><span class="mi">0</span><span class="w"> </span>
+<span class="n">node</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">144</span><span class="w">   </span><span class="mi">0</span><span class="w"> </span>
+<span class="n">node</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">168</span><span class="w">   </span><span class="mi">0</span><span class="w"></span>
+<span class="n">node</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="mi">72</span><span class="w">  </span><span class="mi">96</span><span class="w"></span>
 
-# material matId type &lt;type args&gt;
-uniaxialMaterial Elastic 1 3000
+<span class="c1"># material matId type &lt;type args&gt;</span><span class="w"></span>
+<span class="n">uniaxialMaterial</span><span class="w"> </span><span class="n">Elastic</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3000</span><span class="w"></span>
 
-# element truss trussId iNodeId jNodeId Area matId
-element truss 1 1 4 10 1
-element truss 2 2 4  5 1
-element truss 3 3 4  5 1
+<span class="c1"># element truss trussId iNodeId jNodeId Area matId</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">truss</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">truss</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">truss</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 
-# constraint nodeId xFix? yFix?
-fix 1 1 1
-fix 2 1 1
-fix 3 1 1
+<span class="c1"># constraint nodeId xFix? yFix?</span><span class="w"></span>
+<span class="n">fix</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">fix</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">fix</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 
-# pattern type patternID TimeSeries
-pattern Plain 1 Linear {
-  # load nodeID xForce yForce
-  load 4 100 -50
-}</code></pre>
+<span class="c1"># pattern type patternID TimeSeries</span><span class="w"></span>
+<span class="n">pattern</span><span class="w"> </span><span class="n">Plain</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">Linear</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># load nodeID xForce yForce</span><span class="w"></span>
+<span class="w">  </span><span class="nb">load</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">-</span><span class="mi">50</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <p>After the model has been defined, the analyst then constructs the Analysis. This is done by first constructing the components of the Analysis object. In this example a BandSPD linear system of equation and a lapack solver (default for BandSPD), a ConstraintHandler object which deals with homogeneous single point constraints, an Integrator object of type LoadControl with a load step increment of one, an Algorithm object of type Linear, and a DOF_Numberer object of type RCM (reverse Cuthill-Mckee). Once these objects have been created, the StaticAnalysis object is constructed.</p>
-<pre><code># build the components for the analysis object
-system BandSPD
-constraints Plain
-integrator LoadControl 1
-algorithm Linear
-numberer RCM
+<div class="highlight"><pre><span></span><span class="c1"># build the components for the analysis object</span><span class="w"></span>
+<span class="n">system</span><span class="w"> </span><span class="n">BandSPD</span><span class="w"></span>
+<span class="n">constraints</span><span class="w"> </span><span class="n">Plain</span><span class="w"></span>
+<span class="n">integrator</span><span class="w"> </span><span class="n">LoadControl</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">algorithm</span><span class="w"> </span><span class="n">Linear</span><span class="w"></span>
+<span class="n">numberer</span><span class="w"> </span><span class="n">RCM</span><span class="w"></span>
 
-# create the analysis object 
-analysis Static </code></pre>
+<span class="c1"># create the analysis object </span><span class="w"></span>
+<span class="n">analysis</span><span class="w"> </span><span class="n">Static</span><span class="w"> </span>
+</pre></div>
+
 <p>After the Analysis object is constructed a Recorder object is created. In this example we create a NodeRecorder to record the load factor and the two nodal displacements at Node 4, the results are stored in the file example.out.</p>
-<pre><code># create a Recorder object for the nodal displacements at node 4
-recorder Node example.out disp -load -nodes 4 -dof 1 2</code></pre>
+<div class="highlight"><pre><span></span><span class="c1"># create a Recorder object for the nodal displacements at node 4</span><span class="w"></span>
+<span class="n">recorder</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="n">out</span><span class="w"> </span><span class="n">disp</span><span class="w"> </span><span class="o">-</span><span class="nb">load</span><span class="w"> </span><span class="o">-</span><span class="n">nodes</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">-</span><span class="n">dof</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+</pre></div>
+
 <p>Finally the analysis is performed and the results are printed.</p>
-<pre><code># perform the analysis
+<div class="highlight"><pre><span></span># perform the analysis
 analyze 1
 
 # print the results at node 4 and at all elements
 print node 4
 print ele
-playback 1</code></pre>
+playback 1
+</pre></div>
+
 <p>When OpenSees is run and the commands outlined above are input by the analyst at the interpreter prompt, or are sourced from a file using the source filename command, the following is output by the program.</p>
-<pre><code> Node: 4
-        Coordinates  : 72 96 
-        commitDisps: 0.530093 -0.177894 
-        unbalanced Load: 100 -50 
+<div class="highlight"><pre><span></span><span class="w"> </span><span class="n">Node</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="w">        </span><span class="n">Coordinates</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="w"> </span><span class="mi">96</span><span class="w"> </span>
+<span class="w">        </span><span class="n">commitDisps</span><span class="p">:</span><span class="w"> </span><span class="mf">0.530093</span><span class="w"> </span><span class="o">-</span><span class="mf">0.177894</span><span class="w"> </span>
+<span class="w">        </span><span class="n">unbalanced</span><span class="w"> </span><span class="n">Load</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">-</span><span class="mi">50</span><span class="w"> </span>
 
-Element: 1 type: Truss  iNode: 1 jNode: 4 Area: 10 
-         strain: 0.00146451 axial load: 43.9352 
-         unbalanced load: 26.3611 35.1482 -26.3611 -35.1482 
-         Material: ElasticMaterialModel: 1  E: 3000
+<span class="n">Element</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="n">Truss</span><span class="w">  </span><span class="n">iNode</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">jNode</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">Area</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span>
+<span class="w">         </span><span class="n">strain</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00146451</span><span class="w"> </span><span class="n">axial</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="mf">43.9352</span><span class="w"> </span>
+<span class="w">         </span><span class="n">unbalanced</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="mf">26.3611</span><span class="w"> </span><span class="mf">35.1482</span><span class="w"> </span><span class="o">-</span><span class="mf">26.3611</span><span class="w"> </span><span class="o">-</span><span class="mf">35.1482</span><span class="w"> </span>
+<span class="w">         </span><span class="n">Material</span><span class="p">:</span><span class="w"> </span><span class="n">ElasticMaterialModel</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="n">E</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w"></span>
 
-Element: 2 type: Truss  iNode: 2 jNode: 4 Area: 5 
-         strain: -0.00383642 axial load: -57.5463 
-         unbalanced load: 34.5278 -46.0371 -34.5278 46.0371 
-         Material: ElasticMaterialModel: 1  E: 3000
+<span class="n">Element</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="n">Truss</span><span class="w">  </span><span class="n">iNode</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">jNode</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">Area</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span>
+<span class="w">         </span><span class="n">strain</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">0.00383642</span><span class="w"> </span><span class="n">axial</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">57.5463</span><span class="w"> </span>
+<span class="w">         </span><span class="n">unbalanced</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="mf">34.5278</span><span class="w"> </span><span class="o">-</span><span class="mf">46.0371</span><span class="w"> </span><span class="o">-</span><span class="mf">34.5278</span><span class="w"> </span><span class="mf">46.0371</span><span class="w"> </span>
+<span class="w">         </span><span class="n">Material</span><span class="p">:</span><span class="w"> </span><span class="n">ElasticMaterialModel</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="n">E</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w"></span>
 
-Element: 3 type: Truss  iNode: 3 jNode: 4 Area: 5 
-         strain: -0.00368743 axial load: -55.3114 
-         unbalanced load: 39.1111 -39.1111 -39.1111 39.1111 
-         Material: ElasticMaterialModel: 1  E: 3000
+<span class="n">Element</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="n">Truss</span><span class="w">  </span><span class="n">iNode</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">jNode</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">Area</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span>
+<span class="w">         </span><span class="n">strain</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">0.00368743</span><span class="w"> </span><span class="n">axial</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">55.3114</span><span class="w"> </span>
+<span class="w">         </span><span class="n">unbalanced</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="mf">39.1111</span><span class="w"> </span><span class="o">-</span><span class="mf">39.1111</span><span class="w"> </span><span class="o">-</span><span class="mf">39.1111</span><span class="w"> </span><span class="mf">39.1111</span><span class="w"> </span>
+<span class="w">         </span><span class="n">Material</span><span class="p">:</span><span class="w"> </span><span class="n">ElasticMaterialModel</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="n">E</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w"></span>
 
-1 0.530093 -0.177894</code></pre>
+<span class="mi">1</span><span class="w"> </span><span class="mf">0.530093</span><span class="w"> </span><span class="o">-</span><span class="mf">0.177894</span><span class="w"></span>
+</pre></div>
+
 <h2 id="introducing-a-new-element-into-opensees">Introducing a New Element into OpenSees</h2>
 <p>We will look at the C++ code that is required to introduce a new Truss element, MyTruss, into the framework and a new command myTruss into the interpreter. The new class will work in planar problems where each node has two degrees-of-freedom. The new type will be complicated by the fact that each instance will be associated with a UniaxialMaterial object, this is done to show what this entails for parallel and database processing.</p>
 <p>To introduce the new class into OpenSees three new files must be created, MyTruss.h and MyTruss.cpp, to define the class interface and implementation, and TclMyTrussCommand.cpp, to define the procedure to be invoked when the Tcl command myTruss is invoked. In addition two existing files must be modified, TclElementCommands.cpp, and FEM_ObjectBroker.C and FEM_ObjectBroker.C. The new files and modifications to existing files are outlined in the following subsections. All the files can be found in the OpenSees/EXAMPLES/ExampleNewElement directory.</p>
 <h3 id="mytruss.h">MyTruss.h</h3>
 <p>The file MyTruss.h defines the class interface and details information about the instance variables associated with the objects of type MyTruss. The interface first declares that the MyTruss class inherits from the Element class.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MyTruss <span class="op">:</span> <span class="kw">public</span> Element <span class="op">{</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyTruss</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Element</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+</pre></div>
+
 <p>The interface then defines two constructors and a destructor. The first constructor is used to construct each object by the analyst. The arguments passed include the elements id, the id’s of the two end nodes, a reference to a Material object (a copy of which is created by the MyTruss object), and the Area of the bar. In addition the analyst may specify a mass per unit volume, if none is specified <span class="math inline">\(0\)</span> is assumed. The second is used in parallel and database programming. The destructor is the method called when the object is being destroyed. It is called so that memory associated with the object is returned to the system.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span><span class="op">:</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// constructors   </span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    MyTruss<span class="op">(</span><span class="dt">int</span> tag<span class="op">,</span> <span class="dt">int</span> Nd1<span class="op">,</span> <span class="dt">int</span> Nd2<span class="op">,</span> UniaxialMaterial <span class="op">&amp;</span>theMat<span class="op">,</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">double</span> A<span class="op">,</span> <span class="dt">double</span> rho <span class="op">=</span> <span class="fl">0.0</span><span class="op">);</span> </span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    MyTruss<span class="op">();</span>    </span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// destructor</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">~</span>MyTruss<span class="op">();</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">public</span><span class="o">:</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// constructors   </span>
+<span class="w">    </span><span class="n">MyTruss</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Nd1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Nd2</span><span class="p">,</span><span class="w"> </span><span class="n">UniaxialMaterial</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theMat</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">rho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="n">MyTruss</span><span class="p">();</span><span class="w">    </span>
+<span class="w">    </span><span class="c1">// destructor</span>
+<span class="w">    </span><span class="o">~</span><span class="n">MyTruss</span><span class="p">();</span><span class="w"></span>
+</pre></div>
+
 <p>After the destructor comes the public member functions, these define the methods that all other objects in the program will be able to invoke on objects of type MyTruss. These methods are all inherited from the Element class and each subclass of Element must declare them.</p>
-<pre><code>  public:
+<div class="highlight"><pre><span></span><span class="w">  </span><span class="n">public</span><span class="p">:</span><span class="w"></span>
 
-    // public methods to obtain information about dof &amp; connectivity
-    int getNumExternalNodes(void) const;
-    const ID &amp;getExternalNodes(void);
-    int getNumDOF(void);
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">obtain</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="n">about</span><span class="w"> </span><span class="n">dof</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">connectivity</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">getNumExternalNodes</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="n">getExternalNodes</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">getNumDOF</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w"></span>
 
-    // public methods to set the state of the element
-    void setDomain(Domain *theDomain);
-    int commitState(void);
-    int revertToLastCommit(void);        
-    int revertToStart(void);        
-    int update(void);
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">element</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">void</span><span class="w"> </span><span class="n">setDomain</span><span class="p">(</span><span class="n">Domain</span><span class="w"> </span><span class="o">*</span><span class="n">theDomain</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">commitState</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">revertToLastCommit</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w">        </span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">revertToStart</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w">        </span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w"></span>
 
-    // public methods to obtain stiffness, mass, damping and residual information
-    const Matrix &amp;getTangentStiff(void);
-    const Matrix &amp;getSecantStiff(void);    
-    const Matrix &amp;getDamp(void);    
-    const Matrix &amp;getMass(void);    
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">obtain</span><span class="w"> </span><span class="n">stiffness</span><span class="p">,</span><span class="w"> </span><span class="n">mass</span><span class="p">,</span><span class="w"> </span><span class="n">damping</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">residual</span><span class="w"> </span><span class="n">information</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">getTangentStiff</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">getSecantStiff</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w">    </span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">getDamp</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w">    </span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">getMass</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w">    </span>
 
-    void zeroLoad(void);    
-    const Vector &amp;getResistingForce(void);
-    const Vector &amp;getResistingForceIncInertia(void);            
+<span class="w">    </span><span class="nb nb-Type">void</span><span class="w"> </span><span class="n">zeroLoad</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w">    </span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">getResistingForce</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">getResistingForceIncInertia</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">);</span><span class="w">            </span>
 
-    // public methods for output
-    int sendSelf(int commitTag, Channel &amp;theChannel);
-    int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);
-    int displaySelf(Renderer &amp;theViewer, int displayMode, float fact);    
-    void Print(OPS_Stream &amp;s, int flag =0);    
-    Response *setResponse(char **argv, int argc, Information &amp;eleInformation);
-    int getResponse(int responseID, Information &amp;eleInformation);</code></pre>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">output</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">sendSelf</span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">recvSelf</span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">,</span><span class="w"> </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theBroker</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">displaySelf</span><span class="p">(</span><span class="n">Renderer</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theViewer</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">displayMode</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">float</span><span class="w"> </span><span class="n">fact</span><span class="p">);</span><span class="w">    </span>
+<span class="w">    </span><span class="nb nb-Type">void</span><span class="w"> </span><span class="n">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">);</span><span class="w">    </span>
+<span class="w">    </span><span class="n">Response</span><span class="w"> </span><span class="o">*</span><span class="n">setResponse</span><span class="p">(</span><span class="nb">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">Information</span><span class="w"> </span><span class="o">&amp;</span><span class="n">eleInformation</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">getResponse</span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">responseID</span><span class="p">,</span><span class="w"> </span><span class="n">Information</span><span class="w"> </span><span class="o">&amp;</span><span class="n">eleInformation</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Following the declaration of the public member functions comes the declaration of a private member function, computeStrain(), which can only be called by objects of type MyTruss.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span><span class="op">:</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// private member function - only available to objects of the class</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> computeCurrentStrain<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// private member function - only available to objects of the class</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">computeCurrentStrain</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>After the private member function is defined all the private variables, data which can only be accessed by objects of this type. First the instance variables associated with each object of this class are defined. Each object of this type will store its length, area, mass per unit volume, a pointer to a UniaxialMaterial object, a pointer to each of it’s end nodes, a pointer to a transformation matrix and an ID (integer array) object containing the node identifiers.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span><span class="op">:</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// private attributes - a copy for each object of the class</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  UniaxialMaterial <span class="op">*</span>theMaterial<span class="op">;</span>  <span class="co">// pointer to a material</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  ID  externalNodes<span class="op">;</span>              <span class="co">// contains the id&#39;s of end nodes</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  Matrix trans<span class="op">;</span> <span class="co">// hold the transformation matrix</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> L<span class="op">;</span>     <span class="co">// length of MyTruss based on undeformed configuration</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> A<span class="op">;</span>     <span class="co">// area of MyTruss</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> M<span class="op">;</span>     <span class="co">// weight per unit volume</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  Node <span class="op">*</span>end1Ptr<span class="op">,</span> <span class="op">*</span>end2Ptr<span class="op">;</span> <span class="co">// two pointers to the trusses nodes.</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// private attributes - a copy for each object of the class</span>
+<span class="w">  </span><span class="n">UniaxialMaterial</span><span class="w"> </span><span class="o">*</span><span class="n">theMaterial</span><span class="p">;</span><span class="w">  </span><span class="c1">// pointer to a material</span>
+<span class="w">  </span><span class="n">ID</span><span class="w">  </span><span class="n">externalNodes</span><span class="p">;</span><span class="w">              </span><span class="c1">// contains the id&#39;s of end nodes</span>
+<span class="w">  </span><span class="n">Matrix</span><span class="w"> </span><span class="n">trans</span><span class="p">;</span><span class="w"> </span><span class="c1">// hold the transformation matrix</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">L</span><span class="p">;</span><span class="w">     </span><span class="c1">// length of MyTruss based on undeformed configuration</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w">     </span><span class="c1">// area of MyTruss</span>
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w">     </span><span class="c1">// weight per unit volume</span>
+<span class="w">  </span><span class="n">Node</span><span class="w"> </span><span class="o">*</span><span class="n">end1Ptr</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">end2Ptr</span><span class="p">;</span><span class="w"> </span><span class="c1">// two pointers to the trusses nodes.</span>
+</pre></div>
+
 <p>After the instance variable is defined some class variables. There is one instance of each of these variables shared by all objects of this class. The class variables comprise of a 3 matrices to return the stiffness, mass and damping matrices from the member functions and a vector to return the residual force. While the class variables could also be declared as instance variables, declaring them as class variables reduces the amount of memory required by each object of type MyTruss.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span><span class="op">:</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">// private class attributes - single copy for all objects of the class</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">static</span> Matrix trussK<span class="op">;</span>   <span class="co">// class wide matrix for returning stiffness</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">static</span> Matrix trussD<span class="op">;</span>   <span class="co">// class wide matrix for returning damping</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">static</span> Matrix trussM<span class="op">;</span>   <span class="co">// class wide matrix for returning mass </span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">static</span> Vector trussR<span class="op">;</span>   <span class="co">// class wide vector for returning residual</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">private</span><span class="o">:</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// private class attributes - single copy for all objects of the class</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="n">trussK</span><span class="p">;</span><span class="w">   </span><span class="c1">// class wide matrix for returning stiffness</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="n">trussD</span><span class="p">;</span><span class="w">   </span><span class="c1">// class wide matrix for returning damping</span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="n">trussM</span><span class="p">;</span><span class="w">   </span><span class="c1">// class wide matrix for returning mass </span>
+<span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="n">trussR</span><span class="p">;</span><span class="w">   </span><span class="c1">// class wide vector for returning residual</span>
+</pre></div>
+
 <h3 id="mytruss.c">MyTruss.C</h3>
 <p>The MyTruss.C file contains the implementation. The file first initializes the class variables defined in the MyTruss.h file. Here the three matrices are initialized to be of size 4*4 and the Vector of size 4. It should be noted that access to the data stored in these objects is done using the C indexing notation, which starts at 0.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">// initialize the class wide variables</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  Matrix MyTruss<span class="op">::</span>trussK<span class="op">(</span><span class="dv">4</span><span class="op">,</span><span class="dv">4</span><span class="op">);</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  Matrix MyTruss<span class="op">::</span>trussM<span class="op">(</span><span class="dv">4</span><span class="op">,</span><span class="dv">4</span><span class="op">);</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  Matrix MyTruss<span class="op">::</span>trussD<span class="op">(</span><span class="dv">4</span><span class="op">,</span><span class="dv">4</span><span class="op">);</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  Vector MyTruss<span class="op">::</span>trussR<span class="op">(</span><span class="dv">4</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="w">  </span><span class="c1">// initialize the class wide variables</span>
+<span class="w">  </span><span class="n">Matrix</span><span class="w"> </span><span class="nf">MyTruss::trussK</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">Matrix</span><span class="w"> </span><span class="nf">MyTruss::trussM</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">Matrix</span><span class="w"> </span><span class="nf">MyTruss::trussD</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">Vector</span><span class="w"> </span><span class="nf">MyTruss::trussR</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>After the initialization of the class variables, the constructors for the class are implemented. The first constructor takes as arguments the objects identifier, the identifiers of the two end nodes, a reference to the objects material and the objects area. The constructor initializes the instance variables with the appropriate values. In addition, the constructor makes a copy of the Material object; it is this copy that will be used by the MyTruss object. The second constructor, which takes no arguments, is used in parallel and database programming for constructing an empty object whose instance variables will be filled in by the object itself when recvSelf() is invoked on the object.</p>
-<pre><code>MyTruss::MyTruss(int tag, 
-                 int Nd1, int Nd2, 
-                 UniaxialMaterial &amp;theMat, 
-                 double a, double rho)
-:Element(tag,ELE_TAG_MyTruss),     
- externalNodes(2),
- trans(1,4), L(0.0), A(a), M(rho), end1Ptr(0), end2Ptr(0)
-{   
-    // create a copy of the material object
-    theMaterial = theMat.getCopy();
+<div class="highlight"><pre><span></span><span class="n">MyTruss</span><span class="p">::</span><span class="n">MyTruss</span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                 </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">Nd1</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">Nd2</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                 </span><span class="n">UniaxialMaterial</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theMat</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                 </span><span class="n">double</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="n">rho</span><span class="p">)</span><span class="w"></span>
+<span class="p">:</span><span class="n">Element</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span><span class="n">ELE_TAG_MyTruss</span><span class="p">),</span><span class="w">     </span>
+<span class="w"> </span><span class="n">externalNodes</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
+<span class="w"> </span><span class="n">trans</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">L</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">a</span><span class="p">),</span><span class="w"> </span><span class="n">M</span><span class="p">(</span><span class="n">rho</span><span class="p">),</span><span class="w"> </span><span class="n">end1Ptr</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">end2Ptr</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w">   </span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">copy</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="n">object</span><span class="w"></span>
+<span class="w">    </span><span class="n">theMaterial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theMat</span><span class="o">.</span><span class="n">getCopy</span><span class="p">();</span><span class="w"></span>
 
-    // fill in the ID containing external node info with node id&#39;s
-    externalNodes(0) = Nd1;
-    externalNodes(1) = Nd2;        
-}
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="n">containing</span><span class="w"> </span><span class="n">external</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">id</span><span class="s1">&#39;s</span>
+<span class="w">    </span><span class="n">externalNodes</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Nd1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">externalNodes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Nd2</span><span class="p">;</span><span class="w">        </span>
+<span class="p">}</span><span class="w"></span>
 
-// constructor which should be invoked by an FE_ObjectBroker only
-MyTruss::MyTruss()
-:Element(0,ELE_TAG_MyTruss),     
- theMaterial(0),
- externalNodes(2),
- trans(1,4), L(0.0), A(0.0), M(0.0), end1Ptr(0), end2Ptr(0)
-{
-    // does nothing
-}</code></pre>
+<span class="o">//</span><span class="w"> </span><span class="n">constructor</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">invoked</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">FE_ObjectBroker</span><span class="w"> </span><span class="n">only</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">MyTruss</span><span class="p">()</span><span class="w"></span>
+<span class="p">:</span><span class="n">Element</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">ELE_TAG_MyTruss</span><span class="p">),</span><span class="w">     </span>
+<span class="w"> </span><span class="n">theMaterial</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"></span>
+<span class="w"> </span><span class="n">externalNodes</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
+<span class="w"> </span><span class="n">trans</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="w"> </span><span class="n">L</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span><span class="w"> </span><span class="n">M</span><span class="p">(</span><span class="mf">0.0</span><span class="p">),</span><span class="w"> </span><span class="n">end1Ptr</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">end2Ptr</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">nothing</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <p>After the two constructors comes the destructor for the class. This is the function that is invoked when the object is removed from the system. Each object is responsible for cleaning up after itself, anything the object created using the new operator. The destructor is also responsible for memory allocated by other objects, in this case the UniaxialMaterial object.</p>
-<pre><code>MyTruss::~MyTruss()
-{
-    if (theMaterial != 0)
-        delete theMaterial;    
-}</code></pre>
+<div class="highlight"><pre><span></span><span class="nt">MyTruss</span><span class="o">::~</span><span class="nt">MyTruss</span><span class="o">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">if</span><span class="w"> </span><span class="err">(theMaterial</span><span class="w"> </span><span class="err">!=</span><span class="w"> </span><span class="err">0)</span><span class="w"></span>
+<span class="w">        </span><span class="err">delete</span><span class="w"> </span><span class="err">theMaterial</span><span class="p">;</span><span class="w">    </span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <p>After the destructor comes a number of utility methods that each Element type must provide. These include the methods getNumberExternalNodes() to return the number of end nodes, getExternalNodes() an ID object containing the identifiers of these nodes, and getNumDOF() to return the number of degrees of freedom associated with the Element. In addition, there is the method setDomain() that is called when the object is added to a Domain object. When this method is invoked each MyTruss object completes the initialization of it’s instance variables. For example, if the two end nodes exist in the Domain the pointers to these end nodes are now set.</p>
-<pre><code>int
-MyTruss::getNumExternalNodes(void) const
-{
-    return 2;
-}
+<div class="highlight"><pre><span></span><span class="nb nb-Type">int</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">getNumExternalNodes</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-const ID &amp;
-MyTruss::getExternalNodes(void) 
-{
-    return externalNodes;
-}
+<span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">getExternalNodes</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">)</span><span class="w"> </span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">externalNodes</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-int
-MyTruss::getNumDOF(void) {
-    return 4;
-}
+<span class="nb nb-Type">int</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">getNumDOF</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-void
-MyTruss::setDomain(Domain *theDomain)
-{
-    // first ensure nodes exist in Domain and set the node pointers
-    int Nd1 = externalNodes(0);
-    int Nd2 = externalNodes(1);
-    end1Ptr = theDomain-&gt;getNode(Nd1);
-    end2Ptr = theDomain-&gt;getNode(Nd2);  
+<span class="nb nb-Type">void</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">setDomain</span><span class="p">(</span><span class="n">Domain</span><span class="w"> </span><span class="o">*</span><span class="n">theDomain</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">ensure</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="n">exist</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">Domain</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">pointers</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">Nd1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalNodes</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">Nd2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">externalNodes</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">end1Ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theDomain</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">(</span><span class="n">Nd1</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">end2Ptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theDomain</span><span class="o">-&gt;</span><span class="n">getNode</span><span class="p">(</span><span class="n">Nd2</span><span class="p">);</span><span class="w">  </span>
 
-    if (end1Ptr == 0) 
-        return;  // don&#39;t go any further - otherwise segmentation fault
-    if (end2Ptr == 0) 
-        return;  // don&#39;t go any further - otherwise segmentation fault
-    
-    // call the DomainComponent class method. note: THIS IS VERY VERY IMPORTANT
-    this-&gt;DomainComponent::setDomain(theDomain);
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">end1Ptr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">don</span><span class="s1">&#39;t go any further - otherwise segmentation fault</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">end2Ptr</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">don</span><span class="s1">&#39;t go any further - otherwise segmentation fault</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">DomainComponent</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="n">method</span><span class="o">.</span><span class="w"> </span><span class="n">note</span><span class="p">:</span><span class="w"> </span><span class="n">THIS</span><span class="w"> </span><span class="n">IS</span><span class="w"> </span><span class="n">VERY</span><span class="w"> </span><span class="n">VERY</span><span class="w"> </span><span class="n">IMPORTANT</span><span class="w"></span>
+<span class="w">    </span><span class="n">this</span><span class="o">-&gt;</span><span class="n">DomainComponent</span><span class="p">::</span><span class="n">setDomain</span><span class="p">(</span><span class="n">theDomain</span><span class="p">);</span><span class="w"></span>
 
-    // ensure connected nodes have correct number of dof&#39;s
-    int dofNd1 = end1Ptr-&gt;getNumberDOF();
-    int dofNd2 = end2Ptr-&gt;getNumberDOF();   
-    if ((dofNd1 != 2) || (dofNd2 != 2)) 
-        return;  // don&#39;t go any further - otherwise segmentation fault
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">ensure</span><span class="w"> </span><span class="n">connected</span><span class="w"> </span><span class="n">nodes</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">correct</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">dof</span><span class="s1">&#39;s</span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">dofNd1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end1Ptr</span><span class="o">-&gt;</span><span class="n">getNumberDOF</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">dofNd2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end2Ptr</span><span class="o">-&gt;</span><span class="n">getNumberDOF</span><span class="p">();</span><span class="w">   </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="n">dofNd1</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="p">(</span><span class="n">dofNd2</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">don</span><span class="s1">&#39;t go any further - otherwise segmentation fault</span>
 
-    // now determine the length &amp; transformation matrix
-    const Vector &amp;end1Crd = end1Ptr-&gt;getCrds();
-    const Vector &amp;end2Crd = end2Ptr-&gt;getCrds(); 
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">transformation</span><span class="w"> </span><span class="n">matrix</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">end1Crd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end1Ptr</span><span class="o">-&gt;</span><span class="n">getCrds</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">end2Crd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end2Ptr</span><span class="o">-&gt;</span><span class="n">getCrds</span><span class="p">();</span><span class="w"> </span>
 
-    double dx = end2Crd(0)-end1Crd(0);
-    double dy = end2Crd(1)-end1Crd(1);  
-    
-    L = sqrt(dx*dx + dy*dy);
-    
-    if (L == 0.0) 
-        return;  // don&#39;t go any further - otherwise divide by 0 error
-    
-    double cs = dx/L;
-    double sn = dy/L;
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">dx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end2Crd</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span><span class="n">end1Crd</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">dy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end2Crd</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">end1Crd</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w">  </span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">L</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">dx</span><span class="o">*</span><span class="n">dx</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dy</span><span class="o">*</span><span class="n">dy</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="k">return</span><span class="p">;</span><span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">don</span><span class="s1">&#39;t go any further - otherwise divide by 0 error</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dx</span><span class="o">/</span><span class="n">L</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">sn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dy</span><span class="o">/</span><span class="n">L</span><span class="p">;</span><span class="w"></span>
 
-    trans(0,0) = -cs;
-    trans(0,1) = -sn;    
-    trans(0,2) =  cs;
-    trans(0,3) =  sn;
+<span class="w">    </span><span class="n">trans</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">cs</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">trans</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">sn</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span><span class="n">trans</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">cs</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">trans</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w">  </span><span class="n">sn</span><span class="p">;</span><span class="w"></span>
 
-    // determine the nodal mass for lumped mass approach
-    M = M * A * L/2; // remember M was set to rho in the constructor
-}        </code></pre>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nodal</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">lumped</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="n">approach</span><span class="w"></span>
+<span class="w">    </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">remember</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">rho</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">constructor</span><span class="w"></span>
+<span class="p">}</span><span class="w">        </span>
+</pre></div>
+
 <p>Following the methods comes a number of methods related to the solution algorithm. These methods include commitState(), which is invoked when a point on the solution path has been achieved for a step in the analysis, revertToLastCommit() which is a method invoked to inform the Element that convergence to an acceptable solution was not achieved and that the Element is to return to the state it was at when the last commit() method was invoked on it. The method revertToStart() is invoked to tell the Element that it is to return to the state it was at the beginning of the analysis. For a MyTruss element type, which has no state information, the object itself will simply invoke the corresponding method on it’s associated material object.</p>
-<pre><code>int
-MyTruss::commitState()
-{
-    return theMaterial-&gt;commitState();
-}
+<div class="highlight"><pre><span></span><span class="nt">int</span><span class="w"></span>
+<span class="nt">MyTruss</span><span class="p">::</span><span class="nd">commitState</span><span class="o">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">return</span><span class="w"> </span><span class="err">theMaterial-&gt;commitState()</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-int
-MyTruss::revertToLastCommit()
-{
-    return theMaterial-&gt;revertToLastCommit();
-}
+<span class="nt">int</span><span class="w"></span>
+<span class="nt">MyTruss</span><span class="p">::</span><span class="nd">revertToLastCommit</span><span class="o">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">return</span><span class="w"> </span><span class="err">theMaterial-&gt;revertToLastCommit()</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-int
-MyTruss::revertToStart()
-{
-    return theMaterial-&gt;revertToStart();
-}
+<span class="nt">int</span><span class="w"></span>
+<span class="nt">MyTruss</span><span class="p">::</span><span class="nd">revertToStart</span><span class="o">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">return</span><span class="w"> </span><span class="err">theMaterial-&gt;revertToStart()</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 
-int
-MyTruss::update()
-{
-  // determine the current strain given trial displacements at nodes
-  double strain = this-&gt;computeCurrentStrain();
+<span class="nt">int</span><span class="w"></span>
+<span class="nt">MyTruss</span><span class="p">::</span><span class="nd">update</span><span class="o">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">determine</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">current</span><span class="w"> </span><span class="err">strain</span><span class="w"> </span><span class="err">given</span><span class="w"> </span><span class="err">trial</span><span class="w"> </span><span class="err">displacements</span><span class="w"> </span><span class="err">at</span><span class="w"> </span><span class="err">nodes</span><span class="w"></span>
+<span class="w">  </span><span class="err">double</span><span class="w"> </span><span class="err">strain</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">this-&gt;computeCurrentStrain()</span><span class="p">;</span><span class="w"></span>
 
-  // set the strain in the materials
-  theMaterial-&gt;setTrialStrain(strain);
+<span class="w">  </span><span class="err">//</span><span class="w"> </span><span class="err">set</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">strain</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">materials</span><span class="w"></span>
+<span class="w">  </span><span class="err">theMaterial-&gt;setTrialStrain(strain)</span><span class="p">;</span><span class="w"></span>
 
-  return 0;
-}</code></pre>
+<span class="w">  </span><span class="err">return</span><span class="w"> </span><span class="err">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <p>After these come the implementation of the typical Element methods to obtain the current linearized stiffness, mass and damping matrices, and the residual vector. In each of these methods, a call is made to the objects computeCurrentStrain() method. Once the strain has been computed the tangent matrices and residual vector are computed using standard matlab like operations. It should be noted that the results are placed into the class matrices and vectors.</p>
-<pre><code>const Matrix &amp;
-MyTruss::getTangentStiff(void)
-{
-    if (L == 0) { // if length == zero - we zero and return
-        trussK.Zero();
-        return trussK;
-    }
+<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">getTangentStiff</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">return</span><span class="w"></span>
+<span class="w">        </span><span class="n">trussK</span><span class="o">.</span><span class="n">Zero</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">trussK</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    // get the current E from the material for the strain that was set
-    // at the material when the update() method was invoked
-    double E = theMaterial-&gt;getTangent();
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">strain</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">set</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">update</span><span class="p">()</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">invoked</span><span class="w"></span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theMaterial</span><span class="o">-&gt;</span><span class="n">getTangent</span><span class="p">();</span><span class="w"></span>
 
-    // form the tangent stiffness matrix
-    trussK = trans^trans;
-    trussK *= A*E/L;  
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tangent</span><span class="w"> </span><span class="n">stiffness</span><span class="w"> </span><span class="n">matrix</span><span class="w"></span>
+<span class="w">    </span><span class="n">trussK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trans</span><span class="o">^</span><span class="n">trans</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">trussK</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">A</span><span class="o">*</span><span class="n">E</span><span class="o">/</span><span class="n">L</span><span class="p">;</span><span class="w">  </span>
 
-    return trussK;
-}
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">trussK</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-const Matrix &amp;
-MyTruss::getSecantStiff(void)
-{
-    if (L == 0) { // if length == zero - we zero and return
-        trussK.Zero();
-        return trussK;
-    }
+<span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">getSecantStiff</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">return</span><span class="w"></span>
+<span class="w">        </span><span class="n">trussK</span><span class="o">.</span><span class="n">Zero</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">trussK</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    // get the current strain from the material
-    double strain = theMaterial-&gt;getStrain();
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">strain</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">material</span><span class="w"></span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">strain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theMaterial</span><span class="o">-&gt;</span><span class="n">getStrain</span><span class="p">();</span><span class="w"></span>
 
 
-    // get the current stress from the material 
-    double stress = theMaterial-&gt;getStress();   
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">get</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"> </span><span class="n">stress</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">material</span><span class="w"> </span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">stress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theMaterial</span><span class="o">-&gt;</span><span class="n">getStress</span><span class="p">();</span><span class="w">   </span>
 
-    // compute the tangent  
-    double E = stress/strain;
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">compute</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tangent</span><span class="w">  </span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stress</span><span class="o">/</span><span class="n">strain</span><span class="p">;</span><span class="w"></span>
 
-    // form the tangent stiffness matrix
-    trussK = trans^trans;
-    trussK *= A*E/L;  
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">form</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tangent</span><span class="w"> </span><span class="n">stiffness</span><span class="w"> </span><span class="n">matrix</span><span class="w"></span>
+<span class="w">    </span><span class="n">trussK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trans</span><span class="o">^</span><span class="n">trans</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">trussK</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="n">A</span><span class="o">*</span><span class="n">E</span><span class="o">/</span><span class="n">L</span><span class="p">;</span><span class="w">  </span>
 
-    return trussK;
-}
-    
-const Matrix &amp;
-MyTruss::getDamp(void)
-{
-  // no damping associated with this type of element
-  return trussD;
-}
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">trussK</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="w">    </span>
+<span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">getDamp</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">damping</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">element</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">trussD</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-const Matrix &amp;
-MyTruss::getMass(void)
-{ 
-    if (L == 0) { // if length == zero - we zero and return
-        trussM.Zero();
-        return trussM;
-    }
-    // determine mass matrix assuming lumped mass
-    double nodeMass = M * A * L/2;
-    for (int i=0; i&lt;4; i++) 
-        trussM(i,i) = nodeMass;
+<span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">getMass</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">return</span><span class="w"></span>
+<span class="w">        </span><span class="n">trussM</span><span class="o">.</span><span class="n">Zero</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">trussM</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="n">assuming</span><span class="w"> </span><span class="n">lumped</span><span class="w"> </span><span class="n">mass</span><span class="w"></span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">nodeMass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span>
+<span class="w">        </span><span class="n">trussM</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nodeMass</span><span class="p">;</span><span class="w"></span>
 
-    return trussM;
-}
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">trussM</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-void 
-MyTruss::zeroLoad(void)
-{
-    // does nothing - no element loads associated with this object
-}
+<span class="nb nb-Type">void</span><span class="w"> </span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">zeroLoad</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="n">nothing</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">loads</span><span class="w"> </span><span class="n">associated</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">object</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-const Vector &amp;
-MyTruss::getResistingForce()
-{   
-    if (L == 0) { // if length == zero - we zero and return
-        trussR.Zero();
-        return trussR;
-    }
+<span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">getResistingForce</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w">   </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="k">return</span><span class="w"></span>
+<span class="w">        </span><span class="n">trussR</span><span class="o">.</span><span class="n">Zero</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">trussR</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    // R = Ku - Pext
-    // force = F * transformation 
-    double force = A*theMaterial-&gt;getStress();
-    for (int i=0; i&lt;4; i++)
-        trussR(i) = trans(0,i)*force;
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ku</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Pext</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">F</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">transformation</span><span class="w"> </span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">*</span><span class="n">theMaterial</span><span class="o">-&gt;</span><span class="n">getStress</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">trussR</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trans</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">force</span><span class="p">;</span><span class="w"></span>
 
-    return trussR;
-}
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">trussR</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-const Vector &amp;
-MyTruss::getResistingForceIncInertia()
-{   
-    // R = Ku - Pext + Ma
+<span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">getResistingForceIncInertia</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w">   </span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ku</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Pext</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Ma</span><span class="w"></span>
 
-    // determine the resisting force sans mass
-    this-&gt;getResistingForce();  
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">resisting</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="n">sans</span><span class="w"> </span><span class="n">mass</span><span class="w"></span>
+<span class="w">    </span><span class="n">this</span><span class="o">-&gt;</span><span class="n">getResistingForce</span><span class="p">();</span><span class="w">  </span>
 
-    // now include the mass portion
-    if (L != 0 &amp;&amp; M != 0) {
-        double nodeMass = M * A * L/2;
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">include</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">mass</span><span class="w"> </span><span class="n">portion</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">double</span><span class="w"> </span><span class="n">nodeMass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">L</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
 
-        const Vector &amp;accel1 = end1Ptr-&gt;getTrialAccel();
-        const Vector &amp;accel2 = end2Ptr-&gt;getTrialAccel();    
-    
-        for (int i=0; i&lt;2; i++) {
-           trussR(i) = trussR(i) - nodeMass*accel1(i);
-           trussR(i+2) = trussR(i+2) - nodeMass*accel2(i);
-        }
-    }
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">accel1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end1Ptr</span><span class="o">-&gt;</span><span class="n">getTrialAccel</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">accel2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end2Ptr</span><span class="o">-&gt;</span><span class="n">getTrialAccel</span><span class="p">();</span><span class="w">    </span>
+<span class="w">    </span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">           </span><span class="n">trussR</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trussR</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nodeMass</span><span class="o">*</span><span class="n">accel1</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">           </span><span class="n">trussR</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trussR</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">nodeMass</span><span class="o">*</span><span class="n">accel2</span><span class="p">(</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    return trussR;    
-}</code></pre>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">trussR</span><span class="p">;</span><span class="w">    </span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <p>After the more standard Element methods come two pairwise methods that are required for parallel and database processing, sendSelf() and recvSelf(). Each Element object is responsible for sending enough information to a Channel object such that an Element of similar type, on the other end of the Channel, will be able to initialize itself so that the geometry and state information in the two objects are the same. When sending this data to a Channel a MyTruss object initially sends its tag, it’s unique database tag, it’s area, the Material objects tag in a vector object to the Channel. The MyClass object then sends it’s ID to the Channel and finally the MaterialObject is told to send itself. When receiving itself from a Channel a MyTruss object will receive this information. It should be noticed that before the object can invoke recvSelf() on its Material object it must create the appropriate type of Material object, this it does using the FEM_ObjectBroker object and the Material objects class tag.</p>
-<pre><code>int
-MyTruss::sendSelf(int commitTag, Channel &amp;theChannel)
-{
-    // note: we don&#39;t check for dataTag == 0 for Element
-    // objects as that is taken care of in a commit by the Domain
-    // object - don&#39;t want to have to do the check if sending data
-    int dataTag = this-&gt;getDbTag();
+<div class="highlight"><pre><span></span><span class="nt">int</span><span class="w"></span>
+<span class="nt">MyTruss</span><span class="p">::</span><span class="nd">sendSelf</span><span class="o">(</span><span class="nt">int</span><span class="w"> </span><span class="nt">commitTag</span><span class="o">,</span><span class="w"> </span><span class="nt">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="nt">theChannel</span><span class="o">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="n">note</span><span class="p">:</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">don</span><span class="s1">&#39;t check for dataTag == 0 for Element</span>
+<span class="s1">    // objects as that is taken care of in a commit by the Domain</span>
+<span class="s1">    // object - don&#39;</span><span class="n">t</span><span class="w"> </span><span class="n">want</span><span class="w"> </span><span class="kc">to</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="kc">to</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">check</span><span class="w"> </span><span class="n">if</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="n">data</span><span class="w"></span>
+<span class="w">    </span><span class="n">int</span><span class="w"> </span><span class="n">dataTag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">this-</span><span class="o">&gt;</span><span class="nf">getDbTag</span><span class="p">();</span><span class="w"></span>
 
-    // MyTruss packs it&#39;s data into a Vector and sends this to theChannel
-    // along with it&#39;s dbTag and the commitTag passed in the arguments
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">MyTruss</span><span class="w"> </span><span class="err">packs</span><span class="w"> </span><span class="err">it&#39;s</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">into</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Vector</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">sends</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">theChannel</span><span class="w"></span>
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">along</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">it&#39;s</span><span class="w"> </span><span class="err">dbTag</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">commitTag</span><span class="w"> </span><span class="err">passed</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">arguments</span><span class="w"></span>
 
-    Vector data(5);
-    data(0) = this-&gt;getTag();
-    data(1) = A;
-    data(4) = M;
-    data(2) = theMaterial-&gt;getClassTag();
-    int matDbTag = theMaterial-&gt;getDbTag();
-    // NOTE: we do have to ensure that the material has a database
-    // tag if we are sending to a database channel.
-    if (matDbTag == 0) {
-        matDbTag = theChannel.getDbTag();
-        if (matDbTag != 0)
-           theMaterial-&gt;setDbTag(matDbTag);
-    }
-    data(3) = matDbTag;
+<span class="w">    </span><span class="err">Vector</span><span class="w"> </span><span class="err">data(5)</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">data(0)</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">this-&gt;getTag()</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">data(1)</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">A</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">data(4)</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">M</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">data(2)</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">theMaterial-&gt;getClassTag()</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">int</span><span class="w"> </span><span class="err">matDbTag</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">theMaterial-&gt;getDbTag()</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="n">NOTE</span><span class="p">:</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">do</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="kc">to</span><span class="w"> </span><span class="n">ensure</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">database</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">tag</span><span class="w"> </span><span class="n">if</span><span class="w"> </span><span class="n">we</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">sending</span><span class="w"> </span><span class="kc">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">database</span><span class="w"> </span><span class="n">channel</span><span class="o">.</span><span class="w"></span>
+<span class="w">    </span><span class="n">if</span><span class="w"> </span><span class="p">(</span><span class="n">matDbTag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">matDbTag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theChannel</span><span class="o">.</span><span class="nf">getDbTag</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="err">if</span><span class="w"> </span><span class="err">(matDbTag</span><span class="w"> </span><span class="err">!=</span><span class="w"> </span><span class="err">0)</span><span class="w"></span>
+<span class="w">           </span><span class="err">theMaterial-&gt;setDbTag(matDbTag)</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nt">data</span><span class="o">(</span><span class="nt">3</span><span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">matDbTag</span><span class="o">;</span><span class="w"></span>
 
-    theChannel.sendVector(dataTag, commitTag, data);
+<span class="w">    </span><span class="nt">theChannel</span><span class="p">.</span><span class="nc">sendVector</span><span class="o">(</span><span class="nt">dataTag</span><span class="o">,</span><span class="w"> </span><span class="nt">commitTag</span><span class="o">,</span><span class="w"> </span><span class="nt">data</span><span class="o">);</span><span class="w"></span>
 
-    // MyTruss then sends the tags of it&#39;s two end nodes
-    theChannel.sendID(dataTag, commitTag, externalNodes);
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="nt">MyTruss</span><span class="w"> </span><span class="nt">then</span><span class="w"> </span><span class="nt">sends</span><span class="w"> </span><span class="nt">the</span><span class="w"> </span><span class="nt">tags</span><span class="w"> </span><span class="nt">of</span><span class="w"> </span><span class="nt">it</span><span class="s1">&#39;s two end nodes</span>
+<span class="s1">    theChannel.sendID(dataTag, commitTag, externalNodes);</span>
 
-    // finally MyTruss asks it&#39;s material object to send itself
-    theMaterial-&gt;sendSelf(commitTag, theChannel);
+<span class="s1">    // finally MyTruss asks it&#39;</span><span class="nt">s</span><span class="w"> </span><span class="nt">material</span><span class="w"> </span><span class="nt">object</span><span class="w"> </span><span class="nt">to</span><span class="w"> </span><span class="nt">send</span><span class="w"> </span><span class="nt">itself</span><span class="w"></span>
+<span class="w">    </span><span class="nt">theMaterial-</span><span class="o">&gt;</span><span class="nt">sendSelf</span><span class="o">(</span><span class="nt">commitTag</span><span class="o">,</span><span class="w"> </span><span class="nt">theChannel</span><span class="o">);</span><span class="w"></span>
 
-    return 0;
-}
+<span class="w">    </span><span class="nt">return</span><span class="w"> </span><span class="nt">0</span><span class="o">;</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
 
-int
-MyTruss::recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker)
-{
-    int dataTag = this-&gt;getDbTag();
+<span class="nt">int</span><span class="w"></span>
+<span class="nt">MyTruss</span><span class="p">::</span><span class="nd">recvSelf</span><span class="o">(</span><span class="nt">int</span><span class="w"> </span><span class="nt">commitTag</span><span class="o">,</span><span class="w"> </span><span class="nt">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="nt">theChannel</span><span class="o">,</span><span class="w"> </span><span class="nt">FEM_ObjectBroker</span><span class="w"> </span><span class="o">&amp;</span><span class="nt">theBroker</span><span class="o">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">int</span><span class="w"> </span><span class="err">dataTag</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">this-&gt;getDbTag()</span><span class="p">;</span><span class="w"></span>
 
-    // MyTruss creates a Vector, receives the Vector and then sets the 
-    // internal data with the data in the Vector
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">MyTruss</span><span class="w"> </span><span class="err">creates</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Vector,</span><span class="w"> </span><span class="err">receives</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">Vector</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">then</span><span class="w"> </span><span class="err">sets</span><span class="w"> </span><span class="err">the</span><span class="w"> </span>
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">internal</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">data</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">Vector</span><span class="w"></span>
 
-    Vector data(5);
-    theChannel.recvVector(dataTag, commitTag, data);
+<span class="w">    </span><span class="err">Vector</span><span class="w"> </span><span class="err">data(5)</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">theChannel.recvVector(dataTag,</span><span class="w"> </span><span class="err">commitTag,</span><span class="w"> </span><span class="err">data)</span><span class="p">;</span><span class="w"></span>
 
-    this-&gt;setTag((int)data(0));
-    A = data(1);
-    M = data(4);
-    // MyTruss now receives the tags of it&#39;s two external nodes
-    theChannel.recvID(dataTag, commitTag, externalNodes);
+<span class="w">    </span><span class="err">this-&gt;setTag((int)data(0))</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">A</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">data(1)</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">M</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">data(4)</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">MyTruss</span><span class="w"> </span><span class="err">now</span><span class="w"> </span><span class="err">receives</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">tags</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">it&#39;s</span><span class="w"> </span><span class="err">two</span><span class="w"> </span><span class="err">external</span><span class="w"> </span><span class="err">nodes</span><span class="w"></span>
+<span class="w">    </span><span class="err">theChannel.recvID(dataTag,</span><span class="w"> </span><span class="err">commitTag,</span><span class="w"> </span><span class="err">externalNodes)</span><span class="p">;</span><span class="w"></span>
 
-    // we create a material object of the correct type,
-    // sets its database tag and asks this new object to receive itself.
-    int matClass = data(2);
-    int matDb = data(3);
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">create</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">material</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">correct</span><span class="w"> </span><span class="err">type,</span><span class="w"></span>
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">sets</span><span class="w"> </span><span class="err">its</span><span class="w"> </span><span class="err">database</span><span class="w"> </span><span class="err">tag</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">asks</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">receive</span><span class="w"> </span><span class="err">itself.</span><span class="w"></span>
+<span class="w">    </span><span class="err">int</span><span class="w"> </span><span class="err">matClass</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">data(2)</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">int</span><span class="w"> </span><span class="err">matDb</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">data(3)</span><span class="p">;</span><span class="w"></span>
 
-    theMaterial = theBroker.getNewUniaxialMaterial(matClass);
+<span class="w">    </span><span class="err">theMaterial</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">theBroker.getNewUniaxialMaterial(matClass)</span><span class="p">;</span><span class="w"></span>
 
-    // we set the dbTag before we receive the material  - this is important
-    theMaterial-&gt;setDbTag(matDb); 
-    theMaterial-&gt;recvSelf(commitTag, theChannel, theBroker);
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">set</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">dbTag</span><span class="w"> </span><span class="err">before</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">receive</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">material</span><span class="w">  </span><span class="err">-</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">important</span><span class="w"></span>
+<span class="w">    </span><span class="err">theMaterial-&gt;setDbTag(matDb)</span><span class="p">;</span><span class="w"> </span>
+<span class="w">    </span><span class="err">theMaterial-&gt;recvSelf(commitTag,</span><span class="w"> </span><span class="err">theChannel,</span><span class="w"> </span><span class="err">theBroker)</span><span class="p">;</span><span class="w"></span>
 
-    return 0;
-}</code></pre>
+<span class="w">    </span><span class="err">return</span><span class="w"> </span><span class="err">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <p>To display graphically an Element in an image the displaySelf() method is invoked on an Element object. What is displayed depends on the flag and display factor values provided as arguments. The display factor is used to magnify the nodal displacements at the member ends so that distortion of the structure is visible. The flag is used to indicate what measure is to be displayed. A MyTruss object will display the strain in the object if a <span class="math inline">\(1\)</span> is passed, otherwise the force in the object is displayed.</p>
-<pre><code>int
-MyTruss::displaySelf(Renderer &amp;theViewer, int displayMode, float fact)
-{
-    // first determine the two end points of the truss based on
-    // the display factor (a measure of the distorted image)
-    // store this information in 2 3d vectors v1 and v2
-    const Vector &amp;end1Crd = end1Ptr-&gt;getCrds();
-    const Vector &amp;end2Crd = end2Ptr-&gt;getCrds(); 
-    const Vector &amp;end1Disp = end1Ptr-&gt;getDisp();
-    const Vector &amp;end2Disp = end2Ptr-&gt;getDisp();    
+<div class="highlight"><pre><span></span><span class="nb nb-Type">int</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">displaySelf</span><span class="p">(</span><span class="n">Renderer</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theViewer</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">displayMode</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">float</span><span class="w"> </span><span class="n">fact</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">end</span><span class="w"> </span><span class="n">points</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">truss</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">factor</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="n">measure</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">distorted</span><span class="w"> </span><span class="n">image</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">store</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">information</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="n">d</span><span class="w"> </span><span class="n">vectors</span><span class="w"> </span><span class="n">v1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">v2</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">end1Crd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end1Ptr</span><span class="o">-&gt;</span><span class="n">getCrds</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">end2Crd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end2Ptr</span><span class="o">-&gt;</span><span class="n">getCrds</span><span class="p">();</span><span class="w"> </span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">end1Disp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end1Ptr</span><span class="o">-&gt;</span><span class="n">getDisp</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">end2Disp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end2Ptr</span><span class="o">-&gt;</span><span class="n">getDisp</span><span class="p">();</span><span class="w">    </span>
 
-    Vector v1(3);
-    Vector v2(3);
-    for (int i=0; i&lt;2; i++) {
-        v1(i) = end1Crd(i)+end1Disp(i)*fact;
-        v2(i) = end2Crd(i)+end2Disp(i)*fact;    
-    }
-    if (displayMode == 3) {  
-        // use the strain as the drawing measure
-        double strain = theMaterial-&gt;getStrain();
-        return theViewer.drawLine(v1, v2, strain, strain);  
+<span class="w">    </span><span class="n">Vector</span><span class="w"> </span><span class="n">v1</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">Vector</span><span class="w"> </span><span class="n">v2</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">v1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end1Crd</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">end1Disp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">fact</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">v2</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end2Crd</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">end2Disp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">fact</span><span class="p">;</span><span class="w">    </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">displayMode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span>
+<span class="w">        </span><span class="o">//</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">strain</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">drawing</span><span class="w"> </span><span class="n">measure</span><span class="w"></span>
+<span class="w">        </span><span class="n">double</span><span class="w"> </span><span class="n">strain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theMaterial</span><span class="o">-&gt;</span><span class="n">getStrain</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">theViewer</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v2</span><span class="p">,</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="n">strain</span><span class="p">);</span><span class="w">  </span>
 
-    } else if (displayMode == 2) { 
-        // otherwise use the material stress
-        double stress = A*theMaterial-&gt;getStress();
-        return theViewer.drawLine(v1,v2, stress, stress);
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">displayMode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">        </span><span class="o">//</span><span class="w"> </span><span class="n">otherwise</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">material</span><span class="w"> </span><span class="n">stress</span><span class="w"></span>
+<span class="w">        </span><span class="n">double</span><span class="w"> </span><span class="n">stress</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="o">*</span><span class="n">theMaterial</span><span class="o">-&gt;</span><span class="n">getStress</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">theViewer</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="w"> </span><span class="n">stress</span><span class="p">,</span><span class="w"> </span><span class="n">stress</span><span class="p">);</span><span class="w"></span>
 
-    } else { // use the axial force
-        double force = A * theMaterial-&gt;getStress();
-        return theViewer.drawLine(v1,v2, force, force);
-    }
-}</code></pre>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">axial</span><span class="w"> </span><span class="n">force</span><span class="w"></span>
+<span class="w">        </span><span class="n">double</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">theMaterial</span><span class="o">-&gt;</span><span class="n">getStress</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">theViewer</span><span class="o">.</span><span class="n">drawLine</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span><span class="n">v2</span><span class="p">,</span><span class="w"> </span><span class="n">force</span><span class="p">,</span><span class="w"> </span><span class="n">force</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <p>To print the state of the Element, to a file or to the screen, the Print() method is invoked on the Element object. What is printed by the object, depends on the flag passed as an argument. A MyTruss object prints a detailed description of its state if <span class="math inline">\(0\)</span> is passed, a shortened version if <span class="math inline">\(1\)</span> is passed, and nothing at all if anything else is passed.</p>
-<pre><code>void
-MyTruss::Print(OPS_Stream &amp;s, int flag) const
-{
-    // compute the strain and axial force in the member
-    double strain, force;
-    if (L == 0.0) {
-      strain = 0;
-      force = 0.0;
-    } else {
-      strain = theMaterial-&gt;getStrain();
-      force = A * theMaterial-&gt;getStress();    
-    }
+<div class="highlight"><pre><span></span><span class="nb nb-Type">void</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">flag</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">compute</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">strain</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">axial</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">member</span><span class="w"></span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="n">force</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">L</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">strain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">strain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theMaterial</span><span class="o">-&gt;</span><span class="n">getStrain</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="n">force</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">theMaterial</span><span class="o">-&gt;</span><span class="n">getStress</span><span class="p">();</span><span class="w">    </span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    for (int i=0; i&lt;4; i++)
-      trussR(i) = trans(0,i)*force;
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">trussR</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">trans</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">force</span><span class="p">;</span><span class="w"></span>
 
-    if (flag == 0) { // print everything
-      s &lt;&lt; &quot;Element: &quot; &lt;&lt; this-&gt;getTag(); 
-      s &lt;&lt; &quot; type: MyTruss  iNode: &quot; &lt;&lt; externalNodes(0);
-      s &lt;&lt; &quot; jNode: &quot; &lt;&lt; externalNodes(1);
-      s &lt;&lt; &quot; Area: &quot; &lt;&lt; A;
-      if (M != 0) s &lt;&lt; &quot; Mass (PerUnitVolume): &quot; &lt;&lt; M;  
-    
-      s &lt;&lt; &quot; \n\t strain: &quot; &lt;&lt; strain;
-      s &lt;&lt; &quot; axial load: &quot; &lt;&lt;  force;
-      s &lt;&lt; &quot; \n\t unbalanced load: &quot; &lt;&lt; trussR;
-      s &lt;&lt; &quot; \t Material: &quot; &lt;&lt; *theMaterial;
-      s &lt;&lt; endln;
-    } else if (flag == 1) { // just print ele id, strain and force
-      s &lt;&lt; this-&gt;getTag() &lt;&lt; &quot;  &quot; &lt;&lt; strain &lt;&lt; &quot;  &quot; &lt;&lt; force &lt;&lt; endln;
-    }
-}</code></pre>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="nb">print</span><span class="w"> </span><span class="n">everything</span><span class="w"></span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot;Element: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">this</span><span class="o">-&gt;</span><span class="n">getTag</span><span class="p">();</span><span class="w"> </span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; type: MyTruss  iNode: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">externalNodes</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; jNode: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">externalNodes</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; Area: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">M</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; Mass (PerUnitVolume): &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">M</span><span class="p">;</span><span class="w">  </span>
+<span class="w">    </span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; </span><span class="se">\n\t</span><span class="s2"> strain: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">strain</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; axial load: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">force</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; </span><span class="se">\n\t</span><span class="s2"> unbalanced load: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">trussR</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; </span><span class="se">\t</span><span class="s2"> Material: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">theMaterial</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endln</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">flag</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">just</span><span class="w"> </span><span class="nb">print</span><span class="w"> </span><span class="n">ele</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">strain</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">force</span><span class="w"></span>
+<span class="w">      </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">this</span><span class="o">-&gt;</span><span class="n">getTag</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot;  &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">strain</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot;  &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">force</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endln</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <p>To allow the analyst to obtain information specific to the Truss element the methods setResponse() and getResponse() are provided. The setResponse() method is used to obtain an integer code that is used in subsequent requests to the MyTruss object for information. The integer returned depends on the array of strings passed to the element. A MyTruss object responds to requests for the axial force, ‘axialForce’, and the tangent stiffness matrix, ‘stiffness’. Requests for material information are passed to the material object. A <span class="math inline">\(-1\)</span> is returned if the MyTruss does not supply this information. it should be noted that for information returned in ID, vector and Matrix objects the MyTruss elements allocate these objects from the heap, this is done to reduce memory overhead in the elements. The getResponse() method is used to obtain the information.</p>
-<pre><code>Response *
-MyTruss::setResponse(char **argv, int argc, Information &amp;eleInformation)
-{
-    //
-    // we compare argv[0] for known response types for the Truss
-    //
+<div class="highlight"><pre><span></span><span class="nt">Response</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="nt">MyTruss</span><span class="p">::</span><span class="nd">setResponse</span><span class="o">(</span><span class="nt">char</span><span class="w"> </span><span class="o">**</span><span class="nt">argv</span><span class="o">,</span><span class="w"> </span><span class="nt">int</span><span class="w"> </span><span class="nt">argc</span><span class="o">,</span><span class="w"> </span><span class="nt">Information</span><span class="w"> </span><span class="o">&amp;</span><span class="nt">eleInformation</span><span class="o">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">//</span><span class="w"></span>
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">compare</span><span class="w"> </span><span class="err">argv</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">known</span><span class="w"> </span><span class="err">response</span><span class="w"> </span><span class="err">types</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">Truss</span><span class="w"></span>
+<span class="w">    </span><span class="err">//</span><span class="w"></span>
 
-    // axial force
-    if (strcmp(argv[0],&quot;axialForce&quot;) ==0) 
-      return new ElementResponse(this, 1, 0.0);
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">axial</span><span class="w"> </span><span class="err">force</span><span class="w"></span>
+<span class="w">    </span><span class="err">if</span><span class="w"> </span><span class="err">(strcmp(argv</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">,&quot;axialForce&quot;)</span><span class="w"> </span><span class="err">==0)</span><span class="w"> </span>
+<span class="w">      </span><span class="err">return</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">ElementResponse(this,</span><span class="w"> </span><span class="err">1,</span><span class="w"> </span><span class="err">0.0)</span><span class="p">;</span><span class="w"></span>
 
-    // a material quantity    
-    else if (strcmp(argv[0],&quot;material&quot;) == 0)
-      return theMaterial-&gt;setResponse(&amp;argv[1], argc-1, eleInformation);
+<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">material</span><span class="w"> </span><span class="err">quantity</span><span class="w">    </span>
+<span class="w">    </span><span class="err">else</span><span class="w"> </span><span class="err">if</span><span class="w"> </span><span class="err">(strcmp(argv</span><span class="cp">[</span><span class="mi">0</span><span class="cp">]</span><span class="err">,&quot;material&quot;)</span><span class="w"> </span><span class="err">==</span><span class="w"> </span><span class="err">0)</span><span class="w"></span>
+<span class="w">      </span><span class="err">return</span><span class="w"> </span><span class="err">theMaterial-&gt;setResponse(&amp;argv</span><span class="cp">[</span><span class="mi">1</span><span class="cp">]</span><span class="err">,</span><span class="w"> </span><span class="err">argc-1,</span><span class="w"> </span><span class="err">eleInformation)</span><span class="p">;</span><span class="w"></span>
 
-    else
-    return 0;
-}
+<span class="w">    </span><span class="err">else</span><span class="w"></span>
+<span class="w">    </span><span class="err">return</span><span class="w"> </span><span class="err">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-int 
-MyTruss::getResponse(int responseID, Information &amp;eleInformation)
-{
-  switch (responseID) {
-    case -1:
-      return -1;
-      
-    case 1:
-      return eleInfo.setDouble(A * theMaterial-&gt;getStress());
+<span class="nt">int</span><span class="w"> </span>
+<span class="nt">MyTruss</span><span class="p">::</span><span class="nd">getResponse</span><span class="o">(</span><span class="nt">int</span><span class="w"> </span><span class="nt">responseID</span><span class="o">,</span><span class="w"> </span><span class="nt">Information</span><span class="w"> </span><span class="o">&amp;</span><span class="nt">eleInformation</span><span class="o">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="err">switch</span><span class="w"> </span><span class="err">(responseID)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="err">case</span><span class="w"> </span><span class="err">-1:</span><span class="w"></span>
+<span class="w">      </span><span class="err">return</span><span class="w"> </span><span class="err">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span>
+<span class="w">    </span><span class="err">case</span><span class="w"> </span><span class="err">1:</span><span class="w"></span>
+<span class="w">      </span><span class="err">return</span><span class="w"> </span><span class="err">eleInfo.setDouble(A</span><span class="w"> </span><span class="err">*</span><span class="w"> </span><span class="err">theMaterial-&gt;getStress())</span><span class="p">;</span><span class="w"></span>
 
-    default:
-      return 0;
-  }
-}</code></pre>
+<span class="w">    </span><span class="n">default</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="n">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
+</pre></div>
+
 <p>Finally the private member function for determining the current strain in the element if defined. This method uses the nodal pointers to look at the current trial displacements at the nodes from which the strain can be determined.</p>
-<pre><code>double
-MyTruss::computeCurrentStrain(void) const
-{
-    // determine the strain
-    const Vector &amp;disp1 = end1Ptr-&gt;getTrialDisp();
-    const Vector &amp;disp2 = end2Ptr-&gt;getTrialDisp();  
+<div class="highlight"><pre><span></span><span class="n">double</span><span class="w"></span>
+<span class="n">MyTruss</span><span class="p">::</span><span class="n">computeCurrentStrain</span><span class="p">(</span><span class="nb nb-Type">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="n">determine</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">strain</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end1Ptr</span><span class="o">-&gt;</span><span class="n">getTrialDisp</span><span class="p">();</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disp2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end2Ptr</span><span class="o">-&gt;</span><span class="n">getTrialDisp</span><span class="p">();</span><span class="w">  </span>
 
-    double dLength = 0.0;
-    for (int i=0; i&lt;2; i++)
-         dLength -= (disp2(i)-disp1(i)) * trans(0,i);
-    
-    double strain = dLength/L;
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">dLength</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">dLength</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="p">(</span><span class="n">disp2</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">disp1</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">trans</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">double</span><span class="w"> </span><span class="n">strain</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dLength</span><span class="o">/</span><span class="n">L</span><span class="p">;</span><span class="w"></span>
 
-    return strain;
-}</code></pre>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">strain</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <h3 id="tclelementcommands.cpp">TclElementCommands.cpp</h3>
 <p>The TclElementCommands.cpp file contains the C++ procedure TclModelBuilderElementCommand(). It is this procedure that is invoked every time the <strong>element</strong> command is invoked. This file is modified to allow the analyst to construct a new element of type MyTruss with the command:</p>
-<pre><code>  element myTruss eleId iNodeID jNodeId area materialID massPerUnitVolume</code></pre>
+<div class="highlight"><pre><span></span>  element myTruss eleId iNodeID jNodeId area materialID massPerUnitVolume
+</pre></div>
+
 <p>To do this in the prototypes section of the file the the procedure TclModelBuilder_addMyTruss() is declared to be an externally defined procedure. (NOTE that the whole element myTruss command could be parsed in this file. However, to keep things modular and allow the command to work with other interpreters that may be developed it has been the convention to place the procedure in a seperate file).</p>
-<pre><code>extern int
+<div class="highlight"><pre><span></span>extern int
 TclModelBuilder_MyTruss(ClientData , Tcl_Interp *,  int, char **,
-                    Domain*, TclModelBuilder *, int);</code></pre>
+                    Domain*, TclModelBuilder *, int);
+</pre></div>
+
 <p>Then in the body of the procedure we inform the interpreter that, if the second argument of the <strong>element</strong> command is the string <strong>myTruss</strong>, that the external procedure is to be invoked. This is done by adding the following 4 lines of code:</p>
-<pre><code>  } else if (strcmp(argv[1],&quot;myTruss&quot;) == 0) {
-    int result = TclModelBuilder_MyTruss(clientData, interp, argc, argv,
-                             theTclDomain, theTclBuilder);
-    return result;</code></pre>
+<div class="highlight"><pre><span></span>  } <span class="k">else</span> <span class="k">if</span> <span class="ss">(</span><span class="nv">strcmp</span><span class="ss">(</span><span class="nv">argv</span>[<span class="mi">1</span>],<span class="s2">&quot;</span><span class="s">myTruss</span><span class="s2">&quot;</span><span class="ss">)</span> <span class="o">==</span> <span class="mi">0</span><span class="ss">)</span> {
+    <span class="nv">int</span> <span class="nb">result</span> <span class="o">=</span> <span class="nv">TclModelBuilder_MyTruss</span><span class="ss">(</span><span class="nv">clientData</span>, <span class="nv">interp</span>, <span class="nv">argc</span>, <span class="nv">argv</span>,
+                             <span class="nv">theTclDomain</span>, <span class="nv">theTclBuilder</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="k">return</span> <span class="nb">result</span><span class="c1">;</span>
+</pre></div>
+
 <h3 id="tclmytrusscommand.cpp">TclMyTrussCommand.cpp</h3>
 <p>In this file we place the procedure, TclModelBuilder_MyTruss(), that was defined to be external in TclElementCommands.cpp. In this procedure a check is first made to insure that the correct number of arguments have been provided. The arguments are then parsed. A MyTruss element object is finally constructed with the parsed arguments and added to the domain.</p>
-<pre><code>int
-TclModelBuilder_MyTruss(ClientData clientData, Tcl_Interp *interp, 
-                    int argc, char **argv) {
-  // make sure at least one other argument to contain type of system
-  if (argc != 7 &amp;&amp; argc != 8) {
-      blah-&gt;result = &quot;WARNING bad command - myTruss eleId iNode jNode Area matID&quot;;
-      return TCL_ERROR;
-  }    
+<div class="highlight"><pre><span></span><span class="n">int</span><span class="w"></span>
+<span class="n">TclModelBuilder_MyTruss</span><span class="p">(</span><span class="n">ClientData</span><span class="w"> </span><span class="n">clientData</span><span class="p">,</span><span class="w"> </span><span class="n">Tcl_Interp</span><span class="w"> </span><span class="o">*</span><span class="n">interp</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">// make sure at least one other argument to contain type of system</span><span class="w"></span>
+<span class="w">  </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">blah</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;WARNING bad command - myTruss eleId iNode jNode Area matID&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_ERROR</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w">    </span>
 
-  // get the id, x_loc and y_loc
-  int trussId, iNode, jNode, matID;
-  double A, M = 0.0;
-  if (Tcl_GetInt(interp, argv[2], &amp;trussId) != TCL_OK) {
-     blah-&gt;result = &quot;WARNING invalid eleId- myTruss eleId iNode jNode Area matID&quot;;
-     return TCL_ERROR;
-  }
-  if (Tcl_GetInt(interp, argv[3], &amp;iNode) != TCL_OK) {
-     blah-&gt;result = &quot;WARNING invalid iNode- myTruss eleId iNode jNode Area matID&quot;;
-     return TCL_ERROR;
-  }
-  if (Tcl_GetInt(interp, argv[4], &amp;jNode) != TCL_OK) {
-     blah-&gt;result = &quot;WARNING invalid jNode- myTruss eleId iNode jNode Area matID&quot;;
-     return TCL_ERROR;
-  }
+<span class="w">  </span><span class="c1">// get the id, x_loc and y_loc</span><span class="w"></span>
+<span class="w">  </span><span class="n">int</span><span class="w"> </span><span class="n">trussId</span><span class="p">,</span><span class="w"> </span><span class="n">iNode</span><span class="p">,</span><span class="w"> </span><span class="n">jNode</span><span class="p">,</span><span class="w"> </span><span class="n">matID</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">double</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tcl_GetInt</span><span class="p">(</span><span class="n">interp</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">trussId</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TCL_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="n">blah</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;WARNING invalid eleId- myTruss eleId iNode jNode Area matID&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_ERROR</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tcl_GetInt</span><span class="p">(</span><span class="n">interp</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">iNode</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TCL_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="n">blah</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;WARNING invalid iNode- myTruss eleId iNode jNode Area matID&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_ERROR</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tcl_GetInt</span><span class="p">(</span><span class="n">interp</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">jNode</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TCL_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="n">blah</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;WARNING invalid jNode- myTruss eleId iNode jNode Area matID&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_ERROR</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  if (Tcl_GetDouble(interp, argv[5], &amp;A) != TCL_OK) {
-     blah-&gt;result = &quot;WARNING invalid A- myTruss eleId iNode jNode Area matID&quot;;
-     return TCL_ERROR;
-  }
-  if (Tcl_GetInt(interp, argv[6], &amp;matID) != TCL_OK) {
-     blah-&gt;result = &quot;WARNING invalid matId- myTruss eleId iNode jNode Area matID&quot;;
-      return TCL_ERROR;
-  }
-  if (argc == 8 &amp;&amp; Tcl_GetDouble(interp, argv[7], &amp;M) != TCL_OK) {
-     blah-&gt;result = &quot;WARNING invalid matId- myTruss eleId iNode jNode Area matID&quot;;
-     return TCL_ERROR;
-  }  
-  
-  UniaxialMaterial *theMaterial = theModelBuilder-&gt;getUniaxialMaterial(matID);
+<span class="w">  </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tcl_GetDouble</span><span class="p">(</span><span class="n">interp</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">A</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TCL_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="n">blah</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;WARNING invalid A- myTruss eleId iNode jNode Area matID&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_ERROR</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">Tcl_GetInt</span><span class="p">(</span><span class="n">interp</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">matID</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TCL_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="n">blah</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;WARNING invalid matId- myTruss eleId iNode jNode Area matID&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_ERROR</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Tcl_GetDouble</span><span class="p">(</span><span class="n">interp</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span><span class="w"> </span><span class="o">&amp;</span><span class="n">M</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">TCL_OK</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">     </span><span class="n">blah</span><span class="o">-&gt;</span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;WARNING invalid matId- myTruss eleId iNode jNode Area matID&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_ERROR</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w">  </span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">UniaxialMaterial</span><span class="w"> </span><span class="o">*</span><span class="n">theMaterial</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">theModelBuilder</span><span class="o">-&gt;</span><span class="n">getUniaxialMaterial</span><span class="p">(</span><span class="n">matID</span><span class="p">);</span><span class="w"></span>
 
-  if (theMaterial == 0) {
-    opserr &lt;&lt; &quot;WARNING TclPlaneTruss - truss - no Material found with tag &quot;;
-    opserr &lt;&lt; matID &lt;&lt; endln;
-    return TCL_ERROR;
-  }
+<span class="w">  </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">theMaterial</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">opserr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;WARNING TclPlaneTruss - truss - no Material found with tag &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">opserr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">matID</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kd">endl</span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_ERROR</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  // now create the truss and add it to the Domain
-  MyTruss *theTruss = new MyTruss(trussId,iNode,jNode,*theMaterial,A,M);
-  if (theTruss == 0) {
-    opserr &lt;&lt; &quot;WARNING TclPlaneTruss - addMyTruss - ran out of memory for node &quot;;
-    opserr &lt;&lt; trussId &lt;&lt; endln;
-    return TCL_ERROR;
-  }
-  if (theDomain-&gt;addElement(theTruss) == false) {
-    delete theTruss;
-    opserr &lt;&lt; &quot;WARNING TclPlaneTruss - addTruss - could not add Truss to domain &quot;;
-    opserr &lt;&lt; trussId &lt;&lt; endln;
-    return TCL_ERROR;
-  }
+<span class="w">  </span><span class="c1">// now create the truss and add it to the Domain</span><span class="w"></span>
+<span class="w">  </span><span class="n">MyTruss</span><span class="w"> </span><span class="o">*</span><span class="n">theTruss</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">MyTruss</span><span class="p">(</span><span class="n">trussId</span><span class="p">,</span><span class="n">iNode</span><span class="p">,</span><span class="n">jNode</span><span class="p">,</span><span class="o">*</span><span class="n">theMaterial</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">M</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">theTruss</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">opserr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;WARNING TclPlaneTruss - addMyTruss - ran out of memory for node &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">opserr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">trussId</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kd">endl</span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_ERROR</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="nf">if</span><span class="w"> </span><span class="p">(</span><span class="n">theDomain</span><span class="o">-&gt;</span><span class="n">addElement</span><span class="p">(</span><span class="n">theTruss</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kr">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">delete</span><span class="w"> </span><span class="n">theTruss</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">opserr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;WARNING TclPlaneTruss - addTruss - could not add Truss to domain &quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">opserr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">trussId</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="kd">endl</span><span class="n">n</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_ERROR</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
-  // if get here we have successfully created the node and added it to the domain
-  return TCL_OK;
-}</code></pre>
+<span class="w">  </span><span class="c1">// if get here we have successfully created the node and added it to the domain</span><span class="w"></span>
+<span class="w">  </span><span class="kr">return</span><span class="w"> </span><span class="n">TCL_OK</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <h3 id="fem_objectbroker.cpp">FEM_ObjectBroker.cpp</h3>
 <p>An <code>FEM_ObjectBroker</code> is the object responsible for creating blank objects of a specific type. This object is required for parallel and database programming. The <code>MyTruss.h</code> file is first included in the list of element header files. Then code in the getNewElement() method is revised to return a new <code>MyTruss</code> element if requested.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>    Element <span class="op">*</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    FEM_ObjectBroker<span class="op">::</span>getNewElement<span class="op">(</span><span class="dt">int</span> classTag<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">switch</span><span class="op">(</span>classTag<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>            <span class="co">// existing code</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>            <span class="op">...</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>            <span class="co">// new two lines of code added for MyTruss element</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>            <span class="cf">case</span> ELE_TAG_MyTruss<span class="op">:</span>  </span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>               <span class="cf">return</span> <span class="kw">new</span> MyTruss<span class="op">();</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>            <span class="op">...</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="w">    </span><span class="n">Element</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="w">    </span><span class="nf">FEM_ObjectBroker::getNewElement</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">classTag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">switch</span><span class="p">(</span><span class="n">classTag</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// existing code</span>
+<span class="w">            </span><span class="p">...</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// new two lines of code added for MyTruss element</span>
+<span class="w">            </span><span class="k">case</span><span class="w"> </span><span class="no">ELE_TAG_MyTruss</span><span class="p">:</span><span class="w">  </span>
+<span class="w">               </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MyTruss</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="p">...</span><span class="w"></span>
+</pre></div>
+
 <h2 id="modification-to-example-script">Modification to Example Script</h2>
 <p>To use the new element in the new OpenSees interpreter, the code in example1.tcl is modified. The modified code can be found in example2.tcl. The lines with the element command in <code>example1.tcl</code>:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># element truss trussId iNodeId jNodeId Area matId</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>element truss <span class="dv">1</span> <span class="dv">1</span> <span class="dv">4</span> <span class="dv">10</span> <span class="dv">1</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>element truss <span class="dv">2</span> <span class="dv">2</span> <span class="dv">4</span>  <span class="dv">5</span> <span class="dv">1</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>element truss <span class="dv">3</span> <span class="dv">3</span> <span class="dv">4</span>  <span class="dv">5</span> <span class="dv">1</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="c"># element truss trussId iNodeId jNodeId Area matId</span>
+<span class="nv">element</span><span class="w"> </span>truss<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">element</span><span class="w"> </span>truss<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">element</span><span class="w"> </span>truss<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+
 <p>are replaced with the following lines in <code>example2.tcl</code>:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># element truss trussId iNodeId jNodeId Area matId</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>element myTruss <span class="dv">1</span> <span class="dv">1</span> <span class="dv">4</span> <span class="dv">10</span> <span class="dv">1</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>element myTruss <span class="dv">2</span> <span class="dv">2</span> <span class="dv">4</span>  <span class="dv">5</span> <span class="dv">1</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>element myTruss <span class="dv">3</span> <span class="dv">3</span> <span class="dv">4</span>  <span class="dv">5</span> <span class="dv">1</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="c"># element truss trussId iNodeId jNodeId Area matId</span>
+<span class="nv">element</span><span class="w"> </span>myTruss<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">element</span><span class="w"> </span>myTruss<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">element</span><span class="w"> </span>myTruss<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span>
+</pre></div>
+
 <b>
 <center>
 <p>Frank McKenna and Gregory L. Fenves</p>

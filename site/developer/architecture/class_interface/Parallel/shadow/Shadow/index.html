@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13797,7 +13847,9 @@ Removal During Simulation
 
 
 <h1 id="shadow">Shadow</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;actor/shadow/Shadow.h&gt;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;actor/shadow/Shadow.h&gt;</span><span class="cp"></span>
+</pre></div>
+
 <p>class Shadow<br />
 </p>
 <p><br />
@@ -13831,25 +13883,41 @@ Does nothing.</p>
 <p><br />
 </p>
 <p>A method which will send the MovableObject <em>theObject</em> to the actor object through the shadows channel. It returns the result of invoking <em>sendObj(0,0,theObject, theBroker, theActorsAddress)</em> on the shadow’s associated channel <em>theChannel</em>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> recvObject<span class="op">(</span>MovableObject <span class="op">&amp;</span>theObject<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recvObject</span><span class="p">(</span><span class="n">MovableObject</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theObject</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which will cause the object to read the MovableObject <em>theObject</em> from the channel. It will return the result of invoking <em>recvObj(0,0,theObject, theBroker, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
 <p>A method which will send the message <em>theMessage</em> to the actor object through the shadows channel. It will return the result of invoking <em>sendMsg(0,0,theMessage, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> recvMessage<span class="op">(</span>Message <span class="op">&amp;</span>theMessage<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recvMessage</span><span class="p">(</span><span class="n">Message</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theMessage</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which will cause the object to read the message <em>theMessage</em> from the channel. It will return the result of invoking <em>recvMsg(0,0,theMessage, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
 <p>A method which will send the Matrix <em>theMatrix</em> to the actor object through the shadows channel. It will return the result of invoking <em>sendMatrix(0,0,theMatrix, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> recvMatrix<span class="op">(</span>Matrix <span class="op">&amp;</span>theMatrix<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recvMatrix</span><span class="p">(</span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theMatrix</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which will cause the object to read the Matrix <em>theMatrix</em> from the channel. It will return the result of invoking <em>recvMatrix(0,0,theMatrix, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
 <p>A method which will send the Vector <em>theVector</em> to the actor object through the shadows channel. It will return the result of invoking <em>sendVector(0,0,theVector, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> recvVector<span class="op">(</span>Vector <span class="op">&amp;</span>theVector<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recvVector</span><span class="p">(</span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theVector</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which will cause the object to read the Vector <em>theVector</em> from the channel. It will return the result of invoking <em>recvVector(0,0,theVector, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
 <p>A method which will send the ID <em>theID</em> to the actor object through the shadows channel. It will return the result of invoking <em>sendID(0,0,theID, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> recvID<span class="op">(</span>ID <span class="op">&amp;</span>theID<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recvID</span><span class="p">(</span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theID</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which will cause the object to read the ID <em>theID</em> from the channel. It will return the result of invoking <em>recvID(0,0,theID, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> Channel \<span class="op">*</span>getChannelPtr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getChannelPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns a pointer to the channel currently set.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> FEM_ObjectBroker \<span class="op">*</span>getObjectBrokerPtr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getObjectBrokerPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns a pointer to the FEM_ObjectBroker passed in the constructor.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> ObjectBroker \<span class="op">*</span>getActorAddressPtr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">ObjectBroker</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getActorAddressPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns a pointer to the channel in the actors address space.</p>
 
 

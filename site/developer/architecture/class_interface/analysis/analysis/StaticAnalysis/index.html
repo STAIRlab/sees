@@ -5876,10 +5876,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13800,9 +13850,11 @@ Removal During Simulation
 
 
 <h1 id="staticanalysis">StaticAnalysis</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/analysis/StaticAnalysis.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> StaticAnalysis<span class="op">:</span> <span class="kw">public</span> Analysis<span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/analysis/StaticAnalysis.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">StaticAnalysis</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Analysis</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <h2 id="description">Description</h2>
 <p><code>StaticAnalysis</code> is a subclass of <code>Analysis</code>, it is used to perform a static analysis on the Domain. The following are the aggregates of such an analysis type:</p>
 <ul>
@@ -13815,32 +13867,42 @@ Removal During Simulation
 </ul>
 <h2 id="class-interface">Class Interface</h2>
 <h3 id="constructors">Constructors</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>StaticAnalysis<span class="op">(</span>Domain <span class="op">&amp;</span>theDomain<span class="op">,</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>         ConstraintHandler <span class="op">&amp;</span>theHandler<span class="op">,</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>         DOF_Numberer <span class="op">&amp;</span>theNumberer<span class="op">,</span> </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>         AnalysisModel <span class="op">&amp;</span>theModel<span class="op">,</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>         EquiSolnAlgo <span class="op">&amp;</span>theSolnAlgo<span class="op">,</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>         LinearSOE <span class="op">&amp;</span>theSOE<span class="op">,</span> </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>         StaticIntegrator <span class="op">&amp;</span>theIntegrator<span class="op">,</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>         <span class="dt">int</span> numIncrements <span class="op">=</span> <span class="dv">1</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">StaticAnalysis</span><span class="p">(</span><span class="n">Domain</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theDomain</span><span class="p">,</span><span class="w"> </span>
+<span class="w">         </span><span class="n">ConstraintHandler</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theHandler</span><span class="p">,</span><span class="w"> </span>
+<span class="w">         </span><span class="n">DOF_Numberer</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theNumberer</span><span class="p">,</span><span class="w"> </span>
+<span class="w">         </span><span class="n">AnalysisModel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theModel</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="n">EquiSolnAlgo</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theSolnAlgo</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="n">LinearSOE</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theSOE</span><span class="p">,</span><span class="w"> </span>
+<span class="w">         </span><span class="n">StaticIntegrator</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theIntegrator</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="kt">int</span><span class="w"> </span><span class="n">numIncrements</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The constructor is responsible for setting the links between the objects in the aggregation. To do this it invokes <code>setLinks(theDomain)</code> on <em>theModel</em>, <code class="sourceCode cpp">setLinks<span class="op">(</span>theDomain<span class="op">,</span>theModel<span class="op">,</span>theIntegrator<span class="op">)</span></code> on <em>theHandler</em>, <code>setLinks(theModel)</code> on <em>theNumberer</em>, <em>setLinks(theModel, theSOE)</em> on <em>theIntegrator</em>, and <em>setLinks(theModel,theAnalysis, theIntegrator, theSOE)</em> on <em>theSolnAlgo</em>. The constructor also sets the number of analysis steps that will be performed to be <em>numIncrements</em>.</p>
 <h3 id="destructor">Destructor</h3>
 <p>Does nothing. <code>clearAll()</code> must be invoked if the destructor on the objects in the aggregation need to be invoked.</p>
 <h3 id="public-methods">Public Methods</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> analyze<span class="op">(</span><span class="dt">int</span> numSteps<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">analyze</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numSteps</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Invoked to perform a static analysis on the FE_Model. The analysis The <code>StaticAnalysis</code> object performs the following:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// while ̄ while w̄hile ̄ </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> numSteps<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> <span class="op">(</span>theDomain<span class="op">-&gt;</span>hasDomainChanged<span class="op">()</span> <span class="op">==</span> <span class="kw">true</span><span class="op">)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">this</span><span class="op">-&gt;</span>domainChanged<span class="op">();</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  theIntegrator<span class="op">.</span>newStep<span class="op">();</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  theSolnAlgo<span class="op">.</span>solveCurrentStep<span class="op">();</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  theIntegrator<span class="op">.</span>commit<span class="op">();</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="c1">// while ̄ while w̄hile ̄ </span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">numSteps</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">theDomain</span><span class="o">-&gt;</span><span class="n">hasDomainChanged</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">domainChanged</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">theIntegrator</span><span class="p">.</span><span class="n">newStep</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">theSolnAlgo</span><span class="p">.</span><span class="n">solveCurrentStep</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="n">theIntegrator</span><span class="p">.</span><span class="n">commit</span><span class="p">();</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <p>The type of analysis performed, depends on the type of the objects in the analysis aggregation. If any of the methods invoked returns a negative number, an error message is printed, <code>revertToLastCommit()</code> is invoked on the Domain, and a negative number is immediately returned. Returns a <span class="math inline">\(0\)</span> if the algorithm is successful.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> clearAll<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">clearAll</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Will invoke the destructor on all the objects in the aggregation. NOTE this means they must have been constructed using <code>new()</code>, otherwise a segmentation fault can occur.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> domainChange<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">domainChange</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>This is a method invoked by the analysis during the analysis method if the Domain has changed. The method invokes the following:</p>
 <ol type="1">
 <li><p>It invokes <code>clearAll()</code> on <code>theModel</code> which causes the <code>AnalysisModel</code> to clear out its list of <code>FE_Elements</code> and <code>DOF_Groups</code>, and <code>clearAll()</code> on <code>theHandler</code>.</p></li>
@@ -13850,13 +13912,21 @@ Removal During Simulation
 <li><p>Finally <code>domainChanged()</code> is invoked on both <code>theIntegrator</code> and <em>theAlgorithm</em>. Returns <code>0</code> if successful. At any stage above, if an error occurs the method is stopped, a warning message is printed and a negative number is returned.</p></li>
 </ol>
 <h4 id="public-methods-to-vary-the-type-of-analysis">Public Methods to vary the type of Analysis</h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> setNumIncrements<span class="op">(</span><span class="dt">int</span> numIncrements<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">setNumIncrements</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numIncrements</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To set the number of incremental steps in the analysis to be <em>numIncrements</em>. Returns <span class="math inline">\(0\)</span>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> setAlgorithm<span class="op">(</span>EquiSolnAlgo <span class="op">&amp;</span>theAlgorithm<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">setAlgorithm</span><span class="p">(</span><span class="n">EquiSolnAlgo</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theAlgorithm</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To change the algorithm between analysis. It first invokes the destructor on the old SolutionAlgorithm object associated with the analysis. It then sets the SolutionAlgorithm associated with the analysis to be <em>newAlgorithm</em> and sets the links for this object by invoking <code>setLinks()</code>. Checks then to see if the domain has changed, if true it invokes <code>domainChanged()</code>, otherwise it invokes <code>domainChanged()</code> on the new SolutionAlgorithm. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> setIntegrator<span class="op">(</span>StaticIntegrator <span class="op">&amp;</span>theIntegrator<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">setIntegrator</span><span class="p">(</span><span class="n">StaticIntegrator</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theIntegrator</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To change the integration scheme between analysis. It first invokes the destructor on the old Integrator object associated with the analysis. It then sets the SolutionAlgorithm associated with the analysis to be <em>newAlgorithm</em> and sets the links for this object by invoking <code>setLinks()</code>. It also invokes <code>setLinks()</code> on the ConstraintHandler and SolutionAlgorithm objects. Checks then to see if the domain has changed, if true it invokes <code>domainChanged()</code>, otherwise it invokes <code>domainChanged()</code> on the new Integrator. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> setLinearSOE<span class="op">(</span>LinearSOE <span class="op">&amp;</span>theSOE<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">setLinearSOE</span><span class="p">(</span><span class="n">LinearSOE</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theSOE</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>To change the linear system of equation object between analysis. It first invokes the destructor on the old LinearSOE object associated with the analysis. It then sets the SolutionAlgorithm associated with the analysis to be <em>newSOE</em>. links for this object by invoking <code>setLinks()</code>. It then invokes <code>setLinks()</code> on the ConstraintHandler and SolutionAlgorithm objects. Checks then to see if the domain has changed, if true it invokes <code>domainChanged()</code>, otherwise it invokes <code>setSize()</code> on the new LinearSOE. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not.</p>
 
 

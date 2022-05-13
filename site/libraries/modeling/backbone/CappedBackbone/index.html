@@ -5869,10 +5869,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13795,21 +13845,22 @@ Removal During Simulation
 <h1 id="capped">Capped</h1>
 <p>This file contains the implementation of CappedBackbone, which overlays two backbone curves.</p>
 <p>Written: MHS Created: Aug 2000</p>
-<pre><code>class CappedBackbone : public HystereticBackbone
-{
- public:
-  CappedBackbone(int tag, HystereticBackbone &amp;backbone, 
-                 HystereticBackbone &amp;cap);
-  
-  int setVariable(char *argv);
-  int getVariable(int varID, double &amp;theValue);
+<div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="n">CappedBackbone</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">HystereticBackbone</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="n">public</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">CappedBackbone</span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="n">HystereticBackbone</span><span class="w"> </span><span class="o">&amp;</span><span class="n">backbone</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                 </span><span class="n">HystereticBackbone</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cap</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">setVariable</span><span class="p">(</span><span class="nb">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">getVariable</span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">varID</span><span class="p">,</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theValue</span><span class="p">);</span><span class="w"></span>
 
- private:
-  HystereticBackbone *theBackbone;
-  HystereticBackbone *theCap;
-  
-  double eCap;
-};</code></pre>
+<span class="w"> </span><span class="n">private</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">HystereticBackbone</span><span class="w"> </span><span class="o">*</span><span class="n">theBackbone</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">HystereticBackbone</span><span class="w"> </span><span class="o">*</span><span class="n">theCap</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">double</span><span class="w"> </span><span class="n">eCap</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
 
 
               

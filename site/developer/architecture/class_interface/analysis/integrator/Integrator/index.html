@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13797,11 +13847,13 @@ Removal During Simulation
 
 
 <h1 id="integrator">Integrator</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/integrator/Integrator.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Integrator<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> MovableObject<span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>       MovableObject</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/integrator/Integrator.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Integrator</span><span class="o">:</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="n">MovableObject</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">MovableObject</span><span class="w"></span>
+</pre></div>
+
 <p>The Integrator class is an abstract base class. Its purpose is to define the interface common among all subclasses. An integrator method is responsible for defining how the system of equations are set up (this it does by specifying how the <code>FE_Element</code> and <code>DOF_Group</code> objects of the analysis model construct the vectors and matrices asked of them by the Analysis). It is also responsible for updating the response quantities at the DOFs with the appropriate values; the values are determined from the solution to the system of equations.</p>
 <h3 id="constructor">Constructor</h3>
 <h3 id="destructor">Destructor</h3>
@@ -13829,7 +13881,9 @@ Is called by the Analysis object. Refer to the Analysis classes to see when it i
 <p>Called upon to determine the <code>DOF_Group</code> <em>theDof</em>s matrix contribution to the SystemOfEqn object. To return <span class="math inline">\(0\)</span> if successful, a negative number otherwise.</p>
 <p>Called upon to determine the <code>FE_Element</code> <em>theEle</em>s vector contribution to the SystemOfEqn object. To return <span class="math inline">\(0\)</span> if successful, a negative number otherwise.</p>
 <p>Called upon to determine the <code>DOF_Group</code> <em>theDof</em>s vector contribution to the SystemOfEqn object. To return <span class="math inline">\(0\)</span> if successful, a negative number otherwise.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getLastResponse<span class="op">(</span>Vector <span class="op">&amp;</span>result<span class="op">,</span> <span class="at">const</span> ID <span class="op">&amp;</span>id<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getLastResponse</span><span class="p">(</span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">result</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Called upon to get the result quantities for the components specified in the ID <em>id</em> and to place them in the Vector <em>result</em>. This is provided for domain decomposition methods. To return <span class="math inline">\(0\)</span> if successful, a negative number otherwise.</p>
 <p>The Integrator is to send information to the stream based on the integer <em>flag</em>.</p>
 

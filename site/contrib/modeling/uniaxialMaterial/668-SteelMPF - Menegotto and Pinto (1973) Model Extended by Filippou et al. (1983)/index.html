@@ -5885,10 +5885,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13826,8 +13876,10 @@ Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)
 <p>
 <strong>Input Format:</strong>
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial SteelMPF <span class="dt">$mattag</span> <span class="dt">$fyp</span> <span class="dt">$fyn</span> <span class="dt">$E0</span> <span class="dt">$bp</span> <span class="dt">$bn</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$R0</span> <span class="dt">$cR1</span> <span class="dt">$cR2</span> &amp;lt;<span class="dt">$a1</span> <span class="dt">$a2</span> <span class="dt">$a3</span> <span class="dt">$a4</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>SteelMPF<span class="w"> </span><span class="nv">$mattag</span><span class="w"> </span><span class="nv">$fyp</span><span class="w"> </span><span class="nv">$fyn</span><span class="w"> </span><span class="nv">$E0</span><span class="w"> </span><span class="nv">$bp</span><span class="w"> </span><span class="nv">$bn</span>
+<span class="w">        </span><span class="nv">$R0</span><span class="w"> </span><span class="nv">$cR1</span><span class="w"> </span><span class="nv">$cR2</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$a1</span><span class="w"> </span><span class="nv">$a2</span><span class="w"> </span><span class="nv">$a3</span><span class="w"> </span><span class="nv">$a4</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">

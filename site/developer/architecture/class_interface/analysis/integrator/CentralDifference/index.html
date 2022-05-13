@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13797,13 +13847,15 @@ Removal During Simulation
 
 
 <h1 id="centraldifference">CentralDifference</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/integrator/CentralDifference.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CentralDifference<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> TransientIntegrator</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    MovableObject</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    Integrator</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    IncrementalIntegrator</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/integrator/CentralDifference.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CentralDifference</span><span class="o">:</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="n">TransientIntegrator</span><span class="w"></span>
+<span class="w">    </span><span class="n">MovableObject</span><span class="w"></span>
+<span class="w">    </span><span class="n">Integrator</span><span class="w"></span>
+<span class="w">    </span><span class="n">IncrementalIntegrator</span><span class="w"></span>
+</pre></div>
+
 <p>CentralDifference is a subclass of TransientIntegrator which implements the CentralDifference method. In the CentralDifference method, to determine the velocities, accelerations and displacements at time <span class="math inline">\(t + \Delta t\)</span>, the equilibrium equation (expressed for the TransientIntegrator) is typically solved at time <span class="math inline">\(t\)</span> for <span class="math inline">\({\bf U}_{t+\Delta t}\)</span>, i.e. solve:</p>
 <p><span class="math display">\[{\bf R} ({\bf U}_{t+ \Delta t}) = {\bf P}(t) - {\bf F}_I(\ddot{\bf U}_{t})
 - {\bf F}_R(\dot{\bf U}_{t},{\bf U}_{t})\]</span></p>
@@ -13848,15 +13900,21 @@ theEle-<span class="math inline">\(&gt;\)</span>addKtoTang(c1)<br />
 theEle-<span class="math inline">\(&gt;\)</span>addCtoTang(c2)<br />
 theEle-<span class="math inline">\(&gt;\)</span>addMtoTang(c3)</p>
 </div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> formNodTangent<span class="op">(</span>DOF_Group \<span class="op">*</span>theDof<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodTangent</span><span class="p">(</span><span class="n">DOF_Group</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theDof</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The method returns <span class="math inline">\(0\)</span> after performing the following operations:</p>
 <div class="tabbing">
 <p>while ̄ while w̄hile ̄ theDof-<span class="math inline">\(&gt;\)</span>zeroUnbalance()<br />
 theDof-<span class="math inline">\(&gt;\)</span>addMtoTang(c3)</p>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> domainChanged<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">domainChanged</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>If the size of the LinearSOE has changed, the object deletes any old Vectors created and then creates <span class="math inline">\(6\)</span> new Vector objects of size equal to <em>theLinearSOE-<span class="math inline">\(&gt;\)</span>getNumEqn()</em>. There is a Vector object created to store the current displacement, velocity and accelerations at times <span class="math inline">\(t\)</span> and <span class="math inline">\(t + \Delta t\)</span>. The response quantities at time <span class="math inline">\(t + \Delta t\)</span> are then set by iterating over the <code>DOF_Group</code> objects in the model and obtaining their committed values. Returns <span class="math inline">\(0\)</span> if successful, otherwise a warning message and a negative number is returned: <span class="math inline">\(-1\)</span> if no memory was available for constructing the Vectors.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> newStep<span class="op">(</span><span class="dt">double</span> <span class="er">$</span>\Delta t<span class="er">$</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">newStep</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">$</span><span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">t$</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The following are performed when this method is invoked:</p>
 <ol type="1">
 <li><p>First sets the values of the three constants <em>c1</em>, <em>c2</em> and <em>c3</em> depending on the flag indicating whether incremental displacements or accelerations are being solved for at each iteration. If <em>dispFlag</em> was <em>true</em>, <em>c1</em> is set to <span class="math inline">\(1.0\)</span>, <em>c2</em> to <span class="math inline">\(\gamma / (\beta * deltaT)\)</span> and <em>c3</em> to <span class="math inline">\(1/ (\beta * deltaT^2)\)</span>. If the flag is <em>false</em> <em>c1</em> is set to <span class="math inline">\(\beta * deltaT^2\)</span>, <em>c2</em> to <span class="math inline">\(\gamma * deltaT\)</span> and <em>c3</em> to <span class="math inline">\(1.0\)</span>.</p></li>
@@ -13867,11 +13925,15 @@ theDof-<span class="math inline">\(&gt;\)</span>addMtoTang(c3)</p>
 <li><p>Finally <code>updateDomain()</code> is invoked on the AnalysisModel.</p></li>
 </ol>
 <p>The method returns <span class="math inline">\(0\)</span> if successful, otherwise a negative number is returned: <span class="math inline">\(-1\)</span> if <span class="math inline">\(\gamma\)</span> or <span class="math inline">\(\beta\)</span> are <span class="math inline">\(0\)</span>, <span class="math inline">\(-2\)</span> if <em>dispFlag</em> was true and <span class="math inline">\(\Delta t\)</span> is <span class="math inline">\(0\)</span>, and <span class="math inline">\(-3\)</span> if <code>domainChanged()</code> failed or has not been called.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> update<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span><span class="er">$</span>\Delta U<span class="er">$</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">$</span><span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">U$</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Invoked this causes the object to increment the <code>DOF_Group</code> response quantities at time <span class="math inline">\(t + \Delta t\)</span>. The displacement Vector is incremented by <span class="math inline">\(c1 * \Delta U\)</span>, the velocity Vector by <span class="math inline">\(c2 * \Delta U\)</span>, and the acceleration Vector by <span class="math inline">\(c3 * \Delta U\)</span>. The response at the DOF_Group objects are then updated by invoking <code>setResponse()</code> on the AnalysisModel with quantities at time <span class="math inline">\(t + \Delta t\)</span>. Finally <code>updateDomain()</code> is invoked on the AnalysisModel. Returns <span class="math inline">\(0\)</span> if successful. A warning message is printed and a negative number returned if an error occurs: <span class="math inline">\(-1\)</span> if no associated AnalysisModel, <span class="math inline">\(-2\)</span> if the Vector objects have not been created, <span class="math inline">\(-3\)</span> if the Vector objects and <span class="math inline">\(\delta U\)</span> are of different sizes. <em>int sendSelf(int commitTag, Channel &amp;theChannel);</em><br />
 Places the <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> and <em>dispFlag</em> into a vector if size 3 and invokes <em>sendVector</em> on the Channel with this Vector. Returns <span class="math inline">\(0\)</span> if successful, a warning message is printed and a <span class="math inline">\(-1\)</span> is returned if <em>theChannel</em> fails to send the Vector. <em>int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</em><br />
 Receives in a Vector of size 3 the values of <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\gamma\)</span> and <em>dispFlag</em>. Returns <span class="math inline">\(0\)</span> if successful, a warning message is printed, <span class="math inline">\(\delta \lambda\)</span> is set to <span class="math inline">\(0\)</span>, and a <span class="math inline">\(-1\)</span> is returned if <em>theChannel</em> fails to receive the Vector.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The object sends to <span class="math inline">\(s\)</span> its type, the current time, <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\beta\)</span>.</p>
 
 

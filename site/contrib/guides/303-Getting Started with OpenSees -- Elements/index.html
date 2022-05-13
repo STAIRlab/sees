@@ -5881,10 +5881,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13836,7 +13886,9 @@ title="wikilink">Geometric Transformation Command</a> defines how the element co
 <em>geomTransf Linear $transfTag &lt;-jntOffset $dXi $dYi $dXj $dYj&gt;</em>
 </p>
 <p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> geomTransf Linear <span class="dv">1</span> </span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="w"> </span><span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+</pre></div>
+
 </p>
 <p>
 The following commands define the two columns (element 1 and 2) and the beam (element 3):
@@ -13845,9 +13897,11 @@ The following commands define the two columns (element 1 and 2) and the beam (el
 <em>element elasticBeamColumn $eleTag $iNode $jNode $A $E $Iz $transfTag</em>
 </p>
 <p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a> element elasticBeamColumn <span class="dv">1</span> <span class="dv">1</span> <span class="dv">3</span> <span class="dv">3600</span> <span class="dv">4227</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1080000</span> <span class="dv">1</span> element elasticBeamColumn <span class="dv">2</span> <span class="dv">2</span> <span class="dv">4</span> <span class="dv">3600</span> <span class="dv">4227</span> <span class="dv">1080000</span> <span class="dv">1</span> element</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>elasticBeamColumn <span class="dv">3</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5760</span> <span class="dv">4227</span> <span class="dv">4423680</span> <span class="dv">1</span> </span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="w"> </span><span class="nv">element</span><span class="w"> </span>elasticBeamColumn<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3600</span><span class="w"> </span><span class="mi">4227</span>
+<span class="nv">1080000</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>element<span class="w"> </span>elasticBeamColumn<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">3600</span><span class="w"> </span><span class="mi">4227</span><span class="w"> </span><span class="mi">1080000</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>element
+<span class="nv">elasticBeamColumn</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5760</span><span class="w"> </span><span class="mi">4227</span><span class="w"> </span><span class="mi">4423680</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+</pre></div>
+
 </p>
 <p>
 The element connectivity is shown in the following figure:

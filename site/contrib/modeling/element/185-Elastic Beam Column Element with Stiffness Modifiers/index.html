@@ -5883,10 +5883,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13796,9 +13846,11 @@ Removal During Simulation
 <p>
 This command is used to construct a ModElasticBeam2d element object. The arguments for the construction of an elastic beam-column element with stiffness modifiers is applicable for 2-D problems. This element should be used for modelling of a structural element with an equivalent combination of one elastic element with stiffness-proportional damping, and two springs at its two ends with no stiffness proportional damping to represent a prismatic section. The modelling technique is based on a number of analytical studies discussed in Zareian and Medina (2010) and Zareian and Krawinkler (2009) and is utilized in order to solve problems related to numerical damping in dynamic analysis of frame structures with concentrated plasticity springs.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element ModElasticBeam2d <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$A</span> <span class="dt">$E</span> <span class="dt">$Iz</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$K11</span> <span class="dt">$K33</span> <span class="dt">$K44</span> <span class="dt">$transfTag</span> &amp;lt;-mass <span class="dt">$massDens</span>&amp;gt;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &amp;lt;-cMass&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>ModElasticBeam2d<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$E</span><span class="w"> </span><span class="nv">$Iz</span>
+<span class="w">        </span><span class="nv">$K11</span><span class="w"> </span><span class="nv">$K33</span><span class="w"> </span><span class="nv">$K44</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-cMass</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

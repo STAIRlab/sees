@@ -5869,10 +5869,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13793,14 +13843,16 @@ Removal During Simulation
 
 
 <h1 id="hht">HHT</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/integrator/HHT.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> HHT<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> TransientIntegrator</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>       MovableObject</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>       Integrator</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       IncrementalIntegrator</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>       TransientIntegrator</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/integrator/HHT.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">HHT</span><span class="o">:</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="n">TransientIntegrator</span><span class="w"></span>
+<span class="w">       </span><span class="n">MovableObject</span><span class="w"></span>
+<span class="w">       </span><span class="n">Integrator</span><span class="w"></span>
+<span class="w">       </span><span class="n">IncrementalIntegrator</span><span class="w"></span>
+<span class="w">       </span><span class="n">TransientIntegrator</span><span class="w"></span>
+</pre></div>
+
 <p>HHT is a subclass of <code>TransientIntegrator</code> which implements the Hilber-Hughes-Taylor (HHT) method. In the HHT method, to determine the velocities, accelerations and displacements at time <span class="math inline">\(t + \Delta t\)</span>, by solving the following equilibrium equation</p>
 <p><span class="math display">\[{\bf R} ({\bf U}_{t + \Delta t}) = {\bf P}(t + \Delta t) -
 {\bf F}_I(\ddot{\bf U}_{t+\Delta t}) - {\bf F}_R(\dot{\bf U}_{t + \alpha \Delta t},{\bf U}_{t +
@@ -13827,27 +13879,37 @@ t}^{(i-1)}\right)
 <p>This constructor is invoked if Rayleigh damping is to be used, i.e. <span class="math inline">\(\D = \alpha_M M + \beta_K K\)</span>. Sets <span class="math inline">\(\alpha\)</span> to <em>alpha</em>, <span class="math inline">\(\gamma\)</span> to <span class="math inline">\((1.5 - \alpha)\)</span>, <span class="math inline">\(\beta\)</span> to <span class="math inline">\(0.25*\alpha^2\)</span>, <span class="math inline">\(\alpha_M\)</span> to <em>alphaM</em> and <span class="math inline">\(\beta_K\)</span> to <em>betaK</em>. Sets a flag indicating whether the incremental solution is done in terms of displacement or acceleration to <code>dispFlag</code> and a flag indicating that Rayleigh damping will be used. Sets <span class="math inline">\(\alpha\)</span> to <code>alpha</code>, <span class="math inline">\(\gamma\)</span> to <span class="math inline">\((1.5 - \alpha)\)</span> and <span class="math inline">\(\beta\)</span> to <span class="math inline">\(0.25*\alpha^2\)</span>. In addition, a flag is set indicating that Rayleigh damping will not be used.</p>
 <p>Invokes the destructor on the Vector objects created.</p>
 <p>This tangent for each <code>FE_Element</code> is defined to be <span class="math inline">\({\bf K}_e = c1\alpha {\bf K} + c2\alpha \D + c3 {\bf M}\)</span>, where c1,c2 and c3 were determined in the last invocation of the <code>newStep()</code> method. Returns <span class="math inline">\(0\)</span> after performing the following operations:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// while ̄ while w̄hile ̄ </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>RayleighDamping <span class="op">==</span> <span class="kw">false</span><span class="op">)</span> <span class="op">{</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    theEle<span class="op">-&gt;</span>zeroTang<span class="op">()</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    theEle<span class="op">-&gt;</span>addKtoTang<span class="op">(</span>c1<span class="op">)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    theEle<span class="op">-&gt;</span>addCtoTang<span class="op">(</span>c2<span class="op">)</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    theEle<span class="op">-&gt;</span>addMtoTang<span class="op">(</span>c3<span class="op">)</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    theEle<span class="op">-&gt;</span>zeroTang<span class="op">()</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    theEle<span class="op">-&gt;</span>addKtoTang<span class="op">(</span>c1 <span class="op">+</span> c2 <span class="op">*</span> beta_K<span class="op">)</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    theEle<span class="op">-&gt;</span>addMtoTang<span class="op">(</span>c3 <span class="op">+</span> c2 <span class="op">*</span> alpha_M<span class="op">)</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> formNodTangent<span class="op">(</span>DOF_Group \<span class="op">*</span>theDof<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="c1">// while ̄ while w̄hile ̄ </span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RayleighDamping</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">zeroTang</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">addKtoTang</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">addCtoTang</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">addMtoTang</span><span class="p">(</span><span class="n">c3</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">zeroTang</span><span class="p">()</span><span class="w"></span>
+<span class="w">    </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">addKtoTang</span><span class="p">(</span><span class="n">c1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">beta_K</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">theEle</span><span class="o">-&gt;</span><span class="n">addMtoTang</span><span class="p">(</span><span class="n">c3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">alpha_M</span><span class="p">)</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodTangent</span><span class="p">(</span><span class="n">DOF_Group</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theDof</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>This performs the following:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// while ̄ while w̄hile ̄ </span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="op">(</span>RayleighDamping <span class="op">==</span> <span class="kw">false</span><span class="op">)</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  theDof<span class="op">-&gt;</span>addMtoTang<span class="op">(</span>c3<span class="op">)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  theDof<span class="op">-&gt;</span>addMtoTang<span class="op">(</span>c3 <span class="op">+</span> c2 <span class="op">*</span> alpha_M<span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> domainChanged<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="c1">// while ̄ while w̄hile ̄ </span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RayleighDamping</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">theDof</span><span class="o">-&gt;</span><span class="n">addMtoTang</span><span class="p">(</span><span class="n">c3</span><span class="p">)</span><span class="w"></span>
+<span class="k">else</span><span class="w"></span>
+<span class="w">  </span><span class="n">theDof</span><span class="o">-&gt;</span><span class="n">addMtoTang</span><span class="p">(</span><span class="n">c3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">alpha_M</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">domainChanged</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>If the size of the LinearSOE has changed, the object deletes any old Vectors created and then creates <span class="math inline">\(8\)</span> new Vector objects of size equal to <code>theLinearSOE-&gt;getNumEqn()</code>. There is a Vector object created to store the current displacement, velocity and accelerations at times <span class="math inline">\(t\)</span> and <span class="math inline">\(t + \Delta t\)</span>, and the displacement and velocity at time <span class="math inline">\(t + \alpha \Delta t\)</span>. The response quantities at time <span class="math inline">\(t + \Delta t\)</span> are then set by iterating over the <code>DOF_Group</code> objects in the model and obtaining their committed values. Returns <span class="math inline">\(0\)</span> if successful, otherwise a warning message and a negative number is returned: <span class="math inline">\(-1\)</span> if no memory was available for constructing the Vectors.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> newStep<span class="op">(</span><span class="dt">double</span> Δt<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">newStep</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">Δt</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The following are performed when this method is invoked:</p>
 <ol type="1">
 <li><p>First sets the values of the three constants <code>c1</code>, <code>c2</code> and <code>c3</code>; <code>c1</code> is set to <span class="math inline">\(1.0\)</span>, <code>c2</code> to <span class="math inline">\(\gamma / (\beta * \Delta t)\)</span> and <em>c3</em> to <span class="math inline">\(1/ (\beta * \Delta t^2)\)</span>.</p></li>
@@ -13883,7 +13945,9 @@ t}^{(i-1)}\right)
 <li><p>Finally <code>updateDomain()</code> is invoked on the AnalysisModel.</p></li>
 </ol>
 <p>The method returns <span class="math inline">\(0\)</span> if successful, otherwise a negative number is returned: <span class="math inline">\(-1\)</span> if <span class="math inline">\(\gamma\)</span> or <span class="math inline">\(\beta\)</span> are <span class="math inline">\(0\)</span>, <span class="math inline">\(-2\)</span> if <em>dispFlag</em> was true and <span class="math inline">\(\Delta t\)</span> is <span class="math inline">\(0\)</span>, and <span class="math inline">\(-3\)</span> if <code>domainChanged()</code> failed or has not been called.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> update<span class="op">(</span><span class="at">const</span> Vector<span class="op">&amp;</span> ΔU<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="o">&amp;</span><span class="w"> </span><span class="n">ΔU</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Invoked this first causes the object to increment the <code>DOF_Group</code> response quantities at time <span class="math inline">\(t + \Delta t\)</span>. The displacement Vector is incremented by <span class="math inline">\(c1 * \Delta U\)</span>, the velocity Vector by <span class="math inline">\(c2 * \Delta U\)</span>, and the acceleration Vector by <span class="math inline">\(c3 * \Delta U\)</span>. The displacement Vector at time <span class="math inline">\(t + \alpha \Delta t\)</span> is incremented by <span class="math inline">\(c1 \alpha \Delta U\)</span> and the velocity Vector by <span class="math inline">\(c2 \alpha \Delta U\)</span>. The response quantities at the <code>DOF_Group</code> objects are then updated with the new approximations by invoking <code>setResponse()</code> on the AnalysisModel with displacement and velocity at time <span class="math inline">\(t + \alpha \Delta t\)</span> and the accelerations at time <span class="math inline">\(t + \Delta t\)</span>. Finally <code>updateDomain()</code> is invoked on the AnalysisModel.</p>
 <p>::: {.tabbing} while ̄ while w̄hile ̄ <span class="math inline">\({\bf U}_{t + \Delta t} += \Delta \U\)</span><br />
 <span class="math inline">\(\dot {\bf U}_{t + \Delta t} += \frac{\gamma}{\beta \Delta t} \Delta \U\)</span><br />
@@ -13891,21 +13955,31 @@ t}^{(i-1)}\right)
 <span class="math inline">\({\bf U}_{t + \alpha \Delta t} += \alpha \Delta \U\)</span><br />
 <span class="math display">\[\dot{\bf U}_{t + \alpha \Delta t} += \frac{\alpha \gamma}{\beta \Delta t}
 \Delta \U\]</span></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>theModel<span class="op">-&gt;</span>setResponse<span class="op">(</span>U_t_alpha_Δt<span class="op">,</span> \dot<span class="op">{</span>\bf U<span class="op">}</span>_<span class="op">{</span>t<span class="op">+</span>\alpha</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>\Delta t<span class="op">},</span> \ddot<span class="op">{</span>\bf U<span class="op">}</span>_<span class="op">{</span>t<span class="op">+</span>\Delta t<span class="op">})</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>theModel<span class="op">-&gt;</span>updateDomain<span class="op">()</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">theModel</span><span class="o">-&gt;</span><span class="n">setResponse</span><span class="p">(</span><span class="n">U_t_alpha_Δt</span><span class="p">,</span><span class="w"> </span><span class="err">\</span><span class="n">dot</span><span class="p">{</span><span class="err">\</span><span class="n">bf</span><span class="w"> </span><span class="n">U</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">t</span><span class="o">+</span><span class="err">\</span><span class="n">alpha</span><span class="w"></span>
+<span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">t</span><span class="p">},</span><span class="w"> </span><span class="err">\</span><span class="n">ddot</span><span class="p">{</span><span class="err">\</span><span class="n">bf</span><span class="w"> </span><span class="n">U</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">t</span><span class="o">+</span><span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">t</span><span class="p">})</span><span class="w"></span>
+<span class="n">theModel</span><span class="o">-&gt;</span><span class="n">updateDomain</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+
 <p>Returns <span class="math inline">\(0\)</span> if successful. A warning message is printed and a negative number returned if an error occurs: <span class="math inline">\(-1\)</span> if no associated AnalysisModel, <span class="math inline">\(-2\)</span> if the Vector objects have not been created, <span class="math inline">\(-3\)</span> if the Vector objects and <span class="math inline">\(\Delta U\)</span> are of different sizes.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> commit<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">commit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>First the response quantities at the <code>DOF_Group</code> objects are updated with the new approximations by invoking <code>setResponse()</code> on the AnalysisModel with displacement, velocity and accelerations at time <span class="math inline">\(t + \Delta t\)</span>. Finally <code>updateDomain()</code> and <code>commitDomain()</code> are invoked on the AnalysisModel. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not: <span class="math inline">\(-1\)</span> if no AnalysisModel associated with the object and <span class="math inline">\(-2\)</span> if <code>commitDomain()</code> failed.</p>
 <blockquote>
-<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sendSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>theChannel<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">sendSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Places in a Vector of size 6 the values of <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\gamma\)</span>, RayleighDampingFlag, <span class="math inline">\(\alpha_M\)</span> and <span class="math inline">\(\beta_K\)</span>. Then invokes <code>sendVector()</code> on the Channel with this Vector. Returns <span class="math inline">\(0\)</span> if successful, a warning message is printed and a <span class="math inline">\(-1\)</span> is returned if <code>theChannel</code> fails to send the Vector.</p>
 </blockquote>
-<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> recvSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>theChannel<span class="op">,</span> FEM_ObjectBroker <span class="op">&amp;</span>theBroker<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">recvSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">,</span><span class="w"> </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theBroker</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <blockquote>
 <p>Receives in a Vector of size 6 the values of <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\beta\)</span>, <span class="math inline">\(\gamma\)</span>, RayleighDampingFlag, <span class="math inline">\(\alpha_M\)</span> and <span class="math inline">\(\beta_K\)</span>. Returns <span class="math inline">\(0\)</span> if successful. A warning message is printed, and a <span class="math inline">\(-1\)</span> is returned if <code>theChannel</code> fails to receive the Vector.</p>
 </blockquote>
-<div class="sourceCode" id="cb12"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The object sends to <span class="math inline">\(s\)</span> its type, the current time, <span class="math inline">\(\alpha\)</span>, <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\beta\)</span>. If Rayleigh damping is specified, the constants <span class="math inline">\(\alpha_M\)</span> and <span class="math inline">\(\beta_K\)</span> are also printed.</p>
 
 

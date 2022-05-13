@@ -5869,10 +5869,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13809,280 +13859,282 @@ Removal During Simulation
 <p>A solution Algorithm of type Newton is used for the nonlinear problem. The solution algorithm uses a ConvergenceTest which tests convergence on the norm of the energy increment vector. The integrator for this analysis will be of type Newmark with a <span class="math inline">\(\gamma\)</span> of 0.25 and a <span class="math inline">\(\beta\)</span> of 0.5. Due to the presence of the multi-point constraints, a Transformation constraint handler is used. The equations are formed using a sparse storage scheme which will perform pivoting during the equation solving, so the System is SparseGeneral. As SparseGeneral will perform it’s own internal numbering of the equations, a Plain numberer is used which simply assigns equation numbers to the degrees-of-freedom.</p>
 <p>Once all the components of an analysis are defined, the Analysis object itself is created. For this problem a Transient Analysis object is used. 2000 steps are performed with a time step of 0.01.</p>
 <p>The nodal displacements at nodes 9, 14, and 19 (the retained nodes for the rigid diaphragms) will be stored in the file node51.out for post-processing.</p>
-<pre><code># OpenSees Example 5.1
-# OpenSees Primer
-#
-# Units: kips, in, sec
+<div class="highlight"><pre><span></span><span class="c1"># OpenSees Example 5.1</span><span class="w"></span>
+<span class="c1"># OpenSees Primer</span><span class="w"></span>
+<span class="c1">#</span><span class="w"></span>
+<span class="c1"># Units: kips, in, sec</span><span class="w"></span>
 
-# ----------------------------
-# Start of model generation
-# ----------------------------
+<span class="c1"># ----------------------------</span><span class="w"></span>
+<span class="c1"># Start of model generation</span><span class="w"></span>
+<span class="c1"># ----------------------------</span><span class="w"></span>
 
-# Create ModelBuilder with 3 dimensions and 6 DOF/node
-model BasicBuilder -ndm 3 -ndf 6
+<span class="c1"># Create ModelBuilder with 3 dimensions and 6 DOF/node</span><span class="w"></span>
+<span class="n">model</span><span class="w"> </span><span class="n">BasicBuilder</span><span class="w"> </span><span class="o">-</span><span class="n">ndm</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="n">ndf</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
 
-# Define geometry
-# ---------------
+<span class="c1"># Define geometry</span><span class="w"></span>
+<span class="c1"># ---------------</span><span class="w"></span>
 
-# Set parameters for model geometry
-set h 144.0;       # Story height
-set by 240.0;      # Bay width in Y-direction
-set bx 240.0;      # Bay width in X-direction
+<span class="c1"># Set parameters for model geometry</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">h</span><span class="w"> </span><span class="mf">144.0</span><span class="p">;</span><span class="w">       </span><span class="c1"># Story height</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="mf">240.0</span><span class="p">;</span><span class="w">      </span><span class="c1"># Bay width in Y-direction</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">bx</span><span class="w"> </span><span class="mf">240.0</span><span class="p">;</span><span class="w">      </span><span class="c1"># Bay width in X-direction</span><span class="w"></span>
 
-# Create nodes
-#    tag             X             Y           Z 
-node  1  [expr -$bx/2] [expr  $by/2]           0
-node  2  [expr  $bx/2] [expr  $by/2]           0
-node  3  [expr  $bx/2] [expr -$by/2]           0 
-node  4  [expr -$bx/2] [expr -$by/2]           0 
+<span class="c1"># Create nodes</span><span class="w"></span>
+<span class="c1">#    tag             X             Y           Z </span><span class="w"></span>
+<span class="n">node</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w">           </span><span class="mi">0</span><span class="w"></span>
+<span class="n">node</span><span class="w">  </span><span class="mi">2</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w">           </span><span class="mi">0</span><span class="w"></span>
+<span class="n">node</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w">           </span><span class="mi">0</span><span class="w"> </span>
+<span class="n">node</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w">           </span><span class="mi">0</span><span class="w"> </span>
 
-node  5  [expr -$bx/2] [expr  $by/2]          $h 
-node  6  [expr  $bx/2] [expr  $by/2]          $h 
-node  7  [expr  $bx/2] [expr -$by/2]          $h 
-node  8  [expr -$bx/2] [expr -$by/2]          $h 
+<span class="n">node</span><span class="w">  </span><span class="mi">5</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w">          </span><span class="o">$</span><span class="n">h</span><span class="w"> </span>
+<span class="n">node</span><span class="w">  </span><span class="mi">6</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w">          </span><span class="o">$</span><span class="n">h</span><span class="w"> </span>
+<span class="n">node</span><span class="w">  </span><span class="mi">7</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w">          </span><span class="o">$</span><span class="n">h</span><span class="w"> </span>
+<span class="n">node</span><span class="w">  </span><span class="mi">8</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w">          </span><span class="o">$</span><span class="n">h</span><span class="w"> </span>
 
-node 10  [expr -$bx/2] [expr  $by/2] [expr 2*$h]
-node 11  [expr  $bx/2] [expr  $by/2] [expr 2*$h] 
-node 12  [expr  $bx/2] [expr -$by/2] [expr 2*$h] 
-node 13  [expr -$bx/2] [expr -$by/2] [expr 2*$h] 
+<span class="n">node</span><span class="w"> </span><span class="mi">10</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">2</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"></span>
+<span class="n">node</span><span class="w"> </span><span class="mi">11</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">2</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"> </span>
+<span class="n">node</span><span class="w"> </span><span class="mi">12</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">2</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"> </span>
+<span class="n">node</span><span class="w"> </span><span class="mi">13</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">2</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"> </span>
 
-node 15  [expr -$bx/2] [expr  $by/2] [expr 3*$h] 
-node 16  [expr  $bx/2] [expr  $by/2] [expr 3*$h] 
-node 17  [expr  $bx/2] [expr -$by/2] [expr 3*$h] 
-node 18  [expr -$bx/2] [expr -$by/2] [expr 3*$h]
+<span class="n">node</span><span class="w"> </span><span class="mi">15</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">3</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"> </span>
+<span class="n">node</span><span class="w"> </span><span class="mi">16</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">3</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"> </span>
+<span class="n">node</span><span class="w"> </span><span class="mi">17</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w">  </span><span class="o">$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">3</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"> </span>
+<span class="n">node</span><span class="w"> </span><span class="mi">18</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">bx</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">-$</span><span class="n">by</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">3</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"></span>
 
-# Retained nodes for rigid diaphragm
-#    tag X Y          Z 
-node  9  0 0         $h 
-node 14  0 0 [expr 2*$h]
-node 19  0 0 [expr 3*$h]
+<span class="c1"># Retained nodes for rigid diaphragm</span><span class="w"></span>
+<span class="c1">#    tag X Y          Z </span><span class="w"></span>
+<span class="n">node</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w">         </span><span class="o">$</span><span class="n">h</span><span class="w"> </span>
+<span class="n">node</span><span class="w"> </span><span class="mi">14</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">2</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"></span>
+<span class="n">node</span><span class="w"> </span><span class="mi">19</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">3</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"></span>
 
-# Set base constraints
-#   tag DX DY DZ RX RY RZ
-fix  1   1  1  1  1  1  1
-fix  2   1  1  1  1  1  1
-fix  3   1  1  1  1  1  1
-fix  4   1  1  1  1  1  1
+<span class="c1"># Set base constraints</span><span class="w"></span>
+<span class="c1">#   tag DX DY DZ RX RY RZ</span><span class="w"></span>
+<span class="n">fix</span><span class="w">  </span><span class="mi">1</span><span class="w">   </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w"></span>
+<span class="n">fix</span><span class="w">  </span><span class="mi">2</span><span class="w">   </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w"></span>
+<span class="n">fix</span><span class="w">  </span><span class="mi">3</span><span class="w">   </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w"></span>
+<span class="n">fix</span><span class="w">  </span><span class="mi">4</span><span class="w">   </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w"></span>
 
-# Define rigid diaphragm multi-point constraints
-#               normalDir  retained     constrained
-rigidDiaphragm     3          9     5  6  7  8
-rigidDiaphragm     3         14    10 11 12 13
-rigidDiaphragm     3         19    15 16 17 18
+<span class="c1"># Define rigid diaphragm multi-point constraints</span><span class="w"></span>
+<span class="c1">#               normalDir  retained     constrained</span><span class="w"></span>
+<span class="n">rigidDiaphragm</span><span class="w">     </span><span class="mi">3</span><span class="w">          </span><span class="mi">9</span><span class="w">     </span><span class="mi">5</span><span class="w">  </span><span class="mi">6</span><span class="w">  </span><span class="mi">7</span><span class="w">  </span><span class="mi">8</span><span class="w"></span>
+<span class="n">rigidDiaphragm</span><span class="w">     </span><span class="mi">3</span><span class="w">         </span><span class="mi">14</span><span class="w">    </span><span class="mi">10</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">13</span><span class="w"></span>
+<span class="n">rigidDiaphragm</span><span class="w">     </span><span class="mi">3</span><span class="w">         </span><span class="mi">19</span><span class="w">    </span><span class="mi">15</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mi">18</span><span class="w"></span>
 
-# Constraints for rigid diaphragm retained nodes
-#   tag DX DY DZ RX RY RZ
-fix  9   0  0  1  1  1  0
-fix 14   0  0  1  1  1  0
-fix 19   0  0  1  1  1  0
+<span class="c1"># Constraints for rigid diaphragm retained nodes</span><span class="w"></span>
+<span class="c1">#   tag DX DY DZ RX RY RZ</span><span class="w"></span>
+<span class="n">fix</span><span class="w">  </span><span class="mi">9</span><span class="w">   </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">0</span><span class="w"></span>
+<span class="n">fix</span><span class="w"> </span><span class="mi">14</span><span class="w">   </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">0</span><span class="w"></span>
+<span class="n">fix</span><span class="w"> </span><span class="mi">19</span><span class="w">   </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">0</span><span class="w"></span>
 
-# Define materials for nonlinear columns
-# --------------------------------------
-# CONCRETE
-# Core concrete (confined)
-#                           tag  f&#39;c  epsc0  f&#39;cu  epscu
-uniaxialMaterial Concrete01  1  -5.0 -0.005  -3.5  -0.02
+<span class="c1"># Define materials for nonlinear columns</span><span class="w"></span>
+<span class="c1"># --------------------------------------</span><span class="w"></span>
+<span class="c1"># CONCRETE</span><span class="w"></span>
+<span class="c1"># Core concrete (confined)</span><span class="w"></span>
+<span class="c1">#                           tag  f&#39;c  epsc0  f&#39;cu  epscu</span><span class="w"></span>
+<span class="n">uniaxialMaterial</span><span class="w"> </span><span class="n">Concrete01</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="o">-</span><span class="mf">5.0</span><span class="w"> </span><span class="o">-</span><span class="mf">0.005</span><span class="w">  </span><span class="o">-</span><span class="mf">3.5</span><span class="w">  </span><span class="o">-</span><span class="mf">0.02</span><span class="w"></span>
 
-# Cover concrete (unconfined)
-set fc 4.0
-uniaxialMaterial Concrete01  2   -$fc -0.002   0.0 -0.006
+<span class="c1"># Cover concrete (unconfined)</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">fc</span><span class="w"> </span><span class="mf">4.0</span><span class="w"></span>
+<span class="n">uniaxialMaterial</span><span class="w"> </span><span class="n">Concrete01</span><span class="w">  </span><span class="mi">2</span><span class="w">   </span><span class="o">-$</span><span class="n">fc</span><span class="w"> </span><span class="o">-</span><span class="mf">0.002</span><span class="w">   </span><span class="mf">0.0</span><span class="w"> </span><span class="o">-</span><span class="mf">0.006</span><span class="w"></span>
 
-# STEEL
-# Reinforcing steel
-#                        tag fy   E     b
-uniaxialMaterial Steel01  3  60 30000 0.02
+<span class="c1"># STEEL</span><span class="w"></span>
+<span class="c1"># Reinforcing steel</span><span class="w"></span>
+<span class="c1">#                        tag fy   E     b</span><span class="w"></span>
+<span class="n">uniaxialMaterial</span><span class="w"> </span><span class="n">Steel01</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">60</span><span class="w"> </span><span class="mi">30000</span><span class="w"> </span><span class="mf">0.02</span><span class="w"></span>
 
-# Column width
-set d 18.0
+<span class="c1"># Column width</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="mf">18.0</span><span class="w"></span>
 
-# Source in a procedure for generating an RC fiber section
-source RCsection.tcl
+<span class="c1"># Source in a procedure for generating an RC fiber section</span><span class="w"></span>
+<span class="n">source</span><span class="w"> </span><span class="n">RCsection</span><span class="o">.</span><span class="n">tcl</span><span class="w"></span>
 
-# Call the procedure to generate the column section
-#         id  h  b cover core cover steel nBars area nfCoreY nfCoreZ nfCoverY nfCoverZ
-RCsection  1 $d $d   2.5    1     2     3     3 0.79       8       8       10       10
+<span class="c1"># Call the procedure to generate the column section</span><span class="w"></span>
+<span class="c1">#         id  h  b cover core cover steel nBars area nfCoreY nfCoreZ nfCoverY nfCoverZ</span><span class="w"></span>
+<span class="n">RCsection</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="o">$</span><span class="n">d</span><span class="w"> </span><span class="o">$</span><span class="n">d</span><span class="w">   </span><span class="mf">2.5</span><span class="w">    </span><span class="mi">1</span><span class="w">     </span><span class="mi">2</span><span class="w">     </span><span class="mi">3</span><span class="w">     </span><span class="mi">3</span><span class="w"> </span><span class="mf">0.79</span><span class="w">       </span><span class="mi">8</span><span class="w">       </span><span class="mi">8</span><span class="w">       </span><span class="mi">10</span><span class="w">       </span><span class="mi">10</span><span class="w"></span>
 
-# Concrete elastic stiffness
-set E [expr 57000.0*sqrt($fc*1000)/1000];
+<span class="c1"># Concrete elastic stiffness</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">E</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mf">57000.0</span><span class="o">*</span><span class="nb">sqrt</span><span class="p">(</span><span class="o">$</span><span class="n">fc</span><span class="o">*</span><span class="mi">1000</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">];</span><span class="w"></span>
 
-# Column torsional stiffness
-set GJ 1.0e10;
+<span class="c1"># Column torsional stiffness</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">GJ</span><span class="w"> </span><span class="mf">1.0e10</span><span class="p">;</span><span class="w"></span>
 
-# Linear elastic torsion for the column
-uniaxialMaterial Elastic 10 $GJ
+<span class="c1"># Linear elastic torsion for the column</span><span class="w"></span>
+<span class="n">uniaxialMaterial</span><span class="w"> </span><span class="n">Elastic</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">$</span><span class="n">GJ</span><span class="w"></span>
 
-# Attach torsion to the RC column section
-#                 tag uniTag uniCode       secTag
-section Aggregator 2    10      T    -section 1
-set colSec 2
-# Define column elements
-# ----------------------
+<span class="c1"># Attach torsion to the RC column section</span><span class="w"></span>
+<span class="c1">#                 tag uniTag uniCode       secTag</span><span class="w"></span>
+<span class="n">section</span><span class="w"> </span><span class="n">Aggregator</span><span class="w"> </span><span class="mi">2</span><span class="w">    </span><span class="mi">10</span><span class="w">      </span><span class="n">T</span><span class="w">    </span><span class="o">-</span><span class="n">section</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">colSec</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="c1"># Define column elements</span><span class="w"></span>
+<span class="c1"># ----------------------</span><span class="w"></span>
 
-#set PDelta &quot;ON&quot;
-set PDelta &quot;OFF&quot;
+<span class="c1">#set PDelta &quot;ON&quot;</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">PDelta</span><span class="w"> </span><span class="s2">&quot;OFF&quot;</span><span class="w"></span>
 
-# Geometric transformation for columns
-if {$PDelta == &quot;ON&quot;} {
-   #                           tag  vecxz
-   geomTransf LinearWithPDelta  1   1 0 0
-} else {
-   geomTransf Linear  1   1 0 0
-}
+<span class="c1"># Geometric transformation for columns</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">PDelta</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;ON&quot;</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="c1">#                           tag  vecxz</span><span class="w"></span>
+<span class="w">   </span><span class="n">geomTransf</span><span class="w"> </span><span class="n">LinearWithPDelta</span><span class="w">  </span><span class="mi">1</span><span class="w">   </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">geomTransf</span><span class="w"> </span><span class="n">Linear</span><span class="w">  </span><span class="mi">1</span><span class="w">   </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-# Number of column integration points (sections)
-set np 4
+<span class="c1"># Number of column integration points (sections)</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">np</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
 
-# Create the nonlinear column elements
-#                           tag ndI ndJ nPts   secID  transf
-element nonlinearBeamColumn  1   1   5   $np  $colSec    1
-element nonlinearBeamColumn  2   2   6   $np  $colSec    1
-element nonlinearBeamColumn  3   3   7   $np  $colSec    1
-element nonlinearBeamColumn  4   4   8   $np  $colSec    1
+<span class="c1"># Create the nonlinear column elements</span><span class="w"></span>
+<span class="c1">#                           tag ndI ndJ nPts   secID  transf</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">1</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">5</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">2</span><span class="w">   </span><span class="mi">2</span><span class="w">   </span><span class="mi">6</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">3</span><span class="w">   </span><span class="mi">3</span><span class="w">   </span><span class="mi">7</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">4</span><span class="w">   </span><span class="mi">4</span><span class="w">   </span><span class="mi">8</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
 
-element nonlinearBeamColumn  5   5  10   $np  $colSec    1
-element nonlinearBeamColumn  6   6  11   $np  $colSec    1
-element nonlinearBeamColumn  7   7  12   $np  $colSec    1
-element nonlinearBeamColumn  8   8  13   $np  $colSec    1
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">5</span><span class="w">   </span><span class="mi">5</span><span class="w">  </span><span class="mi">10</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">6</span><span class="w">   </span><span class="mi">6</span><span class="w">  </span><span class="mi">11</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">7</span><span class="w">   </span><span class="mi">7</span><span class="w">  </span><span class="mi">12</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">8</span><span class="w">   </span><span class="mi">8</span><span class="w">  </span><span class="mi">13</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
 
-element nonlinearBeamColumn  9  10  15   $np  $colSec    1
-element nonlinearBeamColumn 10  11  16   $np  $colSec    1
-element nonlinearBeamColumn 11  12  17   $np  $colSec    1
-element nonlinearBeamColumn 12  13  18   $np  $colSec    1
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="mi">10</span><span class="w">  </span><span class="mi">15</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w"> </span><span class="mi">10</span><span class="w">  </span><span class="mi">11</span><span class="w">  </span><span class="mi">16</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w"> </span><span class="mi">11</span><span class="w">  </span><span class="mi">12</span><span class="w">  </span><span class="mi">17</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w"> </span><span class="mi">12</span><span class="w">  </span><span class="mi">13</span><span class="w">  </span><span class="mi">18</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">colSec</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
 
-# Define beam elements
-# --------------------
+<span class="c1"># Define beam elements</span><span class="w"></span>
+<span class="c1"># --------------------</span><span class="w"></span>
 
-# Define material properties for elastic beams
-# Using beam depth of 24 and width of 18
-# --------------------------------------------
-set Abeam [expr 18*24];
-# &quot;Cracked&quot; second moments of area
-set Ibeamzz [expr 0.5*1.0/12*18*pow(24,3)];
-set Ibeamyy [expr 0.5*1.0/12*24*pow(18,3)];
+<span class="c1"># Define material properties for elastic beams</span><span class="w"></span>
+<span class="c1"># Using beam depth of 24 and width of 18</span><span class="w"></span>
+<span class="c1"># --------------------------------------------</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">Abeam</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mi">18</span><span class="o">*</span><span class="mi">24</span><span class="p">];</span><span class="w"></span>
+<span class="c1"># &quot;Cracked&quot; second moments of area</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">Ibeamzz</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mf">0.5</span><span class="o">*</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">12</span><span class="o">*</span><span class="mi">18</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span><span class="mi">3</span><span class="p">)];</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">Ibeamyy</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mf">0.5</span><span class="o">*</span><span class="mf">1.0</span><span class="o">/</span><span class="mi">12</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="nb">pow</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">3</span><span class="p">)];</span><span class="w"></span>
 
-# Define elastic section for beams
-#               tag  E    A      Iz       Iy     G   J
-section Elastic  3  $E $Abeam $Ibeamzz $Ibeamyy $GJ 1.0
-set beamSec 3
+<span class="c1"># Define elastic section for beams</span><span class="w"></span>
+<span class="c1">#               tag  E    A      Iz       Iy     G   J</span><span class="w"></span>
+<span class="n">section</span><span class="w"> </span><span class="n">Elastic</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="o">$</span><span class="n">E</span><span class="w"> </span><span class="o">$</span><span class="n">Abeam</span><span class="w"> </span><span class="o">$</span><span class="n">Ibeamzz</span><span class="w"> </span><span class="o">$</span><span class="n">Ibeamyy</span><span class="w"> </span><span class="o">$</span><span class="n">GJ</span><span class="w"> </span><span class="mf">1.0</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">beamSec</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
 
-# Geometric transformation for beams
-#                tag  vecxz
-geomTransf Linear 2   1 1 0
+<span class="c1"># Geometric transformation for beams</span><span class="w"></span>
+<span class="c1">#                tag  vecxz</span><span class="w"></span>
+<span class="n">geomTransf</span><span class="w"> </span><span class="n">Linear</span><span class="w"> </span><span class="mi">2</span><span class="w">   </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 
-# Number of beam integration points (sections)
-set np 3
+<span class="c1"># Number of beam integration points (sections)</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">np</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
 
-# Create the beam elements
-#                           tag ndI ndJ nPts    secID   transf
-element nonlinearBeamColumn  13  5   6   $np  $beamSec     2
-element nonlinearBeamColumn  14  6   7   $np  $beamSec     2
-element nonlinearBeamColumn  15  7   8   $np  $beamSec     2
-element nonlinearBeamColumn  16  8   5   $np  $beamSec     2
+<span class="c1"># Create the beam elements</span><span class="w"></span>
+<span class="c1">#                           tag ndI ndJ nPts    secID   transf</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">13</span><span class="w">  </span><span class="mi">5</span><span class="w">   </span><span class="mi">6</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">14</span><span class="w">  </span><span class="mi">6</span><span class="w">   </span><span class="mi">7</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">15</span><span class="w">  </span><span class="mi">7</span><span class="w">   </span><span class="mi">8</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">16</span><span class="w">  </span><span class="mi">8</span><span class="w">   </span><span class="mi">5</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
 
-element nonlinearBeamColumn  17 10  11   $np  $beamSec     2
-element nonlinearBeamColumn  18 11  12   $np  $beamSec     2
-element nonlinearBeamColumn  19 12  13   $np  $beamSec     2
-element nonlinearBeamColumn  20 13  10   $np  $beamSec     2
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">17</span><span class="w"> </span><span class="mi">10</span><span class="w">  </span><span class="mi">11</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">18</span><span class="w"> </span><span class="mi">11</span><span class="w">  </span><span class="mi">12</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">19</span><span class="w"> </span><span class="mi">12</span><span class="w">  </span><span class="mi">13</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">20</span><span class="w"> </span><span class="mi">13</span><span class="w">  </span><span class="mi">10</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
 
-element nonlinearBeamColumn  21 15  16   $np  $beamSec     2
-element nonlinearBeamColumn  22 16  17   $np  $beamSec     2
-element nonlinearBeamColumn  23 17  18   $np  $beamSec     2
-element nonlinearBeamColumn  24 18  15   $np  $beamSec     2
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">21</span><span class="w"> </span><span class="mi">15</span><span class="w">  </span><span class="mi">16</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">22</span><span class="w"> </span><span class="mi">16</span><span class="w">  </span><span class="mi">17</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">23</span><span class="w"> </span><span class="mi">17</span><span class="w">  </span><span class="mi">18</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
+<span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="mi">24</span><span class="w"> </span><span class="mi">18</span><span class="w">  </span><span class="mi">15</span><span class="w">   </span><span class="o">$</span><span class="n">np</span><span class="w">  </span><span class="o">$</span><span class="n">beamSec</span><span class="w">     </span><span class="mi">2</span><span class="w"></span>
 
-# Define gravity loads
-# --------------------
-# Gravity load applied at each corner node
-# 10% of column capacity
-set p [expr 0.1*$fc*$h*$h]
+<span class="c1"># Define gravity loads</span><span class="w"></span>
+<span class="c1"># --------------------</span><span class="w"></span>
+<span class="c1"># Gravity load applied at each corner node</span><span class="w"></span>
+<span class="c1"># 10% of column capacity</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mf">0.1</span><span class="o">*$</span><span class="n">fc</span><span class="o">*$</span><span class="n">h</span><span class="o">*$</span><span class="n">h</span><span class="p">]</span><span class="w"></span>
 
-# Mass lumped at retained nodes
-set g 386.4;            # Gravitational constant
-set m [expr (4*$p)/$g]
+<span class="c1"># Mass lumped at retained nodes</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">g</span><span class="w"> </span><span class="mf">386.4</span><span class="p">;</span><span class="w">            </span><span class="c1"># Gravitational constant</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="o">*$</span><span class="n">p</span><span class="p">)</span><span class="o">/$</span><span class="n">g</span><span class="p">]</span><span class="w"></span>
 
-# Rotary inertia of floor about retained node
-set i [expr $m*($bx*$bx+$by*$by)/12.0]
+<span class="c1"># Rotary inertia of floor about retained node</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">m</span><span class="o">*</span><span class="p">(</span><span class="o">$</span><span class="n">bx</span><span class="o">*$</span><span class="n">bx</span><span class="o">+$</span><span class="n">by</span><span class="o">*$</span><span class="n">by</span><span class="p">)</span><span class="o">/</span><span class="mf">12.0</span><span class="p">]</span><span class="w"></span>
 
-# Set mass at the retained nodes
-#    tag MX MY MZ RX RY RZ
-mass  9  $m $m  0  0  0 $i
-mass 14  $m $m  0  0  0 $i
-mass 19  $m $m  0  0  0 $i
+<span class="c1"># Set mass at the retained nodes</span><span class="w"></span>
+<span class="c1">#    tag MX MY MZ RX RY RZ</span><span class="w"></span>
+<span class="n">mass</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="o">$</span><span class="n">m</span><span class="w"> </span><span class="o">$</span><span class="n">m</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="o">$</span><span class="n">i</span><span class="w"></span>
+<span class="n">mass</span><span class="w"> </span><span class="mi">14</span><span class="w">  </span><span class="o">$</span><span class="n">m</span><span class="w"> </span><span class="o">$</span><span class="n">m</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="o">$</span><span class="n">i</span><span class="w"></span>
+<span class="n">mass</span><span class="w"> </span><span class="mi">19</span><span class="w">  </span><span class="o">$</span><span class="n">m</span><span class="w"> </span><span class="o">$</span><span class="n">m</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w">  </span><span class="mi">0</span><span class="w"> </span><span class="o">$</span><span class="n">i</span><span class="w"></span>
 
-# Define gravity loads
-pattern Plain 1 Constant {
-   foreach node {5 6 7 8  10 11 12 13  15 16 17 18} {
-      load $node 0.0 0.0 -$p 0.0 0.0 0.0
-   }
-}
+<span class="c1"># Define gravity loads</span><span class="w"></span>
+<span class="n">pattern</span><span class="w"> </span><span class="n">Plain</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">Constant</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">foreach</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="p">{</span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">8</span><span class="w">  </span><span class="mi">10</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">13</span><span class="w">  </span><span class="mi">15</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mi">18</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="nb">load</span><span class="w"> </span><span class="o">$</span><span class="n">node</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="o">-$</span><span class="n">p</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-# Define earthquake excitation
-# ----------------------------
-# Set up the acceleration records for Tabas fault normal and fault parallel
-set tabasFN &quot;Path -filePath tabasFN.txt -dt 0.02 -factor $g&quot;
-set tabasFP &quot;Path -filePath tabasFP.txt -dt 0.02 -factor $g&quot;
+<span class="c1"># Define earthquake excitation</span><span class="w"></span>
+<span class="c1"># ----------------------------</span><span class="w"></span>
+<span class="c1"># Set up the acceleration records for Tabas fault normal and fault parallel</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">tabasFN</span><span class="w"> </span><span class="s2">&quot;Path -filePath tabasFN.txt -dt 0.02 -factor $g&quot;</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">tabasFP</span><span class="w"> </span><span class="s2">&quot;Path -filePath tabasFP.txt -dt 0.02 -factor $g&quot;</span><span class="w"></span>
 
-# Define the excitation using the Tabas ground motion records
-#                         tag dir         accel series args
-pattern UniformExcitation  2   1  -accel      $tabasFN
-pattern UniformExcitation  3   2  -accel      $tabasFP
-
-
-# ----------------------- 
-# End of model generation
-# -----------------------
+<span class="c1"># Define the excitation using the Tabas ground motion records</span><span class="w"></span>
+<span class="c1">#                         tag dir         accel series args</span><span class="w"></span>
+<span class="n">pattern</span><span class="w"> </span><span class="n">UniformExcitation</span><span class="w">  </span><span class="mi">2</span><span class="w">   </span><span class="mi">1</span><span class="w">  </span><span class="o">-</span><span class="n">accel</span><span class="w">      </span><span class="o">$</span><span class="n">tabasFN</span><span class="w"></span>
+<span class="n">pattern</span><span class="w"> </span><span class="n">UniformExcitation</span><span class="w">  </span><span class="mi">3</span><span class="w">   </span><span class="mi">2</span><span class="w">  </span><span class="o">-</span><span class="n">accel</span><span class="w">      </span><span class="o">$</span><span class="n">tabasFP</span><span class="w"></span>
 
 
-# ----------------------------
-# Start of analysis generation
-# ----------------------------
-
-# Create the convergence test
-#                tol   maxIter  printFlag
-test EnergyIncr 1.0e-8   20         3
-
-# Create the solution algorithm
-algorithm Newton
-
-# Create the system of equation storage and solver
-system SparseGeneral -piv
-
-# Create the constraint handler
-constraints Transformation
-
-# Create the time integration scheme
-#                   gamma beta
-integrator Newmark   0.5  0.25
-
-# Create the DOF numberer
-numberer RCM
-
-# Create the transient analysis
-analysis Transient
-
-# --------------------------
-# End of analysis generation
-# --------------------------
+<span class="c1"># ----------------------- </span><span class="w"></span>
+<span class="c1"># End of model generation</span><span class="w"></span>
+<span class="c1"># -----------------------</span><span class="w"></span>
 
 
-# ----------------------------
-# Start of recorder generation
-# ----------------------------
+<span class="c1"># ----------------------------</span><span class="w"></span>
+<span class="c1"># Start of analysis generation</span><span class="w"></span>
+<span class="c1"># ----------------------------</span><span class="w"></span>
 
-# Record DOF 1 and 2 displacements at nodes 9, 14, and 19
-recorder Node -file node51.out -time -node 9 14 19 -dof 1 2 disp
+<span class="c1"># Create the convergence test</span><span class="w"></span>
+<span class="c1">#                tol   maxIter  printFlag</span><span class="w"></span>
+<span class="n">test</span><span class="w"> </span><span class="n">EnergyIncr</span><span class="w"> </span><span class="mf">1.0e-8</span><span class="w">   </span><span class="mi">20</span><span class="w">         </span><span class="mi">3</span><span class="w"></span>
 
-# --------------------------
-# End of recorder generation
-# --------------------------
+<span class="c1"># Create the solution algorithm</span><span class="w"></span>
+<span class="n">algorithm</span><span class="w"> </span><span class="n">Newton</span><span class="w"></span>
+
+<span class="c1"># Create the system of equation storage and solver</span><span class="w"></span>
+<span class="n">system</span><span class="w"> </span><span class="n">SparseGeneral</span><span class="w"> </span><span class="o">-</span><span class="n">piv</span><span class="w"></span>
+
+<span class="c1"># Create the constraint handler</span><span class="w"></span>
+<span class="n">constraints</span><span class="w"> </span><span class="n">Transformation</span><span class="w"></span>
+
+<span class="c1"># Create the time integration scheme</span><span class="w"></span>
+<span class="c1">#                   gamma beta</span><span class="w"></span>
+<span class="n">integrator</span><span class="w"> </span><span class="n">Newmark</span><span class="w">   </span><span class="mf">0.5</span><span class="w">  </span><span class="mf">0.25</span><span class="w"></span>
+
+<span class="c1"># Create the DOF numberer</span><span class="w"></span>
+<span class="n">numberer</span><span class="w"> </span><span class="n">RCM</span><span class="w"></span>
+
+<span class="c1"># Create the transient analysis</span><span class="w"></span>
+<span class="n">analysis</span><span class="w"> </span><span class="n">Transient</span><span class="w"></span>
+
+<span class="c1"># --------------------------</span><span class="w"></span>
+<span class="c1"># End of analysis generation</span><span class="w"></span>
+<span class="c1"># --------------------------</span><span class="w"></span>
 
 
-# --------------------
-# Perform the analysis
-# --------------------
+<span class="c1"># ----------------------------</span><span class="w"></span>
+<span class="c1"># Start of recorder generation</span><span class="w"></span>
+<span class="c1"># ----------------------------</span><span class="w"></span>
 
-# Analysis duration of 20 seconds
-#       numSteps  dt
-analyze   2000   0.01</code></pre>
+<span class="c1"># Record DOF 1 and 2 displacements at nodes 9, 14, and 19</span><span class="w"></span>
+<span class="n">recorder</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="n">node51</span><span class="o">.</span><span class="n">out</span><span class="w"> </span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="o">-</span><span class="n">node</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">19</span><span class="w"> </span><span class="o">-</span><span class="n">dof</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">disp</span><span class="w"></span>
+
+<span class="c1"># --------------------------</span><span class="w"></span>
+<span class="c1"># End of recorder generation</span><span class="w"></span>
+<span class="c1"># --------------------------</span><span class="w"></span>
+
+
+<span class="c1"># --------------------</span><span class="w"></span>
+<span class="c1"># Perform the analysis</span><span class="w"></span>
+<span class="c1"># --------------------</span><span class="w"></span>
+
+<span class="c1"># Analysis duration of 20 seconds</span><span class="w"></span>
+<span class="c1">#       numSteps  dt</span><span class="w"></span>
+<span class="n">analyze</span><span class="w">   </span><span class="mi">2000</span><span class="w">   </span><span class="mf">0.01</span><span class="w"></span>
+</pre></div>
+
 <p>The results consist of the file node.out, which contains a line for every time step. Each line contains the time and the horizontal and vertical displacements at the diaphragm retained nodes (9, 14 and 19) i.e. time Dx9 Dy9 Dx14 Dy14 Dx19 Dy19. The horizontal displacement time history of the first floor diaphragm node 9 is shown in figure <a href="#example4disp" data-reference-type="ref" data-reference="example4disp">[example4disp$$</a>. Notice the increase in period after about 10 seconds of earthquake excitation, when the large pulse in the ground motion propogates through the structure. The displacement profile over the three stories shows a soft-story mechanism has formed in the first floor columns. The numerical solution converges even though the drift is <span class="math inline">\(\approx 20 \%\)</span>. The inclusion of P-Delta effects shows structural collapse under such large drifts.</p>
 <div class="center">
 <p> </p>

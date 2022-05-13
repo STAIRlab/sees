@@ -5883,10 +5883,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13796,13 +13846,17 @@ Removal During Simulation
 <p>
 This command constructs a uniaxial p-y material that incorporates liquefaction effects. This p y material is used with a zeroLength element to connect a pile (beam-column element) to a 2 D plane-strain FE mesh or displacement boundary condition. The p-y material obtains the average mean effective stress (which decreases with increasing excess pore pressure) either from two specified soil elements, or from a time series. Currently, the implementation requires that the specified soil elements consist of FluidSolidPorousMaterials in FourNodeQuad elements, or PressureDependMultiYield or PressureDependMultiYield02 materials in FourNodeQuadUP or NineFourQuadUP elements. There are two possible forms:
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial PyLiq1 <span class="dt">$matTag</span> <span class="dt">$soilType</span> <span class="dt">$pult</span> <span class="dt">$Y50</span> <span class="dt">$Cd</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$c</span> <span class="dt">$pRes</span> <span class="dt">$ele1</span> <span class="dt">$ele2</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>PyLiq1<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$soilType</span><span class="w"> </span><span class="nv">$pult</span><span class="w"> </span><span class="nv">$Y50</span><span class="w"> </span><span class="nv">$Cd</span>
+<span class="w">        </span><span class="nv">$c</span><span class="w"> </span><span class="nv">$pRes</span><span class="w"> </span><span class="nv">$ele1</span><span class="w"> </span><span class="nv">$ele2</span><span class="w"></span>
+</pre></div>
+
 <p>
 OR
 </p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial PyLiq1 <span class="dt">$matTag</span> <span class="dt">$soilType</span> <span class="dt">$pult</span> <span class="dt">$Y50</span> <span class="dt">$Cd</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$c</span> <span class="dt">$pRes</span><span class="ot"> -timeSeries</span> <span class="dt">$tag</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>PyLiq1<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$soilType</span><span class="w"> </span><span class="nv">$pult</span><span class="w"> </span><span class="nv">$Y50</span><span class="w"> </span><span class="nv">$Cd</span>
+<span class="w">        </span><span class="nv">$c</span><span class="w"> </span><span class="nv">$pRes</span><span class="w"> </span><span class="nv">-timeSeries</span><span class="w"> </span><span class="nv">$tag</span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13798,7 +13848,9 @@ Removal During Simulation
 
 <p>UNDER CONSTRUCTION - removeVertex &amp; printSpecial NEED TO BE ADDED.</p>
 <h1 id="arraygraph">ArrayGraph</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;graph/graph/ArrayGraph.h&gt;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;graph/graph/ArrayGraph.h&gt;</span><span class="cp"></span>
+</pre></div>
+
 <p>class ArrayGraph: public Graph<br />
 </p>
 <p>Graph<br />
@@ -13829,15 +13881,25 @@ Goes through <em>theVertices</em> and anywhere it finds a non-zero pointer, invo
 <p><br />
 Method to add a vertex to the graph. If the adjacency list of the vertex is not empty the graph will first check to see all vertices in the the the vertices adjacency list exist in the graph before the vertex is added. It then checks if it neeeds a new array and if so creates one, i.e. if the <em>arraySize</em> <span class="math inline">\(=\)</span> <em>numVertex</em> it creates a new array, whose size is double the original and copies the pointers to the vertices, before invoking <code>delete()</code> on the old array. It now tries to add the vertex in the array at location <em>vertexTag</em>. If this fails it adds at the first empty location it comes to. Returns a 0 if successfull addition, a <span class="math inline">\(-1\)</span> otherwise and a message to opserr explaining the problem. <em>virtual int addEdge(int vertexTag, int otherVertexTag);</em><br />
 Causes the Graph to add an edge <code class="sourceCode cpp"><span class="op">(</span>vertexTag<span class="op">,</span>otherVertexTag<span class="op">)</span></code> to the Graph. A check is first made to see if vertices with tags given by <em>vertexTag</em> and <em>otherVertexTag</em> exist in the graph. If they do not exist a <span class="math inline">\(-1\)</span> is returned, otherwise the method invokes <code>addEdge()</code> on each of the corresponding vertices in the graph. Returns <span class="math inline">\(0\)</span> or a positive integer if sucessfull (positive if edge has already been added), a negative number if not.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Vertex \<span class="op">*</span>getVertexPtr<span class="op">(</span><span class="dt">int</span> vertexTag<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getVertexPtr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">vertexTag</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns a pointer to the vertex whose tag is given by <em>vertexTag</em>. The method first looks at location <em>vertexTag</em> for the vertex, otherwise it must search through the array until it finds the vertex it is looking for. If no such vertex exists in the graph <span class="math inline">\(0\)</span> is returned.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> VertexIter <span class="op">&amp;</span>getVertices<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">VertexIter</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getVertices</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which first invokes <code>reset()</code> on the graphs ArrayVertexIter and then returns a reference to this iter.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumVertex<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumVertex</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method to return the number of vertices in the graph, returns numVertex.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumEdge<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumEdge</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method to return the number of edges in the graph, returns numEdge.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">)</span> <span class="at">const</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method to print the graph. It first prints out numVertex and numEdge and then on each newline prints the vertexTag and the edges for that vertex. It does this by going through theVertices array and invoking <code>Print()</code> on each non-zero pointer.</p>
 <p><br />
 A method to return the size of the graphs array.</p>

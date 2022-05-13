@@ -5883,10 +5883,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13796,9 +13846,11 @@ Removal During Simulation
 <p>
 This command is used to construct a multi-dimensional Manzari-Dafalias(2004) material.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nDmaterial ManzariDafalias <span class="dt">$matTag</span> <span class="dt">$G0</span> <span class="dt">$nu</span> <span class="dt">$e_init</span> <span class="dt">$Mc</span> <span class="dt">$c</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$lambda_c</span> <span class="dt">$e0</span> <span class="dt">$ksi</span> <span class="dt">$P_atm</span> <span class="dt">$m</span> <span class="dt">$h0</span> <span class="dt">$ch</span> <span class="dt">$nb</span> <span class="dt">$A0</span> <span class="dt">$nd</span> <span class="dt">$z_max</span> <span class="dt">$cz</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$Den</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">nDmaterial</span><span class="w"> </span>ManzariDafalias<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$G0</span><span class="w"> </span><span class="nv">$nu</span><span class="w"> </span><span class="nv">$e_init</span><span class="w"> </span><span class="nv">$Mc</span><span class="w"> </span><span class="nv">$c</span>
+<span class="w">        </span><span class="nv">$lambda_c</span><span class="w"> </span><span class="nv">$e0</span><span class="w"> </span><span class="nv">$ksi</span><span class="w"> </span><span class="nv">$P_atm</span><span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="nv">$h0</span><span class="w"> </span><span class="nv">$ch</span><span class="w"> </span><span class="nv">$nb</span><span class="w"> </span><span class="nv">$A0</span><span class="w"> </span><span class="nv">$nd</span><span class="w"> </span><span class="nv">$z_max</span><span class="w"> </span><span class="nv">$cz</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$Den</span><span class="w"></span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -14230,150 +14282,152 @@ Example
 This example, provides an undrained confined triaxial compression test using one 8-node SSPBrickUP element and ManzariDafalias material model.
 </p>
 <p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>&lt;/p&gt;</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;/li&gt;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;3D Undrained Conventional Triaxial Compression Test Using One</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Element #&lt;/li&gt;</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;University of Washington, Department of Civil and Environmental Eng</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;/li&gt;</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Geotechnical Eng Group, A. Ghofrani, P. Arduino - Dec <span class="dv">2013</span> #&lt;/li&gt;</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Basic units are m, Ton(metric), s #&lt;/li&gt;</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#&lt;/li&gt;</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;wipe&lt;/p&gt;</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;------------------------ #&lt;/li&gt;</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Test Specific parameters #&lt;/li&gt;</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;------------------------ #&lt;/li&gt;</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Confinement Stress&lt;/li&gt;</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> pConf<span class="ot"> -300</span><span class="fl">.0</span>&lt;/p&gt;</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Deviatoric strain&lt;/li&gt;</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> devDisp<span class="ot"> -0</span><span class="fl">.3</span>&lt;/p&gt;</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Permeablity&lt;/li&gt;</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> perm <span class="fl">1.0e-10</span>&lt;/p&gt;</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Initial void ratio&lt;/li&gt;</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> vR <span class="fl">0.8</span>&lt;/p&gt;</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Rayleigh damping parameter&lt;/li&gt;</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> damp <span class="fl">0.1</span> <span class="kw">set</span> omega1 <span class="fl">0.0157</span> <span class="kw">set</span> omega2 <span class="fl">64.123</span> <span class="kw">set</span> a1 <span class="kw">[expr</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="fl">2.0</span>*<span class="dt">$damp</span>/(<span class="dt">$omega1</span>+<span class="dt">$omega2</span>)<span class="kw">]</span> <span class="kw">set</span> a0 <span class="kw">[expr</span> <span class="dt">$a1</span>*<span class="dt">$omega1</span>*<span class="dt">$omega2</span><span class="kw">]</span>&lt;/p&gt;</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH&lt;/li&gt;</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;HHHHHHHHHHHHHHHHHHHHHHHHHHHCreate</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>ModelHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH&lt;/li&gt;</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH&lt;/li&gt;</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Create a 3D model with <span class="dv">4</span> Degrees of Freedom&lt;/li&gt;</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;model BasicBuilder<span class="ot"> -ndm</span> <span class="dv">3</span><span class="ot"> -ndf</span> <span class="dv">4</span>&lt;/p&gt;</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Create nodes&lt;/li&gt;</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;node <span class="dv">1</span> <span class="fl">1.0</span> <span class="fl">0.0</span> <span class="fl">0.0</span> node <span class="dv">2</span> <span class="fl">1.0</span> <span class="fl">1.0</span> <span class="fl">0.0</span> node <span class="dv">3</span> <span class="fl">0.0</span> <span class="fl">1.0</span> <span class="fl">0.0</span> node <span class="dv">4</span> <span class="fl">0.0</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="fl">0.0</span> <span class="fl">0.0</span> node <span class="dv">5</span> <span class="fl">1.0</span> <span class="fl">0.0</span> <span class="fl">1.0</span> node <span class="dv">6</span> <span class="fl">1.0</span> <span class="fl">1.0</span> <span class="fl">1.0</span> node <span class="dv">7</span> <span class="fl">0.0</span> <span class="fl">1.0</span> <span class="fl">1.0</span> node <span class="dv">8</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="fl">0.0</span> <span class="fl">0.0</span> <span class="fl">1.0</span>&lt;/p&gt;</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Create Fixities&lt;/li&gt;</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;fix <span class="dv">1</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> fix <span class="dv">2</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">1</span> fix <span class="dv">3</span> <span class="dv">1</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">1</span> fix <span class="dv">4</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> fix <span class="dv">5</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">0</span> <span class="dv">1</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>fix <span class="dv">6</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">1</span> fix <span class="dv">7</span> <span class="dv">1</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">1</span> fix <span class="dv">8</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">0</span> <span class="dv">1</span>&lt;/p&gt;</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Create material&lt;/li&gt;</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;ManzariDafalias <span class="ot">tag</span> G0 nu e_init Mc c lambda_c e0 ksi P_atm m h0 ch</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>nb A0 nd z_max cz Den&lt;/li&gt;</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;nDMaterial ManzariDafalias <span class="dv">1</span> <span class="dv">125</span> <span class="fl">0.05</span> <span class="dt">$vR</span> <span class="fl">1.25</span> <span class="fl">0.712</span> <span class="fl">0.019</span> <span class="fl">0.934</span> <span class="fl">0.7</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span> <span class="fl">0.01</span> <span class="fl">7.05</span> <span class="fl">0.968</span> <span class="fl">1.1</span> <span class="fl">0.704</span> <span class="fl">3.5</span> <span class="dv">4</span> <span class="dv">600</span> <span class="fl">1.42</span>&lt;/p&gt;</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Create element&lt;/li&gt;</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;SSPbrickUP <span class="ot">tag</span> i j k l m n p q matTag fBulk fDen k1 k2 k3 void alpha</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>&amp;lt;b1 b2 b3&amp;gt;&lt;/li&gt;</span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;element SSPbrickUP <span class="dv">1</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">8</span> <span class="dv">1</span> <span class="fl">2.2e6</span> <span class="fl">1.0</span> <span class="dt">$perm</span> <span class="dt">$perm</span> <span class="dt">$perm</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="dt">$vR</span> <span class="fl">1.5e-9</span>&lt;/p&gt;</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Create recorders&lt;/li&gt;</span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;recorder Node<span class="ot"> -file</span> disp.out<span class="ot"> -time -nodeRange</span> <span class="dv">1</span> <span class="dv">8</span><span class="ot"> -dof</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> disp</span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>recorder Node<span class="ot"> -file</span> press.out<span class="ot"> -time -nodeRange</span> <span class="dv">1</span> <span class="dv">8</span><span class="ot"> -dof</span> <span class="dv">4</span> vel recorder</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>Element<span class="ot"> -file</span> stress.out<span class="ot"> -time</span> stress recorder Element<span class="ot"> -file</span> strain.out</span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>-<span class="kw">time</span> strain recorder Element<span class="ot"> -file</span> alpha.out<span class="ot"> -time</span> alpha recorder</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>Element<span class="ot"> -file</span> fabric.out<span class="ot"> -time</span> fabric&lt;/p&gt;</span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Create analysis&lt;/li&gt;</span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;constraints Penalty <span class="fl">1.0e18</span> <span class="fl">1.0e18</span> test NormDispIncr <span class="fl">1.0e-5</span> <span class="dv">20</span> <span class="dv">1</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>algorithm Newton numberer RCM <span class="ot">system</span> BandGeneral integrator Newmark <span class="fl">0.5</span></span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a><span class="fl">0.25</span> rayleigh <span class="dt">$a0</span> <span class="fl">0.</span> <span class="dt">$a1</span> <span class="fl">0.0</span> analysis Transient&lt;/p&gt;</span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Apply confinement pressure&lt;/li&gt;</span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> pNode <span class="kw">[expr</span> <span class="dt">$pConf</span> / <span class="fl">4.0</span><span class="kw">]</span> pattern Plain <span class="dv">1</span> <span class="kw">{</span>Series<span class="ot"> -time</span> <span class="kw">{</span><span class="dv">0</span> <span class="dv">10000</span></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="fl">1e10</span><span class="kw">}</span><span class="ot"> -values</span> <span class="kw">{</span><span class="dv">0</span> <span class="dv">1</span> <span class="dv">1</span><span class="kw">}</span><span class="ot"> -factor</span> <span class="dv">1</span><span class="kw">}</span> <span class="kw">{</span> <span class="kw">load</span> <span class="dv">1</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="kw">load</span> <span class="dv">2</span></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="dt">$pNode</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="kw">load</span> <span class="dv">3</span> <span class="fl">0.0</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="kw">load</span> <span class="dv">4</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="fl">0.0</span></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="kw">load</span> <span class="dv">5</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> <span class="kw">load</span> <span class="dv">6</span> <span class="dt">$pNode</span> <span class="dt">$pNode</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> <span class="kw">load</span> <span class="dv">7</span> <span class="fl">0.0</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a><span class="dt">$pNode</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> <span class="kw">load</span> <span class="dv">8</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> <span class="kw">}</span> analyze <span class="dv">100</span> <span class="dv">100</span>&lt;/p&gt;</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Let the model rest and waves damp out&lt;/li&gt;</span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;analyze <span class="dv">50</span> <span class="dv">100</span>&lt;/p&gt;</span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Close drainage valves&lt;/li&gt;</span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">for</span> <span class="kw">{set</span> <span class="ot">x</span> <span class="dv">1</span><span class="kw">}</span> <span class="kw">{</span><span class="dt">$x</span>&amp;lt;<span class="dv">9</span><span class="kw">}</span> <span class="kw">{incr</span> <span class="ot">x</span><span class="kw">}</span> <span class="kw">{</span> <span class="ot">remove</span> sp <span class="dt">$x</span> <span class="dv">4</span> <span class="kw">}</span> analyze <span class="dv">50</span></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="dv">100</span>&lt;/p&gt;</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Read vertical displacement of top plane&lt;/li&gt;</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> vertDisp <span class="kw">[</span>nodeDisp <span class="dv">5</span> <span class="dv">3</span><span class="kw">]</span>&lt;/p&gt;</span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Apply deviatoric strain&lt;/li&gt;</span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> lValues <span class="kw">[list</span> <span class="dv">1</span> <span class="kw">[expr</span> <span class="dv">1</span>+<span class="dt">$devDisp</span>/<span class="dt">$vertDisp</span><span class="kw">]</span> <span class="kw">[expr</span></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>+<span class="dt">$devDisp</span>/<span class="dt">$vertDisp</span><span class="kw">]]</span> <span class="kw">set</span> ts <span class="st">&quot;{Series -time {20000 1020000 10020000}</span></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="st">-values {</span><span class="dt">$</span><span class="st">lValues} -factor 1}&quot;</span>&lt;/p&gt;</span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;loading object deviator stress&lt;/li&gt;</span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">eval</span> <span class="st">&quot;pattern Plain 2 </span><span class="dt">$</span><span class="st">ts { sp 5 3 </span><span class="dt">$</span><span class="st">vertDisp sp 6 3 </span><span class="dt">$</span><span class="st">vertDisp sp 7 3</span></span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a><span class="dt">$</span><span class="st">vertDisp sp 8 3 </span><span class="dt">$</span><span class="st">vertDisp }&quot;</span>&lt;/p&gt;</span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Set <span class="ot">number</span> and <span class="ot">length</span> of (pseudo)<span class="kw">time</span> steps&lt;/li&gt;</span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> dT <span class="dv">100</span> <span class="kw">set</span> numStep <span class="dv">10000</span>&lt;/p&gt;</span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a>&lt;ol&gt;</span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a>&lt;li&gt;Analyze and use substepping <span class="kw">if</span> needed&lt;/li&gt;</span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>&lt;/ol&gt;</span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">set</span> remStep <span class="dt">$numStep</span> <span class="kw">set</span> success <span class="dv">0</span> <span class="kw">proc</span> subStepAnalyze <span class="kw">{</span>dT subStep<span class="kw">}</span> <span class="kw">{</span></span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="kw">{</span><span class="dt">$subStep</span> &amp;gt; <span class="dv">10</span><span class="kw">}</span> <span class="kw">{</span> <span class="kw">return</span><span class="ot"> -10</span> <span class="kw">}</span> <span class="kw">for</span> <span class="kw">{set</span> i <span class="dv">1</span><span class="kw">}</span> <span class="kw">{</span><span class="dt">$i</span> &amp;lt; <span class="dv">3</span><span class="kw">}</span> <span class="kw">{incr</span> i<span class="kw">}</span></span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span> <span class="kw">puts</span> <span class="st">&quot;Try dT = </span><span class="dt">$</span><span class="st">dT&quot;</span> <span class="kw">set</span> success <span class="kw">[</span>analyze <span class="dv">1</span> <span class="dt">$dT</span><span class="kw">]</span> <span class="kw">if</span> <span class="kw">{</span><span class="dt">$success</span> != <span class="dv">0</span><span class="kw">}</span> <span class="kw">{</span></span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> success <span class="kw">[</span>subStepAnalyze <span class="kw">[expr</span> <span class="dt">$dT</span>/<span class="fl">2.0</span><span class="kw">]</span> <span class="kw">[expr</span> <span class="dt">$subStep</span>+<span class="dv">1</span><span class="kw">]]</span> <span class="kw">if</span></span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a><span class="kw">{</span><span class="dt">$success</span> ==<span class="ot"> -10</span><span class="kw">}</span> <span class="kw">{</span> <span class="kw">puts</span> <span class="st">&quot;Did not converge.&quot;</span> <span class="kw">return</span> success <span class="kw">}</span> <span class="kw">}</span> <span class="kw">else</span> <span class="kw">{</span></span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a><span class="kw">if</span> <span class="kw">{</span><span class="dt">$i</span>==<span class="dv">1</span><span class="kw">}</span> <span class="kw">{</span> <span class="kw">puts</span> <span class="st">&quot;Substep </span><span class="dt">$</span><span class="st">subStep : Left side converged with dT = </span><span class="dt">$</span><span class="st">dT&quot;</span></span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> <span class="kw">else</span> <span class="kw">{</span> <span class="kw">puts</span> <span class="st">&quot;Substep </span><span class="dt">$</span><span class="st">subStep : Right side converged with dT = </span><span class="dt">$</span><span class="st">dT&quot;</span> <span class="kw">}</span></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span> <span class="kw">}</span> <span class="kw">return</span> success <span class="kw">}</span>&lt;/p&gt;</span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">puts</span> <span class="st">&quot;Start analysis&quot;</span> <span class="kw">set</span> startT <span class="kw">[clock</span> <span class="ot">seconds</span><span class="kw">]</span>&lt;/p&gt;</span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;<span class="kw">while</span> <span class="kw">{</span><span class="dt">$success</span> !=<span class="ot"> -10</span><span class="kw">}</span> <span class="kw">{</span> <span class="kw">set</span> subStep <span class="dv">0</span> <span class="kw">set</span> success <span class="kw">[</span>analyze <span class="dt">$remStep</span></span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="dt">$dT</span><span class="kw">]</span> <span class="kw">if</span> <span class="kw">{</span><span class="dt">$success</span> == <span class="dv">0</span><span class="kw">}</span> <span class="kw">{</span> <span class="kw">puts</span> <span class="st">&quot;Analysis Finished&quot;</span> <span class="kw">break</span> <span class="kw">}</span> <span class="kw">else</span> <span class="kw">{</span> <span class="kw">set</span></span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a>curTime <span class="kw">[</span>getTime<span class="kw">]</span> <span class="kw">puts</span> <span class="st">&quot;Analysis failed at </span><span class="dt">$</span><span class="st">curTime . Try substepping.&quot;</span></span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> success <span class="kw">[</span>subStepAnalyze <span class="kw">[expr</span> <span class="dt">$dT</span>/<span class="fl">2.0</span><span class="kw">]</span> <span class="kw">[incr</span> subStep<span class="kw">]]</span> <span class="kw">set</span> curStep</span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a><span class="kw">[expr</span> int((<span class="dt">$curTime</span><span class="dv">-20000</span>)/<span class="dt">$dT</span> + <span class="dv">1</span>)<span class="kw">]</span> <span class="kw">set</span> remStep <span class="kw">[expr</span></span>
-<span id="cb2-141"><a href="#cb2-141" aria-hidden="true" tabindex="-1"></a>int(<span class="dt">$numStep</span>-<span class="dt">$curStep</span>)<span class="kw">]</span> <span class="kw">puts</span> <span class="st">&quot;Current step: </span><span class="dt">$</span><span class="st">curStep , Remaining steps:</span></span>
-<span id="cb2-142"><a href="#cb2-142" aria-hidden="true" tabindex="-1"></a><span class="dt">$</span><span class="st">remStep&quot;</span> <span class="kw">}</span> <span class="kw">}</span> <span class="kw">set</span> endT <span class="kw">[clock</span> <span class="ot">seconds</span><span class="kw">]</span> <span class="kw">puts</span> <span class="st">&quot;loading analysis execution</span></span>
-<span id="cb2-143"><a href="#cb2-143" aria-hidden="true" tabindex="-1"></a><span class="st">time: [expr </span><span class="dt">$</span><span class="st">endT-</span><span class="dt">$</span><span class="st">startT] seconds.&quot;</span>&lt;/p&gt;</span>
-<span id="cb2-144"><a href="#cb2-144" aria-hidden="true" tabindex="-1"></a>&lt;p&gt;wipe </span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="o">&lt;/</span><span class="nv">p</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+<span class="c">#&lt;/li&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span><span class="mi">3</span>D<span class="w"> </span>Undrained<span class="w"> </span>Conventional<span class="w"> </span>Triaxial<span class="w"> </span>Compression<span class="w"> </span>Test<span class="w"> </span>Using<span class="w"> </span>One
+<span class="nv">Element</span><span class="w"> </span><span class="err">#</span><span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>University<span class="w"> </span>of<span class="w"> </span>Washington,<span class="w"> </span>Department<span class="w"> </span>of<span class="w"> </span>Civil<span class="w"> </span>and<span class="w"> </span>Environmental<span class="w"> </span>Eng
+<span class="c">#&lt;/li&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Geotechnical<span class="w"> </span>Eng<span class="w"> </span>Group,<span class="w"> </span>A.<span class="w"> </span>Ghofrani,<span class="w"> </span>P.<span class="w"> </span>Arduino<span class="w"> </span><span class="o">-</span><span class="w"> </span>Dec<span class="w"> </span><span class="mi">2013</span><span class="w"> </span><span class="err">#</span><span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Basic<span class="w"> </span>units<span class="w"> </span>are<span class="w"> </span>m,<span class="w"> </span>Ton<span class="k">(</span><span class="nv">metric</span><span class="k">)</span>,<span class="w"> </span>s<span class="w"> </span><span class="err">#</span><span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+<span class="c">#&lt;/li&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>wipe<span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;------------------------</span><span class="w"> </span><span class="err">#</span><span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Test<span class="w"> </span>Specific<span class="w"> </span>parameters<span class="w"> </span><span class="err">#</span><span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;------------------------</span><span class="w"> </span><span class="err">#</span><span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Confinement<span class="w"> </span>Stress<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>set<span class="w"> </span>pConf<span class="w"> </span><span class="o">-</span><span class="mf">300.0</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Deviatoric<span class="w"> </span>strain<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>set<span class="w"> </span>devDisp<span class="w"> </span><span class="o">-</span><span class="mf">0.3</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Permeablity<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>set<span class="w"> </span>perm<span class="w"> </span><span class="mf">1.0</span>e-10<span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Initial<span class="w"> </span>void<span class="w"> </span>ratio<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>set<span class="w"> </span>vR<span class="w"> </span><span class="mf">0.8</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Rayleigh<span class="w"> </span>damping<span class="w"> </span>parameter<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>set<span class="w"> </span>damp<span class="w"> </span><span class="mf">0.1</span><span class="w"> </span>set<span class="w"> </span>omega1<span class="w"> </span><span class="mf">0.0157</span><span class="w"> </span>set<span class="w"> </span>omega2<span class="w"> </span><span class="mf">64.123</span><span class="w"> </span>set<span class="w"> </span>a1<span class="w"> </span><span class="k">[expr</span>
+<span class="nv">2.0</span><span class="o">*</span><span class="nv">$damp</span><span class="o">/</span><span class="k">(</span><span class="nv">$omega1</span><span class="o">+</span><span class="nv">$omega2</span><span class="k">)]</span><span class="w"> </span>set<span class="w"> </span>a0<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$a1</span><span class="o">*</span><span class="nv">$omega1</span><span class="o">*</span><span class="nv">$omega2</span><span class="k">]</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>HHHHHHHHHHHHHHHHHHHHHHHHHHHCreate
+<span class="nv">ModelHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</span><span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Create<span class="w"> </span>a<span class="w"> </span><span class="mi">3</span>D<span class="w"> </span>model<span class="w"> </span>with<span class="w"> </span><span class="mi">4</span><span class="w"> </span>Degrees<span class="w"> </span>of<span class="w"> </span>Freedom<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>model<span class="w"> </span>BasicBuilder<span class="w"> </span><span class="o">-</span>ndm<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span>ndf<span class="w"> </span><span class="mi">4</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Create<span class="w"> </span>nodes<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>node<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">8</span>
+<span class="nv">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1.0</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Create<span class="w"> </span>Fixities<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>fix<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">fix</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Create<span class="w"> </span>material<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>ManzariDafalias<span class="w"> </span>tag<span class="w"> </span>G0<span class="w"> </span>nu<span class="w"> </span>e_init<span class="w"> </span>Mc<span class="w"> </span>c<span class="w"> </span>lambda_c<span class="w"> </span>e0<span class="w"> </span>ksi<span class="w"> </span>P_atm<span class="w"> </span>m<span class="w"> </span>h0<span class="w"> </span>ch
+<span class="nv">nb</span><span class="w"> </span>A0<span class="w"> </span>nd<span class="w"> </span>z_max<span class="w"> </span>cz<span class="w"> </span>Den<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>nDMaterial<span class="w"> </span>ManzariDafalias<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">125</span><span class="w"> </span><span class="mf">0.05</span><span class="w"> </span><span class="nv">$vR</span><span class="w"> </span><span class="mf">1.25</span><span class="w"> </span><span class="mf">0.712</span><span class="w"> </span><span class="mf">0.019</span><span class="w"> </span><span class="mf">0.934</span><span class="w"> </span><span class="mf">0.7</span>
+<span class="nv">100</span><span class="w"> </span><span class="mf">0.01</span><span class="w"> </span><span class="mf">7.05</span><span class="w"> </span><span class="mf">0.968</span><span class="w"> </span><span class="mf">1.1</span><span class="w"> </span><span class="mf">0.704</span><span class="w"> </span><span class="mf">3.5</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">600</span><span class="w"> </span><span class="mf">1.42</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Create<span class="w"> </span>element<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>SSPbrickUP<span class="w"> </span>tag<span class="w"> </span>i<span class="w"> </span>j<span class="w"> </span>k<span class="w"> </span>l<span class="w"> </span>m<span class="w"> </span>n<span class="w"> </span>p<span class="w"> </span>q<span class="w"> </span>matTag<span class="w"> </span>fBulk<span class="w"> </span>fDen<span class="w"> </span>k1<span class="w"> </span>k2<span class="w"> </span>k3<span class="w"> </span>void<span class="w"> </span>alpha
+<span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">b1</span><span class="w"> </span>b2<span class="w"> </span>b3<span class="o">&amp;</span>gt<span class="k">;</span><span class="o">&lt;/</span><span class="nv">li</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>element<span class="w"> </span>SSPbrickUP<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">2.2</span>e6<span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="nv">$perm</span><span class="w"> </span><span class="nv">$perm</span><span class="w"> </span><span class="nv">$perm</span>
+<span class="nv">$vR</span><span class="w"> </span><span class="nv">1.5e-9</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Create<span class="w"> </span>recorders<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>recorder<span class="w"> </span>Node<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>disp.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>nodeRange<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span>disp
+<span class="nv">recorder</span><span class="w"> </span>Node<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>press.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>nodeRange<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">4</span><span class="w"> </span>vel<span class="w"> </span>recorder
+<span class="nv">Element</span><span class="w"> </span><span class="o">-</span>file<span class="w"> </span>stress.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span>stress<span class="w"> </span>recorder<span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>strain.out
+<span class="nv">-time</span><span class="w"> </span>strain<span class="w"> </span>recorder<span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>alpha.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span>alpha<span class="w"> </span>recorder
+<span class="nv">Element</span><span class="w"> </span><span class="o">-</span>file<span class="w"> </span>fabric.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span>fabric<span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Create<span class="w"> </span>analysis<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>constraints<span class="w"> </span>Penalty<span class="w"> </span><span class="mf">1.0</span>e18<span class="w"> </span><span class="mf">1.0</span>e18<span class="w"> </span>test<span class="w"> </span>NormDispIncr<span class="w"> </span><span class="mf">1.0</span>e-5<span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">algorithm</span><span class="w"> </span>Newton<span class="w"> </span>numberer<span class="w"> </span>RCM<span class="w"> </span>system<span class="w"> </span>BandGeneral<span class="w"> </span>integrator<span class="w"> </span>Newmark<span class="w"> </span><span class="mf">0.5</span>
+<span class="nv">0.25</span><span class="w"> </span>rayleigh<span class="w"> </span><span class="nv">$a0</span><span class="w"> </span><span class="mi">0</span>.<span class="w"> </span><span class="nv">$a1</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>analysis<span class="w"> </span>Transient<span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Apply<span class="w"> </span>confinement<span class="w"> </span>pressure<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>set<span class="w"> </span>pNode<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$pConf</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">4.0</span><span class="k">]</span><span class="w"> </span>pattern<span class="w"> </span>Plain<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">{</span><span class="nv">Series</span><span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="k">{</span><span class="nv">0</span><span class="w"> </span><span class="mi">10000</span>
+<span class="nv">1e10</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>values<span class="w"> </span><span class="k">{</span><span class="nv">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>factor<span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>load<span class="w"> </span><span class="mi">2</span>
+<span class="nv">$pNode</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="nv">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>load<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>load<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nb">load</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>load<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>load<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">$pNode</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="nv">0.0</span><span class="w"> </span>load<span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="k">}</span><span class="w"> </span>analyze<span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="mi">100</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Let<span class="w"> </span>the<span class="w"> </span>model<span class="w"> </span>rest<span class="w"> </span>and<span class="w"> </span>waves<span class="w"> </span>damp<span class="w"> </span>out<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>analyze<span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="mi">100</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Close<span class="w"> </span>drainage<span class="w"> </span>valves<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>for<span class="w"> </span><span class="k">{set</span><span class="w"> </span>x<span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$x</span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">9</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>x<span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nv">remove</span><span class="w"> </span>sp<span class="w"> </span><span class="nv">$x</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">}</span><span class="w"> </span>analyze<span class="w"> </span><span class="mi">50</span>
+<span class="nv">100</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Read<span class="w"> </span>vertical<span class="w"> </span>displacement<span class="w"> </span>of<span class="w"> </span>top<span class="w"> </span>plane<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>set<span class="w"> </span>vertDisp<span class="w"> </span><span class="k">[</span><span class="nv">nodeDisp</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">3</span><span class="k">]</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Apply<span class="w"> </span>deviatoric<span class="w"> </span>strain<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>set<span class="w"> </span>lValues<span class="w"> </span><span class="k">[</span><span class="nb">list</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mi">1</span><span class="o">+</span><span class="nv">$devDisp</span><span class="o">/</span><span class="nv">$vertDisp</span><span class="k">]</span><span class="w"> </span><span class="k">[expr</span>
+<span class="nv">1</span><span class="o">+</span><span class="nv">$devDisp</span><span class="o">/</span><span class="nv">$vertDisp</span><span class="k">]]</span><span class="w"> </span>set<span class="w"> </span>ts<span class="w"> </span><span class="s2">&quot;{Series -time {20000 1020000 10020000}</span>
+<span class="s2">-values {$lValues} -factor 1}&quot;</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>loading<span class="w"> </span>object<span class="w"> </span>deviator<span class="w"> </span>stress<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>eval<span class="w"> </span><span class="s2">&quot;pattern Plain 2 $ts { sp 5 3 $vertDisp sp 6 3 $vertDisp sp 7 3</span>
+<span class="s2">$vertDisp sp 8 3 $vertDisp }&quot;</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Set<span class="w"> </span>number<span class="w"> </span>and<span class="w"> </span>length<span class="w"> </span>of<span class="w"> </span><span class="k">(</span><span class="nv">pseudo</span><span class="k">)</span>time<span class="w"> </span>steps<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>set<span class="w"> </span>dT<span class="w"> </span><span class="mi">100</span><span class="w"> </span>set<span class="w"> </span>numStep<span class="w"> </span><span class="mi">10000</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>Analyze<span class="w"> </span>and<span class="w"> </span>use<span class="w"> </span>substepping<span class="w"> </span>if<span class="w"> </span>needed<span class="o">&lt;/</span>li<span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>set<span class="w"> </span>remStep<span class="w"> </span><span class="nv">$numStep</span><span class="w"> </span>set<span class="w"> </span>success<span class="w"> </span><span class="mi">0</span><span class="w"> </span>proc<span class="w"> </span>subStepAnalyze<span class="w"> </span><span class="k">{</span><span class="nv">dT</span><span class="w"> </span>subStep<span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="k">{</span><span class="nv">$subStep</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="nv">10</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"> </span><span class="k">}</span><span class="w"> </span>for<span class="w"> </span><span class="k">{set</span><span class="w"> </span>i<span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$i</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="w"> </span><span class="nv">3</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>i<span class="k">}</span>
+<span class="k">{</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Try dT = $dT&quot;</span><span class="w"> </span>set<span class="w"> </span>success<span class="w"> </span><span class="k">[</span><span class="nv">analyze</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">$dT</span><span class="k">]</span><span class="w"> </span>if<span class="w"> </span><span class="k">{</span><span class="nv">$success</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nv">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>success<span class="w"> </span><span class="k">[</span><span class="nv">subStepAnalyze</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$dT</span><span class="o">/</span><span class="mf">2.0</span><span class="k">]</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$subStep</span><span class="o">+</span><span class="mi">1</span><span class="k">]]</span><span class="w"> </span>if
+<span class="k">{</span><span class="nv">$success</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">-10</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Did not converge.&quot;</span><span class="w"> </span>return<span class="w"> </span>success<span class="w"> </span><span class="k">}</span><span class="w"> </span><span class="k">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="k">{</span><span class="nv">$i</span><span class="o">==</span><span class="nv">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Substep $subStep : Left side converged with dT = $dT&quot;</span>
+<span class="k">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Substep $subStep : Right side converged with dT = $dT&quot;</span><span class="w"> </span><span class="k">}</span>
+<span class="k">}</span><span class="w"> </span><span class="k">}</span><span class="w"> </span><span class="k">return</span><span class="w"> </span>success<span class="w"> </span><span class="k">}</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>puts<span class="w"> </span><span class="s2">&quot;Start analysis&quot;</span><span class="w"> </span>set<span class="w"> </span>startT<span class="w"> </span><span class="k">[</span><span class="nb">clock</span><span class="w"> </span>seconds<span class="k">]</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>while<span class="w"> </span><span class="k">{</span><span class="nv">$success</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nv">-10</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="k">set</span><span class="w"> </span>subStep<span class="w"> </span><span class="mi">0</span><span class="w"> </span>set<span class="w"> </span>success<span class="w"> </span><span class="k">[</span><span class="nv">analyze</span><span class="w"> </span><span class="nv">$remStep</span>
+<span class="nv">$dT</span><span class="k">]</span><span class="w"> </span>if<span class="w"> </span><span class="k">{</span><span class="nv">$success</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">0</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Analysis Finished&quot;</span><span class="w"> </span>break<span class="w"> </span><span class="k">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="k">set</span>
+<span class="nv">curTime</span><span class="w"> </span><span class="k">[</span><span class="nv">getTime</span><span class="k">]</span><span class="w"> </span>puts<span class="w"> </span><span class="s2">&quot;Analysis failed at $curTime . Try substepping.&quot;</span>
+<span class="k">set</span><span class="w"> </span>success<span class="w"> </span><span class="k">[</span><span class="nv">subStepAnalyze</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$dT</span><span class="o">/</span><span class="mf">2.0</span><span class="k">]</span><span class="w"> </span><span class="k">[</span><span class="nb">incr</span><span class="w"> </span>subStep<span class="k">]]</span><span class="w"> </span>set<span class="w"> </span>curStep
+<span class="k">[expr</span><span class="w"> </span>int<span class="k">((</span><span class="nv">$curTime-20000</span><span class="k">)</span><span class="o">/</span><span class="nv">$dT</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">1</span><span class="k">)]</span><span class="w"> </span><span class="k">set</span><span class="w"> </span>remStep<span class="w"> </span><span class="k">[expr</span>
+<span class="nv">int</span><span class="k">(</span><span class="nv">$numStep-$curStep</span><span class="k">)]</span><span class="w"> </span>puts<span class="w"> </span><span class="s2">&quot;Current step: $curStep , Remaining steps:</span>
+<span class="s2">$remStep&quot;</span><span class="w"> </span><span class="k">}</span><span class="w"> </span><span class="k">}</span><span class="w"> </span>set<span class="w"> </span>endT<span class="w"> </span><span class="k">[</span><span class="nb">clock</span><span class="w"> </span>seconds<span class="k">]</span><span class="w"> </span>puts<span class="w"> </span><span class="s2">&quot;loading analysis execution</span>
+<span class="s2">time: [expr $endT-$startT] seconds.&quot;</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>wipe<span class="w"> </span>
+</pre></div>
+
 </p>
 <h2 id="references">
 References

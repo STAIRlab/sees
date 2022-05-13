@@ -5885,10 +5885,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13795,10 +13845,12 @@ Removal During Simulation
 
 
 <h1 id="mvlem">MVLEM</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element MVLEM <span class="dt">$eleTag</span> <span class="dt">$Dens</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$m</span> <span class="dt">$c</span><span class="ot"> -thick</span> <span class="kw">{</span>Thicknesses<span class="kw">}</span> \</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    -<span class="ot">width</span> <span class="kw">{</span>Widths<span class="kw">}</span><span class="ot"> -rho</span> <span class="kw">{</span>Reinforcing_ratios<span class="kw">}</span> \</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    -matConcrete <span class="kw">{</span>Concrete_tags<span class="kw">}</span><span class="ot"> -matSteel</span> <span class="kw">{</span>Steel_tags<span class="kw">}</span> \</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    -matShear <span class="kw">{</span>Shear_tag<span class="kw">}</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>MVLEM<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$Dens</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="nv">$c</span><span class="w"> </span><span class="o">-</span>thick<span class="w"> </span><span class="k">{</span><span class="nv">Thicknesses</span><span class="k">}</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="nv">-width</span><span class="w"> </span><span class="k">{</span><span class="nv">Widths</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>rho<span class="w"> </span><span class="k">{</span><span class="nv">Reinforcing_ratios</span><span class="k">}</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="nv">-matConcrete</span><span class="w"> </span><span class="k">{</span><span class="nv">Concrete_tags</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>matSteel<span class="w"> </span><span class="k">{</span><span class="nv">Steel_tags</span><span class="k">}</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="nv">-matShear</span><span class="w"> </span><span class="k">{</span><span class="nv">Shear_tag</span><span class="k">}</span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -14043,13 +14095,15 @@ Figure 1. a) MVLEM Element, b) MVLEM Rotations and Displacements
 </p>
 <hr />
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>Element MVLEM <span class="dv">1</span> <span class="fl">0.0</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">8</span> <span class="fl">0.4</span><span class="ot"> -thick</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">4</span> \</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    -<span class="ot">width</span> <span class="fl">7.5</span> <span class="fl">1.5</span> <span class="fl">7.5</span> <span class="fl">7.5</span> <span class="fl">7.5</span> <span class="fl">7.5</span> <span class="fl">1.5</span> <span class="fl">7.5</span> \</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    -rho <span class="fl">0.0293</span> <span class="fl">0.0</span> <span class="fl">0.0033</span> <span class="fl">0.0033</span> <span class="fl">0.0033</span> <span class="fl">0.0033</span> <span class="fl">0.0</span> <span class="fl">0.0293</span> \</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    -matConcrete <span class="dv">3</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">4</span> <span class="dv">3</span><span class="ot"> -matSteel</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">2</span> <span class="dv">1</span> \</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    -matShear <span class="dv">5</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Recorder Element<span class="ot"> -file</span> MVLEM_Fgl.out<span class="ot"> -time -ele</span> <span class="dv">1</span> globalForce</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Recorder Element<span class="ot"> -file</span> MVLEM_FiberStrain.out<span class="ot"> -time -ele</span> <span class="dv">1</span> Fiber_Strain</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">Element</span><span class="w"> </span>MVLEM<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mf">0.4</span><span class="w"> </span><span class="o">-</span>thick<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="nv">-width</span><span class="w"> </span><span class="mf">7.5</span><span class="w"> </span><span class="mf">1.5</span><span class="w"> </span><span class="mf">7.5</span><span class="w"> </span><span class="mf">7.5</span><span class="w"> </span><span class="mf">7.5</span><span class="w"> </span><span class="mf">7.5</span><span class="w"> </span><span class="mf">1.5</span><span class="w"> </span><span class="mf">7.5</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="nv">-rho</span><span class="w"> </span><span class="mf">0.0293</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0033</span><span class="w"> </span><span class="mf">0.0033</span><span class="w"> </span><span class="mf">0.0033</span><span class="w"> </span><span class="mf">0.0033</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0293</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="nv">-matConcrete</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span>matSteel<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="nv">-matShear</span><span class="w"> </span><span class="mi">5</span>
+<span class="nv">Recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>MVLEM_Fgl.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span>globalForce
+<span class="nv">Recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>MVLEM_FiberStrain.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span>Fiber_Strain
+</pre></div>
+
 <hr />
 <h2 id="references">References</h2>
 <p>

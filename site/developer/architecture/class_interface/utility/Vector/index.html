@@ -5873,10 +5873,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13795,9 +13845,11 @@ Removal During Simulation
 
 
 <h1 id="vector">Vector</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&quot;matrix/Vector.h&quot;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Vector<span class="op">:</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;matrix/Vector.h&quot;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Vector</span><span class="o">:</span><span class="w"></span>
+</pre></div>
+
 <p>The Vector class provides the vector abstraction. A vector of order <em>size</em> is an ordered 1d array of <em>size</em> numbers. For example a vector of order 5:</p>
 <p><span class="math inline">\(x = [x_0\)</span> <span class="math inline">\(x_1\)</span> <span class="math inline">\(x_2\)</span> <span class="math inline">\(x_3\)</span> <span class="math inline">\(x_4]\)</span></p>
 <p>In the Vector class the data is stored in a 1d double array of length equal to the order of the Vector. At present time none of the methods are declared as being virtual. THIS MAY CHANGE FOR PARALLEL.</p>
@@ -13832,9 +13884,13 @@ Removal During Simulation
 <p>A method to return a new Vector which is equal to the the current Vector minus the Vector <em>V</em>. A new Vector is constructed using the current Vector as an argument to the constructor; before the new matrix is returned, the <em>-=</em> operator is invoked on the matrix with <em>V</em>. If the current Vector and <em>V</em> are not of the same size, a warning message is printed and a copy of the current Vector is returned. A warning message is also returned if the new Vector is not of the correct size, i.e. ran out of memory.</p>
 <p>A method to return the dot product of the current Vector and the Vector <em>V</em>. If the current Vector and <em>V</em> are not of the same size, a warning message is printed and <span class="math inline">\(0\)</span> returned.</p>
 <p>A method to return a new Vector, <span class="math inline">\(x\)</span>, equal to the solution of the matrix equation <span class="math inline">\(Mx=\)</span> the current Vector. A new Vector is created for the return of size <em>M.noRows()</em>. A new Matrix is created of order <em>M.noRows()</em> x <em>M.noRows()</em> and set equal to <em>M</em> if <em>M</em> is square, or <span class="math inline">\(M^tM\)</span> if <em>M</em> is not square. The new Vector is then set equal to the result of invoking <code class="sourceCode cpp">Solve<span class="op">(</span>\<span class="op">*</span><span class="kw">this</span><span class="op">)</span></code> on the new Matrix.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">friend</span> OPS_Stream <span class="op">&amp;</span><span class="kw">operator</span><span class="er">$</span><span class="op">&lt;&lt;</span><span class="er">$</span><span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="at">const</span> Vector <span class="op">&amp;</span>V<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">friend</span><span class="w"> </span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="n">$</span><span class="o">&lt;&lt;</span><span class="n">$</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">V</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A function to print out the contents of the Vector <em>V</em> to the output stream <em>s</em>. prints out the contents of the Vector in the stream and then prints the newline character.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">friend</span> istream <span class="op">&amp;</span><span class="kw">operator</span><span class="er">$</span><span class="op">&gt;&gt;</span><span class="er">$</span><span class="op">(</span>istream <span class="op">&amp;</span>s<span class="op">,</span> <span class="at">const</span> Vector <span class="op">&amp;</span>V<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">friend</span><span class="w"> </span><span class="n">istream</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="n">$</span><span class="o">&gt;&gt;</span><span class="n">$</span><span class="p">(</span><span class="n">istream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">V</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A function to read the contents of the Vector <em>V</em> from the input stream <em>s</em>. Sets the components of <em>V</em> equal to the next <em>V.Size()</em> entries in the stream.</p>
 
 

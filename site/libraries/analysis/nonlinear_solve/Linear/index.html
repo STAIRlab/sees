@@ -5869,10 +5869,60 @@ Removal During Simulation
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/TclInterpreter/" class="md-nav__link">
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_3" type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
         
+          
+            
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../developer/architecture/Tcl/">Tcl</a>
+          
+            <label for="__nav_2_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Tcl" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tcl
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/architecture/Tcl/commands/" class="md-nav__link">
+        Tcl Commands
+
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -13793,13 +13843,15 @@ Removal During Simulation
 
 
 <h1 id="linear">Linear</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/algorithm/equiSolnAlgo/Linear.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Linear<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> EquiSolnAlg<span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>       MovableObject</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>       SolutionAlgorithm</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>       EquiSolnAlgo</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/algorithm/equiSolnAlgo/Linear.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Linear</span><span class="o">:</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="n">EquiSolnAlg</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="n">MovableObject</span><span class="w"></span>
+<span class="w">       </span><span class="n">SolutionAlgorithm</span><span class="w"></span>
+<span class="w">       </span><span class="n">EquiSolnAlgo</span><span class="w"></span>
+</pre></div>
+
 <p>The Linear class is an algorithmic class which uses the linear solution algorithm to solve the equations. This is based on a Taylor expansion of the linear system <span class="math inline">\(\R(\U) = \zero\)</span> about an approximate solution <span class="math inline">\({\bf U}_{a}\)</span>.</p>
 <p><span class="math display">\[\R(\U) = 
 \R({\bf U}_{a}) +
@@ -13817,26 +13869,34 @@ Removal During Simulation
 <!--// while ̄ whilewhilewhilewhilewhilewhilewhilewhilewhile ̄
 -->
 <blockquote>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// form {\bf K}_{a}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>theIntegrator<span class="op">-&gt;</span>formTangent<span class="op">()</span> </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">// form \R({\bf U}_{a})</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>theIntegrator<span class="op">-&gt;</span>formUnbalance<span class="op">()</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">// solve for \Delta \U</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>theSOE<span class="op">-&gt;</span>solveX<span class="op">()</span> </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">// set U = Ua + DU</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>theIntegrator<span class="op">-&gt;</span>update<span class="op">(</span>theSOE<span class="op">-&gt;</span>getX<span class="op">())</span> </span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="c1">// form {\bf K}_{a}</span>
+<span class="n">theIntegrator</span><span class="o">-&gt;</span><span class="n">formTangent</span><span class="p">()</span><span class="w"> </span>
+<span class="c1">// form \R({\bf U}_{a})</span>
+<span class="n">theIntegrator</span><span class="o">-&gt;</span><span class="n">formUnbalance</span><span class="p">()</span><span class="w"> </span>
+<span class="c1">// solve for \Delta \U</span>
+<span class="n">theSOE</span><span class="o">-&gt;</span><span class="n">solveX</span><span class="p">()</span><span class="w"> </span>
+<span class="c1">// set U = Ua + DU</span>
+<span class="n">theIntegrator</span><span class="o">-&gt;</span><span class="n">update</span><span class="p">(</span><span class="n">theSOE</span><span class="o">-&gt;</span><span class="n">getX</span><span class="p">())</span><span class="w"> </span>
+</pre></div>
+
 <p>The method returns a 0 if successful, otherwise warning message is printed and a negative number is returned; a <span class="math inline">\(-1\)</span> if error during <code>formTangent()</code>, a <span class="math inline">\(-2\)</span> if error during <code>formUnbalance()</code>, a <span class="math inline">\(-3\)</span> if error during <code>solve()</code>, a <span class="math inline">\(-4\)</span> if error during <code>update()</code>. If an error occurs in any of the above operations the method stops at that routine, none of the subsequent operations are invoked. A <span class="math inline">\(-5\)</span> is returned if any one of the links has not been setup.</p>
 </blockquote>
 <blockquote>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sendSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>theChannel<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">sendSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Does nothing. Returns 0.</p>
 </blockquote>
 <blockquote>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> recvSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>theChannel<span class="op">,</span> FEM_ObjectBroker <span class="op">&amp;</span>theBroker<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">recvSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">,</span><span class="w"> </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theBroker</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Does nothing. Returns 0.</p>
 </blockquote>
 <blockquote>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Sends the string <code>'Linear Algorithm'</code> to the stream.</p>
 </blockquote>
 
