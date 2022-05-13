@@ -2691,6 +2691,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/user/modeling/section/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/user/modeling/section/layer/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/user/modeling/section/patch/</loc>
+         <lastmod>2022-05-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/user/pattern/Plain/</loc>
          <lastmod>2022-05-13</lastmod>
          <changefreq>daily</changefreq>
