@@ -1,0 +1,65 @@
+[project]
+name = "opensees"
+version = "0.0.7"
+authors = [
+  {name="Claudio M. Perez"}
+  # <50180406+claudioperez@users.noreply.github.com>"
+]
+license = {file = "LICENSE"}
+readme = "README.md"
+description = "OpenSees bindings"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only"
+]
+keywords = [
+    "seismic",
+    "earthquake",
+] 
+dependencies = [
+    "numpy < 1.20.0; python_version<'3.8'",
+    "numpy ; python_version>='3.8'",
+    "scipy < 1.6.0 ; python_version=='3.6'",
+    "scipy < 1.8   ; python_version=='3.7'",
+    "scipy > 1.6.0 ; python_version>'3.7'",
+    "pyyaml"
+]
+
+[project.optional-dependencies]
+# DOCS
+testing = [
+    "pytest >= 4.6",
+    "pytest-checkdocs >= 2.4",
+    "pytest-flake8",
+]
+docs = [
+    "elstir"
+]
+plots = [
+    "matplotlib",
+    "panel"
+]
+
+[project.urls]
+repository = "http://github.com/BRACE2/OpenSeesRT"
+documentation = "https://brace2.github.io/OpenSeesRT"
+
+[build-system]
+requires = [
+    "setuptools >= 35.0.2",
+    "setuptools_scm >= 2.0.0, <3"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = [
+    "build*",
+    "dist*",
+    "docs*",
+    "tests*",
+    "site*"
+]
+

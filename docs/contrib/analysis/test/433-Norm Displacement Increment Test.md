@@ -1,4 +1,4 @@
-# Norm Displacement Increment Test
+# NormDispIncr
 
 <p>This command is used to construct a convergence test which uses the
 norm of the left hand side solution vector of the matrix equation to

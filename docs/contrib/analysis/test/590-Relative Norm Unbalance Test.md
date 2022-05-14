@@ -1,4 +1,4 @@
-# Relative Norm Unbalance Test
+# RelativeNormUnbalance
 
 <p>This command is used to construct a convergence test which uses the
 relative norm of the right hand side of the matrix equation to determine

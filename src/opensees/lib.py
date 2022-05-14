@@ -76,14 +76,13 @@ class uniaxial:
     ])
 
     ElasticPP = Uni("ElasticPP", "ElasticPP",
-        # uniaxialMaterial ElasticPP $matTag $E $epsyP <$epsyN $eps0>
         about="This command is used to construct an elastic perfectly-plastic uniaxial material object.",
         args=[
-            Tag(),
-            Yng(),
-            Num("epsyP",  about="strain or deformation at which material reaches plastic state in tension"),
-            Num("epsyN", reqd=False, about="strain or deformation at which material reaches plastic state in compression. (optional, default is tension value)"),
-            Num("eps0",  reqd=False, about="initial strain (optional, default: zero)")
+          Tag(),
+          Yng(),
+          Num("epsyP",  about="strain or deformation at which material reaches plastic state in tension"),
+          Num("epsyN", reqd=False, about="strain or deformation at which material reaches plastic state in compression. (optional, default is tension value)"),
+          Num("eps0",  reqd=False, about="initial strain (optional, default: zero)")
     ])
 
     RambergOsgoodSteel = Uni("RambergOsgoodSteel", "RambergOsgoodSteel", args=[
@@ -93,7 +92,7 @@ class uniaxial:
 
     DoddRestrepo = Uni("Dodd_Restrepo", "Dodd_Restrepo", args=[
         Tag(),
-        Num("Fy", about="Yield strength"),
+        Num("Fy",  about="Yield strength"),
         Num("Fsu", about="Ultimate tensile strength (UTS)"),
         Num("esh", about="Tensile strain at initiation of strain hardening"),
         Num("esu", about="Tensile strain at the UTS"),
@@ -116,9 +115,6 @@ class uniaxial:
           Num("E0", about="initial elastic tangent"),
           Num("b", about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"), 
           Num("R0"), Num("cR1", default=0.925), Num("cR2", default=0.15),
-            # params (list (float)) parameters to control the transition from 
-            # elastic to plastic branches. params=[R0,cR1,cR2].
-            # Recommended values: R0=between 10 and 20, cR1=0.925, cR2=0.15"),
           Grp("a", reqd = False, about="isotropic hardening parameters", args=[
             Num("a1", reqd = False, about="""
                       increase of compression yield envelope as proportion
@@ -133,6 +129,9 @@ class uniaxial:
             Num("sigInit", reqd=False, default=0.0, about="initial stress")
           ]),
         ],
+        # params (list (float)) parameters to control the transition from 
+        # elastic to plastic branches. params=[R0,cR1,cR2].
+        # Recommended values: R0=between 10 and 20, cR1=0.925, cR2=0.15"),
     )
 
     ConfinedConcrete01  = Uni("ConfinedConcrete01", "ConfinedConcrete01", args=[
@@ -172,12 +171,12 @@ class uniaxial:
           Num("L3",  reqd=False,  about="additional dimensions when multiple hoops are being used."),
           Num("phis",    
               about="hoop diameter. If section arrangement has multiple hoops it refers to the external hoop."),
-          Num("S",       about="hoop spacing."),
-          Num("fyh",     about="yielding strength of the hoop steel."),
-          Num("Es0",     about="elastic modulus of the hoop steel."),
-          Num("haRatio", about="hardening ratio of the hoop steel."),
-          Num("mu",      about="ductility factor of the hoop steel."),
-          Num("phiLon",  about="diameter of longitudinal bars."),
+          Num("S",         about="hoop spacing."),
+          Num("fyh",       about="yielding strength of the hoop steel."),
+          Num("Es0",       about="elastic modulus of the hoop steel."),
+          Num("haRatio",   about="hardening ratio of the hoop steel."),
+          Num("mu",        about="ductility factor of the hoop steel."),
+          Num("phiLon",    about="diameter of longitudinal bars."),
           Grp("internals", flag="-internal", reqd=False,
               about="optional parameters for defining the internal transverse reinforcement."\
                     "If they are not specified they will be assumed equal to the external ones "\
@@ -387,50 +386,48 @@ class constraint:
 Backbone = LibCmd("backbone")
 
 class backbone:
-    def getStress(self,  strain: float) -> float: ...
-    def getTangent(self, strain: float) -> float: ...
-    def getEnergy(self,  strain: float) -> float: ...
-    def getYieldStrain(self) -> float: ...
-
-    #Material = Backbone("Material tag? matTag?")
 
     Popovics = Mander = Backbone("Mander",
         args = [
           Tag(), Num("fc"), Num("epsc"), Num("Ec")
         ]
     )
+
     ReeseSoftClay = Backbone("ReeseSoftClay",
         args=[
           Tag(), Num("pu"), Num("y50"), Num("n")
         ]
     )
+
     ReeseSand = Backbone("ReeseSand", 
         args=[
           Tag(), Num("kx"), Num("ym"), Num("pm"), Num("yu"), Num("pu")
         ]
     )
+
     ReeseStiffClayBelowWS = Backbone("ReeseStiffClayBelowWS",
         args=[
           Tag(), Num("Esi"), Num("y50"), Num("As"), Num("Pc")
         ]
     )
+
     Raynor = Backbone("Raynor", 
         args=[
           Tag(), Num("Es"), Num("fy"), Num("fsu"), Num("Epsilonsh"), Num("Epsilonsm"), Num("C1"), Num("Ey")
         ]
     )
+
     Backbone("Capped", 
         args=[
           Tag(), Ref("backbone"), Num("capTag")
         ]
     )
+
     LinearCapped = Backbone("LinearCapped", 
         args=[
           Tag(), Ref("backbone",type=Backbone), Num("eCap"), Num("E"), Num("sRes")
         ]
     )
-
-
 
 
 # region = Cmd("region", about="""

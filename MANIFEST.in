@@ -1,1 +1,4 @@
 recursive-include src/opensees/units/json *
+prune docs/*
+prune site/*
+prune tests/*

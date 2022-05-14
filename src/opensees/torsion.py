@@ -92,12 +92,12 @@ def solve_torsion(section, mesh):
         Fa = assembleLoadVector(Fa, fe, nodeList, nde, ndf)
 
     # Lock the warping at one node and solve for the others
-    Ff = Fa[:nf-1]
+    Pf = Fa[:nf-1]
     for i in range(nf-1):
-        Ff[i] -= Ka[i, nf-1]
+        Pf[i] -= Ka[i, nf-1]
     Kf = Ka[:nf-1, :nf-1]
-    uf = np.linalg.solve(Kf, Ff)
-    ua = np.append(uf, 1.0)
+    Uf = np.linalg.solve(Kf, Pf)
+    ua = np.append(Uf, 1.0)
     #return ua
 
 #def shear_centre():
@@ -322,8 +322,9 @@ def plot(mesh, values=None, scale=1.0, show_edges=None, savefig:str=None,**kwds)
         plotter.add_mesh(mesh,
            show_edges=show_edges,
            cmap=cm.get_cmap("RdYlBu_r"),
-           lighting=False,
-           **kwds)
+           lighting=False, 
+           **kwds
+        )
         # if len(values) < 1000:
         #     plotter.add_mesh(
         #        pv.PolyData(mesh.points), color='red',

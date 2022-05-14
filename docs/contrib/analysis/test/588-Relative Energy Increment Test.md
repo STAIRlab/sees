@@ -1,4 +1,4 @@
-# Relative Energy Increment Test
+# RelativeEnergyIncr
 
 <p>This command is used to construct a convergence test which uses the
 dot product of the solution vector and norm of the right hand side of

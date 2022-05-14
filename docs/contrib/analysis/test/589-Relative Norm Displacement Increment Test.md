@@ -1,4 +1,4 @@
-# Relative Norm Displacement Increment Test
+# RelativeNormDispIncr
 
 <p>This command is used to construct a convergence test which uses the
 relative of the solution vector of the matrix equation to determine if

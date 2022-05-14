@@ -1,4 +1,4 @@
-# Norm Unbalance Test
+# NormUnbalance
 
 <p>This command is used to construct a convergence test which uses the
 norm of the right hand side of the matrix equation to determine if
