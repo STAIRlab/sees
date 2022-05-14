@@ -40,7 +40,8 @@ reference="fig:Transformation"}.
 :::
 
 As seen in
-figure [\[fig:BeamClass\]](#fig:BeamClass){reference-type="ref"
+figure [\[fig:BeamClass$$
+](#fig:BeamClass){reference-type="ref"
 reference="fig:BeamClass"}, a beam-column element acquires geometric
 nonlinearity from the `CoordTransformation` class, and material
 nonlinearity from the `SectionForceDeformation` class.
@@ -67,12 +68,14 @@ deformations.
 
 A beam-column element obtains material nonlinearity through use of the
 `SectionForceDeformation` class, as seen in
-figure [\[fig:BeamClass\]](#fig:BeamClass){reference-type="ref"
+figure [\[fig:BeamClass$$
+](#fig:BeamClass){reference-type="ref"
 reference="fig:BeamClass"}.
 
 ## Class Hierarchy
 
-Figure [\[fig:BeamClass\]](#fig:BeamClass){reference-type="ref"
+Figure [\[fig:BeamClass$$
+](#fig:BeamClass){reference-type="ref"
 reference="fig:BeamClass"} shows the class interaction between a
 beam-column element and the `CoordTransformation` and
 `SectionForceDeformation` classes. An element can use any one of Linear,
@@ -129,7 +132,8 @@ N_{1,x} & 0 & 0 \\ \\
 \right].$$
 
 Using the shape functions defined in
-equation [\[eq:N\]](#eq:N){reference-type="ref" reference="eq:N"}, the
+equation [\[eq:N$$
+](#eq:N){reference-type="ref" reference="eq:N"}, the
 strain-displacement matrix is then,
 
 $$\mathbf{a}(x) = \frac{1}{L} \left[ \begin{array}{ccc}
@@ -162,7 +166,8 @@ $$\mathbf{s}(x) =
 To obtain the current value of section stress resultants, $\mathbf{s}$, the
 method `getStressResultant()` must be invoked. To perform the
 transformation from basic to global resisting force
-(equation [\[eq:p=p(q,u)\]](#eq:p=p(q,u)){reference-type="ref"
+(equation [\[eq:p=p(q,u)$$
+](#eq:p=p(q,u)){reference-type="ref"
 reference="eq:p=p(q,u)"}), the method `getGlobalResistingForce()` should
 be invoked.
 
@@ -171,7 +176,8 @@ be invoked.
 To solve the structural system of equations, the element stiffness must
 be assembled along with the resisting force. The element stiffness is
 obtained by taking the partial derivative of
-equation [\[eq:p=p(q,u)\]](#eq:p=p(q,u)){reference-type="ref"
+equation [\[eq:p=p(q,u)$$
+](#eq:p=p(q,u)){reference-type="ref"
 reference="eq:p=p(q,u)"} with respect to displacements, $\mathbf{u}$.
 
 $$\begin{aligned}
@@ -185,7 +191,8 @@ $$\begin{aligned}
 The basic element stiffness, $\mathbf{k}_b$, is the partial derivative of
 the basic forces, $\mathbf{q}$, with respect to the basic displacements,
 $\mathbf{v}$. Differentiating
-equation [\[eq:q\]](#eq:q){reference-type="ref" reference="eq:q"} gives,
+equation [\[eq:q$$
+](#eq:q){reference-type="ref" reference="eq:q"} gives,
 
 $$\begin{aligned}
 \mathbf{k}_b &= \frac{\partial\mathbf{q}}{\partial\mathbf{v}} \\
@@ -200,17 +207,21 @@ The section tangent stiffness matrix, $\mathbf{k}_s$, is returned upon
 invoking the method `getSectionTangent()`. After computing the basic
 stiffness, $\mathbf{k}_b$, the method `getGlobalStiffMatrix()` should be
 invoked to perform the transformation in
-equation [\[eq:stiff\]](#eq:stiff){reference-type="ref"
+equation [\[eq:stiff$$
+](#eq:stiff){reference-type="ref"
 reference="eq:stiff"}. The remaining partial derivatives in
-equation [\[eq:stiff\]](#eq:stiff){reference-type="ref"
+equation [\[eq:stiff$$
+](#eq:stiff){reference-type="ref"
 reference="eq:stiff"} are computed by the `getGlobalStiffMatrix()`
 method.
 
 ### Numerical Quadrature
 
 In general, the element integrals,
-equations [\[eq:q\]](#eq:q){reference-type="ref" reference="eq:q"}
-and [\[eq:kb\]](#eq:kb){reference-type="ref" reference="eq:kb"}, cannot
+equations [\[eq:q$$
+](#eq:q){reference-type="ref" reference="eq:q"}
+and [\[eq:kb$$
+](#eq:kb){reference-type="ref" reference="eq:kb"}, cannot
 be evaluated in closed form due to nonlinearities in the section
 constitutive model. These integrals must be approximately evaluated by
 numerical quadrature,
@@ -238,9 +249,11 @@ x_i &= \frac{L}{2} \left( \xi_i+1 \right) \\
 W_i &= \frac{L}{2} \: \omega_i .\end{aligned}$$
 
 After mapping the points and weights to the element domain,
-equations [\[eq:qapprox\]](#eq:qapprox){reference-type="ref"
+equations [\[eq:qapprox$$
+](#eq:qapprox){reference-type="ref"
 reference="eq:qapprox"}
-and [\[eq:kbapprox\]](#eq:kbapprox){reference-type="ref"
+and [\[eq:kbapprox$$
+](#eq:kbapprox){reference-type="ref"
 reference="eq:kbapprox"} can be evaluated.
 
 ::: center

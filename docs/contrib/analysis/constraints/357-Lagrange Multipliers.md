@@ -1,4 +1,4 @@
-# Lagrange Multipliers
+# Lagrange
 
 <p>This command is used to construct a LagrangeMultiplier constraint
 handler, which enforces the constraints by introducing Lagrange

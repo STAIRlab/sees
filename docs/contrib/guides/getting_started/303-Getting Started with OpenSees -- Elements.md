@@ -47,21 +47,24 @@ $dYj&gt;</em></p>
 </p>
 <p>The following commands define the two columns (element 1 and 2) and
 the beam (element 3):</p>
-<p><em>element elasticBeamColumn $eleTag $iNode $jNode $A $E $Iz
-$transfTag</em></p>
 <p>
-```Tcl
- element elasticBeamColumn 1 1 3 3600 4227
-1080000 1 element elasticBeamColumn 2 2 4 3600 4227 1080000 1 element
-elasticBeamColumn 3 3 4 5760 4227 4423680 1 
+
+```tcl
+# element elasticBeamColumn $eleTag $iNode $jNode $A $E $Iz $transfTag
+element elasticBeamColumn 1 1 3 3600 4227 1080000 1 
+element elasticBeamColumn 2 2 4 3600 4227 1080000 1 
+element elasticBeamColumn 3 3 4 5760 4227 4423680 1 
 ```
+
 </p>
 <p>The element connectivity is shown in the following figure:</p>
 <figure>
-<img src="GettingStartedNodes.jpg" title="GettingStartedNodes.jpg"
+<img src="/OpenSeesRT/contrib/static/GettingStartedNodes.jpg" title="GettingStartedNodes.jpg"
 alt="GettingStartedNodes.jpg" />
 <figcaption aria-hidden="true">GettingStartedNodes.JPG</figcaption>
 </figure>
 <hr />
+
 <p>Return to <a href="Getting_Started_with_OpenSees"
 title="wikilink">Getting Started with OpenSees</a></p>
+

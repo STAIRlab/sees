@@ -1,4 +1,4 @@
-# Penalty Method
+# Penalty
 
 <p>This command is used to construct a Penalty constraint handler, which
 enforces the constraints using the penalty method. The following is the

@@ -1,13 +1,13 @@
 [project]
 name = "opensees"
-version = "0.0.7"
+version = "0.0.8"
 authors = [
   {name="Claudio M. Perez"}
   # <50180406+claudioperez@users.noreply.github.com>"
 ]
 license = {file = "LICENSE"}
 readme = "README.md"
-description = "OpenSees bindings"
+description = "Idiomatic and idempotent bindings to the OpenSees framework."
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
@@ -44,7 +44,7 @@ plots = [
 
 [project.urls]
 repository = "http://github.com/BRACE2/OpenSeesRT"
-documentation = "https://brace2.github.io/OpenSeesRT"
+# documentation = "https://brace2.github.io/OpenSeesRT"
 
 [build-system]
 requires = [

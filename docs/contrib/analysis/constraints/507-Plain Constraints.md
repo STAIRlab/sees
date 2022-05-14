@@ -1,4 +1,4 @@
-# Plain Constraints
+# Plain
 
 <p>This command is used to construct a Plain constraint handler. A plain
 constraint handler can only enforce homogeneous single point constraints
