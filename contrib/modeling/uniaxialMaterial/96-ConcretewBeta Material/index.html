@@ -14135,8 +14135,8 @@ Removal During Simulation
 </p>
 <p>
   The model accounts for the effect of normal tensile strains on the concrete compressive behavior when used with the <strong><a href="Truss2_Element" title="wikilink"> Truss2</a></strong> or <strong><a href="CorotTruss2_Element" title="wikilink"> CorotTruss2</a></strong> elements. See the <strong><a
-href="Truss2_Element" title="wikilink"> Truss2 Element</a></strong> for description of how the normal strain is computed. The instantaneous stress is <em>&amp;beta;</em>*<em>f</em> where <em>f</em> is the computed stress and &amp;beta; is the compressive stress reduction factor which depends on the normal tensile strain, &amp;epsilon;&lt;sub&gt;n&lt;/sub&gt;. The relation between &amp;epsilon;&lt;sub&gt;n&lt;/sub&gt; and &amp;beta; (see the <strong><a
-href="#Biaxial_Behavior" title="wikilink">Biaxial Behavior Section</a></strong>) is tri-linear. Default values result in <em>&amp;beta;</em> = 1.
+href="Truss2_Element" title="wikilink"> Truss2 Element</a></strong> for description of how the normal strain is computed. The instantaneous stress is <span class="math inline">\(\beta f\)</span> where <span class="math inline">\(f\)</span> is the computed stress and <span class="math inline">\(\beta\)</span> is the compressive stress reduction factor which depends on the normal tensile strain, <span class="math inline">\(\epsilon_n\)</span>. The relation between <span class="math inline">\(\epsilon_n\)</span> and <span class="math inline">\(\beta\)</span> (see the <strong><a
+href="#Biaxial_Behavior" title="wikilink">Biaxial Behavior Section</a></strong>) is tri-linear. Default values result in <span class="math inline">\(\beta\)</span> = 1.
 </p>
 <p>
 See the <strong><a href="#Examples" title="wikilink">Examples Section</a></strong> for the use of this material model in truss models for planar RC walls and a beam-truss model for a non-planar wall loaded biaxially.
@@ -14150,7 +14150,7 @@ See the <strong><a href="#Examples" title="wikilink">Examples Section</a></stron
 </dt>
 <dd>
 <a href="File:BeyerTUB_point770.jpg"
-title="wikilink">thumb|upright=2.0|alt=RC C-shaped wall |Reinforced concrete wall with a C-shaped section subject to multi-axial loading, described in <a href="#Examples" title="wikilink">the examples</a>.</a>
+title="wikilink" alt="RC C-shaped wall">Reinforced concrete wall with a C-shaped section subject to multi-axial loading, described in <a href="#Examples" title="wikilink">the examples</a>.</a>
 </dd>
 </dl>
 </dd>
@@ -14158,7 +14158,7 @@ title="wikilink">thumb|upright=2.0|alt=RC C-shaped wall |Reinforced concrete wal
 <div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ConcretewBeta<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fpc</span><span class="w"> </span><span class="nv">$ec0</span><span class="w"> </span><span class="nv">$fcint</span>
 <span class="w">        </span><span class="nv">$ecint</span><span class="w"> </span><span class="nv">$fcres</span><span class="w"> </span><span class="nv">$ecres</span><span class="w"> </span><span class="nv">$ft</span><span class="w"> </span><span class="nv">$ftint</span><span class="w"> </span><span class="nv">$etint</span><span class="w"> </span><span class="nv">$ftres</span><span class="w"> </span><span class="nv">$etres</span><span class="w"> </span>
 <span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-lambda</span><span class="w"> </span><span class="nv">$lambda</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>alpha<span class="w"> </span><span class="nv">$alpha</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-beta</span><span class="w"> </span><span class="nv">$bint</span><span class="w"> </span><span class="nv">$ebint</span><span class="w"> </span><span class="nv">$bres</span><span class="w"> </span><span class="nv">$ebres</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>alpha<span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>beta<span class="w"> </span><span class="nv">$bint</span><span class="w"> </span><span class="nv">$ebint</span><span class="w"> </span><span class="nv">$bres</span><span class="w"> </span><span class="nv">$ebres</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
 <span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>M<span class="w"> </span><span class="nv">$M</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>E<span class="w"> </span><span class="nv">$Ec</span><span class="w"> </span><span class="o">&gt;</span>
 <span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-conf</span><span class="w"> </span><span class="nv">$fcc</span><span class="w"> </span><span class="nv">$ecc</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
@@ -14297,7 +14297,7 @@ controls the path of unloading from tensile strain (default 1)
 </td>
 <td>
 <p>
-intermediate β-strain point for for biaxial effect (default 1 and 0, respectively)
+intermediate <span class="math inline">\(\beta\)</span>-strain point for for biaxial effect (default 1 and 0, respectively)
 </p>
 </td>
 </tr>
@@ -14347,21 +14347,12 @@ confined concrete peak compressive stress and corresponding strain* (see Eq. 1)
 </tr>
 </tbody>
 </table>
-<p>
-NOTES:
-</p>
-<p>
-<ol type="1">
-<li>*Parameters of concrete in compression should be specified as negative values.
-</p>
-<p>
-<ol start="2" type="1">
-<li>For non-zero <code class="tcl-variable">M</code>, the tension stiffening behavior will govern the post-peak tension envelope. Tri-linear tension softening parameters <code>ftint, etint, ftres, etres</code> will have no effect, but dummy values must be specified.
-</p>
-<p>
-<ol start="3" type="1">
-<li>Value of <code class="tcl-variable">Ec</code> must be between <code class="tcl-variable">fpc</code>/<code class="tcl-variable">ec0</code> and 2*<code class="tcl-variable">fpc</code>/<code class="tcl-variable">ec0</code> otherwise the closest value will be assigned.
-</p>
+<h3 id="notes">Notes</h3>
+<ul>
+<li>Parameters of concrete in compression should be specified as negative values.</li>
+<li>For non-zero <code class="tcl-variable">M</code>, the tension stiffening behavior will govern the post-peak tension envelope. Tri-linear tension softening parameters <code>ftint, etint, ftres, etres</code> will have no effect, but dummy values must be specified.</li>
+<li>Value of <code class="tcl-variable">Ec</code> must be between <code class="tcl-variable">fpc</code>/<code class="tcl-variable">ec0</code> and 2*<code class="tcl-variable">fpc</code>/<code class="tcl-variable">ec0</code> otherwise the closest value will be assigned.</li>
+</ul>
 <h2 id="implementation">
 Implementation
 </h2>
@@ -14376,10 +14367,7 @@ Implementation
 <a href="File:ConcwBeta_Eq1a.png"
 title="wikilink">thumb|upright=2.5|Equation 1.</a>
 </dd>
-<dd></li>
-</ol></li>
-</ol></li>
-</ol>
+<dd>
 <p><span class="math display">\[
 \$ \boldsymbol{E} \boldsymbol{u}=\$ \text { lambda } \cdot\left(\frac{f}{\varepsilon}\right)+(1-\$ \text { lambda }) \cdot \$ \boldsymbol{E c}
 \]</span></p>
@@ -14401,7 +14389,7 @@ Uniaxial Behavior
   The tension envelope is linear until it reaches <code class="tcl-variable">ft</code>. If the tension stiffening parameter <code class="tcl-variable">M</code> is not specified, the tension envelope after reaching <code class="tcl-variable">ft</code> is tri-linear and passes through the points (<code class="tcl-variable">etint</code>, <code class="tcl-variable">ftint</code>) and (<code class="tcl-variable">etres</code>, <code class="tcl-variable">ftres</code>) in that order. For tensile strains larger than <code class="tcl-variable">etres</code>, the residual stress is <code class="tcl-variable">fcres</code>.
 </p>
 <p>
-  If <code class="tcl-variable">M</code> is specified, the nonlinear tension stiffening behavior defined by Equation 3. It is suggested that <code class="tcl-variable">M</code> = (75 mm)*<em>&amp;rho;&lt;sub&gt;l&lt;/sub&gt;</em>/<em>d&lt;sub&gt;b&lt;/sub&gt;</em> where <em>&amp;rho;&lt;sub&gt;l&lt;/sub&gt;</em> is the steel ratio in the direction parallel to the material direction and <em>d<sub>b</sub></em> is the bar diameter in mm.
+  If <code class="tcl-variable">M</code> is specified, the nonlinear tension stiffening behavior defined by Equation 3. It is suggested that <code class="tcl-variable">M</code> = (75 mm)*<span class="math inline">\(\rho_\ell\)</span>/<em>d<sub>b</sub></em> where <span class="math inline">\(\rho_\ell\)</span> is the steel ratio in the direction parallel to the material direction and <em>d<sub>b</sub></em> is the bar diameter in mm.
 </p>
 <p>
   The material unloads from tension strain using a slope of <code class="tcl-variable">Ec</code>. After reaching zero stress, the material targets the point (0, -<code class="tcl-variable">alpha</code><em><code class="tcl-variable">ft</code>). Thereafter, the material loads linearly to the point where the peak compressive strain previously occurred. In the case where the slope leading to this target point is less than that for the point (0, -<code class="tcl-variable">alpha</code></em><code class="tcl-variable">ft</code>), the material reloads directly to the point where peak compressive strain occurred.
@@ -14443,7 +14431,7 @@ title="wikilink"> Truss2</a></strong> element computes the strain normal to the 
 title="wikilink"> Truss2 Element</a></strong>).
 </p>
 <p>
-  Figure 2 shows the relationship between concrete compressive stress reduction factor, <em>&amp;beta;</em>, and the normal tensile strain, &amp;epsilon;&lt;sub&gt;n&lt;/sub&gt;. For compressive stresses, the instantaneous stress value computed by the material is <span class="math inline">\(\beta f_c\)</span> where <span class="math inline">\(f_c\)</span> is the compressive stress given by the uniaxial behavior described above. For positive (tensile) stress, <span class="math inline">\(\beta = 1\)</span>. For compressive stress, the <span class="math inline">\(\beta - \epsilon_n\)</span> relationship is tri-linear and passes through the points (0,1), (<code class="tcl-variable">ebint</code>, <code class="tcl-variable">bint</code>), and (<code class="tcl-variable">ebres</code>, <code class="tcl-variable">bres</code>) in that order. For normal tensile strains larger than <code class="tcl-variable">ebres</code>, <em>&amp;beta;</em> = <code class="tcl-variable">bres</code>.
+  Figure 2 shows the relationship between concrete compressive stress reduction factor, <span class="math inline">\(\beta\)</span>, and the normal tensile strain, <span class="math inline">\(\epsilon_n\)</span>. For compressive stresses, the instantaneous stress value computed by the material is <span class="math inline">\(\beta f_c\)</span> where <span class="math inline">\(f_c\)</span> is the compressive stress given by the uniaxial behavior described above. For positive (tensile) stress, <span class="math inline">\(\beta = 1\)</span>. For compressive stress, the <span class="math inline">\(\beta - \epsilon_n\)</span> relationship is tri-linear and passes through the points (0,1), (<code class="tcl-variable">ebint</code>, <code class="tcl-variable">bint</code>), and (<code class="tcl-variable">ebres</code>, <code class="tcl-variable">bres</code>) in that order. For normal tensile strains larger than <code class="tcl-variable">ebres</code>, <span class="math inline">\(\beta\)</span> = <code class="tcl-variable">bres</code>.
 </p>
 <h2 id="examples">
 Examples
