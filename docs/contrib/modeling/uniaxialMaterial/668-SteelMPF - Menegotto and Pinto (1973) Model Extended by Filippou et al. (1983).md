@@ -7,21 +7,22 @@ description: Menegotto and Pinto (1973) Model Extended by Filippou et al. (1983)
 <p><strong>Developed and Implemented by:</strong></p>
 <p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>
 <span style="color:black"></a>, California State University, Fullerton</p>
-<p><span style="color:blue"> Kutay Orakcal&lt;span
-style="color:black"&gt;, Bogazici University, Istanbul, Turkey</p>
-<p><span style="color:blue"> John Wallace&lt;span
-style="color:black"&gt;, Univeristy of California, Los Angeles</p>
+<p><span style="color:blue"> Kutay Orakcal<span
+style="color:black">, Bogazici University, Istanbul, Turkey</p>
+<p><span style="color:blue"> John Wallace<span
+style="color:black">, Univeristy of California, Los Angeles</p>
+
 <p>This command is used to construct a uniaxialMaterial
 <strong>SteelMPF</strong> (Kolozvari et al., 2015), which represents the
 well-known uniaxial constitutive nonlinear hysteretic material model for
 steel proposed by Menegotto and Pinto (1973), and extended by Filippou
 et al. (1983) to include isotropic strain hardening effects. The
 relationship is in the form of curved transitions (Figure 1), each from
-a straight-line asymptote with slope E&lt;sub
-class="subscript"&gt;0&lt;/sub&gt; (modulus of elasticity) to another
-straight-line asymptote with slope E&lt;sub
-class="subscript"&gt;1&lt;/sub&gt; = bE&lt;sub
-class="subscript"&gt;0&lt;/sub&gt; (yield modulus) where <em>b</em> is
+a straight-line asymptote with slope E<sub
+class="subscript">0</sub> (modulus of elasticity) to another
+straight-line asymptote with slope E<sub
+class="subscript">1</sub> = bE<sub
+class="subscript">0</sub> (yield modulus) where <em>b</em> is
 the strain hardening ratio. The curvature of the transition curve
 between the two asymptotes is governed by a cyclic curvature parameter
 <em>R</em>, which permits the Bauschinger effect to be represented, and

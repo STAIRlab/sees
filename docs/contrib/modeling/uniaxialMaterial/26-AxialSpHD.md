@@ -6,7 +6,7 @@ elastomeric bearings including hardening behavior.</p>
 
 ```tcl
 uniaxialMaterial AxialSpHD $matTag $sce $fty $fcy
-        &lt;$bte $bty $bth $bcy $fcr $ath&gt;
+        < $bte $bty $bth $bcy $fcr $ath >
 ```
 <hr />
 <table>

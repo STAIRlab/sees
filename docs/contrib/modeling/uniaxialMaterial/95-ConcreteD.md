@@ -5,7 +5,7 @@ Chinese design code.</p>
 
 ```tcl
 uniaxialMaterial ConcreteD $matTag $fc $epsc $ft $epst
-        $Ec $alphac $alphat &lt;$cesp&gt; &lt;$etap&gt;
+        $Ec $alphac $alphat < $cesp > < $etap >
 ```
 <hr />
 <table>

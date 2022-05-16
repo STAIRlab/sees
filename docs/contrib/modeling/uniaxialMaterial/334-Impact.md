@@ -1,14 +1,11 @@
 # ImpactMaterial
 
 <p>This command is used to construct an impact material object</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>uniaxialMaterial ImpactMaterial $matTag $K1 $K2 $δy
-$gap</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+uniaxialMaterial ImpactMaterial $matTag $K1 $K2 $δy $gap
+```
+
 <hr />
 <table>
 <tbody>
@@ -34,9 +31,12 @@ $gap</strong></p></td>
 </tr>
 </tbody>
 </table>
-<p>NOTES:</p>
+
+## Notes
+
 <p>This material is implemented as a compression-only gap material.
 Delta_y and gap should be input as negative values.</p>
+
 <p>DESCRIPTION:</p>
 <p>This material is based on an approximation to the Hertz contact model
 proposed by Muthukumar (See REFERENCES below). The energy dissipated

@@ -4,8 +4,7 @@
 material object.</p>
 
 ```tcl
-uniaxialMaterial SteelMP $matTag $sigmaY $E
-        $b
+uniaxialMaterial SteelMP $matTag $sigmaY $E $b
 ```
 <hr />
 <table>

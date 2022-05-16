@@ -6,7 +6,7 @@ objects.</p>
 
 ```tcl
 uniaxialMaterial Parallel $matTag $tag1 $tag2 ...
-        &lt;-factors $fact1 $fact2 ...&gt;
+        < -factors $fact1 $fact2 ... >
 ```
 <hr />
 <table>

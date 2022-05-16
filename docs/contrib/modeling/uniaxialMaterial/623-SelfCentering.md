@@ -26,8 +26,9 @@ moment/rotation hysteresis).</p>
 
 ```tcl
 uniaxialMaterial SelfCentering $matTag $k1 $k2 $sigAct
-        $beta &lt;$epsSlip&gt; &lt;$epsBear&gt; &lt;rBear&gt;
+        $beta < $epsSlip > < $epsBear > < rBear >
 ```
+
 <hr />
 <table>
 <tbody>

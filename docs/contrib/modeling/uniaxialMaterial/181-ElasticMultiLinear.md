@@ -12,7 +12,7 @@ extrapolated to infinite negative strain. The number of provided strain
 points needs to be equal to the number of provided stress points.</p>
 
 ```tcl
-uniaxialMaterial ElasticMultiLinear $matTag &lt;$eta&gt;
+uniaxialMaterial ElasticMultiLinear $matTag < $eta >
         -strain $strainPoints -stress $stressPoints
 ```
 <hr />

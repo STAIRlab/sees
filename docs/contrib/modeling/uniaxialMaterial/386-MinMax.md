@@ -8,8 +8,8 @@ that point on, values of 0.0 are returned for the tangent and
 stress.</p>
 
 ```tcl
-uniaxialMaterial MinMax $matTag $otherTag &lt;-min
-        $minStrain&gt; &lt;-max $maxStrain&gt;
+uniaxialMaterial MinMax $matTag $otherTag < -min $minStrain > 
+        < -max $maxStrain >
 ```
 <hr />
 <table>

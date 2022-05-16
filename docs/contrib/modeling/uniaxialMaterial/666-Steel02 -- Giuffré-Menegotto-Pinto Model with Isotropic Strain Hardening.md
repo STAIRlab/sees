@@ -9,7 +9,7 @@ steel material object with isotropic strain hardening.</p>
 
 ```tcl
 uniaxialMaterial Steel02 $matTag $Fy $E $b $R0 $cR1 $cR2
-        &lt;$a1 $a2 $a3 $a4 $sigInit&gt;
+        < $a1 $a2 $a3 $a4 $sigInit >
 ```
 <hr />
 <table>

@@ -4,8 +4,7 @@
 stress =C(strain-rate)^alpha</p>
 
 ```tcl
-uniaxialMaterial Viscous $matTag $C
-        $alpha
+uniaxialMaterial Viscous $matTag $C $alpha
 ```
 <hr />
 <table>

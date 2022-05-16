@@ -6,7 +6,9 @@ object:</p>
 ```tcl
 uniaxialMaterial TzSimple1 $matTag $tzType $tult $z50 < $c >
 ```
+
 <hr />
+
 <table>
 <tbody>
 <tr class="odd">

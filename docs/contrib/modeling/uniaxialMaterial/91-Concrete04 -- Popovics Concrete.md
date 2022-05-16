@@ -12,7 +12,7 @@ exponential decay.</p>
 
 ```tcl
 uniaxialMaterial Concrete04 $matTag $fc $ec $ecu $Ec
-        &lt;$fct $et&gt; &lt;$beta&gt;
+        < $fct $et > < $beta >
 ```
 <hr />
 <table>
