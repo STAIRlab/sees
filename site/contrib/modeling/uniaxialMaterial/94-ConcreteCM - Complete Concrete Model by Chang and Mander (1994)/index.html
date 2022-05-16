@@ -14123,56 +14123,7 @@ Removal During Simulation
 
 
 <h1 id="concretecm">ConcreteCM</h1>
-<p>
-<strong>Developed and Implemented by:</strong>
-</p>
-<p>
-<a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span> <span style="color:black"></a>, California State University, Fullerton
-</p>
-<p>
-<span style="color:blue"> Kutay Orakcal<span
-style="color:black">, Bogazici University, Istanbul, Turkey
-</p>
-<p>
-<span style="color:blue"> John Wallace<span style="color:black">, Univeristy of California, Los Angeles
-</p>
 <p>This command is used to construct a <code>UniaxialMaterial</code> <code>ConcreteCM</code> (Kolozvari et al., 2015), which is a uniaxial hysteretic constitutive model for concrete developed by Chang and Mander (1994). This model is a refined, rule-based, generalized, and non-dimensional constitutive model that allows calibration of the monotonic and hysteretic material modeling parameters, and can simulate the hysteretic behavior of confined and unconfined, ordinary and high-strength concrete, in both cyclic compression and tension (Figure 1). The model addresses important behavioral features, such as continuous hysteretic behavior under cyclic compression and tension, progressive stiffness degradation associated with smooth unloading and reloading curves at increasing strain values, and gradual crack closure effects. Details of the model are available in the report by Chang and Mander (1994).</p>
-<figure>
-<img src="/OpenSeesRT/contrib/static/ConcreteCM_0.png"
-title="Figure 1. Hysteretic Constitutive Model for Concrete by Chang and Mander (1994)"
-width="500"
-alt="Figure 1. Hysteretic Constitutive Model for Concrete by Chang and Mander (1994)" />
-<figcaption aria-hidden="true">
-Figure 1. Hysteretic Constitutive Model for Concrete by Chang and Mander (1994)
-</figcaption>
-</figure>
-<p>
-The Chang and Mander (1994) model successfully generates continuous hysteretic stress-strain relationships with slope continuity for confined and unconfined concrete in both compression and tension. The compression envelope curve of the model is defined by the initial tangent slope, (E<sub class="subscript">c</sub>), the peak coordinate (<span class="math inline">\(\epsilon^\prime_c\)</span>, <span class="math inline">\(f^\prime_c\)</span>), a parameter (r<sub class="subscript">c</sub>) from Tsai’s (1988) equation defining the shape of the envelope curve, and a parameter (<span class="math inline">\(\epsilon\)</span><sup class="superscript">-</sup><sub class="subscript">cr</sub>) to define normalized (with respect to <span class="math inline">\(\epsilon^\prime_c\)</span>) strain where the envelope curve starts following a straight line, until zero compressive stress is reached at the spalling strain, <span class="math inline">\(\epsilon_{sp}\)</span>. These parameters can be controlled based on specific experimental results for a refined calibration of the compression envelope (Figure 2). Chang and Mander (1994) proposed empirical relationships for parameters <span class="math inline">\(E_c\)</span>, <span class="math inline">\(\epsilon\)</span>’<sub class="subscript">c</sub>, and r<sub
-class="subscript">c</sub> for unconfined concrete with compressive strength f’<sub class="subscript">c</sub>, based on review of previous research. Parameters f’<sub
-class="subscript">c</sub>, <span class="math inline">\(\epsilon\)</span>’<sub class="subscript">c</sub>, E<sub class="subscript">c</sub>, r<sub class="subscript">c</sub>, and <span class="math inline">\(\epsilon\)</span><sup class="superscript">-</sup><sub class="subscript">cr</sub> can also be calibrated to represent the stress-strain behavior of confined concrete in compression, to follow the constitutive relationships for confined concrete proposed by Mander et al (1988) or similar.
-</p>
-<figure>
-<img src="/OpenSeesRT/contrib/static/ConcreteCM_1.png"
-title="Figure 2. Compression and Tension Envelope Curves" width="500"
-alt="Figure 2. Compression and Tension Envelope Curves" />
-<figcaption aria-hidden="true">
-Figure 2. Compression and Tension Envelope Curves
-</figcaption>
-</figure>
-<p>
-The shape of the tension envelope curve in the model is the same as that of the compression envelope; however, the tension envelope curve is shifted to a new origin that is based on the unloading strain from the compression envelope (Figure 2). As well, the strain ductility experienced previously on the compression envelope is also reflected on the tension envelope. The parameters associated with the tension envelope curve include the tensile strength of concrete (f<sub
-class="subscript">t</sub>), the monotonic strain at tensile strength ( <span class="math inline">\(\epsilon_\textrm{t}\)</span> ), a parameter (r<sub
-class="subscript">t</sub>) from Tsai’s (1988) equation defining the shape of the tension envelope curve, and a parameter (<span class="math inline">\(\epsilon\)</span><sup class="superscript">+</sup><sub class="subscript">cr</sub>) to define normalized (with respect to <span class="math inline">\(\epsilon\)</span><sub class="subscript">t</sub>) strain where the tension envelope curve starts following a straight line, until zero tensile stress is reached at a strain of <span class="math inline">\(\epsilon\)</span><sub class="subscript">crk</sub>. These parameters can also be controlled and calibrated based on specific experimental results or empirical relations proposed by other researchers (e.g., Belarbi and Hsu, 1994) to model the behavior of concrete in tension and the tension stiffening phenomenon. Concrete experiencing tension stiffening can be considered not to crack completely; that is, a large value for parameter <span class="math inline">\(\epsilon\)</span><sup
-class="superscript">+</sup><sub
-class="subscript">cr</sub> (e.g., 10000) can be defined.
-</p>
-<p>
-Source: /usr/local/cvs/OpenSees/SRC/material/uniaxial/
-</p>
-<hr />
-<p>
-<strong>Input Format:</strong>
-</p>
 <div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ConcreteCM<span class="w"> </span><span class="nv">$mattag</span><span class="w"> </span><span class="nv">$fpcc</span><span class="w"> </span><span class="nv">$epcc</span><span class="w"> </span><span class="nv">$Ec</span><span class="w"> </span><span class="nv">$rc</span>
 <span class="w">        </span><span class="nv">$xcrn</span><span class="w"> </span><span class="nv">$ft</span><span class="w"> </span><span class="nv">$et</span><span class="w"> </span><span class="nv">$rt</span><span class="w"> </span><span class="nv">$xcrp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-GapClose</span><span class="w"> </span><span class="nv">$gap</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
@@ -14293,6 +14244,42 @@ Non-dimensional critical strain on tension envelope (<span class="math inline">\
 </tr>
 </tbody>
 </table>
+<figure>
+<img src="/OpenSeesRT/contrib/static/ConcreteCM_0.png"
+title="Figure 1. Hysteretic Constitutive Model for Concrete by Chang and Mander (1994)"
+width="500"
+alt="Figure 1. Hysteretic Constitutive Model for Concrete by Chang and Mander (1994)" />
+<figcaption aria-hidden="true">
+Figure 1. Hysteretic Constitutive Model for Concrete by Chang and Mander (1994)
+</figcaption>
+</figure>
+<p>
+The Chang and Mander (1994) model generates continuous hysteretic stress-strain relationships with slope continuity for confined and unconfined concrete in both compression and tension. The compression envelope curve of the model is defined by the initial tangent slope, (E<sub class="subscript">c</sub>), the peak coordinate (<span class="math inline">\(\epsilon^\prime_c\)</span>, <span class="math inline">\(f^\prime_c\)</span>), a parameter (r<sub class="subscript">c</sub>) from Tsai’s (1988) equation defining the shape of the envelope curve, and a parameter (<span class="math inline">\(\epsilon\)</span><sup class="superscript">-</sup><sub class="subscript">cr</sub>) to define normalized (with respect to <span class="math inline">\(\epsilon^\prime_c\)</span>) strain where the envelope curve starts following a straight line, until zero compressive stress is reached at the spalling strain, <span class="math inline">\(\epsilon_{sp}\)</span>. These parameters can be controlled based on specific experimental results for a refined calibration of the compression envelope (Figure 2). Chang and Mander (1994) proposed empirical relationships for parameters <span class="math inline">\(E_c\)</span>, <span class="math inline">\(\epsilon\)</span>’<sub class="subscript">c</sub>, and r<sub
+class="subscript">c</sub> for unconfined concrete with compressive strength f’<sub class="subscript">c</sub>, based on review of previous research. Parameters f’<sub
+class="subscript">c</sub>, <span class="math inline">\(\epsilon\)</span>’<sub class="subscript">c</sub>, E<sub class="subscript">c</sub>, r<sub class="subscript">c</sub>, and <span class="math inline">\(\epsilon\)</span><sup class="superscript">-</sup><sub class="subscript">cr</sub> can also be calibrated to represent the stress-strain behavior of confined concrete in compression, to follow the constitutive relationships for confined concrete proposed by Mander et al (1988) or similar.
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/ConcreteCM_1.png"
+title="Figure 2. Compression and Tension Envelope Curves" width="500"
+alt="Figure 2. Compression and Tension Envelope Curves" />
+<figcaption aria-hidden="true">
+Figure 2. Compression and Tension Envelope Curves
+</figcaption>
+</figure>
+<p>
+The shape of the tension envelope curve in the model is the same as that of the compression envelope; however, the tension envelope curve is shifted to a new origin that is based on the unloading strain from the compression envelope (Figure 2). As well, the strain ductility experienced previously on the compression envelope is also reflected on the tension envelope. The parameters associated with the tension envelope curve include the tensile strength of concrete (f<sub
+class="subscript">t</sub>), the monotonic strain at tensile strength ( <span class="math inline">\(\epsilon_\textrm{t}\)</span> ), a parameter (r<sub
+class="subscript">t</sub>) from Tsai’s (1988) equation defining the shape of the tension envelope curve, and a parameter (<span class="math inline">\(\epsilon\)</span><sup class="superscript">+</sup><sub class="subscript">cr</sub>) to define normalized (with respect to <span class="math inline">\(\epsilon\)</span><sub class="subscript">t</sub>) strain where the tension envelope curve starts following a straight line, until zero tensile stress is reached at a strain of <span class="math inline">\(\epsilon\)</span><sub class="subscript">crk</sub>. These parameters can also be controlled and calibrated based on specific experimental results or empirical relations proposed by other researchers (e.g., Belarbi and Hsu, 1994) to model the behavior of concrete in tension and the tension stiffening phenomenon. Concrete experiencing tension stiffening can be considered not to crack completely; that is, a large value for parameter <span class="math inline">\(\epsilon\)</span><sup
+class="superscript">+</sup><sub
+class="subscript">cr</sub> (e.g., 10000) can be defined.
+</p>
+<p>
+Source: /usr/local/cvs/OpenSees/SRC/material/uniaxial/
+</p>
+<hr />
+<p>
+<strong>Input Format:</strong>
+</p>
 <hr />
 <p>
 <strong>Example:</strong>
@@ -14341,40 +14328,29 @@ Figure 5. Comparison of ConcreteCM and Concrete07
 </figcaption>
 </figure>
 <hr />
-<p>
-<strong>References:</strong>
-</p>
-<p>
-<ol type="1">
-<li>Belarbi H. and Hsu T.C.C. (1994), “Constitutive Laws of Concrete in Tension and Reinforcing Bars Stiffened by Concrete”, ACI Structural Journal, V. 91, No. 4, pp. 465-474.
-</p>
-<p>
-<ol start="2" type="1">
-<li>Chang, G.A. and Mander, J.B. (1994), “Seismic Energy Based Fatigue Damage Analysis of Bridge Columns: Part I - Evaluation of Seismic Capacity”, NCEER Technical Report No. NCEER-94-0006, State University of New York, Buffalo.
-</p>
-<p>
-<ol start="3" type="1">
+<h2 id="references">References</h2>
+<ul>
+<li>Belarbi H. and Hsu T.C.C. (1994), “Constitutive Laws of Concrete in Tension and Reinforcing Bars Stiffened by Concrete”, ACI Structural Journal, V. 91, No. 4, pp. 465-474.</li>
+<li>Chang, G.A. and Mander, J.B. (1994), “Seismic Energy Based Fatigue Damage Analysis of Bridge Columns: Part I - Evaluation of Seismic Capacity”, NCEER Technical Report No. NCEER-94-0006, State University of New York, Buffalo.</li>
 <li>Kolozvari K., Orakcal K., and Wallace J. W. (2015). “Shear-Flexure Interaction Modeling of reinforced Concrete Structural Walls and Columns under Reversed Cyclic Loading”, Pacific Earthquake Engineering Research Center, University of California, Berkeley, <a
-href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER Report No. 2015/12</a>
+href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER Report No. 2015/12</a></li>
+<li>Mander J.B., Priestley M.J.N., and Park R. (1988). “Theoretical Stress-Strain Model for Confined Concrete”, ASCE Journal of Structural Engineering, V. 114, No. 8, pp. 1804-1826.</li>
+<li>Orakcal K.(2004), “Nonlinear Modeling and Analysis of Slender Reinforced Concrete Walls”, PhD Dissertation, Department of Civil and Environmental Engineering, University of California, Los Angeles.</li>
+<li>Tsai W.T. (1988), “Uniaxial Compressional Stress-Strain Relation of Concrete”, ASCE Journal of Structural Engineering, V. 114, No. 9, pp. 2133-2136.</li>
+</ul>
+<p>
+<strong>Developed and Implemented by:</strong>
 </p>
 <p>
-<ol start="4" type="1">
-<li>Mander J.B., Priestley M.J.N., and Park R. (1988). “Theoretical Stress-Strain Model for Confined Concrete”, ASCE Journal of Structural Engineering, V. 114, No. 8, pp. 1804-1826.
+<a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span> <span style="color:black"></a>, California State University, Fullerton
 </p>
 <p>
-<ol start="5" type="1">
-<li>Orakcal K.(2004), “Nonlinear Modeling and Analysis of Slender Reinforced Concrete Walls”, PhD Dissertation, Department of Civil and Environmental Engineering, University of California, Los Angeles.
+<span style="color:blue"> Kutay Orakcal<span
+style="color:black">, Bogazici University, Istanbul, Turkey
 </p>
 <p>
-<ol start="6" type="1">
-<li>Tsai W.T. (1988), “Uniaxial Compressional Stress-Strain Relation of Concrete”, ASCE Journal of Structural Engineering, V. 114, No. 9, pp. 2133-2136.
-</p></li>
-</ol></li>
-</ol></li>
-</ol></li>
-</ol></li>
-</ol></li>
-</ol>
+<span style="color:blue"> John Wallace<span style="color:black">, Univeristy of California, Los Angeles
+</p>
 
 
               
