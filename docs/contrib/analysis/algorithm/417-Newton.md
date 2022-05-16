@@ -1,4 +1,4 @@
-# Newton Algorithm
+# Newton
 
 <p>This command is used to construct a NewtonRaphson algorithm object
 which is uses the Newton-Raphson algorithm to solve the nonlinear
@@ -7,8 +7,7 @@ most robust method for solving nonlinear algebraic equations. The
 command is of the following form:</p>
 
 ```tcl
-algorithm Newton &lt;-initial&gt;
-        &lt;-initialThenCurrent&gt;
+algorithm Newton < -initial > < -initialThenCurrent >
 ```
 
 <table>

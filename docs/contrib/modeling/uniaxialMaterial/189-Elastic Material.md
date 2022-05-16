@@ -4,8 +4,7 @@
 object (with optional material damping)</p>
 
 ```tcl
-uniaxialMaterial Elastic $matTag $E
-        &lt;$eta&gt;
+uniaxialMaterial Elastic $matTag $E < $eta >
 ```
 <hr />
 <table>

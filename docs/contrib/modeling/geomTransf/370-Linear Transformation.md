@@ -7,16 +7,17 @@ system to the global-coordinate system.</p>
 <p>For a two-dimensional problem:</p>
 
 ```tcl
-geomTransf Linear $transfTag &lt;-jntOffset $dXi $dYi
-        $dXj $dYj&gt;
+geomTransf Linear $transfTag < -jntOffset $dXi $dYi $dXj $dYj >
 ```
 <p>For a three-dimensional problem:</p>
 
 ```tcl
 geomTransf Linear $transfTag $vecxzX $vecxzY $vecxzZ
-        &lt;-jntOffset $dXi $dYi $dZi $dXj $dYj $dZj&gt;
+        < -jntOffset $dXi $dYi $dZi $dXj $dYj $dZj >
 ```
+
 <hr />
+
 <table>
 <tbody>
 <tr class="odd">
@@ -49,24 +50,27 @@ arguments depends on the dimensions of the current model).</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>A refresher on Euclidean Geometry and Coordinate Systems:</p>
-<p>A single vector may be defined by two points. It has length,
+
+A single vector may be defined by two points. It has length,
 direction, and location in space. When this vector is used to define a
-coordinate axis, only its direction is important. Now any 2 vectors, Vr
-and Vs, not parallel, define a plane that is parallel to them both. The
-cross-product of these vectors define a third vector, Vt, that is
-perpendicular to both Vr and Vs and hence normal to the plane: Vt = Vr X
-Vs.</p>
+coordinate axis, only its direction is important. Now any 2 vectors, $V_r$
+and $V_s$, not parallel, define a plane that is parallel to them both. The
+cross-product of these vectors define a third vector, $V_t$, that is
+perpendicular to both $V_r$ and $V_s$ and hence normal to the plane: $V_t = V_r \times V_s$.
+
 <p>The element coordinate system is specified as follows:</p>
-<p>The x-axis is a vector given by the two element nodes; The vector
+The x-axis is a vector given by the two element nodes; The vector
 vecxz is a vector the user specifies that must not be parallel to the
 x-axis. The x-axis along with the vecxz Vector define the xz plane. The
 local y-axis is defined by taking the cross product of the x-axis vector
-and the vecxz vector (Vy = Vxz X Vx). The local z-axis is then found
-simply by taking the cross product of the y-axis and x-axis vectors (Vz
-= Vx X Vy). The section is attached to the element such that the y-z
+and the vecxz vector ($V_y = V_{xz} \times V_x$). The local z-axis is then found
+simply by taking the cross product of the y-axis and x-axis vectors ($V_z
+= V_x \times V_y$). The section is attached to the element such that the y-z
 coordinate system used to specify the section corresponds to the y-z
-axes of the element.</p>
+axes of the element.
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElementOrentation.gif" title="ElementOrentation.gif"
 alt="ElementOrentation.gif" />
@@ -90,34 +94,36 @@ fiber section.</p>
 ## Examples
 
 <figure>
-<img src="/OpenSeesRT/contrib/static/ElementCrossSection.png" title="ElementCrossSection.png"
-alt="ElementCrossSection.png" />
-<figcaption aria-hidden="true">ElementCrossSection.png</figcaption>
+<img src="/OpenSeesRT/contrib/static/ElementCrossSection.png" alt="ElementCrossSection.png" />
+<figcaption aria-hidden="true">Element cross section</figcaption>
 </figure>
+
 <figure>
-<img src="/OpenSeesRT/contrib/static/ElementOrientation.png" title="ElementOrientation.png"
-alt="ElementOrientation.png" />
-<figcaption aria-hidden="true">ElementOrientation.png</figcaption>
+  <img src="/OpenSeesRT/contrib/static/ElementOrientation.png" alt="ElementOrientation.png" />
+  <figcaption aria-hidden="true">Element orientation</figcaption>
 </figure>
+
 <figure>
-<img src="/OpenSeesRT/contrib/static/ElementVectors.png" title="ElementVectors.png"
-alt="ElementVectors.png" />
-<figcaption aria-hidden="true">ElementVectors.png</figcaption>
+  <img src="/OpenSeesRT/contrib/static/ElementVectors.png" alt="ElementVectors.png" />
+  <figcaption aria-hidden="true">Element vectors</figcaption>
 </figure>
-<ol>
-<li>Element 1 : tag 1 : vecxZ = zaxis</li>
-</ol>
-<p>geomTransf Linear 1 0 0 -1</p>
-<ol>
-<li>Element 2 : tag 2 : vecxZ = y axis</li>
-</ol>
-<p>geomTransf Linear 2 0 1 0</p>
-<ol>
-<li>If there was a rigid offset at the top of element 1:</li>
-</ol>
-<p>geomTransf Linear 1 0 0 -1 -jntOffset 0.0 0.0 0.0 0.0 -$Offset
-0.0</p>
-<p>Code Developed by: <span style="color:blue"> Remo Magalhaes de
-Souza </span></p>
+
+```tcl
+# Element 1 : tag 1 : vecxZ = zaxis
+
+geomTransf Linear 1 0 0 -1
+
+# Element 2 : tag 2 : vecxZ = y axis
+
+geomTransf Linear 2 0 1 0
+
+# If there was a rigid offset at the top of element 1:
+
+geomTransf Linear 1 0 0 -1 -jntOffset 0.0 0.0 0.0 0.0 -$Offset 0.0
+```
+
+<p>Code Developed by: <span style="color:blue"> Remo Magalhaes de Souza
+</span></p>
+
 <p>Images Developed by: <span style="color:blue"> Silvia Mazzoni
 </span></p>

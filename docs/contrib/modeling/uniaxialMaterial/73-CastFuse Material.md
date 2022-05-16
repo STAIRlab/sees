@@ -8,7 +8,7 @@ rules developed by Filippou et al. [3].</p>
 
 ```tcl
 uniaxialMaterial Cast $matTag $n $bo $h $fy $E $L $b $Ro
-        $cR1 $cR2 &lt;$a1 $a2 $a3 $a4&gt;
+        $cR1 $cR2 < $a1 $a2 $a3 $a4 >
 ```
 <hr />
 <table>

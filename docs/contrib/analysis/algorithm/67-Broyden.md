@@ -1,4 +1,4 @@
-# Broyden Algorithm
+# Broyden
 
 This command is used to construct a Broyden algorithm object for
 general unsymmetric systems which performs successive rank-one updates

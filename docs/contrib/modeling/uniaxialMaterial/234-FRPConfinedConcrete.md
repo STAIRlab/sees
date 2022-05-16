@@ -107,7 +107,7 @@ be input as positive values.</p>
 (lateral concrete strain exceeding reduced rupture strain of FRP
 jacket), the analysis is not terminated. Only a message “FRP Rupture” is
 plotted on the screen.</p>
-<p>• When $useBuck input parameter is on (equal to 1) and the model's
+<p>• When `useBuck` input parameter is on (equal to 1) and the model's
 longitudinal steel buckling conditions are fulfilled, a message
 “Initiation of Buckling of Long.Bar under Compression” is plotted on the
 screen.</p>
@@ -115,8 +115,10 @@ screen.</p>
 buckled longitudinal compressive steel bars, the analysis is not
 terminated. Only a message “FRP Rupture due to Buckling of Long.Bar
 under compression” is plotted on the screen.</p>
+
 <p><strong>Typical Hysteretic Stress-Strain Relation for
 FRPConfinedConcrete.</strong></p>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/Figure_1_.jpg" title="Figure_1_.jpg" width="600"
 alt="Figure_1_.jpg" />
@@ -127,11 +129,12 @@ alt="Figure_1_.jpg" />
 under Cyclic Lateral Loading</p>
 <p><strong>Cantilever Column Model Definition.</strong></p>
 <figure>
-<img src="Figure_2.jpg‎" title="Figure_2.jpg‎" width="600"
-alt="Figure_2.jpg‎" />
-<figcaption aria-hidden="true">Figure_2.jpg‎</figcaption>
+<img src="/OpenSeesRT/contrib/static/Figure_2.jpg" width="600"
+alt="Figure_2.jpg" />
+<figcaption aria-hidden="true">Figure_2.jpg</figcaption>
 </figure>
-<p>The cantilever column was modeled by a linear beam element with its
+
+The cantilever column was modeled by a linear beam element with its
 stiffness corresponding to flexural yielding and by a fiber element at
 the plastic hinge which is used in order to capture the flexural
 hysteretic behavior. The length of the fiber element was assumed to be
@@ -143,22 +146,22 @@ core (confined by both the FRP &amp; the existing reinforcement) and
 concrete cover (confined only with the FRP wrap) - in the cross-section
 allows the assignment of a unique stress-strain law
 (FRPConfinedConcrete) to all the concrete fibers/layers of the circular
-section.</p>
+section.
+
 <p><strong>Input Files:</strong></p>
-<p>For Tcl Interpreter: <img src="ExampleFRP.tcl‎" title="ExampleFRP.tcl‎"
-alt="ExampleFRP.tcl‎" /></p>
-<p>For Python Interpreter: <embed src="ExampleFRPpy.doc"
-title="ExampleFRPpy.doc" /> Please change the file type to
-<strong>ExampleFRP.py</strong> to run it with Python Interpreter.</p>
+<p>For Tcl Interpreter: <img src="ExampleFRP.tcl" title="ExampleFRP.tcl"
+alt="ExampleFRP.tcl" /></p>
+
+
 <p><strong>Response of Cantilever FRP-Confined Circular Reinforced
 Concrete Column under Cyclic Lateral Loading.</strong></p>
 <figure>
-<img src="/OpenSeesRT/contrib/static/Figure_3.jpg" title="Figure_3.jpg" width="600"
-alt="Figure_3.jpg" />
-<figcaption aria-hidden="true">Figure_3.jpg</figcaption>
+<img src="/OpenSeesRT/contrib/static/Figure_3.jpg" width="600" alt="Figure_3.jpg" />
+<figcaption aria-hidden="true">Figure 3</figcaption>
 </figure>
 <hr />
-<p><strong>REFERENCES:</strong></p>
+
+## References
 <p>• MEGALOOIKONOMOU K.G., MONTI G., SANTINI S., “Constitutive Model for
 Fiber -Reinforced Polymer - and Tie - Confined Concrete”, ACI Structural
 Journal, Vol. 109, No. 4, July 2012, pp. 569-578. <a

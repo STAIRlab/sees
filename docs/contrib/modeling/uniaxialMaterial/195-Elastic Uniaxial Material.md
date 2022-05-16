@@ -4,8 +4,7 @@
 object.</p>
 
 ```tcl
-uniaxialMaterial Elastic $matTag $E &lt;$eta&gt;
-        &lt;$Eneg&gt;
+uniaxialMaterial Elastic $matTag $E < $eta > < $Eneg >
 ```
 <hr />
 <table>

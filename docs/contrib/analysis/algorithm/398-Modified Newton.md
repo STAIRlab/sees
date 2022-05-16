@@ -1,12 +1,11 @@
-# Modified Newton Algorithm
+# Modified Newton
 
 <p>This command is used to construct a ModifiedNewton algorithm object,
 which uses the modified newton-raphson algorithm to solve the nonlinear
 residual equation. The command is of the following form:</p>
 
 ```tcl
-algorithm ModifiedNewton
-        &lt;-initial&gt;
+algorithm ModifiedNewton < -initial >
 ```
 
 <table>

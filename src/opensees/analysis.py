@@ -1,27 +1,20 @@
-from opensees.ast import Num
-
-
-def eigen(model, num):
-    pass
-
-def modes(model, num):
-    pass
 
 class Analysis:
     def __init__(self, model, strategy, patterns):
         if not hasattr(model, "_rt") or model._rt is None:
             from . import tcl
-            self._rt = tcl.TclRuntime()
+            self.rt = tcl.TclRuntime()
+            self.rt.model(model)
         else:
-            self._rt = model._rt
-        from . import libOpenSeesRT
+            self.rt = model
 
-        strategy = {
+        # Currently, all analysis constructors take the `strategy`
+        # argument as a C++ std::vector<std::string>, so
+        # parameters must be cast as strings.
+        self._strategy = {
                 k: [str(i) for i in v]
                 for k,v in strategy.items()
         }
-
-        self._analysis = libOpenSeesRT._StaticAnalysis(self._rt, strategy)
 
         self.patterns = patterns
 
@@ -44,6 +37,11 @@ class StaticAnalysis(Analysis):
                 "integrator": ["LoadControl"]
             }
         super().__init__(model, strategy=strategy, patterns=patterns)
+
+        # Import C++ bindings and create an instance of the analysis
+        from . import libOpenSeesRT
+        self._analysis = libOpenSeesRT._StaticAnalysis(self.rt._rt, self._strategy)
+
 
 
 
@@ -70,15 +68,21 @@ class DirectIntegrationAnalysis(Analysis):
 
     def __init__(self,
         model,
-        patterns:  dict,
         strategy:  dict,
-        recorders: list,
+        patterns:  dict = None,
+        recorders: list = None,
         inherit:   str  = None,
         gravity:   dict = None
     ):
-        super().__init__(self, model, strategy=strategy, patterns=patterns)
+        super().__init__(model, strategy=strategy, patterns=patterns)
+        # Import C++ bindings and create an instance of the analysis
+        from . import libOpenSeesRT
+        self._analysis = libOpenSeesRT._DirectIntegrationAnalysis(self.rt._rt, self._strategy)
 
 
+def eigen(model, num):
+    pass
 
-
+def modes(model, num):
+    pass
 

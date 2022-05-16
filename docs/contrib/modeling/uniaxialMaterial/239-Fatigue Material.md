@@ -6,8 +6,8 @@ stress/strain relationships become zero when fatigue life is
 exhausted.</p>
 
 ```tcl
-uniaxialMaterial Fatigue $matTag $tag &lt;-E0 $E0&gt;
-        &lt;-m $m&gt; &lt;-min $min&gt; &lt;-max $max&gt;
+uniaxialMaterial Fatigue $matTag $tag < -E0 $E0 >
+        < -m $m > < -min $min > < -max $max >
 ```
 <hr />
 <table>

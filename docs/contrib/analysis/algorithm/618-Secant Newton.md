@@ -1,4 +1,4 @@
-# Secant Newton Algorithm
+# Secant Newton
 
 <p>This command is used to construct a SecantNewton algorithm object
 which uses the two-term update to accelerate the convergence of the

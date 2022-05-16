@@ -9,8 +9,7 @@ the energy unbalance in the system. The command to create a EnergyIncr
 test is the following:</p>
 
 ```tcl
-test EnergyIncr $tol $iter &lt;$pFlag&gt;
-        &lt;$nType&gt;
+test EnergyIncr $tol $iter < $pFlag > < $nType >
 ```
 
 <table>

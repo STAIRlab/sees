@@ -1,16 +1,15 @@
-# RelativeNormUnbalance
+# RelativeNormDispIncr
 
 <p>This command is used to construct a convergence test which uses the
-relative norm of the right hand side of the matrix equation to determine
-if convergence has been reached. What the right-hand-side of the matrix
+relative of the solution vector of the matrix equation to determine if
+convergence has been reached. What the solution vector of the matrix
 equation is depends on integrator and constraint handler chosen.
-Usually, though not always, it is equal to the unbalanced forces in the
-system. The command to create a RelativeNormUnbalance test is the
-following:</p>
+Usually, though not always, it is equal to the displacement increments
+that are to be applied to the model. The command to create a
+RelativeNormDispIncr test is the following:</p>
 
 ```tcl
-test RelativeNormUnbalance $tol $iter &lt;$pFlag&gt;
-        &lt;$nType&gt;
+test RelativeNormDispIncr $tol $iter < $pFlag > < $nType >
 ```
 
 <table>
@@ -62,17 +61,17 @@ error message BUT RETURN A SUCCESSFUL test</p></td>
 <hr />
 <p>NOTES:</p>
 <ol>
-<li>When using the Penalty method additional large forces to enforce the
-penalty functions exist on the right hand side, making</li>
+<li>When using the Lagrange Multipliers method additional unknown, the
+Lagrange multipliers, exist in the solution vector, making</li>
 </ol>
 <p>convergence using this test usually impossible (even though solution
 might have converged).</p>
 <ol>
-<li>&lt;math&gt; \parallel R(U^0) \parallel \!&lt;/math&gt; is the
-initial unbalance seen by the system when solveCurrentStep() is invoked
-on the algorithm.</li>
+<li>&lt;math&gt; \parallel \DeltaU^0 \parallel \!&lt;/math&gt; is the
+initial solution when solveCurrentStep() is invoked on the
+algorithm.</li>
 <li>Sometimes there may be problems converging if &lt;math&gt; \parallel
-R(U^0) \parallel \!&lt;/math&gt; is very small to being with.</li>
+\DeltaU^0 \parallel \!&lt;/math&gt; is very small to being with.</li>
 </ol>
 <hr />
 
@@ -85,7 +84,7 @@ $$K \Delta U^i = R(U^i)\,\!$$
 
 <p>This integrator is testing:</p>
 
-$$\frac{\parallel R(U^i) \parallel}{\parallel R(U^0)
+$$\frac{\parallel \DeltaU^i \parallel}{\parallel \DeltaU^0
 \parallel} &lt; \text{tol} \!$$
 
 

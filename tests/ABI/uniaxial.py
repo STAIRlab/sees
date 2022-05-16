@@ -7,10 +7,10 @@ def steel_cmd(name):
     R0  = 4
     cR1 = 0.9240
     cR2 = 0.1500
-    return (f"""
+    return f"""
     model uniaxial
     uniaxialMaterial Steel02 {name} {fy} {E} {b} {R0} {cR1} {cR2}
-    """)
+    """
 
 def test_retrieve():
 

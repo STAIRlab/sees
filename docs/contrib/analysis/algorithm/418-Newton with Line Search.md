@@ -1,4 +1,4 @@
-# Newton with Line Search Algorithm
+# Newton with Line Search
 
 <p>This command is used to construct a NewtonLineSearch algorithm object
 which introduces line search to the <a href="Newton_Algorithm"

@@ -1,12 +1,12 @@
-# Krylov-Newton Algorithm
+# Krylov-Newton
 
 <p>This command is used to construct a KrylovNewton algorithm object
 which uses a Krylov subspace accelerator to accelerate the convergence
 of the modified newton method. The command is of the following form:</p>
 
 ```tcl
-algorithm KrylovNewton &lt;-iterate $tangIter&gt;
-        &lt;-increment $tangIncr&gt; &lt;-maxDim $maxDim&gt;
+algorithm KrylovNewton < -iterate $tangIter >
+        < -increment $tangIncr > < -maxDim $maxDim >
 ```
 
 <table>

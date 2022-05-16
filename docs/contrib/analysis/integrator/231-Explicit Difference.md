@@ -1,7 +1,7 @@
 # Explicit Difference
 
-<p>This command is used to construct a Explicit Difference integrator
-object.</p>
+This command is used to construct a Explicit Difference integrator
+object.
 
 ```tcl
 integrator Explicitdifference

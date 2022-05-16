@@ -55,7 +55,7 @@ class uniaxial:
     A `UniaxialMaterial` object typically represents a pair of work conjugate
     scalars such as axial stress/strain, moment/cuvature, or force/deformation.
     """
-    ElasticSpring = Uni("ElasticUniaxialMaterial",
+    Elastic = ElasticSpring = Uni("ElasticUniaxialMaterial",
         "Elastic",
         args = [
             Tag(),
@@ -285,6 +285,26 @@ class element:
         ],
         refs=["materials"]
     )
+
+    @Ele
+    class Truss:
+        _args = [
+                
+            Tag(),
+            Grp("nodes", typ=Node, 
+                args=[Ref("iNode", attr="name"), Ref("jNode", attr="name")], about="end nodes"),
+            Num("A", about="cross-sectional area of element"),
+            Ref("material", attr="name", typ=Uni, about="tag associated with previously-defined UniaxialMaterial"),
+            #Ref("section", typ="Section", about="tag associated with previously-defined Section"),
+            Num("rho", reqd=False, about="mass per unit length, optional, default = 0.0"),
+            Int("cFlag", reqd=False, about="consistent mass flag, optional, default = 0"+
+                "cFlag = 0 lumped mass matrix (default)"+
+                "cFlag = 1 consistent mass matrix"),
+            Int("rFlag", reqd=False, about="Rayleigh damping flag, optional, default = 0"),
+            #rFlag = 0 NO RAYLEIGH DAMPING (default)
+            #rFlag = 1 include Rayleigh damping
+        ]
+        _refs=["material"]
 
     @Ele
     class forceBeamColumn:

@@ -1,16 +1,14 @@
-# RelativeNormDispIncr
+# NormUnbalance
 
 <p>This command is used to construct a convergence test which uses the
-relative of the solution vector of the matrix equation to determine if
-convergence has been reached. What the solution vector of the matrix
+norm of the right hand side of the matrix equation to determine if
+convergence has been reached. What the right-hand-side of the matrix
 equation is depends on integrator and constraint handler chosen.
-Usually, though not always, it is equal to the displacement increments
-that are to be applied to the model. The command to create a
-RelativeNormDispIncr test is the following:</p>
+Usually, though not always, it is equal to the unbalanced forces in the
+system. The command to create a NormUnbalance test is the following:</p>
 
 ```tcl
-test RelativeNormDispIncr $tol $iter &lt;$pFlag&gt;
-        &lt;$nType&gt;
+test NormUnbalance $tol $iter < $pFlag > < $nType >
 ```
 
 <table>
@@ -50,7 +48,7 @@ vectors.</p></td>
 <tr class="even">
 <td></td>
 <td><p>5 if it fails to converge at end of $numIter it will print an
-error message BUT RETURN A SUCCESSFUL test</p></td>
+error message BUT RETURN A SUCEESSFULL test</p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">nType</code></p></td>
@@ -61,19 +59,12 @@ error message BUT RETURN A SUCCESSFUL test</p></td>
 </table>
 <hr />
 <p>NOTES:</p>
-<ol>
-<li>When using the Lagrange Multipliers method additional unknown, the
-Lagrange multipliers, exist in the solution vector, making</li>
-</ol>
+<ul>
+<li>When using the Penalty method additional large forces to enforce the
+penalty functions exist on the right hand side, making</li>
+</ul>
 <p>convergence using this test usually impossible (even though solution
 might have converged).</p>
-<ol>
-<li>&lt;math&gt; \parallel \DeltaU^0 \parallel \!&lt;/math&gt; is the
-initial solution when solveCurrentStep() is invoked on the
-algorithm.</li>
-<li>Sometimes there may be problems converging if &lt;math&gt; \parallel
-\DeltaU^0 \parallel \!&lt;/math&gt; is very small to being with.</li>
-</ol>
 <hr />
 
 ## Theory
@@ -85,8 +76,7 @@ $$K \Delta U^i = R(U^i)\,\!$$
 
 <p>This integrator is testing:</p>
 
-$$\frac{\parallel \DeltaU^i \parallel}{\parallel \DeltaU^0
-\parallel} &lt; \text{tol} \!$$
+$$\parallel R(U^i) \parallel &lt; \text{tol} \!$$
 
 
 <hr />

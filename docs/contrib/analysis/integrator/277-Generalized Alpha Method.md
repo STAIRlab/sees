@@ -1,16 +1,16 @@
 # Generalized Alpha Method
 
-<p>This command is used to construct a Generalized
+This command is used to construct a Generalized
 $\alpha$ integration object. This is an implicit
 method that like the HHT method allows for high frequency energy
-dissipation and second order accuracy, i.e. $\Delta
-t^2$. Depending on choices of input parameters, the method
-can be unconditionally stable.</p>
+dissipation and second order accuracy, i.e. $\Delta t^2$.
+Depending on choices of input parameters, the method
+can be unconditionally stable.
 
 ```tcl
-integrator GeneralizedAlpha $alphaM $alphaF &lt;$gamma
-        $beta&gt;
+integrator GeneralizedAlpha $alphaM $alphaF < $gamma $beta >
 ```
+
 <hr />
 <table>
 <tbody>

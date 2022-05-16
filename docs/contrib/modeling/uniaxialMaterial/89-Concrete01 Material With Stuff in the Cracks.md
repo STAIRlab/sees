@@ -12,7 +12,7 @@ The command is as follows:</p>
 
 ```tcl
 uniaxialMaterial Concrete01WithSITC $matTag $fpc $epsc0
-        $fpcu $epsU &lt;$endStrainSITC&gt;
+        $fpcu $epsU < $endStrainSITC >
 ```
 <hr />
 <table>

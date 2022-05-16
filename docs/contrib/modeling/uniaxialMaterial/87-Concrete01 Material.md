@@ -6,8 +6,7 @@ according to the work of Karsan-Jirsa and no tensile strength (refer to
 <a href="http://peer.berkeley.edu">http://peer.berkeley.edu</a>).</p>
 
 ```tcl
-uniaxialMaterial Concrete01 $matTag $fc $epsco $fcu
-        $epscu
+uniaxialMaterial Concrete01 $matTag $fc $epsco $fcu $epscu
 ```
 <hr />
 <table>

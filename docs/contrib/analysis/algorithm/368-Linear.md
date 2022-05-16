@@ -1,4 +1,4 @@
-# Linear Algorithm
+# Linear
 
 <p>This command is used to construct a Linear algorithm object which
 takes one iteration to solve the system of equations.</p>
@@ -8,8 +8,7 @@ $$ \Delta U = - K^{-1}R(U),\!$$
 
 
 ```tcl
-algorithm Linear &lt;-initial&gt;
-        &lt;-factorOnce&gt;
+algorithm Linear < -initial > < -factorOnce >
 ```
 
 <table>

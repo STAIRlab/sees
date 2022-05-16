@@ -6,7 +6,7 @@ optional visco-plasticity using a Perzyna formulation.</p>
 
 ```tcl
 uniaxialMaterial Hardening $matTag $E $sigmaY $H_iso
-        $H_kin &lt;$eta&gt;
+        $H_kin < $eta >
 ```
 <hr />
 <table>

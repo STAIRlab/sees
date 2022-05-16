@@ -10,8 +10,7 @@ according to the work of Karsan-Jirsa and no tensile strength. (REF:
 Fedeas).</p>
 
 ```tcl
-uniaxialMaterial Concrete01 $matTag $fpc $epsc0 $fpcu
-        $epsU
+uniaxialMaterial Concrete01 $matTag $fpc $epsc0 $fpcu $epsU
 ```
 <hr />
 <table>

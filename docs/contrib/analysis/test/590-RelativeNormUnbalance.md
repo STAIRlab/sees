@@ -1,15 +1,15 @@
-# NormUnbalance
+# RelativeNormUnbalance
 
-<p>This command is used to construct a convergence test which uses the
-norm of the right hand side of the matrix equation to determine if
-convergence has been reached. What the right-hand-side of the matrix
+This command is used to construct a convergence test which uses the
+relative norm of the right hand side of the matrix equation to determine
+if convergence has been reached. What the right-hand-side of the matrix
 equation is depends on integrator and constraint handler chosen.
 Usually, though not always, it is equal to the unbalanced forces in the
-system. The command to create a NormUnbalance test is the following:</p>
+system. The command to create a RelativeNormUnbalance test is the
+following:
 
 ```tcl
-test NormUnbalance $tol $iter &lt;$pFlag&gt;
-        &lt;$nType&gt;
+test RelativeNormUnbalance $tol $iter < $pFlag > < $nType >
 ```
 
 <table>
@@ -49,7 +49,7 @@ vectors.</p></td>
 <tr class="even">
 <td></td>
 <td><p>5 if it fails to converge at end of $numIter it will print an
-error message BUT RETURN A SUCEESSFULL test</p></td>
+error message BUT RETURN A SUCCESSFUL test</p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">nType</code></p></td>
@@ -60,12 +60,19 @@ error message BUT RETURN A SUCEESSFULL test</p></td>
 </table>
 <hr />
 <p>NOTES:</p>
-<ul>
+<ol>
 <li>When using the Penalty method additional large forces to enforce the
 penalty functions exist on the right hand side, making</li>
-</ul>
+</ol>
 <p>convergence using this test usually impossible (even though solution
 might have converged).</p>
+<ol>
+<li>&lt;math&gt; \parallel R(U^0) \parallel \!&lt;/math&gt; is the
+initial unbalance seen by the system when solveCurrentStep() is invoked
+on the algorithm.</li>
+<li>Sometimes there may be problems converging if &lt;math&gt; \parallel
+R(U^0) \parallel \!&lt;/math&gt; is very small to being with.</li>
+</ol>
 <hr />
 
 ## Theory
@@ -77,7 +84,8 @@ $$K \Delta U^i = R(U^i)\,\!$$
 
 <p>This integrator is testing:</p>
 
-$$\parallel R(U^i) \parallel &lt; \text{tol} \!$$
+$$\frac{\parallel R(U^i) \parallel}{\parallel R(U^0)
+\parallel} &lt; \text{tol} \!$$
 
 
 <hr />

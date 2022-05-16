@@ -1,16 +1,16 @@
-# NormDispIncr
+# RelativeEnergyIncr
 
-<p>This command is used to construct a convergence test which uses the
-norm of the left hand side solution vector of the matrix equation to
-determine if convergence has been reached. What the solution vector of
-the matrix equation is depends on integrator and constraint handler
-chosen. Usually, though not always, it is equal to the displacement
-increments that are to be applied to the model. The command to create a
-NormDispIncr test is the following:</p>
+This command is used to construct a convergence test which uses the
+dot product of the solution vector and norm of the right hand side of
+the matrix equation to determine if convergence has been reached. The
+physical meaning of this quantity depends on the integrator and
+constraint handler chosen. Usually, though not always, it is equal to
+the energy unbalance in the system. The test is relatively to the first
+dot product computed for each step. The command to create a EnergyIncr
+test is the following:
 
 ```tcl
-test NormDispIncr $tol $iter &lt;$pFlag&gt;
-        &lt;$nType&gt;
+test RelativeEnergyIncr $tol $iter < $pFlag > < $nType >
 ```
 
 <table>
@@ -39,7 +39,7 @@ condition</p></td>
 <tr class="even">
 <td></td>
 <td><p>2 print information on norms and number of iterations at end of
-successful test</p></td>
+successfull test</p></td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -50,7 +50,7 @@ vectors.</p></td>
 <tr class="even">
 <td></td>
 <td><p>5 if it fails to converge at end of $numIter it will print an
-error message BUT RETURN A SUCCESSFUL test</p></td>
+error message BUT RETURN A SUCEESSFULL test</p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">nType</code></p></td>
@@ -62,8 +62,14 @@ error message BUT RETURN A SUCCESSFUL test</p></td>
 <hr />
 <p>NOTES:</p>
 <ul>
-<li>When using the Lagrange method to enforce the constraints, the
-Lagrange multipliers appear in the solution vector.</li>
+<li>When using the Penalty method additional large forces to enforce the
+penalty functions exist on the right had side, making</li>
+</ul>
+<p>convergence using this test usually impossible (even though solution
+might have converged).</p>
+<ul>
+<li>When Lagrange multipliers are used, the solution vector contains the
+Lagrange multiplies.</li>
 </ul>
 <hr />
 
@@ -76,7 +82,7 @@ $$K \Delta U^i = R(U^i)\,\!$$
 
 <p>This integrator is testing:</p>
 
-$$\parallel \Delta U^i \parallel &lt; \text{tol}
+$$ \frac{\Delta U^i R(U^i)}{\Delta U^0 R(U^0)} &lt; \text{tol}
 \!$$
 
 

@@ -1,11 +1,11 @@
-__version__  = "0.0.7"
+__version__  = "0.0.8"
 #
 from .patch import layer
 
 # Imports for this module
 import math
 import fnmatch
-from .lib import Node, uniaxial, element
+from .lib import Node, uniaxial, element, backbone
 from .obj import *
 from .model import model
 

@@ -7,7 +7,7 @@ from .lib import Node
 
 
 class model:
-    def __init__(self, ndm, ndf, 
+    def __init__(self, *args, ndm, ndf, 
             assm={}, prototypes=None, units="metric", **kwds):
         self._units = units
         self.meta = kwds
@@ -27,8 +27,10 @@ class model:
         self.m_auto_assigned_conns = []
         self.m_auto_assigned_nodes = []
 
-        if ndf == 2:
-            self.dof_names: dict = { 'x': 0, 'y': 1} # Degrees of freedom
+        if ndf == 1:
+            self.dof_names: dict = { 'x': 0}
+        elif ndf == 2:
+            self.dof_names: dict = { 'x': 0, 'y': 1}
         elif ndm == 2 and ndf ==3:
             self.dof_names: dict = { 'x': 0, 'y': 1, 'xy':2}
         elif ndm == 3 and ndf ==3:

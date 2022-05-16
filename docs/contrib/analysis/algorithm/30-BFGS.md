@@ -1,4 +1,4 @@
-# BFGS Algorithm
+# BFGS
 
 <p>This command is used to construct a Broyden-Fletcher-Goldfarb-Shanno
 (BFGS) algorithm object. The BFGS method is one of the most effective
@@ -13,8 +13,10 @@ from a previous iteration.</p>
 ```tcl
 algorithm BFGS
 ```
+
 <hr />
-<p>REFERNCES:</p>
+
+## References
 <ol>
 <li>Denis, J.E "A Brief Survey of Convergence Methods for Quasi_Newton
 Methods", SIAMS-AMS Proceedings, Vol (9), 185-200, 1976.</li>

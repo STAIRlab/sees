@@ -8,14 +8,12 @@ are applied to the element.</p>
 <p>For a two-dimensional problem:</p>
 
 ```tcl
-geomTransf Corotational $transfTag &lt;-jntOffset $dXi
-        $dYi $dXj $dYj&gt;
+geomTransf Corotational $transfTag < -jntOffset $dXi $dYi $dXj $dYj >
 ```
 <p>For a three-dimensional problem:</p>
 
 ```tcl
-geomTransf Corotational $transfTag $vecxzX $vecxzY
-        $vecxzZ
+geomTransf Corotational $transfTag $vecxzX $vecxzY $vecxzZ
 ```
 <hr />
 <table>
@@ -49,13 +47,14 @@ the global coordinate system for element-end node j (optional)</p></td>
 </tbody>
 </table>
 <p>The element coordinate system is specified as follows:</p>
-<p>The x-axis is the axis connecting the two element nodes; the y- and
+The x-axis is the axis connecting the two element nodes; the y- and
 z-axes are then defined using a vector that lies on a plane parallel to
 the local x-z plane -- vecxz. The local y-axis is defined by taking the
 cross product of the vecxz vector and the x-axis. The z-axis by taking
 cross product of x and new y. The section is attached to the element
 such that the y-z coordinate system used to specify the section
-corresponds to the y-z axes of the element.</p>
+corresponds to the y-z axes of the element.
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElementOrentation.gif" title="ElementOrentation.gif"
 alt="ElementOrentation.gif" />

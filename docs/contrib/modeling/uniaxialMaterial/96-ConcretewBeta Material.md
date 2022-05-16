@@ -17,14 +17,14 @@ or <strong><a href="CorotTruss2_Element" title="wikilink">
 CorotTruss2</a></strong> elements. See the <strong><a
 href="Truss2_Element" title="wikilink"> Truss2 Element</a></strong> for
 description of how the normal strain is computed. The instantaneous
-stress is <em>&amp;beta;</em>*<em>f</em> where <em>f</em> is the
-computed stress and &amp;beta; is the compressive stress reduction
+stress is $\beta f$ where $f$ is the
+computed stress and $\beta$ is the compressive stress reduction
 factor which depends on the normal tensile strain,
-&amp;epsilon;&lt;sub&gt;n&lt;/sub&gt;. The relation between
-&amp;epsilon;&lt;sub&gt;n&lt;/sub&gt; and &amp;beta; (see the <strong><a
+$\epsilon_n$. The relation between
+$\epsilon_n$ and $\beta$ (see the <strong><a
 href="#Biaxial_Behavior" title="wikilink">Biaxial Behavior
 Section</a></strong>) is tri-linear. Default values result in
-<em>&amp;beta;</em> = 1.</p>
+$\beta$ = 1.</p>
 <p>See the <strong><a href="#Examples" title="wikilink">Examples
 Section</a></strong> for the use of this material model in truss models
 for planar RC walls and a beam-truss model for a non-planar wall loaded
@@ -32,11 +32,12 @@ biaxially.</p>
 <dl>
 <dt></dt>
 <dd>
+
 <dl>
 <dt></dt>
 <dd>
 <a href="File:BeyerTUB_point770.jpg"
-title="wikilink">thumb|upright=2.0|alt=RC C-shaped wall |Reinforced
+title="wikilink" alt="RC C-shaped wall">Reinforced
 concrete wall with a C-shaped section subject to multi-axial loading,
 described in <a href="#Examples" title="wikilink">the examples</a>.</a>
 </dd>
@@ -48,7 +49,7 @@ described in <a href="#Examples" title="wikilink">the examples</a>.</a>
 uniaxialMaterial ConcretewBeta $matTag $fpc $ec0 $fcint
         $ecint $fcres $ecres $ft $ftint $etint $ftres $etres 
         < -lambda $lambda > 
-        < -alpha $alpha&gt; &lt;-beta $bint $ebint $bres $ebres > 
+        < -alpha $alpha > < -beta $bint $ebint $bres $ebres > 
         < -M $M > < -E $Ec >
         < -conf $fcc $ecc >
 ```
@@ -103,17 +104,17 @@ envelope</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">lambda</code></td>
-<td><p>controls the path of unloading from compression strain (default
-0.5)</p></td>
+<td><p>controls the path of unloading from compression strain (default 0.5)</p>
+</td>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">alpha</code></td>
-<td><p>controls the path of unloading from tensile strain (default
-1)</p></td>
+<td><p>controls the path of unloading from tensile strain (default 1)</p>
+</td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">bint ebint</code></p></td>
-<td><p>intermediate &beta;-strain point for for biaxial effect
+<td><p>intermediate $\beta$-strain point for for biaxial effect
 (default 1 and 0, respectively)</p></td>
 </tr>
 <tr class="even">
@@ -140,37 +141,40 @@ strain* (see Eq. 1)</p></td>
 </table>
 
 
-<p>NOTES:</p>
-<p>(1) *Parameters of concrete in compression should be specified as
-negative values.</p>
-<p>(2) For non-zero <code class="tcl-variable">M</code>, the tension stiffening behavior
-will govern the post-peak tension envelope. Tri-linear tension softening
-parameters <code>ftint, etint, ftres, etres</code> will have no
-effect, but dummy values must be specified.</p>
-<p>(3) Value of <code class="tcl-variable">Ec</code> must be between
-<code class="tcl-variable">fpc</code>/<code class="tcl-variable">ec0</code> and
-2*<code class="tcl-variable">fpc</code>/<code class="tcl-variable">ec0</code> otherwise the closest
-value will be assigned.</p>
+### Notes
+
+- Parameters of concrete in compression should be specified as
+  negative values.
+- For non-zero <code class="tcl-variable">M</code>, the tension stiffening behavior
+  will govern the post-peak tension envelope. Tri-linear tension softening
+  parameters <code>ftint, etint, ftres, etres</code> will have no
+  effect, but dummy values must be specified.
+- Value of <code class="tcl-variable">Ec</code> must be between
+  <code class="tcl-variable">fpc</code>/<code class="tcl-variable">ec0</code> and
+  2*<code class="tcl-variable">fpc</code>/<code class="tcl-variable">ec0</code> otherwise the closest
+  value will be assigned.
+
 <h2 id="implementation">Implementation</h2>
+
 <dl>
 <dt></dt>
 <dd>
 <dl>
 <dt></dt>
 <dd>
-<a href="File:ConcwBeta_Eq1a.png"
-title="wikilink">thumb|upright=2.5|Equation 1.</a>
+<img src="/OpenSeesRT/contrib/static/ConcwBeta_Eq1a.png" >
+<a href="File:ConcwBeta_Eq1a.png" title="wikilink">thumb|upright=2.5|Equation 1.</a>
 </dd>
 <dd>
 
 $$
-\$ \boldsymbol{E} \boldsymbol{u}=\$ \text { lambda } \cdot\left(\frac{f}{\varepsilon}\right)+(1-\$ \text { lambda }) \cdot \$ \boldsymbol{E c}
+\boldsymbol{E} \boldsymbol{u}= \texttt{ lambda } \cdot\left(\frac{f}{\varepsilon}\right)+(1- \texttt{ lambda }) \cdot \texttt{Ec}
 $$
 
 </dd>
 <dd>
-<a href="File:ConcwBeta_Eq3.png"
-title="wikilink">thumb|upright=1.8|Equation 3.</a>
+<img src="/OpenSeesRT/contrib/static/ConcwBeta_Eq3.png" >
+<a href="File:ConcwBeta_Eq3.png" title="wikilink">thumb|upright=1.8|Equation 3.</a>
 </dd>
 </dl>
 </dd>
@@ -204,8 +208,8 @@ is <code class="tcl-variable">fcres</code>.</p>
 <p>&emsp;&emsp;If <code class="tcl-variable">M</code> is specified, the
 nonlinear tension stiffening behavior defined by Equation 3. It is
 suggested that <code class="tcl-variable">M</code> = (75
-mm)*<em>&amp;rho;&lt;sub&gt;l&lt;/sub&gt;</em>/<em>d&lt;sub&gt;b&lt;/sub&gt;</em>
-where <em>&amp;rho;&lt;sub&gt;l&lt;/sub&gt;</em> is the steel ratio in
+mm)*$\rho_\ell$/<em>d<sub>b</sub></em>
+where $\rho_\ell$ is the steel ratio in
 the direction parallel to the material direction and
 <em>d<sub>b</sub></em> is the bar diameter in mm.</p>
 <p>&emsp;&emsp;The material unloads from tension strain using a
@@ -216,6 +220,7 @@ compressive strain previously occurred. In the case where the slope
 leading to this target point is less than that for the point (0,
 -<code class="tcl-variable">alpha</code>*<code class="tcl-variable">ft</code>), the material reloads
 directly to the point where peak compressive strain occurred.</p>
+
 <dl>
 <dt></dt>
 <dd>
@@ -256,8 +261,8 @@ title="wikilink"> Truss2</a></strong> element computes the strain normal
 to the direction of the element (see <strong><a href="Truss2_Element"
 title="wikilink"> Truss2 Element</a></strong>).</p>
 <p>&emsp;&emsp;Figure 2 shows the relationship between concrete
-compressive stress reduction factor, <em>&amp;beta;</em>, and the normal
-tensile strain, &amp;epsilon;&lt;sub&gt;n&lt;/sub&gt;. For compressive
+compressive stress reduction factor, $\beta$, and the normal
+tensile strain, $\epsilon_n$. For compressive
 stresses, the instantaneous stress value computed by the material is
 $\beta f_c$ where
 $f_c$ is the compressive stress given by
@@ -268,7 +273,7 @@ is tri-linear and passes through the points (0,1),
 (<code class="tcl-variable">ebint</code>, <code class="tcl-variable">bint</code>), and
 (<code class="tcl-variable">ebres</code>, <code class="tcl-variable">bres</code>) in that order. For
 normal tensile strains larger than <code class="tcl-variable">ebres</code>,
-<em>&amp;beta;</em> = <code class="tcl-variable">bres</code>.</p>
+$\beta$ = <code class="tcl-variable">bres</code>.</p>
 
 <h2 id="examples">Examples</h2>
 <h3

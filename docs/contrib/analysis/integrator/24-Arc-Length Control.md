@@ -1,13 +1,15 @@
 # Arc-Length Control
 
-<p>This command is used to construct an ArcLength integrator object. In
+This command is used to construct an ArcLength integrator object. In
 an analysis step with ArcLength we seek to determine the time step that
-will result in our constraint equation being satisfied.</p>
+will result in our constraint equation being satisfied.
 
 ```tcl
 integrator ArcLength $s $alpha
 ```
+
 <hr />
+
 <table>
 <tbody>
 <tr class="odd">
@@ -21,6 +23,7 @@ loads.</p></td>
 </tr>
 </tbody>
 </table>
+
 <hr />
 
 ## Examples
