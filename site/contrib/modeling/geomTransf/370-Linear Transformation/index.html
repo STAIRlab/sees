@@ -506,7 +506,7 @@
   
     <li class="md-nav__item">
       <a href="../../../analysis/algorithm/30-BFGS%20Algorithm/" class="md-nav__link">
-        BFGS Algorithm
+        BFGS
 
       </a>
     </li>
@@ -521,7 +521,7 @@
   
     <li class="md-nav__item">
       <a href="../../../analysis/algorithm/356-Krylov-Newton%20Algorithm/" class="md-nav__link">
-        Krylov-Newton Algorithm
+        Krylov-Newton
 
       </a>
     </li>
@@ -536,7 +536,7 @@
   
     <li class="md-nav__item">
       <a href="../../../analysis/algorithm/368-Linear%20Algorithm/" class="md-nav__link">
-        Linear Algorithm
+        Linear
 
       </a>
     </li>
@@ -551,7 +551,7 @@
   
     <li class="md-nav__item">
       <a href="../../../analysis/algorithm/398-Modified%20Newton%20Algorithm/" class="md-nav__link">
-        Modified Newton Algorithm
+        Modified Newton
 
       </a>
     </li>
@@ -566,7 +566,7 @@
   
     <li class="md-nav__item">
       <a href="../../../analysis/algorithm/417-Newton%20Algorithm/" class="md-nav__link">
-        Newton Algorithm
+        Newton
 
       </a>
     </li>
@@ -581,7 +581,7 @@
   
     <li class="md-nav__item">
       <a href="../../../analysis/algorithm/418-Newton%20with%20Line%20Search%20Algorithm/" class="md-nav__link">
-        Newton with Line Search Algorithm
+        Newton with Line Search
 
       </a>
     </li>
@@ -596,7 +596,7 @@
   
     <li class="md-nav__item">
       <a href="../../../analysis/algorithm/618-Secant%20Newton%20Algorithm/" class="md-nav__link">
-        Secant Newton Algorithm
+        Secant Newton
 
       </a>
     </li>
@@ -611,7 +611,7 @@
   
     <li class="md-nav__item">
       <a href="../../../analysis/algorithm/67-Broyden%20Algorithm/" class="md-nav__link">
-        Broyden Algorithm
+        Broyden
 
       </a>
     </li>
@@ -14136,15 +14136,14 @@ This command is used to construct a linear coordinate transformation (LinearCrdT
 <p>
 For a two-dimensional problem:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">-jntOffset</span><span class="w"> </span><span class="nv">$dXi</span><span class="w"> </span><span class="nv">$dYi</span>
-<span class="w">        </span><span class="nv">$dXj</span><span class="w"> </span><span class="nv">$dYj</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>jntOffset<span class="w"> </span><span class="nv">$dXi</span><span class="w"> </span><span class="nv">$dYi</span><span class="w"> </span><span class="nv">$dXj</span><span class="w"> </span><span class="nv">$dYj</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <p>
 For a three-dimensional problem:
 </p>
 <div class="highlight"><pre><span></span><span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="nv">$vecxzX</span><span class="w"> </span><span class="nv">$vecxzY</span><span class="w"> </span><span class="nv">$vecxzZ</span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-jntOffset</span><span class="w"> </span><span class="nv">$dXi</span><span class="w"> </span><span class="nv">$dYi</span><span class="w"> </span><span class="nv">$dZi</span><span class="w"> </span><span class="nv">$dXj</span><span class="w"> </span><span class="nv">$dYj</span><span class="w"> </span><span class="nv">$dZj</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-jntOffset</span><span class="w"> </span><span class="nv">$dXi</span><span class="w"> </span><span class="nv">$dYi</span><span class="w"> </span><span class="nv">$dZi</span><span class="w"> </span><span class="nv">$dXj</span><span class="w"> </span><span class="nv">$dYj</span><span class="w"> </span><span class="nv">$dZj</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <hr />
@@ -14207,15 +14206,11 @@ joint offset values – offsets specified with respect to the global coordinate 
 <p>
 A refresher on Euclidean Geometry and Coordinate Systems:
 </p>
-<p>
-A single vector may be defined by two points. It has length, direction, and location in space. When this vector is used to define a coordinate axis, only its direction is important. Now any 2 vectors, Vr and Vs, not parallel, define a plane that is parallel to them both. The cross-product of these vectors define a third vector, Vt, that is perpendicular to both Vr and Vs and hence normal to the plane: Vt = Vr X Vs.
-</p>
+<p>A single vector may be defined by two points. It has length, direction, and location in space. When this vector is used to define a coordinate axis, only its direction is important. Now any 2 vectors, <span class="math inline">\(V_r\)</span> and <span class="math inline">\(V_s\)</span>, not parallel, define a plane that is parallel to them both. The cross-product of these vectors define a third vector, <span class="math inline">\(V_t\)</span>, that is perpendicular to both <span class="math inline">\(V_r\)</span> and <span class="math inline">\(V_s\)</span> and hence normal to the plane: <span class="math inline">\(V_t = V_r \times V_s\)</span>.</p>
 <p>
 The element coordinate system is specified as follows:
 </p>
-<p>
-The x-axis is a vector given by the two element nodes; The vector vecxz is a vector the user specifies that must not be parallel to the x-axis. The x-axis along with the vecxz Vector define the xz plane. The local y-axis is defined by taking the cross product of the x-axis vector and the vecxz vector (Vy = Vxz X Vx). The local z-axis is then found simply by taking the cross product of the y-axis and x-axis vectors (Vz = Vx X Vy). The section is attached to the element such that the y-z coordinate system used to specify the section corresponds to the y-z axes of the element.
-</p>
+<p>The x-axis is a vector given by the two element nodes; The vector vecxz is a vector the user specifies that must not be parallel to the x-axis. The x-axis along with the vecxz Vector define the xz plane. The local y-axis is defined by taking the cross product of the x-axis vector and the vecxz vector (<span class="math inline">\(V_y = V_{xz} \times V_x\)</span>). The local z-axis is then found simply by taking the cross product of the y-axis and x-axis vectors (<span class="math inline">\(V_z = V_x \times V_y\)</span>). The section is attached to the element such that the y-z coordinate system used to specify the section corresponds to the y-z axes of the element.</p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElementOrentation.gif" title="ElementOrentation.gif"
 alt="ElementOrentation.gif" />
@@ -14236,50 +14231,36 @@ NOTE: When in 2D, local x and y axes are in the X-Y plane, where X and Y are glo
 <hr />
 <h2 id="examples">Examples</h2>
 <figure>
-<img src="/OpenSeesRT/contrib/static/ElementCrossSection.png" title="ElementCrossSection.png"
-alt="ElementCrossSection.png" />
+<img src="/OpenSeesRT/contrib/static/ElementCrossSection.png" alt="ElementCrossSection.png" />
 <figcaption aria-hidden="true">
-ElementCrossSection.png
+Element cross section
 </figcaption>
 </figure>
 <figure>
-<img src="/OpenSeesRT/contrib/static/ElementOrientation.png" title="ElementOrientation.png"
-alt="ElementOrientation.png" />
+<img src="/OpenSeesRT/contrib/static/ElementOrientation.png" alt="ElementOrientation.png" />
 <figcaption aria-hidden="true">
-ElementOrientation.png
+Element orientation
 </figcaption>
 </figure>
 <figure>
-<img src="/OpenSeesRT/contrib/static/ElementVectors.png" title="ElementVectors.png"
-alt="ElementVectors.png" />
+<img src="/OpenSeesRT/contrib/static/ElementVectors.png" alt="ElementVectors.png" />
 <figcaption aria-hidden="true">
-ElementVectors.png
+Element vectors
 </figcaption>
 </figure>
-<ol>
-<li>
-Element 1 : tag 1 : vecxZ = zaxis
-</li>
-</ol>
-<p>
-geomTransf Linear 1 0 0 -1
-</p>
-<ol>
-<li>
-Element 2 : tag 2 : vecxZ = y axis
-</li>
-</ol>
-<p>
-geomTransf Linear 2 0 1 0
-</p>
-<ol>
-<li>
-If there was a rigid offset at the top of element 1:
-</li>
-</ol>
-<p>
-geomTransf Linear 1 0 0 -1 -jntOffset 0.0 0.0 0.0 0.0 -$Offset 0.0
-</p>
+<div class="highlight"><pre><span></span><span class="c"># Element 1 : tag 1 : vecxZ = zaxis</span>
+
+<span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+
+<span class="c"># Element 2 : tag 2 : vecxZ = y axis</span>
+
+<span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="c"># If there was a rigid offset at the top of element 1:</span>
+
+<span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>jntOffset<span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="o">-</span><span class="nv">$Offset</span><span class="w"> </span><span class="mf">0.0</span>
+</pre></div>
+
 <p>
 Code Developed by: <span style="color:blue"> Remo Magalhaes de Souza </span>
 </p>
