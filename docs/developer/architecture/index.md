@@ -8,7 +8,7 @@ parts:
 
 - Component libraries and community-contributions; these are concrete objects
   such as elements, materials and solvers. These implement the interfaces
-  described in [class_interface](class_interface). Most of the documentation
+  described in [Class Interface](class_interface). Most of the documentation
   for these is in the *user-space* side of things.
 
 - Runtime (**OpenSeesRT**, **OpenSees.exe**, **OpenSeesPy**). A runtime
