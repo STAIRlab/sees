@@ -60,7 +60,6 @@ class TclRuntime(AbstractRuntime):
                 pass
             else:
                 self.eval("model basic 2 3")
-                print(dumps(arg))
                 self.eval(dumps(arg))
 
     @property
