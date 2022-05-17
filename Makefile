@@ -17,5 +17,7 @@ apidocs:
 	$(APIDOC) opensees.lib --attr element > $(APIDIR)/modeling/element.md
 	$(APIDOC) opensees.lib --attr constraint > $(APIDIR)/modeling/constraint.md
 
+test:
+	pytest --nbmake notebooks/
 
 .PHONY: docs
