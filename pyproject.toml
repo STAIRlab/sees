@@ -33,9 +33,11 @@ testing = [
     "pytest >= 4.6",
     "pytest-checkdocs >= 2.4",
     "pytest-flake8",
+    "nbmake"
 ]
 docs = [
-    "elstir"
+    "elstir",
+    "mkdocs-material"
 ]
 plots = [
     "matplotlib",
