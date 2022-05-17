@@ -21,12 +21,20 @@ class TclWriter:
         #this.write(" ".join(map(str,self.flag + [value])))
         this.write(self.flag, str(value))
 
+    def Lst(this, self, value=None):
+        this.write(self.flag)
+        this.write("{")
+        for v in map(self.type, value):
+            this.write(v)
+        this.write("}")
+
     def Tag(this, self, value=None):
         value = self.value if value is None else value
         if not isinstance(value, int):
             value = this.current_tag
             this.current_tag += 1
-        self.value = value
+            this.current_obj.name = value
+        self.name = self.value = value
         this.write(value)
 
     def Flg(this, self, value=None): 
@@ -35,7 +43,7 @@ class TclWriter:
         #self.write(" ".join([self.flag] if value else []))
 
     def Grp(this, self, value=None):
-        value = self._get_value(None,value)
+        val = self._get_value(None,value)
         if value is None:
             if self.reqd:
                 value = [None]*self.num
@@ -52,11 +60,12 @@ class TclWriter:
         # [this.parent.send(v) for v in value]
     
     def Ref(this, self, value=None): 
-        value = self._get_value(None, value)
-        try:
-            value = getattr(value, self.kwds["attr"])
-        except:
-            pass
+        val = self._get_value(None, value=value)
+        value = value.name if val is None else val
+        # try:
+        #     value = getattr(value, self.kwds["attr"])
+        # except Exception as e:
+        #     print(e)
         return this.write(self.flag,value)
 
     def Blk(this, self, value=None):
@@ -98,6 +107,7 @@ class ScriptBuilder:
             self.refs = set()
             self.newline = True
             self.current_tag = 1
+            # self.tags = {}
 
         def write(self, *args, end=" "):
             if self.newline:
@@ -135,9 +145,11 @@ class ScriptBuilder:
     def send(self, obj, idnt=None):
         w = self.streams[0]
         w.write(" ".join(obj._cmd))
+        w.current_obj = obj # TODO: Clean this up
         for arg in obj._args:
             typ = arg.__class__.__name__
             value = getattr(obj, arg.field)
+
             if typ in dir(w):
                 w.write(getattr(w, typ)(arg, value=value))
             elif isinstance(arg, Arg):

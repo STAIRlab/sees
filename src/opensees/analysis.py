@@ -1,3 +1,4 @@
+from . import tcl
 
 class Analysis:
     def __init__(self, model, strategy, patterns):
@@ -12,11 +13,14 @@ class Analysis:
         # argument as a C++ std::vector<std::string>, so
         # parameters must be cast as strings.
         self._strategy = {
-                k: [str(i) for i in v]
-                for k,v in strategy.items()
+            k: [str(i) for i in v]
+            for k,v in strategy.items()
         }
 
         self.patterns = patterns
+        if patterns is not None:
+            for pattern in patterns.values():
+                self.rt.eval(tcl.dumps(pattern))
 
     def system(self, *args): pass
 

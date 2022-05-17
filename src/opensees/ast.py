@@ -144,6 +144,7 @@ class Ref(Arg):
             pass
         return [self.flag] + [value]
 
+class Lst(Arg): pass
 class Ary(Arg): pass
 
 class Sub(Arg): pass

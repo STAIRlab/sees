@@ -141,7 +141,10 @@ class MplPlotter:
                 ax.add_collection(c)
             else:
                 # TODO: clean this up
-                ax.scatter(*zip(*(f.coord for patch in section.patches for f in patch.fibers)), s=0.1)
+                try:
+                    ax.scatter(*zip(*(f.coord for patch in section.patches for f in patch.fibers)), s=0.1)
+                except:
+                    pass
                 try:
                     ax.scatter(*zip(*(f.coord for patch in section.patches for f in patch.fibers)), s=0.1)
                 except Exception as e:
@@ -152,6 +155,7 @@ class MplPlotter:
                     ax.scatter(*zip(*coords), s=areas, color="k")
                 except Exception as e:
                     print(e)
+
         # show centroid
         #ax.scatter(*section.centroid)
         # show origin
