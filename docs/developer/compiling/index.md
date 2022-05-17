@@ -12,8 +12,8 @@ necessary to modify some advaced configuration options.
 For guides on adding new OpenSees components to the CMake build system,
 see `extend`{.interpreted-text role="ref"}.
 
-::: toctree
-- [compile/basic][]
-- [compile/tooling][]
-- [compile/advanced][]
-:::
+
+- [basic](basic)
+- [tooling](tooling)
+- [advanced](advanced)
+

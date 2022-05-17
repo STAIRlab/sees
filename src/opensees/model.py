@@ -122,6 +122,12 @@ class model:
         self.m_nodes.update({tag: node})
         return node
 
+    def mass(self, node, m):
+        self.m_nodes[node].mass = m
+
+    def rayleigh(self, *args):
+        pass
+
     def _new_tag(self, typ, container=None):
         if container is not None:
             container = {*getattr(self, f"m_{typ}s"), *container}

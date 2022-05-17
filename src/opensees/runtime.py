@@ -1,4 +1,3 @@
-import numpy as np
 
 class AbstractRuntime:
     def __init__(self, rt=None):
@@ -6,17 +5,15 @@ class AbstractRuntime:
             import opensees.tcl
             self._rt = opensees.tcl.TclRuntime()
 
-    # def analyze(self, steps, incr, **kwds): ... 
-    # def system(self, *args, **kwds): ...
-    # def constraints(self, *args, **kwds): ...
-    # def numberer(self, *args, **kwds): ...
-    # def system(self, *args, **kwds): ...
-    # def test(self, *args, **kwds): ...
-    # def algorithm(self, *args, **kwds): ...
-    # def integrator(self, *args, **kwds): ...
-    # def analysis(self, *args, **kwds): ...
-    # def eigen(self, *args, **kwds): ...
-    # def analyze(self, *args, **kwds): ...
+    def getNodeResponse(self, node, typ):
+        import numpy as np
+        return np.array(self._domain.getNodeResponse(node, typ))
+
+    def getTime(self):
+        return self._domain.getTime()
+
+    time = getTime
+
 
 class PlainRuntime(AbstractRuntime):
     pass
@@ -25,12 +22,10 @@ class PlainRuntime(AbstractRuntime):
 # STATICS
 #
 class Displ: pass
+
 #
 # SECTIONS
 #
-class MomentCurvature(AbstractRuntime):
-    pass
-
 class SectionLoci(AbstractRuntime):
     def __init__(self, sect, mesh=None, **kwds):
         super().__init__(**kwds)
@@ -52,9 +47,7 @@ class SectionLoci(AbstractRuntime):
                [[fy*(-1)**(j<i) for i in range(1,nIP+1)] for j in range(0,  nIP)]
 
     @staticmethod
-    def elastic_limit(section,
-                  bounds,
-                  shift=0.0):
+    def elastic_limit(section, bounds, shift=0.0):
         yc   = section.centroid[1]
         area = section.area
         d = bounds[3] - bounds[1]
@@ -82,8 +75,9 @@ class SectionLoci(AbstractRuntime):
         return np.array([[a,a,c,c],[0,y,y+1/n,1]])
 
     @staticmethod
-    def concrete_limit(sect, ecu):
-        for z in np.linspace(0., 1., 5):
+    def concrete_limit(sect, strain_limits):
+        epsc, epsy = strain_limits
+        for z in np.linspace(0., epsy, 5):
             pass
 
     @staticmethod
@@ -175,8 +169,5 @@ class SectionLoci(AbstractRuntime):
             fig.canvas.draw_idle()
         return update
 
-
-class SectionUltimateLocus(AbstractRuntime):
-    pass
 
 

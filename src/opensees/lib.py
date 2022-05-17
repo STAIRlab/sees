@@ -14,7 +14,7 @@ def Area(**kwds):
 
 Node = cmd("Node", "node", [
     Tag(),
-    Grp("crd", type=Num, args=[Num("x"),Num("y"), Num("z")]),
+    Grp("crd", type=Num, args=[Num("x"), Num("y"), Num("z")]),
     Grp("mass", flag="-mass", reqd=False, default=[0.0]*6, args=[
         Num("x"),Num("y"), Num("z"), Num("x"),Num("y"), Num("z")
     ]),
