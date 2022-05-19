@@ -76,7 +76,11 @@ class TclWriter:
         this.write(self.flag, "{")
         this.endln()
         this.rshift()
-        [this.parent.send(v) for v in value]
+        print(value)
+        for v in value:
+            print(v)
+            this.parent.send(v)
+        # [this.parent.send(v) for v in value]
         this.lshift()
         this.write("}")
 
