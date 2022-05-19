@@ -1,4 +1,4 @@
-from .ast import Num, Tag, Ref, Blk, Int, Lst, Grp
+from .ast import Num, Tag, Ref, Blk, Int, Lst, Grp, Str
 from .obj import LibCmd, cmd
 
 _pattern = LibCmd("pattern")
@@ -22,6 +22,44 @@ class TimeSeries:
         if "step" in self.kwds:
             dt = self.kwds["step"]
             self.time = [0.0 + i*dt for i in range(len(self.values))]
+
+@cmd
+class GroundMotion:
+    _args = [
+         Tag(),
+         Str("motion_type", default="Plain"),
+         Ref("accel", flag="-accel", reqd=False, type=TimeSeries, alt="motion"),
+         Ref("veloc", flag="-vel",   reqd=False, type=TimeSeries, alt="motion"),
+         Ref("displ", flag="-disp",  reqd=False, type=TimeSeries, alt="motion")
+         # <-int (IntegratorType intArgs)> 
+         # <-fact $cFactor>
+    ]
+    # _alts = [
+    #     Ref("motion")
+    # ]
+    _refs = ["accel", "veloc", "displ"]
+
+
+    def init(self):
+        print("INIT: ", self.kwds)
+        if "motion" in self.kwds:
+            print("IN BUSINESS")
+            m = self.kwds["motion"]
+            if hasattr(motion, "accel"):
+                self.accel = TimeSeries(values=motion.accel)
+            if hasattr(motion, "veloc"):
+                self.veloc = TimeSeries(values=motion.veloc)
+            if hasattr(motion, "displ"):
+                self.displ = TimeSeries(values=motion.displ)
+
+@cmd
+class ImposedMotion:
+    _args = [ 
+        Int("node"),# , type="node"),
+        Int("dof"),
+        Ref("motion", type=GroundMotion)
+    ]
+
 
 
 load = cmd("load", "load", args=[Ref("node"), Grp("load", min=1, type=Num)])
@@ -62,7 +100,12 @@ class UniformExcitation:
         if not isinstance(self.accel, int):
             self.accel = TimeSeries(values=self.accel)
 
+@_pattern
 class MultipleSupport:
+    _args = [
+        Tag(),
+        Blk("motions", alt="components")
+    ]
     """
     pattern.MultipleSupport(
         components = [
@@ -72,9 +115,16 @@ class MultipleSupport:
         ]
     )
     """
-    pass
+    def init(self):
+        imposed_motions = []
+        ground_motions = []
+        for m in self.motions:
+            ground_motions.append(GroundMotion(motion=m[2]))
+            imposed_motions.append(ImposedMotion(*m[:2], ground_motions[-1]))
+        self.motions = ground_motions + imposed_motions
 
-class GroundMotion:
-    pass
+    @property
+    def components(self):
+        return []
 
 

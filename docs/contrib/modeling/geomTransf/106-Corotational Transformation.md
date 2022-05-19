@@ -1,10 +1,11 @@
 # Corotational
 
-<p>This command is used to construct the Corotational Coordinate
-Transformation (CorotCrdTransf) object. Corotational transformation can
-be used in large displacement-small strain problems. NOTE: Currently the
-transformation does not deal with element loads and will ignore any that
-are applied to the element.</p>
+This command is used to construct a corotational coordinate
+transformation (`CorotCrdTransf`) object. The corotational transformation can
+be used in large displacement-small strain problems. 
+
+>NOTE: Currently the transformation does not deal with element loads and will ignore any that are applied to the element.
+
 <p>For a two-dimensional problem:</p>
 
 ```tcl

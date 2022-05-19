@@ -5,8 +5,9 @@ from .obj import _LineElement
 
 Dof = Int
 
-def Yng(**kwds):
-    return Num("E", field="elastic_modulus", about="Young's modulus of elasticity", **kwds)
+def Yng(about=None, **kwds):
+    about = about or "Young's modulus of elasticity"
+    return Num("E", field="elastic_modulus", about=about, **kwds)
 
 def Area(**kwds):
     return Num("A", field="area", about="cross-sectional area", **kwds)
@@ -55,6 +56,21 @@ class uniaxial:
     A `UniaxialMaterial` object typically represents a pair of work conjugate
     scalars such as axial stress/strain, moment/cuvature, or force/deformation.
     """
+    Series = Uni("SeriesMaterial", "Series", args = [
+            Tag(),
+            Grp("materials", min=2, type=Ref(type="uniaxial", attr="name"))
+        ],
+        refs = ["materials"]
+    )
+
+    Parallel = Uni("ParallelMaterial", "Parallel", args = [
+            Tag(),
+            Grp("materials", min=2, type=Ref(type="uniaxial", attr="name"))
+        ],
+        refs = ["materials"]
+    )
+
+
     Elastic = ElasticSpring = Uni("ElasticUniaxialMaterial",
         "Elastic",
         args = [
@@ -66,10 +82,21 @@ class uniaxial:
         ]
     )
 
+    ElasticBilin = Uni("ElasticBilin", "ElasticBilin", args=[ 
+        Tag(),
+        Yng(about="tangent in tension for stains: 0 <= strains <= $epsP2"),
+        Num("E2", about="tangent when material in tension with strains > $epsP2"),
+        Num("eps2", about="strain at which material changes tangent in tension."),
+        Num("EN1", reqd=False, about="optional, default = $EP1. tangent in compression for stains: 0 < strains <= $epsN2"),
+        Num("EN2", reqd=False, about="optional, default = $EP2. tangent in compression with strains < $epsN2"),
+        Num("epsN2", reqd=False, about="optional, default = -epsP2. strain at which material changes tangent in compression.")
+    ])
+
+
     Hardening = Uni("HardeningMaterial", "Hardening", args=[
         Tag(),
         Yng(),
-        Num("sigmaY", about="yield stress or force"),
+        Num("fy", about="yield stress or force"),
         Num("H_iso", about="isotropic hardening Modulus"),
         Num("H_kin", about="kinematic hardening Modulus"),
         Num("eta",   reqd=False, about="visco-plastic coefficient (optional, default=0.0)"),

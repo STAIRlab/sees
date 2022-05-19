@@ -5,6 +5,7 @@ Transformation (PDeltaCrdTransf) object, which performs a linear
 geometric transformation of beam stiffness and resisting force from the
 basic system to the global coordinate system, considering second-order
 P-Delta effects. 
+
 >NOTE: $P$ - $\Delta$ effects do not include $P$ - 
 $\delta$ effects.
 
