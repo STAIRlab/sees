@@ -9,7 +9,9 @@ def TclInterpreter():
     if "OPENSEESRT_LIB" in os.environ:
         libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
     else:
-        install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
+        # install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
+        # install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
+        install_dir = pathlib.Path(__file__).parents[0]
         libOpenSeesRT_path = install_dir/'libOpenSeesRT.so'
     interp = tkinter.Tcl()
     #from . import libOpenSeesRT
