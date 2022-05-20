@@ -15,7 +15,7 @@ class Parameter:
         return f"${self.name}"
 
 class Arg:
-    __slots__ = ["name", "flag", "value", "field", "default", "type", "reqd"]
+    __slots__ = ["name", "flag", "value", "field", "default", "type", "reqd", "namespace"]
     def __init__(self,
         name = None,
         #help = None,

@@ -112,6 +112,23 @@ class uniaxial:
           Num("eps0",  reqd=False, about="initial strain (optional, default: zero)")
     ])
 
+    Hysteretic = Uni("Hysteretic", "Hysteretic", args = [ 
+        Tag(),
+        Grp("points", args = [
+          Grp(args=[Num("s1p"), Num("e1p")], about="stress and strain (or force & deformation) at first point of the envelope in the positive direction"),
+          Grp(args=[Num("s2p"), Num("e2p")], about="stress and strain (or force & deformation) at second point of the envelope in the positive direction"),
+          Grp(args=[Num("s3p"), Num("e3p")], about="stress and strain (or force & deformation) at third point of the envelope in the positive direction (optional)"),
+          Grp(args=[Num("s1n"), Num("e1n")], about="stress and strain (or force & deformation) at first point of the envelope in the negative direction"),
+          Grp(args=[Num("s2n"), Num("e2n")], about="stress and strain (or force & deformation) at second point of the envelope in the negative direction"),
+          Grp(args=[Num("s3n"), Num("e3n")], about="stress and strain (or force & deformation) at third point of the envelope in the negative direction (optional)"),
+        ]),
+        Num("pinchx", about="pinching factor for strain (or deformation) during reloading"),
+        Num("pinchy", about="pinching factor for stress (or force) during reloading"),
+        Num("damage1", reqd=False, about="damage due to ductility: D1(mu-1)"),
+        Num("damage2", reqd=False, about="damage due to energy: D2(Eii/Eult)"),
+        Num("beta", about="power used to determine the degraded unloading stiffness based on ductility, mu-beta (optional, default=0.0)")
+        ])
+
     RambergOsgoodSteel = Uni("RambergOsgoodSteel", "RambergOsgoodSteel", args=[
         Tag(), Yng(), Num("fy", about="yield strength"), Num("a", about="yield offset parameter"),
         Num("n", about="")

@@ -51,12 +51,21 @@ class TclWriter:
                 return []        
         if "reverse" in self.kwds and self.kwds["reverse"]:
             value = reversed(value)
+
         this.write(self.flag)
-        for a,v in zip(self.args, value):
-            this.Arg(a, value=v)
-        #this.write(self.flag, " ".join(map(str,(
-        #    a for arg,v in zip(self.args,value) for a in arg.as_tcl_list(v)
-        #))))
+        if not hasattr(value,"__len__") or len(self.args) == len(value):
+            for a,v in zip(self.args, value):
+                this.Arg(a, value=v)
+        else:
+            assert "min" in self.kwds
+            assert len(self.args) == 1
+            for v in value:
+                this.Arg(self.args[0], value=v)
+
+
+        # this.write(self.flag, " ".join(map(str,(
+        #     a for arg,v in zip(self.args,value) for a in arg.as_tcl_list(v)
+        # ))))
         # [this.parent.send(v) for v in value]
     
     def Ref(this, self, value=None): 
@@ -76,9 +85,7 @@ class TclWriter:
         this.write(self.flag, "{")
         this.endln()
         this.rshift()
-        print(value)
         for v in value:
-            print(v)
             this.parent.send(v)
         # [this.parent.send(v) for v in value]
         this.lshift()
@@ -96,6 +103,7 @@ class TclWriter:
         for arg, kv in zip(arg,value.items()):
             kv = kv[0], arg.as_tcl_list(kv[1])
             vals = vals + [kv[i], kv[j]]
+
         return this.write(self.flag, *vals)
 
 

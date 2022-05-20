@@ -15,8 +15,9 @@ class Component:
         from . import libOpenSeesRT
         if self._cmd[0] == "uniaxialMaterial":
             rt.model(self)
+            tag = self.name if self.name is not None else "1"
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
-            handle = self._builder.getUniaxialMaterial("1")
+            handle = self._builder.getUniaxialMaterial(tag)
 
         elif self._cmd[0] == "section":
             rt.model(self)
@@ -115,7 +116,7 @@ class Cmd:
         self.cmd = cmd
 
 
-def cmd(cls, cmd=None, args=None, refs=(), **ops):
+def cmd(cls, cmd=None, args=None, refs=(), namespace=None, **ops):
     if isinstance(cls, str):
         # Called as function (ie my_command = cmd('my_cmd'))
         fields = [arg.field for arg in args] 
@@ -127,15 +128,18 @@ def cmd(cls, cmd=None, args=None, refs=(), **ops):
         fields = [arg.field for arg in cls._args]
         alts = cls._alts if hasattr(cls, "_alts") else None
         name = cls.__name__
-        cmd = name.lower()
+        cmd = name.lower()[0] + name[1:]
+        # cmd[0] = name.lower()[0]
         obj = struct(name, fields, cls._args, alts)
         obj._cmd  = [cmd]
+    if namespace is not None:
+        obj._cmd[0] = namespace + "::" + obj._cmd[0]
     return obj
 
 
 class LibCmd(Cmd):
     cmd = None
-    def __init__(self, cmd , class_name=None, subs={}, args=None, rels=None, about="", defs=None):
+    def __init__(self, cmd , class_name=None, subs={}, args=None, rels=None, about="", defs=None, namespace=None):
         if class_name is None:
             class_name = cmd.title()
         self.class_name = class_name
@@ -145,6 +149,9 @@ class LibCmd(Cmd):
             cmd = cmd.__name__
         else:
             self.typ = None
+        
+        if namespace is not None:
+            cmd = namespace + "::" + cmd
 
         self.__name__ = self.cmd = cmd
         self.args = [] if args is None else args
@@ -165,7 +172,10 @@ class LibCmd(Cmd):
                 refs += cls._refs
             args = cls._args
             inherit.append(cls)
-            cls = name = cls.__name__
+            if hasattr(cls, "_name"):
+                cls = name = cls._name
+            else:
+                cls = name = cls.__name__
 
         if name is None:
             name = cls
@@ -202,7 +212,7 @@ def struct(name, fields, args = None, alts=None, refs=[], parents=[]):
         name=name,
         refs=refs,
         fields=fields,
-        parents = ",".join(["Component"]+[p.__name__ for p in parents]),
+        parents = ",".join([p.__name__ for p in parents]+["Component"]),
         args=','.join(fields),
         fields_none=','.join(f"{f}=None" for f in fields),
         self_fields=','.join('self.' + f for f in fields)
