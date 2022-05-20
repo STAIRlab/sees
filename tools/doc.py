@@ -63,7 +63,7 @@ def write_obj(v):
         #<span style="padding-left: 10%">
         s = s.replace(", ", ",<br>&emsp;&emsp;&emsp;")
     write(textwrap.dedent(f"""
-    <blockquote>
+    <!-- <blockquote> -->
     <span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);">
         <span style="color:#900">{k}</span>{s}
     </span>
@@ -97,9 +97,16 @@ def write_obj(v):
     write(textwrap.dedent("""
     </tbody>
     </table>
-    </blockquote>
+    <!-- </blockquote> -->
     """))
     #write(":::\n")
+
+
+
+def write_single(obj_name):
+    lib = vars(getattr(lib, obj_name.split(".")[0]))
+    write(textwrap.dedent(getattr(lib, attrs[0]).__doc__ or ""))
+
 
 if __name__=="__main__":
     import opensees.lib
@@ -107,14 +114,21 @@ if __name__=="__main__":
 
     libs = []
     attrs = []
+    solo = False
     args = iter(sys.argv[1:])
     for arg in args:
         if arg[0] != "-":
             libs.append(arg)
         elif arg == "--attr":
             attrs.append(next(args))
+        elif arg =="--single":
+            solo = True
 
-    #for lib in [opensees.section, opensees.lib, opensees.patch]:
+    if solo:
+        lib = importlib.import_module(libs[0])
+        write_single(lib, attrs[0])
+        sys.exit()
+
     for lib_name in libs:
         lib = importlib.import_module(lib_name)
         head = (attrs or lib_name.split("."))[-1]
@@ -137,11 +151,12 @@ if __name__=="__main__":
         if not attrs:
             objs = vars(lib)
             write(textwrap.dedent(lib.__doc__ or ""))
+
         else:
             objs = vars(getattr(lib, attrs[0]))
             write(textwrap.dedent(getattr(lib, attrs[0]).__doc__ or ""))
 
-        write('<div style="width: 90%; padding-left: 10%">')
+        write('<div style="width: 95%; padding-left: 5%">')
 
         for k,v in objs.items():
             if isinstance(v, type):

@@ -28,12 +28,14 @@ import opensees as ${OPS_PREFIX}
 EOF
 
 cat $1 | {
-  $SEDE "s|\t| |g"
+  $SEDE "s|\t|       |g"
+} | {
+  $SEDE "s/source LibUnits\.tcl/from opensees.units.english import * # CONVERT-COMPLETE/g"
 } | {
   #
   # Procedures
   #
-  $SEDE "s/^proc ([A-z0-9_]*) \{(.*)\} \{/def \1(\2):/g"
+  $SEDE "s/^proc ([A-z0-9_]*) \{(.*)\} \{/def \1(\2): # CONVERT-COMPLETE/g"
 } | {
   $SEDE "s|lappend ($NAME) (.*)|\1.append(\2)|g"
 } | {
@@ -49,13 +51,17 @@ cat $1 | {
 } | {
   $SEDE "s|{incr ($NAME) ([A-z0-9_]*)}|{\1 += \2}|g"
 } | {
-## wrap words in quotes if line does not contain a " or #
+#
+## wrap words in quotes if line does not contain a " or start with #
+#
   # end of line
-  $SEDE "s:([A-z'])"' ([A-z][0-9A-z_/\.]{1,})$'":\1 '\2':g if /^[ A-z]/ &&"' !/"/ && !/^ *#/'
+  $SEDE "s:([A-z'])"' ([A-z][0-9A-z_/\.]{1,})$'":\1 '\2':g if "' !/"/ && !/^ *#/ && !/CONVERT-COMPLETE/ && !/^ *set /'
 } | {
   # inside line
-  $SEDE "s:([!\[][A-z']*)"' ([A-z][0-9A-z_/\.]{1,}) '":\1 '\2', :g if /^[ A-z]/ &&"' !/"/ && !/^ *#/'
+  #$SEDE "s:([!\[][A-z']*)"' ([A-z][0-9A-z_/\.]{1,}) '":\1 '\2', :g if /^[ A-z]/ &&"' !/"/ && !/^ *#/ && !/CONVERT-COMPLETE/'
+  $SEDE "s:([A-z'])"' ([A-z][0-9A-z_/\.]{1,}) '":\1 '\2', :g if !/\[\]/ &&"' !/"/ && !/^ *#/ && !/CONVERT-COMPLETE/ && !/^ *set /'
 } | {
+
 ## remove dollar signs
   sed 's:\$::g'
 } | {
@@ -125,10 +131,10 @@ cat $1 | {
 #
 # 
 # Simple model commands
-  $SEDE "s/(section) ([A-z 0-9-.'=,]*)"'/model.\1(${2})/g if !/"/ && !/#/'
+$SEDE "s/(section) '([A-z0-9]*)', ([A-z 0-9+-.'=,]*)\{"'/${1}.${2}(${3}, [/g if !/"/ && !/#/'
 } | {
   # commands that probably take the rest of their line
-  $SEDE "s/(node|mass|geomTransf|element) ([A-z \(\)0-9-.'=,*\/]*)"'/model.\1(${2})/g if !/"/ && !/^ *#/'
+  $SEDE "s/(node|mass|geomTransf|element|uniaxialMaterial) ([A-z \(\)0-9-.'=,*\/]*)"'/model.\1(${2})/g if !/"/ && !/^ *#/'
 } | {
   # commands that probably dont have parenthesized expressions
   $SEDE "s/(fix|fixZ|fixY|fixX) ([A-z 0-9-.'=,]*);*"'/model.\1(${2})/g if !/"/ && !/^ *#/'
@@ -136,8 +142,10 @@ cat $1 | {
   # Simple analysis commands
   $SEDE "s/(system|numberer|recorder|rayleigh|analyze|loadConst|algorithm|test|timeSeries|integrator|analysis|constraints|remove) ([A-z 0-9-.'=,]*)"'/ana.\1(${2})/g if !/"/ && !/#/'
 } | {
+  $SEDE "s/(patch|layer|fiber) *'([A-z]*)', *([A-z 0-9-.'=,]*);{,1}"'/\1.${2}(${3}),/g if !/"/'
+} | {
 # spaces to commas
-  $SEDE "s/([A-z0-9'.]) {1,}([A-z0-9'.])/\1, \2/g"' if /^[A-z]/ && !/"/ && !/^ *#/ && !/^if / && !/^def /'
+  $SEDE "s/([A-z0-9'.]) {1,}([A-z0-9'.])/\1, \2/g"' if /^[A-z]/ && !/"/ && !/^ *#/ && !/^if / && !/CONVERT-COMPLETE/'
 } | {
   $SEDE "s/(?=^(def) )([A-z0-9'.]) {1,}([A-z0-9'.])/\1, \2/g"
 } 
