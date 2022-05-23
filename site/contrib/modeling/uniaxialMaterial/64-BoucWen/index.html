@@ -14147,7 +14147,7 @@ integer tag identifying material
 </td>
 <td>
 <p>
-ratio of post-yield stiffness to the initial elastic stiffenss (0&lt; &lt;math&gt;&lt;/math&gt; &lt;1)
+ratio of post-yield stiffness to the initial elastic stiffenss (0&lt; <span class="math inline">\(\alpha\)</span> &lt;1)
 </p>
 </td>
 </tr>
@@ -14214,12 +14214,13 @@ NOTES:
 </p>
 <ol>
 <li>
-<p>Parameter <span class="math inline">\(\gamma\)</span> is usually in the range from -1 to 1 and parameter <span class="math inline">\(\beta\)</span> is usually in the range from 0 to 1. Depending on the values of <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\beta\)</span> softening, hardening or quasi-linearity can be simulated. The hysteresis loop will exhibit <strong>softening</strong> for the following cases: (a) &lt;math&gt;&lt;/math&gt; + &lt;math&gt;&lt;/math&gt; &gt; 0 and <span class="math inline">\(\beta\)</span> -</p>
-<p><span class="math display">\[\gamma&amp;lt;/math&amp;gt; &amp;gt; 0, (b)
-&amp;lt;math&amp;gt;\beta&amp;lt;/math&amp;gt;+&amp;lt;math&amp;gt;\gamma&amp;lt;/math&amp;gt; &amp;gt;0 and
-&amp;lt;math&amp;gt;\beta&amp;lt;/math&amp;gt;-&amp;lt;math&amp;gt;\gamma&amp;lt;/math&amp;gt; &amp;lt;0,
-and (c) &amp;lt;math&amp;gt;\beta&amp;lt;/math&amp;gt;+&amp;lt;math&amp;gt;\gamma\]</span></p>
-&gt;0 and <span class="math inline">\(\beta\)</span>-&lt;math&gt;&lt;/math&gt; = 0. The hysteresis loop will exhibit <strong>hardening</strong> if &lt;math&gt;&lt;/math&gt;+&lt;math&gt;&lt;/math&gt; &lt; 0 and <span class="math inline">\(\beta\)</span>-&lt;math&gt;&lt;/math&gt; &gt; 0, and <strong>quasi-linearity</strong> if &lt;math&gt;&lt;/math&gt;+&lt;math&gt;&lt;/math&gt; = 0 and &lt;math&gt;&lt;/math&gt;-&lt;math&gt;&lt;/math&gt; &gt; 0.
+<p>Parameter <span class="math inline">\(\gamma\)</span> is usually in the range from -1 to 1 and parameter <span class="math inline">\(\beta\)</span> is usually in the range from 0 to 1. Depending on the values of <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\beta\)</span> softening, hardening or quasi-linearity can be simulated. The hysteresis loop will exhibit <strong>softening</strong> for the following cases:</p>
+<ol type="1">
+<li><span class="math inline">\(\beta + \gamma \gt 0\)</span> and <span class="math inline">\(\beta - \gamma \gt 0\)</span>,</li>
+<li><span class="math inline">\(\beta + \gamma \gt 0\)</span> and <span class="math inline">\(\beta - \gamma \lt 0\)</span>, and</li>
+<li><span class="math inline">\(\beta + \gamma \gt 0\)</span> and <span class="math inline">\(\beta - \gamma = 0\)</span>.</li>
+</ol>
+<p>The hysteresis loop will exhibit <strong>hardening</strong> if <span class="math inline">\(\beta + \gamma \lt 0\)</span> and <span class="math inline">\(\beta - \gamma \gt 0\)</span>, and <strong>quasi-linearity</strong> if $+ = 0 and <span class="math inline">\(\beta - \gamma \gt 0\)</span>.</p>
 </li>
 <li>
 The material can only define stress-strain relationship.
