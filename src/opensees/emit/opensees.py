@@ -149,13 +149,17 @@ class ScriptBuilder:
             self.idnt = self.idnt[:-1]
 
     def __init__(self):
+        self.sent = set()
         self.streams = [ScriptBuilder.Writer(StringIO(), self)]
 
     def getstr(self):
         return self.streams[0].strm.getvalue()
 
     def send(self, obj, idnt=None):
+        if id(obj) in self.sent:
+            return self
         w = self.streams[0]
+        [self.send(i) for i in obj.get_refs()]
         w.write(" ".join(obj._cmd))
         w.current_obj = obj # TODO: Clean this up
         for arg in obj._args:
@@ -169,6 +173,7 @@ class ScriptBuilder:
             else:
                 raise ValueError()
         w.endln();
+        self.sent.add(id(obj))
         return self
 
 

@@ -13,9 +13,10 @@ class Component:
         from .tcl import TclRuntime, dumps
         rt = TclRuntime()
         from . import libOpenSeesRT
+
         if self._cmd[0] == "uniaxialMaterial":
             rt.model(self)
-            tag = self.name if self.name is not None else "1"
+            tag = self.name # if self.name is not None else "1"
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
             handle = self._builder.getUniaxialMaterial(tag)
 

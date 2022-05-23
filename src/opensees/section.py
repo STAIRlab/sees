@@ -36,7 +36,7 @@ class FiberSection(_FiberCollection):
     _refs = ["materials"]
 
     def __enter__(self):
-        Component.__enter__(self)
+        return Component.__enter__(self)
    
     def init(self):
         self._fibers = None
