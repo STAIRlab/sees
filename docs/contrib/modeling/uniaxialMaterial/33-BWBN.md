@@ -60,7 +60,7 @@ Material</a>)</p></td>
 </tbody>
 </table>
 <figure>
-<img src="BWBN_YSPD.jpg" title="BWBN_YSPD.jpg" alt="BWBN_YSPD.jpg" />
+<img src="/OpenSeesRT/contrib/static/BWBN_YSPD.jpg" title="BWBN_YSPD.jpg" alt="BWBN_YSPD.jpg" />
 <figcaption aria-hidden="true">BWBN_YSPD.jpg</figcaption>
 </figure>
 <p>Fig. Cyclic force displacement relationship of the YSPDs generated

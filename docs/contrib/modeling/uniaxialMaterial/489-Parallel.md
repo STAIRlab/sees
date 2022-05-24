@@ -8,6 +8,7 @@ objects.</p>
 uniaxialMaterial Parallel $matTag $tag1 $tag2 ...
         < -factors $fact1 $fact2 ... >
 ```
+
 <hr />
 <table>
 <tbody>
@@ -16,21 +17,25 @@ uniaxialMaterial Parallel $matTag $tag1 $tag2 ...
 <td><p>integer tag identifying material</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$tag1 $tag2 ...</strong></p></td>
+<td><code>tag1 tag2 ...</code></td>
 <td><p>identification tags of materials making up the material
 model</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$fact1 $fact2 ...</strong></p></td>
+<td><p><code>fact1 fact2 ...</code></p></td>
 <td><p>factors to create a linear combination of the specified
 materials. Factors can be negative to subtract one material from an
 other. (optional, default = 1.0)</p></td>
 </tr>
 </tbody>
 </table>
-<p>The parallel material is represented graphically: <img
-src="ParallelMaterial.gif" title="ParallelMaterial.gif"
-alt="ParallelMaterial.gif" /></p>
+
+The parallel material is represented graphically: 
+
+<img
+src="/OpenSeesRT/contrib/static/ParallelMaterial.gif" title="ParallelMaterial.gif"
+alt="ParallelMaterial.gif" />
+
 <p>In a parallel model, strains are equal and stresses and stiffnesses
 are additive: <img src="/OpenSeesRT/contrib/static/ParallelMaterialExample.gif"
 title="ParallelMaterialExample.gif"
@@ -40,3 +45,4 @@ alt="ParallelMaterialExample.gif" /></p>
 </span></p>
 <p>Images Developed by: <span style="color:blue"> Silvia Mazzoni
 </span></p>
+

@@ -109,16 +109,9 @@ Elastic-perfectly plastic
 
 </dl>
 
-### Other Uniaxial Materials
+### Moment-Curvature inspired materials
 
 <ul>
-<li><a href="CastFuse_Material">CastFuse
-</a></li>
-<li><a href="ViscousDamper_Material">ViscousDamper
-</a></li>
-<li><a href="BilinearOilDamper_Material"
->BilinearOilDamper</a></li>
-
 <li><a
 href="ModIMKBilin/">ModIMKBilin</a>
 Modified Ibarra-Medina-Krawinkler Deterioration Model
@@ -133,6 +126,26 @@ Modified Ibarra-Medina-Krawinkler Deterioration Model with Peak-Oriented Hystere
 <li><a href="ModIMKPinching">ModIMKPinching</a>
 Modified Ibarra-Medina-Krawinkler Deterioration Model with Pinched Hysteretic Response
 </li>
+
+<li><a href="BoucWen_Material">BoucWen</a></li>
+
+<li><a href="BWBN_Material">BWBN</a> Pinching Hysteretic Bouc-Wen Material</li>
+</ul>
+
+### Brace Materials
+
+<ul>
+<li><a href="SelfCentering_Material">SelfCentering</a> uniaxial self-centering (flag-shaped) material object with optional non-recoverable slip behaviour and an optional stiffness increase at high strains (bearing behaviour).</li>
+</ul>
+
+### Other Uniaxial Materials
+
+<li><a href="CastFuse_Material">CastFuse
+</a></li>
+<li><a href="ViscousDamper_Material">ViscousDamper
+</a></li>
+<li><a href="BilinearOilDamper_Material"
+>BilinearOilDamper</a></li>
 
 <li><a href="SAWS_Material">SAWS</a></li>
 <li><a href="BARSLIP_Material">BARSLIP</a></li>
@@ -155,10 +168,9 @@ Strain Penetration Model for Fully Anchored Steel Reinforcing Bars
 <li><a href="PathIndependent_Material">PathIndependent</a></li>
 <li><a href="Pinching4_Material">Pinching4</a></li>
 <li><a href="Engineered_Cementitious_Composites_Material">Engineered Cementitious Composites</a></li>
-<li><a href="SelfCentering_Material">SelfCentering</a></li>
+
 <li><a href="Viscous_Material">Viscous</a></li>
-<li><a href="BoucWen_Material">BoucWen</a></li>
-<li><a href="BWBN_Material">BWBN</a>Pinching Hysteretic Bouc-Wen Material</li>
+
 
 <li><a href="KikuchiAikenHDR_Material">KikuchiAikenHDR</a></li>
 <li><a href="KikuchiAikenLRB_Material">KikuchiAikenLRB</a></li>
@@ -169,7 +181,7 @@ Strain Penetration Model for Fully Anchored Steel Reinforcing Bars
 <li><a href="CFSSSWP"> CFSSSWP Steel-Sheathed Cold-formed Steel Shear Wall Panel</a></li>
 </ul>
 
-### PyTzQz uniaxial materials 
+### PyTzQz uniaxial soil materials 
 
 for p-y, t-z and q-z elements for modeling soil-structure interaction through the piles in a structural foundation
 <ul>

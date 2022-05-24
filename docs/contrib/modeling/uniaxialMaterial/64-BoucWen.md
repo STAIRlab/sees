@@ -19,7 +19,7 @@ uniaxialMaterial BoucWen $matTag $alpha $ko $n $gamma
 <tr class="even">
 <td><code class="parameter-table-variable">alpha</code></td>
 <td><p>ratio of post-yield stiffness to the initial elastic stiffenss
-(0&lt; &lt;math&gt;\alpha&lt;/math&gt; &lt;1)</p></td>
+(0&lt; $\alpha$ &lt;1)</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">ko</code></td>
@@ -48,32 +48,27 @@ can be simulated (look at the NOTES)</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>NOTES:</p>
 <ol>
 <li>Parameter $\gamma$ is usually in the range
-from -1 to 1 and parameter $\beta$ is usually in
-the range from 0 to 1. Depending on the values of
-$\gamma$ and $\beta$
-softening, hardening or quasi-linearity can be simulated. The hysteresis
-loop will exhibit <strong>softening</strong> for the following cases:
-(a) &lt;math&gt;\beta&lt;/math&gt; + &lt;math&gt;\gamma&lt;/math&gt;
-&gt; 0 and $\beta$ -
+  from -1 to 1 and parameter $\beta$ is usually in
+  the range from 0 to 1. Depending on the values of $\gamma$ and $\beta$
+  softening, hardening or quasi-linearity can be simulated. The hysteresis
+  loop will exhibit <strong>softening</strong> for the following cases:
 
-$$\gamma&lt;/math&gt; &gt; 0, (b)
-&lt;math&gt;\beta&lt;/math&gt;+&lt;math&gt;\gamma&lt;/math&gt; &gt;0 and
-&lt;math&gt;\beta&lt;/math&gt;-&lt;math&gt;\gamma&lt;/math&gt; &lt;0,
-and (c) &lt;math&gt;\beta&lt;/math&gt;+&lt;math&gt;\gamma$$
+  1. $\beta + \gamma \gt 0$ and $\beta - \gamma \gt 0$, 
+  2. $\beta + \gamma \gt 0$ and $\beta - \gamma \lt 0$, and 
+  3. $\beta + \gamma \gt 0$ and $\beta - \gamma = 0$. 
+  
+  The hysteresis loop will exhibit <strong>hardening</strong> if
+  $\beta + \gamma \lt 0$ and $\beta - \gamma \gt 0$, and <strong>quasi-linearity</strong> if
+  $\beta + \gamma = 0 and $\beta - \gamma \gt 0$.
 
-&gt;0 and $\beta$-&lt;math&gt;\gamma&lt;/math&gt;
-= 0. The hysteresis loop will exhibit <strong>hardening</strong> if
-&lt;math&gt;\beta&lt;/math&gt;+&lt;math&gt;\gamma&lt;/math&gt; &lt; 0
-and $\beta$-&lt;math&gt;\gamma&lt;/math&gt; &gt;
-0, and <strong>quasi-linearity</strong> if
-&lt;math&gt;\beta&lt;/math&gt;+&lt;math&gt;\gamma&lt;/math&gt; = 0 and
-&lt;math&gt;\beta&lt;/math&gt;-&lt;math&gt;\gamma&lt;/math&gt; &gt;
-0.</li>
+</li>
 <li>The material can only define stress-strain relationship.</li>
 </ol>
+
 <p>REFERENCES:</p>
 <p>Haukaas, T. and Der Kiureghian, A. (2003). "Finite element
 reliability and sensitivity methods for performance-based earthquake

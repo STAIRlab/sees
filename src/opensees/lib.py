@@ -304,6 +304,35 @@ class uniaxial:
     ])
 
 
+    #
+    # MOMENT-CURVATURE
+    #
+
+    BoucWen = Uni("BoucWen", "BoucWen", args=[
+        Tag(),
+        Num("alpha", about="ratio of post-yield stiffness to the initial elastic stiffenss (0< α <1)"),
+        Num("ko", about="initial elastic stiffness"),
+        Num("n", about="parameter that controls transition from linear to nonlinear range (as n increases the transition becomes sharper; n is usually grater or equal to 1)"),
+        Grp("a", args=[Num("gamma"), Num("beta")], about="parameters that control shape of hysteresis loop; depending on the values of γ and β softening, hardening or quasi-linearity can be simulated (look at the NOTES)"),
+        Grp("b", args=[Num("Ao"), Num("deltaA")], about="parameters that control tangent stiffness"),
+        Grp("c", args=[Num("deltaNu"), Num("deltaEta")], about="parameters that control material degradation"),
+    ])
+    # Clough = Uni("Clough", "SNAP::Clough", args=[
+    #     Tag(),
+    #     #Num("elstk",     about="initial elastic stiffness"),
+    #     Num("fyieldPos", about="positive yield strength"),
+    #     Num("fyieldNeg", about="yield strength in compression"),
+    #     Num("alpha",     about="strain hardening ratio (fraction of elstk)"),
+    #     Num("elstk",     about="initial elastic stiffness"),
+    #     Num("Resfac	",   about="residual stress after collapse"),
+    #     Num("dyieldPos", about="positive yield displacement"),
+    #     Num("dyieldNeg", about="negative yield displacement"),
+    #         
+    #     Grp("a", args=[Num("ecaps"), Num("ecapd"), Num("ecapk"), Num("ecapa")], about="parameter expressing the hystetic energy dissipacion capacity."),
+    #     Grp("b", args=[Num("Enrgts"), Num("Enrgtd"), Num("Enrgtk"), Num("Enrgta")], about="hysteretic energy dissipation capacity")
+    # ])
+
+
 
 class element:
     Iyc = lambda: Num("iyc", field="iyc",  about="Centroidal moment of inertia", alt="section")

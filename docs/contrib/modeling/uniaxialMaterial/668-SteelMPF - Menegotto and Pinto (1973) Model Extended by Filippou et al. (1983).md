@@ -29,32 +29,33 @@ between the two asymptotes is governed by a cyclic curvature parameter
 is dependent on the absolute strain difference between the current
 asymptote intersection point and the previous maximum or minimum strain
 reversal point depending on whether the current strain is increasing or
-decreasing, respectively. The strain and stress pairs (ε&lt;sub
-class="subscript"&gt;r&lt;/sub&gt;,σ&lt;sub
-class="subscript"&gt;r&lt;/sub&gt;) and (ε&lt;sub
-class="subscript"&gt;0&lt;/sub&gt;,σ&lt;sub
-class="subscript"&gt;0&lt;/sub&gt;) shown on Figure 1 are updated after
+decreasing, respectively. The strain and stress pairs (ε<sub
+class="subscript">r</sub>,σ<sub class="subscript">r</sub>) and (ε<sub
+class="subscript">0</sub>,σ<sub
+class="subscript">0</sub>) shown on Figure 1 are updated after
 each strain reversal. The model allows calibration of isotropic
 hardening parameters in both compression and tension through optional
-input variables <em>a&lt;sub class="subscript"&gt;1&lt;/sub&gt;</em> and
-<em>a&lt;sub class="subscript"&gt;2&lt;/sub&gt;</em> for isotropic
-strain hardening in compression, and <em>a&lt;sub
-class="subscript"&gt;3&lt;/sub&gt;</em> and <em>a&lt;sub
-class="subscript"&gt;4&lt;/sub&gt;</em> for isotropic strain hardening
-tension, and uses default values of <em>a&lt;sub
-class="subscript"&gt;1&lt;/sub&gt;</em> = <em>a&lt;sub
-class="subscript"&gt;3&lt;/sub&gt;</em> = 0.0 and <em>a&lt;sub
-class="subscript"&gt;2&lt;/sub&gt;</em> = <em>a&lt;sub
-class="subscript"&gt;4&lt;/sub&gt;</em> = 1.0 that yield no isotropic
+input variables <em>a<sub class="subscript">1</sub></em> and
+<em>a<sub class="subscript">2</sub></em> for isotropic
+strain hardening in compression, and <em>a<sub
+class="subscript">3</sub></em> and <em>a<sub
+class="subscript">4</sub></em> for isotropic strain hardening
+tension, and uses default values of <em>a<sub
+class="subscript">1</sub></em> = <em>a<sub
+class="subscript">3</sub></em> = 0.0 and <em>a<sub
+class="subscript">2</sub></em> = <em>a<sub
+class="subscript">4</sub></em> = 1.0 that yield no isotropic
 strain hardening for either compression or tension. To incorporate
 isotropic strain hardening in compression, the recommended parameters
-are <em>a&lt;sub class="subscript"&gt;1&lt;/sub&gt;</em> = 0.01 and
-<em>a&lt;sub class="subscript"&gt;2&lt;/sub&gt;</em> = 7.0. To
+are <em>a<sub class="subscript">1</sub></em> = 0.01 and
+<em>a<sub class="subscript">2</sub></em> = 7.0. To
 incorporate isotropic strain hardening in tension, the recommended
-parameters are <em>a&lt;sub class="subscript"&gt;3&lt;/sub&gt;</em> =
-0.01 and <em>a&lt;sub class="subscript"&gt;4&lt;/sub&gt;</em> = 7.0.</p>
+parameters are <em>a<sub class="subscript">3</sub></em> =
+0.01 and <em>a<sub class="subscript">4</sub></em> = 7.0.</p>
+
 <p><strong>Source:</strong>
 /usr/local/cvs/OpenSees/SRC/material/uniaxial/</p>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/SteelMPF.png"
 title="Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)"
@@ -68,7 +69,7 @@ alt="Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)" />
 
 ```tcl
 uniaxialMaterial SteelMPF $mattag $fyp $fyn $E0 $bp $bn
-        $R0 $cR1 $cR2 &lt;$a1 $a2 $a3 $a4&gt;
+        $R0 $cR1 $cR2 < $a1 $a2 $a3 $a4 >
 ```
 
 <table>
@@ -140,14 +141,20 @@ $a3($fyn/$E0).</p></td>
 </tr>
 </tbody>
 </table>
+
 <hr />
 <p><strong>Example:</strong></p>
-<p>uniaxialMaterial SteelMPF 1 60 60 29000 0.02 0.02 20.0 0.925 0.15</p>
+
+```tcl
+uniaxialMaterial SteelMPF 1 60 60 29000 0.02 0.02 20.0 0.925 0.15
+```
+
 <hr />
+
 <p><strong>Discussion:</strong></p>
 <p>Although the Menegotto-Pinto model is already available in OpenSees
 (e.g., [<a
-href="http://opensees.berkeley.edu/wiki/index.php/Steel02_Material_--_Giuffr%C3%A9-Menegotto-Pinto_Model_with_Isotropic_Strain_Hardening">http://opensees.berkeley.edu/wiki/index.php/Steel02_Material_--_Giuffr%C3%A9-Menegotto-Pinto_Model_with_Isotropic_Strain_Hardening</a><strong>Steel02</strong>]),
+href="http://opensees.berkeley.edu/wiki/index.php/Steel02_Material_--_Giuffr%C3%A9-Menegotto-Pinto_Model_with_Isotropic_Strain_Hardening"><strong>Steel02</strong></a>]),
 the formulation of <strong>SteelMPF</strong> introduces several
 distinctive features compared to existing models. For example, the model
 allows definition of different yield stress values and strain hardening
@@ -208,18 +215,22 @@ overshooting upon reloading from low-amplitude unloading for Steel02 and
 SteelMPF</figcaption>
 </figure>
 <hr />
-<p><strong>References:</strong></p>
-<p>1) Filippou F.C., Popov, E.P., and Bertero, V.V. (1983). "Effects of
-Bond Deterioration on Hysteretic Behavior of Reinforced Concrete
-Joints". Report EERC 83-19, Earthquake Engineering Research Center,
-University of California, Berkeley.</p>
-<p>2) Kolozvari K., Orakcal K., and Wallace J. W. (2015). "Shear-Flexure
-Interaction Modeling of reinforced Concrete Structural Walls and Columns
-under Reversed Cyclic Loading", Pacific Earthquake Engineering Research
-Center, University of California, Berkeley, <a
-href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER
-Report No. 2015/12</a></p>
-<p>3) Menegotto, M., and Pinto, P.E. (1973). Method of analysis of
-cyclically loaded RC plane frames including changes in geometry and
-non-elastic behavior of elements under normal force and bending.
-Preliminary Report IABSE, vol 13.</p>
+
+## References
+
+- Filippou F.C., Popov, E.P., and Bertero, V.V. (1983). "Effects of
+  Bond Deterioration on Hysteretic Behavior of Reinforced Concrete
+  Joints". Report EERC 83-19, Earthquake Engineering Research Center,
+  University of California, Berkeley.</p>
+- Kolozvari K., Orakcal K., and Wallace J. W. (2015). "Shear-Flexure
+  Interaction Modeling of reinforced Concrete Structural Walls and Columns
+  under Reversed Cyclic Loading", Pacific Earthquake Engineering Research
+  Center, University of California, Berkeley, <a
+  href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER
+Report No. 2015/12</a>
+
+- Menegotto, M., and Pinto, P.E. (1973). Method of analysis of
+  cyclically loaded RC plane frames including changes in geometry and
+  non-elastic behavior of elements under normal force and bending.
+  Preliminary Report IABSE, vol 13.
+
