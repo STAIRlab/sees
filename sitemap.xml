@@ -2486,6 +2486,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/BoucWenInfill/</loc>
+         <lastmod>2022-05-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/Concrete01/</loc>
          <lastmod>2022-05-25</lastmod>
          <changefreq>daily</changefreq>
