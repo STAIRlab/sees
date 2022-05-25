@@ -14156,12 +14156,107 @@ Removal During Simulation
 
 <h1 id="degradingpinchedbw">DegradingPinchedBW</h1>
 <ul>
-<li><p>University of Modena and Reggio Emilia</p></li>
-<li><p>Matteo Pelliciari, Phd (University of Modena and Reggio Emilia, Dept. of Engineering “Enzo Ferrari”, Modena)</p></li>
-<li><p>Professor Davide Lavorato (Roma Tre University, Dept. of Architecture, Rome).</p>
-<p>int Tag, double p_m, double p_Fy, double p_xu, double p_alpha, double p_ko, double p_n, double p_eta, double p_beta, double p_rhoeps, double p_rhox, double p_phi, double p_deltak, double p_deltaf, double p_sigma, double p_u, double p_epsp, double p_rhop, double ptolerance, int pMaxNumIter)</p></li>
-<li><p><a href="merge">https://github.com/OpenSees/OpenSees/pull/335</a></p></li>
+<li><a href="https://github.com/GiacomoGr">User</a> University of Modena and Reggio Emilia</li>
+<li>Matteo Pelliciari, Phd (University of Modena and Reggio Emilia, Dept. of Engineering “Enzo Ferrari”, Modena)</li>
+<li>Professor Davide Lavorato (Roma Tre University, Dept. of Architecture, Rome).</li>
 </ul>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(\alpha\)</span></td>
+<td>Ratio of linear to non-linear response</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(k\)</span></td>
+<td>Elastic stiffness</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\beta_{0}\)</span></td>
+<td>Hysteresis shape control</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\eta_{0}\)</span></td>
+<td>Hysteresis shape control</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(n\)</span></td>
+<td>Hysteresis shape control</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\rho_{x}\)</span></td>
+<td>Max. displacement degradation</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\rho_{\epsilon}\)</span></td>
+<td>Energy degradation</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\delta_{k}\)</span></td>
+<td>Stiffness degradation</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\delta_{f}\)</span></td>
+<td>Strength degradation</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\psi\)</span></td>
+<td>Stiffness degradation rate control</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\sigma\)</span></td>
+<td>Pinching width</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(u\)</span></td>
+<td>Pinching slope</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\rho_{p}\)</span></td>
+<td>Pinching severity</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\epsilon_{p}\)</span></td>
+<td>Pinching activation energy</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span> int    Tag,
+ double p_m,
+   double p_Fy,
+   double p_xu,
+   double p_alpha,
+   double p_ko,
+   double p_n,
+   double p_eta,
+   double p_beta,
+   double p_rhoeps,
+   double p_rhox,
+   double p_phi,
+   double p_deltak,
+   double p_deltaf,
+   double p_sigma,
+   double p_u,
+   double p_epsp,
+   double p_rhop,
+   double ptolerance,
+   int pMaxNumIter)
+</pre></div>
+
+<ul>
+<li><a href="merge">https://github.com/OpenSees/OpenSees/pull/335</a></li>
+</ul>
+<p><span class="math display">\[
+\begin{aligned}
+\dot{z} &amp;=A\left(d_{i}\right) \dot{x}-\beta\left(d_{i}\right)\left(|\dot{x}||z|^{n-1} z+\eta_{0} \dot{x}|z|^{n}\right) \\
+&amp;=e^{-\delta_{k} d_{i} p_{k}\left(d_{i}\right)} \dot{x}-\beta_{0} e^{-\left[\delta_{k} p_{k}\left(d_{i}\right)-n \delta_{f}\right] d_{i}}\left(|\dot{x}||z|^{n-1} z+\eta_{0} \dot{x}|z|^{n}\right)
+\end{aligned}
+\]</span></p>
 <h2 id="references">References</h2>
 <ul>
 <li>“A degrading Bouc-Wen model for the hysteresis of reinforced concrete structural elements”, by Pelliciari M. et al. (Structure and Infrastructure Engineering, 2019, 1-14). https://doi.org/10.1080/15732479.2019.1674893</li>
