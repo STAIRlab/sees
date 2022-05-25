@@ -12735,6 +12735,8 @@ Removal During Simulation
         
           
         
+          
+        
       
       
         
@@ -12795,6 +12797,21 @@ Removal During Simulation
     <li class="md-nav__item">
       <a href="Concrete01/" class="md-nav__link">
         Concrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="DegradingPinchedBW/" class="md-nav__link">
+        DegradingPinchedBW
 
       </a>
     </li>
@@ -12886,7 +12903,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_10" type="checkbox" id="__nav_6_3_9_10" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_11" type="checkbox" id="__nav_6_3_9_11" >
       
       
       
@@ -12905,7 +12922,7 @@ Removal During Simulation
         </div>
       
       <nav class="md-nav" aria-label="ConcreteCM" data-md-level="4">
-        <label class="md-nav__title" for="__nav_6_3_9_10">
+        <label class="md-nav__title" for="__nav_6_3_9_11">
           <span class="md-nav__icon md-icon"></span>
           ConcreteCM
         </label>
@@ -12929,7 +12946,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_11" type="checkbox" id="__nav_6_3_9_11" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_12" type="checkbox" id="__nav_6_3_9_12" >
       
       
       
@@ -12947,14 +12964,14 @@ Removal During Simulation
         <div class="md-nav__link md-nav__link--index ">
           <a href="PyTzQz/">PyTzQz</a>
           
-            <label for="__nav_6_3_9_11">
+            <label for="__nav_6_3_9_12">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="PyTzQz" data-md-level="4">
-        <label class="md-nav__title" for="__nav_6_3_9_11">
+        <label class="md-nav__title" for="__nav_6_3_9_12">
           <span class="md-nav__icon md-icon"></span>
           PyTzQz
         </label>
@@ -12993,7 +13010,7 @@ Removal During Simulation
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_12" type="checkbox" id="__nav_6_3_9_12" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_9_13" type="checkbox" id="__nav_6_3_9_13" >
       
       
       
@@ -13012,7 +13029,7 @@ Removal During Simulation
         </div>
       
       <nav class="md-nav" aria-label="ScottHysteretic" data-md-level="4">
-        <label class="md-nav__title" for="__nav_6_3_9_12">
+        <label class="md-nav__title" for="__nav_6_3_9_13">
           <span class="md-nav__icon md-icon"></span>
           ScottHysteretic
         </label>
@@ -14169,10 +14186,13 @@ The following contain information about matType? and the args required for each 
 >Elastic-No Tension</a>
 </li>
 <li>
-<a href="Parallel_Material">Parallel </a>
+<a href="Parallel_Material">Parallel</a>
 </li>
 <li>
 <a href="Series_Material">Series</a>
+</li>
+<li>
+<a href="Viscous_Material">Viscous</a>
 </li>
 </ul>
 </li>
@@ -14287,22 +14307,13 @@ Complete Concrete Model by Chang and Mander (1994)
 <h3 id="bouc-wen-models">Bouc-Wen Models</h3>
 <ul>
 <li>
-BWBN.h
+BoucWenOriginal
 </li>
 <li>
-BoucWenInfill.cpp
+DegradingPinchedBW
 </li>
 <li>
-BoucWenOriginal.h
-</li>
-<li>
-DegradingPinchedBW.h
-</li>
-<li>
-snap/Bilinear.cpp
-</li>
-<li>
-BoucWenInfill.h
+BoucWenInfill
 </li>
 <li>
 <a href="BoucWen_Material">BoucWen</a>
@@ -14311,19 +14322,12 @@ BoucWenInfill.h
 <a href="BWBN_Material">BWBN</a> Pinching Hysteretic Bouc-Wen Material
 </li>
 </ul>
-<h3 id="brace-materials">Brace Materials</h3>
-<ul>
-<li>
-<a href="SelfCentering_Material">SelfCentering</a> uniaxial self-centering (flag-shaped) material object with optional non-recoverable slip behaviour and an optional stiffness increase at high strains (bearing behaviour).
-</li>
-</ul>
 <h3 id="other-uniaxial-materials">Other Uniaxial Materials</h3>
 <ul>
 <li>
 <a
 href="ModIMKBilin/">ModIMKBilin</a> Modified Ibarra-Medina-Krawinkler Deterioration Model with Bilinear Hysteretic Response (Bilin)
-</li
-
+</li>
 <li>
 <a
 href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawinkler Deterioration Model with Peak-Oriented Hysteretic Response
@@ -14393,9 +14397,6 @@ href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawink
 <a href="Engineered_Cementitious_Composites_Material">Engineered Cementitious Composites</a>
 </li>
 <li>
-<a href="Viscous_Material">Viscous</a>
-</li>
-<li>
 <a href="KikuchiAikenHDR_Material">KikuchiAikenHDR</a>
 </li>
 <li>
@@ -14415,6 +14416,9 @@ href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawink
 </li>
 <li>
 <a href="CFSSSWP"> CFSSSWP Steel-Sheathed Cold-formed Steel Shear Wall Panel</a>
+</li>
+<li>
+<a href="SelfCentering_Material">SelfCentering</a> uniaxial self-centering (flag-shaped) material object with optional non-recoverable slip behaviour and an optional stiffness increase at high strains (bearing behaviour).
 </li>
 </ul>
 <h3 id="pytzqz-uniaxial-soil-materials">PyTzQz uniaxial soil materials</h3>
