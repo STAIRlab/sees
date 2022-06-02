@@ -14159,9 +14159,7 @@ Removal During Simulation
 
 
 <h1 id="domainsolver">DomainSolver</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/DomainSolver.h&gt;</span><span class="cp"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;system_of_eqn/linearSOE/DomainSolver.h&gt;</span></span></code></pre></div>
 <p>class DomainSolver: public LinearSOESolver<br />
 </p>
 <p>MovableObject<br />
@@ -14190,29 +14188,17 @@ DomainSolver is an abstract class. DomainSolver objects are responsible for perf
 </p>
 <p><br />
 Causes the condenser to form <span class="math inline">\(A_{ee}^* = A_{ee} -A_{ei} A_{ii}^{-1} A_{ie}\)</span>, where <span class="math inline">\(A_{ii}\)</span> is the first <em>numInt</em> rows of the <span class="math inline">\(A\)</span> matrix. The original <span class="math inline">\(A\)</span> is changed as a result. <span class="math inline">\(A_{ee}^*\)</span> is to be stored in <span class="math inline">\(A_{ee}\)</span>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">condenseRHS</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numInt</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> condenseRHS<span class="op">(</span><span class="dt">int</span> numInt<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Causes the condenser to form <span class="math inline">\(B_e^* = B_e - A_{ei} A_{ii}^{-1} B_i\)</span>, where <span class="math inline">\(A_{ii}\)</span> is the first <em>numInt</em> rows of <span class="math inline">\(A\)</span>. The original <span class="math inline">\(B\)</span> is changed as a result. <span class="math inline">\(B_e^*\)</span> is to be stored in <span class="math inline">\(B_e\)</span>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">computeCondensedMatVect</span><span class="p">(</span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">numInt</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> computeCondensedMatVect<span class="op">(</span>Vector <span class="op">&amp;</span>u<span class="op">,</span> <span class="dt">int</span> numInt<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Causes the condenser to form <span class="math inline">\(A_{ee} u\)</span>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getCondensedA</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Matrix <span class="op">&amp;</span>getCondensedA<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the contents of <span class="math inline">\(A_{ee}\)</span> as a matrix.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getCondensedRHS</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Vector <span class="op">&amp;</span>getCondensedRHS<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the contents of <span class="math inline">\(B_e\)</span> as a Vector.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getCondensedMatVect</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Vector <span class="op">&amp;</span>getCondensedMatVect<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Returns the contents of the last call to <code>computeCondensedMatVect()</code>. <code class="sourceCode cpp"><span class="kw">virtual</span> <span class="dt">int</span> setComputedXext<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span>u<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></code> Sets the computed value of the unknowns in <span class="math inline">\(X_e\)</span> corresponding to the external equations to <em>u</em>. The number of external equations is given by the size of vector <span class="math inline">\(u\)</span>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">solveXint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> solveXint<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>To compute the internal equation numbers <span class="math inline">\(X_i\)</span> given the value set for the external equations in the last call to <code>setComputedXext()</code>.</p>
 
 

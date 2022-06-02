@@ -14159,16 +14159,14 @@ Removal During Simulation
 
 
 <h1 id="loadpattern">LoadPattern</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;domain/pattern/LoadPattern.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">LoadPattern</span><span class="o">:</span><span class="w"></span>
-<span class="k">public</span><span class="w"></span>
-<span class="w">  </span><span class="n">DomainComponent</span><span class="w"></span>
-<span class="w">  </span><span class="n">TaggedObject</span><span class="w"></span>
-<span class="w">  </span><span class="n">MovableObject</span><span class="w"></span>
-<span class="w">  </span><span class="n">DomainComponent</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;domain/pattern/LoadPattern.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LoadPattern<span class="op">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  DomainComponent</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  TaggedObject</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  MovableObject</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  DomainComponent</span></code></pre></div>
 <p>The <code>LoadPattern</code> class is a concrete base class. A <code>LoadPattern</code> is a container class for Load and <code>SP_Constraint</code> objects. Each <code>LoadPattern</code> object is associated with a <code>TimeSeries</code> object which, for a given pseudo time, will return the appropriate load factor to be applied to the load in the LoadPattern.</p>
 <p>// Constructors</p>
 <p>// Destructor</p>

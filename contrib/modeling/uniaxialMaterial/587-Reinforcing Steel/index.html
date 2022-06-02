@@ -14184,13 +14184,11 @@ href="http://cee.engr.ucdvis.edu/faculty/kunnath/kunnath.htm">http://cee.engr.uc
 <p>
 This command is used to construct a ReinforcingSteel uniaxial material object. This object is intended to be used in a reinforced concrete fiber section as the steel reinforcing material.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ReinforcingSteel<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fy</span><span class="w"> </span><span class="nv">$fu</span><span class="w"> </span><span class="nv">$Es</span><span class="w"> </span><span class="nv">$Esh</span><span class="w"> </span><span class="nv">$esh</span><span class="w"> </span><span class="nv">$eult</span><span class="w"> </span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>GABuck<span class="w"> </span><span class="nv">$lsr</span><span class="w"> </span><span class="nv">$beta</span><span class="w"> </span><span class="nv">$r</span><span class="w"> </span><span class="nv">$gama</span><span class="w"> </span><span class="o">&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-DMBuck</span><span class="w"> </span><span class="nv">$lsr</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-CMFatigue</span><span class="w"> </span><span class="nv">$Cf</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="nv">$Cd</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>IsoHard<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$a1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$limit</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ReinforcingSteel <span class="dt">$matTag</span> <span class="dt">$fy</span> <span class="dt">$fu</span> <span class="dt">$Es</span> <span class="dt">$Esh</span> <span class="dt">$esh</span> <span class="dt">$eult</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -GABuck</span> <span class="dt">$lsr</span> <span class="dt">$beta</span> <span class="dt">$r</span> <span class="dt">$gama</span> &gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -DMBuck</span> <span class="dt">$lsr</span> &lt; <span class="dt">$alpha</span> &gt; &gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -CMFatigue</span> <span class="dt">$Cf</span> <span class="dt">$alpha</span> <span class="dt">$Cd</span> &gt; </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -IsoHard</span> &lt; <span class="dt">$a1</span> &lt; <span class="dt">$limit</span> &gt; &gt; &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -14598,20 +14596,16 @@ ReinfSteel2431.png
 <p>
 Figure 2: Slenderness Defined
 </p>
+<h3 id="buckling-models">Buckling Models</h3>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ReinfSteel2432.png" title="ReinfSteel2432.png"
 alt="ReinfSteel2432.png" />
 <figcaption aria-hidden="true">
-ReinfSteel2432.png
+Figure 3: Buckling Parameters
 </figcaption>
 </figure>
-<p>
-Figure 3: Buckling Parameters
-</p>
-<p>
-GOMES AND APPLETON BUCKLED CURVE: Figure 3 describes the use of the buckling parameters modified from Gomes and Appleton(1997). ß is an amplification factor that allows the user to scale the buckling curve. This is useful to adjust the location of the bifurcation point. The r factor is used to adjust the curve between the buckled curve and the unbuckled curve. The variable r can only be a real number between 0.0 and 1.0. The g factor is the positive stress location about which the buckling factor is initiated. This factor was introduced to avoid kinks in the reloading branch. The implementation of the g factor is shown in Figure 3. The basic idea is that the stress strain curves are reduced toward the positive stress g&lt;em class=“emphasis”&gt;f&lt;/em&gt;<sub
-class="subscript">su</sub>. g should be between 0.0 and 1.0. A g of 0.0 will factor to the zero stress axis. This will usually produce a kink in the reloading curve at the zero stress location. Good results have been obtained using the following values for the buckling constants.
-</p>
+<h4 id="gomes-and-appleton-buckled-curve">GOMES AND APPLETON BUCKLED CURVE</h4>
+<p>Figure 3 describes the use of the buckling parameters modified from Gomes and Appleton (1997). ß is an amplification factor that allows the user to scale the buckling curve. This is useful to adjust the location of the bifurcation point. The <span class="math inline">\(r\)</span> factor is used to adjust the curve between the buckled curve and the unbuckled curve. The variable <span class="math inline">\(r\)</span> can only be a real number between <span class="math inline">\(0.0\)</span> and <span class="math inline">\(1.0\)</span>. The <span class="math inline">\(\gamma\)</span> factor is the positive stress location about which the buckling factor is initiated. This factor was introduced to avoid kinks in the reloading branch. The implementation of the <span class="math inline">\(\gamma\)</span> factor is shown in Figure 3. The basic idea is that the stress strain curves are reduced toward the positive stress <span class="math inline">\(\gamma f_{su}\)</span>. The value <span class="math inline">\(\gamma\)</span> should be between <span class="math inline">\(0.0\)</span> and <span class="math inline">\(1.0\)</span>. A <span class="math inline">\(\gamma\)</span> of <span class="math inline">\(0.0\)</span> will factor to the zero stress axis. This will usually produce a kink in the reloading curve at the zero stress location. Good results have been obtained using the following values for the buckling constants.</p>
 <p>
 <img src="/OpenSeesRT/contrib/static/ReinfSteel2433.png" title="ReinfSteel2433.png"
 alt="ReinfSteel2433.png" /> or <img src="/OpenSeesRT/contrib/static/ReinfSteel2434.png"
@@ -14630,21 +14624,17 @@ ReinfSteel2435.png
 <p>
 Figure 4: Effect of Sample Parameters in the Gomes and Appleton Buckling Model
 </p>
-<p>
-DHAKAL AND MAEKAWA BUCKLED CURVE: The buckling model described in this section is based on Dhakal and Maekawa(2002). This model takes two terms, lsr and a. lsr is the slenderness ratio as described in Figure 2 and a is an amplification factor. Dhakal and Maekawa suggest a value of a =1.0 for linear strain hardening and a =0.75 for elastic perfectly plastic material behavior. The material model in this implementation is neither linear strain hardening nor elastic perfectly plastic. However, since the material model does include strain hardening a=1.0 has been assumed as the default value. Figure 5 shows the unbuckled vs buckled stress strain response curves.
-</p>
+<h4 id="dhakal-and-maekawa-buckled-curve">DHAKAL AND MAEKAWA BUCKLED CURVE</h4>
+<p>The buckling model described in this section is based on Dhakal and Maekawa (2002). This model takes two terms, lsr and a. lsr is the slenderness ratio as described in Figure 2 and a is an amplification factor. Dhakal and Maekawa suggest a value of <span class="math inline">\(a =1.0\)</span> for linear strain hardening and <span class="math inline">\(a =0.75\)</span> for elastic perfectly plastic material behavior. The material model in this implementation is neither linear strain hardening nor elastic perfectly plastic. However, since the material model does include strain hardening <span class="math inline">\(a=1.0\)</span> has been assumed as the default value. Figure 5 shows the unbuckled vs buckled stress strain response curves.</p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ReinfSteel2436.png" title="ReinfSteel2436.png"
 alt="ReinfSteel2436.png" />
-<figcaption aria-hidden="true">
-ReinfSteel2436.png
+<figcaption>
+Figure 5: Effect of Suggested Parameters in the Dhakal and Maekawa Buckling Model
 </figcaption>
 </figure>
-<p>
-Figure 5: Effect of Suggested Parameters in the Dhakal and Maekawa Buckling Model
-</p>
-<p>
-CYCLIC DEGRADATION: C<sub class="subscript">f</sub> and a are factors used to relate the number of half cycles to fracture to the half cycle plastic strain amplitude (Figure 6a). Plastic strain half cycle amplitude is defined by Equation 1. The total half cycle strain amplitude,, is shown in Figure 6b as the change in strain from reversal A to reversal B. C<sub class="subscript">f</sub> and a are used to define a cumulative damage factor, D, as described in Equation 2.
+<h3 id="cyclic-degradation">CYCLIC DEGRADATION</h3>
+<span class="math inline">\(C_f\)</span> and <span class="math inline">\(a\)</span> are factors used to relate the number of half cycles to fracture to the half cycle plastic strain amplitude (Figure 6a). Plastic strain half cycle amplitude is defined by Equation 1. The total half cycle strain amplitude,, is shown in Figure 6b as the change in strain from reversal A to reversal B. C<sub class="subscript">f</sub> and a are used to define a cumulative damage factor, D, as described in Equation 2.
 </p>
 <p>
 <img src="/OpenSeesRT/contrib/static/ReinfSteel2438.png" title="ReinfSteel2438.png"
@@ -14665,70 +14655,65 @@ The cumulative damage factor is zero at no damage and 1.0 at fracture. Once a ba
 <figure>
 <img src="/OpenSeesRT/contrib/static/ReinfSteel2442.png" title="ReinfSteel2442.png"
 alt="ReinfSteel2442.png" />
-<figcaption aria-hidden="true">
-ReinfSteel2442.png
+<figcaption>
+Figure 7: Strength Reduction
 </figcaption>
 </figure>
 <p>
-Figure 7: Strength Reduction
+A degrade constant, <span class="math inline">\(K_1\)</span>, is used to describe loss in strength due to damage or other phenomenon resulting in softening due to plastic reversals. The degradation is currently assumed to have a simple linear relationship with D. This is used to correlate strength degradation to the cumulative damage factor. This linear relationship is shown in Equation 3.
 </p>
+<span class="math display">\[
+\phi_{S R}=K_{1} D
+\]</span>
 <p>
-A degrade constant, K<sub class="subscript">1</sub>, is used to describe loss in strength due to damage or other phenomenon resulting in softening due to plastic reversals. The degradation is currently assumed to have a simple linear relationship with D. This is used to correlate strength degradation to the cumulative damage factor. This linear relationship is shown in Equation 3.
+<!-- <img src="/OpenSeesRT/contrib/static/ReinfSteel2443.png" title="ReinfSteel2443.png"
+alt="ReinfSteel2443.png" /> -->
+(3)
 </p>
-<p>
-<img src="/OpenSeesRT/contrib/static/ReinfSteel2443.png" title="ReinfSteel2443.png"
-alt="ReinfSteel2443.png" /> (3)
-</p>
-<p>
-Alternately this simple linear equation can be rewritten in a way that makes the strength degradation independent of the number of half cycles to failure. Keeping the failure and degradation terms independent is convenient for calibration. Equation 3 is rewritten below utilizing the strength degradation constant C<sub
-class="subscript">d</sub>.
-</p>
+<p>Alternately this simple linear equation can be rewritten in a way that makes the strength degradation independent of the number of half cycles to failure. Keeping the failure and degradation terms independent is convenient for calibration. Equation 3 is rewritten below utilizing the strength degradation constant <span class="math inline">\(C_d\)</span>.</p>
 <p>
 <img src="/OpenSeesRT/contrib/static/ReinfSteel2444.png" title="ReinfSteel2444.png"
 alt="ReinfSteel2444.png" /> (4)
 </p>
 <p>
-The constants K<sub class="subscript">1</sub>, and C<sub class="subscript">d</sub> can be related as shown in Equation 5.
+The constants K<sub class="subscript">1</sub>, and <span class="math inline">\(C_d\)</span> can be related as shown in Equation 5.
 </p>
 <p>
 <img src="/OpenSeesRT/contrib/static/ReinfSteel2445.png" title="ReinfSteel2445.png"
 alt="ReinfSteel2445.png" /> (5)
 </p>
 <p>
-Suggested starting values have been obtained from data reported by Brown and Kunnath (2000) for bars with a slenderness of 6. Keep in mind that this experimental data is limited and additional calibration may be necessary to capture realistic behavior in a reinforcing bar embedded in concrete and influenced by other factors such as confinement.
+Suggested starting values have been obtained from data reported by Brown and Kunnath (2000) for bars with a slenderness of <span class="math inline">\(6\)</span>. Keep in mind that this experimental data is limited and additional calibration may be necessary to capture realistic behavior in a reinforcing bar embedded in concrete and influenced by other factors such as confinement.
 </p>
-<p>
-a: 0.506
-</p>
-<p>
-C<sub class="subscript">f</sub>: 0.26
-</p>
-<p>
-C<sub class="subscript">d</sub>: 0.389
-</p>
-<p>
-Sample Simulations of Degradation behavior
-</p>
-<p>
-a is best obtained from calibration of test results. a is used to relate damage from one strain range to an equivalent damage at another strain range. This is usually constant for a material type.
-</p>
-<p>
-C<sub class="subscript">f</sub> is the ductility constant used to adjust the number of cycles to failure. A higher value for C<sub class="subscript">f</sub> will result in a lower damage for each cycle. A higher value C<sub
-class="subscript">f</sub> translates to a larger number of cycles to failure.&lt;/p&gt;
-</p>
+<table>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(a\)</span></td>
+<td><span class="math inline">\(0.506\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(C_f\)</span></td>
+<td><span class="math inline">\(0.260\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(C_d\)</span></td>
+<td><span class="math inline">\(0.389\)</span></td>
+</tr>
+</tbody>
+</table>
+<h4 id="sample-simulations-of-degradation-behavior">Sample Simulations of Degradation behavior</h4>
+<p><span class="math inline">\(a\)</span> is best obtained from calibration of test results. <span class="math inline">\(a\)</span> is used to relate damage from one strain range to an equivalent damage at another strain range. This is usually constant for a material type.</p>
+<p><span class="math inline">\(C_f\)</span> is the ductility constant used to adjust the number of cycles to failure. A higher value for <span class="math inline">\(C_f\)</span> will result in a lower damage for each cycle. A higher value C<sub class="subscript">f</sub> translates to a larger number of cycles to failure.</p>
 <p>
 C<sub class="subscript">d</sub> is the strength reduction constant. A larger value for C<sub class="subscript">d</sub> will result in a lower reduction of strength for each cycle. The four charts shown in Figure 8 demonstrate the effect that some of the variables have on the cyclic response.
 </p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ReinfSteel2446.png" title="ReinfSteel2446.png"
 alt="ReinfSteel2446.png" />
-<figcaption aria-hidden="true">
-ReinfSteel2446.png
+<figcaption>
+Figure 8: Fatigue and Degradation Parameter Examples
 </figcaption>
 </figure>
-<p>
-Figure 8: Fatigue and Degradation Parameter Examples
-</p>
 <p>
 In Figure 8, the upper left response contains no strength degradation by setting the C<sub class="subscript">d</sub> variable to 0.0. The upper right response shows strength degradation due to the suggested values of C<sub class="subscript">f</sub>, a, and C<sub class="subscript">d</sub>. The response shown on the lower left demonstrates the change in the response when the suggested values of C<sub class="subscript">f</sub> and a are used with C<sub class="subscript">d</sub>=0.6. Making the value of C<sub class="subscript">d</sub> larger results in less strength reduction due to damage. The response on the lower right once again returns to the suggested values but C<sub class="subscript">f</sub> is changed to 0.15. This results in a more rapid accumulation of damage causing the bar to fail sooner. Note however that the strength degradation is unaffected by the more rapid accumulation of damage. The strength reduction and failure are not interdependent making the model easier to calibrate.
 </p>

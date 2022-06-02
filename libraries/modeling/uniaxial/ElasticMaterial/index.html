@@ -14155,11 +14155,9 @@ Removal During Simulation
 
 
 <h1 id="elasticmaterial">ElasticMaterial</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;material/ElasticMaterial.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">ElasticMaterial</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">MaterialModel</span>\
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;material/ElasticMaterial.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ElasticMaterial<span class="op">:</span> <span class="kw">public</span> MaterialModel\</span></code></pre></div>
 <p>TaggedObject MovableObject MaterialModel UniaxialMaterial</p>
 <p>ElasticMaterial provides the abstraction of an elastic uniaxial material, i.e. the stress-strain relationship is given by the linear equation <span class="math inline">\(\sigma = E * \epsilon\)</span>.</p>
 <h3 id="constructor">Constructor</h3>

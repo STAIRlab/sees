@@ -14160,21 +14160,20 @@ Removal During Simulation
 <li>Raynor, D. J., Lehman, D. L., and Stanton, J. F. 2002. “Bond-slip response of reinforcing bars grouted in ducts.” ACI Struct. J., 995, 568–576.</li>
 </ul>
 <h2 id="c-interface">C++ Interface</h2>
-<div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">RaynorBackbone</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">HystereticBackbone</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="n">RaynorBackbone</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="kt">double</span><span class="w"> </span><span class="n">es</span><span class="p">,</span><span class="kt">double</span><span class="w"> </span><span class="n">f1</span><span class="p">,</span><span class="kt">double</span><span class="w"> </span><span class="n">f2</span><span class="p">,</span><span class="kt">double</span><span class="w"> </span><span class="n">epsh</span><span class="p">,</span><span class="kt">double</span><span class="w"> </span><span class="n">epsm</span><span class="p">,</span><span class="kt">double</span><span class="w"> </span><span class="n">c1</span><span class="p">,</span><span class="kt">double</span><span class="w"> </span><span class="n">ey</span><span class="p">);</span><span class="w"></span>
-
-<span class="w"> </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">Es</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">fy</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">fsu</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">Epsilonsh</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">Epsilonsm</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">C1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">Ey</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-</pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> RaynorBackbone <span class="op">:</span> <span class="kw">public</span> HystereticBackbone</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">public</span><span class="op">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  RaynorBackbone<span class="op">(</span><span class="dt">int</span> tag<span class="op">,</span><span class="dt">double</span> es<span class="op">,</span><span class="dt">double</span> f1<span class="op">,</span><span class="dt">double</span> f2<span class="op">,</span><span class="dt">double</span> epsh<span class="op">,</span><span class="dt">double</span> epsm<span class="op">,</span><span class="dt">double</span> c1<span class="op">,</span><span class="dt">double</span> ey<span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">private</span><span class="op">:</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> Es<span class="op">;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> fy<span class="op">;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> fsu<span class="op">;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> Epsilonsh<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> Epsilonsm<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> C1<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> Ey<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 
 
               

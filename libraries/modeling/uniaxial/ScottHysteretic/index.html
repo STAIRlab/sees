@@ -14149,16 +14149,14 @@ Removal During Simulation
 
 
 <h1 id="scotthysteretic">ScottHysteretic</h1>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>OOHysteretic<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>
-<span class="w">     </span>bkbn<span class="o">+?</span><span class="w"> </span>unlRul<span class="o">+?</span><span class="w"> </span>stfDeg<span class="o">+?</span><span class="w"> </span>strDeg<span class="o">+?</span>
-<span class="w">    </span><span class="o">&lt;</span><span class="nv">bkbn-</span><span class="o">?</span><span class="w"> </span>unlRul-<span class="o">?</span><span class="w"> </span>stfDeg-<span class="o">?</span><span class="w"> </span>strDeg-<span class="o">?&gt;</span><span class="w"> </span>
-<span class="w">    </span><span class="o">&lt;</span>pinchX<span class="o">?</span><span class="w"> </span>pinchY<span class="o">?&gt;</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial OOHysteretic <span class="ot">tag</span>? </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     bkbn+? unlRul+? stfDeg+? strDeg+?</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;bkbn-? unlRul-? stfDeg-? strDeg-?&gt; </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;pinchX? pinchY?&gt;</span></code></pre></div>
 <ul>
 <li><p>HystereticBackbone</p>
 <p>hystereticBackbone type? tag? <specific hystereticBackbone args></p>
-<div class="highlight"><pre><span></span>hystereticBackbone ReeseSoftClay tag? pu? y50? n?
+<pre><code>hystereticBackbone ReeseSoftClay tag? pu? y50? n?
 hystereticBackbone ReeseSand tag? kx? ym? pm? yu? pu?
 hystereticBackbone ReeseStiffClayBelowWS tag? Esi? y50? As?  Pc?
 hystereticBackbone Raynor tag? Es? fy? fsu? Epsilonsh? Epsilonsm? C1? Ey?
@@ -14179,9 +14177,7 @@ hystereticBackbone Arctangent
   void *theBB = OPS_ArctangentBackbone(rt);
 
 hystereticBackbone Mander
-  void *theBB = OPS_ManderBackbone(rt);
-</pre></div>
-</li>
+  void *theBB = OPS_ManderBackbone(rt);</code></pre></li>
 <li><p>UnloadingRule</p>
 <p>unloadingRule type? tag? <specific unloadingRule args></p></li>
 <li><p>StiffnessDegradation</p></li>

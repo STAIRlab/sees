@@ -14158,9 +14158,7 @@ Removal During Simulation
 <p>
 This command is used to construct a uniaxial Menegotto-Pinto steel material object.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>SteelMP<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$sigmaY</span><span class="w"> </span><span class="nv">$E</span><span class="w"> </span><span class="nv">$b</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial SteelMP <span class="dt">$matTag</span> <span class="dt">$sigmaY</span> <span class="dt">$E</span> <span class="dt">$b</span></span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -14210,6 +14208,15 @@ strain-hardening ratio (ratio between post-yield tangent and initial elastic tan
 Note: For this material class, the sensitivity parameters can be: sigmaY, E, b
 </p>
 <hr />
+<p><span class="math display">\[
+\begin{aligned}
+\sigma^{*}=b \cdot \varepsilon^{*} &amp;+\frac{(1-b) \cdot \varepsilon^{*}}{\left(1+\left|\varepsilon^{*}\right|^{R}\right)^{1 / R}} \\
+\varepsilon^{*} &amp;=\frac{\varepsilon-\varepsilon_{r}}{\varepsilon_{y}-\varepsilon_{r}} \\
+\sigma^{*} &amp;=\frac{\sigma-\sigma_{r}}{\sigma_{y}-\sigma_{r}}
+R &amp;= R_{0}-\frac{a_{1} \cdot \xi}{a_{2}+\xi} \\
+\xi &amp;= \dfrac{\max _{\varepsilon}\left|\varepsilon_{\max }-\varepsilon_{y}\right| }{\varepsilon_{y,0}}
+\end{aligned}
+\]</span></p>
 <dl>
 <dt>
 </dt>

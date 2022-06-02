@@ -14158,10 +14158,8 @@ Removal During Simulation
 <p>
 This command is used to construct a uniaxial material object with combined linear kinematic and isotropic hardening. The model includes optional visco-plasticity using a Perzyna formulation.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Hardening<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$E</span><span class="w"> </span><span class="nv">$sigmaY</span><span class="w"> </span><span class="nv">$H_iso</span>
-<span class="w">        </span><span class="nv">$H_kin</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$eta</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial Hardening <span class="dt">$matTag</span> <span class="dt">$E</span> <span class="dt">$sigmaY</span> <span class="dt">$H_iso</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$H_kin</span> &lt; <span class="dt">$eta</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>

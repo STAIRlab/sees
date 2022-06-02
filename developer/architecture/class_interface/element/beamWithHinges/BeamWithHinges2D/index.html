@@ -14160,16 +14160,14 @@ Removal During Simulation
 
 <p>NEED TO ADD ADD_INERTIA_LOAD TO INTERFACE .. SEE EARTHQUAKE_PATTERN CLASS.</p>
 <h1 id="beamwithhinges2d">BeamWithHinges2D</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;element/BeamWithHinges2D.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">BeamWithHinges2D</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">DomainComponent</span>\
-
-<span class="n">TaggedObject</span>\
-<span class="n">MovableObject</span>\
-<span class="n">DomainComponent</span>\
-<span class="n">Element</span>\
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;element/BeamWithHinges2D.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BeamWithHinges2D<span class="op">:</span> <span class="kw">public</span> DomainComponent\</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>TaggedObject\</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>MovableObject\</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>DomainComponent\</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Element\</span></code></pre></div>
 <p>BeamWithHinges2D is a beam-column element which uses the force based formulation for its state determination. This element has material non-linear hinges at both ends and exhibits linear elastic behavior through its interior region, including linear elastic shear effects.</p>
 <h3 id="constructors">Constructors</h3>
 <p><br />
@@ -14209,21 +14207,13 @@ Invokes the section destructors.</p>
 Returns 2, the number of external nodes for this element.</p>
 <p>Returns an ID containing the tags of the two external nodes for this element.</p>
 <p>Returns 6, the number of degrees of freedom for this element.</p>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">commitState</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> commitState<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Invokes <code>commitState()</code> on each section and returns the sum of the result of these invocations.</p>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">revertToLastCommit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> revertToLastCommit<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Invokes <code>revertToLastCommit()</code> on each section and returns the sum of the result of these invocations.</p>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">revertToStart</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> revertToStart<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Invokes <code>revertToStart()</code> on each section and returns the sum of the result of these invocations.</p>
-<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getTangentStiff</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Matrix <span class="op">&amp;</span>getTangentStiff<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Computes the element flexibility matrix, then returns its inverse, the element stiffness matrix. The element flexibility is the sum of the hinge flexibilities, <span class="math inline">\(\mathbf{f}_I\)</span> and <span class="math inline">\(\mathbf{f}_J\)</span>, and the elastic flexibility of the beam interior, <span class="math inline">\(\mathbf{f}_{mid}\)</span>.</p>
 <p><span class="math display">\[\label{eq:fele}
 \fbas := \int_{0}^{L}{\bint^T \fsec \bint \: dx} = \mathbf{f}_I + \mathbf{f}_{mid} + \mathbf{f}_J\]</span></p>
@@ -14253,17 +14243,11 @@ Returns 2, the number of external nodes for this element.</p>
 <p>The element then obtains the matrix, <span class="math inline">\(\mathbf{A}\)</span>, which transforms the element basic stiffness from its corotating frame to the global frame of reference. The transformed stiffness matrix, <span class="math inline">\(\kele\)</span>, is then assembled into the structural system of equations.</p>
 <p><span class="math display">\[\kele = \mathbf{A}^T \kbas \mathbf{A}\]</span><br />
 </p>
-<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getSecantStiff</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Matrix <span class="op">&amp;</span>getSecantStiff<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>To return the elements secant stiffness matrix. THIS SECANT MAY BE REMOVED.</p>
-<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getDamp</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Matrix <span class="op">&amp;</span>getDamp<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>To return the damping matrix.</p>
-<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getMass</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Matrix <span class="op">&amp;</span>getMass<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Returns the element lumped mass matrix, <span class="math inline">\(\mele\)</span>. It is assumed that the mass density per unit length, <span class="math inline">\(\rho\)</span>, is constant along the entire element, including the hinge regions.</p>
 <p><span class="math display">\[\label{eq:mele}
 \mele = \left[
@@ -14276,22 +14260,16 @@ Returns 2, the number of external nodes for this element.</p>
       0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
    \end{array}
  \right]\]</span></p>
-<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">zeroLoad</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> zeroLoad<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>This is a method invoked to zero the element load contributions to the residual.</p>
-<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getResistingForce</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Vector <span class="op">&amp;</span>getResistingForce<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Returns the element resisting force vector. The basic element force vector is obtained as the product of the basic element stiffness, <span class="math inline">\(\kbas\)</span>, given by Equation <a href="#eq:kele" data-reference-type="ref" data-reference="eq:kele">[eq:kele$$</a>, and the basic element deformations, <span class="math inline">\(\vbas\)</span>.</p>
 <p><span class="math display">\[\qbas = \kbas \vbas\]</span></p>
 <p>The basic element force vector is then transformed from the corotating frame to the global frame of reference. The transformed force vector is then assembled into the structural system of equations.</p>
 <p><span class="math display">\[\label{eq:qele}
 \qele = \mathbf{A}^T \qbas\]</span><br />
 </p>
-<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getResistingForceIncInertia</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="at">const</span> Vector <span class="op">&amp;</span>getResistingForceIncInertia<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Returns the element resisting force vector, <span class="math inline">\(\tilde{\qele}\)</span> with inertia forces included,</p>
 <p><span class="math display">\[\tilde{\qele} = \qele - \mele \ddot{\mathbf u}\]</span></p>
 <p>where <span class="math inline">\(\qele\)</span> and <span class="math inline">\(\mele\)</span> are obtained from Equations <a href="#eq:mele" data-reference-type="ref" data-reference="eq:mele">[eq:qele<span class="math display">\[

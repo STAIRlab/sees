@@ -14159,9 +14159,7 @@ Removal During Simulation
 
 
 <h1 id="taggedobject">TaggedObject</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;tagged/TaggedObject.h&gt;</span><span class="cp"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;tagged/TaggedObject.h&gt;</span></span></code></pre></div>
 <p>class TaggedObject</p>
 <p>TaggedObject is used as a base class to represent all classes that may have a integer identifier, a tag, to identify the object. It is used in the framework as a base class for many classes, for example DomainComponent and Vertex. The class is provided so that container classes can be written to store objects and provide access to them. This saves us rewriting container classes for each type of object. (templates will be able to provide this functionality when they are provided with all compilers).</p>
 <p>// Constructor</p>

@@ -14156,9 +14156,7 @@ Removal During Simulation
 
 <h1 id="generalized-alpha-method">Generalized Alpha Method</h1>
 <p>This command is used to construct a Generalized <span class="math inline">\(\alpha\)</span> integration object. This is an implicit method that like the HHT method allows for high frequency energy dissipation and second order accuracy, i.e. <span class="math inline">\(\Delta t^2\)</span>. Depending on choices of input parameters, the method can be unconditionally stable.</p>
-<div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>GeneralizedAlpha<span class="w"> </span><span class="nv">$alphaM</span><span class="w"> </span><span class="nv">$alphaF</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$gamma</span><span class="w"> </span><span class="nv">$beta</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>integrator GeneralizedAlpha <span class="dt">$alphaM</span> <span class="dt">$alphaF</span> &lt; <span class="dt">$gamma</span> <span class="dt">$beta</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -14214,9 +14212,7 @@ Removal During Simulation
 </table>
 <hr />
 <h2 id="examples">Examples</h2>
-<div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>GeneralizedAlpha<span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.8</span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>integrator GeneralizedAlpha <span class="fl">1.0</span> <span class="fl">0.8</span></span></code></pre></div>
 <p>
 NOTES:
 </p>

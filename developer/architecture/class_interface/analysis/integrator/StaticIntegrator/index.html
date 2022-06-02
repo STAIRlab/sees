@@ -14159,9 +14159,7 @@ Removal During Simulation
 
 
 <h1 id="staticintegrator">StaticIntegrator</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/integrator/StaticIntegrator.h&gt;</span><span class="cp"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/integrator/StaticIntegrator.h&gt;</span></span></code></pre></div>
 <p>class StaticIntegrator: public Integrator<br />
 </p>
 <p>MovableObject<br />
@@ -14213,22 +14211,16 @@ To form the tangent matrix of the FE_Element, <em>theEle</em>, is instructed to 
 theEle-<span class="math inline">\(&gt;\)</span>addKtoTang()</p>
 </div>
 <p>The method returns <span class="math inline">\(0\)</span>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formEleResidual</span><span class="p">(</span><span class="n">FE_Element</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theEle</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formEleResidual<span class="op">(</span>FE_Element \<span class="op">*</span>theEle<span class="op">);</span></span></code></pre></div>
 <p>To form the residual vector of the FE_Element, <em>theEle</em>, is instructed to zero the vector and then add it’s <span class="math inline">\(R\)</span> vector to the residual, i.e. it performs the following:</p>
 <div class="tabbing">
 <p>while ̄ while w̄hile ̄ theEle-<span class="math inline">\(&gt;\)</span>zeroResidual()<br />
 theEle-<span class="math inline">\(&gt;\)</span>addRtoResid()</p>
 </div>
 <p>The method returns <span class="math inline">\(0\)</span>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodTangent</span><span class="p">(</span><span class="n">DOF_Group</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theDof</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formNodTangent<span class="op">(</span>DOF_Group \<span class="op">*</span>theDof<span class="op">);</span></span></code></pre></div>
 <p>This should never be called in a static analysis. An error message is printed if it is. Returns -1.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodUnbalance</span><span class="p">(</span><span class="n">DOF_Group</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theDof</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formNodUnbalance<span class="op">(</span>DOF_Group \<span class="op">*</span>theDof<span class="op">);</span></span></code></pre></div>
 <p>To form the unbalance vector of the DOF_Group, <em>theDof</em>, is instructed to zero the vector and then add it’s <span class="math inline">\(P\)</span> vector to the unbalance, i.e. it performs the following:</p>
 <div class="tabbing">
 <p>while ̄ while w̄hile ̄ theDof-<span class="math inline">\(&gt;\)</span>zeroUnbalance()<br />

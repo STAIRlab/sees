@@ -14159,9 +14159,7 @@ Removal During Simulation
 
 
 <h1 id="loadbalancer">LoadBalancer</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;domain/loadBalancer/LoadBalancer.h&gt;</span><span class="cp"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;domain/loadBalancer/LoadBalancer.h&gt;</span></span></code></pre></div>
 <p>class LoadBalancer<br />
 </p>
 <p><br />
@@ -14184,9 +14182,7 @@ Removal During Simulation
 Does nothing. Provided so the subclasses destructor will be called.</p>
 <p><br />
 Sets the pointer to the DomainPartitioner object associated with the LoadBalancer to point to <em>thePartitioner</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">balance</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theWeightedGraph</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> balance<span class="op">(</span>Graph <span class="op">&amp;</span>theWeightedGraph<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Each subclass must provide an implementation of this method. This method is invoked to balance the PartitionedDomain. The Graph <em>theWeightedGraph</em> is a weighted graph in which the vertices represent the Subdomains, the edges Subdomains sharing common boundary nodes and the weight the cost of the previous Subdomain calculations (determined by invoking <code>getCost()</code> on the Subdomains).</p>
 <p><br />
 Returns a pointer to the DomainPartitioner. If no DomainPartitioner has been set, a warning message is printed and <span class="math inline">\(0\)</span> returned.</p>

@@ -14155,15 +14155,13 @@ Removal During Simulation
 
 
 <h1 id="penalty">Penalty</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/handler/PenaltyConstraintHandler.h&gt;</span><span class="cp"></span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">PenaltyConstraintHandler</span><span class="o">:</span><span class="w"> </span>
-<span class="k">public</span><span class="w"> </span><span class="n">ConstraintHandler</span><span class="w"></span>
-<span class="n">MovableObject</span><span class="w"></span>
-<span class="n">ConstraintHandler</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/handler/PenaltyConstraintHandler.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PenaltyConstraintHandler<span class="op">:</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> ConstraintHandler</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>MovableObject</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ConstraintHandler</span></code></pre></div>
 <p>The PenaltyConstraintHandler class is a class which deals with both single and multi point constraints using the penalty method. This is done by, in addition to creating a <code>DOF_Group</code> object for each Node and an FE_Element for each Element in the Domain, creating either a PenaltySP_FE or a PenaltyMP_FE object for each constraint in the Domain. It is these objects that enforce the constraints by moifying the tangent matrix and residual vector.</p>
 <h3 id="constructor">Constructor</h3>
 <p><br />
@@ -14182,9 +14180,7 @@ Removal During Simulation
 Currently invokes <code>clearAll()</code>, this will change when <code>clearAll()</code> is rewritten.</p>
 <p><br />
 Determines the number of FE_Elements and DOF_Groups needed from the Domain (a one to one mapping between Elements and FE_Elements, SP_Constraints and PenaltySP_FEs, MP_Constraints and PenaltyMP_FEs and Nodes and DOF_Groups). Creates two arrays of pointers to store the FE_Elements and DOF_Groups, returning a warning message and a <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span> if not enough memory is available for these arrays. Then the object will iterate through the Nodes of the Domain, creating a <code>DOF_Group</code> for each node and setting the initial id for each dof to <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span> if the node identifier is in <em>nodesToBeNumberedLast</em>. The object then iterates through the Elements of the Domain creating a <code>FE_Element</code> for each Element, if the Element is a Subdomain <code>setFE_ElementPtr()</code> is invoked on the Subdomain with the new <code>FE_Element</code> as the argument. If not enough memory is available for any <code>DOF_Group</code> or <code>FE_Element</code> a warning message is printed and a <span class="math inline">\(-4\)</span> or <span class="math inline">\(-5\)</span> is returned. The object then iterates through the SP_Constraints of the Domain creating a PenaltySP_FE for each constraint, using the Domain, the constraint and <em>alphaSP</em> as the arguments in the constructor. The object then iterates through the MP_Constraints of the Domain creating a PenaltyMP_FE for each constraint, using the Domain, the constraint and <em>alphaMP</em> as the arguments in the constructor. Finally the method returns the number of degrees-of-freedom associated with the DOF_Groups in <em>nodesToBeNumberedLast</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clearAll</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> clearAll<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Currently this invokes delete on all the <code>FE_Element</code> and DOF_Group objects created in <code>handle()</code> and the arrays used to store pointers to these objects. FOR ANALYSIS INVOLVING DYNAMIC LOAD BALANCING, RE-MESHING AND CONTACT THIS MUST CHANGE. <em>int sendSelf(int commitTag, Channel &amp;theChannel);</em><br />
 Sends in a Vector of size 2 <em>alphaSP</em> and <em>alphaMP</em>. Returns <span class="math inline">\(0\)</span> if successful. <em>int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</em><br />
 Receives in a Vector of size 2 the values <em>alphaSP</em> and <em>alphaMP</em>. Returns <span class="math inline">\(0\)</span> if successful.</p>

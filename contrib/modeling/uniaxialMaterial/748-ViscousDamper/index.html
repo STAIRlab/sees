@@ -14159,10 +14159,8 @@ Removal During Simulation
 This command is used to construct a ViscousDamper material, which represents the <a
 href="http://en.wikipedia.org/wiki/Maxwell_material">Maxwell Model</a> (linear spring and nonlinear dashpot in series). The ViscousDamper material simulates the hysteretic response of nonlinear viscous dampers. An adaptive iterative algorithm has been implemented and validated to solve numerically the constitutive equations within a nonlinear viscous damper with a high-precision accuracy.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ViscousDamper<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$K</span><span class="w"> </span><span class="nv">$Cd</span><span class="w"> </span><span class="nv">$alpha</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$LGap</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$NM</span><span class="w"> </span><span class="nv">$RelTol</span><span class="w"> </span><span class="nv">$AbsTol</span><span class="w"> </span><span class="nv">$MaxHalf</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ViscousDamper <span class="dt">$matTag</span> <span class="dt">$K</span> <span class="dt">$Cd</span> <span class="dt">$alpha</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$LGap</span> &gt; &lt; <span class="dt">$NM</span> <span class="dt">$RelTol</span> <span class="dt">$AbsTol</span> <span class="dt">$MaxHalf</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -14270,9 +14268,7 @@ Maximum number of sub-step iterations within an integration step (default value 
 <li><p>Input parameters:</p>
 <p>Assume a viscous damper with axial stiffness K=300.0kN/mm, damping coefficient <code>Cd=280.3kN</code>(s/mm)<sup>0.3</sup>, and exponent a=0.30.</p>
 <p>The input parameters for the material should be as follows:</p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ViscousDamper<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">300</span><span class="w"> </span><span class="mf">280.3</span><span class="w"> </span><span class="mf">0.30</span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ViscousDamper <span class="dv">1</span> <span class="dv">300</span> <span class="fl">280.3</span> <span class="fl">0.30</span></span></code></pre></div>
 <p>Using these properties, Figure 1 shows the hysteretic response of this damper for sinusoidal displacement increments of 12, 24 and 36mm and a frequency f = 0.5Hz.</p>
 <p>The sensitivity of the viscous damper with respect to its velocity exponent is shown in Figures 2 to 4 for the following set of parameters:</p></li>
 </ol>

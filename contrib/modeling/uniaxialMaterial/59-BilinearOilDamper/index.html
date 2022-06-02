@@ -14158,11 +14158,9 @@ Removal During Simulation
 <p>
 This command is used to construct a BilinearOilDamper material, which simulates the hysteretic response of bilinear oil dampers with relief valve. Two adaptive iterative algorithms have been implemented and validated to solve numerically the constitutive equations within a bilinear oil damper with a high-precision accuracy.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>BilinearOilDamper<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$K</span><span class="w"> </span><span class="nv">$Cd</span><span class="w"> </span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$Fr</span><span class="w"> </span><span class="nv">$p</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$LGap</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$NM</span><span class="w"> </span><span class="nv">$RelTol</span><span class="w"> </span><span class="nv">$AbsTol</span><span class="w"> </span><span class="nv">$MaxHalf</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial BilinearOilDamper <span class="dt">$matTag</span> <span class="dt">$K</span> <span class="dt">$Cd</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$Fr</span> <span class="dt">$p</span> &gt; &lt; <span class="dt">$LGap</span> &gt; </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$NM</span> <span class="dt">$RelTol</span> <span class="dt">$AbsTol</span> <span class="dt">$MaxHalf</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>

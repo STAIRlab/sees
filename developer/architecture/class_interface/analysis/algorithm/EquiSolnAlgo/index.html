@@ -14159,15 +14159,13 @@ Removal During Simulation
 
 
 <h1 id="equisolnalgo">EquiSolnAlgo</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/algorithm/equiSolnAlgo/EquiSolnAlgo.h&gt;</span><span class="cp"></span>
-
-
-<span class="k">class</span><span class="w"> </span><span class="nc">EquiSolnAlg</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">SolutionAlgo</span><span class="w"></span>
-
-<span class="n">MovableObject</span><span class="w"></span>
-<span class="n">SolutionAlgorithm</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/algorithm/equiSolnAlgo/EquiSolnAlgo.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> EquiSolnAlg<span class="op">:</span> <span class="kw">public</span> SolutionAlgo</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>MovableObject</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>SolutionAlgorithm</span></code></pre></div>
 <p>The EquiSolnAlgo class is an abstract base class. Its purpose is to define the interface common among all subtypes. An EquiSolnAlgo object defines the sequence of operations performed by the the Integrator and the LinearSOE objects in solving the equilibrium equation <span class="math inline">\(R(U) = 0\)</span> given the current state of the domain at each time step in a direct integration analysis or load increment in a static analysis.</p>
 <h3 id="constructor">Constructor</h3>
 <h3 id="destructor">Destructor</h3>
@@ -14181,13 +14179,9 @@ Sets up the links needed by an object of this class, or a derived class, to an A
 <p>A method implemented by each subclass which specifies the steps taken in order to get the system into an equilibrium state. It is a pure virtual function, i.e. all subclasses or their descendents must implement this routine. To return <span class="math inline">\(0\)</span> if algorithm succeeds, a negative value otherwise.</p>
 <p>The Integrator is to send information to the stream based on the integer <em>flag</em>.</p>
 <p>A const member function which returns a pointer to the AnalysisModel associated with the EquiSolnAlgo object, <em>theModel</em> passed in <code>setLinks()</code>. <span class="math inline">\(0\)</span> returned if one not yet associated.</p>
-<div class="highlight"><pre><span></span><span class="n">IncrementalIntegrator</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getIncrementalIntegratorPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>IncrementalIntegrator \<span class="op">*</span>getIncrementalIntegratorPtr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
 <p>A const member function which returns a pointer to the StaticMethod associated with the StaticSolnAlgo object, <em>theIntegrator</em> passed in <code>setLinks()</code>. <span class="math inline">\(0\)</span> returned if one not yet associated.</p>
-<div class="highlight"><pre><span></span><span class="n">LinSysOfEqn</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getLinearSOEptr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>LinSysOfEqn \<span class="op">*</span>getLinearSOEptr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
 <p>A const member function which returns a pointer to the LinearSOE associated with the EquiSolnAlgo object, <em>theLinearSOE</em> passed in <code>setLinks()</code>. <span class="math inline">\(0\)</span> returned if one not yet associated.</p>
 
 

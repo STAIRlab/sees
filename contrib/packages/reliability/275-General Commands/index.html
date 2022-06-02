@@ -14169,9 +14169,7 @@ This command creates the reliability domain in which the sensitivity, reliabilit
 reliability domain is parallel to the finite element (FE) domain in OpenSees. Currently, the commands for stand-alone sensitivity :analysis (e.g., sensitivityIntegrator, sensitivityAlgorithm) are set in the reliability domain only and, thus, the ‘reliability’
 </dd>
 </dl>
-<div class="highlight"><pre><span></span><span class="nv">reliability</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>reliability</span></code></pre></div>
 <p>
 &lt;h2&gt;<a href="parameter_Command" title="wikilink">parameter Command</a>&lt;/h2&gt;
 </p>
@@ -14185,10 +14183,8 @@ In DDM-based FE response sensitivity analysis, the sensitivity parameters can be
 geometry or discrete loading parameters. Each parameter should be defined as:
 </dd>
 </dl>
-<div class="highlight"><pre><span></span><span class="nv">parameter</span><span class="w"> </span><span class="nv">$tag</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">specific</span><span class="w"> </span>object
-<span class="w">        </span><span class="nv">arguments</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>parameter <span class="dt">$tag</span> &amp;lt;specific object</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        arguments&amp;gt;</span></code></pre></div>
 <p>
 &lt;h2&gt;<a href="addToParameter_Command"
 title="wikilink">addToParameter Command</a>&lt;/h2&gt;
@@ -14203,10 +14199,8 @@ In case that more objects (e.g., element, section) are mapped to an existing par
 relate these additional objects to the specific parameter:
 </dd>
 </dl>
-<div class="highlight"><pre><span></span><span class="nv">addToParameter</span><span class="w"> </span><span class="nv">$tag</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">specific</span><span class="w"> </span>object
-<span class="w">        </span><span class="nv">arguments</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>addToParameter <span class="dt">$tag</span> &amp;lt;specific object</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        arguments&amp;gt;</span></code></pre></div>
 <p>
 &lt;h2&gt;<a href="updateParameter_Command"
 title="wikilink">updateParameter Command</a>&lt;/h2&gt;
@@ -14218,9 +14212,7 @@ title="wikilink">updateParameter Command</a>&lt;/h2&gt;
 Once the parameters in FE model are defined, their value can be updated:
 </dd>
 </dl>
-<div class="highlight"><pre><span></span><span class="nv">updateParameter</span><span class="w"> </span><span class="nv">$tag</span><span class="w"> </span><span class="nv">$newValue</span>
-</pre></div>
-
+<div class="sourceCode" id="cb4"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>updateParameter <span class="dt">$tag</span> <span class="dt">$newValue</span></span></code></pre></div>
 <p>
 &lt;h2&gt;<a href="sensitivityIntegrator_Command"
 title="wikilink">sensitivityIntegrator Command</a>&lt;/h2&gt;
@@ -14232,9 +14224,7 @@ title="wikilink">sensitivityIntegrator Command</a>&lt;/h2&gt;
 For static analysis, the only option currently available is the following, which must be defined before the ‘analysis’ command.
 </dd>
 </dl>
-<div class="highlight"><pre><span></span><span class="nv">sensitivityIntegrator</span><span class="w"> </span><span class="o">-</span>static
-</pre></div>
-
+<div class="sourceCode" id="cb5"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sensitivityIntegrator<span class="ot"> -static</span></span></code></pre></div>
 <dl>
 <dt>
 </dt>
@@ -14242,19 +14232,15 @@ For static analysis, the only option currently available is the following, which
 For the dynamic case, currently only the Newmark algorithm is available. Two command need to be used together:
 </dd>
 </dl>
-<div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>NewmarkWithSensitivity<span class="w"> </span><span class="nv">$gamma</span>
-<span class="w">        </span><span class="nv">$beta</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb6"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>integrator NewmarkWithSensitivity <span class="dt">$gamma</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$beta</span></span></code></pre></div>
 <dl>
 <dt>
 </dt>
 <dd>
 </dd>
 </dl>
-<div class="highlight"><pre><span></span><span class="nv">sensitivityIntegrator</span><span class="w"> </span><span class="o">-</span>definedAbove
-</pre></div>
-
+<div class="sourceCode" id="cb7"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sensitivityIntegrator<span class="ot"> -definedAbove</span></span></code></pre></div>
 <dl>
 <dt>
 </dt>
@@ -14279,9 +14265,7 @@ The most general command is the following, which computes the response sensitivi
 has converged.
 </dd>
 </dl>
-<div class="highlight"><pre><span></span><span class="nv">sensitivityAlgorithm</span><span class="w"> </span><span class="o">-</span>computeAtEachStep
-</pre></div>
-
+<div class="sourceCode" id="cb8"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sensitivityAlgorithm<span class="ot"> -computeAtEachStep</span></span></code></pre></div>
 <dl>
 <dt>
 </dt>
@@ -14292,9 +14276,7 @@ In those cases in which the sensitivity computation does not need to be performe
 user:
 </dd>
 </dl>
-<div class="highlight"><pre><span></span><span class="nv">sensitivityAlgorithm</span><span class="w"> </span><span class="o">-</span>computeByCommand
-</pre></div>
-
+<div class="sourceCode" id="cb9"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sensitivityAlgorithm<span class="ot"> -computeByCommand</span></span></code></pre></div>
 <dl>
 <dt>
 </dt>
@@ -14318,10 +14300,8 @@ dynamic analysis, using the ‘-computeByCommand’ option will produce wrong se
 To record the nodal response and response sensitivity, the most commonly used format is:
 </dd>
 </dl>
-<div class="highlight"><pre><span></span><span class="nv">recorder</span><span class="w"> </span>Node<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>disp29.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>node<span class="w"> </span><span class="mi">29</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">1</span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-precision</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="nv">disp</span>
-</pre></div>
-
+<div class="sourceCode" id="cb10"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>recorder Node<span class="ot"> -file</span> disp29.out<span class="ot"> -time -node</span> <span class="dv">29</span><span class="ot"> -dof</span> <span class="dv">1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;-precision <span class="dv">16</span> &amp;gt; disp</span></code></pre></div>
 <table>
 <tbody>
 <tr class="odd">
@@ -14344,10 +14324,8 @@ To record the nodal response and response sensitivity, the most commonly used fo
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><span class="nv">recorder</span><span class="w"> </span>Node<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>ddm29G1.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>node<span class="w"> </span><span class="mi">29</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">1</span>
-<span class="w">        </span><span class="s2">&quot;accSensitivity 1&quot;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb11"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>recorder Node<span class="ot"> -file</span> ddm29G1.out<span class="ot"> -time -node</span> <span class="dv">29</span><span class="ot"> -dof</span> <span class="dv">1</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;accSensitivity 1&quot;</span></span></code></pre></div>
 <dl>
 <dt>
 </dt>
@@ -14433,9 +14411,7 @@ The user may also get responses and response sensitivities directly using the fo
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><span class="nv">sensNodeAccel</span><span class="w"> </span><span class="mi">29</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span>
-</pre></div>
-
+<div class="sourceCode" id="cb12"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sensNodeAccel <span class="dv">29</span> <span class="dv">1</span> <span class="dv">2</span></span></code></pre></div>
 <dl>
 <dt>
 </dt>

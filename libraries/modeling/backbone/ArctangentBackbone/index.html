@@ -14157,21 +14157,20 @@ Removal During Simulation
 <h1 id="arctangent">Arctangent</h1>
 <p>This file contains the implementation of ArctangentBackbone, which is a continuous function given by <code>K1*atan(K2*strain)</code> as developed by Ranzo and Petrangeli (1998)</p>
 <p>Written: MHS Created: Aug 2000</p>
-<div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ArctangentBackbone</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">HystereticBackbone</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="n">ArctangentBackbone</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">K1</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">gammaY</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">alpha</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">setVariable</span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">getVariable</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">varID</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theValue</span><span class="p">);</span><span class="w"></span>
-<span class="w">  </span>
-<span class="w"> </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">K1</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">K2</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">gammaY</span><span class="p">;</span><span class="w"></span>
-<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">alpha</span><span class="p">;</span><span class="w"></span>
-<span class="p">};</span><span class="w"></span>
-</pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ArctangentBackbone <span class="op">:</span> <span class="kw">public</span> HystereticBackbone</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">public</span><span class="op">:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  ArctangentBackbone<span class="op">(</span><span class="dt">int</span> tag<span class="op">,</span> <span class="dt">double</span> K1<span class="op">,</span> <span class="dt">double</span> gammaY<span class="op">,</span> <span class="dt">double</span> alpha<span class="op">);</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> setVariable<span class="op">(</span><span class="dt">char</span> <span class="op">*</span>argv<span class="op">);</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">int</span> getVariable<span class="op">(</span><span class="dt">int</span> varID<span class="op">,</span> <span class="dt">double</span> <span class="op">&amp;</span>theValue<span class="op">);</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a> <span class="kw">private</span><span class="op">:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> K1<span class="op">;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> K2<span class="op">;</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> gammaY<span class="op">;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="dt">double</span> alpha<span class="op">;</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="op">};</span></span></code></pre></div>
 
 
               

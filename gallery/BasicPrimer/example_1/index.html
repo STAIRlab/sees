@@ -14173,143 +14173,137 @@ Removal During Simulation
 <summary>
 Tcl source
 </summary>
-<div class="highlight"><pre><span></span><span class="c1"># OpenSees Example 1.1</span><span class="w"></span>
-<span class="c1"># OpenSees Primer</span><span class="w"></span>
-<span class="c1">#</span><span class="w"></span>
-<span class="c1"># Units: kips, in, sec</span><span class="w"></span>
+<pre><code># OpenSees Example 1.1
+# OpenSees Primer
+#
+# Units: kips, in, sec
 
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># Start of model generation</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
+# ------------------------------
+# Start of model generation
+# ------------------------------
 
-<span class="c1"># Create ModelBuilder (with two-dimensions and 2 DOF/node)</span><span class="w"></span>
-<span class="n">model</span><span class="w"> </span><span class="n">BasicBuilder</span><span class="w"> </span><span class="o">-</span><span class="n">ndm</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="n">ndf</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+# Create ModelBuilder (with two-dimensions and 2 DOF/node)
+model BasicBuilder -ndm 2 -ndf 2
 
-<span class="c1"># Create nodes</span><span class="w"></span>
-<span class="c1"># ------------</span><span class="w"></span>
+# Create nodes
+# ------------
 
-<span class="c1"># Create nodes &amp; add to Domain - command: node nodeId xCrd yCrd</span><span class="w"></span>
-<span class="n">node</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="mf">0.0</span><span class="w">  </span><span class="mf">0.0</span><span class="w"></span>
-<span class="n">node</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mf">144.0</span><span class="w">  </span><span class="mf">0.0</span><span class="w"></span>
-<span class="n">node</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mf">168.0</span><span class="w">  </span><span class="mf">0.0</span><span class="w"></span>
-<span class="n">node</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="mf">72.0</span><span class="w"> </span><span class="mf">96.0</span><span class="w"></span>
+# Create nodes &amp; add to Domain - command: node nodeId xCrd yCrd
+node 1   0.0  0.0
+node 2 144.0  0.0
+node 3 168.0  0.0
+node 4  72.0 96.0
 
-<span class="c1"># Set the boundary conditions - command: fix nodeID xResrnt? yRestrnt?</span><span class="w"></span>
-<span class="n">fix</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
-<span class="n">fix</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="n">fix</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-
-
-<span class="c1"># Define materials for truss elements</span><span class="w"></span>
-<span class="c1"># -----------------------------------</span><span class="w"></span>
-
-<span class="c1"># Create Elastic material prototype - command: uniaxialMaterial Elastic matID E</span><span class="w"></span>
-<span class="n">uniaxialMaterial</span><span class="w"> </span><span class="n">Elastic</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">3000</span><span class="w"></span>
-
-<span class="c1"># Define elements</span><span class="w"></span>
-<span class="c1"># ---------------</span><span class="w"></span>
+# Set the boundary conditions - command: fix nodeID xResrnt? yRestrnt?
+fix 1 1 1 
+fix 2 1 1
+fix 3 1 1
 
 
-<span class="c1"># Create truss elements - command: element truss trussID node1 node2 A matID</span><span class="w"></span>
-<span class="n">element</span><span class="w"> </span><span class="n">truss</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="n">element</span><span class="w"> </span><span class="n">truss</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="n">element</span><span class="w"> </span><span class="n">truss</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+# Define materials for truss elements
+# -----------------------------------
+
+# Create Elastic material prototype - command: uniaxialMaterial Elastic matID E
+uniaxialMaterial Elastic 1 3000
+
+# Define elements
+# ---------------
 
 
-<span class="c1"># Define loads</span><span class="w"></span>
-<span class="c1"># ------------</span><span class="w"></span>
-
-<span class="c1"># Create a Plain load pattern with a linear TimeSeries</span><span class="w"></span>
-<span class="n">pattern</span><span class="w"> </span><span class="n">Plain</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="s2">&quot;Linear&quot;</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># Create the nodal load - command: load nodeID xForce yForce</span><span class="w"></span>
-<span class="w">    </span><span class="nb">load</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">-</span><span class="mi">50</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1"># End of model generation</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
+# Create truss elements - command: element truss trussID node1 node2 A matID
+element truss 1 1 4 10.0 1
+element truss 2 2 4 5.0 1
+element truss 3 3 4 5.0 1
 
 
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># Start of analysis generation</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
+# Define loads
+# ------------
 
-<span class="c1"># Create the system of equation, a SPD using a band storage scheme</span><span class="w"></span>
-<span class="n">system</span><span class="w"> </span><span class="n">BandSPD</span><span class="w"></span>
+# Create a Plain load pattern with a linear TimeSeries
+pattern Plain 1 &quot;Linear&quot; {
+    # Create the nodal load - command: load nodeID xForce yForce
+    load 4 100 -50
+}
 
-<span class="c1"># Create the DOF numberer, the reverse Cuthill-McKee algorithm</span><span class="w"></span>
-<span class="n">numberer</span><span class="w"> </span><span class="n">RCM</span><span class="w"></span>
-
-<span class="c1"># Create the constraint handler, a Plain handler is used as homo constraints</span><span class="w"></span>
-<span class="n">constraints</span><span class="w"> </span><span class="n">Plain</span><span class="w"></span>
-
-<span class="c1"># Create the integration scheme, the LoadControl scheme using steps of 1.0</span><span class="w"></span>
-<span class="n">integrator</span><span class="w"> </span><span class="n">LoadControl</span><span class="w"> </span><span class="mf">1.0</span><span class="w"></span>
-
-<span class="c1"># Create the solution algorithm, a Linear algorithm is created</span><span class="w"></span>
-<span class="n">algorithm</span><span class="w"> </span><span class="n">Linear</span><span class="w"></span>
-
-<span class="c1"># create the analysis object </span><span class="w"></span>
-<span class="n">analysis</span><span class="w"> </span><span class="n">Static</span><span class="w"> </span>
+# End of model generation
+# ------------------------------
 
 
-<span class="c1"># End of analysis generation</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
+# ------------------------------
+# Start of analysis generation
+# ------------------------------
+
+# Create the system of equation, a SPD using a band storage scheme
+system BandSPD
+
+# Create the DOF numberer, the reverse Cuthill-McKee algorithm
+numberer RCM
+
+# Create the constraint handler, a Plain handler is used as homo constraints
+constraints Plain
+
+# Create the integration scheme, the LoadControl scheme using steps of 1.0
+integrator LoadControl 1.0
+
+# Create the solution algorithm, a Linear algorithm is created
+algorithm Linear
+
+# create the analysis object 
+analysis Static 
 
 
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># Start of recorder generation</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
-
-<span class="c1"># create a Recorder object for the nodal displacements at node 4</span><span class="w"></span>
-<span class="n">recorder</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="n">example</span><span class="o">.</span><span class="n">out</span><span class="w"> </span><span class="o">-</span><span class="nb">load</span><span class="w"> </span><span class="o">-</span><span class="n">node</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">-</span><span class="n">dof</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">disp</span><span class="w"></span>
-
-<span class="c1"># --------------------------------</span><span class="w"></span>
-<span class="c1"># End of recorder generation</span><span class="w"></span>
-<span class="c1"># ---------------------------------</span><span class="w"></span>
+# End of analysis generation
+# ------------------------------
 
 
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># Finally perform the analysis</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
+# ------------------------------
+# Start of recorder generation
+# ------------------------------
 
-<span class="c1"># Perform the analysis</span><span class="w"></span>
-<span class="n">analyze</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+# create a Recorder object for the nodal displacements at node 4
+recorder Node -file example.out -load -node 4 -dof 1 2 disp
 
-<span class="c1"># Print the current state at node 4 and at all elements</span><span class="w"></span>
-<span class="nb">print</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
-<span class="nb">print</span><span class="w"> </span><span class="n">ele</span><span class="w"></span>
-</pre></div>
+# --------------------------------
+# End of recorder generation
+# ---------------------------------
 
+
+# ------------------------------
+# Finally perform the analysis
+# ------------------------------
+
+# Perform the analysis
+analyze 1
+
+# Print the current state at node 4 and at all elements
+print node 4
+print ele</code></pre>
 </details>
-<div class="highlight"><pre><span></span><span class="w"> </span><span class="n">Node</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
-<span class="w">        </span><span class="n">Coordinates</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">72</span><span class="w"> </span><span class="mi">96</span><span class="w"> </span>
-<span class="w">        </span><span class="n">commitDisps</span><span class="p">:</span><span class="w"> </span><span class="mf">0.530093</span><span class="w"> </span><span class="o">-</span><span class="mf">0.177894</span><span class="w"> </span>
-<span class="w">        </span><span class="n">unbalanced</span><span class="w"> </span><span class="n">Load</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">-</span><span class="mi">50</span><span class="w"> </span>
+<pre><code> Node: 4
+        Coordinates  : 72 96 
+        commitDisps: 0.530093 -0.177894 
+        unbalanced Load: 100 -50 
 
-<span class="n">Element</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="n">Truss</span><span class="w">  </span><span class="n">iNode</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">jNode</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">Area</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="n">Total</span><span class="w"> </span><span class="n">Mass</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span>
-<span class="w">         </span><span class="n">strain</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00146451</span><span class="w"> </span><span class="n">axial</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="mf">43.9352</span><span class="w"> </span>
-<span class="w">         </span><span class="n">unbalanced</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">26.3611</span><span class="w"> </span><span class="o">-</span><span class="mf">35.1482</span><span class="w"> </span><span class="mf">26.3611</span><span class="w"> </span><span class="mf">35.1482</span><span class="w"> </span>
-<span class="w">         </span><span class="n">Material</span><span class="p">:</span><span class="w"> </span><span class="n">Elastic</span><span class="w"> </span><span class="n">tag</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">         </span><span class="n">E</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w"> </span><span class="n">eta</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+Element: 1 type: Truss  iNode: 1 jNode: 4 Area: 10 Total Mass: 0 
+         strain: 0.00146451 axial load: 43.9352 
+         unbalanced load: -26.3611 -35.1482 26.3611 35.1482 
+         Material: Elastic tag: 1
+         E: 3000 eta: 0
 
-<span class="n">Element</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="n">Truss</span><span class="w">  </span><span class="n">iNode</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">jNode</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">Area</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">Total</span><span class="w"> </span><span class="n">Mass</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span>
-<span class="w">         </span><span class="n">strain</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">0.00383642</span><span class="w"> </span><span class="n">axial</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">57.5463</span><span class="w"> </span>
-<span class="w">         </span><span class="n">unbalanced</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">34.5278</span><span class="w"> </span><span class="mf">46.0371</span><span class="w"> </span><span class="mf">34.5278</span><span class="w"> </span><span class="o">-</span><span class="mf">46.0371</span><span class="w"> </span>
-<span class="w">         </span><span class="n">Material</span><span class="p">:</span><span class="w"> </span><span class="n">Elastic</span><span class="w"> </span><span class="n">tag</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">         </span><span class="n">E</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w"> </span><span class="n">eta</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+Element: 2 type: Truss  iNode: 2 jNode: 4 Area: 5 Total Mass: 0 
+         strain: -0.00383642 axial load: -57.5463 
+         unbalanced load: -34.5278 46.0371 34.5278 -46.0371 
+         Material: Elastic tag: 1
+         E: 3000 eta: 0
 
-<span class="n">Element</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">type</span><span class="p">:</span><span class="w"> </span><span class="n">Truss</span><span class="w">  </span><span class="n">iNode</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="n">jNode</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">Area</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">Total</span><span class="w"> </span><span class="n">Mass</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span>
-<span class="w">         </span><span class="n">strain</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">0.00368743</span><span class="w"> </span><span class="n">axial</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">55.3114</span><span class="w"> </span>
-<span class="w">         </span><span class="n">unbalanced</span><span class="w"> </span><span class="nb">load</span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="mf">39.1111</span><span class="w"> </span><span class="mf">39.1111</span><span class="w"> </span><span class="mf">39.1111</span><span class="w"> </span><span class="o">-</span><span class="mf">39.1111</span><span class="w"> </span>
-<span class="w">         </span><span class="n">Material</span><span class="p">:</span><span class="w"> </span><span class="n">Elastic</span><span class="w"> </span><span class="n">tag</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">         </span><span class="n">E</span><span class="p">:</span><span class="w"> </span><span class="mi">3000</span><span class="w"> </span><span class="n">eta</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-</pre></div>
-
+Element: 3 type: Truss  iNode: 3 jNode: 4 Area: 5 Total Mass: 0 
+         strain: -0.00368743 axial load: -55.3114 
+         unbalanced load: -39.1111 39.1111 39.1111 -39.1111 
+         Material: Elastic tag: 1
+         E: 3000 eta: 0</code></pre>
 <p>For the node, displacements and loads are given. For the truss elements, the axial strain and force are provided along with the resisting forces in the global coordinate system.</p>
 <p>The file <strong>example.out</strong>, specified in the recorder command, provides the nodal displacements for the x and y directions of node 4. The file consists of a single line of code:</p>
-<div class="highlight"><pre><span></span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.530093</span><span class="w"> </span><span class="o">-</span><span class="mf">0.177894</span><span class="w"> </span>
-</pre></div>
-
+<pre><code>1.0 0.530093 -0.177894 </code></pre>
 <p>The <span class="math inline">\(1.0\)</span> corresponds to the load factor (pseudo time) in the model at which point the recorder was invoked. The <span class="math inline">\(0.530093\)</span> and <span class="math inline">\(-0.177894\)</span> correspond to the response at node <span class="math inline">\(4\)</span> for the 1 and 2 degree-of-freedom. Note that if more analysis steps had been peformed, the line would contain a line for every analysis step that completed successfully.</p>
 
 

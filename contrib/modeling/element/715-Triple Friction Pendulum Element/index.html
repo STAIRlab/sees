@@ -14183,12 +14183,10 @@ Overturning moment and torsion due to the eccentricity of internal forces are eq
 <p>
 In the vertical direction, the element is multi-linear elastic with different stiffnesses k_vc and k_vt in compression and tension, respectively. Even though a TPB has no resistance in tension, a small nonzero stiffness should be provided in tension for stability of the numerical procedure. The reasonable vertical stiffness in tension depends on the stiffness of the superstructure, but a value between 10 N/m to 100 N/m should work well in most cases. Very small ratio of k_vt/k_vc may cause the convergence difficulty when the superstructure is uplifted.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>TripleFrictionPendulum<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span>
-<span class="w">        </span><span class="nv">$frnTag1</span><span class="w"> </span><span class="nv">$frnTag2</span><span class="w"> </span><span class="nv">$frnTag3</span><span class="w"> </span><span class="nv">$vertMatTag</span><span class="w"> </span><span class="nv">$rotZMatTag</span><span class="w"> </span><span class="nv">$rotXMatTag</span><span class="w"></span>
-<span class="w">        </span><span class="nv">$rotYMatTag</span><span class="w"> </span><span class="nv">$L1</span><span class="w"> </span><span class="nv">$L2</span><span class="w"> </span><span class="nv">$L3</span><span class="w"> </span><span class="nv">$d1</span><span class="w"> </span><span class="nv">$d2</span><span class="w"> </span><span class="nv">$d3</span><span class="w"> </span><span class="nv">$W</span><span class="w"> </span><span class="nv">$uy</span><span class="w"> </span><span class="nv">$kvt</span><span class="w"> </span><span class="nv">$minFv</span><span class="w"></span>
-<span class="w">        </span><span class="nv">$tol</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element TripleFrictionPendulum <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$frnTag1</span> <span class="dt">$frnTag2</span> <span class="dt">$frnTag3</span> <span class="dt">$vertMatTag</span> <span class="dt">$rotZMatTag</span> <span class="dt">$rotXMatTag</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$rotYMatTag</span> <span class="dt">$L1</span> <span class="dt">$L2</span> <span class="dt">$L3</span> <span class="dt">$d1</span> <span class="dt">$d2</span> <span class="dt">$d3</span> <span class="dt">$W</span> <span class="dt">$uy</span> <span class="dt">$kvt</span> <span class="dt">$minFv</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$tol</span></span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -14347,18 +14345,14 @@ Code Developed by: <span style="color:blue"> Nhan D. Dao, University of Nevada -
 <hr /></li>
 </ol></li>
 </ol>
-<div class="highlight"><pre><span></span><span class="nv">APPLICATION</span><span class="w"> </span>EXAMPLES
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>APPLICATION EXAMPLES</span></code></pre></div>
 <p>
 Download these 3 ground motion files and change the extension “.tcl” to “.ATH” for EXAMPLES 2 to 7: <a href="Media:TCU065-E.tcl"
 title="wikilink">Media:TCU065-E.tcl</a>, <a href="Media:TCU065-N.tcl"
 title="wikilink">Media:TCU065-N.tcl</a>, <a href="Media:TCU065-V.tcl"
 title="wikilink">Media:TCU065-V.tcl</a>
 </p>
-<div class="highlight"><pre><span></span><span class="nv">EXAMPLE</span><span class="w"> </span><span class="mi">1</span><span class="o">:</span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>EXAMPLE <span class="dv">1</span>:</span></code></pre></div>
 <p>
 Unidirectional static pushover of a TPB element with constant friction coefficients.
 </p>
@@ -14377,9 +14371,7 @@ alt="TPB_Nhan_Ex1a.png" />
 TPB_Nhan_Ex1a.png
 </figcaption>
 </figure>
-<div class="highlight"><pre><span></span><span class="nv">EXAMPLE</span><span class="w"> </span><span class="mi">2</span><span class="o">:</span>
-</pre></div>
-
+<div class="sourceCode" id="cb4"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>EXAMPLE <span class="dv">2</span>:</span></code></pre></div>
 <p>
 Unidirectional dynamic seismic analysis of a single mass supported by a TPB element with constant friction coefficients.
 </p>
@@ -14420,9 +14412,7 @@ width="500" alt="TPB_Nhan_Ex2_4Loop.png" />
 TPB_Nhan_Ex2_4Loop.png
 </figcaption>
 </figure>
-<div class="highlight"><pre><span></span><span class="nv">EXAMPLE</span><span class="w"> </span><span class="mi">3</span><span class="o">:</span>
-</pre></div>
-
+<div class="sourceCode" id="cb5"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>EXAMPLE <span class="dv">3</span>:</span></code></pre></div>
 <p>
 Unidirectional dynamic seismic analysis of a single mass supported by a TPB element with variable friction coefficients.
 </p>
@@ -14463,9 +14453,7 @@ width="500" alt="TPB_Nhan_Ex3_4Loop.png" />
 TPB_Nhan_Ex3_4Loop.png
 </figcaption>
 </figure>
-<div class="highlight"><pre><span></span><span class="nv">EXAMPLE</span><span class="w"> </span><span class="mi">4</span><span class="o">:</span>
-</pre></div>
-
+<div class="sourceCode" id="cb6"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>EXAMPLE <span class="dv">4</span>:</span></code></pre></div>
 <p>
 Two-dimensional dynamic seismic analysis of a single mass supported by a TPB element with constant friction coefficients.
 </p>
@@ -14507,9 +14495,7 @@ width="500" alt="TPB_Nhan_Ex4_4Loop.png" />
 TPB_Nhan_Ex4_4Loop.png
 </figcaption>
 </figure>
-<div class="highlight"><pre><span></span><span class="nv">EXAMPLE</span><span class="w"> </span><span class="mi">5</span><span class="o">:</span>
-</pre></div>
-
+<div class="sourceCode" id="cb7"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>EXAMPLE <span class="dv">5</span>:</span></code></pre></div>
 <p>
 Two-dimensional dynamic seismic analysis of a single mass supported by a TPB element with variable friction coefficients.
 </p>
@@ -14549,9 +14535,7 @@ width="500" alt="TPB_Nhan_Ex5_4aLoop.png" />
 TPB_Nhan_Ex5_4aLoop.png
 </figcaption>
 </figure>
-<div class="highlight"><pre><span></span><span class="nv">EXAMPLE</span><span class="w"> </span><span class="mi">6</span><span class="o">:</span>
-</pre></div>
-
+<div class="sourceCode" id="cb8"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>EXAMPLE <span class="dv">6</span>:</span></code></pre></div>
 <p>
 Three-dimensional dynamic seismic analysis of a single mass supported by a TPB element with constant friction coefficients.
 </p>
@@ -14592,9 +14576,7 @@ width="500" alt="TPB_Nhan_Ex6_4Loop.png" />
 TPB_Nhan_Ex6_4Loop.png
 </figcaption>
 </figure>
-<div class="highlight"><pre><span></span><span class="nv">EXAMPLE</span><span class="w"> </span><span class="mi">7</span><span class="o">:</span>
-</pre></div>
-
+<div class="sourceCode" id="cb9"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>EXAMPLE <span class="dv">7</span>:</span></code></pre></div>
 <p>
 Three-dimensional dynamic seismic analysis of a single mass supported by a TPB element with variable friction coefficients.
 </p>

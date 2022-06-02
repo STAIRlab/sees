@@ -14158,10 +14158,8 @@ Removal During Simulation
 <p>
 The fatigue material uses a modified rainflow cycle counting algorithm to accumulate damage in a material using Miner’s Rule. Element stress/strain relationships become zero when fatigue life is exhausted.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Fatigue<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$tag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>E0<span class="w"> </span><span class="nv">$E0</span><span class="w"> </span><span class="o">&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-m</span><span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>min<span class="w"> </span><span class="nv">$min</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>max<span class="w"> </span><span class="nv">$max</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial Fatigue <span class="dt">$matTag</span> <span class="dt">$tag</span> &lt;<span class="ot"> -E0</span> <span class="dt">$E0</span> &gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -m</span> <span class="dt">$m</span> &gt; &lt;<span class="ot"> -min</span> <span class="dt">$min</span> &gt; &lt;<span class="ot"> -max</span> <span class="dt">$max</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
