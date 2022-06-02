@@ -14163,11 +14163,9 @@ Removal During Simulation
 
 
 <h1 id="lagrangemp_fe">LagrangeMP_FE</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/fe_ele/lagrange/LagrangeMP_FE.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">LagrangeMP_FE</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="err">`</span><span class="n">FE_Element</span><span class="err">`</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/fe_ele/lagrange/LagrangeMP_FE.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LagrangeMP_FE<span class="op">:</span> <span class="kw">public</span> <span class="er">`</span>FE_Element<span class="er">`</span> <span class="op">;</span></span></code></pre></div>
 <p>LagrangeMP_FE is a subclass of <code>FE_Element</code> used to enforce a multi point constraint, of the form <span class="math inline">\({\bf U}_c = {\bf C}_{cr} {\bf U}_r\)</span>, where <span class="math inline">\({\bf U}_c\)</span> are the constrained degrees-of-freedom at the constrained node, <span class="math inline">\({\bf U}_r\)</span> are the retained degrees-of-freedom at the retained node and <span class="math inline">\({\bf C}_{cr}\)</span> a matrix defining the relationship between these degrees-of-freedom.</p>
 <p>To enforce the constraint the following are added to the tangent and the residual:</p>
 <p><span class="math display">\[\left[ \begin{array}{cc} 0 &amp; \alpha{\bf C}^t \\ \alpha{\bf C} &amp; 0 \end{array}
@@ -14189,9 +14187,7 @@ Invokes delete on any Matrix or Vector objects created in the constructor that h
 Causes the LagrangeMP_FE to determine the mapping between it’s equation numbers and the degrees-of-freedom. This information is obtained by using the mapping information at the <code>DOF_Group</code> objects associated with the constrained and retained nodes and the LagrangeDOF_Group, <em>theGroup</em>. Returns <span class="math inline">\(0\)</span> if successful. Prints a warning message and returns a negative number if an error occurs: <span class="math inline">\(-2\)</span> if the Node has no associated DOF_Group, <span class="math inline">\(-3\)</span> if the constrained DOF specified is invalid for this Node (sets corresponding ID component to <span class="math inline">\(-1\)</span> so nothing is added to the tangent) and <span class="math inline">\(-4\)</span> if the ID in the <code>DOF_Group</code> is too small for the Node (again setting corresponding ID component to <span class="math inline">\(-1\)</span>).</p>
 <p>If the <code>MP_Constraint</code> is time-varying, from the <code>MP_Constraint</code> <code>theMP</code> it obtains the current <span class="math inline">\(C_{cr}\)</span> matrix; it then adds the contribution to the tangent matrix. Returns this tangent Matrix.</p>
 <p>Returns the residual, a <span class="math inline">\(\zero\)</span> Vector.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getTangForce</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disp</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="at">const</span> Vector <span class="op">&amp;</span>getTangForce<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span>disp<span class="op">,</span> <span class="dt">double</span> fact <span class="op">=</span> <span class="fl">1.0</span><span class="op">);</span></span></code></pre></div>
 <p>CURRENTLY just returns the <span class="math inline">\(0\)</span> residual. THIS WILL NEED TO CHANGE FOR ELE-BY-ELE SOLVERS.</p>
 
 

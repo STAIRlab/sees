@@ -14148,37 +14148,18 @@ Removal During Simulation
 
 <h1 id="g3-api">G3 API</h1>
 <h2 id="model-building">Model Building</h2>
-<div class="highlight"><pre><span></span><span class="n">Domain</span><span class="o">*</span><span class="w"> </span><span class="nf">G3_getDomain</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Domain<span class="op">*</span> G3_getDomain<span class="op">(</span>G3_Runtime<span class="op">*);</span></span></code></pre></div>
 <h3 id="materials">Materials</h3>
-<div class="highlight"><pre><span></span><span class="n">UniaxialMaterial</span><span class="o">*</span><span class="w"> </span><span class="nf">G3_getUniaxialMaterialInstance</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">G3_addUniaxialMaterial</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">UniaxialMaterial</span><span class="o">*</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>UniaxialMaterial<span class="op">*</span> G3_getUniaxialMaterialInstance<span class="op">(</span>G3_Runtime<span class="op">*,</span> <span class="dt">int</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> G3_addUniaxialMaterial<span class="op">(</span>G3_Runtime<span class="op">*,</span> UniaxialMaterial<span class="op">*);</span></span></code></pre></div>
 <h3 id="loading">Loading</h3>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">G3_addTimeSeries</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">TimeSeries</span><span class="w"> </span><span class="o">*</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<div class="highlight"><pre><span></span><span class="n">TimeSeries</span><span class="o">*</span><span class="w"> </span><span class="nf">G3_getTimeSeries</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<div class="highlight"><pre><span></span><span class="n">StaticAnalysis</span><span class="o">*</span><span class="w"> </span><span class="nf">G3_getStaticAnalysis</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">G3_setStaticAnalysis</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">StaticAnalysis</span><span class="o">*</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<div class="highlight"><pre><span></span><span class="n">StaticIntegrator</span><span class="o">*</span><span class="w"> </span><span class="nf">G3_getStaticIntegrator</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">G3_setStaticIntegrator</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">StaticIntegrator</span><span class="o">*</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<div class="highlight"><pre><span></span><span class="n">TclSafeBuilder</span><span class="w"> </span><span class="o">*</span><span class="nf">G3_getSafeBuilder</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="w"> </span><span class="o">*</span><span class="p">);</span><span class="w"></span>
-</pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> G3_addTimeSeries<span class="op">(</span>G3_Runtime <span class="op">*,</span> TimeSeries <span class="op">*);</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>TimeSeries<span class="op">*</span> G3_getTimeSeries<span class="op">(</span>G3_Runtime <span class="op">*,</span> <span class="dt">int</span><span class="op">);</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>StaticAnalysis<span class="op">*</span> G3_getStaticAnalysis<span class="op">(</span>G3_Runtime<span class="op">*);</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> G3_setStaticAnalysis<span class="op">(</span>G3_Runtime<span class="op">*,</span> StaticAnalysis<span class="op">*);</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>StaticIntegrator<span class="op">*</span> G3_getStaticIntegrator<span class="op">(</span>G3_Runtime<span class="op">*);</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> G3_setStaticIntegrator<span class="op">(</span>G3_Runtime<span class="op">*,</span> StaticIntegrator<span class="op">*);</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>TclSafeBuilder <span class="op">*</span>G3_getSafeBuilder<span class="op">(</span>G3_Runtime <span class="op">*);</span></span></code></pre></div>
 
 
               

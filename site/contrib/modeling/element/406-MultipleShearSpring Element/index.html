@@ -14158,11 +14158,9 @@ Removal During Simulation
 <p>
 This command is used to construct a multipleShearSpring (MSS) element object, which is defined by two nodes. This element consists of a series of identical shear springs arranged radially to represent the isotropic behavior in the local y-z plane.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>multipleShearSpring<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span>
-<span class="w">        </span><span class="nv">$nSpring</span><span class="w"> </span><span class="nv">-mat</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">-lim</span><span class="w"> </span><span class="nv">$dsp</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-orient</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
-<span class="w">        </span><span class="nv">$yp1</span><span class="w"> </span><span class="nv">$yp2</span><span class="w"> </span><span class="nv">$yp3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$m</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element multipleShearSpring <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$nSpring</span><span class="ot"> -mat</span> <span class="dt">$matTag</span> &amp;lt;-lim <span class="dt">$dsp</span>&amp;gt; &amp;lt;-orient &amp;lt;<span class="dt">$x1</span> <span class="dt">$x2</span> <span class="dt">$x3</span>&amp;gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$yp1</span> <span class="dt">$yp2</span> <span class="dt">$yp3</span>&amp;gt; &amp;lt;-mass <span class="dt">$m</span>&amp;gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>

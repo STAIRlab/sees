@@ -14158,13 +14158,11 @@ Removal During Simulation
 <p>
 This command is used to construct a uniaxial material that simulates the bar force versus slip response of a reinforcing bar anchored in a beam-column joint. The model exhibits degradation under cyclic loading. Cyclic degradation of strength and stiffness occurs in three ways: unloading stiffness degradation, reloading stiffness degradation, strength degradation.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>BarSlip<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fc</span><span class="w"> </span><span class="nv">$fy</span><span class="w"> </span><span class="nv">$Es</span><span class="w"> </span><span class="nv">$fu</span><span class="w"> </span><span class="nv">$Eh</span><span class="w"> </span><span class="nv">$db</span>
-<span class="w">        </span><span class="nv">$ld</span><span class="w"> </span><span class="nv">$nb</span><span class="w"> </span><span class="nv">$depth</span><span class="w"> </span><span class="nv">$height</span><span class="w"> </span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$ancLratio</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
-<span class="w">        </span><span class="nv">$bsFlag</span><span class="w"> </span><span class="nv">$type</span><span class="w"> </span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$damage</span><span class="w"> </span><span class="nv">$unit</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial BarSlip <span class="dt">$matTag</span> <span class="dt">$fc</span> <span class="dt">$fy</span> <span class="dt">$Es</span> <span class="dt">$fu</span> <span class="dt">$Eh</span> <span class="dt">$db</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ld</span> <span class="dt">$nb</span> <span class="dt">$depth</span> <span class="dt">$height</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$ancLratio</span> &gt; </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$bsFlag</span> <span class="dt">$type</span> </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$damage</span> <span class="dt">$unit</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>

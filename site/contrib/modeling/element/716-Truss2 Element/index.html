@@ -14161,17 +14161,13 @@ This command is used to construct a Truss2 or CorotTruss2 element object, a biax
 <p>
 Truss:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>Truss2<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$mGNode</span><span class="w"> </span><span class="nv">$nGNode</span><span class="w"> </span><span class="nv">$A</span>
-<span class="w">        </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-rho</span><span class="w"> </span><span class="nv">$rho</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-rayleigh</span><span class="w"> </span><span class="nv">$rflag</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element Truss2 <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$mGNode</span> <span class="dt">$nGNode</span> <span class="dt">$A</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$matTag</span> &amp;lt;-rho <span class="dt">$rho</span>&amp;gt; &amp;lt;-rayleigh <span class="dt">$rflag</span>&amp;gt;</span></code></pre></div>
 <p>
 Corotational Truss:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>CorotTruss2<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$mGNode</span><span class="w"> </span><span class="nv">$nGNode</span>
-<span class="w">        </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-rho</span><span class="w"> </span><span class="nv">$rho</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>element CorotTruss2 <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$mGNode</span> <span class="dt">$nGNode</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$A</span> <span class="dt">$matTag</span> &amp;lt;-rho <span class="dt">$rho</span>&amp;gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>

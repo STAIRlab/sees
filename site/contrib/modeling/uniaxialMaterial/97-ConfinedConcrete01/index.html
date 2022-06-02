@@ -14158,16 +14158,14 @@ Removal During Simulation
 <p>
 This command is used to construct an uniaxial material object of confined concrete in according to the work of Braga, Gigliotti and Laterza (2006). The confined concrete model (BGLmodel) has not tensile strength and degraded linear unloading/reloading stiffness as proposed by Karsan and Jirsa (1969). The BGL model accounts for confinement effects due to different arrangements of transverse reinforcement and/or external strengthening such as steel jackets or FRP wraps. The confinement effect along the column is described as well. In order to obtain th ecompressive envelope curve a non linear approach is performed at each increment of column axial strain.The sougth curve is obtained crossing different stress‐strain relationships, each of which corresponding to a different level of confinement. Currently, the Attard and Setunge’s model is implemented in calculating each active curve of the confined concrete. IMPORTANT: the units to be used are MPa, mm.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ConfinedConcrete01<span class="w"> </span><span class="nv">$tag</span><span class="w"> </span><span class="nv">$secType</span><span class="w"> </span><span class="nv">$fpc</span><span class="w"> </span><span class="nv">$Ec</span><span class="w"> </span>
-<span class="w">  </span><span class="k">(</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-epscu</span><span class="w"> </span><span class="nv">$epscu</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span>OR<span class="w">  </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>gamma<span class="w"> </span><span class="nv">$gamma</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">)</span><span class="w"> </span>
-<span class="w">  </span><span class="k">(</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-nu</span><span class="w"> </span><span class="nv">$nu</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span>OR<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>varub<span class="w"> </span><span class="o">&gt;</span><span class="w">  </span>OR<span class="w">  </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>varnoub<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">)</span><span class="w"> </span><span class="nv">$L1</span><span class="w"> </span><span class="k">(</span><span class="nv">$L2</span><span class="k">)</span><span class="w"> </span><span class="k">(</span><span class="nv">$L3</span><span class="k">)</span><span class="w"> </span><span class="nv">$phis</span><span class="w"> </span><span class="nv">$S</span><span class="w"> </span><span class="nv">$fyh</span><span class="w"> </span><span class="nv">$Es0</span>
-<span class="w">  </span><span class="nv">$haRatio</span><span class="w"> </span><span class="nv">$mu</span><span class="w"> </span><span class="nv">$phiLon</span><span class="w">  </span>
-<span class="w">  </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-internal</span><span class="w"> </span><span class="nv">$phisi</span><span class="w"> </span><span class="nv">$Si</span><span class="w"> </span><span class="nv">$fyhi</span><span class="w"> </span><span class="nv">$Es0i</span><span class="w"> </span><span class="nv">$haRatioi</span><span class="w"> </span><span class="nv">$mui</span><span class="w"> </span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-wrap</span><span class="w"> </span><span class="nv">$cover</span><span class="w"> </span><span class="nv">$Am</span><span class="w"> </span><span class="nv">$Sw</span><span class="w"> </span><span class="nv">$fuil</span><span class="w"> </span><span class="nv">$Es0w</span><span class="w"> </span><span class="o">&gt;</span>
-<span class="w">  </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-gravel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>silica<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>tol<span class="w"> </span><span class="nv">$tol</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>maxNumIter<span class="w"> </span><span class="nv">$maxNumIter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
-<span class="w">  </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>epscuLimit<span class="w"> </span><span class="nv">$epscuLimit</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>stRatio<span class="w"> </span><span class="nv">$stRatio</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConfinedConcrete01 <span class="dt">$tag</span> <span class="dt">$secType</span> <span class="dt">$fpc</span> <span class="dt">$Ec</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  ( &lt;<span class="ot"> -epscu</span> <span class="dt">$epscu</span> &gt;  OR  &lt;<span class="ot"> -gamma</span> <span class="dt">$gamma</span> &gt; ) </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  ( &lt;<span class="ot"> -nu</span> <span class="dt">$nu</span> &gt;  OR &lt;<span class="ot"> -varub</span> &gt;  OR  &lt;<span class="ot"> -varnoub</span> &gt; ) <span class="dt">$L1</span> (<span class="dt">$L2</span>) (<span class="dt">$L3</span>) <span class="dt">$phis</span> <span class="dt">$S</span> <span class="dt">$fyh</span> <span class="dt">$Es0</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">$haRatio</span> <span class="dt">$mu</span> <span class="dt">$phiLon</span>  </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot"> -internal</span> <span class="dt">$phisi</span> <span class="dt">$Si</span> <span class="dt">$fyhi</span> <span class="dt">$Es0i</span> <span class="dt">$haRatioi</span> <span class="dt">$mui</span> &gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot"> -wrap</span> <span class="dt">$cover</span> <span class="dt">$Am</span> <span class="dt">$Sw</span> <span class="dt">$fuil</span> <span class="dt">$Es0w</span> &gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot"> -gravel</span> &gt; &lt;<span class="ot"> -silica</span> &gt; &lt;<span class="ot"> -tol</span> <span class="dt">$tol</span> &gt; &lt;<span class="ot"> -maxNumIter</span> <span class="dt">$maxNumIter</span> &gt; </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot"> -epscuLimit</span> <span class="dt">$epscuLimit</span> &gt; &lt;<span class="ot"> -stRatio</span> <span class="dt">$stRatio</span> &gt; </span></code></pre></div>
 <hr />
 <table border="1" class="docutils">
 <colgroup>
@@ -14793,26 +14791,22 @@ S1.png
 <em>Section S1</em>
 </p>
 <p>
-<div class="highlight"><pre><span></span><span class="c"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu</span>
-<span class="c">#        $epscu $nu $L1 $phis $S $fyh $Es0 $haRatio $mu $phiLon -stRatio</span>
-<span class="c">#        $stRatio&lt;/li&gt;</span>
-
-<span class="nv">uniaxialMaterial</span><span class="w"> </span>ConfinedConcrete01<span class="w"> </span><span class="mi">1</span><span class="w"> </span>S1<span class="w"> </span><span class="o">-</span><span class="mf">30.0</span><span class="w"> </span><span class="mf">26081.0</span><span class="w"> </span><span class="o">-</span>epscu<span class="w"> </span><span class="o">-</span><span class="mf">0.03</span><span class="w"> </span><span class="err">\</span>
-<span class="w">  </span><span class="nv">-varub</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">206000.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"> </span><span class="mf">16.0</span><span class="w"> </span><span class="o">-</span>stRatio<span class="w"> </span><span class="mf">0.85</span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#        $epscu $nu $L1 $phis $S $fyh $Es0 $haRatio $mu $phiLon -stRatio</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#        $stRatio&lt;/li&gt;</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConfinedConcrete01 <span class="dv">1</span> S1<span class="ot"> -30</span><span class="fl">.0</span> <span class="fl">26081.0</span><span class="ot"> -epscu -0</span><span class="fl">.03</span> \</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  -varub <span class="fl">300.0</span> <span class="fl">10.0</span> <span class="fl">100.0</span> <span class="fl">300.0</span> <span class="fl">206000.0</span> <span class="fl">0.0</span> <span class="fl">1000.0</span> <span class="fl">16.0</span><span class="ot"> -stRatio</span> <span class="fl">0.85</span></span></code></pre></div>
 <p>
 <p><em>Section S1 strengthened by additional FRP wraps</em></p>
-<div class="highlight"><pre><span></span><span class="c"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu</span>
-<span class="c">#        $epscu $nu $L1 $phis $S $fyh $Es0 $haRatio $mu phiLon $cover $Am $Sw</span>
-<span class="c">#        $ful $Es0w -stRatio $stRatio&lt;/li&gt;</span>
-
-
-<span class="nv">uniaxialMaterial</span><span class="w"> </span>ConfinedConcrete01<span class="w"> </span><span class="mi">1</span><span class="w"> </span>S1<span class="w"> </span><span class="o">-</span><span class="mf">30.0</span><span class="w"> </span><span class="mf">26081.0</span><span class="w"> </span><span class="o">-</span>epscu<span class="w"> </span><span class="o">-</span><span class="mf">0.03</span><span class="w"> </span><span class="err">\</span>
-<span class="w">  </span><span class="nv">-varub</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">206000.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"> </span><span class="mf">16.0</span><span class="w"> </span><span class="err">\</span>
-<span class="w">  </span><span class="nv">-wrap</span><span class="w"> </span><span class="mf">30.0</span><span class="w"> </span><span class="mf">51.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">3900.0</span><span class="w"> </span><span class="mf">230000.0</span><span class="w"> </span><span class="o">-</span>stRatio<span class="w"> </span><span class="mf">0.85</span><span class="w"> </span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#        $epscu $nu $L1 $phis $S $fyh $Es0 $haRatio $mu phiLon $cover $Am $Sw</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#        $ful $Es0w -stRatio $stRatio&lt;/li&gt;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConfinedConcrete01 <span class="dv">1</span> S1<span class="ot"> -30</span><span class="fl">.0</span> <span class="fl">26081.0</span><span class="ot"> -epscu -0</span><span class="fl">.03</span> \</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  -varub <span class="fl">300.0</span> <span class="fl">10.0</span> <span class="fl">100.0</span> <span class="fl">300.0</span> <span class="fl">206000.0</span> <span class="fl">0.0</span> <span class="fl">1000.0</span> <span class="fl">16.0</span> \</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  -wrap <span class="fl">30.0</span> <span class="fl">51.0</span> <span class="fl">100.0</span> <span class="fl">3900.0</span> <span class="fl">230000.0</span><span class="ot"> -stRatio</span> <span class="fl">0.85</span> </span></code></pre></div>
 <p>
 <strong>Square section reinforced by multiple transverse hoop and by additional FRP wraps (Section S4a)</strong>
 </p>
@@ -14824,26 +14818,22 @@ S4a.png
 </figure>
 <p>
 <p><em>Section S4a</em></p>
-<div class="highlight"><pre><span></span><span class="c"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu</span>
-<span class="c">#     $epscu $nu $L1 $L2 $L3 $phis $S $fyh $Es0 $haRatio $mu $phiLon -stRatio</span>
-<span class="c">#     $stRatio&lt;/li&gt;</span>
-
-<span class="nv">uniaxialMaterial</span><span class="w"> </span>ConfinedConcrete01<span class="w"> </span><span class="mi">1</span><span class="w"> </span>S4a<span class="w"> </span><span class="o">-</span><span class="mf">30.0</span><span class="w"> </span><span class="mf">26081.0</span><span class="w"> </span><span class="o">-</span>epscu<span class="w"> </span><span class="o">-</span><span class="mf">0.03</span><span class="w"> </span><span class="err">\</span>
-<span class="w">    </span><span class="nv">-varUB</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">200.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">206000.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"> </span><span class="mf">16.0</span><span class="w"> </span><span class="err">\</span>
-<span class="w">    </span><span class="nv">-stRatio</span><span class="w"> </span><span class="mf">0.85</span><span class="w"> </span>
-</pre></div>
-
+<div class="sourceCode" id="cb4"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     $epscu $nu $L1 $L2 $L3 $phis $S $fyh $Es0 $haRatio $mu $phiLon -stRatio</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     $stRatio&lt;/li&gt;</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConfinedConcrete01 <span class="dv">1</span> S4a<span class="ot"> -30</span><span class="fl">.0</span> <span class="fl">26081.0</span><span class="ot"> -epscu -0</span><span class="fl">.03</span> \</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    -varUB <span class="fl">300.0</span> <span class="fl">200.0</span> <span class="fl">100.0</span> <span class="fl">10.0</span> <span class="fl">100.0</span> <span class="fl">300.0</span> <span class="fl">206000.0</span> <span class="fl">0.0</span> <span class="fl">1000.0</span> <span class="fl">16.0</span> \</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    -stRatio <span class="fl">0.85</span> </span></code></pre></div>
 <p>
 <p><em>Section S4a strengthened by additional FRP wraps</em></p>
-<div class="highlight"><pre><span></span><span class="c"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu</span>
-<span class="c">#        $epscu $nu $L1 $L2 $L3 $phis $S $fyh $Es0 $haRatio $mu $phiLon $cover</span>
-<span class="c">#        $Am $Sw $ful $Es0w -stRatio $stRatio</span>
-
-<span class="nv">uniaxialMaterial</span><span class="w"> </span>ConfinedConcrete01<span class="w"> </span><span class="mi">1</span><span class="w"> </span>S4a<span class="w"> </span><span class="o">-</span><span class="mf">30.0</span><span class="w"> </span><span class="mf">26081.0</span><span class="w"> </span><span class="o">-</span>epscu<span class="w"> </span><span class="o">-</span><span class="mf">0.03</span><span class="w"> </span><span class="err">\</span>
-<span class="w">        </span><span class="nv">-varUB</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">200.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">206000.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"> </span><span class="mf">16.0</span><span class="w"> </span><span class="err">\</span>
-<span class="w">        </span><span class="nv">-wrap</span><span class="w"> </span><span class="mf">30.0</span><span class="w"> </span><span class="mf">51.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">3900.0</span><span class="w"> </span><span class="mf">230000.0</span><span class="w"> </span><span class="o">-</span>stRatio<span class="w"> </span><span class="mf">0.85</span><span class="w"> </span>
-</pre></div>
-
+<div class="sourceCode" id="cb5"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#        $epscu $nu $L1 $L2 $L3 $phis $S $fyh $Es0 $haRatio $mu $phiLon $cover</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#        $Am $Sw $ful $Es0w -stRatio $stRatio</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConfinedConcrete01 <span class="dv">1</span> S4a<span class="ot"> -30</span><span class="fl">.0</span> <span class="fl">26081.0</span><span class="ot"> -epscu -0</span><span class="fl">.03</span> \</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        -varUB <span class="fl">300.0</span> <span class="fl">200.0</span> <span class="fl">100.0</span> <span class="fl">10.0</span> <span class="fl">100.0</span> <span class="fl">300.0</span> <span class="fl">206000.0</span> <span class="fl">0.0</span> <span class="fl">1000.0</span> <span class="fl">16.0</span> \</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>        -wrap <span class="fl">30.0</span> <span class="fl">51.0</span> <span class="fl">100.0</span> <span class="fl">3900.0</span> <span class="fl">230000.0</span><span class="ot"> -stRatio</span> <span class="fl">0.85</span> </span></code></pre></div>
 <p>
 <strong>Rectangular section reinforced by simple transverse hoop and by additional FRP wraps (Section R)</strong>
 </p>
@@ -14856,24 +14846,21 @@ R.png
 <p>
 <em>Section R</em>
 </p>
-<div class="highlight"><pre><span></span><span class="c"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu $epscu $nu $L1 $L2 $phis $S $fyh $Es0 $haRatio $mu $phiLon -stRatio $stRatio</span>
-
-<span class="nv">uniaxialMaterial</span><span class="w"> </span>ConfinedConcrete01<span class="w"> </span><span class="mi">1</span><span class="w"> </span>R<span class="w"> </span><span class="o">-</span><span class="mf">30.0</span><span class="w"> </span><span class="mf">26081.0</span><span class="w"> </span><span class="o">-</span>epscu<span class="w"> </span><span class="o">-</span><span class="mf">0.03</span><span class="w"> </span><span class="err">\</span>
-<span class="w">  </span><span class="nv">-varUB</span><span class="w"> </span><span class="mf">500.0</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">206000.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"> </span><span class="mf">16.0</span><span class="w">  </span><span class="err">\</span>
-<span class="w">  </span><span class="nv">-stRatio</span><span class="w"> </span><span class="mf">0.85</span><span class="w"> </span>
-</pre></div>
-
+<div class="sourceCode" id="cb6"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu $epscu $nu $L1 $L2 $phis $S $fyh $Es0 $haRatio $mu $phiLon -stRatio $stRatio</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConfinedConcrete01 <span class="dv">1</span> R<span class="ot"> -30</span><span class="fl">.0</span> <span class="fl">26081.0</span><span class="ot"> -epscu -0</span><span class="fl">.03</span> \</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  -varUB <span class="fl">500.0</span> <span class="fl">300.0</span> <span class="fl">10.0</span> <span class="fl">100.0</span> <span class="fl">300.0</span> <span class="fl">206000.0</span> <span class="fl">0.0</span> <span class="fl">1000.0</span> <span class="fl">16.0</span>  \</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  -stRatio <span class="fl">0.85</span> </span></code></pre></div>
 <p>
 <p><em>Section R strengthened by additional FRP wraps</em></p>
-<div class="highlight"><pre><span></span><span class="c"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu \</span>
-<span class="c">#   $epscu $nu $L1 $L2 $phis $S $fyh $Es0 $haRatio $mu $phiLon $cover $Am \</span>
-<span class="c">#   $Sw $ful $Es0w -stRatio $stRatio</span>
-
-<span class="nv">uniaxialMaterial</span><span class="w"> </span>ConfinedConcrete01<span class="w"> </span><span class="mi">1</span><span class="w"> </span>R<span class="w"> </span><span class="o">-</span><span class="mf">30.0</span><span class="w"> </span><span class="mf">26081.0</span><span class="w"> </span><span class="o">-</span>epscu<span class="w"> </span><span class="o">-</span><span class="mf">0.03</span><span class="w"> </span><span class="err">\</span>
-<span class="w">  </span><span class="nv">-varUB</span><span class="w"> </span><span class="mf">500.0</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">300.0</span><span class="w"> </span><span class="mf">206000.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1000.0</span><span class="w"> </span><span class="mf">16.0</span><span class="w"> </span><span class="o">-</span>wrap<span class="w"> </span><span class="mf">30.0</span><span class="w"> </span><span class="err">\</span>
-<span class="w">  </span><span class="nv">51.0</span><span class="w"> </span><span class="mf">100.0</span><span class="w"> </span><span class="mf">3900.0</span><span class="w"> </span><span class="mf">230000.0</span><span class="w"> </span><span class="o">-</span>stRatio<span class="w"> </span><span class="mf">0.85</span><span class="w"> </span>
-</pre></div>
-
+<div class="sourceCode" id="cb7"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec -epscu \</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   $epscu $nu $L1 $L2 $phis $S $fyh $Es0 $haRatio $mu $phiLon $cover $Am \</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   $Sw $ful $Es0w -stRatio $stRatio</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConfinedConcrete01 <span class="dv">1</span> R<span class="ot"> -30</span><span class="fl">.0</span> <span class="fl">26081.0</span><span class="ot"> -epscu -0</span><span class="fl">.03</span> \</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  -varUB <span class="fl">500.0</span> <span class="fl">300.0</span> <span class="fl">10.0</span> <span class="fl">100.0</span> <span class="fl">300.0</span> <span class="fl">206000.0</span> <span class="fl">0.0</span> <span class="fl">1000.0</span> <span class="fl">16.0</span><span class="ot"> -wrap</span> <span class="fl">30.0</span> \</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fl">51.0</span> <span class="fl">100.0</span> <span class="fl">3900.0</span> <span class="fl">230000.0</span><span class="ot"> -stRatio</span> <span class="fl">0.85</span> </span></code></pre></div>
 </p>
 <hr />
 <p>

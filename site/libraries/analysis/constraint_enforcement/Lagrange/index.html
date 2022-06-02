@@ -14156,9 +14156,7 @@ Removal During Simulation
 
 <h1 id="lagrange">Lagrange</h1>
 <p>This command is used to construct a <code>LagrangeMultiplier</code> constraint handler, which enforces the constraints by introducing Lagrange multiplies to the system of equation. The following is the command to construct a plain constraint handler:</p>
-<div class="highlight"><pre><span></span><span class="nv">constraints</span><span class="w"> </span>Lagrange<span class="w"> </span><span class="o">&lt;</span><span class="nv">$alphaS</span><span class="w"> </span><span class="nv">$alphaM</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>constraints Lagrange &lt;<span class="dt">$alphaS</span> <span class="dt">$alphaM</span> &gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -14182,28 +14180,20 @@ Removal During Simulation
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk </span></p>
 <h2 id="c-interface">C++ Interface</h2>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/handler/LagrangeConstraintHandler.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">LagrangeConstraintHandler</span><span class="o">:</span><span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="n">ConstraintHandler</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/handler/LagrangeConstraintHandler.h&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LagrangeConstraintHandler<span class="op">:</span>  <span class="kw">public</span> ConstraintHandler<span class="op">;</span></span></code></pre></div>
 <p>The LagrangeConstraintHandler class is a class which deals with both single and multi point constraints using the Lagrange method. This is done by, in addition to creating a <code>DOF_Group</code> object for each Node and an FE_Element for each Element in the Domain, creating a LagrangeDOF_Group object and either a LagrangeSP_FE or a LagrangeMP_FE object for each constraint in the Domain. It is these objects that enforce the constraints by modifying the tangent matrix and residual vector.</p>
 <p>The integer <code>HANDLER_TAG_LagrangeConstraintHandler</code> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the LagrangeConstraintHandler constructor. Stores <code>alphaSP</code> and <code>alphaMP</code> which are needed to construct the <code>LagrangeSP_FE</code> and <code>LagrangeMP_FE</code> objects in <code>handle()</code>.</p>
 <h3 id="destructor">Destructor</h3>
 <p>Currently invokes <code>clearAll()</code>, this will change when <code>clearAll()</code> is rewritten.</p>
 <h3 id="methods">Methods</h3>
 <p>Determines the number of FE_Elements and DOF_Groups needed from the Domain (a one to one mappinging between Elements and FE_Elements, SP_Constraints and LagrangeSP_FEs, MP_Constraints and LagrangeMP_FEs and Nodes and DOF_Groups). Creates two arrays of pointers to store the FE_Elements and DOF_Groups, returning a warning message and a <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span> if not enough memory is available for these arrays. Then the object will iterate through the Nodes of the Domain, creating a <code>DOF_Group</code> for each node and setting the initial id for each dof to <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span> if the node identifier is in <em>nodesToBeNumberedLast</em>. The object then iterates through the Elements of the Domain creating a <code>FE_Element</code> for each Element, if the Element is a Subdomain <code>setFE_ElementPtr()</code> is invoked on the Subdomain with the new <code>FE_Element</code> as the argument. If not enough memory is available for any <code>DOF_Group</code> or <code>FE_Element</code> a warning message is printed and a <span class="math inline">\(-4\)</span> or <span class="math inline">\(-5\)</span> is returned. The object then iterates through the SP_Constraints of the Domain creating a LagrangeSP_FE for each constraint, using the Domain, the constraint and <em>alphaSP</em> as the arguments in the constructor. The object then iterates through the MP_Constraints of the Domain creating a LagrangeMP_FE for each constraint, using the Domain, the constraint and <em>alphaMP</em> as the arguments in the constructor. Finally the method returns the number of degrees-of-freedom associated with the <code>DOF_Groups</code> in <code>nodesToBeNumberedLast</code>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clearAll</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> clearAll<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Currently this invokes delete on all the <code>FE_Element</code> and DOF_Group objects created in <code>handle()</code> and the arrays used to store pointers to these objects. FOR ANALYSIS INVOLVING DYNAMIC LOAD BALANCING, RE-MESHING AND CONTACT THIS MUST CHANGE.</p>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">sendSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> sendSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>theChannel<span class="op">);</span></span></code></pre></div>
 <p>Sends in a Vector of size 2 <em>alphaSP</em> and <em>alphaMP</em>. Returns <span class="math inline">\(0\)</span> if successful.</p>
-<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">recvSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">,</span><span class="w"> </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theBroker</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> recvSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>theChannel<span class="op">,</span> FEM_ObjectBroker <span class="op">&amp;</span>theBroker<span class="op">);</span></span></code></pre></div>
 <p>Receives in a Vector of size 2 the values <em>alphaSP</em> and <em>alphaMP</em>. Returns <span class="math inline">\(0\)</span> if successful.</p>
 
 

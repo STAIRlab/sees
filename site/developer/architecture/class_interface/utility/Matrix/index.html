@@ -14157,11 +14157,9 @@ Removal During Simulation
 
 
 <h1 id="matrix">Matrix</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;matrix/Matrix.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">Matrix</span><span class="o">:</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;matrix/Matrix.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Matrix<span class="op">:</span></span></code></pre></div>
 <p>The Matrix class provides the matrix abstraction. A matrix of order numRows X numCols is an ordered 2d array of numbers arranged in numRows rows and numCols columns. For example, a matrix <span class="math inline">\(A\)</span> of order 2 X 3:</p>
 <p>$$A = $$</p>
 <p>The Matrix class provides the implementation of a general unsymmetric matrix. The data for the matrix is stored in a 1d double array of size numRows*numCols with the data for <span class="math inline">\(a_{i,j}\)</span> located at j*numRows + i in the 1d array. This is similar to the ordering of a Fortran 2d array and will permit calls to numerical Fortran libraries, e.g. BLAS, for certain method calls at a future stage. At present no subclassing is permitted (THIS MAY CHANGE), the reason for this is that the Matrix objects are envisioned to be small scale matrices primarily used for the passing of data between objects in the system. To allow subclassing could reduce the efficiency of the program due to the manner in which virtual functions are implemented.</p>
@@ -14196,13 +14194,9 @@ Removal During Simulation
 <p>A method to return a new Matrix equal to the product of the transpose of the current Matrix and the Matrix <em>M</em>. It does this by first creating a new Matrix of size numRows and M.numRows. The contents of this new Matrix are then determined and the resulting Matrix is returned. If the two matrices are of incompatible sizes, a warning message is printed and a zeroed Matrix is returned. The method tests for the type of the current Matrix, to see whether the performance can be improved by avoiding having to call the overloaded (i,j) operators, if <em>M</em> is of type genMatrix.</p>
 <p>To print the contents of the Matrix to the output stream <em>s</em>. The method will print the contents one row at a time.</p>
 <p>To read the contents of the Matrix from the input stream <em>s</em>. The method expects the components one row at a time.</p>
-<div class="highlight"><pre><span></span><span class="k">friend</span><span class="w"> </span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="n">$</span><span class="o">&lt;&lt;</span><span class="n">$</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">M</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">friend</span> OPS_Stream <span class="op">&amp;</span><span class="kw">operator</span><span class="er">$</span><span class="op">&lt;&lt;</span><span class="er">$</span><span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="at">const</span> Matrix <span class="op">&amp;</span>M<span class="op">);</span></span></code></pre></div>
 <p>A function to print out the contents of the Matrix <em>M</em> to the output stream <em>s</em>. Does this by invoking <code>Output()</code> on the Matrix <em>M</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">friend</span><span class="w"> </span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="n">$</span><span class="o">&gt;&gt;</span><span class="n">$</span><span class="p">(</span><span class="n">istream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">M</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">friend</span> OPS_Stream <span class="op">&amp;</span><span class="kw">operator</span><span class="er">$</span><span class="op">&gt;&gt;</span><span class="er">$</span><span class="op">(</span>istream <span class="op">&amp;</span>s<span class="op">,</span> <span class="at">const</span> Matrix <span class="op">&amp;</span>M<span class="op">);</span></span></code></pre></div>
 <p>A function to print out the contents of the Matrix <em>M</em> to the output stream <em>s</em>. Does this by invoking <code>Output()</code> on the Matrix <em>M</em>.</p>
 
 

@@ -14577,10 +14577,8 @@ Figure 1. a) SFI_MVLEM Element, b) RC Panel Element (nDMaterial FSAM)
 </ol></li>
 </ol></li>
 </ol>
-<div class="highlight"><pre><span></span><span class="nv">Element</span><span class="w"> </span>SFI_MVLEM<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="nv">$c</span><span class="w"> </span><span class="o">-</span>thick
-<span class="w">        </span><span class="k">{</span><span class="nv">Thicknesses</span><span class="k">}</span><span class="w"> </span><span class="nv">-width</span><span class="w"> </span><span class="k">{</span><span class="nv">Widths</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>mat<span class="w"> </span><span class="k">{</span><span class="nv">Material_tags</span><span class="k">}</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Element SFI_MVLEM <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$m</span> <span class="dt">$c</span><span class="ot"> -thick</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="kw">{</span>Thicknesses<span class="kw">}</span><span class="ot"> -width</span> <span class="kw">{</span>Widths<span class="kw">}</span><span class="ot"> -mat</span> <span class="kw">{</span>Material_tags<span class="kw">}</span></span></code></pre></div>
 <table>
 <tbody>
 <tr class="odd">
@@ -15113,10 +15111,8 @@ Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)
 <strong>Input Format:</strong>
 </p></li>
 </ol>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>SteelMPF<span class="w"> </span><span class="nv">$mattag</span><span class="w"> </span><span class="nv">$fyp</span><span class="w"> </span><span class="nv">$fyn</span><span class="w"> </span><span class="nv">$E0</span><span class="w"> </span><span class="nv">$bp</span><span class="w"> </span><span class="nv">$bn</span>
-<span class="w">        </span><span class="nv">$R0</span><span class="w"> </span><span class="nv">$a1</span><span class="w"> </span><span class="nv">$a2</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$a3</span><span class="w"> </span><span class="nv">$a4</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial SteelMPF <span class="dt">$mattag</span> <span class="dt">$fyp</span> <span class="dt">$fyn</span> <span class="dt">$E0</span> <span class="dt">$bp</span> <span class="dt">$bn</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$R0</span> <span class="dt">$a1</span> <span class="dt">$a2</span> &amp;lt;<span class="dt">$a3</span> <span class="dt">$a4</span>&amp;gt;</span></code></pre></div>
 <table>
 <tbody>
 <tr class="odd">
@@ -15323,10 +15319,8 @@ Source: /usr/local/cvs/OpenSees/SRC/material/uniaxial/
 </p></li>
 </ol></li>
 </ol>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ConcreteCM<span class="w"> </span><span class="nv">$mattag</span><span class="w"> </span><span class="nv">$fpcc</span><span class="w"> </span><span class="nv">$epcc</span><span class="w"> </span><span class="nv">$Ec</span><span class="w"> </span><span class="nv">$rc</span>
-<span class="w">        </span><span class="nv">$xcrn</span><span class="w"> </span><span class="nv">$ft</span><span class="w"> </span><span class="nv">$et</span><span class="w"> </span><span class="nv">$rt</span><span class="w"> </span><span class="nv">$xcrp</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-GapClose</span><span class="w"> </span><span class="nv">$gap</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConcreteCM <span class="dt">$mattag</span> <span class="dt">$fpcc</span> <span class="dt">$epcc</span> <span class="dt">$Ec</span> <span class="dt">$rc</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$xcrn</span> <span class="dt">$ft</span> <span class="dt">$et</span> <span class="dt">$rt</span> <span class="dt">$xcrp</span> &amp;lt;-GapClose <span class="dt">$gap</span>&amp;gt;</span></code></pre></div>
 <table>
 <tbody>
 <tr class="odd">
@@ -15539,10 +15533,8 @@ Figure 1. FSAM for Converting In-Plane Strains to In-Plane Smeared Stresses on a
 </ol></li>
 </ol></li>
 </ol>
-<div class="highlight"><pre><span></span><span class="nv">nDMaterial</span><span class="w"> </span>FSAM<span class="w"> </span><span class="nv">$mattag</span><span class="w"> </span><span class="nv">$rho</span><span class="w"> </span><span class="nv">$sX</span><span class="w"> </span><span class="nv">$sY</span><span class="w"> </span><span class="nv">$conc</span><span class="w"> </span><span class="nv">$rouX</span><span class="w"> </span><span class="nv">$rouY</span>
-<span class="w">        </span><span class="nv">$nu</span><span class="w"> </span><span class="nv">$alfadow</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb4"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>nDMaterial FSAM <span class="dt">$mattag</span> <span class="dt">$rho</span> <span class="dt">$sX</span> <span class="dt">$sY</span> <span class="dt">$conc</span> <span class="dt">$rouX</span> <span class="dt">$rouY</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$nu</span> <span class="dt">$alfadow</span></span></code></pre></div>
 <table>
 <tbody>
 <tr class="odd">

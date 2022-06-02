@@ -14157,11 +14157,9 @@ Removal During Simulation
 
 
 <h1 id="id">ID</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;matrix/ID.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">ID</span><span class="o">:</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;matrix/ID.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ID<span class="op">:</span></span></code></pre></div>
 <p>The ID class provides the abstraction for an integer Vector. The class is introduced in addition to the Vector class, to save memory and casting when integer arrays are required. An ID of order <em>size</em> is an ordered 1d array of <em>size</em> integer values. For example an ID id of order 5:</p>
 <p><span class="math inline">\(id = [id_0\)</span> <span class="math inline">\(id_1\)</span> <span class="math inline">\(id_2\)</span> <span class="math inline">\(id_3\)</span> <span class="math inline">\(id_4]\)</span></p>
 <p>In the ID class, the data is stored in a 1d integer array of length equal to arraySize, where order &lt;= arraySize. Creating an ID with storage capacity greater than that required allows the ID object to grow without the need to deallocate and allocate more memory. At present time none of the methods are declared as being virtual. THIS MAY CHANGE.</p>
@@ -14178,13 +14176,9 @@ Removal During Simulation
 <p>Used to set the data at location(<em>x</em>) in the ID. Assumes (<em>x</em>) is a valid location in the ID, a segmentation fault or erroneous results can occur if this is not the case.</p>
 <p>Used to set the data at location(<em>x</em>) in the ID. If <em>x</em> is outside the order of the ID the ID is order of the ID is enlarged to <em>x+1</em>. When increasing the order, a check is first made to see if the current array is large enough; if it is the components between the old end and the new component are set to <span class="math inline">\(0\)</span> and the order of the ID is set to <em>x+1</em>, if not a new array is created. The size of this array is max(<span class="math inline">\(2*\)</span>old array size, x). A copy of the components of the old array into the new array is made, with any new components set to <span class="math inline">\(0\)</span>. If not enough space is available or <em>x</em> is less than <span class="math inline">\(0\)</span>, a warning message is printed and the contents of ID_ERROR returned.</p>
 <p>Sets the current ID to be equal to the ID given by <em>M</em>. If the IDs are of different sizes, the current data is deallocated and more space allocated before the contents are copied. If not enough memory is available, the order and <em>arraySize</em> of the current ID is set to <span class="math inline">\(0\)</span> and the ID is returned without copying the components.</p>
-<div class="highlight"><pre><span></span><span class="k">friend</span><span class="w"> </span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="n">$</span><span class="o">&lt;&lt;</span><span class="n">$</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="n">id</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">friend</span> OPS_Stream <span class="op">&amp;</span><span class="kw">operator</span><span class="er">$</span><span class="op">&lt;&lt;</span><span class="er">$</span><span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="at">const</span> ID <span class="op">&amp;</span>id<span class="op">);</span></span></code></pre></div>
 <p>A function to print out the contents of the ID <em>id</em> to the output stream <em>s</em>. Prints out the components into the stream and then sends a newline character.</p>
-<div class="highlight"><pre><span></span><span class="k">friend</span><span class="w"> </span><span class="n">istream</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="n">$</span><span class="o">&gt;&gt;</span><span class="n">$</span><span class="p">(</span><span class="n">istream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="n">id</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">friend</span> istream <span class="op">&amp;</span><span class="kw">operator</span><span class="er">$</span><span class="op">&gt;&gt;</span><span class="er">$</span><span class="op">(</span>istream <span class="op">&amp;</span>s<span class="op">,</span> <span class="at">const</span> ID <span class="op">&amp;</span>id<span class="op">);</span></span></code></pre></div>
 <p>A function to read the contents of the ID <em>id</em> from the input stream <em>s</em>. Sets the components of <em>id</em> equal to the next <em>id.Size()</em> entries in the stream.</p>
 
 

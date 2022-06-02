@@ -14155,16 +14155,12 @@ Removal During Simulation
 
 
 <h1 id="fullgenlinlapacksolver">FullGenLinLapackSolver</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;~/system_of_eqn/linearSOE/fullGEN/FullGenLinLapackSolver.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">FullGenLinLapackSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">FullGenLinSolver</span><span class="w"></span>
-</pre></div>
-
-<div class="highlight"><pre><span></span>MovableObject
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include</span><span class="im">&lt;~/system_of_eqn/linearSOE/fullGEN/FullGenLinLapackSolver.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> FullGenLinLapackSolver<span class="op">:</span> <span class="kw">public</span> FullGenLinSolver</span></code></pre></div>
+<pre><code>MovableObject
 Solver
-LinearSOESolver
-</pre></div>
-
+LinearSOESolver</code></pre>
 <p>A <code>FullGenLinLapackSolver</code> object can be constructed to solve a FullGenLinSOE object. It obtains the solution by making calls on the the LAPACK library. The class is defined to be a friend of the FullGenLinSOE class (see <a href="FullGenLinSOE"><code>FullGenLinSOE</code></a>).</p>
 <h3 id="constructor">Constructor</h3>
 <h3 id="destructor">Destructor</h3>

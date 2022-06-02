@@ -14161,14 +14161,12 @@ Removal During Simulation
 
 
 <h1 id="bandspdlinsolver">BandSPDLinSolver</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;~/system_of_eqn/linearSOE/bandSPD/BandSPDLinSolver.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">BandSPDLinSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOESolver</span><span class="w"></span>
-
-<span class="n">MovableObject</span><span class="w"></span>
-<span class="n">Solver</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;~/system_of_eqn/linearSOE/bandSPD/BandSPDLinSolver.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> BandSPDLinSolver<span class="op">:</span> <span class="kw">public</span> LinearSOESolver</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>MovableObject</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Solver</span></code></pre></div>
 <p><code>BandSPDLinSolver</code> is an abstract class. The BandSPDLinSolver class provides access for each subclass to the BandSPDLinSOE object through the pointer <code>theSOE</code>, which is a protected pointer.</p>
 <h3 id="constructor">Constructor</h3>
 <h3 id="destructor">Destructor</h3>

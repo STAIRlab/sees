@@ -14162,18 +14162,16 @@ href="RotationShearCurve" title="wikilink">RotationShearCurve</a> limit surface 
 <h2 id="mode_1_direct_input">
 <strong>MODE 1: Direct Input</strong>
 </h2>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>PinchingLimitStateMaterial<span class="w"> </span><span class="nv">$matTag</span>
-<span class="w">        </span><span class="nv">$nodeT</span><span class="w"> </span><span class="nv">$nodeB</span><span class="w"> </span><span class="nv">$driftAxis</span><span class="w"> </span><span class="nv">$Kelas</span><span class="w"> </span><span class="nv">$crvTyp</span><span class="w"> </span><span class="nv">$crvTag</span><span class="w"></span>
-<span class="w">        </span><span class="nv">$YpinchUPN</span><span class="w"> </span><span class="nv">$YpinchRPN</span><span class="w"> </span><span class="nv">$XpinchRPN</span><span class="w"> </span><span class="nv">$YpinchUNP</span><span class="w"></span>
-<span class="w">        </span><span class="nv">$YpinchRNP</span><span class="w"> </span><span class="nv">$XpinchRNP</span><span class="w"></span>
-<span class="w">        </span><span class="nv">$dmgStrsLimE</span><span class="w"> </span><span class="nv">$dmgDispMax</span><span class="w"></span>
-<span class="w">        </span><span class="nv">$dmgE1</span><span class="w"> </span><span class="nv">$dmgE2</span><span class="w"> </span><span class="nv">$dmgE3</span><span class="w"> </span><span class="nv">$dmgE4</span><span class="w"> </span><span class="nv">$dmgELim</span><span class="w"></span>
-<span class="w">        </span><span class="nv">$dmgR1</span><span class="w"> </span><span class="nv">$dmgR2</span><span class="w"> </span><span class="nv">$dmgR3</span><span class="w"> </span><span class="nv">$dmgR4</span><span class="w"> </span><span class="nv">$dmgRLim</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nv">code</span><span class="w"> </span>class<span class="err">=</span><span class="s2">&quot;tcl-variable&quot;</span><span class="o">&gt;</span>dmgRCyc<span class="o">&lt;/</span>code<span class="o">&gt;</span>
-<span class="w">        </span><span class="nv">$dmgS1</span><span class="w"> </span><span class="nv">$dmgS2</span><span class="w"> </span><span class="nv">$dmgS3</span><span class="w"> </span><span class="nv">$dmgS4</span><span class="w"> </span><span class="nv">$dmgSLim</span><span class="w"></span>
-<span class="w">        </span><span class="o">&lt;</span><span class="nv">code</span><span class="w"> </span>class<span class="err">=</span><span class="s2">&quot;tcl-variable&quot;</span><span class="o">&gt;</span>dmgSCyc<span class="o">&lt;/</span>code<span class="o">&gt;&lt;/</span>p<span class="o">&gt;&lt;/</span>td<span class="o">&gt;</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial PinchingLimitStateMaterial <span class="dt">$matTag</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$nodeT</span> <span class="dt">$nodeB</span> <span class="dt">$driftAxis</span> <span class="dt">$Kelas</span> <span class="dt">$crvTyp</span> <span class="dt">$crvTag</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$YpinchUPN</span> <span class="dt">$YpinchRPN</span> <span class="dt">$XpinchRPN</span> <span class="dt">$YpinchUNP</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$YpinchRNP</span> <span class="dt">$XpinchRNP</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$dmgStrsLimE</span> <span class="dt">$dmgDispMax</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$dmgE1</span> <span class="dt">$dmgE2</span> <span class="dt">$dmgE3</span> <span class="dt">$dmgE4</span> <span class="dt">$dmgELim</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$dmgR1</span> <span class="dt">$dmgR2</span> <span class="dt">$dmgR3</span> <span class="dt">$dmgR4</span> <span class="dt">$dmgRLim</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        &lt;code <span class="ot">class</span>=<span class="st">&quot;tcl-variable&quot;</span>&gt;dmgRCyc&lt;/code&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$dmgS1</span> <span class="dt">$dmgS2</span> <span class="dt">$dmgS3</span> <span class="dt">$dmgS4</span> <span class="dt">$dmgSLim</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        &lt;code <span class="ot">class</span>=<span class="st">&quot;tcl-variable&quot;</span>&gt;dmgSCyc&lt;/code&gt;&lt;/p&gt;&lt;/td&gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>

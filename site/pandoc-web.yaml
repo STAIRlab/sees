@@ -19,13 +19,13 @@ metadata:
 #  - ./references/brace.bib
 
 
-filters:
+# filters:
+# - pygmentize
+# - include.lua
 #- pandoc-crossref
 #- citeproc # commented for dev build time
 #- image_center.lua
-- include.lua
 #- include-code-files.lua
-- pygmentize
 #
 #- elstir.lua
 

@@ -14159,11 +14159,9 @@ Removal During Simulation
 This command is used to construct a NewtonLineSearch algorithm object which introduces line search to the <a href="Newton_Algorithm"
 title="wikilink"> Newton-Raphson</a> algorithm to solve the nonlinear residual equation. Line search increases the effectiveness of the Newton method when convergence is slow due to roughness of the residual. The command is of the following form:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">algorithm</span><span class="w"> </span>NewtonLineSearch<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>type<span class="w"> </span><span class="nv">$typeSearch</span><span class="w"> </span><span class="o">&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-tol</span><span class="w"> </span><span class="nv">$tol</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>maxIter<span class="w"> </span><span class="nv">$maxIter</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>minEta<span class="w"> </span><span class="nv">$minEta</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>maxEta<span class="w"> </span><span class="nv">$maxEta</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>algorithm NewtonLineSearch &lt;<span class="ot"> -type</span> <span class="dt">$typeSearch</span> &gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -tol</span> <span class="dt">$tol</span> &gt; &lt;<span class="ot"> -maxIter</span> <span class="dt">$maxIter</span> &gt; </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -minEta</span> <span class="dt">$minEta</span> &gt; &lt;<span class="ot"> -maxEta</span> <span class="dt">$maxEta</span> &gt;</span></code></pre></div>
 <table>
 <tbody>
 <tr class="odd">

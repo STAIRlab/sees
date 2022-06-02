@@ -14156,10 +14156,8 @@ Removal During Simulation
 
 <h1 id="secant-newton">Secant Newton</h1>
 <p>This command is used to construct a <code>SecantNewton</code> algorithm object which uses the two-term update to accelerate the convergence of the modified newton method. The command is of the following form:</p>
-<div class="highlight"><pre><span></span><span class="nv">algorithm</span><span class="w"> </span>SecantNewton<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>iterate<span class="w"> </span><span class="nv">$tangIter</span><span class="w"> </span><span class="o">&gt;</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-increment</span><span class="w"> </span><span class="nv">$tangIncr</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>maxDim<span class="w"> </span><span class="nv">$maxDim</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>algorithm SecantNewton &lt;<span class="ot"> -iterate</span> <span class="dt">$tangIter</span> &gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -increment</span> <span class="dt">$tangIncr</span> &gt; &lt;<span class="ot"> -maxDim</span> <span class="dt">$maxDim</span> &gt;</span></code></pre></div>
 <table>
 <tbody>
 <tr class="odd">

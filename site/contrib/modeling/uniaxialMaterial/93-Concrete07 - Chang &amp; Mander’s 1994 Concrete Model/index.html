@@ -14159,10 +14159,8 @@ Removal During Simulation
 <p>
 Concrete07 is an implementation of Chang &amp; Mander’s 1994 concrete model with simplified unloading and reloading curves. Additionally the tension envelope shift with respect to the origin proposed by Chang and Mander has been removed. The model requires eight input parameters to define the monotonic envelope of confined and unconfined concrete in the following form:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Concrete07<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fc</span><span class="w"> </span><span class="nv">$ec</span><span class="w"> </span><span class="nv">$Ec</span><span class="w"> </span><span class="nv">$ft</span><span class="w"> </span><span class="nv">$et</span>
-<span class="w">        </span><span class="nv">$xp</span><span class="w"> </span><span class="nv">$xn</span><span class="w"> </span><span class="nv">$r</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial Concrete07 <span class="dt">$matTag</span> <span class="dt">$fc</span> <span class="dt">$ec</span> <span class="dt">$Ec</span> <span class="dt">$ft</span> <span class="dt">$et</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$xp</span> <span class="dt">$xn</span> <span class="dt">$r</span></span></code></pre></div>
 <hr />
 <table>
 <tbody>

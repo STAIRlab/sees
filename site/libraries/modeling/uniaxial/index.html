@@ -14148,9 +14148,7 @@ Removal During Simulation
 
 <h1 id="uniaxialmaterial-command">UniaxialMaterial Command</h1>
 <p>This command is used to construct a UniaxialMaterial object which represents uniaxial stress-strain (or force-deformation) relationships.</p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>matType<span class="o">?</span><span class="w"> </span>matTag<span class="o">?</span><span class="w"> </span>arg1<span class="o">?</span>...
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial matType? matTag? arg1?...</span></code></pre></div>
 <hr />
 <p>
 The type of material created and the additional arguments required depends on the <strong>matType?</strong> provided in the command.
@@ -14167,12 +14165,29 @@ The following contain information about matType? and the args required for each 
 <p>
 &lt;/noinclude&gt;
 </p>
-<h3 id="some-standard-uniaxial-materials">Some Standard Uniaxial Materials</h3>
+<h3 id="elastic-path-independent">Elastic / Path-Independent</h3>
 <ul>
 <li>
 <a href="Elastic_Uniaxial_Material"
 >Elastic</a>
 </li>
+<li>
+<a href="Elastic-No_Tension_Material"
+>Elastic-No Tension</a>
+</li>
+<li>
+<a href="ElasticBilin_Material">ElasticBilin</a>
+</li>
+<li>
+<a href="ElasticMultiLinear_Material">ElasticMultiLinear</a>
+</li>
+<li>
+<a href="PathIndependent_Material">PathIndependent</a>
+</li>
+</ul>
+<h3 id="standard-rate-independent-materials">Standard Rate-Independent Materials</h3>
+<p>These models are formulated and implemented according to well-established principles and algorithms.</p>
+<ul>
 <li>
 <a href="ElasticPP"
 >ElasticPP</a> Elastic-perfectly plastic
@@ -14182,8 +14197,7 @@ The following contain information about matType? and the args required for each 
 >Elastic-Perfectly Plastic Gap</a>
 </li>
 <li>
-<a href="Elastic-No_Tension_Material"
->Elastic-No Tension</a>
+<a href="Hardening_Material">Hardening</a>
 </li>
 <li>
 <a href="Parallel_Material">Parallel</a>
@@ -14191,11 +14205,16 @@ The following contain information about matType? and the args required for each 
 <li>
 <a href="Series_Material">Series</a>
 </li>
+</ul>
+<h3 id="standard-rate-dependent-materials">Standard Rate-Dependent Materials</h3>
+<ul>
 <li>
 <a href="Viscous_Material">Viscous</a>
 </li>
-</ul>
+<li>
+<a href="ViscousDamper_Material">ViscousDamper </a>
 </li>
+</ul>
 <h3 id="steel-reinforcing-steel-materials">Steel &amp; Reinforcing-Steel Materials</h3>
 <dl>
 <dt>
@@ -14339,9 +14358,6 @@ href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawink
 <a href="CastFuse_Material">CastFuse </a>
 </li>
 <li>
-<a href="ViscousDamper_Material">ViscousDamper </a>
-</li>
-<li>
 <a href="BilinearOilDamper_Material"
 >BilinearOilDamper</a>
 </li>
@@ -14358,9 +14374,6 @@ href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawink
 <a href="Fatigue_Material">Fatigue</a>
 </li>
 <li>
-<a href="Hardening_Material">Hardening</a>
-</li>
-<li>
 <a href="Impact_Material">Impact</a>
 </li>
 <li>
@@ -14373,12 +14386,6 @@ href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawink
 <a href="MinMax_Material">MinMax</a>
 </li>
 <li>
-<a href="ElasticBilin_Material">ElasticBilin</a>
-</li>
-<li>
-<a href="ElasticMultiLinear_Material">ElasticMultiLinear</a>
-</li>
-<li>
 <a href="MultiLinear_Material">MultiLinear</a>
 </li>
 <li>
@@ -14386,9 +14393,6 @@ href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawink
 </li>
 <li>
 <a href="Initial_Stress_Material">Initial Stress</a>
-</li>
-<li>
-<a href="PathIndependent_Material">PathIndependent</a>
 </li>
 <li>
 <a href="Pinching4_Material">Pinching4</a>

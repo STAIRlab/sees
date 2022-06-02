@@ -14153,25 +14153,19 @@ Removal During Simulation
 
 
 <h1 id="cross-compiling">Cross Compiling</h1>
-<div class="highlight"><pre><span></span><span class="o">{</span>
+<pre class="shell"><code>{
 docker run --rm dockcross/windows-shared-x86 
-<span class="o">}</span> &gt; ./dockcross-windows-shared-x86
-chmod +x ./dockcross-windows-shared-x86
-</pre></div>
-
+} &gt; ./dockcross-windows-shared-x86
+chmod +x ./dockcross-windows-shared-x86</code></pre>
 <blockquote>
 <p>You may need to run <code>sudo dockerd</code> first to start the docker daemon.</p>
 </blockquote>
-<div class="highlight"><pre><span></span>mkdir build_win
+<pre><code>mkdir build_win
 cd build_win
 cp ../conanfile.py .
-sudo ../dockcross-windows-shared-x86 conan install .
-</pre></div>
-
-<div class="highlight"><pre><span></span><span class="nb">cd</span> ../
-sudo ./dockcross-windows-shared-x86 cmake -B build_win/
-</pre></div>
-
+sudo ../dockcross-windows-shared-x86 conan install .</code></pre>
+<pre class="shell"><code>cd ../
+sudo ./dockcross-windows-shared-x86 cmake -B build_win/</code></pre>
 <p>```</p>
 
 

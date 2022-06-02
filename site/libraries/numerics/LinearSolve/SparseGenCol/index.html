@@ -14155,15 +14155,11 @@ Removal During Simulation
 
 
 <h1 id="sparsegencollinsolver">SparseGenColLinSolver</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/SparseGen/SparseGenColLinSolver.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">SparseGenColLinSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOESolver</span><span class="w"></span>
-</pre></div>
-
-<div class="highlight"><pre><span></span>MovableObject
-Solver
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;system_of_eqn/linearSOE/SparseGen/SparseGenColLinSolver.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SparseGenColLinSolver<span class="op">:</span> <span class="kw">public</span> LinearSOESolver</span></code></pre></div>
+<pre><code>MovableObject
+Solver</code></pre>
 <p>SparseGenColLinSolver is an abstract class. The SparseGenColLinSolver class provides access for each subclass to the SparseGenColLinSOE object through the pointer <em>theSOE</em>, which is a protected pointer.</p>
 <h3 id="constructor">Constructor</h3>
 <p><br />

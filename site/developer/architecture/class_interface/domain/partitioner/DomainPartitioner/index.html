@@ -14160,9 +14160,7 @@ Removal During Simulation
 
 <p>UNDER CONSTRUCTION</p>
 <h1 id="domainpartitioner">DomainPartitioner</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;domain/partitioner/DomainPartitioner.h&gt;</span><span class="cp"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;domain/partitioner/DomainPartitioner.h&gt;</span></span></code></pre></div>
 <p>class DomainPartitioner<br />
 </p>
 <p><br />
@@ -14195,9 +14193,7 @@ Removal During Simulation
 </p>
 <p><br />
 Sets the link with the PartitionedDomain that is to be partitioned.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">partition</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">numParts</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> partition<span class="op">(</span><span class="dt">int</span> numParts<span class="op">);</span></span></code></pre></div>
 <p>Method invoked to partition the Domain. It first checks to see that the PartitionedDomain has at least <em>numParts</em> Subdomains, with tags 1 through <em>numParts</em>; if not prints an error message and returns -1. It then asks the domain for the element graph. This graph is then partitioned using the GraphPartitioner into <em>numParts</em>; if partitioning fails an error message is printed and <span class="math inline">\(-10 +\)</span> number returned from GraphPartitioner is returned. If successful the domain is partitioned according to the following rules:</p>
 <ul>
 <li><p>All nodes which are internal to a partition are added using the <code>addNode()</code> method of the Subdomain. These nodes are removed from the PartionedDomain using <code>removeNode()</code>.</p></li>

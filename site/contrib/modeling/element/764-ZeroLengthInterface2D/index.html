@@ -14158,11 +14158,9 @@ Removal During Simulation
 <p>
 zeroLengthInterface2D is Node-to-Segment (NTS) frictional contact element used in two dimensional analysis for contact between elements. Please notice that any number of DOF (DOF&gt;1) can be handled using this element (i.e. beam-solid, solid-solid as well as beam-beam contact) as oppose to zeroLengthContactNTS2D element).
 </p>
-<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>zeroLengthInterface2D<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="o">-</span>cNdNum<span class="w"> </span><span class="nv">$cNdNum</span>
-<span class="w">        </span><span class="nv">-rNdNum</span><span class="w"> </span><span class="nv">$rNdNum</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="nv">$cdof</span><span class="w"> </span><span class="nv">$rdof</span><span class="w"> </span><span class="o">-</span>Nodes<span class="w"> </span><span class="nv">$Nodes</span><span class="w"> </span><span class="nv">$Kn</span><span class="w"> </span><span class="nv">$Kt</span>
-<span class="w">        </span><span class="nv">$phi</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element zeroLengthInterface2D <span class="dt">$eleTag</span><span class="ot"> -cNdNum</span> <span class="dt">$cNdNum</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        -rNdNum <span class="dt">$rNdNum</span><span class="ot"> -dof</span> <span class="dt">$cdof</span> <span class="dt">$rdof</span><span class="ot"> -Nodes</span> <span class="dt">$Nodes</span> <span class="dt">$Kn</span> <span class="dt">$Kt</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$phi</span></span></code></pre></div>
 <hr />
 <table>
 <tbody>

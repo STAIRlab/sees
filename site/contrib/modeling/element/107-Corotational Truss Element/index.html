@@ -14161,19 +14161,15 @@ This command is used to construct a corotational truss element object. There are
 <p>
 One way is to specify an area and a UniaxialMaterial identifier:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>corotTruss<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$matTag</span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-rho</span><span class="w"> </span><span class="nv">$rho</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-cMass</span><span class="w"> </span><span class="nv">$cFlag</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-doRayleigh</span>
-<span class="w">        </span><span class="nv">$rFlag</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element corotTruss <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$A</span> <span class="dt">$matTag</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;-rho <span class="dt">$rho</span>&amp;gt; &amp;lt;-cMass <span class="dt">$cFlag</span>&amp;gt; &amp;lt;-doRayleigh</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$rFlag</span>&amp;gt;</span></code></pre></div>
 <p>
 the other is to specify a Section identifier:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>corotTrussSection<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$secTag</span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-rho</span><span class="w"> </span><span class="nv">$rho</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-cMass</span><span class="w"> </span><span class="nv">$cFlag</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-doRayleigh</span>
-<span class="w">        </span><span class="nv">$rFlag</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>element corotTrussSection <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$secTag</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;-rho <span class="dt">$rho</span>&amp;gt; &amp;lt;-cMass <span class="dt">$cFlag</span>&amp;gt; &amp;lt;-doRayleigh</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$rFlag</span>&amp;gt;</span></code></pre></div>
 <hr />
 <table>
 <tbody>

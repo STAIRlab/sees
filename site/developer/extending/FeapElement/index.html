@@ -14157,50 +14157,42 @@ Removal During Simulation
 <p>In this document we will look at the C++ code that is required to introduce a new Truss element, fElmt02, into g3. The new class will call a fortran element subroutine elmt02(), which implements a linear elastic truss element using the FEAP (http://www.ce.berkeley.edu/rlt/feap) element interface. To introduce the new class into g3, two new files are created, <code>fElmt02.h</code> and <code>fElmt02.cpp</code>, to define the class interface and implementation. In addition, two existing files are modified, <code>TclPlaneTruss.cpp</code> and <code>FEM_ObjectBroker.cpp</code>. The new files are outlined in the following subsections. The changes to the two existing files are similar to those outlined in ‘How to Introduce a New Element into g3’. It should be noted that some additional work may be required by the authors to get other feap element subroutines into g3. This is a consequence of the information the element routines are obtaining from the common blocks. The files outlined in this document can be found in the <code>SRC/element/feap</code> directory of the software distribution.</p>
 <h3 id="felmt02.h"><code>fElmt02.h</code></h3>
 <p>The file <code>fElmt02.h</code> defines the class interface and details information about the instance variables associated with the objects of type <code>fElmt02</code>. The interface first declares that the <code>fElmt02</code> class inherits from the fElement class.</p>
-<div class="highlight"><pre><span></span><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">fElmt02</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">fElement</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="kw">class</span> fElmt02 <span class="op">:</span> <span class="kw">public</span> fElement <span class="op">{</span></span></code></pre></div>
 <p>The fElement class is an abstract class which has been provided to hide most of the details of interfacing FEAP element subroutines with g3. It is the fElement class which is responsible for invoking the FEAP subroutine with the appropriate arguments and for managing the data (property and history data) associated with each element. Each new subclass of fElement is responsible for providing the fElement class with information about the element identifier, element end nodes, size of property data, and size of history data associated with the element.</p>
 <p>The fElmt02 interface then defines three constructors and a destructor. The first two constructors can be used by the analyst to construct the fElmt05 objects. The arguments passed to these constructors include the elements id and the id’s of the two end nodes. In addition to these, the first constructor takes the elements cross sectional area, youngs modulus, and an optional mass density. If no mass density is specified <span class="math inline">\(0\)</span> is assumed. This information is not passed in the second constructor. Instead it is obtained by calling the fortran element subroutine with the isw switch set to <span class="math inline">\(1\)</span>. The third constructor is used in parallel and database programming. The destructor is the method called when the object is being destroyed. It is called so that memory associated with the object is returned to the system.</p>
-<div class="highlight"><pre><span></span><span class="w">      </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// constructors</span>
-<span class="w">        </span><span class="n">fElmt02</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Nd1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Nd2</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">E</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span><span class="mf">0.0</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">fElmt02</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Nd1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">Nd2</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">iow</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">fElmt02</span><span class="p">();</span><span class="w">    </span>
-
-<span class="w">        </span><span class="c1">// destructor</span>
-<span class="w">        </span><span class="o">~</span><span class="n">fElmt02</span><span class="p">();</span><span class="w">      </span><span class="c1">// not actually needed</span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>      <span class="kw">public</span><span class="op">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="co">// constructors</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        fElmt02<span class="op">(</span><span class="dt">int</span> tag<span class="op">,</span> <span class="dt">int</span> Nd1<span class="op">,</span> <span class="dt">int</span> Nd2<span class="op">,</span> <span class="dt">double</span> A<span class="op">,</span> <span class="dt">double</span> E<span class="op">,</span> <span class="dt">double</span> M <span class="op">=</span><span class="fl">0.0</span><span class="op">);</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        fElmt02<span class="op">(</span><span class="dt">int</span> tag<span class="op">,</span> <span class="dt">int</span> Nd1<span class="op">,</span> <span class="dt">int</span> Nd2<span class="op">,</span> <span class="dt">int</span> iow<span class="op">);</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        fElmt02<span class="op">();</span>    </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        <span class="co">// destructor</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        <span class="op">~</span>fElmt02<span class="op">();</span>      <span class="co">// not actually needed</span></span></code></pre></div>
 <p>There are no public or protected members defined for this class and no class or instance variables associated with objects of this class. The parent class fElement defines the methods and instance variables.</p>
 <h3 id="felmt02.cpp"><code>fElmt02.cpp</code></h3>
 <p>The <code>fElmt02.cpp</code> file contains the implementation. This file contains the implementation of the three constructors and the destructor defined in the interface. The first constructor takes as arguments the objects identifier, the identifiers of the two end nodes, the objects area, youngs modulus and mass density. The constructor first invokes the fElement constructor with the objects identifier, a class identifier, the integer value <span class="math inline">\(2\)</span> indicating that the FEAP subroutine <code>elmt02()</code> is to be invoked, the integer <span class="math inline">\(3\)</span> indicating the number of element properties associated with the subroutine (i.e. size of d), the integer <span class="math inline">\(2\)</span> indicating two nodes are associated with the element, the integer <span class="math inline">\(2\)</span> indicating the dimension of the mesh, the integer <span class="math inline">\(2\)</span> indicating the number of degrees-of-freedom per node, and two integers <span class="math inline">\(0\)</span> and <span class="math inline">\(0\)</span> indicating the sizes of <span class="math inline">\(nh1\)</span> and <span class="math inline">\(nh3\)</span> are <span class="math inline">\(0\)</span> for this FEAP element. The constructor then fills in the property Vector, data, and the ID, connectedNodes, with the appropriate information. Note that data and connectedNodes, which are pointers to the Vector and ID objects, are declared as protected variables in fElement class interface. This constructor basically does the work typically performed when the FEAP subroutine is invoked with isw switch set to <span class="math inline">\(1\)</span>.</p>
-<div class="highlight"><pre><span></span><span class="n">fElmt02</span><span class="o">::</span><span class="n">fElmt02</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nd1</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">nd2</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">E</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">rho</span><span class="p">)</span><span class="w"></span>
-<span class="o">:</span><span class="n">fElement</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="n">ELE_TAG_fElmt02</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// fill  in the property data - feap routine: d(1)=A,d(2)=E,d(3)=rho</span>
-<span class="w">    </span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">;</span><span class="w">       </span>
-<span class="w">    </span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">E</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rho</span><span class="p">;</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// fill in the two end nodes  - feap routine: ix(1)=nd1, ix(2)=nd2</span>
-<span class="w">    </span><span class="p">(</span><span class="o">*</span><span class="n">connectedNodes</span><span class="p">)(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nd1</span><span class="p">;</span><span class="w"> </span>
-<span class="w">    </span><span class="p">(</span><span class="o">*</span><span class="n">connectedNodes</span><span class="p">)(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nd2</span><span class="p">;</span><span class="w">   </span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>fElmt02<span class="op">::</span>fElmt02<span class="op">(</span><span class="dt">int</span> tag<span class="op">,</span> <span class="dt">int</span> nd1<span class="op">,</span> <span class="dt">int</span> nd2<span class="op">,</span> <span class="dt">double</span> E<span class="op">,</span> <span class="dt">double</span> A<span class="op">,</span> <span class="dt">double</span> rho<span class="op">)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="op">:</span>fElement<span class="op">(</span>tag<span class="op">,</span> ELE_TAG_fElmt02<span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// fill  in the property data - feap routine: d(1)=A,d(2)=E,d(3)=rho</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="op">(*</span>data<span class="op">)(</span><span class="dv">0</span><span class="op">)</span> <span class="op">=</span> A<span class="op">;</span>       </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="op">(*</span>data<span class="op">)(</span><span class="dv">1</span><span class="op">)</span> <span class="op">=</span> E<span class="op">;</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="op">(*</span>data<span class="op">)(</span><span class="dv">2</span><span class="op">)</span> <span class="op">=</span> rho<span class="op">;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// fill in the two end nodes  - feap routine: ix(1)=nd1, ix(2)=nd2</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="op">(*</span>connectedNodes<span class="op">)(</span><span class="dv">0</span><span class="op">)</span> <span class="op">=</span> nd1<span class="op">;</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="op">(*</span>connectedNodes<span class="op">)(</span><span class="dv">1</span><span class="op">)</span> <span class="op">=</span> nd2<span class="op">;</span>   </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>The second constructor takes as arguments the objects identifier, the identifiers of the two end nodes, and an integer indicating an output file where the element data will be written. The constructor first invokes the fElement constructor with the objects identifier, a class identifier, the integer value <span class="math inline">\(2\)</span> indicating that the FEAP subroutine elmt02() is to be invoked, the integer <span class="math inline">\(3\)</span> indicating the number of element properties associated with the subroutine (i.e. size of d), the integer <span class="math inline">\(2\)</span> indicating two nodes are associated with the element, the integer <span class="math inline">\(2\)</span> indicating the dimension of the mesh, the integer <span class="math inline">\(2\)</span> indicating the number of degrees-of-freedom per node, and the integer iow. The fElement() constructor will in turn invoke the fortran element subroutine elmt02(), with the isw switch set to <span class="math inline">\(1\)</span>, to read in the element data and set the sizes of <span class="math inline">\(nh1\)</span> and <span class="math inline">\(nh3\)</span>. <strong>Note that to use this constructor, the feap input routines pinput() and tinput() have to be overridden</strong>. After the base constructor has been called, the constructor then fills in the ID, connectedNodes, with the appropriate node information.</p>
-<div class="highlight"><pre><span></span><span class="nt">fElmt02</span><span class="p">::</span><span class="nd">fElmt02</span><span class="o">(</span><span class="nt">int</span><span class="w"> </span><span class="nt">tag</span><span class="o">,</span><span class="w"> </span><span class="nt">int</span><span class="w"> </span><span class="nt">nd1</span><span class="o">,</span><span class="w"> </span><span class="nt">int</span><span class="w"> </span><span class="nt">nd2</span><span class="o">,</span><span class="w"> </span><span class="nt">int</span><span class="w"> </span><span class="nt">iow</span><span class="o">)</span><span class="w"></span>
-<span class="p">:</span><span class="nd">fElement</span><span class="o">(</span><span class="nt">tag</span><span class="o">,</span><span class="w"> </span><span class="nt">ELE_TAG_fElmt02</span><span class="o">,</span><span class="w"> </span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="nt">3</span><span class="o">,</span><span class="w"> </span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="nt">2</span><span class="o">,</span><span class="w"> </span><span class="nt">iow</span><span class="o">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="err">//</span><span class="w"> </span><span class="err">fill</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">two</span><span class="w"> </span><span class="err">end</span><span class="w"> </span><span class="err">nodes</span><span class="w">  </span><span class="err">-</span><span class="w"> </span><span class="err">feap</span><span class="w"> </span><span class="n">routine</span><span class="p">:</span><span class="w"> </span><span class="nf">ix</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="n">nd1</span><span class="p">,</span><span class="w"> </span><span class="nf">ix</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="n">nd2</span><span class="w"></span>
-<span class="w">    </span><span class="p">(</span><span class="o">*</span><span class="n">connectedNodes</span><span class="p">)(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nd1</span><span class="p">;</span><span class="w"> </span>
-<span class="w">    </span><span class="err">(*connectedNodes)(1)</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">nd2</span><span class="p">;</span><span class="w">   </span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-
+<pre><code>fElmt02::fElmt02(int tag, int nd1, int nd2, int iow)
+:fElement(tag, ELE_TAG_fElmt02, 2, 3, 2, 2, 2, iow)
+{
+    // fill in the two end nodes  - feap routine: ix(1)=nd1, ix(2)=nd2
+    (*connectedNodes)(0) = nd1; 
+    (*connectedNodes)(1) = nd2;   
+}</code></pre>
 <p>The third constructor and the destructor are then provided. The second constructor, which is used by an FEM_ObjectBroker, simply invokes an fElement constructor with the classTag. Nothing more is required. The destructor does nothing (might even remove it?)</p>
-<div class="highlight"><pre><span></span>fElmt02::fElmt02()
+<pre><code>fElmt02::fElmt02()
 :fElement(ELE_TAG_fElmt02)    
 {
     // does nothing
@@ -14209,112 +14201,104 @@ Removal During Simulation
 fElmt02::~fElmt02()
 {
     // does nothing
-}
-</pre></div>
-
+}</code></pre>
 <h2 id="example">Example</h2>
 <p>The g3 interpreter can now be modified to include this new element. The modifications to allow the introduction of the new command</p>
-<div class="highlight"><pre><span></span>  fTruss eleId iNodeID jNodeId A E
-</pre></div>
-
+<pre><code>  fTruss eleId iNodeID jNodeId A E</code></pre>
 <p>into g3 are similar to those outlined in ‘How to Introduce a New Element into g3’. The example g3tcl script for the static analysis of a simple linear three bar truss example, shown in figure <a href="#example1" data-reference-type="ref" data-reference="example1">[example1$$</a>, is given below:</p>
 <details class="note">
 <summary>
 Tcl script
 </summary>
-<div class="highlight"><pre><span></span><span class="c1">#create the ModelBuilder object</span><span class="w"></span>
-<span class="n">model</span><span class="w"> </span><span class="n">Tcl2dTruss</span><span class="w"></span>
+<pre><code>#create the ModelBuilder object
+model Tcl2dTruss
 
-<span class="c1"># build the model </span><span class="w"></span>
+# build the model 
 
-<span class="c1"># add nodes - command: node nodeId xCrd yCrd</span><span class="w"></span>
-<span class="n">node</span><span class="w"> </span><span class="mi">1</span><span class="w">   </span><span class="mf">0.0</span><span class="w">  </span><span class="mf">0.0</span><span class="w"></span>
-<span class="n">node</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mf">144.0</span><span class="w">  </span><span class="mf">0.0</span><span class="w"></span>
-<span class="n">node</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mf">168.0</span><span class="w">  </span><span class="mf">0.0</span><span class="w"></span>
-<span class="n">node</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="mf">72.0</span><span class="w"> </span><span class="mf">96.0</span><span class="w"></span>
+# add nodes - command: node nodeId xCrd yCrd
+node 1   0.0  0.0
+node 2 144.0  0.0
+node 3 168.0  0.0
+node 4  72.0 96.0
 
-<span class="c1"># add the fElmt02 elements - command: fTruss eleID node1 node2 A E</span><span class="w"></span>
-<span class="n">fTruss</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">10.0</span><span class="w"> </span><span class="mi">3000</span><span class="w"></span>
-<span class="n">fTruss</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="mi">3000</span><span class="w"></span>
-<span class="n">fTruss</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">5.0</span><span class="w"> </span><span class="mi">3000</span><span class="w"></span>
+# add the fElmt02 elements - command: fTruss eleID node1 node2 A E
+fTruss 1 1 4 10.0 3000
+fTruss 2 2 4 5.0 3000
+fTruss 3 3 4 5.0 3000
 
-<span class="c1"># set the boundary conditions - command: fix nodeID xResrnt? yRestrnt?</span><span class="w"></span>
-<span class="n">fix</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
-<span class="n">fix</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="n">fix</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+# set the boundary conditions - command: fix nodeID xResrnt? yRestrnt?
+fix 1 1 1 
+fix 2 1 1
+fix 3 1 1
 
-<span class="c1"># apply the load - command: load nodeID xForce yForce</span><span class="w"></span>
-<span class="nb">load</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="o">-</span><span class="mi">50</span><span class="w"></span>
+# apply the load - command: load nodeID xForce yForce
+load 4 100 -50
 
-<span class="c1"># build the components for the analysis object</span><span class="w"></span>
-<span class="n">system</span><span class="w"> </span><span class="n">BandSPD</span><span class="w"></span>
-<span class="n">constraints</span><span class="w"> </span><span class="n">Plain</span><span class="w"></span>
-<span class="n">integrator</span><span class="w"> </span><span class="n">LoadControl</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="n">algorithm</span><span class="w"> </span><span class="n">Linear</span><span class="w"></span>
-<span class="n">numberer</span><span class="w"> </span><span class="n">RCM</span><span class="w"></span>
+# build the components for the analysis object
+system BandSPD
+constraints Plain
+integrator LoadControl 1
+algorithm Linear
+numberer RCM
 
-<span class="c1"># create the analysis object </span><span class="w"></span>
-<span class="n">analysis</span><span class="w"> </span><span class="n">Static</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+# create the analysis object 
+analysis Static 1
 
-<span class="c1"># perform the analysis</span><span class="w"></span>
-<span class="n">analyze</span><span class="w"></span>
+# perform the analysis
+analyze
 
-<span class="c1"># print the results at node 4 and at all elements</span><span class="w"></span>
-<span class="nb">print</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
-<span class="nb">print</span><span class="w"> </span><span class="n">ele</span><span class="w"></span>
-</pre></div>
-
+# print the results at node 4 and at all elements
+print node 4
+print ele</code></pre>
 </details>
 <details class="note">
 <summary>
 Input script for FEAP
 </summary>
-<div class="highlight"><pre><span></span><span class="nv">Feap</span> <span class="o">**</span> <span class="nv">example</span> <span class="mi">1</span>
-<span class="mi">4</span>,<span class="mi">3</span>,<span class="mi">2</span>,<span class="mi">2</span>,<span class="mi">2</span>,<span class="mi">2</span>
+<pre><code>Feap ** example 1
+4,3,2,2,2,2
 
-<span class="nv">coordinates</span>
-<span class="mi">1</span> <span class="mi">0</span>   <span class="mi">0</span>.<span class="mi">0</span>  <span class="mi">0</span>.<span class="mi">0</span>
-<span class="mi">2</span> <span class="mi">0</span> <span class="mi">144</span>.<span class="mi">0</span>  <span class="mi">0</span>.<span class="mi">0</span>
-<span class="mi">3</span> <span class="mi">0</span> <span class="mi">168</span>.<span class="mi">0</span>  <span class="mi">0</span>.<span class="mi">0</span>
-<span class="mi">4</span> <span class="mi">0</span>  <span class="mi">72</span>.<span class="mi">0</span> <span class="mi">96</span>.<span class="mi">0</span>
+coordinates
+1 0   0.0  0.0
+2 0 144.0  0.0
+3 0 168.0  0.0
+4 0  72.0 96.0
 
-<span class="nv">elements</span>
-<span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">4</span>
-<span class="mi">2</span> <span class="mi">0</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">4</span>
-<span class="mi">3</span> <span class="mi">0</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span>
+elements
+1 0 1 1 4
+2 0 2 2 4
+3 0 2 3 4
 
-<span class="nv">boundary</span> <span class="nv">restraints</span>
-<span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span>
-<span class="mi">2</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span>
-<span class="mi">3</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">1</span>
+boundary restraints
+1 0 1 1
+2 0 1 1
+3 0 1 1
 
-<span class="nv">forces</span>
-<span class="mi">4</span> <span class="mi">0</span> <span class="mi">100</span>.<span class="mi">0</span> <span class="o">-</span><span class="mi">50</span>.<span class="mi">0</span>
+forces
+4 0 100.0 -50.0
 
-<span class="nv">mate</span>,<span class="mi">1</span>
-<span class="nv">user</span>,<span class="mi">2</span>
-<span class="mi">10</span>,<span class="mi">3000</span>,<span class="mi">0</span>
+mate,1
+user,2
+10,3000,0
 
-<span class="nv">mate</span>,<span class="mi">2</span>
-<span class="nv">user</span>,<span class="mi">2</span>
-<span class="mi">5</span>,<span class="mi">3000</span>,<span class="mi">0</span>
+mate,2
+user,2
+5,3000,0
 
-<span class="k">end</span>
+end
 
-<span class="nv">batch</span>
-<span class="nv">tang</span>,,<span class="mi">1</span>
-<span class="nv">disp</span>,,<span class="mi">4</span>
-<span class="nv">stre</span>,<span class="nv">all</span>
-<span class="k">end</span>
+batch
+tang,,1
+disp,,4
+stre,all
+end
 
-<span class="nv">interactive</span>
+interactive
 
-<span class="nv">stop</span>
-</pre></div>
-
+stop</code></pre>
 </details>
 <p>When g3 is run and the commands outlined above are input by the analyst at the interpreter prompt, or are sourced in from a file, the following output is generated:</p>
-<div class="highlight"><pre><span></span> Node: 4
+<pre><code> Node: 4
         Coordinates  : 72 96 
         commitDisps: 0.530093 -0.177894 
         unbalanced Load: 100 -50 
@@ -14327,11 +14311,9 @@ Input script for FEAP
                 strain: -0.38364E-02     axial force: -0.57546E+02
   Element:    3 type: elmt02   iNode:     3 jNode:     4
                 Area: .500E+01 Youngs Modulus: .300E+04 Rho: .000E+00
-                strain: -0.36874E-02     axial force: -0.55311E+02
-</pre></div>
-
+                strain: -0.36874E-02     axial force: -0.55311E+02</code></pre>
 <p>The following can be found at the end of the FEAP output file:</p>
-<div class="highlight"><pre><span></span> Feap ** example 1                                                             
+<pre><code> Feap ** example 1                                                             
 
   N o d a l   D i s p l a c e m e n t s     Time       0.00000E+00
                                             Prop. Ld.  1.00000E+00
@@ -14348,9 +14330,7 @@ Input script for FEAP
                 strain: -0.38364E-02     axial force: -0.57546E+02
   Element:    3 type: elmt02   iNode:     3 jNode:     4
                 Area: .500E+01 Youngs Modulus: .300E+04 Rho: .000E+00
-                strain: -0.36874E-02     axial force: -0.55311E+02
-</pre></div>
-
+                strain: -0.36874E-02     axial force: -0.55311E+02</code></pre>
 <hr />
 <b>
 <center>

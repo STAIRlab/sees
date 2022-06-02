@@ -14159,9 +14159,7 @@ Removal During Simulation
 
 
 <h1 id="incrementalintegrator">IncrementalIntegrator</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/integrator/IncrementalIntegrator.h&gt;</span><span class="cp"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/integrator/IncrementalIntegrator.h&gt;</span></span></code></pre></div>
 <p>class IncrementalIntegrator: public Integrator<br />
 </p>
 <p>MovableObject<br />
@@ -14199,9 +14197,7 @@ The integer <em>classTag</em> is passed to the Integrator classes constructor. P
 Does nothing.</p>
 <p><br />
 Invoked by the Analysis object to set up the links the IncrementalIntegrator objects needs to perform its operations. Sets the pointers to the AnalysisModel and LinearSOE objects to point to <em>theAnalaysisModel</em> and <em>theSOE</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formTangent</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formTangent<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Invoked to form the structure tangent matrix. The method first loops over all the FE_Elements in the AnalysisModel telling them to form their tangent and then it loops over the FE_Elements again adding the tangent to the LinearSOE objects A matrix. It performs the following:</p>
 <div class="tabbing">
 <p>while ̄ while w̄hile ̄ FE_EleIter &amp;theEles = theAnalysisModel.getFEs();<br />
@@ -14211,9 +14207,7 @@ if (theSOE.addA(elePtr-<span class="math inline">\(&gt;\)</span>getTangent(this)
 return <span class="math inline">\(-1\)</span>;</p>
 </div>
 <p>Returns <span class="math inline">\(0\)</span> if successful, otherwise an error message is printed an a <span class="math inline">\(-1\)</span> is returned if <code>setLinks()</code> has not been called, or <span class="math inline">\(-2\)</span> if failure to add an FE_Elements tangent to the LinearSOE. The two loops are introduced to allow for efficient parallel programming. THIS MAY CHANGE TO REDUCE MEMORY DEMANDS.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formUnbalance</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formUnbalance<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Invoked to form the unbalance. The method fist zeros out the <span class="math inline">\(B\)</span> vector of the LinearSOE object and then invokes formElementResidual() and formNodalUnbalance() on itself.</p>
 <div class="tabbing">
 <p>while ̄ while w̄hile ̄ theSOE.zeroB();<br />
@@ -14223,37 +14217,23 @@ this-<span class="math inline">\(&gt;\)</span>formNodalUnbalance()<br />
 </div>
 <p>If an error occurs in either of these two methods or if <code>setLinks()</code> has not been called, an error message is printed and a negative number is returned. Returns <span class="math inline">\(0\)</span> if successful.</p>
 <p>To inform the <code>FE_Element</code> how to build its tangent matrix for addition to the system of equations. The subclasses must provide the implementation of this method.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formEleResidual</span><span class="p">(</span><span class="n">FE_Element</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theEle</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formEleResidual<span class="op">(</span>FE_Element \<span class="op">*</span>theEle<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>To inform the <code>FE_Element</code> how to build its residual vector for addition to the system of equations. The subclasses must provide the implementation of this method.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodTangent</span><span class="p">(</span><span class="n">DOF_Group</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theDof</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formNodTangent<span class="op">(</span>DOF_Group \<span class="op">*</span>theDof<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>To inform the <code>DOF_Group</code> how to build its tangent matrix for addition to the system of equations. The subclasses must provide the implementation of this method. This is required in transient analysis as th Node objects have mass. THIS MAY CHANGE.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodUnbalance</span><span class="p">(</span><span class="n">DOF_Group</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theDof</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formNodUnbalance<span class="op">(</span>DOF_Group \<span class="op">*</span>theDof<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>To inform the <code>DOF_Group</code> how to build its residual vector for addition to the system of equations. The subclasses must provide the implementation of this method.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">$</span><span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">U$</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb7"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> update<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span><span class="er">$</span>\Delta U<span class="er">$</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>When invoked causes the integrator object to update the DOF_Group responses with the appropriate values based on the computed solution to the system of equation object. The subclasses must provide an implementation of this method.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">commit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb8"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> commit<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Invoked by the SolutionAlgorithm to inform the Integrator that current state of domain is on solution path. Returns the result of invoking <code>commitDomain()</code> on the AnalysisModel object associated with the Integrator.</p>
 <p><br />
 Returns in <em>result</em> values for the last solution to the system of equation object whose location in the solution vector is given by <em>id</em>. For a location specified by a negative integer in <em>id</em> 0.0 will be returned in <em>result</em>. Returns a <span class="math inline">\(0\)</span> if successful, a warning message and a negative number is returned if an error occurs. <span class="math inline">\(-1\)</span> if <code>setSize()</code> has not been called and a <span class="math inline">\(-2\)</span> if location in <em>id</em> is greater than <span class="math inline">\(order-1\)</span> of <span class="math inline">\(b\)</span> vector.</p>
 <p><br />
 A const member function which returns a pointer to the LinearSOE associated with the IncrementalIntegrator object, i.e. <em>theSOE</em> passed in <code>setLinks()</code>.</p>
-<div class="highlight"><pre><span></span><span class="n">AnalysisModel</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getAnalysisModelPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb9"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>AnalysisModel \<span class="op">*</span>getAnalysisModelPtr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
 <p>A const member function which returns a pointer to the AnalysisModel associated with the IncrementalIntegrator object, i.e. <em>theModel</em> passed in <code>setLinks()</code>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formNodalUnbalance</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb10"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formNodalUnbalance<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>The method first loops over all the <code>DOF_Group</code> objects telling them to form their unbalance and then adds this Vector to the <span class="math inline">\(b\)</span> vector of the LinearSOE object, i.e. it performs the following:<br />
 </p>
 <div class="tabbing">
@@ -14264,9 +14244,7 @@ theSOE.addB(dofPtr-<span class="math inline">\(&gt;\)</span>getUnbalance(theInte
 </p>
 </div>
 <p>Returns <span class="math inline">\(0\)</span> if successful, otherwise a negative number is returned and a warning message is printed if an error occurred. Note, no test is made to ensure <code>setLinks()</code> has been invoked.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formElementResidual</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb11"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> formElementResidual<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
 <p>Invoked to form residual vector (the C vector in theSOE). The method iterates twice over the FE_elements in the AnalysisModel, the first time telling the FE_Elements top form their residual and the second time to add this residual to the LinearSOE objects <span class="math inline">\(b\)</span> vector, i.e. it performs the following:</p>
 <div class="tabbing">
 <p>while ̄ while w̄hile ̄ FE_EleIter &amp;theEles = theAnalysisModel.getFEs();<br />

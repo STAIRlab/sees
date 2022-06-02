@@ -14158,9 +14158,7 @@ Removal During Simulation
 <p>
 This command is used to construct a convergence test which uses the norm of the right hand side of the matrix equation to determine if convergence has been reached. What the right-hand-side of the matrix equation is depends on integrator and constraint handler chosen. Usually, though not always, it is equal to the unbalanced forces in the system. The command to create a NormUnbalance test is the following:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">test</span><span class="w"> </span>NormUnbalance<span class="w"> </span><span class="nv">$tol</span><span class="w"> </span><span class="nv">$iter</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$pFlag</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$nType</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>test NormUnbalance <span class="dt">$tol</span> <span class="dt">$iter</span> &lt; <span class="dt">$pFlag</span> &gt; &lt; <span class="dt">$nType</span> &gt;</span></code></pre></div>
 <table>
 <tbody>
 <tr class="odd">

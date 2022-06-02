@@ -14158,10 +14158,8 @@ Removal During Simulation
 <p>
 This command is used to construct an Initial Stress material object. The stress-strain behaviour for this material is defined by another material. Initial Stress Material enables definition of initial stress for the material under consideration. The strian that corresponds to the initial stress will be calculated from the other material.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>InitStressMaterial<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$otherTag</span>
-<span class="w">        </span><span class="nv">$initStress</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial InitStressMaterial <span class="dt">$matTag</span> <span class="dt">$otherTag</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$initStress</span></span></code></pre></div>
 <hr />
 <table>
 <tbody>

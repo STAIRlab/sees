@@ -14168,309 +14168,307 @@ Removal During Simulation
 <p>A solution Algorithm of type Newton is created. The solution algorithm uses a ConvergenceTest based on the norm of the displacement increment vector. The integrator for the analysis will be LoadControl with a load step increment of 0.1. The storage for the system of equations is BandGeneral. The equations are numbered using an RCM (reverse Cuthill-McKee) numberer. The constraints are enforced with a Plain constraint handler. Once the components of the analysis have been defined, the analysis object is then created. For this problem a Static analysis object is used and 10 steps are performed to load the model with the desired gravity load.</p>
 <p>After the gravity load analysis has been performed, the gravity loads are set to constant and the time in the domain is reset to 0.0. A new LoadControl integrator is now added. The new LoadControl integrator has an initial load step of 1.0, but this can vary between 0.02 and 2.0 depending on the number of iterations required to achieve convergence at each load step. 100 steps are then performed.</p>
 <p>For the pushover analysis the lateral displacements at nodes 2 and 3 will be stored in the file Node41.out for post-processing. In addition, if the variable displayMode is set to “displayON” the load-displacement curve for horizontal displacements at node 3 will be displayed in a window on the user’s terminal.</p>
-<div class="highlight"><pre><span></span><span class="c1"># OpenSees Example 4.1</span><span class="w"></span>
-<span class="c1"># OpenSees Primer</span><span class="w"></span>
-<span class="c1">#</span><span class="w"></span>
-<span class="c1"># Units: kips, in, sec</span><span class="w"></span>
-
-<span class="c1"># Parameter identifying the number of bays</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">numBay</span><span class="w">          </span><span class="mi">3</span><span class="w"></span>
-
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># Start of model generation</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
-
-<span class="c1"># Create ModelBuilder (with two-dimensions and 3 DOF/node)</span><span class="w"></span>
-<span class="n">model</span><span class="w"> </span><span class="n">BasicBuilder</span><span class="w"> </span><span class="o">-</span><span class="n">ndm</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="n">ndf</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
-
-<span class="c1"># Create nodes</span><span class="w"></span>
-<span class="c1"># ------------</span><span class="w"></span>
-
-<span class="c1"># Set parameters for overall model geometry</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">bayWidth</span><span class="w">      </span><span class="mi">288</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">nodeID</span><span class="w">          </span><span class="mi">1</span><span class="w"></span>
-
-<span class="c1"># Define nodes</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">{</span><span class="n">set</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">$</span><span class="n">numBay</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="n">incr</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">xDim</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="o">$</span><span class="n">bayWidth</span><span class="p">]</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">#             tag             X   Y</span><span class="w"></span>
-<span class="w">    </span><span class="n">node</span><span class="w">           </span><span class="o">$</span><span class="n">nodeID</span><span class="w">    </span><span class="o">$</span><span class="n">xDim</span><span class="w">  </span><span class="mi">0</span><span class="w"></span>
-<span class="w">    </span><span class="n">node</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">nodeID</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w">    </span><span class="o">$</span><span class="n">xDim</span><span class="w"> </span><span class="mi">180</span><span class="w"></span>
-<span class="w">    </span><span class="n">node</span><span class="w">  </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">nodeID</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span><span class="w">    </span><span class="o">$</span><span class="n">xDim</span><span class="w"> </span><span class="mi">324</span><span class="w"></span>
-
-<span class="w">    </span><span class="n">incr</span><span class="w"> </span><span class="n">nodeID</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1"># Fix supports at base of columns</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">{</span><span class="n">set</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">$</span><span class="n">numBay</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="n">incr</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="c1">#                node  DX   DY   RZ</span><span class="w"></span>
-<span class="w">    </span><span class="n">fix</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span><span class="w">   </span><span class="mi">1</span><span class="w">    </span><span class="mi">1</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1"># Define materials for nonlinear columns</span><span class="w"></span>
-<span class="c1"># ------------------------------------------</span><span class="w"></span>
-
-<span class="c1"># CONCRETE</span><span class="w"></span>
-<span class="c1"># Cover concrete</span><span class="w"></span>
-<span class="c1">#                  tag -f&#39;c  -epsco  -f&#39;cu -epscu</span><span class="w"></span>
-<span class="n">uniaxialMaterial</span><span class="w"> </span><span class="n">Concrete01</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="mf">4.00</span><span class="w">  </span><span class="o">-</span><span class="mf">0.002</span><span class="w">    </span><span class="mf">0.0</span><span class="w"> </span><span class="o">-</span><span class="mf">0.006</span><span class="w"></span>
-
-<span class="c1"># Core concrete</span><span class="w"></span>
-<span class="n">uniaxialMaterial</span><span class="w"> </span><span class="n">Concrete01</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="mf">5.20</span><span class="w">  </span><span class="o">-</span><span class="mf">0.005</span><span class="w">  </span><span class="o">-</span><span class="mf">4.70</span><span class="w">  </span><span class="o">-</span><span class="mf">0.02</span><span class="w"></span>
-
-<span class="c1"># STEEL</span><span class="w"></span>
-<span class="c1"># Reinforcing steel </span><span class="w"></span>
-<span class="c1">#                        tag fy   E0     b</span><span class="w"></span>
-<span class="n">uniaxialMaterial</span><span class="w"> </span><span class="n">Steel01</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">60</span><span class="w"> </span><span class="mi">30000</span><span class="w"> </span><span class="mf">0.02</span><span class="w"></span>
-
-
-<span class="c1"># Define cross-section for nonlinear columns</span><span class="w"></span>
-<span class="c1"># ------------------------------------------</span><span class="w"></span>
-
-<span class="c1"># Interior column section - Section A</span><span class="w"></span>
-<span class="n">section</span><span class="w"> </span><span class="n">Fiber</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="c1">#           mat nfIJ nfJK   yI  zI    yJ  zJ    yK  zK    yL  zL</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w">  </span><span class="mi">2</span><span class="w">    </span><span class="mi">1</span><span class="w">   </span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mf">11.5</span><span class="w">  </span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mf">11.5</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">  </span><span class="mf">11.5</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">  </span><span class="mf">11.5</span><span class="w">  </span><span class="mi">10</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w">  </span><span class="mi">1</span><span class="w">    </span><span class="mi">1</span><span class="w">   </span><span class="mi">14</span><span class="w"> </span><span class="o">-</span><span class="mf">13.5</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mf">13.5</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w">  </span><span class="mf">13.5</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w">  </span><span class="mf">13.5</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w">  </span><span class="mi">1</span><span class="w">    </span><span class="mi">1</span><span class="w">   </span><span class="mi">14</span><span class="w"> </span><span class="o">-</span><span class="mf">13.5</span><span class="w">  </span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mf">13.5</span><span class="w">  </span><span class="mi">10</span><span class="w">  </span><span class="mf">13.5</span><span class="w">  </span><span class="mi">10</span><span class="w">  </span><span class="mf">13.5</span><span class="w">  </span><span class="mi">12</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w">  </span><span class="mi">1</span><span class="w">    </span><span class="mi">1</span><span class="w">    </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="mf">13.5</span><span class="w">  </span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mf">13.5</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mf">11.5</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mf">11.5</span><span class="w">  </span><span class="mi">10</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w">  </span><span class="mi">1</span><span class="w">    </span><span class="mi">1</span><span class="w">    </span><span class="mi">2</span><span class="w">  </span><span class="mf">11.5</span><span class="w">  </span><span class="mi">10</span><span class="w">  </span><span class="mf">11.5</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">  </span><span class="mf">13.5</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">  </span><span class="mf">13.5</span><span class="w">  </span><span class="mi">10</span><span class="w"></span>
-
-<span class="w">   </span><span class="c1">#              mat nBars area    yI zI    yF zF</span><span class="w"></span>
-<span class="w">   </span><span class="n">layer</span><span class="w"> </span><span class="n">straight</span><span class="w">  </span><span class="mi">3</span><span class="w">    </span><span class="mi">6</span><span class="w">   </span><span class="mf">1.56</span><span class="w"> </span><span class="o">-</span><span class="mf">10.5</span><span class="w">  </span><span class="mi">9</span><span class="w"> </span><span class="o">-</span><span class="mf">10.5</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
-<span class="w">   </span><span class="n">layer</span><span class="w"> </span><span class="n">straight</span><span class="w">  </span><span class="mi">3</span><span class="w">    </span><span class="mi">6</span><span class="w">   </span><span class="mf">1.56</span><span class="w">  </span><span class="mf">10.5</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="mf">10.5</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1"># Exterior column section - Section B</span><span class="w"></span>
-<span class="n">section</span><span class="w"> </span><span class="n">Fiber</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">  </span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">  </span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">  </span><span class="mi">10</span><span class="w">  </span><span class="mi">10</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w">  </span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w">  </span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w">  </span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w">  </span><span class="mi">10</span><span class="w">  </span><span class="mi">12</span><span class="w">  </span><span class="mi">10</span><span class="w">  </span><span class="mi">12</span><span class="w">  </span><span class="mi">12</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w">  </span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">  </span><span class="mi">10</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="mi">2</span><span class="w">  </span><span class="mi">10</span><span class="w">  </span><span class="mi">10</span><span class="w">  </span><span class="mi">10</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">  </span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">10</span><span class="w">  </span><span class="mi">12</span><span class="w">  </span><span class="mi">10</span><span class="w"></span>
-<span class="w">   </span><span class="n">layer</span><span class="w"> </span><span class="n">straight</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mf">0.79</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
-<span class="w">   </span><span class="n">layer</span><span class="w"> </span><span class="n">straight</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mf">0.79</span><span class="w">  </span><span class="mi">9</span><span class="w"> </span><span class="mi">9</span><span class="w">  </span><span class="mi">9</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1"># Girder section - Section C</span><span class="w"></span>
-<span class="n">section</span><span class="w"> </span><span class="n">Fiber</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">patch</span><span class="w"> </span><span class="n">quadr</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">-</span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">9</span><span class="w"></span>
-<span class="w">   </span><span class="n">layer</span><span class="w"> </span><span class="n">straight</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">1.00</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
-<span class="w">   </span><span class="n">layer</span><span class="w"> </span><span class="n">straight</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">1.00</span><span class="w">  </span><span class="mi">9</span><span class="w"> </span><span class="mi">9</span><span class="w">  </span><span class="mi">9</span><span class="w"> </span><span class="o">-</span><span class="mi">9</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-
-<span class="c1"># Define column elements</span><span class="w"></span>
-<span class="c1"># ----------------------</span><span class="w"></span>
-
-<span class="c1"># Number of integration points</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">nP</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
-
-<span class="c1"># Geometric transformation</span><span class="w"></span>
-<span class="n">geomTransf</span><span class="w"> </span><span class="n">Linear</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-
-<span class="n">set</span><span class="w"> </span><span class="n">beamID</span><span class="w">          </span><span class="mi">1</span><span class="w"></span>
-
-<span class="c1"># Define elements</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">{</span><span class="n">set</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">$</span><span class="n">numBay</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="n">incr</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="c1"># set some parameters</span><span class="w"></span>
-<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">iNode</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
-<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">jNode</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"></span>
-
-<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">{</span><span class="n">set</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="n">incr</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w">    </span>
-<span class="w">      </span><span class="c1"># add the column element (secId == 2 if external, 1 if internal column)</span><span class="w"></span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">         </span><span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="o">$</span><span class="n">beamID</span><span class="w">   </span><span class="o">$</span><span class="n">iNode</span><span class="w"> </span><span class="o">$</span><span class="n">jNode</span><span class="w">  </span><span class="o">$</span><span class="n">nP</span><span class="w">   </span><span class="mi">2</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">elseif</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">$</span><span class="n">numBay</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">         </span><span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="o">$</span><span class="n">beamID</span><span class="w">   </span><span class="o">$</span><span class="n">iNode</span><span class="w"> </span><span class="o">$</span><span class="n">jNode</span><span class="w">  </span><span class="o">$</span><span class="n">nP</span><span class="w">   </span><span class="mi">2</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">         </span><span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="o">$</span><span class="n">beamID</span><span class="w">   </span><span class="o">$</span><span class="n">iNode</span><span class="w"> </span><span class="o">$</span><span class="n">jNode</span><span class="w">  </span><span class="o">$</span><span class="n">nP</span><span class="w">   </span><span class="mi">1</span><span class="w">    </span><span class="mi">1</span><span class="w"></span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<pre><code># OpenSees Example 4.1
+# OpenSees Primer
+#
+# Units: kips, in, sec
+
+# Parameter identifying the number of bays
+set numBay          3
+
+# ------------------------------
+# Start of model generation
+# ------------------------------
+
+# Create ModelBuilder (with two-dimensions and 3 DOF/node)
+model BasicBuilder -ndm 2 -ndf 3
+
+# Create nodes
+# ------------
+
+# Set parameters for overall model geometry
+set bayWidth      288
+set nodeID          1
+
+# Define nodes
+for {set i 0} {$i &lt;= $numBay} {incr i 1} {
+    set xDim [expr $i * $bayWidth]
+
+    #             tag             X   Y
+    node           $nodeID    $xDim  0
+    node  [expr $nodeID+1]    $xDim 180
+    node  [expr $nodeID+2]    $xDim 324
+
+    incr nodeID 3
+}
+
+# Fix supports at base of columns
+for {set i 0} {$i &lt;= $numBay} {incr i 1} {
+#                node  DX   DY   RZ
+    fix [expr $i*3+1]   1    1    1
+}
+
+# Define materials for nonlinear columns
+# ------------------------------------------
+
+# CONCRETE
+# Cover concrete
+#                  tag -f&#39;c  -epsco  -f&#39;cu -epscu
+uniaxialMaterial Concrete01 1 -4.00  -0.002    0.0 -0.006
+
+# Core concrete
+uniaxialMaterial Concrete01 2 -5.20  -0.005  -4.70  -0.02
+
+# STEEL
+# Reinforcing steel 
+#                        tag fy   E0     b
+uniaxialMaterial Steel01  3  60 30000 0.02
+
+
+# Define cross-section for nonlinear columns
+# ------------------------------------------
+
+# Interior column section - Section A
+section Fiber 1 {
+   #           mat nfIJ nfJK   yI  zI    yJ  zJ    yK  zK    yL  zL
+   patch quadr  2    1   12 -11.5  10 -11.5 -10  11.5 -10  11.5  10
+   patch quadr  1    1   14 -13.5 -10 -13.5 -12  13.5 -12  13.5 -10
+   patch quadr  1    1   14 -13.5  12 -13.5  10  13.5  10  13.5  12
+   patch quadr  1    1    2 -13.5  10 -13.5 -10 -11.5 -10 -11.5  10
+   patch quadr  1    1    2  11.5  10  11.5 -10  13.5 -10  13.5  10
+
+   #              mat nBars area    yI zI    yF zF
+   layer straight  3    6   1.56 -10.5  9 -10.5 -9
+   layer straight  3    6   1.56  10.5  9  10.5 -9
+}
+
+# Exterior column section - Section B
+section Fiber 2 {
+   patch quadr 2 1 10 -10  10 -10 -10  10 -10  10  10
+   patch quadr 1 1 12 -12 -10 -12 -12  12 -12  12 -10
+   patch quadr 1 1 12 -12  12 -12  10  12  10  12  12
+   patch quadr 1 1  2 -12  10 -12 -10 -10 -10 -10  10
+   patch quadr 1 1  2  10  10  10 -10  12 -10  12  10
+   layer straight 3 6 0.79 -9 9 -9 -9
+   layer straight 3 6 0.79  9 9  9 -9
+}
+
+# Girder section - Section C
+section Fiber 3 {
+   patch quadr 1 1 12 -12 9 -12 -9 12 -9 12 9
+   layer straight 3 4 1.00 -9 9 -9 -9
+   layer straight 3 4 1.00  9 9  9 -9
+}
+
+
+# Define column elements
+# ----------------------
+
+# Number of integration points
+set nP 4
+
+# Geometric transformation
+geomTransf Linear 1
+
+set beamID          1
+
+# Define elements
+for {set i 0} {$i &lt;= $numBay} {incr i 1} {
+   # set some parameters
+   set iNode [expr $i*3 + 1]
+   set jNode [expr $i*3 + 2]
+
+   for {set j 1} {$j &lt; 3} {incr j 1} {    
+      # add the column element (secId == 2 if external, 1 if internal column)
+      if {$i == 0} {
+         element nonlinearBeamColumn  $beamID   $iNode $jNode  $nP   2    1
+      } elseif {$i == $numBay} {
+         element nonlinearBeamColumn  $beamID   $iNode $jNode  $nP   2    1
+      } else {
+         element nonlinearBeamColumn  $beamID   $iNode $jNode  $nP   1    1
+      }
 
-<span class="w">      </span><span class="c1"># increment the parameters</span><span class="w"></span>
-<span class="w">      </span><span class="n">incr</span><span class="w"> </span><span class="n">iNode</span><span class="w">  </span><span class="mi">1</span><span class="w"></span>
-<span class="w">      </span><span class="n">incr</span><span class="w"> </span><span class="n">jNode</span><span class="w">  </span><span class="mi">1</span><span class="w"></span>
-<span class="w">      </span><span class="n">incr</span><span class="w"> </span><span class="n">beamID</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+      # increment the parameters
+      incr iNode  1
+      incr jNode  1
+      incr beamID 1
+   }
+}
 
 
-<span class="c1"># Define beam elements</span><span class="w"></span>
-<span class="c1"># ----------------------</span><span class="w"></span>
+# Define beam elements
+# ----------------------
 
-<span class="c1"># Number of integration points</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">nP</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+# Number of integration points
+set nP 4
 
-<span class="c1"># Geometric transformation</span><span class="w"></span>
-<span class="n">geomTransf</span><span class="w"> </span><span class="n">Linear</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+# Geometric transformation
+geomTransf Linear 2
 
-<span class="c1"># Define elements</span><span class="w"></span>
-<span class="k">for</span><span class="w"> </span><span class="p">{</span><span class="n">set</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="n">incr</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w">    </span>
-<span class="w">   </span><span class="c1"># set some parameters</span><span class="w"></span>
-<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">iNode</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
-<span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">jNode</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">iNode</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span><span class="w"></span>
+# Define elements
+for {set j 1} {$j &lt; 3} {incr j 1} {    
+   # set some parameters
+   set iNode [expr $j + 1]
+   set jNode [expr $iNode + 3]
 
-<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">{</span><span class="n">set</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">$</span><span class="n">numBay</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="n">incr</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="n">element</span><span class="w"> </span><span class="n">nonlinearBeamColumn</span><span class="w">  </span><span class="o">$</span><span class="n">beamID</span><span class="w">   </span><span class="o">$</span><span class="n">iNode</span><span class="w"> </span><span class="o">$</span><span class="n">jNode</span><span class="w">    </span><span class="o">$</span><span class="n">nP</span><span class="w">   </span><span class="mi">3</span><span class="w">      </span><span class="mi">2</span><span class="w"></span>
+   for {set i 1} {$i &lt;= $numBay} {incr i 1} {
+      element nonlinearBeamColumn  $beamID   $iNode $jNode    $nP   3      2
 
-<span class="w">      </span><span class="c1"># increment the parameters</span><span class="w"></span>
-<span class="w">      </span><span class="n">incr</span><span class="w"> </span><span class="n">iNode</span><span class="w">  </span><span class="mi">3</span><span class="w"></span>
-<span class="w">      </span><span class="n">incr</span><span class="w"> </span><span class="n">jNode</span><span class="w">  </span><span class="mi">3</span><span class="w"></span>
-<span class="w">      </span><span class="n">incr</span><span class="w"> </span><span class="n">beamID</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+      # increment the parameters
+      incr iNode  3
+      incr jNode  3
+      incr beamID 1
+   }
+}
 
-<span class="c1"># Define gravity loads</span><span class="w"></span>
-<span class="c1"># --------------------</span><span class="w"></span>
+# Define gravity loads
+# --------------------
 
-<span class="c1"># Constant gravity load</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">-</span><span class="mi">192</span><span class="w"></span>
+# Constant gravity load
+set P -192
 
-<span class="c1"># Create a Plain load pattern with a Linear TimeSeries</span><span class="w"></span>
-<span class="n">pattern</span><span class="w"> </span><span class="n">Plain</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">Linear</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="c1"># Create nodal loads at nodes </span><span class="w"></span>
-<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">{</span><span class="n">set</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="o">$</span><span class="n">numBay</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="n">incr</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="mi">1</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+# Create a Plain load pattern with a Linear TimeSeries
+pattern Plain 1 Linear {
+   # Create nodal loads at nodes 
+   for {set i 0} {$i &lt;= $numBay} {incr i 1} {
 
-<span class="w">      </span><span class="c1"># set some parameters</span><span class="w"></span>
-<span class="w">      </span><span class="n">set</span><span class="w"> </span><span class="n">node1</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">i</span><span class="o">*</span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"></span>
-<span class="w">      </span><span class="n">set</span><span class="w"> </span><span class="n">node2</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">node1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
+      # set some parameters
+      set node1 [expr $i*3 + 2]
+      set node2 [expr $node1 + 1]
 
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">         </span><span class="nb">load</span><span class="w"> </span><span class="o">$</span><span class="n">node1</span><span class="w"> </span><span class="mf">0.0</span><span class="w">            </span><span class="o">$</span><span class="n">P</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span>
-<span class="w">         </span><span class="nb">load</span><span class="w"> </span><span class="o">$</span><span class="n">node2</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">P</span><span class="o">/</span><span class="mf">2.0</span><span class="p">]</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="n">elseif</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="o">$</span><span class="n">numBay</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">         </span><span class="nb">load</span><span class="w"> </span><span class="o">$</span><span class="n">node1</span><span class="w"> </span><span class="mf">0.0</span><span class="w">            </span><span class="o">$</span><span class="n">P</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span>
-<span class="w">         </span><span class="nb">load</span><span class="w"> </span><span class="o">$</span><span class="n">node2</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">P</span><span class="o">/</span><span class="mf">2.0</span><span class="p">]</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span>
-<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">         </span><span class="nb">load</span><span class="w"> </span><span class="o">$</span><span class="n">node1</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="mf">2.0</span><span class="o">*$</span><span class="n">P</span><span class="p">]</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span>
-<span class="w">         </span><span class="nb">load</span><span class="w"> </span><span class="o">$</span><span class="n">node2</span><span class="w"> </span><span class="mf">0.0</span><span class="w">            </span><span class="o">$</span><span class="n">P</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span>
-<span class="w">      </span><span class="p">}</span><span class="w"></span>
-<span class="w">   </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+      if {$i == 0} {
+         load $node1 0.0            $P  0.0 
+         load $node2 0.0 [expr $P/2.0]  0.0 
+      } elseif {$i == $numBay} {
+         load $node1 0.0            $P  0.0 
+         load $node2 0.0 [expr $P/2.0]  0.0 
+      } else {
+         load $node1 0.0 [expr 2.0*$P]  0.0 
+         load $node2 0.0            $P  0.0 
+      }
+   }
+}
 
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># End of model generation</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
+# ------------------------------
+# End of model generation
+# ------------------------------
 
 
-<span class="c1"># ------------------------------------------------</span><span class="w"></span>
-<span class="c1"># Start of analysis generation for gravity analysis</span><span class="w"></span>
-<span class="c1"># -------------------------------------------------</span><span class="w"></span>
+# ------------------------------------------------
+# Start of analysis generation for gravity analysis
+# -------------------------------------------------
 
-<span class="c1"># Create the convergence test, the norm of the residual with a tolerance of </span><span class="w"></span>
-<span class="c1"># 1e-12 and a max number of iterations of 10</span><span class="w"></span>
-<span class="n">test</span><span class="w"> </span><span class="n">NormDispIncr</span><span class="w"> </span><span class="mf">1.0e-8</span><span class="w">  </span><span class="mi">10</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-
-<span class="c1"># Create the solution algorithm, a Newton-Raphson algorithm</span><span class="w"></span>
-<span class="n">algorithm</span><span class="w"> </span><span class="n">Newton</span><span class="w"></span>
+# Create the convergence test, the norm of the residual with a tolerance of 
+# 1e-12 and a max number of iterations of 10
+test NormDispIncr 1.0e-8  10 0
+
+# Create the solution algorithm, a Newton-Raphson algorithm
+algorithm Newton
 
-<span class="c1"># Create the integration scheme, the LoadControl scheme using steps of 0.1 </span><span class="w"></span>
-<span class="n">integrator</span><span class="w"> </span><span class="n">LoadControl</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="mf">0.1</span><span class="w"></span>
-
-<span class="c1"># Create the system of equation, a SPD using a profile storage scheme</span><span class="w"></span>
-<span class="n">system</span><span class="w"> </span><span class="n">BandGeneral</span><span class="w"></span>
-
-<span class="c1"># Create the DOF numberer, the reverse Cuthill-McKee algorithm</span><span class="w"></span>
-<span class="n">numberer</span><span class="w"> </span><span class="n">RCM</span><span class="w"></span>
-
-<span class="c1"># Create the constraint handler, the transformation method</span><span class="w"></span>
-<span class="n">constraints</span><span class="w"> </span><span class="n">Plain</span><span class="w"></span>
-
-<span class="c1"># Create the analysis object</span><span class="w"></span>
-<span class="n">analysis</span><span class="w"> </span><span class="n">Static</span><span class="w"></span>
-
-
-<span class="c1"># ------------------------------------------------</span><span class="w"></span>
-<span class="c1"># End of analysis generation for gravity analysis</span><span class="w"></span>
-<span class="c1"># -------------------------------------------------</span><span class="w"></span>
-
-
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># Perform gravity load analysis</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
-
-<span class="c1"># perform the gravity load analysis, requires 10 steps to reach the load level</span><span class="w"></span>
-<span class="n">analyze</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
-
-
-<span class="c1"># set gravity loads to be const and set pseudo time to be 0.0</span><span class="w"></span>
-<span class="c1">#  for start of lateral load analysis</span><span class="w"></span>
-<span class="n">loadConst</span><span class="w"> </span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
-
-
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># Add lateral loads </span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
-
-<span class="c1"># Reference lateral load for pushover analysis</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">H</span><span class="w">   </span><span class="mi">10</span><span class="w"></span>
-
-<span class="c1"># Reference lateral loads</span><span class="w"></span>
-<span class="c1"># Create a Plain load pattern with a Linear TimeSeries</span><span class="w"></span>
-<span class="n">pattern</span><span class="w"> </span><span class="n">Plain</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">Linear</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nb">load</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="o">$</span><span class="n">H</span><span class="o">/</span><span class="mf">2.0</span><span class="p">]</span><span class="w">  </span><span class="mf">0.0</span><span class="w">  </span><span class="mf">0.0</span><span class="w"></span>
-<span class="w">    </span><span class="nb">load</span><span class="w"> </span><span class="mi">3</span><span class="w">            </span><span class="o">$</span><span class="n">H</span><span class="w">  </span><span class="mf">0.0</span><span class="w">  </span><span class="mf">0.0</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># Start of recorder generation</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
-
-<span class="c1"># Create a recorder which writes to Node.out and prints</span><span class="w"></span>
-<span class="c1"># the current load factor (pseudo-time) and dof 1 displacements at node 2 &amp; 3</span><span class="w"></span>
-<span class="n">recorder</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="n">Node41</span><span class="o">.</span><span class="n">out</span><span class="w"> </span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="o">-</span><span class="n">node</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="n">dof</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">disp</span><span class="w"></span>
-
-<span class="c1"># Source in some commands to display the model</span><span class="w"></span>
-<span class="c1"># comment out one of lines</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">displayMode</span><span class="w"> </span><span class="s2">&quot;displayON&quot;</span><span class="w"></span>
-<span class="c1">#set displayMode &quot;displayOFF&quot;</span><span class="w"></span>
-
-<span class="k">if</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">displayMode</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s2">&quot;displayON&quot;</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="c1"># a window to plot the nodal displacements versus load for node 3</span><span class="w"></span>
-<span class="w">    </span><span class="n">recorder</span><span class="w"> </span><span class="n">plot</span><span class="w"> </span><span class="n">Node41</span><span class="o">.</span><span class="n">out</span><span class="w"> </span><span class="n">Node_3_Xdisp</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">340</span><span class="w"> </span><span class="mi">300</span><span class="w"> </span><span class="mi">300</span><span class="w"> </span><span class="o">-</span><span class="n">columns</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="n">dT</span><span class="w"> </span><span class="mf">0.1</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># End of recorder generation</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
-
-<span class="c1"># ------------------------------</span><span class="w"></span>
-<span class="c1"># Start of lateral load analysis</span><span class="w"></span>
-<span class="c1"># ------------------------------</span><span class="w"></span>
-
-<span class="c1"># Change the integrator to take a min and max load increment</span><span class="w"></span>
-<span class="n">integrator</span><span class="w"> </span><span class="n">LoadControl</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">0.02</span><span class="w"> </span><span class="mf">2.0</span><span class="w"></span>
-
-<span class="c1"># Perform the analysis</span><span class="w"></span>
-
-<span class="c1"># Perform the pushover analysis</span><span class="w"></span>
-<span class="c1"># Set some parameters</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">maxU</span><span class="w"> </span><span class="mf">10.0</span><span class="p">;</span><span class="w">          </span><span class="c1"># Max displacement</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">controlDisp</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
-<span class="n">set</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-
-<span class="k">while</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">controlDisp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">$</span><span class="n">maxU</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">$</span><span class="n">ok</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="p">[</span><span class="n">analyze</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
-<span class="w">    </span><span class="n">set</span><span class="w"> </span><span class="n">controlDisp</span><span class="w"> </span><span class="p">[</span><span class="n">nodeDisp</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
-
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">ok</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">puts</span><span class="w"> </span><span class="s2">&quot;... trying an initial tangent iteration with Newton&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="n">test</span><span class="w"> </span><span class="n">NormDispIncr</span><span class="w"> </span><span class="mf">1.0e-8</span><span class="w">  </span><span class="mi">4000</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">        </span><span class="n">algorithm</span><span class="w"> </span><span class="n">ModifiedNewton</span><span class="w"> </span><span class="o">-</span><span class="n">initial</span><span class="w"></span>
-<span class="w">        </span><span class="n">set</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="p">[</span><span class="n">analyze</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"></span>
-<span class="w">        </span><span class="n">test</span><span class="w"> </span><span class="n">NormDispIncr</span><span class="w"> </span><span class="mf">1.0e-8</span><span class="w">  </span><span class="mi">10</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
-<span class="w">        </span><span class="n">algorithm</span><span class="w"> </span><span class="n">Newton</span><span class="w"></span>
-<span class="w">    </span><span class="p">}</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-
-<span class="k">if</span><span class="w"> </span><span class="p">{</span><span class="o">$</span><span class="n">ok</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">puts</span><span class="w"> </span><span class="s2">&quot;Pushover analysis FAILED&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">puts</span><span class="w"> </span><span class="s2">&quot;Pushover analysis completed SUCCESSFULLY&quot;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</pre></div>
-
+# Create the integration scheme, the LoadControl scheme using steps of 0.1 
+integrator LoadControl 0.1 1 0.1 0.1
+
+# Create the system of equation, a SPD using a profile storage scheme
+system BandGeneral
+
+# Create the DOF numberer, the reverse Cuthill-McKee algorithm
+numberer RCM
+
+# Create the constraint handler, the transformation method
+constraints Plain
+
+# Create the analysis object
+analysis Static
+
+
+# ------------------------------------------------
+# End of analysis generation for gravity analysis
+# -------------------------------------------------
+
+
+# ------------------------------
+# Perform gravity load analysis
+# ------------------------------
+
+# perform the gravity load analysis, requires 10 steps to reach the load level
+analyze 10
+
+
+# set gravity loads to be const and set pseudo time to be 0.0
+#  for start of lateral load analysis
+loadConst -time 0.0
+
+
+# ------------------------------
+# Add lateral loads 
+# ------------------------------
+
+# Reference lateral load for pushover analysis
+set H   10
+
+# Reference lateral loads
+# Create a Plain load pattern with a Linear TimeSeries
+pattern Plain 2 Linear {
+    load 2 [expr $H/2.0]  0.0  0.0
+    load 3            $H  0.0  0.0
+}
+
+# ------------------------------
+# Start of recorder generation
+# ------------------------------
+
+# Create a recorder which writes to Node.out and prints
+# the current load factor (pseudo-time) and dof 1 displacements at node 2 &amp; 3
+recorder Node -file Node41.out -time -node 2 3 -dof 1 disp
+
+# Source in some commands to display the model
+# comment out one of lines
+set displayMode &quot;displayON&quot;
+#set displayMode &quot;displayOFF&quot;
+
+if {$displayMode == &quot;displayON&quot;} {
+    # a window to plot the nodal displacements versus load for node 3
+    recorder plot Node41.out Node_3_Xdisp 10 340 300 300 -columns 3 1 -dT 0.1
+}
+
+# ------------------------------
+# End of recorder generation
+# ------------------------------
+
+# ------------------------------
+# Start of lateral load analysis
+# ------------------------------
+
+# Change the integrator to take a min and max load increment
+integrator LoadControl 1.0 4 0.02 2.0
+
+# Perform the analysis
+
+# Perform the pushover analysis
+# Set some parameters
+set maxU 10.0;          # Max displacement
+set controlDisp 0.0;
+set ok 0;
+
+while {$controlDisp &lt; $maxU &amp;&amp; $ok == 0} {
+    set ok [analyze 1]
+    set controlDisp [nodeDisp 3 1]
+
+    if {$ok != 0} {
+        puts &quot;... trying an initial tangent iteration with Newton&quot;
+        test NormDispIncr 1.0e-8  4000 0
+        algorithm ModifiedNewton -initial
+        set ok [analyze 1]
+        test NormDispIncr 1.0e-8  10 0
+        algorithm Newton
+    }
+}
+
+if {$ok != 0} {
+    puts &quot;Pushover analysis FAILED&quot;
+} else {
+    puts &quot;Pushover analysis completed SUCCESSFULLY&quot;
+}</code></pre>
 <p>The output consists of the file Node41.out containing a line for each step of the lateral load analysis. Each line contains the load factor, the lateral displacements at nodes 2 and 3. A plot of the load-displacement curve for the frame is given in figure <a href="#twostory" data-reference-type="ref" data-reference="twostory">[twostory$$</a>.</p>
 <div class="center">
 <p> </p>

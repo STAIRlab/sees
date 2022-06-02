@@ -14157,12 +14157,10 @@ Removal During Simulation
 
 
 <h1 id="constrainthandler">ConstraintHandler</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/handler/ConstraintHandler.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">ConstraintHandler</span><span class="o">:</span><span class="w"> </span>
-<span class="k">public</span><span class="w"> </span><span class="n">MovableObject</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/handler/ConstraintHandler.h&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ConstraintHandler<span class="op">:</span> </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> MovableObject</span></code></pre></div>
 <p>The <code>ConstraintHandler</code> class is an abstract base class. Its purpose is to define the interface common among all subclasses. A constraint handler is responsible for:</p>
 <ol type="1">
 <li><p>creating the <code>FE_Element</code> and <code>DOF_Group</code> objects and adding them to the AnalysisModel.</p></li>
@@ -14189,19 +14187,13 @@ Does nothing.</p>
 <p><br />
 Invoked to set the links that the ConstraintHandler will need. These include links to the Domain, <em>theDomain</em>, for which the ConstraintHandler object will apply the constraints and the AnalysisModel, <em>theModel</em>, to which the ConstraintHandler will add the FE_Element and <code>DOF_Group</code> objects.</p>
 <p>Invoked to handle the constraints imposed on the domain by the SP_Constraints and MP_Constraints. The ConstraintHandler object does this by instantiating the appropriate <code>FE_Element</code> and <code>DOF_Group</code> objects and adding them to the AnalysisModel. For all the dofs in each DOF_Group the ConstraintHandler sets initial equation numbers as either <span class="math inline">\(-1\)</span>, <span class="math inline">\(-2\)</span> or <span class="math inline">\(-3\)</span>: A <span class="math inline">\(-1\)</span> indicates to the DOF_Numberer object that no equation number is to be allocated for this dof, a <span class="math inline">\(-2\)</span> that an equation number is to be given for the dof, and a <span class="math inline">\(-3\)</span> that an equation number is to be allocated and that this dof is to be among the last group of dof to be numbered,i.e. all dof initially assigned a <span class="math inline">\(-3\)</span> are to be given a higher equation number than those given a <span class="math inline">\(-2\)</span>. Those dof with a <span class="math inline">\(-3\)</span> should include all those dof associated with the nodes whose tags are in <em>nodesToBeNumberedLast</em>. Returns a positive number if successfully, a negative integer if not; the positive number is to be set at the number of dof assigned a value <span class="math inline">\(-3\)</span> (this will be the number of external dof for a subdomain), the negative value of which depends on the type of ConstraintHandler. For subdomains the constraint handler is responsible for setting the <code>FE_Element</code> by calling <em>setFE_elementPtr</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">clearAll</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> clearAll<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
 <p>Invoked to inform the ConstraintHandler object that the FE_Elements and DOF_Groups it constructed are no longer part of the AnalysisModel. The ConstraintHandler can delete these objects if necessary; or the ConstraintHandler can store them and use them in subsequent calls to <code>handle()</code>.</p>
 <p><br />
 A const member function to return the Domain object associated with the ConstraintHandler, <em>theDomain</em>.</p>
-<div class="highlight"><pre><span></span><span class="n">AnalysisModel</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getAnalysisModelPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>AnalysisModel \<span class="op">*</span>getAnalysisModelPtr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
 <p>A const member function to return the AnalysisModel object associated with the ConstraintHandler, <em>theModel</em>.</p>
-<div class="highlight"><pre><span></span><span class="n">Integrator</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getIntegratorPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
+<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Integrator \<span class="op">*</span>getIntegratorPtr<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
 <p>A const member function to return the Integrator object associated with the ConstraintHandler, <em>theIntegrator</em>.</p>
 
 

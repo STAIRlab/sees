@@ -14156,9 +14156,7 @@ Removal During Simulation
 
 <h1 id="fullgeneral">FullGeneral</h1>
 <p>This command is used to construct a Full General linear system of equation object. As the name implies, the class utilizes NO space saving techniques to cut down on the amount of memory used. If the matrix is of size, nxn, then storage for an nxn array is sought from memory when the program runs. When a solution is required, the Lapack routines <code>DGESV</code> and <code>DGETRS</code> are used. The following command is used to construct such a system:</p>
-<div class="highlight"><pre><span></span><span class="nv">system</span><span class="w"> </span>FullGeneral
-</pre></div>
-
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">system</span> FullGeneral</span></code></pre></div>
 <hr />
 <p>
 NOTES:

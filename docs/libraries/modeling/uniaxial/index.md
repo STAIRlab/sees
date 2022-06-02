@@ -38,9 +38,12 @@ Elastic-perfectly plastic
 <li><a href="Elastic-No_Tension_Material"
 >Elastic-No Tension</a></li>
 
-<li><a href="Parallel_Material">Parallel
-</a></li>
+<li><a href="Parallel_Material">Parallel</a></li>
+
 <li><a href="Series_Material">Series</a></li>
+
+<li><a href="Viscous_Material">Viscous</a></li>
+
 </ul></li>
 
 
@@ -109,14 +112,26 @@ Elastic-perfectly plastic
 
 </dl>
 
-### Moment-Curvature inspired materials
+
+### Bouc-Wen Models
+
+<ul>
+<li>BoucWenOriginal</li>
+<li>DegradingPinchedBW</li>
+<li>BoucWenInfill</li>
+
+<li><a href="BoucWen_Material">BoucWen</a></li>
+
+<li><a href="BWBN_Material">BWBN</a> Pinching Hysteretic Bouc-Wen Material</li>
+</ul>
+
+### Other Uniaxial Materials
 
 <ul>
 <li><a
 href="ModIMKBilin/">ModIMKBilin</a>
-Modified Ibarra-Medina-Krawinkler Deterioration Model
-with Bilinear Hysteretic Response (Bilin)
-</li
+Modified Ibarra-Medina-Krawinkler Deterioration Model with Bilinear Hysteretic Response (Bilin)
+</li>
 
 <li><a
 href="ModIMKPeakOriented/">ModIMKPeakOriented</a>
@@ -126,19 +141,6 @@ Modified Ibarra-Medina-Krawinkler Deterioration Model with Peak-Oriented Hystere
 <li><a href="ModIMKPinching">ModIMKPinching</a>
 Modified Ibarra-Medina-Krawinkler Deterioration Model with Pinched Hysteretic Response
 </li>
-
-<li><a href="BoucWen_Material">BoucWen</a></li>
-
-<li><a href="BWBN_Material">BWBN</a> Pinching Hysteretic Bouc-Wen Material</li>
-</ul>
-
-### Brace Materials
-
-<ul>
-<li><a href="SelfCentering_Material">SelfCentering</a> uniaxial self-centering (flag-shaped) material object with optional non-recoverable slip behaviour and an optional stiffness increase at high strains (bearing behaviour).</li>
-</ul>
-
-### Other Uniaxial Materials
 
 <li><a href="CastFuse_Material">CastFuse
 </a></li>
@@ -169,7 +171,6 @@ Strain Penetration Model for Fully Anchored Steel Reinforcing Bars
 <li><a href="Pinching4_Material">Pinching4</a></li>
 <li><a href="Engineered_Cementitious_Composites_Material">Engineered Cementitious Composites</a></li>
 
-<li><a href="Viscous_Material">Viscous</a></li>
 
 
 <li><a href="KikuchiAikenHDR_Material">KikuchiAikenHDR</a></li>
@@ -179,6 +180,8 @@ Strain Penetration Model for Fully Anchored Steel Reinforcing Bars
 <li><a href="Pinching_Limit_State_Material">Pinching Limit State</a></li>
 <li><a href="CFSWSWP"> CFSWSWP Wood-Sheathed Cold-Formed Steel Shear Wall Panel</a></li>
 <li><a href="CFSSSWP"> CFSSSWP Steel-Sheathed Cold-formed Steel Shear Wall Panel</a></li>
+
+<li><a href="SelfCentering_Material">SelfCentering</a> uniaxial self-centering (flag-shaped) material object with optional non-recoverable slip behaviour and an optional stiffness increase at high strains (bearing behaviour).</li>
 </ul>
 
 ### PyTzQz uniaxial soil materials 
