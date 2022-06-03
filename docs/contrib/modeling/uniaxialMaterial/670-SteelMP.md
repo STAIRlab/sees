@@ -31,6 +31,18 @@ initial elastic tangent)</p></td>
 <p>Note: For this material class, the sensitivity parameters can be:
 sigmaY, E, b</p>
 <hr />
+
+$$
+\begin{aligned}
+\sigma^{*}=b \cdot \varepsilon^{*} &+\frac{(1-b) \cdot \varepsilon^{*}}{\left(1+\left|\varepsilon^{*}\right|^{R}\right)^{1 / R}} \\
+\varepsilon^{*} &=\frac{\varepsilon-\varepsilon_{r}}{\varepsilon_{y}-\varepsilon_{r}} \\
+\sigma^{*} &=\frac{\sigma-\sigma_{r}}{\sigma_{y}-\sigma_{r}}
+R &= R_{0}-\frac{a_{1} \cdot \xi}{a_{2}+\xi} \\
+\xi &= \dfrac{\max _{\varepsilon}\left|\varepsilon_{\max }-\varepsilon_{y}\right| }{\varepsilon_{y,0}}
+\end{aligned}
+$$
+
+
 <dl>
 <dt></dt>
 <dd>

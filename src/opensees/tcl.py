@@ -38,8 +38,12 @@ def dumps(model):
         # refs = {r for r in model.get_refs()}
         # for ref in refs:
         #     writer.send(ref)
-
-        return writer.send(model).getstr()
+        writer.send(model)
+        if not writer.binary_objects:
+            return writer.getstr()
+        else:
+            return writer
+            #raise ValueError("Cannot dump model with binary objects")
 
 
 class TclRuntime(AbstractRuntime):
@@ -62,7 +66,19 @@ class TclRuntime(AbstractRuntime):
                 pass
             else:
                 self.eval("model basic 2 3")
-                self.eval(dumps(arg))
+                m = dumps(arg)
+                if isinstance(m, str):
+                    self.eval(m)
+                else:
+                    from . import libOpenSeesRT
+                    _builder = libOpenSeesRT.get_builder(self._interp.interpaddr())
+                    for obj in m.binary_objects:
+                        _builder.addPythonObject(obj.name, obj)
+                    self.eval(m.getstr())
+
+
+    def send(self, obj):
+        pass
 
     @property
     def _rt(self):

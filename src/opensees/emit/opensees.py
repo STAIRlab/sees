@@ -151,15 +151,20 @@ class ScriptBuilder:
     def __init__(self):
         self.sent = set()
         self.streams = [ScriptBuilder.Writer(StringIO(), self)]
+        self.binary_objects = []
 
     def getstr(self):
         return self.streams[0].strm.getvalue()
 
     def send(self, obj, idnt=None):
+        w = self.streams[0]
         if id(obj) in self.sent:
             return self
-        w = self.streams[0]
-        [self.send(i) for i in obj.get_refs()]
+        try:
+            [self.send(i) for i in obj.get_refs()]
+        except AttributeError:
+            self.binary_objects.append(obj)
+            return self
         w.write(" ".join(obj._cmd))
         w.current_obj = obj # TODO: Clean this up
         for arg in obj._args:

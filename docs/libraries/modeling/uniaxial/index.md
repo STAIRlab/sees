@@ -21,12 +21,23 @@ in the NOTES section for those materials.</p>
 required for each of the available material types:</p>
 <p>&lt;/noinclude&gt;</p>
 
-### Some Standard Uniaxial Materials
-
+### Elastic / Path-Independent
 <ul>
 <li><a href="Elastic_Uniaxial_Material"
 >Elastic</a></li>
+<li><a href="Elastic-No_Tension_Material"
+>Elastic-No Tension</a></li>
+<li><a href="ElasticBilin_Material">ElasticBilin</a></li>
+<li><a href="ElasticMultiLinear_Material">ElasticMultiLinear</a></li>
+<li><a href="PathIndependent_Material">PathIndependent</a></li>
+</ul>
 
+### Standard Rate-Independent Materials
+
+These models are formulated and implemented according to well-established
+principles and algorithms.
+
+<ul>
 <li><a href="ElasticPP"
 >ElasticPP</a>
 Elastic-perfectly plastic
@@ -35,16 +46,21 @@ Elastic-perfectly plastic
 <li><a href="Elastic-Perfectly_Plastic_Gap_Material"
 >Elastic-Perfectly Plastic Gap</a></li>
 
-<li><a href="Elastic-No_Tension_Material"
->Elastic-No Tension</a></li>
+<li><a href="Hardening_Material">Hardening</a></li>
 
 <li><a href="Parallel_Material">Parallel</a></li>
 
 <li><a href="Series_Material">Series</a></li>
 
-<li><a href="Viscous_Material">Viscous</a></li>
+</ul>
 
-</ul></li>
+### Standard Rate-Dependent Materials
+
+<ul>
+<li><a href="Viscous_Material">Viscous</a></li>
+<li><a href="ViscousDamper_Material">ViscousDamper
+</a></li>
+</ul>
 
 
 ### Steel &amp; Reinforcing-Steel Materials
@@ -112,7 +128,6 @@ Elastic-perfectly plastic
 
 </dl>
 
-
 ### Bouc-Wen Models
 
 <ul>
@@ -144,8 +159,6 @@ Modified Ibarra-Medina-Krawinkler Deterioration Model with Pinched Hysteretic Re
 
 <li><a href="CastFuse_Material">CastFuse
 </a></li>
-<li><a href="ViscousDamper_Material">ViscousDamper
-</a></li>
 <li><a href="BilinearOilDamper_Material"
 >BilinearOilDamper</a></li>
 
@@ -157,17 +170,13 @@ Strain Penetration Model for Fully Anchored Steel Reinforcing Bars
 </li>
 
 <li><a href="Fatigue_Material">Fatigue</a></li>
-<li><a href="Hardening_Material">Hardening</a></li>
 <li><a href="Impact_Material">Impact</a></li>
 <li><a href="Hyperbolic_Gap_Material">HyperbolicGap</a></li>
 <li><a href="Limit_State_Material">Limit State</a></li>
 <li><a href="MinMax_Material">MinMax</a></li>
-<li><a href="ElasticBilin_Material">ElasticBilin</a></li>
-<li><a href="ElasticMultiLinear_Material">ElasticMultiLinear</a></li>
 <li><a href="MultiLinear_Material">MultiLinear</a></li>
 <li><a href="Initial_Strain_Material">Initial Strain</a></li>
 <li><a href="Initial_Stress_Material">Initial Stress</a></li>
-<li><a href="PathIndependent_Material">PathIndependent</a></li>
 <li><a href="Pinching4_Material">Pinching4</a></li>
 <li><a href="Engineered_Cementitious_Composites_Material">Engineered Cementitious Composites</a></li>
 

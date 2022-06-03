@@ -312,7 +312,7 @@ class uniaxial:
         Tag(),
         Num("alpha", about="ratio of post-yield stiffness to the initial elastic stiffenss (0< α <1)"),
         Num("ko", about="initial elastic stiffness"),
-        Num("n", about="parameter that controls transition from linear to nonlinear range (as n increases the transition becomes sharper; n is usually grater or equal to 1)"),
+        Int("n", about="parameter that controls transition from linear to nonlinear range (as n increases the transition becomes sharper; n is usually grater or equal to 1)"),
         Grp("a", args=[Num("gamma"), Num("beta")], about="parameters that control shape of hysteresis loop; depending on the values of γ and β softening, hardening or quasi-linearity can be simulated (look at the NOTES)"),
         Grp("b", args=[Num("Ao"), Num("deltaA")], about="parameters that control tangent stiffness"),
         Grp("c", args=[Num("deltaNu"), Num("deltaEta")], about="parameters that control material degradation"),
