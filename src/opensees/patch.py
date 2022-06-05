@@ -38,10 +38,8 @@ class Fiber:
     This class represents a single fiber in an
     enclosing `FiberSection` or `NDFiberSection`.
     """
-#fiber = Fiber = cmd("Fiber","fiber",
+    tag_space = None
     # fiber $yLoc $zLoc $A $material
-    #about="This command allows the user to construct a single fiber "\
-    #      "and add it to the enclosing `FiberSection` or `NDFiberSection`."
     _args = [
         Grp("coord", args=[Num("x"), Num("y")], reverse=True,
             about="$x$ and $y$ coordinate of the fiber in the section "\
@@ -686,5 +684,4 @@ def sunflower(n, rad, alpha=0, geodesic=False):
         theta = k * angle_stride
         points.append((r * cos(theta), r * sin(theta)))
     return points
-
 

@@ -1,6 +1,11 @@
 from  .ast  import *
+import textwrap
 
 class Component:
+    @property
+    def tag_space(self):
+        return self._cmd[0].split("::")[-1]
+
     def __enter__(self):
         assert self._rt is None
         # libOpenSeesRT must be imported by Python
@@ -10,17 +15,17 @@ class Component:
         # when a python c-binding attempts to call a Tcl
         # C function. Users should never import libOpenSeesRT
         # themselves
-        from .tcl import TclRuntime, dumps
+        from .tcl import TclRuntime
         rt = TclRuntime()
         from . import libOpenSeesRT
 
-        if self._cmd[0] == "uniaxialMaterial":
+        if self.tag_space == "uniaxialMaterial":
             rt.model(self)
-            tag = self.name # if self.name is not None else "1"
+            tag = self.name if self.name is not None else "1"
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
             handle = self._builder.getUniaxialMaterial(tag)
 
-        elif self._cmd[0] == "section":
+        elif self.tag_space == "section":
             rt.model(self)
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
             handle = self._builder.getSection(str(self.name))
@@ -122,17 +127,14 @@ def cmd(cls, cmd=None, args=None, refs=(), namespace=None, **ops):
         # Called as function (ie my_command = cmd('my_cmd'))
         fields = [arg.field for arg in args] 
         alts = {arg.kwds["alt"] for arg in args if "alt" in arg.kwds}
-        obj = struct(cls, fields, args, alts, refs=refs)
-        obj._cmd  = [cmd]
+        obj = struct(cls, fields, args, alts, cmd=[cmd], refs=refs)
     else:
         # Called as class decorator
         fields = [arg.field for arg in cls._args]
         alts = cls._alts if hasattr(cls, "_alts") else None
         name = cls.__name__
         cmd = name.lower()[0] + name[1:]
-        # cmd[0] = name.lower()[0]
-        obj = struct(name, fields, cls._args, alts)
-        obj._cmd  = [cmd]
+        obj = struct(name, fields, cls._args, alts, cmd=[cmd], parents=[cls])
     if namespace is not None:
         obj._cmd[0] = namespace + "::" + obj._cmd[0]
     return obj
@@ -185,16 +187,20 @@ class LibCmd(Cmd):
         fields = [arg.field for arg in args]
         if "alts" in opts: fields += [a.field for a in opts["alts"]]
         alts = {arg.kwds["alt"] for arg in args if "alt" in arg.kwds}
-        obj = struct(cls, fields, args, alts, refs=refs, parents=inherit)
-        obj._cmd  = [self.cmd, name]
+        obj = struct(cls, fields, args, alts, refs=refs, cmd=[self.cmd, name], parents=inherit)
         obj.kwds = opts
         obj._class_name = self.class_name
         setattr(self, name, obj)
         return obj
 
 
-def struct(name, fields, args = None, alts=None, refs=[], parents=[]):
-    import textwrap
+def struct(name, fields, args = None, alts=None, refs=None, cmd=None, parents=None):
+    if cmd is None: cmd = []
+    if refs is None: refs = []
+    if parents is None: parents = []
+    if isinstance(args[0], Tag):
+        args[0].kwds["tag_space"] = cmd[0]
+
     template = textwrap.dedent("""\
     class {name}({parents}):
         __slots__ = ["_argdict"] + {fields!r}
@@ -203,6 +209,7 @@ def struct(name, fields, args = None, alts=None, refs=[], parents=[]):
             self.kwds = kwds
             self._refs = {refs!r}
             self._init()
+            self._cmd = {cmd!r}
             if hasattr(self,"init"): self.init()
 
         def keys(self): return self.__slots__
@@ -212,6 +219,7 @@ def struct(name, fields, args = None, alts=None, refs=[], parents=[]):
     """).format(
         name=name,
         refs=refs,
+        cmd =cmd,
         fields=fields,
         parents = ",".join([p.__name__ for p in parents]+["Component"]),
         args=','.join(fields),

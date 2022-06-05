@@ -1,6 +1,3 @@
-__version__  = "0.0.4"
-
-# Imports for this module
 import math
 import fnmatch
 from .lib import Node
@@ -58,17 +55,14 @@ class model:
             args = {k:v for k,v in el.items() if k not in ["type", "name", "nodes"]}
             if typ in prototypes:
                 typ = prototypes[typ]
-                #elem = prototypes[typ](**args)
             elif callable(typ):
                 pass
-                #elem = typ(**args)
             else:
                 continue
 
             nodei, nodej = el["nodes"]
             if hasattr(typ, "mesh_interval") and typ.mesh_interval:
                 # mesh_interval should generate values in (-1, 1)
-                #import numpy as np
                 Xi = nodei["crd"]
                 dX = [j - i for j, i in zip(nodej["crd"], Xi)]
 
@@ -80,8 +74,6 @@ class model:
                     elems.update({self._new_tag("elem", elems): elem})
                     nodei = new_node
 
-                #prototypes.update({f"{tag}": typ})
-            #args["nodes"][-1] = nodej
             elem = typ(nodes=(nodei, nodej), **args)
             elem.prototype = typ
             elems.update({self._new_tag("elem", elems): elem})
@@ -136,8 +128,10 @@ class model:
 
         n = len(container)
         while str(n) in container: n += 1
+
         if typ:
             getattr(self, f"m_auto_assigned_{typ}s").append(str(n))
+
         return str(n)
 
     def elem(self, *args, **kwds):
@@ -171,10 +165,10 @@ class model:
             **kwds
         }})
 
-    def split(self, elem, number, **kwds):
-
-        def _hook(model):
-            pass
+#    def split(self, elem, number, **kwds):
+#
+#        def _hook(model):
+#            pass
 
     def conn(self, typ, node, dofs=(), name=None):
         if isinstance(node, (tuple,list)):

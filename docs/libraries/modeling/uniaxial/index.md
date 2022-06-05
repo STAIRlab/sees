@@ -140,6 +140,14 @@ Elastic-perfectly plastic
 <li><a href="BWBN_Material">BWBN</a> Pinching Hysteretic Bouc-Wen Material</li>
 </ul>
 
+### Wrappers
+
+<ul>
+<li><a href="Fatigue_Material">Fatigue</a></li>
+<li><a href="MinMax_Material">MinMax</a></li>
+</ul>
+
+
 ### Other Uniaxial Materials
 
 <ul>
@@ -169,17 +177,14 @@ Modified Ibarra-Medina-Krawinkler Deterioration Model with Pinched Hysteretic Re
 Strain Penetration Model for Fully Anchored Steel Reinforcing Bars
 </li>
 
-<li><a href="Fatigue_Material">Fatigue</a></li>
 <li><a href="Impact_Material">Impact</a></li>
 <li><a href="Hyperbolic_Gap_Material">HyperbolicGap</a></li>
 <li><a href="Limit_State_Material">Limit State</a></li>
-<li><a href="MinMax_Material">MinMax</a></li>
 <li><a href="MultiLinear_Material">MultiLinear</a></li>
 <li><a href="Initial_Strain_Material">Initial Strain</a></li>
 <li><a href="Initial_Stress_Material">Initial Stress</a></li>
 <li><a href="Pinching4_Material">Pinching4</a></li>
 <li><a href="Engineered_Cementitious_Composites_Material">Engineered Cementitious Composites</a></li>
-
 
 
 <li><a href="KikuchiAikenHDR_Material">KikuchiAikenHDR</a></li>

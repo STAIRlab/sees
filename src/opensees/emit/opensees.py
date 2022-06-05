@@ -1,5 +1,96 @@
 from .writer import ModelWriter
 from opensees.ast import Arg
+from collections import defaultdict
+
+class Identifier: 
+    def __init__(self, tag_space, space_name):
+        self.nm = (tag_space, space_name)
+
+    def __hash__(self):
+        return hash(self.nm)
+
+    def tclstr(self):
+        return f"{self.nm[0]}({self.nm[1]})"
+
+class TagSpace:
+    def __init__(self):
+        self.current_tag = 1
+        self.obj_by_tag = {}
+        self.tag_by_obj = {}
+        self.forced_tags = set()
+        self.forced_names = set()
+    
+    def __getitem__(self, name):
+        return self.tag_by_obj[name]
+
+    def new_tag(self):
+        t = self.current_tag
+        while t in self.forced_tags: t += 1
+        self.current_tag = t + 1
+        return t
+
+    def add(self, name, force_tag=None)->bool:
+        if force_tag is not None:
+            tag = force_tag
+            if force_tag in self.forced_tags:
+                raise ValueError("Duplicate forced tag:" + 
+                        f"{name} and {self.obj_by_tag[force_tag]}"
+                )
+            elif tag in self.obj_by_tag:
+                new_tag = self.new_tag()
+                old_obj = self.obj_by_tag[tag]
+                self.tag_by_obj[old_obj] = new_tag
+                self.obj_by_tag[new_tag] = old_obj
+            self.forced_tags.add(force_tag)
+        else:
+            tag = self.new_tag()
+
+        self.tag_by_obj[name] = tag
+        self.obj_by_tag[tag] = name
+        return True
+
+class Registry:
+    def __init__(self):
+        self.tag_spaces = defaultdict(TagSpace)
+        self.identifiers = {}
+        self.objects = {}
+        self.anonid = 1
+
+    def __getitem__(self, tag_space: str)->TagSpace:
+        return self.tag_spaces[tag_space]
+
+    def registered(self, obj):
+        return id(obj) in self.objects
+
+    def register(self, obj, name=None, tag_space=None, force_tag=None) -> Identifier:
+        ts = tag_space or obj.tag_space
+
+        if force_tag is not None:
+            id2 = str(force_tag)
+        elif name is None:
+            # Anonymous
+            assert obj is not None
+            id2 = f"<{self.anonid}>"
+            self.anonid += 1
+        else:
+            id2 = str(name)
+
+        self.tag_spaces[ts].add(id2, force_tag=force_tag)
+
+        ident = Identifier(ts, id2)
+        self.objects[id(obj)] = ident
+        self.identifiers[ident] = id(obj)
+        return ident
+
+    def index(self)->dict:
+        return {
+            i: self.tag_spaces[i.nm[0]][i.nm[1]]
+            for i in self.identifiers if i.nm[0] is not None
+        }
+
+    def ident(self, obj)->Identifier:
+        return self.objects[id(obj)]
+
 
 class TclWriter:
     def Arg(this, self, value=None)->list:
@@ -18,7 +109,6 @@ class TclWriter:
                 return []
             else:
                 value = f"${value.name}"
-        #this.write(" ".join(map(str,self.flag + [value])))
         this.write(self.flag, str(value))
 
     def Lst(this, self, value=None):
@@ -30,17 +120,19 @@ class TclWriter:
 
     def Tag(this, self, value=None):
         value = self.value if value is None else value
-        if not isinstance(value, int):
-            value = this.current_tag
-            this.current_tag += 1
-            this.current_obj.name = value
-        self.name = self.value = value
-        this.write(value)
+
+        if isinstance(value, int):
+            force_tag = value
+        else:
+            force_tag = None
+
+        ident = this.registry.register(this.current_obj, name=value, force_tag=force_tag)
+
+        this.write("$"+ident.tclstr())
 
     def Flg(this, self, value=None): 
         value = self.value if value is None else value
         if value: this.write(self.flag)
-        #self.write(" ".join([self.flag] if value else []))
 
     def Grp(this, self, value=None):
         val = self._get_value(None,value)
@@ -70,24 +162,22 @@ class TclWriter:
     
     def Ref(this, self, value=None): 
         val = self._get_value(None, value=value)
-        value = value.name if val is None else val
-        # try:
-        #     value = getattr(value, self.kwds["attr"])
-        # except Exception as e:
-        #     print(e)
+        #value = value.name if val is None else val
+        if val is None:
+            value = "$"+this.registry.ident(value).tclstr()
+        else:
+            value = val
         return this.write(self.flag,value)
 
     def Blk(this, self, value=None):
         value = self.get_value(value=value)
         if value is None:
             value = [None]
-        #this.write(" ".join(self.flag + ["{"]))
         this.write(self.flag, "{")
         this.endln()
         this.rshift()
         for v in value:
             this.parent.send(v)
-        # [this.parent.send(v) for v in value]
         this.lshift()
         this.write("}")
 
@@ -106,8 +196,10 @@ class TclWriter:
 
         return this.write(self.flag, *vals)
 
-
 from io import StringIO 
+
+class ObjectSerializationError(Exception): pass
+
 class ScriptBuilder:
     TAB = object()
     RET = object()
@@ -118,7 +210,7 @@ class ScriptBuilder:
             self.parent = parent
             self.refs = set()
             self.newline = True
-            self.current_tag = 1
+            self.registry = Registry()
             # self.tags = {}
 
         def write(self, *args, end=" "):
@@ -129,14 +221,7 @@ class ScriptBuilder:
                 if isinstance(arg, (int,float,str)):
                     print(f"{arg}", end=end, file=self.strm)
                 else:
-                    pass
-                    # typ = arg.__class__.__name__
-                    # if typ in dir(self):
-                    #     self.write(getattr(self, typ)(arg))
-                    # elif isinstance(arg, Arg):
-                    #     self.write(w.Arg(arg))
-                    # else:
-                    #     raise ValueError()
+                    raise ValueError()
 
         def endln(self):
             self.newline = True
@@ -151,34 +236,55 @@ class ScriptBuilder:
     def __init__(self):
         self.sent = set()
         self.streams = [ScriptBuilder.Writer(StringIO(), self)]
-        self.binary_objects = []
+        self.python_objects = {}
 
-    def getstr(self):
-        return self.streams[0].strm.getvalue()
+    def getIndex(self):
+        return "\n".join(
+            (f"set {i.tclstr()} {tag}" 
+                for i,tag in self.registry.index().items())
+        )
+
+    def getScript(self, indexed=True)->str:
+        index = self.getIndex() if indexed else ""
+        return "\n\n".join((index, self.streams[0].strm.getvalue()))
+    
+    @property
+    def registry(self):
+        return self.streams[0].registry
 
     def send(self, obj, idnt=None):
         w = self.streams[0]
-        if id(obj) in self.sent:
+
+        if not hasattr(obj,"_args"):
+            raise ObjectSerializationError()
+        
+        if self.registry.registered(obj):
             return self
-        try:
-            [self.send(i) for i in obj.get_refs()]
-        except AttributeError:
-            self.binary_objects.append(obj)
-            return self
+
+        for ref in obj.get_refs():
+            try: self.send(ref)
+
+            except ObjectSerializationError:
+                ident = self.registry.register(ref)
+                self.python_objects[ident] = ref
+
         w.write(" ".join(obj._cmd))
         w.current_obj = obj # TODO: Clean this up
+
         for arg in obj._args:
             typ = arg.__class__.__name__
             value = getattr(obj, arg.field)
 
-            if typ in dir(w):
-                w.write(getattr(w, typ)(arg, value=value))
-            elif isinstance(arg, Arg):
-                w.write(w.Arg(arg, value=value))
-            else:
-                raise ValueError()
+            try:
+                getattr(w, typ)(arg, value=value)
+            except AttributeError:
+                w.Arg(arg, value=value)
+
         w.endln();
-        self.sent.add(id(obj))
+
+        if not self.registry.registered(obj):
+            self.registry.register(obj)
+
         return self
 
 
@@ -224,7 +330,8 @@ class OpenSeesWriter(ModelWriter):
         return cmds
     
     def dump_materials(self, *materials, definitions={}):
-        writer = ScriptBuilder().streams[0]
+        builder = ScriptBuilder()
+        writer = builder.streams[0]
         cmds = "\n".join(f"set {k} {v};" for k,v in definitions.items()) + "\n"
         writer.write(
             "\n".join(f"set {k} {v};" for k,v in definitions.items()) + "\n"
@@ -235,7 +342,7 @@ class OpenSeesWriter(ModelWriter):
                 mat.name = i+1
             cmds += " ".join(mat.get_cmd_str()) + "\n"
             writer.parent.send(mat)
-        return writer.strm.getvalue()
+        return builder.getScript()
 
     def dump_constraints(self, definitions={}):
         cmds = "\n".join(f"set {k} {v};" for k,v in definitions.items()) + "\n"

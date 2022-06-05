@@ -4,68 +4,11 @@ description: Menegotto and Pinto (1973) Model Extended by Filippou et al. (1983)
 
 # SteelMPF
 
-<p><strong>Developed and Implemented by:</strong></p>
-<p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>
-<span style="color:black"></a>, California State University, Fullerton</p>
-<p><span style="color:blue"> Kutay Orakcal<span
-style="color:black">, Bogazici University, Istanbul, Turkey</p>
-<p><span style="color:blue"> John Wallace<span
-style="color:black">, Univeristy of California, Los Angeles</p>
-
 <p>This command is used to construct a uniaxialMaterial
 <strong>SteelMPF</strong> (Kolozvari et al., 2015), which represents the
 well-known uniaxial constitutive nonlinear hysteretic material model for
 steel proposed by Menegotto and Pinto (1973), and extended by Filippou
-et al. (1983) to include isotropic strain hardening effects. The
-relationship is in the form of curved transitions (Figure 1), each from
-a straight-line asymptote with slope E<sub
-class="subscript">0</sub> (modulus of elasticity) to another
-straight-line asymptote with slope E<sub
-class="subscript">1</sub> = bE<sub
-class="subscript">0</sub> (yield modulus) where <em>b</em> is
-the strain hardening ratio. The curvature of the transition curve
-between the two asymptotes is governed by a cyclic curvature parameter
-<em>R</em>, which permits the Bauschinger effect to be represented, and
-is dependent on the absolute strain difference between the current
-asymptote intersection point and the previous maximum or minimum strain
-reversal point depending on whether the current strain is increasing or
-decreasing, respectively. The strain and stress pairs (ε<sub
-class="subscript">r</sub>,σ<sub class="subscript">r</sub>) and (ε<sub
-class="subscript">0</sub>,σ<sub
-class="subscript">0</sub>) shown on Figure 1 are updated after
-each strain reversal. The model allows calibration of isotropic
-hardening parameters in both compression and tension through optional
-input variables <em>a<sub class="subscript">1</sub></em> and
-<em>a<sub class="subscript">2</sub></em> for isotropic
-strain hardening in compression, and <em>a<sub
-class="subscript">3</sub></em> and <em>a<sub
-class="subscript">4</sub></em> for isotropic strain hardening
-tension, and uses default values of <em>a<sub
-class="subscript">1</sub></em> = <em>a<sub
-class="subscript">3</sub></em> = 0.0 and <em>a<sub
-class="subscript">2</sub></em> = <em>a<sub
-class="subscript">4</sub></em> = 1.0 that yield no isotropic
-strain hardening for either compression or tension. To incorporate
-isotropic strain hardening in compression, the recommended parameters
-are <em>a<sub class="subscript">1</sub></em> = 0.01 and
-<em>a<sub class="subscript">2</sub></em> = 7.0. To
-incorporate isotropic strain hardening in tension, the recommended
-parameters are <em>a<sub class="subscript">3</sub></em> =
-0.01 and <em>a<sub class="subscript">4</sub></em> = 7.0.</p>
-
-<p><strong>Source:</strong>
-/usr/local/cvs/OpenSees/SRC/material/uniaxial/</p>
-
-<figure>
-<img src="/OpenSeesRT/contrib/static/SteelMPF.png"
-title="Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)"
-width="500"
-alt="Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)" />
-<figcaption aria-hidden="true">Figure 1. Constitutive Model for Steel
-(Menegotto and Pinto, 1973)</figcaption>
-</figure>
-<hr />
-<p><strong>Input Format:</strong></p>
+et al. (1983) to include isotropic strain hardening effects. 
 
 ```tcl
 uniaxialMaterial SteelMPF $mattag $fyp $fyn $E0 $bp $bn
@@ -142,6 +85,57 @@ $a3($fyn/$E0).</p></td>
 </tbody>
 </table>
 
+The relationship is in the form of curved transitions (Figure 1), each from
+a straight-line asymptote with slope E<sub
+class="subscript">0</sub> (modulus of elasticity) to another
+straight-line asymptote with slope E<sub
+class="subscript">1</sub> = bE<sub
+class="subscript">0</sub> (yield modulus) where <em>b</em> is
+the strain hardening ratio. The curvature of the transition curve
+between the two asymptotes is governed by a cyclic curvature parameter
+<em>R</em>, which permits the Bauschinger effect to be represented, and
+is dependent on the absolute strain difference between the current
+asymptote intersection point and the previous maximum or minimum strain
+reversal point depending on whether the current strain is increasing or
+decreasing, respectively. The strain and stress pairs (ε<sub
+class="subscript">r</sub>,σ<sub class="subscript">r</sub>) and (ε<sub
+class="subscript">0</sub>,σ<sub
+class="subscript">0</sub>) shown on Figure 1 are updated after
+each strain reversal. The model allows calibration of isotropic
+hardening parameters in both compression and tension through optional
+input variables <em>a<sub class="subscript">1</sub></em> and
+<em>a<sub class="subscript">2</sub></em> for isotropic
+strain hardening in compression, and <em>a<sub
+class="subscript">3</sub></em> and <em>a<sub
+class="subscript">4</sub></em> for isotropic strain hardening
+tension, and uses default values of <em>a<sub
+class="subscript">1</sub></em> = <em>a<sub
+class="subscript">3</sub></em> = 0.0 and <em>a<sub
+class="subscript">2</sub></em> = <em>a<sub
+class="subscript">4</sub></em> = 1.0 that yield no isotropic
+strain hardening for either compression or tension. To incorporate
+isotropic strain hardening in compression, the recommended parameters
+are <em>a<sub class="subscript">1</sub></em> = 0.01 and
+<em>a<sub class="subscript">2</sub></em> = 7.0. To
+incorporate isotropic strain hardening in tension, the recommended
+parameters are <em>a<sub class="subscript">3</sub></em> =
+0.01 and <em>a<sub class="subscript">4</sub></em> = 7.0.</p>
+
+<p><strong>Source:</strong>
+/usr/local/cvs/OpenSees/SRC/material/uniaxial/</p>
+
+<figure>
+<img src="/OpenSeesRT/contrib/static/SteelMPF.png"
+title="Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)"
+width="500"
+alt="Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)" />
+<figcaption aria-hidden="true">Figure 1. Constitutive Model for Steel
+(Menegotto and Pinto, 1973)</figcaption>
+</figure>
+<hr />
+<p><strong>Input Format:</strong></p>
+
+
 <hr />
 <p><strong>Example:</strong></p>
 
@@ -164,12 +158,15 @@ and post- yielding regions, which could produce more accurate
 predictions of yield capacity for some RC wall specimens (<a
 href="http://opensees.berkeley.edu/wiki/index.php/MVLEM_-_Multiple-Vertical-Line-Element-Model_for_RC_Walls"><strong>element
 MVLEM</strong></a>, Example 1), whereas <strong>Steel02</strong>
-considers the degradation in post-yielding region only. Strain-stress
+considers the degradation in post-yielding region only. 
+
+Strain-stress
 relationships obtained using <strong>SteelMPF</strong> and
 <strong>Steel02</strong> are compared in Figure 2 for a strain history
 that includes strain reversals at strain values equal to one-half of the
-yield strain (i.e., ε&lt;sub class="subscript"&gt;r&lt;/sub&gt; = ±0.001
-= ε&lt;sub class="subscript"&gt;y&lt;/sub&gt;/2).</p>
+yield strain (i.e., ε<sub class="subscript">r</sub> = ±0.001
+= ε<sub class="subscript">y</sub>/2).</p>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/SteelMPF_1.png"
 title="Figure 2. Comparing the degradation of cyclic curvature in the pre-yielding region for Steel02 and SteelMPF"
@@ -233,4 +230,14 @@ Report No. 2015/12</a>
   cyclically loaded RC plane frames including changes in geometry and
   non-elastic behavior of elements under normal force and bending.
   Preliminary Report IABSE, vol 13.
+
+-----------------------------------------
+
+<p><strong>Developed and Implemented by:</strong></p>
+<p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>
+<span style="color:black"></a>, California State University, Fullerton</p>
+<p><span style="color:blue"> Kutay Orakcal<span
+style="color:black">, Bogazici University, Istanbul, Turkey</p>
+<p><span style="color:blue"> John Wallace<span
+style="color:black">, Univeristy of California, Los Angeles</p>
 

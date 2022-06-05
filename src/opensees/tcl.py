@@ -3,14 +3,11 @@ import sys
 import tkinter
 import pathlib
 from opensees.obj import Component
-from .runtime import AbstractRuntime
 
 def TclInterpreter():
     if "OPENSEESRT_LIB" in os.environ:
         libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
     else:
-        # install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
-        # install_dir = pathlib.Path("/home/claudio/opensees/pyg3/libg3/build/SRC/api/tclCommandPackage/")
         install_dir = pathlib.Path(__file__).parents[0]
         libOpenSeesRT_path = install_dir/'libOpenSeesRT.so'
     interp = tkinter.Tcl()
@@ -35,18 +32,15 @@ def dumps(model):
     else:
         from opensees.emit.opensees import ScriptBuilder
         writer = ScriptBuilder()
-        # refs = {r for r in model.get_refs()}
-        # for ref in refs:
-        #     writer.send(ref)
         writer.send(model)
-        if not writer.binary_objects:
-            return writer.getstr()
+        if not writer.python_objects:
+            return writer.getScript(indexed=True)
         else:
             return writer
             #raise ValueError("Cannot dump model with binary objects")
 
 
-class TclRuntime(AbstractRuntime):
+class TclRuntime:
     def __init__(self,  model=None):
         from functools import partial
         self._partial = partial
@@ -57,6 +51,7 @@ class TclRuntime(AbstractRuntime):
             self.model(model)
     
     def model(self, *args, **kwds):
+        # TODO: refactor this function
         """
         model(model: opensees.model)
         model(ndm:int, ndf:int)
@@ -70,11 +65,13 @@ class TclRuntime(AbstractRuntime):
                 if isinstance(m, str):
                     self.eval(m)
                 else:
+                    self.eval(m.getIndex())
                     from . import libOpenSeesRT
                     _builder = libOpenSeesRT.get_builder(self._interp.interpaddr())
-                    for obj in m.binary_objects:
-                        _builder.addPythonObject(obj.name, obj)
-                    self.eval(m.getstr())
+                    for ident,obj in m.python_objects.items():
+                        tag = self.eval(f"set {ident.tclstr()}")
+                        _builder.addPythonObject(tag, obj)
+                    self.eval(m.getScript())
 
 
     def send(self, obj):
@@ -93,6 +90,16 @@ class TclRuntime(AbstractRuntime):
             from . import libOpenSeesRT
             self._c_domain = libOpenSeesRT.get_domain(self._rt)
         return self._c_domain
+
+    def getNodeResponse(self, node, typ):
+        import numpy as np
+        return np.array(self._domain.getNodeResponse(node, typ))
+
+    def getTime(self):
+        return self._domain.getTime()
+
+    time = getTime
+
 
     @classmethod
     def _as_tcl_arg(cls, arg):
@@ -145,22 +152,6 @@ class TclRuntime(AbstractRuntime):
 #     def __init__(self, ndm=None, ndf=None):
 #         super().__init__()
 #         self.model("safe", "-ndm", ndm, "-ndf", ndf)
-
-# def model(typ, *args, **kwds):
-#     builder = TclRuntime()
-#     builder.model(typ, *args, **kwds)
-#     return builder
-
-# def read_tcl_domain(script: str):
-#     interp = TclInterpreter()
-#     interp.eval(f"""
-# 
-#     {script}
-# 
-#     """)
-#     builder = builders.TclModelBuilder(interp.tk.interpaddr())
-#     domain = builder.getDomain()
-#     return domain
 
 #
 # Analysis

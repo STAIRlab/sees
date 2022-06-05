@@ -1,23 +1,3 @@
-
-class AbstractRuntime:
-    def __init__(self, rt=None):
-        if rt is None:
-            import opensees.tcl
-            self._rt = opensees.tcl.TclRuntime()
-
-    def getNodeResponse(self, node, typ):
-        import numpy as np
-        return np.array(self._domain.getNodeResponse(node, typ))
-
-    def getTime(self):
-        return self._domain.getTime()
-
-    time = getTime
-
-
-class PlainRuntime(AbstractRuntime):
-    pass
-
 #
 # STATICS
 #
@@ -26,7 +6,7 @@ class Displ: pass
 #
 # SECTIONS
 #
-class SectionLoci(AbstractRuntime):
+class SectionLoci:
     def __init__(self, sect, mesh=None, **kwds):
         super().__init__(**kwds)
         self.sect = sect
@@ -168,6 +148,4 @@ class SectionLoci(AbstractRuntime):
             # self.plast_point.set_offsets([PP[1], PP[0]])
             fig.canvas.draw_idle()
         return update
-
-
 
