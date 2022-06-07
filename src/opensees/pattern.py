@@ -45,12 +45,12 @@ class GroundMotion:
         if "motion" in self.kwds:
             print("IN BUSINESS")
             m = self.kwds["motion"]
-            if hasattr(motion, "accel"):
-                self.accel = TimeSeries(values=motion.accel)
-            if hasattr(motion, "veloc"):
-                self.veloc = TimeSeries(values=motion.veloc)
-            if hasattr(motion, "displ"):
-                self.displ = TimeSeries(values=motion.displ)
+            if hasattr(m, "accel"):
+                self.accel = TimeSeries(values=m.accel)
+            if hasattr(m, "veloc"):
+                self.veloc = TimeSeries(values=m.veloc)
+            if hasattr(m, "displ"):
+                self.displ = TimeSeries(values=m.displ)
 
 @cmd
 class ImposedMotion:

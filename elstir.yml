@@ -1,8 +1,8 @@
 ---
-site_name: OpenSees
+site_name: OpenSeesRT
 site_dir:  site/
 docs_dir:  docs/
-site_url:  "https://claudioperez.github.io/opensees-python"
+site_url:  "https://brace2.github.io/OpenSeesRT"
 # repo_name: claudioperez/opensees-python
 repo_url: https://github.com/claudioperez/opensees-python
 
@@ -21,6 +21,7 @@ theme:
   - navigation.tabs
   - navigation.indexes
   - navigation.top
+  - navigation.sections
   custom_dir: etc/doc-config
 
 extra:
@@ -34,6 +35,9 @@ sidebar:
 
 extra_css: 
   - math.css
+  - particle.css
+  - grid.css
+
 extra_javascript: 
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 

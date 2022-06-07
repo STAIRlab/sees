@@ -338,13 +338,6 @@ class Model:
         return set(a for a in self.refs)
 
 
-
-
-
-def _is_sequence(obj):
-    return hasattr(type(obj), '__iter__')
-
-
 def _filter_nodes_by_coords(x, y, z):
     def f(node):
         match = True

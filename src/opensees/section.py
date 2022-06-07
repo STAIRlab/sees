@@ -4,7 +4,7 @@ which represent force-deformation (or resultant stress-strain)
 relationships at beam-column and plate sample points.
 
 """
-from math import pi, sin, cos, sqrt
+from math import pi, sin, cos
 from opensees.obj import LibCmd, Cmd, Component
 from .lib import uniaxial
 from opensees.ast import *
@@ -165,33 +165,6 @@ def _oct_outline(Rcol):
     sect.extRad = Rcol
     sect.intRad = 0.0
     return sect
-
-# def _oct_ring(Rcol, Rcore):
-#     collection = []
-#     numSlices  =  1       # Num. slices in each of the 8 sections of the octagon
-#     cover_divs = 1,2      # divisions in each slice of the cover
-#     for i in range(8):
-#         phi =  pi/4/numSlices
-#         startAngle =  i*pi/4 - pi/8
-#         for j in range(numSlices):
-#             sita1  =  startAngle + j*phi   # Slice start angle
-#             sita2  =  sita1 +  phi         # Slice end angle
-#             oR1    =  Rcol/cos(pi/8 -  j*phi)
-#             oR2    =  Rcol/cos(pi/8 - (j+1)*phi)
-#             # Cover Patch connects the circular core to the octagonal cover
-#             collection.append(
-#               patch.quad(None, cover_divs,
-#                 vertices = [
-#                   [Rcore*cos(sita2), Rcore*sin(sita2)],
-#                   [Rcore*cos(sita1), Rcore*sin(sita1)],
-#                   [  oR1*cos(sita1),   oR1*sin(sita1)],
-#                   [  oR2*cos(sita2),   oR2*sin(sita2)]
-#                 ]
-#             ))
-#     sect = FiberSection(areas=collection)
-#     sect.extRad = Rcol
-#     sect.intRad = Rcore
-#     return sect
     
 def ConfiningPolygon(n, extRad=None, intRad=None, divs=None, diameter=None, s=4, material=None):
     psi = 2*pi/n
@@ -207,8 +180,6 @@ def ConfiningPolygon(n, extRad=None, intRad=None, divs=None, diameter=None, s=4,
             sita2  =  sita1 + phi          # Slice end angle
             oR1    =  extRad/cos(pi/n -  j*phi)
             oR2    =  extRad/cos(pi/n - (j+1)*phi)
-            # iR1    =  intRad/cos(pi/n -  j*phi)
-            # iR2    =  intRad/cos(pi/n - (j+1)*phi)
             # Cover Patch connects the circular core to the polygonal cover
             collection.append(
               patch.quad(None, divs,
@@ -258,7 +229,6 @@ def ConfinedPolygon(
     # tcover  =  2.0*inch           # 2 inch cover width
     Rcol    =  Dcol/2.0           # Radius of octagonal column (to flat sides)
     Dcore   =  2*intRad
-   #Dcore   =  Dcol - 2*tcover    # Diameter of circular core
     Rcore   =  Dcore/2.0          # Radius of circular core
     # Along   =  pi*DLbar**2/4.0    # Area of longitudinal reinforcement bar
     DTbar   =  0.625*inch         # Diameter of transverse spiral bar (#5 Rebar)
@@ -338,6 +308,8 @@ class SectionAggregator:
     reference="http://earthquakespectra.org/doi/abs/10.1193/1.4000136"
 
     authors=["Micheal H. Scott"]
+
+
 
 def sect2shapely(section):
     """
