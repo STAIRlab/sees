@@ -1,0 +1,55 @@
+
+package:
+  name: opensees
+  version: 0.0.15
+
+source:
+  path: ../..
+
+build:
+  number: 0
+  script: python -m pip install . -vvv
+
+requirements:
+  build:
+    - "{{ compiler('c') }}"
+    - "{{ compiler('cxx') }}"
+    - "{{ compiler('fortran') }}"
+    - tcl
+    - cmake
+    - pybind11
+
+  host:
+    - python
+    - pip !=22.1.0
+
+  run:
+    - python
+    - numpy
+    - tcl
+    - matplotlib
+
+
+test:
+  requires:
+    - pytest
+  imports:
+    - opensees
+  source_files:
+    - tests
+  commands:
+    - python -m pytest
+
+about:
+  summary: "Idiomatic and idempotent bindings to the OpenSees framework."
+  license: UNKNOWN
+  license_family: OTHER
+  doc_url: https://brace2.github.io/OpenSeesRT
+  dev_url: https://github.com/BRACE2/OpenSeesRT
+
+extra:
+  recipe-maintainers:
+    - claudioperez
+
+
+
