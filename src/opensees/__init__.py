@@ -6,6 +6,7 @@ from .patch import layer
 import math
 import fnmatch
 from .lib import Node, uniaxial, element, backbone
+from . import pattern
 from .obj import *
 from .model import model
 
@@ -295,7 +296,7 @@ class _Model:
 
     @property
     def refs(self):
-        return set(sub for el in self.elems for sub in el.get_refs())
+        return set(sub for el in self.elems for sub,_ in el.get_refs())
 
     @property
     def materials(self):

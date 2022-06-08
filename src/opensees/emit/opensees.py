@@ -63,7 +63,11 @@ class Registry:
         return id(obj) in self.objects
 
     def register(self, obj, name=None, tag_space=None, force_tag=None) -> Identifier:
-        ts = tag_space or obj.tag_space
+        try:
+            ts = tag_space or obj.tag_space
+        except AttributeError:
+            # references where type is given as string
+            ts = obj
 
         if force_tag is not None:
             id2 = str(force_tag)
@@ -163,8 +167,13 @@ class TclWriter:
     def Ref(this, self, value=None): 
         val = self._get_value(None, value=value)
         #value = value.name if val is None else val
-        if val is None:
-            value = "$"+this.registry.ident(value).tclstr()
+        #if val is None:
+        if not isinstance(val,int):
+            try:
+                value = "$"+this.registry.ident(value).tclstr()
+            except KeyError:
+                raise KeyError(f"Unable to resolve reference to {value} when writing {this.current_obj}")
+        
         else:
             value = val
         return this.write(self.flag,value)
@@ -256,16 +265,16 @@ class ScriptBuilder:
         w = self.streams[0]
 
         if not hasattr(obj,"_args"):
-            raise ObjectSerializationError()
+            raise ObjectSerializationError(f"object {obj}")
         
         if self.registry.registered(obj):
             return self
 
-        for ref in obj.get_refs():
+        for ref,tag_space in obj.get_refs():
             try: self.send(ref)
 
             except ObjectSerializationError:
-                ident = self.registry.register(ref)
+                ident = self.registry.register(ref, tag_space=tag_space)
                 self.python_objects[ident] = ref
 
         w.write(" ".join(obj._cmd))

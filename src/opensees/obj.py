@@ -104,17 +104,24 @@ class Component:
                 arg = self._argdict[ref]
                 val = getattr(self, arg.field)
                 if isinstance(arg, Ref):
-                    yield val
+                    yield val, _get_tagspace(arg.type)
                 elif isinstance(arg, Grp):
-                    typ = arg.type.type
-                    yield from val
+                    for v in val: yield (v, _get_tagspace(arg.type))
             else:
                 val = getattr(self, ref)
                 if hasattr(val, "get_refs"):
-                    yield val
+                    yield val, _get_tagspace(val)
                     yield from val.get_refs()
                 else:
-                    yield from val
+                    yield val, _get_tagspace(val)
+
+def _get_tagspace(arg):
+    if hasattr(arg, "tag_space"):
+        return arg.tag_space
+    elif isinstance(arg, str):
+        return arg
+    else:
+        return None
 
 class Cmd:
     cmd = None
@@ -132,9 +139,10 @@ def cmd(cls, cmd=None, args=None, refs=(), namespace=None, **ops):
         # Called as class decorator
         fields = [arg.field for arg in cls._args]
         alts = cls._alts if hasattr(cls, "_alts") else None
+        refs = cls._refs if hasattr(cls, "_refs") else ()
         name = cls.__name__
         cmd = name.lower()[0] + name[1:]
-        obj = struct(name, fields, cls._args, alts, cmd=[cmd], parents=[cls])
+        obj = struct(name, fields, cls._args, alts, cmd=[cmd], refs=refs, parents=[cls])
     if namespace is not None:
         obj._cmd[0] = namespace + "::" + obj._cmd[0]
     return obj
@@ -234,8 +242,7 @@ def struct(name, fields, args = None, alts=None, refs=None, cmd=None, parents=No
 
 def walk_refs(parent):
     P, R = "", ""
-    for ref in parent.get_refs():
-        print(ref)
+    for ref, ts in parent.get_refs():
         p, r = walk_refs(ref[0])
         P = p + P
         R = r + R
