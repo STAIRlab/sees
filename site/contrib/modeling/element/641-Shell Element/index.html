@@ -15,7 +15,7 @@
     
     
       
-        <title>Shell Element - OpenSeesRT</title>
+        <title>ShellMITC4 - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Shell Element
+              ShellMITC4
 
             
           </span>
@@ -2225,7 +2225,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Shell Element
+        ShellMITC4
 
       </a>
       
@@ -4149,51 +4149,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../uniaxialMaterial/395-Modified%20Ibarra-Medina-Krawinkler%20Deterioration%20Model%20with%20Bilinear%20Hysteretic%20Response%20%28Bilin%29/" class="md-nav__link">
-        ModIMKBilin
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../uniaxialMaterial/396-Modified%20Ibarra-Medina-Krawinkler%20Deterioration%20Model%20with%20Peak-Oriented%20Hysteretic%20Response%20%28ModIMKPeakOriented%29/" class="md-nav__link">
-        ModIMKPeakOriented
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../uniaxialMaterial/397-Modified%20Ibarra-Medina-Krawinkler%20Deterioration%20Model%20with%20Pinched%20Hysteretic%20Response%20%28ModIMKPinching%29/" class="md-nav__link">
-        ModIMKPinching
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../uniaxialMaterial/404-MultiLinear/" class="md-nav__link">
         MultiLinear
 
@@ -4808,6 +4763,51 @@
     <li class="md-nav__item">
       <a href="../../uniaxialMaterial/DegradingPinchedBW/" class="md-nav__link">
         DegradingPinchedBW
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uniaxialMaterial/ModIMKBilin/" class="md-nav__link">
+        ModIMKBilin
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uniaxialMaterial/ModIMKPeakOriented/" class="md-nav__link">
+        ModIMKPeakOriented
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uniaxialMaterial/ModIMKPinching/" class="md-nav__link">
+        ModIMKPinching
 
       </a>
     </li>
@@ -12907,12 +12907,11 @@
 
 
 
-<h1 id="shell-element">Shell Element</h1>
+<h1 id="shellmitc4">ShellMITC4</h1>
 <p>
 This command is used to construct a ShellMITC4 element object, which uses a bilinear isoparametric formulation in combination with a modified shear interpolation to improve thin-plate bending performance.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element ShellMITC4 <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$kNode</span> <span class="dt">$lNode</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$secTag</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element ShellMITC4 <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$kNode</span> <span class="dt">$lNode</span> <span class="dt">$secTag</span></span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -12952,31 +12951,36 @@ tag associated with previously-defined SectionForceDeformation object. Currently
 </table>
 <hr />
 <p>
-NOTE:
+Notes:
 </p>
-<ol>
-<li>
-The valid queries to a Quad element when creating an ElementRecorder object are ‘forces’, ‘stresses,’ and ‘material $matNum matArg1 matArg2 …’ Where $matNum refers to the material object at the integration point corresponding to the node numbers in the isoparametric domain.
-</li>
-<li>
-It is a 3D element with 6 dofs and CAN NOT be used in 2D domain.
-</li>
-</ol>
+<ul>
+<li><p>The valid queries to a Quad element when creating an ElementRecorder object are ‘forces’, ‘stresses,’ and</p>
+<pre><code>&#39;material $matNum matArg1 matArg2 ...&#39; </code></pre>
+<p>Where <code>$matNum</code> refers to the material object at the integration point corresponding to the node numbers in the isoparametric domain.</p></li>
+<li><p>This is a 3D element with 6 dofs and CAN NOT be used in 2D domain.</p></li>
+</ul>
 <hr />
 <h2 id="examples">Examples</h2>
-<p>
-&lt;pre&gt; set t 100.0 model basic -ndm 3 -ndf 6 nDMaterial ElasticIsotropic 1 200000 0.3 nDMaterial PlateFiber 4 1 set secArgs “7” section PlateFiber $secArgs 4 $t set EleType ShellMITC4 block2D $n1 $n2 1 1 $EleType $secArgs { 1 0.0 0.0 0.0 2 0.0 10 0.0 3 1000 10 0.0 4 1000 0.0 0.0 } &lt;/pre&gt;
-</p>
-<p>
-REFERENCES:
-</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> t <span class="fl">100.0</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>model basic<span class="ot"> -ndm</span> <span class="dv">3</span><span class="ot"> -ndf</span> <span class="dv">6</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>nDMaterial ElasticIsotropic <span class="dv">1</span> <span class="dv">200000</span> <span class="fl">0.3</span> </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>nDMaterial PlateFiber <span class="dv">4</span> <span class="dv">1</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> secArgs <span class="st">&quot;7&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>section PlateFiber <span class="dt">$secArgs</span> <span class="dv">4</span> <span class="dt">$t</span> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> EleType ShellMITC4 </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>block2D <span class="dt">$n1</span> <span class="dt">$n2</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dt">$EleType</span> <span class="dt">$secArgs</span> <span class="kw">{</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>  <span class="fl">0.0</span>   <span class="fl">0.0</span>   <span class="fl">0.0</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>  <span class="fl">0.0</span>    <span class="dv">10</span>   <span class="fl">0.0</span> </span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span> <span class="dv">1000</span>    <span class="dv">10</span>   <span class="fl">0.0</span> </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span> <span class="dv">1000</span>   <span class="fl">0.0</span>   <span class="fl">0.0</span> </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div>
+<h2 id="references">References</h2>
 <p>
 Dvorkin,Bathe, A continuum mechanics based four node shell element for general nonlinear analysis, Eng.Comput.,1,77-88,1984
 </p>
 <hr />
-<p>
-Original implementation: <span style="color:blue">Ed “C++” Love</span> Reimplementation by: <span style="color:blue"> Leopoldo Tesser, Diego A. Talledo, Véronique Le Corvec </span>
-</p>
+<p>Original implementation by: <span style="color:blue">Ed “C++” Love</span></p>
+<p>Reimplementation by: <span style="color:blue">Leopoldo Tesser, Diego A. Talledo, Véronique Le Corvec </span></p>
 
 
               

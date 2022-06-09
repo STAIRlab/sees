@@ -941,21 +941,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/395-Modified%20Ibarra-Medina-Krawinkler%20Deterioration%20Model%20with%20Bilinear%20Hysteretic%20Response%20%28Bilin%29/</loc>
-         <lastmod>2022-06-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/396-Modified%20Ibarra-Medina-Krawinkler%20Deterioration%20Model%20with%20Peak-Oriented%20Hysteretic%20Response%20%28ModIMKPeakOriented%29/</loc>
-         <lastmod>2022-06-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/397-Modified%20Ibarra-Medina-Krawinkler%20Deterioration%20Model%20with%20Pinched%20Hysteretic%20Response%20%28ModIMKPinching%29/</loc>
-         <lastmod>2022-06-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/404-MultiLinear/</loc>
          <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
@@ -1162,6 +1147,21 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/DegradingPinchedBW/</loc>
+         <lastmod>2022-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/ModIMKBilin/</loc>
+         <lastmod>2022-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/ModIMKPeakOriented/</loc>
+         <lastmod>2022-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/ModIMKPinching/</loc>
          <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
