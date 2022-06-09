@@ -179,7 +179,10 @@ portion</p></td>
 </tr>
 </tbody>
 </table>
+
 <hr />
+
 <p>Code maintained by: <a
 href="http://web.engr.oregonstate.edu/~mhscott">Michael H. Scott, Oregon
 State University</a></p>
+

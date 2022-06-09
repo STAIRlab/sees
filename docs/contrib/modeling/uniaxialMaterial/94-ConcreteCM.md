@@ -258,7 +258,7 @@ Concrete07</figcaption>
   of Concrete”, ASCE Journal of Structural Engineering, V. 114, No. 9, pp.
   2133-2136.
 
-<p><strong>Developed and Implemented by:</strong></p>
+<p><strong>Code developed by:</strong></p>
 <p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>
 <span style="color:black"></a>, California State University, Fullerton</p>
 <p><span style="color:blue"> Kutay Orakcal<span

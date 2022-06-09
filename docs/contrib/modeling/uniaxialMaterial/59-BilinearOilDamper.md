@@ -194,7 +194,7 @@ University, Canada.</p></td>
 </tr>
 </tbody>
 </table>
-<p>Code Developed and Implemented by : <span style="color:blue">
+<p>Code developed by : <span style="color:blue">
 <strong><em><a href="http://sarvenakcelyan.com">Sarven
 Akcelyan</a><strong><em>&amp;</em></strong><a
 href="http://dimitrios-lignos.research.mcgill.ca/PLignos.html">Prof.

@@ -75,7 +75,7 @@ algorithm (default value 10^-10)</p></td>
 
    Assume a viscous damper with axial stiffness K=300.0kN/mm,
    damping coefficient `Cd=280.3kN`(s/mm)<sup>0.3</sup>, and
-   exponent a=0.30.
+   exponent $a=0.30$.
 
    The input parameters for the material should be as
    follows:
@@ -86,7 +86,7 @@ algorithm (default value 10^-10)</p></td>
 
    Using these properties, Figure 1 shows the hysteretic response of
    this damper for sinusoidal displacement increments of 12, 24 and 36mm
-   and a frequency f = 0.5Hz.
+   and a frequency $f = 0.5$ Hz.
 
    The sensitivity of the viscous damper with respect to its
    velocity exponent is shown in Figures 2 to 4 for the following set of
@@ -102,8 +102,12 @@ algorithm (default value 10^-10)</p></td>
   </figure>
 
 
-<strong><em><a
-href="http://opensees.berkeley.edu/wiki/index.php/Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers">2. Single story single bay frame with viscous damper</a></em></strong>
+2. <a
+   href="http://opensees.berkeley.edu/wiki/index.php/Dynamic_Analyses_of_1-Story_Moment_Frame_with_Viscous_Dampers">Single story single bay frame with viscous damper</a>
+
+```{.include shift-heading-level-by=1}
+docs/contrib/examples/163-Dynamic Analyses of 1-Story Moment Frame with Viscous Dampers.html
+```
 
 <hr />
 
@@ -154,7 +158,7 @@ Symposium 2001, Yokohama, Japan (in Japanese).</p></td>
 </tbody>
 </table>
 
-<p>Code Developed and Implemented by : <span style="color:blue">
+<p>Code developed by : <span style="color:blue">
 <strong><em><a href="http://sarvenakcelyan.com">Sarven
 Akcelyan</a><strong><em>&amp;</em></strong><a
 href="http://dimitrios-lignos.research.mcgill.ca/PLignos.html">Prof.

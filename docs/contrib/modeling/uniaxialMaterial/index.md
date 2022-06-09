@@ -48,10 +48,6 @@ Elastic-perfectly plastic
 
 <li><a href="Hardening_Material">Hardening</a></li>
 
-<li><a href="Parallel_Material">Parallel</a></li>
-
-<li><a href="Series_Material">Series</a></li>
-
 </ul>
 
 ### Standard Rate-Dependent Materials
@@ -134,15 +130,17 @@ Elastic-perfectly plastic
 <li>BoucWenOriginal</li>
 <li>DegradingPinchedBW</li>
 <li>BoucWenInfill</li>
-
 <li><a href="BoucWen_Material">BoucWen</a></li>
-
 <li><a href="BWBN_Material">BWBN</a> Pinching Hysteretic Bouc-Wen Material</li>
 </ul>
 
 ### Wrappers
 
 <ul>
+<li><a href="Parallel_Material">Parallel</a></li>
+<li><a href="Series_Material">Series</a></li>
+<li><a href="Initial_Strain_Material">Initial Strain</a></li>
+<li><a href="Initial_Stress_Material">Initial Stress</a></li>
 <li><a href="Fatigue_Material">Fatigue</a></li>
 <li><a href="MinMax_Material">MinMax</a></li>
 </ul>
@@ -181,8 +179,6 @@ Strain Penetration Model for Fully Anchored Steel Reinforcing Bars
 <li><a href="Hyperbolic_Gap_Material">HyperbolicGap</a></li>
 <li><a href="Limit_State_Material">Limit State</a></li>
 <li><a href="MultiLinear_Material">MultiLinear</a></li>
-<li><a href="Initial_Strain_Material">Initial Strain</a></li>
-<li><a href="Initial_Stress_Material">Initial Stress</a></li>
 <li><a href="Pinching4_Material">Pinching4</a></li>
 <li><a href="Engineered_Cementitious_Composites_Material">Engineered Cementitious Composites</a></li>
 
