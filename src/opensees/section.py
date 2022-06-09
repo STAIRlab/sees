@@ -33,7 +33,7 @@ class FiberSection(_FiberCollection):
           )
         )
     ]
-    _refs = ["materials"]
+    #_refs = ["materials"]
 
     def __enter__(self):
         return Component.__enter__(self)
@@ -50,6 +50,9 @@ class FiberSection(_FiberCollection):
     @property
     def materials(self):
         return (f.material for f in self.fibers)
+
+    def get_refs(self):
+        return ((f.material,"uniaxialMaterial") for f in self.fibers)
 
     def add_patch(self, patch):
         self._fibers = None

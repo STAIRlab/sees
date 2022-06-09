@@ -7,6 +7,7 @@ _series  = LibCmd("timeSeries")
 
 @_series
 class TimeSeries:
+    tag_space = "timeSeries"
     _name = "Path"
     _args = [
         Tag(),
@@ -41,9 +42,7 @@ class GroundMotion:
 
 
     def init(self):
-        print("INIT: ", self.kwds)
         if "motion" in self.kwds:
-            print("IN BUSINESS")
             m = self.kwds["motion"]
             if hasattr(m, "accel"):
                 self.accel = TimeSeries(values=m.accel)
@@ -55,10 +54,11 @@ class GroundMotion:
 @cmd
 class ImposedMotion:
     _args = [ 
-        Int("node"),# , type="node"),
+        Ref("node", type="node"),
         Int("dof"),
         Ref("motion", type=GroundMotion)
     ]
+    _refs = ["node"]
 
 
 

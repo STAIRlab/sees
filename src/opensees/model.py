@@ -312,14 +312,20 @@ class model:
 
 class Model:
     def __init__(self, ndm, ndf, nodes, elems, **kwds):
-        self.m_nodes = nodes
-        self.m_elems = elems
-        self.ndm = ndm
-        self.ndf = ndf
+        self.m_nodes: dict = nodes
+        self.m_elems: dict = elems
+        self.ndm:     int  = ndm
+        self.ndf:     int  = ndf
 
     def get_node(self, tag):
         if isinstance(tag,(str,int)):
             return self.m_nodes[tag]
+
+    def get_refs(self):
+        for node in self.m_nodes.values():
+            yield node
+        for elem in self.m_elems.values():
+            yield elem
 
     @property
     def nodes(self):
@@ -331,7 +337,7 @@ class Model:
 
     @property
     def refs(self):
-        return set(sub for el in self.elems for sub in el.get_refs())
+        return set(sub for el in self.elems for sub,_ in el.get_refs())
 
     @property
     def materials(self):

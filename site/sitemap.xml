@@ -181,6 +181,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/constraints/101-Constraints/</loc>
+         <lastmod>2022-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/constraints/602-RigidLink/</loc>
+         <lastmod>2022-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/element/105-CorotTruss2%20Element/</loc>
          <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
@@ -2522,16 +2532,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/section/Patch/</loc>
-         <lastmod>2022-06-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/</loc>
-         <lastmod>2022-06-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/index2/</loc>
          <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
