@@ -15,7 +15,7 @@
     
     
       
-        <title>UniaxialMaterial Command - OpenSeesRT</title>
+        <title>UniaxialMaterial Library - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              UniaxialMaterial Command
+              UniaxialMaterial Library
 
             
           </span>
@@ -12904,34 +12904,26 @@
 
 
 
-<h1 id="uniaxialmaterial-command">UniaxialMaterial Command</h1>
-<p>This command is used to construct a UniaxialMaterial object which represents uniaxial stress-strain (or force-deformation) relationships.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial matType? matTag? arg1?...</span></code></pre></div>
+<h1 id="uniaxialmaterial-library">UniaxialMaterial Library</h1>
+<p>This command is used to construct a <code>UniaxialMaterial</code> object which represents uniaxial stress-strain (or force-deformation) relationships.</p>
 <hr />
-<p>
-The type of material created and the additional arguments required depends on the <strong>matType?</strong> provided in the command.
-</p>
 <p>
 NOTE:
 </p>
 <p>
-The valid queries to any uniaxial material when creating an ElementRecorder are ‘strain,’ ‘stress,’ and ‘tangent.’ Some materials have additional queries to which they will respond. These are documented in the NOTES section for those materials.
+The valid queries to any uniaxial material when creating an ElementRecorder are <code>strain</code>, <code>stress</code>, and <code>tangent</code>. Some materials have additional queries to which they will respond. These are documented in the NOTES section for those materials.
 </p>
 <p>
 The following contain information about matType? and the args required for each of the available material types:
 </p>
-<p>
-&lt;/noinclude&gt;
-</p>
-<h3 id="elastic-path-independent">Elastic / Path-Independent</h3>
+<h3 id="general-purpose-materials">General-Purpose Materials</h3>
+<h4 id="elastic-path-independent">Elastic / Path-Independent</h4>
 <ul>
 <li>
-<a href="Elastic_Uniaxial_Material"
->Elastic</a>
+<a href="Elastic_Uniaxial_Material">Elastic</a>
 </li>
 <li>
-<a href="Elastic-No_Tension_Material"
->Elastic-No Tension</a>
+<a href="Elastic-No_Tension_Material">Elastic-No Tension</a>
 </li>
 <li>
 <a href="ElasticBilin_Material">ElasticBilin</a>
@@ -12943,16 +12935,23 @@ The following contain information about matType? and the args required for each 
 <a href="PathIndependent_Material">PathIndependent</a>
 </li>
 </ul>
+<h4 id="inelastic">Inelastic</h4>
+<ul>
+<li>
+<a href="MultiLinear_Material">MultiLinear</a>
+</li>
+<li>
+<a href="Elastic-Perfectly_Plastic_Gap">Elastic-Perfectly Plastic Gap</a>
+</li>
+<li>
+<a href="Pinching4_Material">Pinching4</a>
+</li>
+</ul>
 <h3 id="standard-rate-independent-materials">Standard Rate-Independent Materials</h3>
 <p>These models are formulated and implemented according to well-established principles and algorithms.</p>
 <ul>
 <li>
-<a href="ElasticPP"
->ElasticPP</a> Elastic-perfectly plastic
-</li>
-<li>
-<a href="Elastic-Perfectly_Plastic_Gap_Material"
->Elastic-Perfectly Plastic Gap</a>
+<a href="ElasticPP">ElasticPP</a> Elastic-perfectly plastic
 </li>
 <li>
 <a href="Hardening_Material">Hardening</a>
@@ -12967,7 +12966,7 @@ The following contain information about matType? and the args required for each 
 <a href="ViscousDamper_Material">ViscousDamper </a>
 </li>
 </ul>
-<h3 id="steel-reinforcing-steel-materials">Steel &amp; Reinforcing-Steel Materials</h3>
+<h3 id="metallic">Metallic</h3>
 <dl>
 <dt>
 <a href="Steel01">Steel01</a>
@@ -13037,7 +13036,7 @@ Concrete01 with linear tension softening
 Popovics concrete curve
 </dd>
 <dt>
-<a href="Concrete06_Material">Concrete06</a>
+<a href="Concrete06">Concrete06</a>
 </dt>
 <dd>
 </dd>
@@ -13046,12 +13045,6 @@ Popovics concrete curve
 </dt>
 <dd>
 Chang &amp; Mander’s 1994 Concrete Model
-</dd>
-<dt>
-<a href="Concrete01WithSITC">Concrete01WithSITC</a>
-</dt>
-<dd>
-Concrete Material With Stuff in the Cracks
 </dd>
 <dt>
 <a href="ConfinedConcrete01">ConfinedConcrete01</a>
@@ -13117,22 +13110,22 @@ BoucWenInfill
 <h3 id="other-uniaxial-materials">Other Uniaxial Materials</h3>
 <ul>
 <li>
-<a
-href="ModIMKBilin/">ModIMKBilin</a> Modified Ibarra-Medina-Krawinkler Deterioration Model with Bilinear Hysteretic Response (Bilin)
+<a href="Concrete01WithSITC">Concrete01WithSITC</a> Concrete Material With Stuff in the Cracks
 </li>
 <li>
-<a
-href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawinkler Deterioration Model with Peak-Oriented Hysteretic Response
+<a href="ModIMKBilin/">ModIMKBilin</a> Modified Ibarra-Medina-Krawinkler Deterioration Model with Bilinear Hysteretic Response (Bilin)
+</li>
+<li>
+<a href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawinkler Deterioration Model with Peak-Oriented Hysteretic Response
 </li>
 <li>
 <a href="ModIMKPinching">ModIMKPinching</a> Modified Ibarra-Medina-Krawinkler Deterioration Model with Pinched Hysteretic Response
 </li>
 <li>
-<a href="CastFuse_Material">CastFuse </a>
+<a href="CastFuse">CastFuse</a>
 </li>
 <li>
-<a href="BilinearOilDamper_Material"
->BilinearOilDamper</a>
+<a href="BilinearOilDamper">BilinearOilDamper</a>
 </li>
 <li>
 <a href="SAWS_Material">SAWS</a>
@@ -13153,10 +13146,7 @@ href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawink
 <a href="Limit_State_Material">Limit State</a>
 </li>
 <li>
-<a href="MultiLinear_Material">MultiLinear</a>
-</li>
-<li>
-<a href="Pinching4_Material">Pinching4</a>
+<a href="Pinching_Limit_State_Material">Pinching Limit State</a>
 </li>
 <li>
 <a href="Engineered_Cementitious_Composites_Material">Engineered Cementitious Composites</a>
@@ -13174,13 +13164,10 @@ href="ModIMKPeakOriented/">ModIMKPeakOriented</a> Modified Ibarra-Medina-Krawink
 <a href="AxialSpHD_Material">AxialSpHD</a>
 </li>
 <li>
-<a href="Pinching_Limit_State_Material">Pinching Limit State</a>
+<a href="CFSWSWP">CFSWSWP</a> Wood-Sheathed Cold-Formed Steel Shear Wall Panel
 </li>
 <li>
-<a href="CFSWSWP"> CFSWSWP Wood-Sheathed Cold-Formed Steel Shear Wall Panel</a>
-</li>
-<li>
-<a href="CFSSSWP"> CFSSSWP Steel-Sheathed Cold-formed Steel Shear Wall Panel</a>
+<a href="CFSSSWP">CFSSSWP</a> Steel-Sheathed Cold-formed Steel Shear Wall Panel
 </li>
 <li>
 <a href="SelfCentering_Material">SelfCentering</a> uniaxial self-centering (flag-shaped) material object with optional non-recoverable slip behaviour and an optional stiffness increase at high strains (bearing behaviour).
