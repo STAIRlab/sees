@@ -1,4 +1,7 @@
-# ScottHysteretic
+# AlgebraicHysteretic
+
+This package provides an infrastructure for constructing
+algebraic univariate hysteretic models.
 
 ```tcl
 uniaxialMaterial OOHysteretic tag? 
@@ -8,18 +11,19 @@ uniaxialMaterial OOHysteretic tag?
 ```
 
 
-- HystereticBackbone
+- `HystereticBackbone`
 
-    hystereticBackbone type? tag? <specific hystereticBackbone args>
+  ```tcl
+  hystereticBackbone ReeseSoftClay tag? pu? y50? n?
+  hystereticBackbone ReeseSand tag? kx? ym? pm? yu? pu?
+  hystereticBackbone ReeseStiffClayBelowWS tag? Esi? y50? As?  Pc?
+  hystereticBackbone Raynor tag? Es? fy? fsu? Epsilonsh? Epsilonsm? C1? Ey?
+  hystereticBackbone Capped tag? hystereticBackboneTag? capTag?
+  hystereticBackbone LinearCapped tag? backboneTag? eCap? E? sRes?
+  hystereticBackbone Material tag? matTag?
+  ```
 
-      hystereticBackbone ReeseSoftClay tag? pu? y50? n?
-      hystereticBackbone ReeseSand tag? kx? ym? pm? yu? pu?
-      hystereticBackbone ReeseStiffClayBelowWS tag? Esi? y50? As?  Pc?
-      hystereticBackbone Raynor tag? Es? fy? fsu? Epsilonsh? Epsilonsm? C1? Ey?
-      hystereticBackbone Capped tag? hystereticBackboneTag? capTag?
-      hystereticBackbone LinearCapped tag? backboneTag? eCap? E? sRes?
-      hystereticBackbone Material tag? matTag?" << endln;
-
+<!--
       hystereticBackbone Bilinear
         void *theBB = OPS_BilinearBackbone(rt);
 
@@ -34,20 +38,20 @@ uniaxialMaterial OOHysteretic tag?
 
       hystereticBackbone Mander
         void *theBB = OPS_ManderBackbone(rt);
+-->
 
-- UnloadingRule
+- `UnloadingRule`
+  ```tcl
+  unloadingRule type? tag? <specific unloadingRule args>
+  ```
 
-    unloadingRule type? tag? <specific unloadingRule args>
-
-- StiffnessDegradation
-
-
-- StrengthDegradation
-
-    strengthDegradation type? tag? <specific strengthDegradation args>
+- `StiffnessDegradation`
 
 
-## Class Interface
+- `StrengthDegradation`
+  ```tcl
+  strengthDegradation type? tag? <specific strengthDegradation args>
+  ```
 
 
 

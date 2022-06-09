@@ -936,11 +936,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/367-Limit%20State/</loc>
-         <lastmod>2022-06-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/381-Maxwell/</loc>
          <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
@@ -962,11 +957,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/504-Pinching4/</loc>
-         <lastmod>2022-06-09</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/modeling/uniaxialMaterial/506-Pinching%20Limit%20State/</loc>
          <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1397,6 +1387,31 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/packages/UCSD_CompGeoMech/references/</loc>
+         <lastmod>2022-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/packages/UniaxialLimitState/</loc>
+         <lastmod>2022-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/packages/UniaxialLimitState/364-LimitStateMaterialExample/</loc>
+         <lastmod>2022-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/packages/UniaxialLimitState/365-LimitStateMaterialExampleDebugged/</loc>
+         <lastmod>2022-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/packages/UniaxialLimitState/505-PinchingLimitStateMaterial%20Example/</loc>
+         <lastmod>2022-06-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/packages/UniaxialLimitState/506-Pinching%20Limit%20State/</loc>
          <lastmod>2022-06-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
