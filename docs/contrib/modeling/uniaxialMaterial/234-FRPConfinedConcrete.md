@@ -190,7 +190,7 @@ Columns under Lateral Cyclic Loading”, Journal of Earthquake
 Engineering, Vol. 13, 2009, pp. 129-154. <a
 href="https://doi.org/10.1080/13632460802347455">https://doi.org/10.1080/13632460802347455</a></p>
 <hr />
-<p><strong>Code Developed By:</strong></p>
+<p><strong>Code developed by:</strong></p>
 <p>Dr.-Ing. Konstantinos G. Megalooikonomou, Onassis Foundation Scholar,
 University of Cyprus (Webpage: <a
 href="https://bigeconomy.gr/en/">https://bigeconomy.gr/en/</a>).</p>

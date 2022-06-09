@@ -91,6 +91,6 @@ Damage Constitutive Model for Concrete. Doctoral dissertation, Tongji
 University, Shanghai. (in Chinese)</li>
 </ul>
 <hr />
-<p><strong>Code Developed By</strong>:</p>
+<p><strong>Code developed by</strong>:</p>
 <p>Zengyong Wan, Decheng Feng, Xiaodan Ren, Jie Li, College of Civil
 Engineering, Tongji University,</p>

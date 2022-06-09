@@ -33,6 +33,6 @@ ElasticMembranePlateSection and a LayeredShell section</p></td>
 </tbody>
 </table>
 <hr />
-<p>Code Developed by : <span style="color:blue"> Shuhao Zhang,
+<p>Code developed by: <span style="color:blue"> Shuhao Zhang,
 Tsinghua University, and Prof. Xinzheng Lu, Tsinghua University
 </span></p>

@@ -117,7 +117,7 @@ page):</p>
 zeroLengthContact3D </a> , <a href="Impact_Material" title="wikilink">
 ImpactMaterial </a></p>
 <hr />
-<p>CODE DEVELOPED BY:</p>
+<p>Code developed by:</p>
 <dl>
 <dt></dt>
 <dd>

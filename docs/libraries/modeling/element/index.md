@@ -9,7 +9,42 @@ documented in the NOTES section for each element.</p>
 <p>The following contain information about eleType? and the args
 required for each of the available element types:</p>
 
+
 <ul>
+<li>Truss Elements
+ <ul>
+  <li><a href="Truss" >Truss Element</a></li>
+  <li><a href="Corotational_Truss" >Corotational
+ Truss Element</a></li>
+ </ul>
+</li>
+
+<li>Beam-Column Elements
+ <ul>
+ <li><a href="ElasticBeamColumn" >Elastic Beam Column</a></li>
+ <li><a href="ModElasticBeamColumn"
+ >Elastic Beam Column Element with Stiffness
+ Modifiers</a></li>
+ <li><a href="Elastic_Timoshenko_Beam_Column"
+ >Elastic Timoshenko Beam Column Element</a></li>
+ <li><a href="Beam_With_Hinges" >Beam With Hinges
+ Element</a></li>
+ 
+ <li><a href="Displacement-Based_Beam-Column"
+ >Displacement-Based Beam-Column Element</a></li>
+ 
+ <li><a href="Force-Based_Beam-Column"
+ >Force-Based Beam-Column Element</a></li>
+ 
+ <li><a
+ href="Flexure-Shear_Interaction_Displacement-Based_Beam-Column"
+ >Flexure-Shear Interaction Displacement-Based Beam-Column Element</a></li>
+ 
+ <li><a href="MVLEM">MVLEM</a> - Multiple-Vertical-Line-Element-Model for RC Walls</li>
+ 
+ <li><a href="SFI_MVLEM">SFI_MVLEM</a> - Cyclic Shear-Flexure Interaction Model for RC Walls</li>
+ </ul>
+
 <li>Zero-Length Elements
 <ul>
 <li><a href="zeroLength" >zeroLength</a></li>
@@ -28,49 +63,8 @@ required for each of the available element types:</p>
 
 <li><a href="zeroLengthImpact3D">zeroLengthImpact3D</a></li>
 </ul></li>
-</ul>
-
-<ul>
-<li>Truss Elements
-<ul>
-<li><a href="Truss" >Truss Element</a></li>
-<li><a href="Corotational_Truss" >Corotational
-Truss Element</a></li>
-</ul></li>
-</ul>
-
-<ul>
-<li>Beam-Column Elements
-<ul>
-<li><a href="ElasticBeamColumn" >Elastic Beam Column</a></li>
-<li><a href="ModElasticBeamColumn"
->Elastic Beam Column Element with Stiffness
-Modifiers</a></li>
-<li><a href="Elastic_Timoshenko_Beam_Column"
->Elastic Timoshenko Beam Column Element</a></li>
-<li><a href="Beam_With_Hinges" >Beam With Hinges
-Element</a></li>
-
-<li><a href="Displacement-Based_Beam-Column"
->Displacement-Based Beam-Column Element</a></li>
-
-<li><a href="Force-Based_Beam-Column"
->Force-Based Beam-Column Element</a></li>
-
-<li><a
-href="Flexure-Shear_Interaction_Displacement-Based_Beam-Column"
->Flexure-Shear Interaction Displacement-Based
-Beam-Column Element</a></li>
-
-<li><a href="MVLEM">MVLEM</a> - Multiple-Vertical-Line-Element-Model for RC Walls</li>
-
-<li><ahref="SFI_MVLEM">SFI_MVLEM</a> - Cyclic Shear-Flexure Interaction Model for RC Walls</li>
-
-</ul></li>
-</ul>
 
 
-<ul>
 <li>Joint Elements
 <ul>
 <li><a href="BeamColumnJoint" >BeamColumnJoint
@@ -83,11 +77,9 @@ Element</a></li>
 <ul>
 <li>Link Elements
 <ul>
-<li><a href="Two_Node_Link" >Two Node Link
-Element</a></li>
+<li><a href="Two_Node_Link" >Two Node Link Element</a></li>
 </ul></li>
-</ul>
-<ul>
+
 <li>Bearing Elements
 <ul>
 <li><a href="Elastomeric_Bearing_(Plasticity)">Elastomeric Bearing (Plasticity)</a></li>
@@ -106,17 +98,14 @@ Element</a></li>
 
 <li><a href="KikuchiBearing" >KikuchiBearing</a></li>
 
-<li><a href="YamamotoBiaxialHDR"
->YamamotoBiaxialHDR Element</a></li>
+<li><a href="YamamotoBiaxialHDR">YamamotoBiaxialHDR Element</a></li>
 <li><a href="ElastomericX" >ElastomericX</a></li>
 <li><a href="LeadRubberX" >LeadRubberX</a></li>
 <li><a href="HDR" >HDR</a></li>
-<li><a href="RJ-Watson_EQS_Bearing" >RJ-Watson
-EQS Bearing Element</a></li>
+<li><a href="RJ-Watson_EQS_Bearing" >RJ-Watson EQS Bearing Element</a></li>
 <li><a href="FPBearingPTV" >FPBearingPTV</a></li>
 </ul></li>
-</ul>
-<ul>
+
 <li>Quadrilateral Elements
 <ul>
 <li><a href="Quad" >Quad Element</a></li>
@@ -124,45 +113,33 @@ EQS Bearing Element</a></li>
 <li><a href="ShellDKGQ" >ShellDKGQ</a></li>
 <li><a href="ShellNLDKGQ" >ShellNLDKGQ</a></li>
 <li><a href="ShellNL" >ShellNL</a></li>
-<li><a href="Bbar_Plane_Strain_Quadrilateral"
->Bbar Plane Strain Quadrilateral Element</a></li>
-<li><a href="Enhanced_Strain_Quadrilateral"
->Enhanced Strain Quadrilateral Element</a></li>
+<li><a href="Bbar_Plane_Strain_Quadrilateral" >Bbar Plane Strain Quadrilateral Element</a></li>
+<li><a href="Enhanced_Strain_Quadrilateral" >Enhanced Strain Quadrilateral Element</a></li>
 <li><a href="SSPquad" >SSPquad Element</a></li>
 </ul></li>
-</ul>
-<ul>
+
 <li>Triangular Elements
 <ul>
 <li><a href="Tri31" >Tri31 Element</a></li>
 <li><a href="ShellDKGT" >ShellDKGT</a></li>
 <li><a href="ShellNLDKGT" >ShellNLDKGT</a></li>
 </ul></li>
-</ul>
 
-<ul>
 <li>Brick Elements
 <ul>
 <li><a href="Standard_Brick" >Standard Brick</a></li>
 <li><a href="Bbar_Brick" >Bbar Brick</a></li>
-<li><a
-href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/734.htm">Twenty Node Brick</a></li>
-
+<li><a href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/734.htm">Twenty Node Brick</a></li>
 <li><a href="Twenty_Seven_Node_Brick" >Twenty Seven Node Brick</a></li>
-
 <li><a href="SSPbrick" >SSPbrick</a></li>
 </ul></li>
-</ul>
 
-<ul>
 <li>Tetrahedron Elements
 <ul>
-<li><a href="FourNodeTetrahedron"
->FourNodeTetrahedron</a></li>
+<li><a href="FourNodeTetrahedron" >FourNodeTetrahedron</a></li>
 </ul></li>
-</ul>
 
-<ul>
+
 <li>u-p Elements
 <ul>
 <li>UC San Diego u-p element (saturated soil)
@@ -174,40 +151,30 @@ href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/734.htm">Twenty N
 <li><a href="Nine_Four_Node_Quad_u-p" >Nine Four Node Quad u-p</a></li>
 <li><a href="Twenty_Eight_Node_Brick_u-p">Twenty Eight Node Brick u-p</a></li>
 </ul></li>
+
 <li><a href="Twenty_Node_Brick_u-p" >Twenty Node Brick u-p</a></li>
 <li><a href="Brick_Large_Displacement_u-p">Brick Large Displacement u-p</a></li>
 <li><a href="SSPquadUP" >SSPquadUP</a></li>
 <li><a href="SSPbrickUP" >SSPbrickUP</a></li>
 </ul></li>
-</ul>
 
-<ul>
 <li>Contact Elements
 <ul>
-<li><a href="SimpleContact2D" >SimpleContact2D
-</a></li>
-<li><a href="SimpleContact3D" >SimpleContact3D
-</a></li>
-<li><a href="BeamContact2D" >BeamContact2D
-</a></li>
-<li><a href="BeamContact3D" >BeamContact3D
-</a></li>
-<li><a href="BeamEndContact3D" >BeamEndContact3D
-</a></li>
+<li><a href="SimpleContact2D" >SimpleContact2D</a></li>
+<li><a href="SimpleContact3D" >SimpleContact3D</a></li>
+<li><a href="BeamContact2D" >BeamContact2D</a></li>
+<li><a href="BeamContact3D" >BeamContact3D</a></li>
+<li><a href="BeamEndContact3D" >BeamEndContact3D</a></li>
 <li><a href="zeroLengthImpact3D">zeroLengthImpact3D</a></li>
 </ul></li>
-</ul>
 
-<ul>
+
 <li>Cable Elements
 <ul>
 <li><a href="CatenaryCableElement" >CatenaryCable
 </a></li>
 </ul></li>
-</ul>
 
-
-<ul>
 <li>Misc.
 <ul>
 <li><a href="ShallowFoundationGen"

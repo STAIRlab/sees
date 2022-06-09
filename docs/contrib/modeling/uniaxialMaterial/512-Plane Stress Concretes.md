@@ -13,6 +13,7 @@ Materials are available. The ones on this page have been provided the
 University of Houston and are based on the Cyclic Softened Membrane
 Model (CSMM). They are capable of modeling the cyclic shear behavior of
 prestressed and reinforced concrete membranes.</p>
+
 <p>This code has been developed at the University of Houston by:
 <span style="color:blue"> A. Laskar</span>, 
 <span style="color:blue"> J. Zhong</span>, 
@@ -21,7 +22,9 @@ href="http://www.egr.uh.edu/cive/faculty/mo/?e=main">Y.L. Mo</a>
 </span>, and <span style="color:blue"> <a
 href="http://www.egr.uh.edu/cive/faculty/hsu/">Thomas T.C.
 Hsu</a></span>,</p>
+
 <hr />
+
 <p>This command is used to construct a Reinforced Concrete Plane Stress
 material object based on Rotating Angle Theory with steel along two
 directions.</p>
@@ -55,6 +58,7 @@ rou2? rou3? rou4? fpc? fy? E0? epsc0?</strong></p></td>
 </tr>
 </tbody>
 </table>
+
 <p>This command is used to construct a Reinforced Concrete Plane Stress
 material object based on Fixed Angle theory with steel along four
 directions.</p>
@@ -62,12 +66,13 @@ directions.</p>
 <tbody>
 <tr class="odd">
 <td><p><strong>nDMaterial FAFourSteelRCPlaneStress matTag? rho?
-UniaxiaMatTag1? UniaxiaMatTag2? UniaxiaMatTag3? UniaxiaMatTag4?
-UniaxiaMatTag5? UniaxiaMatTag6? angle1? angle2? angle3? angle4? rou1?
-rou2? rou3? rou4? fpc? fy? E0? epsc0?</strong></p></td>
+    UniaxiaMatTag1? UniaxiaMatTag2? UniaxiaMatTag3? UniaxiaMatTag4?
+    UniaxiaMatTag5? UniaxiaMatTag6? angle1? angle2? angle3? angle4? rou1?
+    rou2? rou3? rou4? fpc? fy? E0? epsc0?</strong></p></td>
 </tr>
 </tbody>
 </table>
+
 <p>This command is used to construct a Prestressed Concrete Plane Stress
 material object based on Rotating Angle Theory with steel along two
 directions.</p>
@@ -109,6 +114,7 @@ nDMaterial FAFourSteelPCPlaneStress matTag? rho? t1? t2?
 ```
 
 <hr />
+
 <table>
 <tbody>
 <tr class="odd">
@@ -125,22 +131,20 @@ nDMaterial FAFourSteelPCPlaneStress matTag? rho? t1? t2?
 <strong>TendonL01</strong></p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$s1 $s2 ..</strong></p></td>
-<td><p>material tags for uniaxial materials of type
-<strong>SteelZ01</strong></p></td>
+<td><p><code>s1 s2 ..</code></p></td>
+<td><p>material tags for uniaxial materials of type <strong>SteelZ01</strong></p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">c1 c2</code></p></td>
-<td><p>material tags for uniaxial materials of type <strong>ConcreteL01,
-ConcreteZ01</strong></p></td>
+<td><p>material tags for uniaxial materials of type <strong>ConcreteL01, ConcreteZ01</strong></p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$angle1 $angle2 ...</strong></p></td>
-<td><p>angle of i'th (steel or tendon) layer to x coordinate</p></td>
+<td><p><code>angle1 angle2 ...</code></p></td>
+<td><p>angle of $i$'th (steel or tendon) layer to x coordinate</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$rou1 $rou2 ...</strong></p></td>
-<td><p>steel ratio of the i'th layer.</p></td>
+<td><p><code>rou1 rou2 ...</code></p></td>
+<td><p>steel ratio of the $i$'th layer.</p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">pstrain1 pstrain2</code></p></td>
@@ -168,32 +172,31 @@ ConcreteZ01</strong></p></td>
 </tr>
 </tbody>
 </table>
+
 <hr />
+
 <p>A number of special uniaxial materials are needed for these
 materials. These materials are created using the following
 uniaxialMaterial commands.</p>
 
 ```tcl
-uniaxialMaterial SteelZ01 tag? fy? E0? fpc? rou?
-        &lt;ac?&gt; &lt;rc?&gt;
+uniaxialMaterial SteelZ01 tag? fy? E0? fpc? rou? <ac?> <rc?>
 ```
 
 
 ```tcl
 uniaxialMaterial TendonL01 tag? fpy? Eps? fpc? rou? epsp?
-        &lt;ac?&gt; &lt;rc?&gt;
+        <ac?> <rc?>
 ```
 
 
 ```tcl
-uniaxialMaterial ConcreteL01 tag? fpc?
-        epsc0?
+uniaxialMaterial ConcreteL01 tag? fpc? epsc0?
 ```
 
 
 ```tcl
-uniaxialMaterial ConcreteZ01 tag? fpc?
-        epsc0?
+uniaxialMaterial ConcreteZ01 tag? fpc? epsc0?
 ```
 
 <table>
@@ -240,9 +243,12 @@ uniaxialMaterial ConcreteZ01 tag? fpc?
 <p>EXAMPLE</p>
 <p><a href="N_FSW13.tcl" title="wikilink">N_FSW13.tcl</a></p>
 <hr />
-<p>REFERENCES</p>
-<p>T.T.C. Hsu and Y.L. Mo, "Unified Theory of Concrete Structures",
-Wiley, COMING APRIL 2010</p>
+
+## References
+
+<p>T.T.C. Hsu and Y.L. Mo, "Unified Theory of Concrete Structures", Wiley, COMING APRIL 2010</p>
 <p>Y.L. Mo, J. Zhong, T.T.C. Hsu, "Seismic simulation of RC wall-type
 structures",Engineering Structures, 30(11), 3167-3175, 2008.</p>
+
 <hr />
+

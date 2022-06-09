@@ -61,7 +61,7 @@ are reported in a tensile test.</p>
 <p><strong>Examples:</strong></p>
 <hr />
 <p><strong>References</strong>:</p>
-<p>Code Developed by : <span style="color:blue"> L.L. Dodd &amp;
+<p>Code developed by: <span style="color:blue"> L.L. Dodd &amp;
 J.I. Restrepo </span></p>
 <p><a
 href="http://ascelibrary.org/sto/resource/1/jsendh/v121/i3/p433_s1?isAuthorized=no">Dodd,

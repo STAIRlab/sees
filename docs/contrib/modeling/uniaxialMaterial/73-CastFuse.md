@@ -187,5 +187,5 @@ University of California, Berkeley.</p></td>
 </tr>
 </tbody>
 </table>
-<p>Code Developed by : <span style="color:blue"> by Dr. Dimitrios
+<p>Code Developed by: <span style="color:blue">Dr. Dimitrios
 G. Lignos, (McGill University) </span></p>

@@ -52,7 +52,7 @@ Finite Elements in Analysis &amp; Design, 2015, 98: 14-25.</p></td>
 </tr>
 </tbody>
 </table>
-<p>Code Developed by : <span style="color:blue"> Lisha Wang,
+<p>Code developed by: <span style="color:blue"> Lisha Wang,
 Tsinghua University, Prof. Xinzheng Lu, Tsinghua University, Linlin Xie,
 Tsinghua University, Prof. Song Cen, Tsinghua University and Prof. Quan
 Gu, Xiamen University </span></p>

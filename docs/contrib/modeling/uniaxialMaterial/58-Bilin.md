@@ -240,7 +240,7 @@ Engineering Research Center, Redwood City, CA..</p></td>
 </tr>
 </tbody>
 </table>
-<p>Code Developed by : <span style="color:blue"> by Dr. Dimitrios
+<p>Code Developed by: <span style="color:blue">Dr. Dimitrios
 G. Lignos, McGill University and was implemented by Dr. Theodore
 Karavasilis, Oxford University </span></p>
 <p>nFactor Implemented by: <span style="color:blue"> by Dr. Andre

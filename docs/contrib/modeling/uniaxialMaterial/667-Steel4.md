@@ -15,6 +15,7 @@ uniaxialMaterial Steel4 $matTag $f_y $E_0 < -asym >
 
 
 <h2 id="parameters">Parameters</h2>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -23,8 +24,7 @@ uniaxialMaterial Steel4 $matTag $f_y $E_0 < -asym >
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">f_y</code></td>
-<td><p>yield strength (assumed identical in tension and
-compression)</p></td>
+<td><p>yield strength (assumed identical in tension and compression)</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">E_0</code></td>
@@ -36,6 +36,7 @@ compression)</p></td>
 </tr>
 </tbody>
 </table>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -44,7 +45,8 @@ compression)</p></td>
 </tr>
 </tbody>
 </table>
-<p>&lt;blockquote&gt;</p>
+
+<blockquote>
 <table>
 <tbody>
 <tr class="odd">
@@ -83,7 +85,8 @@ hardening asymptote recommended values: <em>$R_0 = 20 $r_1 = 0.90 $r_2 =
 </tr>
 </tbody>
 </table>
-<p>&lt;/blockquote&gt;</p>
+</blockquote>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -92,7 +95,8 @@ hardening asymptote recommended values: <em>$R_0 = 20 $r_1 = 0.90 $r_2 =
 </tr>
 </tbody>
 </table>
-<p>&lt;blockquote&gt;</p>
+
+<blockquote>
 <table>
 <tbody>
 <tr class="odd">
@@ -140,7 +144,8 @@ asymptote</p></td>
 </tr>
 </tbody>
 </table>
-<p>&lt;/blockquote&gt;</p>
+</blockquote>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -149,7 +154,8 @@ asymptote</p></td>
 </tr>
 </tbody>
 </table>
-<p>&lt;blockquote&gt;</p>
+
+<blockquote>
 <table>
 <tbody>
 <tr class="odd">
@@ -188,7 +194,8 @@ perfectly plastic asymptote</p></td>
 </tr>
 </tbody>
 </table>
-<p>&lt;/blockquote&gt;</p>
+</blockquote>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -197,7 +204,8 @@ perfectly plastic asymptote</p></td>
 </tr>
 </tbody>
 </table>
-<p>&lt;blockquote&gt;</p>
+
+<blockquote>
 <table>
 <tbody>
 <tr class="odd">
@@ -218,15 +226,15 @@ alt="Steel4_param_asymk.png" /></p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-kin</code></p></td>
-<td><p><em>$b_kc $R_0c $r_1c $r_2c</em></p></td>
+<td><p><code>b_kc R_0c r_1c r_2c</code></p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-flag">-iso</code></p></td>
-<td><p><em>$b_ic $rho_ic $b_lc $R_ic</em></p></td>
+<td><p><code>b_ic rho_ic b_lc R_ic</code></p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-ult</code></p></td>
-<td><p><em>$f_uc $R_uc</em></p></td>
+<td><p><code>f_uc R_uc</code></p></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -242,7 +250,8 @@ alt="Steel4_param_asymk.png" /></p></td>
 </tr>
 </tbody>
 </table>
-<p>&lt;/blockquote&gt;</p>
+
+</blockquote>
 <table>
 <tbody>
 <tr class="odd">
@@ -251,7 +260,7 @@ alt="Steel4_param_asymk.png" /></p></td>
 </tr>
 </tbody>
 </table>
-<p>&lt;blockquote&gt;</p>
+<blockquote>
 <table>
 <tbody>
 <tr class="odd">
@@ -277,7 +286,7 @@ alt="Steel4_param_init.png" /></p></td>
 </tr>
 </tbody>
 </table>
-<p>&lt;/blockquote&gt;</p>
+</blockquote>
 <table>
 <tbody>
 <tr class="odd">
@@ -286,7 +295,7 @@ alt="Steel4_param_init.png" /></p></td>
 </tr>
 </tbody>
 </table>
-<p>&lt;blockquote&gt;</p>
+<blockquote>
 <table>
 <tbody>
 <tr class="odd">
@@ -342,14 +351,11 @@ setting this value. The default value is <em>$cycNum = 50</em></p></td>
 </tr>
 </tbody>
 </table>
-<p>&lt;/blockquote&gt;</p>
+</blockquote>
+
 <h2 id="examples">Examples</h2>
 <p>Coming soon...</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Author:</strong></p></td>
-<td><p>Adam Zsarnóczay: zsarnoczay@vbt.bme.hu</p></td>
-</tr>
-</tbody>
-</table>
+
+
+Code developed by: <span style="color:blue">Adam Zsarnóczay, zsarnoczay@vbt.bme.hu</span>
+

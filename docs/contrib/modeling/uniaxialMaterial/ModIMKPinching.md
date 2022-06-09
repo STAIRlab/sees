@@ -1,28 +1,24 @@
 ---
-description: Modified Ibarra-Medina-Krawinkler Deterioration Model with Peak-Oriented Hysteretic Response (ModIMKPeakOriented Material)
+description: Modified Ibarra-Medina-Krawinkler Deterioration Model with Pinched Hysteretic Response (ModIMKPinching Material)
 ...
 
-# ModIMKPeakOriented
+# ModIMKPinching
 
-<p>This command is used to construct a ModIMKPeakOriented material. This
+<p>This command is used to construct a ModIMKPinching material. This
 material simulates the modified Ibarra-Medina-Krawinkler deterioration
-model with peak-oriented hysteretic response. Note that the hysteretic
-response of this material has been calibrated with respect to 200
-experimental data of RC beams in order to estimate the deterioration
-parameters of the model. This information was developed by Lignos and
-Krawinkler (2012). <a
+model with pinching hysteretic response. <a
 href="NOTE:_before_you_use_this_material_make_sure_that_you_have_downloaded_the_latest_OpenSees_version."
 title="wikilink">NOTE: before you use this material make sure that you
-have downloaded the latest OpenSees version.</a>. A youtube video
+have downloaded the latest OpenSees version.</a> A youtube video
 presents a summary of this model including the way to be used within
 openSees (http://youtu.be/YHBHQ-xuybE).</p>
 
 ```tcl
-uniaxialMaterial ModIMKPeakOriented $matTag $K0 $as_Plus
-        $as_Neg $My_Plus $My_Neg $Lamda_S $Lamda_C $Lamda_A $Lamda_K $c_S $c_C
-        $c_A $c_K $theta_p_Plus $theta_p_Neg $theta_pc_Plus $theta_pc_Neg
-        $Res_Pos $Res_Neg $theta_u_Plus $theta_u_Neg $D_Plus
-        $D_Neg
+uniaxialMaterial ModIMKPinching $matTag $K0 $as_Plus
+        $as_Neg $My_Plus $My_Neg $FprPos $FprNeg $A_pinch $Lamda_S $Lamda_C
+        $Lamda_A $Lamda_K $c_S $c_C $c_A $c_K $theta_p_Plus $theta_p_Neg
+        $theta_pc_Plus $theta_pc_Neg $Res_Pos $Res_Neg $theta_u_Plus
+        $theta_u_Neg $D_Plus $D_Neg
 ```
 
 <hr />
@@ -50,118 +46,132 @@ uniaxialMaterial ModIMKPeakOriented $matTag $K0 $as_Plus
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">My_Neg</code></td>
-<td><p>effective yield strength for negative loading direction (negative
-value)</p></td>
+<td><p>effective yield strength for negative loading direction (Must be
+defined as a negative value)</p></td>
 </tr>
 <tr class="odd">
+<td><code class="parameter-table-variable">FprPos</code></td>
+<td><p>Ratio of the force at which reloading begins to force
+corresponding to the maximum historic deformation demand (positive
+loading direction)</p></td>
+</tr>
+<tr class="even">
+<td><code class="parameter-table-variable">FprNeg</code></td>
+<td><p>Ratio of the force at which reloading begins to force
+corresponding to the absolute maximum historic deformation demand
+(negative loading direction)</p></td>
+</tr>
+<tr class="odd">
+<td><code class="parameter-table-variable">A_Pinch</code></td>
+<td><p>Ratio of reloading stiffness</p></td>
+</tr>
+<tr class="even">
 <td><code class="parameter-table-variable">Lamda_S</code></td>
 <td><p>Cyclic deterioration parameter for strength deterioration
 [E_t=Lamda_S*M_y, see Lignos and Krawinkler (2011); set Lamda_S = 0 to
 disable this mode of deterioration]</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code class="parameter-table-variable">Lamda_C</code></td>
 <td><p>Cyclic deterioration parameter for post-capping strength
 deterioration [E_t=Lamda_C*M_y, see Lignos and Krawinkler (2011); set
 Lamda_C = 0 to disable this mode of deterioration]</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code class="parameter-table-variable">Lamda_A</code></td>
 <td><p>Cyclic deterioration parameter for accelerated reloading
 stiffness deterioration [E_t=Lamda_A*M_y, see Lignos and Krawinkler
 (2011); set Lamda_A = 0 to disable this mode of deterioration]</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code class="parameter-table-variable">Lamda_K</code></td>
 <td><p>Cyclic deterioration parameter for unloading stiffness
 deterioration [E_t=Lamda_K*M_y, see Lignos and Krawinkler (2011); set
 Lamda_K = 0 to disable this mode of deterioration]</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code class="parameter-table-variable">c_S</code></td>
 <td><p>rate of strength deterioration. The default value is
 1.0.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code class="parameter-table-variable">c_C</code></td>
 <td><p>rate of post-capping strength deterioration. The default value is
 1.0.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code class="parameter-table-variable">c_A</code></td>
 <td><p>rate of accelerated reloading deterioration. The default value is
 1.0.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code class="parameter-table-variable">c_K</code></td>
 <td><p>rate of unloading stiffness deterioration. The default value is
 1.0.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code class="parameter-table-variable">theta_p_Plus</code></td>
 <td><p>pre-capping rotation for positive loading direction (often noted
 as plastic rotation capacity)</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code class="parameter-table-variable">theta_p_Neg</code></td>
 <td><p>pre-capping rotation for negative loading direction (often noted
 as plastic rotation capacity) (must be defined as a positive
 value)</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code class="parameter-table-variable">theta_pc_Plus</code></td>
 <td><p>post-capping rotation for positive loading direction</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code class="parameter-table-variable">theta_pc_Neg</code></td>
 <td><p>post-capping rotation for negative loading direction (must be
 defined as a positive value)</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code class="parameter-table-variable">Res_Pos</code></td>
 <td><p>residual strength ratio for positive loading direction</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code class="parameter-table-variable">Res_Neg</code></td>
 <td><p>residual strength ratio for negative loading direction (must be
 defined as a positive value)</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code class="parameter-table-variable">theta_u_Plus</code></td>
 <td><p>ultimate rotation capacity for positive loading
 direction</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code class="parameter-table-variable">theta_u_Neg</code></td>
 <td><p>ultimate rotation capacity for negative loading direction (must
 be defined as a positive value)</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code class="parameter-table-variable">D_Plus</code></td>
 <td><p>rate of cyclic deterioration in the positive loading direction
 (this parameter is used to create assymetric hysteretic behavior for the
 case of a composite beam). For symmetric hysteretic response use
 1.0.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code class="parameter-table-variable">D_Neg</code></td>
 <td><p>rate of cyclic deterioration in the negative loading direction
 (this parameter is used to create assymetric hysteretic behavior for the
 case of a composite beam). For symmetric hysteretic response use
 1.0.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <figure>
-<img src="/OpenSeesRT/contrib/static/ModIMKPeakOrientedDefinitionFigure.png"
-title="ModIMKPeakOrientedDefinitionFigure.png" width="700"
-alt="ModIMKPeakOrientedDefinitionFigure.png" />
-<figcaption
-aria-hidden="true">ModIMKPeakOrientedDefinitionFigure.png</figcaption>
+<img src="/OpenSeesRT/contrib/static/ModIMKDefinitionFigure.png" title="ModIMKDefinitionFigure.png"
+width="700" alt="ModIMKDefinitionFigure.png" />
+<figcaption aria-hidden="true">ModIMKDefinitionFigure.png</figcaption>
 </figure>
 <p><strong>Image from: Lignos and Krawinkler (2012)</strong></p>
 <p>The deterioration model parameters can be calibrated based on actual
@@ -222,5 +232,5 @@ Earthquake Engineering and Structural Dynamics, 34(12),
 </tr>
 </tbody>
 </table>
-<p>Code Developed by : <span style="color:blue"> by Dr. Dimitrios
+<p>Code Developed by: <span style="color:blue">Dr. Dimitrios
 G. Lignos, McGill University </span></p>

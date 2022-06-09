@@ -1,4 +1,4 @@
-# Simulation Process
+# Basic Simulation
 
 ## Build the model
 1. model dimensions and degrees-of-freedom

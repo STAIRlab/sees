@@ -6,10 +6,10 @@ degradation and pinching effect. The pinching formulation is
 particularly suitable to simulate the behavior of infill panels and
 masonry walls.
 
-::: function
-uniaxialMaterial BoucWenInfill `matTag` `mass` `alpha` `beta0` `eta0`
-`n` `k` `xy` `deltak` `deltaf` `psi` `Zs` `As` `epsp` `tol` `maxIter`
-:::
+```tcl
+uniaxialMaterial BoucWenInfill matTag mass alpha beta0 eta0
+        n k xy deltak deltaf psi Zs As epsp tol maxIter
+```
 
   -----------------------------------------------------------------------
   Argument    Type        Description

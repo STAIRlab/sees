@@ -81,3 +81,21 @@ The Pacman package manager
 ```{=html}
 </details>
 ```
+
+```{=html}
+</details>
+```
+```{=html}
+<details><summary><a>Yum (CentOS, Redhat Linux)</a></summary>
+```
+
+  Dependency    Package
+  ------------- ---------------
+  LAPACK        `lapack-devel`
+  MySQL\*       `mysql-devel`
+  Tcl\*         `tcl-devel`
+
+```{=html}
+</details>
+```
+

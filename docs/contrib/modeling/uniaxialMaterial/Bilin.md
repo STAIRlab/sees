@@ -259,7 +259,7 @@ href="https://doi.org/10.1061/(ASCE)ST.1943-541X.0002353">https://doi.org/10.106
 </tr>
 </tbody>
 </table>
-<p>Code Developed by : <span style="color:blue"> by Dr. Dimitrios
+<p>Code Developed by: <span style="color:blue">Dr. Dimitrios
 G. Lignos, McGill University and was implemented by Dr. Theodore
 Karavasilis, Oxford University </span></p>
 <p>nFactor Implemented by: <span style="color:blue"> by Dr. Andre

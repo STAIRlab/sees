@@ -29,7 +29,7 @@ ElasticMembranePlateSection and a LayeredShell section</p></td>
 </tbody>
 </table>
 <hr />
-<p>Code Developed by : <span style="color:blue"> Lisha Wang,
+<p>Code developed by: <span style="color:blue"> Lisha Wang,
 Tsinghua University, Prof. Xinzheng Lu, Tsinghua University, Linlin Xie,
 Tsinghua University, Prof. Song Cen, Tsinghua University and Prof. Quan
 Gu, Xiamen University </span></p>
