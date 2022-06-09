@@ -13281,7 +13281,209 @@ Nonlinear Elements
 
 
 <h1 id="elastic-limits">Elastic Limits</h1>
-<pre class="include"><code>/home/claudio/projects/SectionEccentricity/SectionLimits-3D.ipynb</code></pre>
+<section id="section-eccentricity" class="cell markdown">
+<h1>Section Eccentricity</h1>
+</section>
+<div class="cell code" data-execution_count="1">
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># %matplotlib widget</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> section_limits <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>plt.style.use(<span class="st">&quot;typewriter&quot;</span>)</span></code></pre></div>
+</div>
+<div class="cell code" data-execution_count="2">
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> itertools <span class="im">import</span> product</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> interpolate <span class="im">import</span> LagrangeQ4</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> meshq4(sect, quad, interp<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    interp <span class="op">=</span> interp <span class="kw">or</span> LagrangeQ4()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    patches <span class="op">=</span> <span class="bu">list</span>(sect.patches)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(quad, <span class="bu">dict</span>):</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        quad <span class="op">=</span> [quad]<span class="op">*</span><span class="bu">len</span>(patches)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    loc, wght <span class="op">=</span> <span class="bu">zip</span>(<span class="op">*</span>(quad_points(<span class="op">**</span>q) <span class="cf">for</span> q <span class="kw">in</span> quad))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    x,y<span class="op">=</span> <span class="bu">zip</span>(<span class="op">*</span>(</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            interp(r,s)<span class="op">@</span>p.vertices</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                <span class="cf">for</span> l,w,p <span class="kw">in</span> <span class="bu">zip</span>(loc,wght,patches) </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">for</span> r,s <span class="kw">in</span> product(l,l)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    da <span class="op">=</span> np.fromiter(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        (dx<span class="op">*</span>dy<span class="op">*</span>p.area <span class="cf">for</span> p,w <span class="kw">in</span> <span class="bu">zip</span>(patches,wght) <span class="cf">for</span> dx,dy <span class="kw">in</span> product(w,w)), </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        <span class="bu">float</span>, <span class="bu">len</span>(x)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    )<span class="op">/</span><span class="dv">4</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    y, x, da <span class="op">=</span> <span class="bu">map</span>(<span class="bu">list</span>, <span class="bu">zip</span>(<span class="op">*</span><span class="bu">sorted</span>(<span class="bu">zip</span>(y, x, da))))</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">dict</span>(x<span class="op">=</span>x,y<span class="op">=</span>y,da<span class="op">=</span>da)</span></code></pre></div>
+</div>
+<div class="cell code" data-execution_count="3">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> rotate(mesh, angle):</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    cs, sn <span class="op">=</span> np.cos(angle), np.sin(angle)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    R <span class="op">=</span> np.array([[cs,<span class="op">-</span>sn],[sn,cs]])</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    x,y <span class="op">=</span> R<span class="op">@</span>np.array([mesh[<span class="st">&quot;x&quot;</span>], mesh[<span class="st">&quot;y&quot;</span>]])</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    y, x, da <span class="op">=</span> <span class="bu">map</span>(<span class="bu">list</span>, <span class="bu">zip</span>(<span class="op">*</span><span class="bu">sorted</span>(<span class="bu">zip</span>(y, x, mesh[<span class="st">&quot;da&quot;</span>]))))</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">dict</span>(x<span class="op">=</span>x,y<span class="op">=</span>y,da<span class="op">=</span>da)</span></code></pre></div>
+</div>
+<section id="create-section-geometry" class="cell markdown">
+<h3>Create section geometry</h3>
+</section>
+<div class="cell code" data-execution_count="4">
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> opensees.render.mpl <span class="im">as</span> render</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> opensees <span class="im">import</span> patch, section, layer, uniaxial</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>m <span class="op">=</span> uniaxial.ElasticPP()</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># sect = section.FiberSection(areas=[</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#     patch.rect(vertices=[[-8,  0],[-4, 16]]),</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     patch.rect(vertices=[[ 4,  0],[ 8, 16]]),</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co">#     patch.rect(vertices=[[-4, 12],[ 4, 16]])</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># ])</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>sect <span class="op">=</span> section.FiberSection(areas<span class="op">=</span>[</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    patch.rect(vertices<span class="op">=</span>[[ <span class="op">-</span><span class="dv">8</span>,  <span class="dv">6</span>],[ <span class="dv">8</span>,  <span class="dv">8</span>]]),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    patch.rect(vertices<span class="op">=</span>[[ <span class="op">-</span><span class="dv">1</span>, <span class="op">-</span><span class="dv">6</span>],[ <span class="dv">1</span>,  <span class="dv">6</span>]]),</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    patch.rect(vertices<span class="op">=</span>[[ <span class="op">-</span><span class="dv">8</span>, <span class="op">-</span><span class="dv">8</span>],[ <span class="dv">8</span>, <span class="op">-</span><span class="dv">6</span>]])</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>])</span></code></pre></div>
+</div>
+<section id="create-quadrature-discretization" class="cell markdown">
+<h3>Create quadrature discretization</h3>
+</section>
+<div class="cell code" data-execution_count="5">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>rule <span class="op">=</span> <span class="st">&quot;gauss-radau&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mesh <span class="op">=</span> meshq4(sect, {<span class="st">&#39;n&#39;</span>:<span class="dv">10</span>, <span class="st">&#39;rule&#39;</span>:rule})</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># mesh</span></span></code></pre></div>
+</div>
+<div class="cell code" data-execution_count="6">
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.subplots()[<span class="dv">1</span>].scatter(<span class="op">*</span>mesh.values())</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<div class="output display_data">
+<p><img src="/static/08c3101a9d00452464eacea608875c911617c11e.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+</div>
+<div class="cell code" data-execution_count="7">
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LimitAnalysis:</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,sect,mesh<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.sect <span class="op">=</span> sect</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.mesh <span class="op">=</span> mesh</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._mesh_dirty <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">try</span>:</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            bounds <span class="op">=</span> mesh[<span class="st">&quot;bounds&quot;</span>]</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">except</span>:</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>            bounds <span class="op">=</span> <span class="bu">min</span>(mesh[<span class="st">&quot;x&quot;</span>]), <span class="bu">min</span>(mesh[<span class="st">&quot;y&quot;</span>]), <span class="bu">max</span>(mesh[<span class="st">&quot;x&quot;</span>]), <span class="bu">max</span>(mesh[<span class="st">&quot;y&quot;</span>])</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.d <span class="op">=</span> bounds[<span class="dv">3</span>] <span class="op">-</span> bounds[<span class="dv">1</span>]</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.bounds <span class="op">=</span> bounds</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.yield_prof <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.plast_prof <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">@staticmethod</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> plastic_profile(nip, ip):</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> plot_plast(<span class="va">self</span>, ax, nip, ip<span class="op">=</span><span class="dv">1</span>):</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> <span class="va">self</span>.d</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        x,y <span class="op">=</span> plastic_profile(nip, ip)</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        <span class="co"># [a,_,b,c,__] = x</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># f = [a]*(nip-ip//2) + [b] + [c]*(nip//2-ip//2)</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        ax.fill_betweenx(y<span class="op">*</span>d, x, [<span class="dv">0</span>]<span class="op">*</span><span class="dv">4</span>, alpha<span class="op">=</span><span class="fl">0.2</span>, color<span class="op">=</span><span class="st">&quot;b&quot;</span>)</span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.yield_prof <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.plast_point <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="co"># else:</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>        <span class="co">#     self.plast_prof.set_xdata(x)</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>        <span class="co">#     self.plast_prof.set_ydata(y)</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x,y</span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> plot_yield(<span class="va">self</span>, ax, phi, dy):</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> <span class="va">self</span>.d</span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        f1, f2, NM <span class="op">=</span> yield_point(<span class="va">self</span>.sect, phi, dy)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>        ax.fill_betweenx([<span class="dv">0</span>, d], [f2, f1], [<span class="dv">0</span>, <span class="dv">0</span>], alpha<span class="op">=</span><span class="fl">0.2</span>, color<span class="op">=</span><span class="st">&quot;red&quot;</span>)</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.yield_prof <span class="kw">is</span> <span class="va">None</span>:</span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.yield_prof <span class="op">=</span> ax.plot([f2, f1], [<span class="dv">0</span>, d], <span class="st">&quot;r&quot;</span>)[<span class="dv">0</span>]</span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.yield_prof.set_xdata([f2, f1])</span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> NM</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> plot(<span class="va">self</span>, phi<span class="op">=</span><span class="fl">0.3</span>, ip<span class="op">=</span><span class="dv">3</span>, fy<span class="op">=</span><span class="fl">1.0</span>):</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>        sect, mesh, d <span class="op">=</span> <span class="va">self</span>.sect, <span class="va">self</span>.mesh, <span class="va">self</span>.d</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>        nip <span class="op">=</span> <span class="bu">len</span>(mesh[<span class="st">&quot;y&quot;</span>])</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> [<span class="va">None</span>, <span class="va">None</span>, <span class="va">None</span>]</span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>        fig<span class="op">=</span>plt.figure()</span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>        grid <span class="op">=</span> fig.add_gridspec(nrows <span class="op">=</span> <span class="dv">1</span>, ncols <span class="op">=</span> <span class="dv">3</span>, </span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>          hspace <span class="op">=</span> <span class="dv">0</span>, wspace <span class="op">=</span> <span class="dv">0</span>, width_ratios <span class="op">=</span> [<span class="dv">6</span>, <span class="dv">2</span>, <span class="dv">4</span>], </span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>          height_ratios <span class="op">=</span> [<span class="dv">6</span>])</span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">0</span>] <span class="op">=</span> fig.add_subplot(grid[<span class="dv">0</span>,<span class="dv">0</span>])</span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">1</span>] <span class="op">=</span> fig.add_subplot(grid[<span class="dv">0</span>,<span class="dv">1</span>])<span class="co">#, sharey = ax[0])</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">2</span>] <span class="op">=</span> fig.add_subplot(grid[<span class="dv">0</span>,<span class="dv">2</span>])</span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>        <span class="co"># SECTION GEOMETRY</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">0</span>].set_autoscale_on(<span class="va">True</span>)</span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a>        render.section(sect, ax<span class="op">=</span>ax[<span class="dv">0</span>], fix_axes<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>        yc <span class="op">=</span> sect.centroid[<span class="dv">1</span>]</span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">0</span>].scatter(mesh[<span class="st">&quot;x&quot;</span>], mesh[<span class="st">&quot;y&quot;</span>]<span class="op">+</span>yc, marker<span class="op">=</span><span class="st">&quot;.&quot;</span>, color<span class="op">=</span><span class="st">&quot;b&quot;</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, s<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">0</span>].set_title(<span class="st">&quot;Geometry&quot;</span>)</span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">0</span>].set_xlabel(<span class="st">&quot;$z$&quot;</span>)</span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">0</span>].set_ylabel(<span class="st">&quot;$y$&quot;</span>)</span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a>        <span class="co"># STRAIN PROFILE</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a>        f,_ <span class="op">=</span> <span class="va">self</span>.plot_plast(ax[<span class="dv">1</span>], nip, ip<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>        NM  <span class="op">=</span> <span class="va">self</span>.plot_yield(ax[<span class="dv">1</span>], phi,  <span class="fl">0.0</span>)</span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">1</span>].set_xlabel(<span class="vs">r&quot;$\frac{\sigma}</span><span class="sc">{f_y}</span><span class="vs">$&quot;</span>)</span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">1</span>].set_title(<span class="st">&quot;Stress&quot;</span>)</span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">1</span>].set_yticks([], [])</span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>        <span class="co"># SURFACE PLOTS</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>        <span class="co"># PP = self.mesh[&quot;Qm&quot;]@f</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.point <span class="op">=</span> ax[<span class="dv">2</span>].scatter(NM[<span class="dv">1</span>], NM[<span class="dv">0</span>], marker<span class="op">=</span><span class="st">&quot;x&quot;</span>, color<span class="op">=</span><span class="st">&quot;r&quot;</span>)</span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>        <span class="co"># self.plast_point = ax[2].scatter(PP[1], PP[0], marker=&quot;o&quot;, color=&quot;k&quot;)</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">2</span>].plot(<span class="op">*</span>elastic_limit(sect, <span class="va">self</span>.bounds), <span class="st">&quot;r&quot;</span>)<span class="op">;</span></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">2</span>].plot(<span class="op">*</span>plastic_limit(sect, <span class="op">**</span>mesh, norm<span class="op">=</span><span class="va">False</span>), <span class="st">&quot;b&quot;</span>)</span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">2</span>].yaxis.tick_right()</span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">2</span>].yaxis.set_label_position(<span class="st">&quot;right&quot;</span>)</span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">2</span>].set_xlabel(<span class="st">&quot;M&quot;</span>)</span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">2</span>].set_ylabel(<span class="st">&quot;N&quot;</span>)</span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">2</span>].axvline(<span class="fl">0.0</span>)</span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">2</span>].axhline(<span class="fl">0.0</span>)</span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>        ax[<span class="dv">2</span>].grid(<span class="st">&quot;on&quot;</span>)</span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a>        <span class="kw">def</span> update(yref<span class="op">=</span><span class="fl">4.0</span>, phi<span class="op">=</span>(<span class="fl">0.</span>,<span class="dv">1</span>,<span class="fl">0.05</span>), ip<span class="op">=</span>(<span class="dv">0</span>,<span class="dv">2</span><span class="op">*</span>nip,<span class="dv">1</span>)):</span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a>            ax[<span class="dv">1</span>].collections.clear()</span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a>            YP <span class="op">=</span> <span class="va">self</span>.plot_yield(ax[<span class="dv">1</span>], phi,<span class="fl">0.0</span>)</span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>            f,y <span class="op">=</span> <span class="va">self</span>.plot_plast(ax[<span class="dv">1</span>], nip, ip)</span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>            <span class="co"># PP = self.mesh[&quot;Qm&quot;]@f</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.point.set_offsets([YP[<span class="dv">1</span>], YP[<span class="dv">0</span>]])</span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>            <span class="co"># self.plast_point.set_offsets([PP[1], PP[0]])</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>            fig.canvas.draw_idle()</span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> update</span></code></pre></div>
+</div>
+<div class="cell code" data-execution_count="8">
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ipywidgets <span class="im">import</span> interact</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.style.use(&quot;typewriter&quot;)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># interact(Anim(sect,mesh).plot());</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>LimitAnalysis(sect, rotate(mesh, np.pi<span class="op">/</span><span class="dv">4</span>)).plot()<span class="op">;</span></span></code></pre></div>
+<div class="output display_data">
+<p><img src="/static/89a1944c19965a37ea50bc7427b7236c7f956dd7.png" style="margin:auto; display: block; max-width: 75%" /></p>
+</div>
+</div>
+<div class="cell markdown">
+<ul>
+<li><code>elastic_limit(section, bounds, y_ref)-&gt;[m,n]</code> Computes the four points of the elastic limit surface for a given section about a particular reference point.</li>
+<li><code>plastic_limit(mesh)-&gt;[m,n]</code> Computes the plastic limit surface from a given section mesh.</li>
+</ul>
+<p>Other</p>
+<ul>
+<li><code>yield_profile</code></li>
+<li><code>plastic_profile(n,i)-&gt;[f,y]</code></li>
+</ul>
+</div>
+<div class="cell code">
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</div>
+<div class="cell code">
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
+</div>
 
 
               
