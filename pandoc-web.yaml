@@ -19,9 +19,9 @@ metadata:
 #  - ./references/brace.bib
 
 
-# filters:
+filters:
 # - pygmentize
-# - include.lua
+  - include.lua
 #- pandoc-crossref
 #- citeproc # commented for dev build time
 #- image_center.lua
