@@ -74,9 +74,14 @@ title="wikilink">BWBNParameterEstimation</a></p>
 
 ## Examples
 
-<p><a href="BWBNExample" title="wikilink">BWBNExample</a></p>
+```{.include}
+docs/contrib/examples/31-BWBNExample.html
+```
+
 <hr />
-<p>REFERENCES:</p>
+
+## References
+
 <p><a
 href="http://www.sciencedirect.com/science/article/pii/S0141029613003568">Hossain,
 M. R., Ashraf, M., &amp; Padgett, J. E. (2013). "Risk-based seismic
@@ -93,7 +98,8 @@ Acoustics Stress and Reliability in Design, 108, 411.</p>
 structural systems. Journal of Structural Engineering, 121(6),
 1013-1022.</p>
 <hr />
-<p>DEVELOPED BY:</p>
+
+## Developers
 <p><a
 href="http://scholar.google.com.au/citations?user=I_li3qkAAAAJ&amp;hl=en&amp;oi=ao">Raquib
 Hossain</a>, <a href="http://www.uq.edu.au/">The University of
