@@ -15,7 +15,7 @@
     
     
       
-        <title>ScottHysteretic - OpenSeesRT</title>
+        <title>AlgebraicHysteretic - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              ScottHysteretic
+              AlgebraicHysteretic
 
             
           </span>
@@ -3801,10 +3801,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -4163,21 +4159,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../modeling/uniaxialMaterial/367-Limit%20State/" class="md-nav__link">
-        LimitState
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../modeling/uniaxialMaterial/381-Maxwell/" class="md-nav__link">
         Maxwell
 
@@ -4240,21 +4221,6 @@
     <li class="md-nav__item">
       <a href="../../modeling/uniaxialMaterial/504-Pinching4/" class="md-nav__link">
         Pinching4
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../modeling/uniaxialMaterial/506-Pinching%20Limit%20State/" class="md-nav__link">
-        Pinching Limit State Material
 
       </a>
     </li>
@@ -5485,6 +5451,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_4">
@@ -5981,16 +5949,131 @@
       
         
           
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
         
       
       
-        <label class="md-nav__link" for="__nav_2_4_3">
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../UniaxialLimitState/">UniaxialLimitState</a>
+          
+            <label for="__nav_2_4_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="UniaxialLimitState" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          UniaxialLimitState
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniaxialLimitState/364-LimitStateMaterialExample/" class="md-nav__link">
+        LimitStateMaterialExample
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniaxialLimitState/365-LimitStateMaterialExampleDebugged/" class="md-nav__link">
+        LimitStateMaterialExampleDebugged
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniaxialLimitState/505-PinchingLimitStateMaterial%20Example/" class="md-nav__link">
+        PinchingLimitStateMaterial Example
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UniaxialLimitState/506-Pinching%20Limit%20State/" class="md-nav__link">
+        Pinching Limit State Material
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_4" type="checkbox" id="__nav_2_4_4" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_4">
           Reliability
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Reliability" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_4_3">
+        <label class="md-nav__title" for="__nav_2_4_4">
           <span class="md-nav__icon md-icon"></span>
           Reliability
         </label>
@@ -6027,7 +6110,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_4" type="checkbox" id="__nav_2_4_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_5" type="checkbox" id="__nav_2_4_5" >
       
       
       
@@ -6058,13 +6141,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_4_4">
+        <label class="md-nav__link" for="__nav_2_4_5">
           Sensitivity
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Sensitivity" data-md-level="3">
-        <label class="md-nav__title" for="__nav_2_4_4">
+        <label class="md-nav__title" for="__nav_2_4_5">
           <span class="md-nav__icon md-icon"></span>
           Sensitivity
         </label>
@@ -12904,43 +12987,45 @@
 
 
 
-<h1 id="scotthysteretic">ScottHysteretic</h1>
+<h1 id="algebraichysteretic">AlgebraicHysteretic</h1>
+<p>This package provides an infrastructure for constructing algebraic univariate hysteretic models.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial OOHysteretic <span class="ot">tag</span>? </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     bkbn+? unlRul+? stfDeg+? strDeg+?</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;bkbn-? unlRul-? stfDeg-? strDeg-?&gt; </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;pinchX? pinchY?&gt;</span></code></pre></div>
 <ul>
-<li><p>HystereticBackbone</p>
-<p>hystereticBackbone type? tag? <specific hystereticBackbone args></p>
-<pre><code>hystereticBackbone ReeseSoftClay tag? pu? y50? n?
-hystereticBackbone ReeseSand tag? kx? ym? pm? yu? pu?
-hystereticBackbone ReeseStiffClayBelowWS tag? Esi? y50? As?  Pc?
-hystereticBackbone Raynor tag? Es? fy? fsu? Epsilonsh? Epsilonsm? C1? Ey?
-hystereticBackbone Capped tag? hystereticBackboneTag? capTag?
-hystereticBackbone LinearCapped tag? backboneTag? eCap? E? sRes?
-hystereticBackbone Material tag? matTag?&quot; &lt;&lt; endln;
-
-hystereticBackbone Bilinear
-  void *theBB = OPS_BilinearBackbone(rt);
-
-hystereticBackbone Trilinear
-  void *theBB = OPS_TrilinearBackbone(rt);
-
-hystereticBackbone Multilinear
-  void *theBB = OPS_MultilinearBackbone(rt);
-
-hystereticBackbone Arctangent
-  void *theBB = OPS_ArctangentBackbone(rt);
-
-hystereticBackbone Mander
-  void *theBB = OPS_ManderBackbone(rt);</code></pre></li>
-<li><p>UnloadingRule</p>
-<p>unloadingRule type? tag? <specific unloadingRule args></p></li>
-<li><p>StiffnessDegradation</p></li>
-<li><p>StrengthDegradation</p>
-<p>strengthDegradation type? tag? <specific strengthDegradation args></p></li>
+<li><p><code>HystereticBackbone</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>hystereticBackbone ReeseSoftClay <span class="ot">tag</span>? pu? y50? n?</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>hystereticBackbone ReeseSand <span class="ot">tag</span>? kx? ym? pm? yu? pu?</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hystereticBackbone ReeseStiffClayBelowWS <span class="ot">tag</span>? Esi? y50? As?  Pc?</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>hystereticBackbone Raynor <span class="ot">tag</span>? Es? fy? fsu? Epsilonsh? Epsilonsm? C1? Ey?</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>hystereticBackbone Capped <span class="ot">tag</span>? hystereticBackboneTag? capTag?</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>hystereticBackbone LinearCapped <span class="ot">tag</span>? backboneTag? eCap? E? sRes?</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>hystereticBackbone Material <span class="ot">tag</span>? matTag?</span></code></pre></div></li>
 </ul>
-<h2 id="class-interface">Class Interface</h2>
+<!--
+      hystereticBackbone Bilinear
+        void *theBB = OPS_BilinearBackbone(rt);
+
+      hystereticBackbone Trilinear
+        void *theBB = OPS_TrilinearBackbone(rt);
+
+      hystereticBackbone Multilinear
+        void *theBB = OPS_MultilinearBackbone(rt);
+
+      hystereticBackbone Arctangent
+        void *theBB = OPS_ArctangentBackbone(rt);
+
+      hystereticBackbone Mander
+        void *theBB = OPS_ManderBackbone(rt);
+-->
+<ul>
+<li><p><code>UnloadingRule</code></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>unloadingRule <span class="ot">type</span>? <span class="ot">tag</span>? &lt;specific unloadingRule <span class="ot">args</span>&gt;</span></code></pre></div></li>
+<li><p><code>StiffnessDegradation</code></p></li>
+<li><p><code>StrengthDegradation</code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>strengthDegradation <span class="ot">type</span>? <span class="ot">tag</span>? &lt;specific strengthDegradation <span class="ot">args</span>&gt;</span></code></pre></div></li>
+</ul>
 
 
               
