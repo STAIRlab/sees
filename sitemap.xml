@@ -6,7 +6,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/contrib/01_modeling/constraints/101-Constraints/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/01_modeling/constraints/</loc>
          <lastmod>2022-06-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2507,11 +2507,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/section/Patch/</loc>
-         <lastmod>2022-06-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/modeling/uniaxial/Concrete01/</loc>
          <lastmod>2022-06-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
