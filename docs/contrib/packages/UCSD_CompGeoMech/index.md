@@ -1,3 +1,5 @@
+# UCSD CompGeoMech Library
+
 - NDMaterials
   - UC San Diego soil models (Linear/Nonlinear, dry/drained/undrained soil response under general 2D/3D static/cyclic loading conditions (please visit [http://soilquake.net/opensees UCSD] for examples)
     - [PressureIndependMultiYield Material]()
@@ -16,7 +18,7 @@
     - [Nine Four Node Quad u-p Element]()
     - [Twenty Eight Node Brick u-p Element]()
 
-- [UCSD Soil References|Related References]()
+- [UCSD Soil References]()
 
 <br>
 ----

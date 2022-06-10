@@ -13,9 +13,9 @@ required for each of the available element types:</p>
 <ul>
 <li>Truss Elements
  <ul>
-  <li><a href="Truss" >Truss</a>Basic 2D/3D truss</li>
-  <li><a href="Truss2" >Truss2</a>Truss element for concrete walls</li>
-  <li><a href="Corotational_Truss" >CorotTruss</a>Corotational truss element</li>
+  <li><a href="Truss" >Truss</a> - Basic 2D/3D truss</li>
+  <li><a href="Truss2" >Truss2</a> - Truss element for concrete walls</li>
+  <li><a href="Corotational_Truss" >CorotTruss</a> - Corotational truss element</li>
  </ul>
 </li>
 

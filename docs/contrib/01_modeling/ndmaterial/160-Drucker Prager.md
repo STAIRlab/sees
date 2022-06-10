@@ -77,13 +77,6 @@ shear moduli (default = 101 kPa)</p></td>
 <p>The material formulations for the Drucker-Prager object are
 "ThreeDimensional" and "PlaneStrain"</p>
 <hr />
-<p>This code has been Developed by: <span style="color:blue"><a
-href="http://www.ce.washington.edu/people/faculty/bios/mackenzie_p.html">Peter
-Mackenzie, U Washington</a></span> and the great 
-<span style="color:blue"><a
-href="http://www.ce.washington.edu/people/faculty/bios/arduino_p.html">Pedro
-Arduino, U Washington</a></span></p>
-<hr />
 
 <h2 id="theory">Theory</h2>
 <p>The yield condition for the Drucker-Prager model can be expressed
@@ -162,12 +155,10 @@ $\mathbf{s}$ is the deviatoric stress tensor and
 $\mathbf{q}^{kin}$ is the back-stress tensor.
 </dd>
 <dd>
-Column 3 - First invariant of the plastic strain tensor, &lt;math&gt;
-\mathrm{tr}(\mathbf{\varepsilon}^p) &lt;/math&gt;.
+Column 3 - First invariant of the plastic strain tensor, $\mathrm{tr}(\mathbf{\varepsilon}^p)$.
 </dd>
 <dd>
-Column 4 - Norm of the deviatoric plastic strain tensor, &lt;math&gt;
-\left\| \mathbf{e}^p \right\| &lt;/math&gt;.
+Column 4 - Norm of the deviatoric plastic strain tensor, $\left\| \mathbf{e}^p \right\|$
 </dd>
 </dl>
 </dd>
@@ -199,6 +190,8 @@ stress-controlled analysis.</p>
 src="/OpenSeesRT/contrib/static/CtcResults.png" title="CtcResults.png" alt="CtcResults.png" /></p>
 <p>
 
+<details><summary>Example Tcl script</summary>
+
 ```tcl
 # File is generated for the purposes of testing the 
 # Drucker-Prager model -->; conventional triaxial 
@@ -211,122 +204,140 @@ src="/OpenSeesRT/contrib/static/CtcResults.png" title="CtcResults.png" alt="CtcR
 # create the modelBuilder and build the model</li>
 wipe
 model BasicBuilder -ndm 3 -ndf 3
-<ol>
-<li>--create the nodes</li>
-</ol>
-<p>node 1 1.0 0.0 0.0 node 2 1.0 1.0 0.0 node 3 0.0 1.0 0.0 node 4 0.0
-0.0 0.0 node 5 1.0 0.0 1.0 node 6 1.0 1.0 1.0 node 7 0.0 1.0 1.0 node 8
-0.0 0.0 1.0</p>
-<ol>
-<li>--triaxial test boundary conditions</li>
-</ol>
-<p>fix 1 0 1 1 fix 2 0 0 1 fix 3 1 0 1 fix 4 1 1 1 fix 5 0 1 0 fix 6 0 0
-0 fix 7 1 0 0 fix 8 1 1 0</p>
-<ol>
-<li>--define material parameters for the model</li>
-<li>---bulk modulus</li>
-</ol>
-<p>set k 27777.78</p>
-<ol>
-<li>---shear modulus</li>
-</ol>
-<p>set G 9259.26</p>
-<ol>
-<li>---yield stress</li>
-</ol>
-<p>set sigY 5.0</p>
-<ol>
-<li>---failure surface and associativity</li>
-</ol>
-<p>set rho 0.398 set rhoBar 0.398</p>
-<ol>
-<li>---isotropic hardening</li>
-</ol>
-<p>set Kinf 0.0 set Ko 0.0 set delta1 0.0</p>
-<ol>
-<li>---kinematic hardening</li>
-</ol>
-<p>set H 0.0 set theta 1.0</p>
-<ol>
-<li>---tension softening</li>
-</ol>
-<p>set delta2 0.0</p>
-<ol>
-<li>---mass density</li>
-</ol>
-<p>set mDen 1.7</p>
-<ol>
-<li>--material models</li>
-<li>type tag k G sigY rho rhoBar Kinf Ko delta1 delta2 H theta
-density</li>
-</ol>
-<p>nDMaterial DruckerPrager 2 $k $G $sigY $rho $rhoBar $Kinf $Ko $delta1
-$delta2 $H $theta $mDen</p>
-<ol>
-<li>--create the element</li>
-<li>type tag nodes matID bforce1 bforce2 bforce3</li>
-</ol>
-<p>element stdBrick 1 1 2 3 4 5 6 7 8 2 0.0 0.0 0.0</p>
-<p>puts "model Built..."</p>
-<ol>
-<li><hr /></li>
-<li>create the recorders</li>
-<li><hr /></li>
-</ol>
-<p>set step 0.1</p>
-<ol>
-<li>record nodal displacements</li>
-</ol>
-<p>recorder Node -file displacements1.out -time -dT $step -nodeRange 1 8
--dof 1 2 3 disp</p>
-<ol>
-<li>record the element stress, strain, and state at one of the Gauss
-points</li>
-</ol>
-<p>recorder Element -ele 1 -time -file stress1.out -dT $step material 2
-stress recorder Element -ele 1 -time -file strain1.out -dT $step
-material 2 strain recorder Element -ele 1 -time -file state1.out -dT
-$step material 2 state</p>
-<p>puts "recorders set..."</p>
-<ol>
-<li><hr /></li>
-<li>create the loading</li>
-<li><hr /></li>
-</ol>
-<ol>
-<li>--pressure magnitude</li>
-</ol>
-<p>set p 10.0 set pNode [expr -$p/4]</p>
-<ol>
-<li>--loading object for hydrostatic pressure</li>
-</ol>
-<p>pattern Plain 1 {Series -time {0 10 100} -values {0 1 1} -factor 1} {
-load 1 $pNode 0.0 0.0 load 2 $pNode $pNode 0.0 load 3 0.0 $pNode 0.0
-load 5 $pNode 0.0 0.0 load 6 $pNode $pNode 0.0 load 7 0.0 $pNode 0.0
-}</p>
-<ol>
-<li>--loading object deviator stress</li>
-</ol>
-<p>pattern Plain 2 {Series -time {0 10 100} -values {0 1 5} -factor 1} {
-load 5 0.0 0.0 $pNode load 6 0.0 0.0 $pNode load 7 0.0 0.0 $pNode load 8
-0.0 0.0 $pNode }</p>
-<ol>
-<li><hr /></li>
-<li>create the analysis</li>
-<li><hr /></li>
-</ol>
-<p>integrator LoadControl 0.1 numberer RCM system SparseGeneral
-constraints Transformation test NormDispIncr 1e-5 10 1 algorithm Newton
-analysis Static</p>
-<p>puts "starting the hydrostatic analysis..." set startT [clock
-seconds] analyze 1000</p>
-<p>set endT [clock seconds] puts "triaxial shear application
-finished..." puts "loading analysis execution time: [expr $endT-$startT]
-seconds."</p>
-<p>wipe 
+
+# --create the nodes</li>
+
+node 1 1.0 0.0 0.0
+node 2 1.0 1.0 0.0
+node 3 0.0 1.0 0.0
+node 4 0.0 0.0 0.0
+node 5 1.0 0.0 1.0
+node 6 1.0 1.0 1.0
+node 7 0.0 1.0 1.0
+node 8 0.0 0.0 1.0
+
+# --triaxial test boundary conditions</li>
+
+fix 1 0 1 1 
+fix 2 0 0 1 
+fix 3 1 0 1 
+fix 4 1 1 1 
+fix 5 0 1 0 
+fix 6 0 0 0 
+fix 7 1 0 0 
+fix 8 1 1 0
+
+# --define material parameters for the model</li>
+# ---bulk modulus</li>
+
+set k 27777.78
+
+# ---shear modulus</li>
+
+set G 9259.26
+
+# ---yield stress</li>
+
+set sigY 5.0
+
+# ---failure surface and associativity</li>
+
+set rho 0.398 set rhoBar 0.398
+
+# ---isotropic hardening</li>
+
+set Kinf 0.0 set Ko 0.0 set delta1 0.0
+
+# ---kinematic hardening</li>
+
+set H 0.0 set theta 1.0
+
+# ---tension softening</li>
+
+set delta2 0.0
+
+# ---mass density</li>
+
+set mDen 1.7
+
+# --material models
+# type tag k G sigY rho rhoBar Kinf Ko delta1 delta2 H theta density
+
+nDMaterial DruckerPrager 2 $k $G $sigY $rho $rhoBar $Kinf $Ko $delta1 \
+        $delta2 $H $theta $mDen
+
+# --create the element
+# type tag nodes matID bforce1 bforce2 bforce3
+
+element stdBrick 1 1 2 3 4 5 6 7 8 2 0.0 0.0 0.0
+puts "model Built..."
+
+#
+# create the recorders
+#
+set step 0.1
+
+# record nodal displacements
+recorder Node -file displacements1.out -time -dT $step -nodeRange 1 8 -dof 1 2 3 disp
+
+# record the element stress, strain, and state at one of the Gauss
+# points
+recorder Element -ele 1 -time -file stress1.out -dT $step material 2 stress 
+recorder Element -ele 1 -time -file strain1.out -dT $step material 2 strain 
+recorder Element -ele 1 -time -file state1.out -dT $step material 2 state
+
+puts "recorders set..."
+
+# create the loading
+
+
+# --pressure magnitude
+
+set p 10.0 
+set pNode [expr -$p/4]
+
+# --loading object for hydrostatic pressure
+
+pattern Plain 1 {Series -time {0 10 100} -values {0 1 1} -factor 1} {
+  load 1 $pNode 0.0 0.0 
+  load 2 $pNode $pNode 0.0 
+  load 3 0.0 $pNode 0.0
+  load 5 $pNode 0.0 0.0 
+  load 6 $pNode $pNode 0.0 
+  load 7 0.0 $pNode 0.0
+}
+
+# --loading object deviator stress
+
+pattern Plain 2 {Series -time {0 10 100} -values {0 1 5} -factor 1} {
+  load 5 0.0 0.0 $pNode 
+  load 6 0.0 0.0 $pNode 
+  load 7 0.0 0.0 $pNode 
+  load 8 0.0 0.0 $pNode 
+}
+
+# create the analysis
+
+integrator LoadControl 0.1 
+numberer RCM 
+system SparseGeneral
+constraints Transformation 
+test NormDispIncr 1e-5 10 1 
+algorithm Newton
+analysis Static
+
+puts "starting the hydrostatic analysis..." 
+set startT [clock seconds] 
+analyze 1000
+set endT [clock seconds] 
+puts "triaxial shear application finished..." 
+puts "loading analysis execution time: [expr $endT-$startT] seconds."
+wipe 
 ```
 
-</p>
+</details>
+
+
 <h2 id="references">References</h2>
 <p>Drucker, D. C. and Prager, W., "Soil mechanics and plastic analysis
 for limit design." Quarterly of Applied Mathematics, vol. 10, no. 2, pp.
@@ -334,3 +345,13 @@ for limit design." Quarterly of Applied Mathematics, vol. 10, no. 2, pp.
 <p>Chen, W. F. and Saleeb, A. F., Constitutive Equations for Engineering
 Materials Volume I: Elasticity and Modeling. Elsevier Science B.V.,
 Amsterdam, 1994.</p>
+
+<hr />
+
+<p>Code developed by: <span style="color:blue"><a
+href="http://www.ce.washington.edu/people/faculty/bios/mackenzie_p.html">Peter
+Mackenzie, U Washington</a></span> and the great 
+<span style="color:blue"><a
+href="http://www.ce.washington.edu/people/faculty/bios/arduino_p.html">Pedro
+Arduino, U Washington</a></span></p>
+

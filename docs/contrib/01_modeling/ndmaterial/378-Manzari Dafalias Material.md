@@ -297,154 +297,190 @@ $$
 <p>This example, provides an undrained confined triaxial compression
 test using one 8-node SSPBrickUP element and ManzariDafalias material
 model.</p>
-<p>
+
 ```tcl
-</p>
-<ol>
-<li>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-#</li>
-<li>3D Undrained Conventional Triaxial Compression Test Using One
-Element #</li>
-<li>University of Washington, Department of Civil and Environmental Eng
-#</li>
-<li>Geotechnical Eng Group, A. Ghofrani, P. Arduino - Dec 2013 #</li>
-<li>Basic units are m, Ton(metric), s #</li>
-<li>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-#</li>
-</ol>
-<p>wipe</p>
-<ol>
-<li>------------------------ #</li>
-<li>Test Specific parameters #</li>
-<li>------------------------ #</li>
-<li>Confinement Stress</li>
-</ol>
-<p>set pConf -300.0</p>
-<ol>
-<li>Deviatoric strain</li>
-</ol>
-<p>set devDisp -0.3</p>
-<ol>
-<li>Permeablity</li>
-</ol>
-<p>set perm 1.0e-10</p>
-<ol>
-<li>Initial void ratio</li>
-</ol>
-<p>set vR 0.8</p>
-<ol>
-<li>Rayleigh damping parameter</li>
-</ol>
-<p>set damp 0.1 set omega1 0.0157 set omega2 64.123 set a1 [expr
-2.0*$damp/($omega1+$omega2)] set a0 [expr $a1*$omega1*$omega2]</p>
-<ol>
-<li>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</li>
-<li>HHHHHHHHHHHHHHHHHHHHHHHHHHHCreate
-ModelHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</li>
-<li>HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</li>
-</ol>
-<ol>
-<li>Create a 3D model with 4 Degrees of Freedom</li>
-</ol>
-<p>model BasicBuilder -ndm 3 -ndf 4</p>
-<ol>
-<li>Create nodes</li>
-</ol>
-<p>node 1 1.0 0.0 0.0 node 2 1.0 1.0 0.0 node 3 0.0 1.0 0.0 node 4 0.0
-0.0 0.0 node 5 1.0 0.0 1.0 node 6 1.0 1.0 1.0 node 7 0.0 1.0 1.0 node 8
-0.0 0.0 1.0</p>
-<ol>
-<li>Create Fixities</li>
-</ol>
-<p>fix 1 0 1 1 1 fix 2 0 0 1 1 fix 3 1 0 1 1 fix 4 1 1 1 1 fix 5 0 1 0 1
-fix 6 0 0 0 1 fix 7 1 0 0 1 fix 8 1 1 0 1</p>
-<ol>
-<li>Create material</li>
-<li>ManzariDafalias tag G0 nu e_init Mc c lambda_c e0 ksi P_atm m h0 ch
-nb A0 nd z_max cz Den</li>
-</ol>
-<p>nDMaterial ManzariDafalias 1 125 0.05 $vR 1.25 0.712 0.019 0.934 0.7
-100 0.01 7.05 0.968 1.1 0.704 3.5 4 600 1.42</p>
-<ol>
-<li>Create element</li>
-<li>SSPbrickUP tag i j k l m n p q matTag fBulk fDen k1 k2 k3 void alpha
-&lt;b1 b2 b3&gt;</li>
-</ol>
-<p>element SSPbrickUP 1 1 2 3 4 5 6 7 8 1 2.2e6 1.0 $perm $perm $perm
-$vR 1.5e-9</p>
-<ol>
-<li>Create recorders</li>
-</ol>
-<p>recorder Node -file disp.out -time -nodeRange 1 8 -dof 1 2 3 disp
-recorder Node -file press.out -time -nodeRange 1 8 -dof 4 vel recorder
-Element -file stress.out -time stress recorder Element -file strain.out
--time strain recorder Element -file alpha.out -time alpha recorder
-Element -file fabric.out -time fabric</p>
-<ol>
-<li>Create analysis</li>
-</ol>
-<p>constraints Penalty 1.0e18 1.0e18 test NormDispIncr 1.0e-5 20 1
-algorithm Newton numberer RCM system BandGeneral integrator Newmark 0.5
-0.25 rayleigh $a0 0. $a1 0.0 analysis Transient</p>
-<ol>
-<li>Apply confinement pressure</li>
-</ol>
-<p>set pNode [expr $pConf / 4.0] pattern Plain 1 {Series -time {0 10000
-1e10} -values {0 1 1} -factor 1} { load 1 $pNode 0.0 0.0 0.0 load 2
-$pNode $pNode 0.0 0.0 load 3 0.0 $pNode 0.0 0.0 load 4 0.0 0.0 0.0 0.0
-load 5 $pNode 0.0 $pNode 0.0 load 6 $pNode $pNode $pNode 0.0 load 7 0.0
-$pNode $pNode 0.0 load 8 0.0 0.0 $pNode 0.0 } analyze 100 100</p>
-<ol>
-<li>Let the model rest and waves damp out</li>
-</ol>
-<p>analyze 50 100</p>
-<ol>
-<li>Close drainage valves</li>
-</ol>
-<p>for {set x 1} {$x&lt;9} {incr x} { remove sp $x 4 } analyze 50
-100</p>
-<ol>
-<li>Read vertical displacement of top plane</li>
-</ol>
-<p>set vertDisp [nodeDisp 5 3]</p>
-<ol>
-<li>Apply deviatoric strain</li>
-</ol>
-<p>set lValues [list 1 [expr 1+$devDisp/$vertDisp] [expr
-1+$devDisp/$vertDisp]] set ts "{Series -time {20000 1020000 10020000}
--values {$lValues} -factor 1}"</p>
-<ol>
-<li>loading object deviator stress</li>
-</ol>
-<p>eval "pattern Plain 2 $ts { sp 5 3 $vertDisp sp 6 3 $vertDisp sp 7 3
-$vertDisp sp 8 3 $vertDisp }"</p>
-<ol>
-<li>Set number and length of (pseudo)time steps</li>
-</ol>
-<p>set dT 100 set numStep 10000</p>
-<ol>
-<li>Analyze and use substepping if needed</li>
-</ol>
-<p>set remStep $numStep set success 0 proc subStepAnalyze {dT subStep} {
-if {$subStep &gt; 10} { return -10 } for {set i 1} {$i &lt; 3} {incr i}
-{ puts "Try dT = $dT" set success [analyze 1 $dT] if {$success != 0} {
-set success [subStepAnalyze [expr $dT/2.0] [expr $subStep+1]] if
-{$success == -10} { puts "Did not converge." return success } } else {
-if {$i==1} { puts "Substep $subStep : Left side converged with dT = $dT"
-} else { puts "Substep $subStep : Right side converged with dT = $dT" }
-} } return success }</p>
-<p>puts "Start analysis" set startT [clock seconds]</p>
-<p>while {$success != -10} { set subStep 0 set success [analyze $remStep
-$dT] if {$success == 0} { puts "Analysis Finished" break } else { set
-curTime [getTime] puts "Analysis failed at $curTime . Try substepping."
-set success [subStepAnalyze [expr $dT/2.0] [incr subStep]] set curStep
-[expr int(($curTime-20000)/$dT + 1)] set remStep [expr
-int($numStep-$curStep)] puts "Current step: $curStep , Remaining steps:
-$remStep" } } set endT [clock seconds] puts "loading analysis execution
-time: [expr $endT-$startT] seconds."</p>
-<p>wipe 
+# HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+#
+# 3D Undrained Conventional Triaxial Compression Test Using One
+Element #
+# University of Washington, Department of Civil and Environmental Eng
+#
+# Geotechnical Eng Group, A. Ghofrani, P. Arduino - Dec 2013 #
+# Basic units are m, Ton(metric), s #
+# HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+#
+
+wipe
+
+# ------------------------ #
+# Test Specific parameters #
+# ------------------------ #
+# Confinement Stress
+
+set pConf -300.0
+
+# Deviatoric strain
+
+set devDisp -0.3
+
+# Permeablity
+
+set perm 1.0e-10
+
+# Initial void ratio
+
+set vR 0.8
+
+# Rayleigh damping parameter
+
+set damp 0.1 
+set omega1 0.0157 
+set omega2 64.123 
+set a1 [expr 2.0*$damp/($omega1+$omega2)] 
+set a0 [expr $a1*$omega1*$omega2]
+
+# HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# HHHHHHHHHHHHHHHHHHHHHHHHHHHCreate
+ModelHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+
+
+# Create a 3D model with 4 Degrees of Freedom
+
+model BasicBuilder -ndm 3 -ndf 4
+
+# Create nodes
+
+node 1 1.0 0.0 0.0
+node 2 1.0 1.0 0.0
+node 3 0.0 1.0 0.0
+node 4 0.0 0.0 0.0
+node 5 1.0 0.0 1.0
+node 6 1.0 1.0 1.0
+node 7 0.0 1.0 1.0
+node 8 0.0 0.0 1.0
+
+# Create Fixities
+fix 1 0 1 1 1
+fix 2 0 0 1 1
+fix 3 1 0 1 1
+fix 4 1 1 1 1 
+fix 5 0 1 0 1
+fix 6 0 0 0 1
+fix 7 1 0 0 1
+fix 8 1 1 0 1
+
+# Create material
+# ManzariDafalias tag G0 nu e_init Mc c lambda_c e0 ksi P_atm m h0 ch nb A0 nd z_max cz Den
+
+nDMaterial ManzariDafalias 1 125 0.05 $vR 1.25 0.712 0.019 0.934 0.7 \
+        100 0.01 7.05 0.968 1.1 0.704 3.5 4 600 1.42
+
+# Create element
+# SSPbrickUP tag i j k l m n p q matTag fBulk fDen k1 k2 k3 void alpha <b1 b2 b3>
+
+element SSPbrickUP 1 1 2 3 4 5 6 7 8 1 2.2e6 1.0 $perm $perm $perm $vR 1.5e-9
+
+# Create recorders
+
+recorder Node -file disp.out -time -nodeRange 1 8 -dof 1 2 3 disp
+recorder Node -file press.out -time -nodeRange 1 8 -dof 4 vel
+recorder Element -file stress.out -time stress
+recorder Element -file strain.out -time strain
+recorder Element -file alpha.out -time alpha
+recorder Element -file fabric.out -time fabric
+
+# Create analysis
+
+constraints Penalty 1.0e18 1.0e18 
+test NormDispIncr 1.0e-5 20 1
+algorithm Newton 
+numberer RCM 
+system BandGeneral 
+integrator Newmark 0.5 0.25 
+rayleigh $a0 0. $a1 0.0 
+analysis Transient
+
+# Apply confinement pressure
+
+set pNode [expr $pConf / 4.0] 
+pattern Plain 1 {Series -time {0 10000 1e10} -values {0 1 1} -factor 1} {  
+  load 1 $pNode 0.0 0.0 0.0  
+  load 2 $pNode $pNode 0.0 0.0
+  load 3 0.0 $pNode 0.0 0.0
+  load 4 0.0 0.0 0.0 0.0
+  load 5 $pNode 0.0 $pNode 0.0
+  load 6 $pNode $pNode $pNode 0.0
+  load 7 0.0 $pNode $pNode 0.0 
+  load 8 0.0 0.0 $pNode 0.0 
+} 
+
+analyze 100 100
+
+# Let the model rest and waves damp out
+
+analyze 50 100
+
+# Close drainage valves
+
+for {set x 1} {$x&lt;9} {incr x} { remove sp $x 4 } 
+analyze 50 100
+
+# Read vertical displacement of top plane
+
+set vertDisp [nodeDisp 5 3]
+
+# Apply deviatoric strain
+
+set lValues [list 1 [expr 1+$devDisp/$vertDisp] [expr 1+$devDisp/$vertDisp]] 
+set ts "{Series -time {20000 1020000 10020000} -values {$lValues} -factor 1}"
+
+# loading object deviator stress
+
+eval "pattern Plain 2 $ts { sp 5 3 $vertDisp sp 6 3 $vertDisp sp 7 3 $vertDisp sp 8 3 $vertDisp }"
+
+# Set number and length of (pseudo)time steps
+
+set dT 100 set numStep 10000
+
+# Analyze and use substepping if needed
+
+set remStep $numStep 
+set success 0 
+proc subStepAnalyze {dT subStep} {
+  if {$subStep &gt; 10} { return -10 } 
+  for {set i 1} {$i &lt; 3} {incr i} { 
+    puts "Try dT = $dT" 
+    set success [analyze 1 $dT] 
+    if {$success != 0} {
+      set success [subStepAnalyze [expr $dT/2.0] [expr $subStep+1]] 
+      if {$success == -10} { puts "Did not converge." return success } 
+    } else {
+      if {$i==1} { 
+        puts "Substep $subStep : Left side converged with dT = $dT"
+      } else { puts "Substep $subStep : Right side converged with dT = $dT" }
+    } 
+  } 
+  return success 
+}
+puts "Start analysis"
+set startT [clock seconds]
+while {$success != -10} {
+  set subStep 0
+  set success [analyze $remStep $dT] 
+  if {$success == 0} { puts "Analysis Finished" break } 
+  else { 
+    set curTime [getTime] puts "Analysis failed at $curTime . Try substepping."
+    set success [subStepAnalyze [expr $dT/2.0] [incr subStep]]
+    set curStep [expr int(($curTime-20000)/$dT + 1)]
+    set remStep [expr int($numStep-$curStep)] 
+    puts "Current step: $curStep , Remaining steps: $remStep" 
+  } 
+}
+set endT [clock seconds] puts "loading analysis execution time: [expr $endT-$startT] seconds."
+wipe 
 ```
-</p>
+
 <h2 id="references">References</h2>
 <p>Dafalias YF, Manzari MT. "Simple plasticity sand model accounting for
 fabric change effects". Journal of Engineering Mechanics 2004</p>

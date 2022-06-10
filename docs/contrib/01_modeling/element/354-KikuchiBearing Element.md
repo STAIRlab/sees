@@ -112,19 +112,24 @@ of iterations to get rid of internal unbalanced force
 </tr>
 </tbody>
 </table>
+
 <p>NOTES:</p>
-<p>1) If <code class="tcl-variable">limdisp</code> is positive and the shear deformation
-of MSS exceeds <code class="tcl-variable">limdisp</code>, this element calculates
-equivalent coefficient to adjust force and stiffness of MSS. The
-adjusted MSS force and stiffness reproduce the behavior of the
-previously defined uniaxial material under monotonic loading in every
-direction.</p>
-<p>2) Recommended value is (D/t)*sqrt(3*G/K), where D, t, G and K are
-size (for round and square shape), thickness, shear modulus and bulk
-modulus of a rubber layer, respectively.</p>
-<p>3) The valid queries to a KikuchiBearing element when creating an
-ElementRecorder object are 'globalForce', 'localForce', 'basicForce',
-'localDisplacement' and 'basicDeformation'.</p>
+
+1) If <code class="tcl-variable">limdisp</code> is positive and the shear deformation
+   of MSS exceeds <code class="tcl-variable">limdisp</code>, this element calculates
+   equivalent coefficient to adjust force and stiffness of MSS. The
+   adjusted MSS force and stiffness reproduce the behavior of the
+   previously defined uniaxial material under monotonic loading in every
+   direction.
+
+2) Recommended value is (D/t)*sqrt(3*G/K), where D, t, G and K are
+   size (for round and square shape), thickness, shear modulus and bulk
+   modulus of a rubber layer, respectively.
+
+3) The valid queries to a `KikuchiBearing` element when creating an
+   ElementRecorder object are `'globalForce'`, `'localForce'`, `'basicForce'`,
+   `'localDisplacement'` and `'basicDeformation'`.
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/KikuchiBearing_Model.png" title="KikuchiBearing_Model.png"
 width="400" alt="KikuchiBearing_Model.png" />
@@ -134,8 +139,11 @@ width="400" alt="KikuchiBearing_Model.png" />
 
 ## Examples
 
-<p>element KikuchiBearing 1 1 2 -shape round -size 1.016 0.320 -nMSS 8
--matMSS 1 -nMNS 30 -matMNS 2</p>
+```tcl
+element KikuchiBearing 1 1 2 -shape round -size 1.016 0.320 -nMSS 8 \
+        -matMSS 1 -nMNS 30 -matMNS 2
+```
+
 <p><a href="Media:KikuchiBearing_Sample.tcl"
 title="wikilink">KikuchiBearing_Sample.tcl</a>, <a
 href="Media:KikuchiBearing_input_Z.tcl"
@@ -177,5 +185,7 @@ the ultimate behavior of full-scale lead-rubber seismic isolation
 bearings", <em>15th World Conference on Earthquake Engineering</em>, No.
 1688, 2012.</p>
 <hr />
+
 <p>Code Developed by: <span style="color:blue"> mkiku
 </span></p>
+
