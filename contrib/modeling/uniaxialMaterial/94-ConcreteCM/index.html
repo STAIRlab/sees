@@ -12609,6 +12609,8 @@
         
           
         
+          
+        
       
       
         
@@ -12950,6 +12952,58 @@
 
             
           
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_7" type="checkbox" id="__nav_6_3_7" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_3_7">
+          Uniaxial
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uniaxial" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Uniaxial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../libraries/modeling/uniaxial/Concrete01/" class="md-nav__link">
+        Concrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -13019,7 +13073,7 @@ Unique <em>uniaxialMaterial</em> tag
 </td>
 <td>
 <p>
-Compressive strength (f’&lt;sub class=“subscript”&gt;c&lt;/sub&gt;)
+Compressive strength (f’<sub class="subscript">c</sub>)
 </p>
 </td>
 </tr>
@@ -13029,7 +13083,8 @@ Compressive strength (f’&lt;sub class=“subscript”&gt;c&lt;/sub&gt;)
 </td>
 <td>
 <p>
-Strain at compressive strength (<span class="math inline">\(\epsilon\)</span>’&lt;sub class=“subscript”&gt;c&lt;/sub&gt;)
+Strain at compressive strength (<span class="math inline">\(\epsilon\)</span>’<sub
+class="subscript">c</sub>)
 </p>
 </td>
 </tr>
@@ -13039,7 +13094,8 @@ Strain at compressive strength (<span class="math inline">\(\epsilon\)</span>’
 </td>
 <td>
 <p>
-Initial tangent modulus (E&lt;sub class=“subscript”&gt;c&lt;/sub&gt;)
+Initial tangent modulus (E<sub
+class="subscript">c</sub>)
 </p>
 </td>
 </tr>
@@ -13049,7 +13105,7 @@ Initial tangent modulus (E&lt;sub class=“subscript”&gt;c&lt;/sub&gt;)
 </td>
 <td>
 <p>
-Shape parameter in Tsai’s equation defined for compression (r&lt;sub class=“subscript”&gt;c&lt;/sub&gt;)
+Shape parameter in Tsai’s equation defined for compression (r<sub class="subscript">c</sub>)
 </p>
 </td>
 </tr>
@@ -13059,7 +13115,9 @@ Shape parameter in Tsai’s equation defined for compression (r&lt;sub class=“
 </td>
 <td>
 <p>
-Non-dimensional critical strain on compression envelope (<span class="math inline">\(\epsilon\)</span>&lt;sup class=“superscript”&gt;-&lt;/sup&gt;&lt;sub class=“subscript”&gt;cr&lt;/sub&gt;, where the envelope curve starts following a straight line)
+Non-dimensional critical strain on compression envelope (<span class="math inline">\(\epsilon\)</span><sup
+class="superscript">-</sup><sub
+class="subscript">cr</sub>, where the envelope curve starts following a straight line)
 </p>
 </td>
 </tr>
@@ -13069,7 +13127,8 @@ Non-dimensional critical strain on compression envelope (<span class="math inlin
 </td>
 <td>
 <p>
-Tensile strength (f&lt;sub class=“subscript”&gt;t&lt;/sub&gt;)
+Tensile strength (f<sub
+class="subscript">t</sub>)
 </p>
 </td>
 </tr>
@@ -13089,7 +13148,8 @@ Strain at tensile strength ( <span class="math inline">\(\epsilon_\textrm{t}\)</
 </td>
 <td>
 <p>
-Shape parameter in Tsai’s equation defined for tension (r&lt;sub class=“subscript”&gt;t&lt;/sub&gt;)
+Shape parameter in Tsai’s equation defined for tension (r<sub
+class="subscript">t</sub>)
 </p>
 </td>
 </tr>
@@ -13139,13 +13199,11 @@ alt="Figure 2. Compression and Tension Envelope Curves" />
 Figure 2. Compression and Tension Envelope Curves
 </figcaption>
 </figure>
-<p>
-The shape of the tension envelope curve in the model is the same as that of the compression envelope; however, the tension envelope curve is shifted to a new origin that is based on the unloading strain from the compression envelope (Figure 2). As well, the strain ductility experienced previously on the compression envelope is also reflected on the tension envelope. The parameters associated with the tension envelope curve include the tensile strength of concrete (f<sub
+<p>The shape of the tension envelope curve in the model is the same as that of the compression envelope; however, the tension envelope curve is shifted to a new origin that is based on the unloading strain from the compression envelope (Figure 2). As well, the strain ductility experienced previously on the compression envelope is also reflected on the tension envelope. The parameters associated with the tension envelope curve include the tensile strength of concrete (f<sub
 class="subscript">t</sub>), the monotonic strain at tensile strength ( <span class="math inline">\(\epsilon_\textrm{t}\)</span> ), a parameter (r<sub
 class="subscript">t</sub>) from Tsai’s (1988) equation defining the shape of the tension envelope curve, and a parameter (<span class="math inline">\(\epsilon\)</span><sup class="superscript">+</sup><sub class="subscript">cr</sub>) to define normalized (with respect to <span class="math inline">\(\epsilon\)</span><sub class="subscript">t</sub>) strain where the tension envelope curve starts following a straight line, until zero tensile stress is reached at a strain of <span class="math inline">\(\epsilon\)</span><sub class="subscript">crk</sub>. These parameters can also be controlled and calibrated based on specific experimental results or empirical relations proposed by other researchers (e.g., Belarbi and Hsu, 1994) to model the behavior of concrete in tension and the tension stiffening phenomenon. Concrete experiencing tension stiffening can be considered not to crack completely; that is, a large value for parameter <span class="math inline">\(\epsilon\)</span><sup
 class="superscript">+</sup><sub
-class="subscript">cr</sub> (e.g., 10000) can be defined.
-</p>
+class="subscript">cr</sub> (e.g., 10000) can be defined.</p>
 <p>
 Source: /usr/local/cvs/OpenSees/SRC/material/uniaxial/
 </p>
@@ -13158,12 +13216,9 @@ Source: /usr/local/cvs/OpenSees/SRC/material/uniaxial/
 <strong>Example:</strong>
 </p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConcreteCM <span class="dv">1</span><span class="ot"> -6</span><span class="fl">.2</span><span class="ot"> -0</span><span class="fl">.0021</span> <span class="dv">4500</span> <span class="dv">7</span> <span class="fl">1.035</span> <span class="fl">0.30</span> <span class="fl">0.00008</span> <span class="fl">1.2</span> <span class="dv">10000</span></span></code></pre></div>
-<p>
-Example of hysteretic stress-strain history generated by the model code is illustrated in Figure 3.
-</p>
+<p>Example of hysteretic stress-strain history generated by the model code is illustrated in Figure 3.</p>
 <figure>
-<img src="/OpenSeesRT/contrib/static/ConcreteCM_2.png"
-title="Figure 3. Concrete Stress-Strain Behavior" width="500"
+<img src="/OpenSeesRT/contrib/static/ConcreteCM_2.png" width="500"
 alt="Figure 3. Concrete Stress-Strain Behavior" />
 <figcaption aria-hidden="true">
 Figure 3. Concrete Stress-Strain Behavior
@@ -13174,7 +13229,7 @@ Figure 3. Concrete Stress-Strain Behavior
 <strong>Discussion:</strong>
 </p>
 <p>
-An optional input parameter <strong>gap</strong> is introduced in the <strong>ConcreteCM</strong> model implemented in OpenSees for providing the users with the opportunity to control the intensity of gap closure in the stress-strain behavior of concrete, which in-turn influences the level of pinching in the lateral load-displacement behavior of a RC wall. The original Chang and Mander (1994) model adopts a non-zero tangent stiffness at zero stress level upon unloading from the tension envelope, which is represented by gap = 1 in <strong>ConcreteCM</strong>. Using <strong>gap</strong> = 0 (default) produces less gradual gap closure, since it assumes zero tangent stiffness at zero stress level upon unloading from the tension envelope, and is suitable for most analyses. Figure 4 illustrates the effect of plastic stiffness upon unloading from tension envelope (E&lt;sup class=“superscript”&gt;+&lt;/sup&gt;&lt;sub class=“subscript”&gt;pl&lt;/sub&gt;) on crack closure, i.e. use of more gradual (<strong>gap</strong> = 1) or less gradual (<strong>gap</strong> = 0) gap closure. The effect of parameter <strong>gap</strong> on predictions of flexural behavior of a RC wall is illustrated in Example 1 of <a
+An optional input parameter <strong>gap</strong> is introduced in the <strong>ConcreteCM</strong> model implemented in OpenSees for providing the users with the opportunity to control the intensity of gap closure in the stress-strain behavior of concrete, which in-turn influences the level of pinching in the lateral load-displacement behavior of a RC wall. The original Chang and Mander (1994) model adopts a non-zero tangent stiffness at zero stress level upon unloading from the tension envelope, which is represented by gap = 1 in <strong>ConcreteCM</strong>. Using <strong>gap</strong> = 0 (default) produces less gradual gap closure, since it assumes zero tangent stiffness at zero stress level upon unloading from the tension envelope, and is suitable for most analyses. Figure 4 illustrates the effect of plastic stiffness upon unloading from tension envelope ( E<sup class="superscript">+</sup><sub class="subscript">pl</sub>) on crack closure, i.e. use of more gradual (<strong>gap</strong> = 1) or less gradual (<strong>gap</strong> = <span class="math inline">\(0\)</span>) gap closure. The effect of parameter <strong>gap</strong> on predictions of flexural behavior of a RC wall is illustrated in Example 1 of <a
 href="http://opensees.berkeley.edu/wiki/index.php/MVLEM_-_Multiple-Vertical-Line-Element-Model_for_RC_Walls"><strong>MVLEM</strong></a> element.
 </p>
 <figure>
