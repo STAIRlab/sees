@@ -11,55 +11,60 @@ system:</p>
 ```tcl
 system BandGeneral
 ```
+
 <hr />
+
 <p>NOTES:</p>
 <hr />
+
 <p>THEORY:</p>
-<p>An <em>n</em>&amp;times;<em>n</em> matrix
-<em>A</em>=(<em>a</em>&lt;sub&gt;<em>i,j</em> &lt;/sub&gt;) is a
+<p>An <em>n</em>&times;<em>n</em> matrix
+<em>A</em>=(<em>a</em><sub><em>i,j</em> </sub>) is a
 <strong>band matrix</strong> if all matrix elements are zero outside a
 diagonally bordered band whose range is determined by constants
-<em>k</em>&lt;sub&gt;1&lt;/sub&gt; and
-<em>k</em>&lt;sub&gt;2&lt;/sub&gt;:</p>
+<em>k</em><sub>1</sub> and
+<em>k</em><sub>2</sub>:</p>
 <dl>
 <dt></dt>
 <dd>
 
-$$a_{i,j}=0 \quad\mbox{if}\quad j&lt;i-k_1 \quad\mbox{ or
-}\quad j&gt;i+k_2; \quad k_1, k_2 \ge 0.\,$$
+$$a_{i,j}=0 \quad\mbox{if}\quad j<i-k_1 \quad\mbox{ or
+}\quad j>i+k_2; \quad k_1, k_2 \ge 0.\,$$
 
 </dd>
 </dl>
-<p>The quantities <em>k</em>&lt;sub&gt;1&lt;/sub&gt; and
-<em>k</em>&lt;sub&gt;2&lt;/sub&gt; are the <em>left</em> and
+<p>The quantities <em>k</em><sub>1</sub> and
+<em>k</em><sub>2</sub> are the <em>left</em> and
 <em>right</em> <em>half-bandwidth</em>, respectively. The
 <em>bandwidth</em> of the matrix is
-<em>k</em>&lt;sub&gt;1&lt;/sub&gt;&amp;nbsp;+&amp;nbsp;<em>k</em>&lt;sub&gt;2&lt;/sub&gt;&amp;nbsp;+&amp;nbsp;1
+<em>k</em><sub>1</sub>&nbsp;+&nbsp;<em>k</em><sub>2</sub>&nbsp;+&nbsp;1
 (in other words, the smallest number of adjacent diagonals to which the
 non-zero elements are confined).</p>
 <p>and matrices are usually stored by storing the diagonals in the band;
 the rest is implicitly zero.</p>
+
 <p>For example, 6-by-6 a matrix with bandwidth 3:</p>
 
 $$
-</dd>
-</dl>
-<p>\begin{bmatrix} B_{11} &amp; B_{12} &amp; 0 &amp; \cdots &amp; \cdots
-&amp; 0 \\ B_{21} &amp; B_{22} &amp; B_{23} &amp; \ddots &amp; \ddots
-&amp; \vdots \\ 0 &amp; B_{32} &amp; B_{33} &amp; B_{34} &amp; \ddots
-&amp; \vdots \\ \vdots &amp; \ddots &amp; B_{43} &amp; B_{44} &amp;
-B_{45} &amp; 0 \\ \vdots &amp; \ddots &amp; \ddots &amp; B_{54} &amp;
-B_{55} &amp; B_{56} \\ 0 &amp; \cdots &amp; \cdots &amp; 0 &amp; B_{65}
-&amp; B_{66} \end{bmatrix} &lt;/math&gt; is stored as the 6-by-3
-matrix</p>
+\begin{bmatrix} B_{11} & B_{12} & 0 & \cdots & \cdots
+& 0 \\ B_{21} & B_{22} & B_{23} & \ddots & \ddots
+& \vdots \\ 0 & B_{32} & B_{33} & B_{34} & \ddots
+& \vdots \\ \vdots & \ddots & B_{43} & B_{44} &
+B_{45} & 0 \\ \vdots & \ddots & \ddots & B_{54} &
+B_{55} & B_{56} \\ 0 & \cdots & \cdots & 0 & B_{65}
+& B_{66} \end{bmatrix} 
+$$
+
+is stored as the 6-by-3 matrix
 
 $$
-</dd>
-</dl>
-<p>\begin{bmatrix} 0 &amp; B_{11} &amp; B_{12}\\ B_{21} &amp; B_{22}
-&amp; B_{23} \\ B_{32} &amp; B_{33} &amp; B_{34} \\ B_{43} &amp; B_{44}
-&amp; B_{45} \\ B_{54} &amp; B_{55} &amp; B_{56} \\ B_{65} &amp; B_{66}
-&amp; 0 \end{bmatrix}. &lt;/math&gt;</p>
+\begin{bmatrix} 0 & B_{11} & B_{12}\\ B_{21} & B_{22}
+& B_{23} \\ B_{32} & B_{33} & B_{34} \\ B_{43} & B_{44}
+& B_{45} \\ B_{54} & B_{55} & B_{56} \\ B_{65} & B_{66}
+& 0 \end{bmatrix}.
+$$
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> fmk
-</span></p>
+
+<p>Code Developed by: <span style="color:blue"> fmk</span></p>
+
