@@ -5843,8 +5843,6 @@
         
           
         
-          
-        
       
       
         
@@ -5865,21 +5863,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../105-CorotTruss2%20Element/" class="md-nav__link">
-        CorotTruss2
-
-      </a>
-    </li>
-  
-
             
           
             
@@ -12926,18 +12909,6 @@ Vertical steel stresses in <em>m</em> fibers along the cross-section
 </tbody>
 </table>
 <p>
-<strong>Code developed by:</strong>
-</p>
-<p>
-<a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span> <span style="color:black"></a>, California State University, Fullerton
-</p>
-<p>
-<span style="color:blue"> Kutay Orakcal&lt;span style=“color:black”&gt;, Bogazici University, Istanbul, Turkey
-</p>
-<p>
-<span style="color:blue"> John Wallace&lt;span style=“color:black”&gt;, Univeristy of California, Los Angeles
-</p>
-<p>
 The <strong>MVLEM</strong> element command is used to generate a two-dimensional Multiple-Vertical-Line-Element-Model (MVLEM; Vulcano et al., 1988; Orakcal et al., 2004, Kolozvari et al., 2015) for simulation of flexure-dominated RC wall behavior. A single model element incorporates six global degrees of freedom, three of each located at the center of rigid top and bottom beams, as illustrated in Figure 1a. The axial/flexural response of the <strong>MVLEM</strong> is simulated by a series of uniaxial elements (or macro-fibers) connected to the rigid beams at the top and bottom (e.g., floor) levels, whereas the shear response is described by a shear spring located at height <em>ch</em> from the bottom of the wall element (Figure 1a). Shear and flexural responses of the model element are uncoupled. The relative rotation between top and bottom faces of the wall element occurs about the point located on the central axis of the element at height <em>ch</em> (Figure 1b). Rotations and resulting transverse displacements are calculated based on the wall curvature, derived from section and material properties, corresponding to the bending moment at height <em>ch</em> of each element (Figure 1b). A value of <em>c</em>=0.4 was recommended by Vulcano et al. (1988) based on comparison of the model response with experimental results.
 </p>
 <p>
@@ -12966,30 +12937,7 @@ Figure 1. a) MVLEM Element, b) MVLEM Rotations and Displacements
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>Recorder Element<span class="ot"> -file</span> MVLEM_Fgl.out<span class="ot"> -time -ele</span> <span class="dv">1</span> globalForce</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Recorder Element<span class="ot"> -file</span> MVLEM_FiberStrain.out<span class="ot"> -time -ele</span> <span class="dv">1</span> Fiber_Strain</span></code></pre></div>
 <hr />
-<h2 id="references">References</h2>
-<p>
-<ol type="1">
-<li>Kolozvari K., Orakcal K., and Wallace J. W. (2015). “Shear-Flexure Interaction Modeling of reinforced Concrete Structural Walls and Columns under Reversed Cyclic Loading”, Pacific Earthquake Engineering Research Center, University of California, Berkeley, <a
-href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER Report No. 2015/12</a>
-</p>
-<p>
-<ol start="2" type="1">
-<li>Orakcal K. (2004). “Nonlinear Modeling and Analysis of Slender Reinforced Concrete Walls”, PhD Dissertation, Department of Civil and Environmental Engineering, University of California, Los Angeles.
-</p>
-<p>
-<ol start="3" type="1">
-<li>Orakcal K., Conte J.P., and Wallace J.W. (2004). “Flexural Modeling of Reinforced Concrete Structural Walls - Model Attributes”, ACI Structural Journal, V. 101, No. 5, pp 688-698.
-</p>
-<p>
-<ol start="4" type="1">
-<li>Orakcal K. and Wallace J.W. (2006). “Flexural Modeling of Reinforced Concrete Structural Walls - Experimental Verification”, ACI Structural Journal, V. 103, No. 2, pp. 196-206.
-</p>
-<p>
-<ol start="5" type="1">
-<li>Vulcano A., Bertero V.V., and Colotti V. (1988). “Analytical Modeling of RC Structural Walls”, Proceedings, 9th World Conference on Earthquake Engineering, V. 6, Tokyo-Kyoto, Japan, pp. 41-46.
-</p>
 <hr />
-<p>
 <strong>Example 1. Simulation of Flexural Behavior of a Slender RC Wall Specimen under Cyclic Loading using MVLEM Model</strong>
 </p>
 <p>
@@ -13051,7 +12999,7 @@ Figure E1.2. Experimental and Analytical Load versus Flexural Deformation Relati
 </figure>
 <p>
 Figure E1.3 illustrates the sensitivity of analytical predictions obtained using the <strong>MVLEM</strong> to the optional gap closure parameter of the <a
-href="http://opensees.berkeley.edu/wiki/index.php/ConcreteCM_-_Complete_Concrete_Model_by_Chang_and_Mander_(1994)"><strong>ConcreteCM</strong></a> model (<strong>-GapClose $gap</strong>), which allows consideration of different intensities of gradual gap closure in concrete (Figure E1.3a), as well as selection of the steel material model <a
+href="http://opensees.berkeley.edu/wiki/index.php/ConcreteCM_-_Complete_Concrete_Model_by_Chang_and_Mander_(1994)"><strong>ConcreteCM</strong></a> model (<code>-GapClose $gap</code>), which allows consideration of different intensities of gradual gap closure in concrete (Figure E1.3a), as well as selection of the steel material model <a
 href="http://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_(1973)_Model_Extended_by_Filippou_et_al._(1983)"><strong>SteelMPF</strong></a> versus <a
 href="http://opensees.berkeley.edu/wiki/index.php/Steel02_Material_--_Giuffr%C3%A9-Menegotto-Pinto_Model_with_Isotropic_Strain_Hardening"><strong>Steel02</strong></a> (Figure E1.3b). It can be observed from Figure E1.3a that pinching characteristics of the response are slightly more pronounced when less gradual gap closure versus more gradual gap closure (i.e., <strong>gap</strong>=0 versus <strong>gap</strong>=1) is adopted. Figure E1.3b illustrates that the wall yield capacity as well as pinching characteristics of the behavior predicted by the <strong>MVLEM</strong> vary slightly when <strong>SteelMPF</strong> versus <strong>Steel02</strong> is used.
 </p>
@@ -13064,9 +13012,7 @@ alt="Figure E1.3. Sensitivity of Analytical Results to Material Modeling Paramet
 Figure E1.3. Sensitivity of Analytical Results to Material Modeling Parameters of: a) Concrete, and b) Steel
 </figcaption>
 </figure>
-<p>
-For illustration purposes, additional response predictions obtained using the <strong>MVLEM</strong> model are presented in Figure E1.4 and Figure E1.5, where analytically-predicted strain histories at the outermost and central wall fibers, and concrete and steel strain-stress relationships at the outermost fiber are presented, respectively. Responses are obtained using <strong>MVLEM</strong> recorders <em>Fiber_Strain</em>, <em>Fiber_Stress_Concrete</em>, and <em>Fiber_Stress_Steel</em>.
-</p>
+<p>For illustration purposes, additional response predictions obtained using the <strong>MVLEM</strong> model are presented in Figure E1.4 and Figure E1.5, where analytically-predicted strain histories at the outermost and central wall fibers, and concrete and steel strain-stress relationships at the outermost fiber are presented, respectively. Responses are obtained using <strong>MVLEM</strong> recorders <em>Fiber_Strain</em>, <em>Fiber_Stress_Concrete</em>, and <em>Fiber_Stress_Steel</em>.</p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/MVLEM_4.png"
 title="Figure E1.4. Analytical Strain Histories at Outermost and Central Wall Fibers"
@@ -13084,12 +13030,28 @@ alt="Figure E1.5. Analytically Predicted Stress-Strain Relationships at Wall Out
 <figcaption aria-hidden="true">
 Figure E1.5. Analytically Predicted Stress-Strain Relationships at Wall Outermost Fiber: a) Concrete, b) Steel
 </figcaption>
-</figure></li>
-</ol></li>
-</ol></li>
-</ol></li>
-</ol></li>
+</figure>
+<h2 id="references">References</h2>
+<ol type="1">
+<li>Kolozvari K., Orakcal K., and Wallace J. W. (2015). “Shear-Flexure Interaction Modeling of reinforced Concrete Structural Walls and Columns under Reversed Cyclic Loading”, Pacific Earthquake Engineering Research Center, University of California, Berkeley, <a
+  href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER Report No. 2015/12</a></li>
+<li>Orakcal K. (2004). “Nonlinear Modeling and Analysis of Slender Reinforced Concrete Walls”, PhD Dissertation, Department of Civil and Environmental Engineering, University of California, Los Angeles.</li>
+<li>Orakcal K., Conte J.P., and Wallace J.W. (2004). “Flexural Modeling of Reinforced Concrete Structural Walls - Model Attributes”, ACI Structural Journal, V. 101, No. 5, pp 688-698.</li>
+<li>Orakcal K. and Wallace J.W. (2006). “Flexural Modeling of Reinforced Concrete Structural Walls - Experimental Verification”, ACI Structural Journal, V. 103, No. 2, pp. 196-206.</li>
+<li>Vulcano A., Bertero V.V., and Colotti V. (1988). “Analytical Modeling of RC Structural Walls”, Proceedings, 9th World Conference on Earthquake Engineering, V. 6, Tokyo-Kyoto, Japan, pp. 41-46.</li>
 </ol>
+<p>
+<strong>Code developed by:</strong>
+</p>
+<p>
+<a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span> <span style="color:black"></a>, California State University, Fullerton
+</p>
+<p>
+<span style="color:blue"> Kutay Orakcal<span style="color:black">, Bogazici University, Istanbul, Turkey
+</p>
+<p>
+<span style="color:blue"> John Wallace<span style="color:black">, Univeristy of California, Los Angeles
+</p>
 
 
               

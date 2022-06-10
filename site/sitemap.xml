@@ -861,11 +861,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/01_modeling/element/105-CorotTruss2%20Element/</loc>
-         <lastmod>2022-06-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/01_modeling/element/107-Corotational%20Truss%20Element/</loc>
          <lastmod>2022-06-10</lastmod>
          <changefreq>daily</changefreq>
