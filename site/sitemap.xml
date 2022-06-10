@@ -991,6 +991,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/contrib/02_analysis/</loc>
+         <lastmod>2022-06-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/contrib/02_analysis/algorithm/</loc>
          <lastmod>2022-06-10</lastmod>
          <changefreq>daily</changefreq>
@@ -2367,11 +2372,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/libraries/</loc>
-         <lastmod>2022-06-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/libraries/analysis/</loc>
          <lastmod>2022-06-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
