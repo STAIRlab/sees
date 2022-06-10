@@ -202,7 +202,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../constraints/101-Constraints/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../constraints/" class="md-tabs__link md-tabs__link--active">
         Contrib
       </a>
     </li>
@@ -435,15 +435,23 @@
       
         
           
+            
+          
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_2_1_1">
-          Constraints
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../constraints/">Constraints</a>
+          
+            <label for="__nav_2_1_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Constraints" data-md-level="3">
         <label class="md-nav__title" for="__nav_2_1_1">
@@ -452,19 +460,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../constraints/101-Constraints/" class="md-nav__link">
-        Constraints commands
-
-      </a>
-    </li>
-  
-
             
           
             
@@ -12330,8 +12325,6 @@
         
           
         
-          
-        
       
       
         
@@ -12630,58 +12623,6 @@
 
             
           
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3_6" type="checkbox" id="__nav_6_3_6" >
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_6_3_6">
-          Uniaxial
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Uniaxial" data-md-level="3">
-        <label class="md-nav__title" for="__nav_6_3_6">
-          <span class="md-nav__icon md-icon"></span>
-          Uniaxial
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../libraries/modeling/uniaxial/Concrete01/" class="md-nav__link">
-        Concrete01
-
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
         </ul>
       </nav>
     </li>
@@ -12958,18 +12899,11 @@ tolerance of external unbalanced force (<code class="tcl-variable">limFo</code>)
 <p>
 NOTES:
 </p>
-<p>
 <ol type="1">
-<li>If <code class="tcl-variable">limdisp</code> is positive and the shear deformation of MSS exceeds <code class="tcl-variable">limdisp</code>, this element calculates equivalent coefficient to adjust force and stiffness of MSS. The adjusted MSS force and stiffness reproduce the behavior of the previously defined uniaxial material under monotonic loading in every direction.
-</p>
-<p>
-<ol start="2" type="1">
-<li>Recommended value is (D/t)<em>sqrt(3</em>G/K), where D, t, G and K are size (for round and square shape), thickness, shear modulus and bulk modulus of a rubber layer, respectively.
-</p>
-<p>
-<ol start="3" type="1">
-<li>The valid queries to a KikuchiBearing element when creating an ElementRecorder object are ‘globalForce’, ‘localForce’, ‘basicForce’, ‘localDisplacement’ and ‘basicDeformation’.
-</p>
+<li><p>If <code class="tcl-variable">limdisp</code> is positive and the shear deformation of MSS exceeds <code class="tcl-variable">limdisp</code>, this element calculates equivalent coefficient to adjust force and stiffness of MSS. The adjusted MSS force and stiffness reproduce the behavior of the previously defined uniaxial material under monotonic loading in every direction.</p></li>
+<li><p>Recommended value is (D/t)<em>sqrt(3</em>G/K), where D, t, G and K are size (for round and square shape), thickness, shear modulus and bulk modulus of a rubber layer, respectively.</p></li>
+<li><p>The valid queries to a <code>KikuchiBearing</code> element when creating an ElementRecorder object are <code>'globalForce'</code>, <code>'localForce'</code>, <code>'basicForce'</code>, <code>'localDisplacement'</code> and <code>'basicDeformation'</code>.</p></li>
+</ol>
 <figure>
 <img src="/OpenSeesRT/contrib/static/KikuchiBearing_Model.png" title="KikuchiBearing_Model.png"
 width="400" alt="KikuchiBearing_Model.png" />
@@ -12977,14 +12911,10 @@ width="400" alt="KikuchiBearing_Model.png" />
 KikuchiBearing_Model.png
 </figcaption>
 </figure>
-<hr /></li>
-</ol></li>
-</ol></li>
-</ol>
+<hr />
 <h2 id="examples">Examples</h2>
-<p>
-element KikuchiBearing 1 1 2 -shape round -size 1.016 0.320 -nMSS 8 -matMSS 1 -nMNS 30 -matMNS 2
-</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>element KikuchiBearing <span class="dv">1</span> <span class="dv">1</span> <span class="dv">2</span><span class="ot"> -shape</span> round<span class="ot"> -size</span> <span class="fl">1.016</span> <span class="fl">0.320</span><span class="ot"> -nMSS</span> <span class="dv">8</span> \</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        -matMSS <span class="dv">1</span><span class="ot"> -nMNS</span> <span class="dv">30</span><span class="ot"> -matMNS</span> <span class="dv">2</span></span></code></pre></div>
 <p>
 <a href="Media:KikuchiBearing_Sample.tcl"
 title="wikilink">KikuchiBearing_Sample.tcl</a>, <a

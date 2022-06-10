@@ -1,11 +1,10 @@
 # ContactMaterial2D
 
-<p>This command is used to construct a ContactMaterial2D nDMaterial
-object.</p>
+This command is used to construct a ContactMaterial2D nDMaterial
+object.
 
 ```tcl
-nDMaterial ContactMaterial2D $matTag $mu $G $c
-        $t
+nDMaterial ContactMaterial2D $matTag $mu $G $c $t
 ```
 
 <table>
@@ -48,15 +47,22 @@ objects.</li>
 <li>There are no valid recorder queries for this material other than
 those which are listed with those elements.</li>
 </ol>
+
 <p><strong>EXAMPLE:</strong> ContactMaterial2D nDmaterial with tag 1</p>
-<p>nDMaterial ContactMaterial2D 1 0.1 1000.0 0.0 0.0</p>
+
+```tcl
+nDMaterial ContactMaterial2D 1 0.1 1000.0 0.0 0.0
+```
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> Kathryn Petek,
-Pedro Arduino, &amp; Peter Mackenzie-Helnwein, at the University of
-Washington </span></p>
-<hr />
-<p>References:</p>
+
+## References
 <ol>
 <li>Wriggers, P. (2002). <em>Computational Contact Mechanics.</em> John
 Wilely &amp; Sons, Ltd, West Sussex, England.</li>
 </ol>
+
+<hr />
+<p>Code Developed by: <span style="color:blue"> Kathryn Petek,
+Pedro Arduino, &amp; Peter Mackenzie-Helnwein, at the University of
+Washington </span></p>
