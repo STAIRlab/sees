@@ -12691,11 +12691,8 @@
 
 
 <h1 id="j2-plasticity-material">J2 Plasticity Material</h1>
-<p>
-This command is used to construct an multi dimensional material object that has a von Mises (J2) yield criterium and isotropic hardening.
-</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nDMaterial J2Plasticity <span class="dt">$matTag</span> <span class="dt">$K</span> <span class="dt">$G</span> <span class="dt">$sig0</span> <span class="dt">$sigInf</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$delta</span> <span class="dt">$H</span></span></code></pre></div>
+<p>This command is used to construct an multi dimensional material object that has a von Mises (J2) yield criterium and isotropic hardening.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nDMaterial J2Plasticity <span class="dt">$matTag</span> <span class="dt">$K</span> <span class="dt">$G</span> <span class="dt">$sig0</span> <span class="dt">$sigInf</span> <span class="dt">$delta</span> <span class="dt">$H</span></span></code></pre></div>
 <hr />
 <table>
 <tbody>
@@ -12771,9 +12768,7 @@ linear hardening parameter
 </tr>
 </tbody>
 </table>
-<p>
-The material formulations for the J2 object are “ThreeDimensional,” “PlaneStrain,” “Plane Stress,” “AxiSymmetric,” and “PlateFiber.”
-</p>
+<p>The material formulations for the J2 object are <code>"ThreeDimensional"</code>, <code>"PlaneStrain"</code>, <code>"Plane Stress"</code>, <code>"AxiSymmetric"</code> and <code>"PlateFiber"</code>.</p>
 <hr />
 <h2 id="theory">Theory</h2>
 <p>
@@ -12781,48 +12776,23 @@ The theory for the non hardening case can be found <a
 href="http://en.wikipedia.org/wiki/Von_Mises_yield_criterion"
 title="wikilink">http://en.wikipedia.org/wiki/Von_Mises_yield_criterion</a>
 </p>
-<p>
-J2 isotropic hardening material class
+<p>J2 isotropic hardening material class</p>
+<ul>
+<li><p>Elastic Model <span class="math display">\[\sigma = K*trace(\epsilon_e) + (2*G)*dev(\epsilon_e)\]</span></p></li>
+<li><p>Yield Function <span class="math display">\[\phi(\sigma,q) = || dev(\sigma) || - \sqrt(\tfrac{2}{3}*q(xi)\]</span></p></li>
+<li><p>Saturation Isotropic Hardening with linear term</p>
 </p>
-<p>
-Elastic Model
-</p>
-<p>
-&lt;math&gt; = K*trace(_e) + (2<em>G)</em>dev(_e)&lt;/math&gt;
-</p>
-<p>
-Yield Function
-</p>
-<p>
-&lt;math&gt; (,q) = || dev() || - (*q(xi)&lt;/math&gt;
-</p>
-<p>
-Saturation Isotropic Hardening with linear term
-</p>
-<p>
-&lt;math&gt; q(xi) = <em>0 + (</em>- _0)<em>exp(-delta</em>) + H*&lt;/math&gt;
-</p>
-<p>
-Flow Rules
-</p>
-<p>
-&lt;math&gt;  =  &lt;/math&gt;
-</p>
-<p>
-&lt;math&gt; = - &lt;/math&gt;
-</p>
-<p>
-Linear Viscosity
-</p>
-<p>
-&lt;math&gt;=  &lt;/math&gt; ( if &lt;math&gt; &gt; 0&lt;/math&gt; )
-</p>
-<p>
-Backward Euler Integration Routine Yield condition enforced at time n+1
-</p>
-<p>
-set $= 0 $ for rate independent case
-</p>
+<p><span class="math display">\[q(xi) = \sigma_0 + (\sigma_\inf - \sigma_0)*exp(-delta*\xi) + H*\xi \]</span></p></li>
+<li><p>Flow Rules <span class="math display">\[\dot {\epsilon_p} = \gamma * \frac{\partial \phi}{\partial \sigma} \]</span></p>
+<p><span class="math display">\[\dot \xi = -\gamma * \frac{\partial \phi}{\partial q}\]</span></p></li>
+<li><p>Linear Viscosity</p>
+<p><span class="math display">\[\gamma = \frac{\phi}{\eta}\]</span></p>
+<p>( if <span class="math inline">\(\phi \gt 0\)</span> )</p></li>
+</ul>
+<p>Backward Euler Integration Routine Yield condition enforced at time <span class="math inline">\(n+1\)</span></p>
+<ul>
+<li>set <span class="math inline">\(\eta = 0\)</span> for rate independent case</li>
+</ul>
 <hr />
 <p>
 Code Developed by: <span style="color:blue"> Ed Love </span>
