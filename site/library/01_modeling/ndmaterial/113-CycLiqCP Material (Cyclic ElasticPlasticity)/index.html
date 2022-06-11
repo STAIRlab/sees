@@ -10621,8 +10621,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_5_4">
@@ -11233,89 +11231,39 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_4_4">
-          Reliability
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Reliability" data-md-level="3">
-        <label class="md-nav__title" for="__nav_5_4_4">
-          <span class="md-nav__icon md-icon"></span>
-          Reliability
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../packages/reliability/275-General%20Commands/" class="md-nav__link">
-        General Commands
-
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_5" type="checkbox" id="__nav_5_4_5" >
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_5_4_5">
           Sensitivity
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Sensitivity" data-md-level="3">
-        <label class="md-nav__title" for="__nav_5_4_5">
+        <label class="md-nav__title" for="__nav_5_4_4">
           <span class="md-nav__icon md-icon"></span>
           Sensitivity
         </label>
@@ -11344,6 +11292,21 @@
     <li class="md-nav__item">
       <a href="../../../packages/sensitivity/207-Element%20Commands/" class="md-nav__link">
         Element Commands
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../packages/sensitivity/275-General%20Commands/" class="md-nav__link">
+        General Commands
 
       </a>
     </li>
@@ -12695,33 +12658,10 @@
 This command is used to construct a multi-dimensional material object that that follows the constitutive behavior of a cyclic elastoplasticity model for large post- liquefaction deformation.
 </p>
 <div class="highlight"><pre><span></span><span class="nv">nDmaterial</span><span class="w"> </span>CycLiqCP<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$G0</span><span class="w"> </span><span class="nv">$kappa</span><span class="w"> </span><span class="nv">$h</span><span class="w"> </span><span class="nv">$Mfc</span><span class="w"> </span><span class="nv">$dre1</span><span class="w"> </span><span class="nv">$Mdc</span>
-<span class="w">        </span><span class="nv">$dre2</span><span class="w"> </span><span class="nv">$rdr</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="nv">$dir</span><span class="w"> </span><span class="nv">$ein</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$rho</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$dre2</span><span class="w"> </span><span class="nv">$rdr</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="nv">$dir</span><span class="w"> </span><span class="nv">$ein</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$rho</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 
-<p>
-CycLiqCP material is a cyclic elastoplasticity model for large post-liquefaction deformation, and is implemented using a cutting plane algorithm. The model is capable of reproducing small to large deformation in the pre- to post-liquefaction regime. The elastic moduli of the model are pressure dependent. The plasticity in the model is developed within the framework of bounding surface plasticity, with special consideration to the formulation of reversible and irreversible dilatancy.
-</p>
-<p>
-The model does not take into consideration of the state of sand, and requires different parameters for sand under different densities and confining pressures. The surfaces (i.e. failure and maximum pre-stress) are considered as circles in the pi plane.
-</p>
-<p>
-The model has been validated against VELACS centrifuge model tests and has used on numerous simulations of liquefaction related problems.
-</p>
-<p>
-When this material is employed in regular solid elements (e.g., FourNodeQuad, Brick), it simulates drained soil response. When solid-fluid coupled elements (u-p elements and SSP u-p elements) are used, the model is able to simulate undrained and partially drained behavior of soil.
-</p>
-<p>
-During the application of gravity load (and static loads if any), the user is suggested to set the material behavior to be linear elastic, with the updateMaterialStage command:
-</p>
-<p>
-updateMaterialStage -material $matTag -stage 0
-</p>
-<p>
-After the gravity load stage, the material stage should be updated to achieve the desired elastic-plastic stress-strain response.
-</p>
-<p>
-updateMaterialStage -material $matTag -stage 1
-</p>
+<p><code>CycLiqCP</code> material is a cyclic elastoplasticity model for large post-liquefaction deformation, and is implemented using a cutting plane algorithm. The model is capable of reproducing small to large deformation in the pre- to post-liquefaction regime. The elastic moduli of the model are pressure dependent. The plasticity in the model is developed within the framework of bounding surface plasticity, with special consideration to the formulation of reversible and irreversible dilatancy.</p>
 <hr />
 <table>
 <tbody>
@@ -12861,12 +12801,21 @@ Saturated mass density
 </tr>
 </tbody>
 </table>
+<p>The material formulations for the <code>CycLiqCP</code> object are <strong>“ThreeDimensional”</strong> and <strong>“PlaneStrain”</strong>.</p>
+<h2 id="notes">Notes</h2>
+<p>The model does not take into consideration of the state of sand, and requires different parameters for sand under different densities and confining pressures. The surfaces (i.e. failure and maximum pre-stress) are considered as circles in the pi plane.</p>
+<p>The model has been validated against VELACS centrifuge model tests and has used on numerous simulations of liquefaction related problems.</p>
 <p>
-The material formulations for the CycLiqCP object are “ThreeDimensional” and “PlaneStrain”.
+When this material is employed in regular solid elements (e.g., FourNodeQuad, Brick), it simulates drained soil response. When solid-fluid coupled elements (u-p elements and SSP u-p elements) are used, the model is able to simulate undrained and partially drained behavior of soil.
 </p>
-<p>
-NOTES:
-</p>
+<p>During the application of gravity load (and static loads if any), the user is suggested to set the material behavior to be linear elastic, with the updateMaterialStage command:</p>
+<div class="highlight"><pre><span></span><span class="nv">updateMaterialStage</span><span class="w"> </span><span class="o">-</span>material<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>stage<span class="w"> </span><span class="mi">0</span>
+</pre></div>
+
+<p>After the gravity load stage, the material stage should be updated to achieve the desired elastic-plastic stress-strain response.</p>
+<div class="highlight"><pre><span></span><span class="nv">updateMaterialStage</span><span class="w"> </span><span class="o">-</span>material<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>stage<span class="w"> </span><span class="mi">1</span>
+</pre></div>
+
 <ol>
 <li>
 The elastic modulii are given by the following relations:
@@ -12879,9 +12828,10 @@ CycLiqCp.GIF
 </figcaption>
 </figure>
 <hr />
-<p>
-REFERENCES: Zhang J.M. and Wang G., 2012, “Large post-liquefaction deformation of sand, part I: physical mechanism, constitutive description and numerical algorithm”, Acta Geotechnica.
-</p>
+<h2 id="references">References</h2>
+<ul>
+<li>Zhang J.M. and Wang G., 2012, “Large post-liquefaction deformation of sand, part I: physical mechanism, constitutive description and numerical algorithm”, Acta Geotechnica.</li>
+</ul>
 <hr />
 <p>
 Code Developed by: <span style="color:blue"> Rui Wang, Tsinghua University</span>

@@ -102,13 +102,6 @@ cross-section</p></td>
 </tbody>
 </table>
 
-<p><strong>Code developed by:</strong></p>
-<p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>
-<span style="color:black"></a>, California State University, Fullerton</p>
-<p><span style="color:blue"> Kutay Orakcal&lt;span
-style="color:black"&gt;, Bogazici University, Istanbul, Turkey</p>
-<p><span style="color:blue"> John Wallace&lt;span
-style="color:black"&gt;, Univeristy of California, Los Angeles</p>
 <p>The <strong>MVLEM</strong> element command is used to generate a
 two-dimensional Multiple-Vertical-Line-Element-Model (MVLEM; Vulcano et
 al., 1988; Orakcal et al., 2004, Kolozvari et al., 2015) for simulation
@@ -160,28 +153,8 @@ Recorder Element -file MVLEM_FiberStrain.out -time -ele 1 Fiber_Strain
 
 ---------------------------
 
-## References
-
-<p>1) Kolozvari K., Orakcal K., and Wallace J. W. (2015). "Shear-Flexure
-Interaction Modeling of reinforced Concrete Structural Walls and Columns
-under Reversed Cyclic Loading", Pacific Earthquake Engineering Research
-Center, University of California, Berkeley, <a
-href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER
-Report No. 2015/12</a></p>
-<p>2) Orakcal K. (2004). "Nonlinear Modeling and Analysis of Slender
-Reinforced Concrete Walls", PhD Dissertation, Department of Civil and
-Environmental Engineering, University of California, Los Angeles.</p>
-<p>3) Orakcal K., Conte J.P., and Wallace J.W. (2004). “Flexural
-Modeling of Reinforced Concrete Structural Walls - Model Attributes”,
-ACI Structural Journal, V. 101, No. 5, pp 688-698.</p>
-<p>4) Orakcal K. and Wallace J.W. (2006). “Flexural Modeling of
-Reinforced Concrete Structural Walls - Experimental Verification”, ACI
-Structural Journal, V. 103, No. 2, pp. 196-206.</p>
-<p>5) Vulcano A., Bertero V.V., and Colotti V. (1988). “Analytical
-Modeling of RC Structural Walls”, Proceedings, 9th World Conference on
-Earthquake Engineering, V. 6, Tokyo-Kyoto, Japan, pp. 41-46.</p>
 <hr />
-<p><strong>Example 1. Simulation of Flexural Behavior of a Slender RC
+<strong>Example 1. Simulation of Flexural Behavior of a Slender RC
 Wall Specimen under Cyclic Loading using MVLEM Model</strong></p>
 <p>Application of the MVLEM element for simulation of flexural response
 of RC walls is illustrated using the RC wall specimen RW2 tested by
@@ -189,6 +162,7 @@ Thomsen and Wallace (1995). The specimen was tested under constant axial
 load and cyclic lateral displacement history applied at the top of the
 wall. Input parameters and selected output results are presented in the
 following sections.</p>
+
 <p><strong>E1.1. Model Calibration</strong></p>
 <p>Specimen RW2 was 144 <em>in</em> tall, 48 <em>in</em> wide and 4
 <em>in</em> thick, resulting in aspect ratio of 3.0 (slender wall).
@@ -240,7 +214,7 @@ Load versus Flexural Deformation Relationships</figcaption>
 obtained using the <strong>MVLEM</strong> to the optional gap closure
 parameter of the <a
 href="http://opensees.berkeley.edu/wiki/index.php/ConcreteCM_-_Complete_Concrete_Model_by_Chang_and_Mander_(1994)"><strong>ConcreteCM</strong></a>
-model (<strong>-GapClose $gap</strong>), which allows consideration of
+model (`-GapClose $gap`), which allows consideration of
 different intensities of gradual gap closure in concrete (Figure E1.3a),
 as well as selection of the steel material model <a
 href="http://opensees.berkeley.edu/wiki/index.php/SteelMPF_-_Menegotto_and_Pinto_(1973)_Model_Extended_by_Filippou_et_al._(1983)"><strong>SteelMPF</strong></a>
@@ -254,6 +228,7 @@ E1.3b illustrates that the wall yield capacity as well as pinching
 characteristics of the behavior predicted by the <strong>MVLEM</strong>
 vary slightly when <strong>SteelMPF</strong> versus
 <strong>Steel02</strong> is used.</p>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/MVLEM_E3.png"
 title="Figure E1.3. Sensitivity of Analytical Results to Material Modeling Parameters of: a) Concrete, and b) Steel"
@@ -263,14 +238,16 @@ alt="Figure E1.3. Sensitivity of Analytical Results to Material Modeling Paramet
 Results to Material Modeling Parameters of: a) Concrete, and b)
 Steel</figcaption>
 </figure>
-<p>For illustration purposes, additional response predictions obtained
+
+For illustration purposes, additional response predictions obtained
 using the <strong>MVLEM</strong> model are presented in Figure E1.4 and
 Figure E1.5, where analytically-predicted strain histories at the
 outermost and central wall fibers, and concrete and steel strain-stress
 relationships at the outermost fiber are presented, respectively.
 Responses are obtained using <strong>MVLEM</strong> recorders
 <em>Fiber_Strain</em>, <em>Fiber_Stress_Concrete</em>, and
-<em>Fiber_Stress_Steel</em>.</p>
+<em>Fiber_Stress_Steel</em>.
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/MVLEM_4.png"
 title="Figure E1.4. Analytical Strain Histories at Outermost and Central Wall Fibers"
@@ -288,3 +265,30 @@ alt="Figure E1.5. Analytically Predicted Stress-Strain Relationships at Wall Out
 Stress-Strain Relationships at Wall Outermost Fiber: a) Concrete, b)
 Steel</figcaption>
 </figure>
+
+## References
+
+1) Kolozvari K., Orakcal K., and Wallace J. W. (2015). "Shear-Flexure
+  Interaction Modeling of reinforced Concrete Structural Walls and Columns
+  under Reversed Cyclic Loading", Pacific Earthquake Engineering Research
+  Center, University of California, Berkeley, <a
+  href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER
+  Report No. 2015/12</a>
+2) Orakcal K. (2004). "Nonlinear Modeling and Analysis of Slender
+  Reinforced Concrete Walls", PhD Dissertation, Department of Civil and
+  Environmental Engineering, University of California, Los Angeles.
+3) Orakcal K., Conte J.P., and Wallace J.W. (2004). “Flexural
+  Modeling of Reinforced Concrete Structural Walls - Model Attributes”,
+  ACI Structural Journal, V. 101, No. 5, pp 688-698.
+4) Orakcal K. and Wallace J.W. (2006). “Flexural Modeling of
+  Reinforced Concrete Structural Walls - Experimental Verification”, ACI
+  Structural Journal, V. 103, No. 2, pp. 196-206.
+5) Vulcano A., Bertero V.V., and Colotti V. (1988). “Analytical
+   Modeling of RC Structural Walls”, Proceedings, 9th World Conference on
+   Earthquake Engineering, V. 6, Tokyo-Kyoto, Japan, pp. 41-46.
+
+<p><strong>Code developed by:</strong></p>
+<p><a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span>
+<span style="color:black"></a>, California State University, Fullerton</p>
+<p><span style="color:blue"> Kutay Orakcal<span style="color:black">, Bogazici University, Istanbul, Turkey</p>
+<p><span style="color:blue"> John Wallace<span style="color:black">, Univeristy of California, Los Angeles</p>

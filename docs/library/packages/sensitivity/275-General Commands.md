@@ -1,7 +1,7 @@
 # General Commands
 
-<p>:;&lt;h2&gt;<a href="reliability_Command"
-title="wikilink">reliability Command</a>&lt;/h2&gt;</p>
+<p>:;<h2><a href="reliability_Command"
+title="wikilink">reliability Command</a></h2></p>
 <dl>
 <dt></dt>
 <dd>
@@ -19,8 +19,8 @@ reliability domain only and, thus, the ‘reliability’
 ```tcl
 reliability
 ```
-<p>&lt;h2&gt;<a href="parameter_Command" title="wikilink">parameter
-Command</a>&lt;/h2&gt;</p>
+<p><h2><a href="parameter_Command" title="wikilink">parameter
+Command</a></h2></p>
 <dl>
 <dt></dt>
 <dd>
@@ -37,8 +37,8 @@ defined as:
 parameter $tag &lt;specific object
         arguments&gt;
 ```
-<p>&lt;h2&gt;<a href="addToParameter_Command"
-title="wikilink">addToParameter Command</a>&lt;/h2&gt;</p>
+<p><h2><a href="addToParameter_Command"
+title="wikilink">addToParameter Command</a></h2></p>
 <dl>
 <dt></dt>
 <dd>
@@ -54,8 +54,8 @@ relate these additional objects to the specific parameter:
 addToParameter $tag &lt;specific object
         arguments&gt;
 ```
-<p>&lt;h2&gt;<a href="updateParameter_Command"
-title="wikilink">updateParameter Command</a>&lt;/h2&gt;</p>
+<p><h2><a href="updateParameter_Command"
+title="wikilink">updateParameter Command</a></h2></p>
 <dl>
 <dt></dt>
 <dd>
@@ -66,8 +66,8 @@ Once the parameters in FE model are defined, their value can be updated:
 ```tcl
 updateParameter $tag $newValue
 ```
-<p>&lt;h2&gt;<a href="sensitivityIntegrator_Command"
-title="wikilink">sensitivityIntegrator Command</a>&lt;/h2&gt;</p>
+<p><h2><a href="sensitivityIntegrator_Command"
+title="wikilink">sensitivityIntegrator Command</a></h2></p>
 <dl>
 <dt></dt>
 <dd>
@@ -112,8 +112,8 @@ This means that the same integration scheme (i.e.,
 sensitivity analysis.
 </dd>
 </dl>
-<p>&lt;h2&gt;<a href="sensitivityAlgorithm_Command"
-title="wikilink">sensitivityAlgorithm Command</a>&lt;/h2&gt;</p>
+<p><h2><a href="sensitivityAlgorithm_Command"
+title="wikilink">sensitivityAlgorithm Command</a></h2></p>
 <dl>
 <dt></dt>
 <dd>
@@ -159,8 +159,8 @@ dynamic analysis, using the ‘-computeByCommand’ option will produce
 wrong sensitivity results.
 </dd>
 </dl>
-<p>&lt;h2&gt;<a href="recorder_Commands" title="wikilink">recorder
-Commands</a>&lt;/h2&gt;</p>
+<p><h2><a href="recorder_Commands" title="wikilink">recorder
+Commands</a></h2></p>
 <dl>
 <dt></dt>
 <dd>

@@ -153,203 +153,223 @@ Ishihara (1998a,b). The original formulation for this model was
 applicable to plane strain conditions and this is the only currently
 available formulation.</p>
 <h3 id="notes">Notes</h3>
-<h3 id="usage_examples">Usage Examples</h3>
-<p>The following usage example provides the input parameters for dry
+
+## Examples
+
+The following example provides the input parameters for dry
 pluviated Toyura sand (with initial void ratio e = 0.73) after
 Cubrinovski and Ishihara (1998b). The units of this analysis are Mg, kN,
-s, and m.</p>
-<ol>
-<li>mass density</li>
-</ol>
-<p>set mDen 1.8</p>
-<ol>
-<li>atmospheric pressure</li>
-</ol>
-<p>set patm 98.1</p>
-<ol>
-<li>stress density model parameters</li>
-</ol>
-<p>set eNot 0.730 set A 250.0 set n 0.60 set a1 0.58 set b1 0.023 set a2
-230.0 set b2 65.0 set a3 79.0 set b3 16.0 set fd 4.0 set muNot 0.22 set
-muCyc 0.0 set sc 0.0055 set M 0.607 nDMaterial stressDensity 1 $mDen
-$eNot $A $n $nu $a1 $b1 $a2 $b2 $a3 $b3 $fd $muNot $ muCyc $sc $M
-$patm</p>
-<h3 id="references">References</h3>
+s, and m.
+
+```tcl
+# mass density
+set mDen 1.8
+
+# atmospheric pressure
+set patm 98.1
+
+# stress density model parameters
+set eNot 0.730
+set A 250.0
+set n  0.60
+set a1 0.58
+set b1 0.023
+set a2 230.0
+set b2 65.0
+set a3 79.0
+set b3 16.0
+set fd 4.0
+set muNot 0.22
+set muCyc 0.0
+set sc 0.0055
+set M 0.607 
+
+nDMaterial stressDensity 1 $mDen \
+  $eNot $A $n $nu $a1 $b1 $a2 $b2 $a3 $b3 $fd $muNot $ muCyc $sc $M $patm
+```
+
+### Example Analysis
+
+Element test with pure shear loading starting from isotropic initial
+state of stress.
+
+<details><summary>Tcl Script</summary>
+
+```tcl
+# intended number of cycles in the test
+set nCycles 120
+
+# shear strain increment for the test
+
+set dg 0.0001 set wg [expr 2.0*$dg]
+
+# max number of steps
+
+set maxStep 20000
+
+# initial confinement pressure (kPa)
+
+set pNot -95.0
+
+# max/min shear stress in the test (kPa)
+
+set CSR 0.2 set maxShear [expr -$CSR*$pNot]
+wipe
+model BasicBuilder -ndm 2 -ndf 2
+
+# Create nodes
+
+node 1 0.0 0.0 node 2 1.0 0.0 node 3 1.0 1.0 node 4 0.0 1.0
+
+# Create fixities
+
+fix 1 1 1 fix 2 1 1 fix 3 1 1 fix 4 1 1
+
+# atmospheric pressure
+
+set patm 98.1
+
+# mass density
+
+set mDen 1.8
+
+# steady state line void ratio
+
+set ssl1 0.832 set ssl2 0.832 set ssl3 0.810 set ssl4 0.796 set ssl5
+0.776 set ssl6 0.756 set ssl7 0.735
+
+# hydrostatic state line void ratio
+
+set hsl 0.852
+
+# reference pressures for state lines
+
+set p1 1.0
+
+# stress density model parameters
+
+set A 250.0 set m 0.60 set nu 0.20 set a1 0.592 set b1 0.021 set a2
+291.0 set b2 55.0 set a3 98.0 set b3 13.0 set fd 4.0 set muNot 0.15 set
+sc 0.0055 set M 0.607
+
+# initial void ratio
+
+set emax 0.885 set emin 0.541 set Dr 0.54 set eNot [expr $emax -
+$Dr*($emax-$emin)] set muCyc 0.0
+
+# Create material
+
+nDMaterial stressDensity 2 $mDen $eNot $A $m $nu $a1 $b1 $a2 $b2 $a3
+$b3 $fd $muNot $muCyc \ $sc $M $patm $ssl1 $ssl2 $ssl3 $ssl4 $ssl5 $ssl6
+$ssl7 $hsl $p1
+nDMaterial InitStress 1 2 $pNot 2
+
+# Create element
+
+element SSPquad 1 1 2 3 4 1 PlaneStrain 1.0 0.0 0.0
+
+# Create recorders
+
+recorder Element -file stress.out -time stress recorder Element -file
+strain.out -time strain recorder Node -file disp.out -time -dof 1 2
+disp
+set dt 0.1
+
+# Create analysis
+
+constraints Penalty 1.0e18 1.0e18 
+algorithm Linear 
+numberer RCM
+system ProfileSPD 
+integrator LoadControl $dt 
+analysis Static
+set dMax [expr 0.6/$wg] 
+eval "timeSeries Path 400 -time {0 0.1 0.2 300.2} -values {0 0 0 $dMax} -factor 1.0" 
+pattern Plain 400 400 { 
+  sp 3 1 $wg 
+  sp 4 1 $wg 
+} 
+analyze 1
+setParameter -value 1 -ele 1 materialState
+analyze 1
+
+# counter for max number of steps
+
+set count 0 set cCount 0 set cyc 1 puts "Beginning of Cycle 1"
+
+# loop through the total number of cycles
+
+for {set i 1} {$i <= [expr 2*$nCycles]} {incr i} { 
+  if {$cCount == 2} { 
+    set cyc [expr $cyc+1] 
+    puts "Beginning of Cycle $cyc" set cCount 0
+  }
+
+  # loop within each cycle
+  for {set j 1} {$j < 5000} {incr j} {
+
+    # abort if count is greater than max number of steps 
+    if {$count &gt;= $maxStep} {break}
+    
+    # analyze single step and get the current stress 
+    analyze 1 set count [expr $count + 1]
+    
+    # get stress from element  
+    set stress [eleResponse 1 stress]
+    
+    # shear stress is component 2
+    set tau [lindex $stress 2]
+
+    # signal change in loading direction if needed
+    if {[expr abs($tau)] >= $maxShear} {
+
+      # get strain from element 
+      set strain [eleResponse 1 strain] 
+      set gamma [lindex $strain 2] 
+      puts "direction change required: tau = $tau; gamma = $gamma"
+      
+      # get current displacements of shearing nodes
+      set f [expr 2.0*[nodeDisp 3 1]] 
+      set b [expr 2.0*[nodeDisp 4 1]]
+      
+      # puts "current displacement of front row is $f"
+      # puts "current displacement of back row is $b"
+      
+      # get number of steps required to reach current disp from zero
+      set nStep [expr round(abs($b/$wg))]
+      
+      # puts "there are $nStep steps needed to get back to neutral loading"
+
+      # get current time
+      set cTime [getTime]
+
+      # puts "current time is $cTime"
+      # set an end time for the load patterns
+
+      set zTime [expr $cTime + $nStep*$dt] 
+      set eTime [expr $zTime + 100.0*$nStep]
+
+      # puts "end time for the new load pattern is $eTime"
+
+      remove loadPattern [expr 400+$i-1]
+      eval "timeSeries Path [expr 400+$i] -time {$cTime $eTime 1e10} -values {1 -1000 -1000}" 
+      pattern Plain [expr 400+$i] [expr 400+$i] { 
+        sp 3 1 $b sp 4 1 $b 
+      } 
+      set cCount [expr $cCount + 1] break 
+    } 
+  }
+}
+wipe 
+```
+
+</details>
+
+
+## References
 <p>Cubrinovski, M. and Ishihara K. (1998a) 'Modelling of sand behaviour
 based on state concept,' <em>Soils and Foundations,</em> 38(3),
 115-127.</p>
 <p>Cubrinovski, M. and Ishihara K. (1998b) 'State concept and modified
 elastoplasticity for sand modelling,' <em>Soils and Foundations,</em>
 38(4), 213-225.</p>
-<hr />
-<h2 id="example_analysis">Example Analysis</h2>
-<p>Element test with pure shear loading starting from isotropic initial
-state of stress.</p>
-<p>
-```tcl
-</p>
-<ol>
-<li>intended number of cycles in the test</li>
-</ol>
-<p>set nCycles 120</p>
-<ol>
-<li>shear strain increment for the test</li>
-</ol>
-<p>set dg 0.0001 set wg [expr 2.0*$dg]</p>
-<ol>
-<li>max number of steps</li>
-</ol>
-<p>set maxStep 20000</p>
-<ol>
-<li>initial confinement pressure (kPa)</li>
-</ol>
-<p>set pNot -95.0</p>
-<ol>
-<li>max/min shear stress in the test (kPa)</li>
-</ol>
-<p>set CSR 0.2 set maxShear [expr -$CSR*$pNot]</p>
-<p>wipe</p>
-<p>model BasicBuilder -ndm 2 -ndf 2</p>
-<ol>
-<li>Create nodes</li>
-</ol>
-<p>node 1 0.0 0.0 node 2 1.0 0.0 node 3 1.0 1.0 node 4 0.0 1.0</p>
-<ol>
-<li>Create fixities</li>
-</ol>
-<p>fix 1 1 1 fix 2 1 1 fix 3 1 1 fix 4 1 1</p>
-<ol>
-<li>atmospheric pressure</li>
-</ol>
-<p>set patm 98.1</p>
-<ol>
-<li>mass density</li>
-</ol>
-<p>set mDen 1.8</p>
-<ol>
-<li>steady state line void ratio</li>
-</ol>
-<p>set ssl1 0.832 set ssl2 0.832 set ssl3 0.810 set ssl4 0.796 set ssl5
-0.776 set ssl6 0.756 set ssl7 0.735</p>
-<ol>
-<li>hydrostatic state line void ratio</li>
-</ol>
-<p>set hsl 0.852</p>
-<ol>
-<li>reference pressures for state lines</li>
-</ol>
-<p>set p1 1.0</p>
-<ol>
-<li>stress density model parameters</li>
-</ol>
-<p>set A 250.0 set m 0.60 set nu 0.20 set a1 0.592 set b1 0.021 set a2
-291.0 set b2 55.0 set a3 98.0 set b3 13.0 set fd 4.0 set muNot 0.15 set
-sc 0.0055 set M 0.607</p>
-<ol>
-<li>initial void ratio</li>
-</ol>
-<p>set emax 0.885 set emin 0.541 set Dr 0.54 set eNot [expr $emax -
-$Dr*($emax-$emin)] set muCyc 0.0</p>
-<ol>
-<li>Create material</li>
-</ol>
-<p>nDMaterial stressDensity 2 $mDen $eNot $A $m $nu $a1 $b1 $a2 $b2 $a3
-$b3 $fd $muNot $muCyc \ $sc $M $patm $ssl1 $ssl2 $ssl3 $ssl4 $ssl5 $ssl6
-$ssl7 $hsl $p1</p>
-<p>nDMaterial InitStress 1 2 $pNot 2</p>
-<ol>
-<li>Create element</li>
-</ol>
-<p>element SSPquad 1 1 2 3 4 1 PlaneStrain 1.0 0.0 0.0</p>
-<ol>
-<li>Create recorders</li>
-</ol>
-<p>recorder Element -file stress.out -time stress recorder Element -file
-strain.out -time strain recorder Node -file disp.out -time -dof 1 2
-disp</p>
-<p>set dt 0.1</p>
-<ol>
-<li>Create analysis</li>
-</ol>
-<p>constraints Penalty 1.0e18 1.0e18 algorithm Linear numberer RCM
-system ProfileSPD integrator LoadControl $dt analysis Static</p>
-<p>set dMax [expr 0.6/$wg] eval "timeSeries Path 400 -time {0 0.1 0.2
-300.2} -values {0 0 0 $dMax} -factor 1.0" pattern Plain 400 400 { sp 3 1
-$wg sp 4 1 $wg } analyze 1</p>
-<p>setParameter -value 1 -ele 1 materialState</p>
-<p>analyze 1</p>
-<ol>
-<li>counter for max number of steps</li>
-</ol>
-<p>set count 0 set cCount 0 set cyc 1 puts "Beginning of Cycle 1"</p>
-<ol>
-<li>loop through the total number of cycles</li>
-</ol>
-<p>for {set i 1} {$i &lt;= [expr 2*$nCycles]} {incr i} { if {$cCount ==
-2} { set cyc [expr $cyc+1] puts "Beginning of Cycle $cyc" set cCount 0
-}</p>
-<ol>
-<li>loop within each cycle</li>
-</ol>
-<p>for {set j 1} {$j &lt; 5000} {incr j} {</p>
-<ol>
-<li>abort if count is greater than max number of steps</li>
-</ol>
-<p>if {$count &gt;= $maxStep} {break}</p>
-<ol>
-<li>analyze single step and get the current stress</li>
-</ol>
-<p>analyze 1 set count [expr $count + 1]</p>
-<ol>
-<li>get stress from element</li>
-</ol>
-<p>set stress [eleResponse 1 stress]</p>
-<ol>
-<li>shear stress is component 2</li>
-</ol>
-<p>set tau [lindex $stress 2]</p>
-<ol>
-<li>signal change in loading direction if needed</li>
-</ol>
-<p>if {[expr abs($tau)] &gt;= $maxShear} {</p>
-<ol>
-<li>get strain from element</li>
-</ol>
-<p>set strain [eleResponse 1 strain] set gamma [lindex $strain 2] puts
-"direction change required: tau = $tau; gamma = $gamma"</p>
-<ol>
-<li>get current displacements of shearing nodes</li>
-</ol>
-<p>set f [expr 2.0*[nodeDisp 3 1]] set b [expr 2.0*[nodeDisp 4 1]]</p>
-<ol>
-<li>puts "current displacement of front row is $f"</li>
-<li>puts "current displacement of back row is $b"</li>
-</ol>
-<ol>
-<li>get number of steps required to reach current disp from zero</li>
-</ol>
-<p>set nStep [expr round(abs($b/$wg))]</p>
-<ol>
-<li>puts "there are $nStep steps needed to get back to neutral
-loading"</li>
-</ol>
-<ol>
-<li>get current time</li>
-</ol>
-<p>set cTime [getTime]</p>
-<ol>
-<li>puts "current time is $cTime"</li>
-<li>set an end time for the load patterns</li>
-</ol>
-<p>set zTime [expr $cTime + $nStep*$dt] set eTime [expr $zTime +
-100.0*$nStep]</p>
-<ol>
-<li>puts "end time for the new load pattern is $eTime"</li>
-</ol>
-<p>remove loadPattern [expr 400+$i-1]</p>
-<p>eval "timeSeries Path [expr 400+$i] -time {$cTime $eTime 1e10}
--values {1 -1000 -1000}" pattern Plain [expr 400+$i] [expr 400+$i] { sp
-3 1 $b sp 4 1 $b } set cCount [expr $cCount + 1] break } } }</p>
-<p>wipe 
-```
-</p>

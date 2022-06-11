@@ -2256,17 +2256,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/packages/reliability/275-General%20Commands/</loc>
-         <lastmod>2022-06-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/packages/sensitivity/189-Elastic/</loc>
          <lastmod>2022-06-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/packages/sensitivity/207-Element%20Commands/</loc>
+         <lastmod>2022-06-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/packages/sensitivity/275-General%20Commands/</loc>
          <lastmod>2022-06-11</lastmod>
          <changefreq>daily</changefreq>
     </url>

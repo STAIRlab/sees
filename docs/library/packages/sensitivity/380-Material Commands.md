@@ -1,7 +1,7 @@
 # Material Commands
 
-<p>:;&lt;h2&gt;<a href="uniaxialMaterial_Commands"
-title="wikilink">uniaxialMaterial Commands</a>&lt;/h2&gt;</p>
+<p>:;<h2><a href="uniaxialMaterial_Commands"
+title="wikilink">uniaxialMaterial Commands</a></h2></p>
 <dl>
 <dt></dt>
 <dd>
@@ -13,8 +13,8 @@ sensitivity computation.
 ```tcl
 uniaxialMaterial matType? arg1? ...
 ```
-<p>:;&lt;h2&gt;<a href="nDmaterial_Commands" title="wikilink">nDmaterial
-Commands</a>&lt;/h2&gt;</p>
+<p>:;<h2><a href="nDmaterial_Commands" title="wikilink">nDmaterial
+Commands</a></h2></p>
 <dl>
 <dt></dt>
 <dd>

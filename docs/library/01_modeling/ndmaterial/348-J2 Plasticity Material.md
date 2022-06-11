@@ -1,13 +1,13 @@
 # J2 Plasticity Material
 
-<p>This command is used to construct an multi dimensional material
+This command is used to construct an multi dimensional material
 object that has a von Mises (J2) yield criterium and isotropic
-hardening.</p>
+hardening.
 
 ```tcl
-nDMaterial J2Plasticity $matTag $K $G $sig0 $sigInf
-        $delta $H
+nDMaterial J2Plasticity $matTag $K $G $sig0 $sigInf $delta $H
 ```
+
 <hr />
 <table>
 <tbody>
@@ -41,8 +41,10 @@ nDMaterial J2Plasticity $matTag $K $G $sig0 $sigInf
 </tr>
 </tbody>
 </table>
-<p>The material formulations for the J2 object are "ThreeDimensional,"
-"PlaneStrain," "Plane Stress," "AxiSymmetric," and "PlateFiber."</p>
+
+The material formulations for the J2 object are `"ThreeDimensional"`,
+`"PlaneStrain"`, `"Plane Stress"`, `"AxiSymmetric"` and `"PlateFiber"`.
+
 <hr />
 
 ## Theory
@@ -50,27 +52,35 @@ nDMaterial J2Plasticity $matTag $K $G $sig0 $sigInf
 <p>The theory for the non hardening case can be found <a
 href="http://en.wikipedia.org/wiki/Von_Mises_yield_criterion"
 title="wikilink">http://en.wikipedia.org/wiki/Von_Mises_yield_criterion</a></p>
-<p>J2 isotropic hardening material class</p>
-<p>Elastic Model</p>
-<p>&lt;math&gt; \sigma = K*trace(\epsilon_e) +
-(2*G)*dev(\epsilon_e)&lt;/math&gt;</p>
-<p>Yield Function</p>
-<p>&lt;math&gt; \phi(\sigma,q) = || dev(\sigma) || -
-\sqrt(\tfrac{2}{3}*q(xi)&lt;/math&gt;</p>
-<p>Saturation Isotropic Hardening with linear term</p>
-<p>&lt;math&gt; q(xi) = \sigma_0 + (\sigma_\inf -
-\sigma_0)*exp(-delta*\xi) + H*\xi &lt;/math&gt;</p>
-<p>Flow Rules</p>
-<p>&lt;math&gt; \dot {\epsilon_p} = \gamma * \frac{\partial
-\phi}{\partial \sigma} &lt;/math&gt;</p>
-<p>&lt;math&gt; \dot \xi = -\gamma * \frac{\partial \phi}{\partial q}
-&lt;/math&gt;</p>
-<p>Linear Viscosity</p>
-<p>&lt;math&gt;\gamma = \frac{\phi}{\eta} &lt;/math&gt; ( if
-&lt;math&gt; \phi &gt; 0&lt;/math&gt; )</p>
-<p>Backward Euler Integration Routine Yield condition enforced at time
-n+1</p>
-<p>set $\eta = 0 $ for rate independent case</p>
+
+J2 isotropic hardening material class
+
+- Elastic Model
+  $$\sigma = K*trace(\epsilon_e) + (2*G)*dev(\epsilon_e)$$
+
+- Yield Function
+  $$\phi(\sigma,q) = || dev(\sigma) || - \sqrt(\tfrac{2}{3}*q(xi)$$
+
+- Saturation Isotropic Hardening with linear term</p>
+  $$q(xi) = \sigma_0 + (\sigma_\inf - \sigma_0)*exp(-delta*\xi) + H*\xi $$
+
+- Flow Rules
+  $$\dot {\epsilon_p} = \gamma * \frac{\partial \phi}{\partial \sigma} $$
+  
+  $$\dot \xi = -\gamma * \frac{\partial \phi}{\partial q}$$
+
+- Linear Viscosity
+
+  $$\gamma = \frac{\phi}{\eta}$$ 
+
+  ( if $\phi \gt  0$ )
+
+
+Backward Euler Integration Routine Yield condition enforced at time $n+1$
+
+- set $\eta = 0$ for rate independent case
+
 <hr />
+
 <p>Code Developed by: <span style="color:blue"> Ed Love
 </span></p>

@@ -1,3 +1,0 @@
-# CorotTruss2
-
-
