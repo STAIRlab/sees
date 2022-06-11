@@ -12697,11 +12697,15 @@
 
 
 <h1 id="objectbroker">ObjectBroker</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include  </span><span class="im">&lt;ObjectBroker.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ObjectBroker</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;ObjectBroker.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ObjectBroker</span><span class="w"></span>
+</pre></div>
+
 <p>ObjectBroker is an abstract class, i.e. no instances of ObjectBroker should exist. ObjectBrokers are objects in remote processes which create new objects in the remote process. It has one method</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> MovableObject \<span class="op">*</span>getNewObject<span class="op">(</span>Channel <span class="op">&amp;</span>channel<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">MovableObject</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getNewObject</span><span class="p">(</span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">channel</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>This method returns a pointer to an object of the type whose class type is given by the integer class ID value that is waiting at the Channel. The method must first instantiate the correct type of object, it then can invoke <code>recv(channel)</code> on this object. To get from a pointer of MovableObject to one of its descendents type casting must be used.</p>
 
 

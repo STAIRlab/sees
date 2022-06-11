@@ -12695,7 +12695,9 @@
 
 
 <h1 id="graph">Graph</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;graph/graph/Graph.h&gt;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;graph/graph/Graph.h&gt;</span><span class="cp"></span>
+</pre></div>
+
 <p>class Graph:<br />
 </p>
 <p><br />
@@ -12732,16 +12734,26 @@ Invokes <code>clearAll()</code> on the storage object used to store the Vertices
 <p><br />
 Causes the graph to add a vertex to the graph. If <em>checkAdjacency</em> is <em>true</em>, a check is made to ensure that all the Vertices in the adjacency list of the Vertex are in the Graph. If a vertex in the adjacency is not in the Graph the vertex is not added, a warning message is printed and <em>false</em> is returned. If successful, returns the result of invoking <code>addComponent()</code> on the TaggedStorage object used to store the Vertices. <em>virtual int addEdge(int vertexTag, int otherVertexTag);</em><br />
 Causes the Graph to add an edge <code class="sourceCode cpp"><span class="op">(</span>vertexTag<span class="op">,</span>otherVertexTag<span class="op">)</span></code> to the Graph. A check is first made to see if vertices with tags given by <em>vertexTag</em> and <em>otherVertexTag</em> exist in the graph. If they do not exist a <span class="math inline">\(-1\)</span> is returned, otherwise the method invokes <code>addEdge()</code> on each of the corresponding vertices in the graph. Increments <em>numEdge</em> by <span class="math inline">\(1\)</span> and returns <span class="math inline">\(0\)</span> if sucessfull, a <span class="math inline">\(1\)</span> if the edge already existed, and a <span class="math inline">\(-2\)</span> if one <code>addEdge()</code> was successful, but the other was not.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> Vertex \<span class="op">*</span>getVertexPtr<span class="op">(</span><span class="dt">int</span> vertexTag<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Vertex</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getVertexPtr</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">vertexTag</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns a pointer to the vertex whose tag is given by <em>vertexTag</em>. If no such vertex exists in the graph <span class="math inline">\(0\)</span> is returned. Invokes <code>getComponentPtr(vertexTag)</code> on the vertex storage object and casts this to a Vertex * if not null.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> VertexIter <span class="op">&amp;</span>getVertices<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">VertexIter</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getVertices</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns a reference to the graphs VertexIter. This iter can be used for iterating through the vertices of the graph.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumVertex<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumVertex</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method to return the number of vertices in the graph. Invokes <code>getNumComponents()</code> on the Vertex storage object.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> getNumEdge<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getNumEdge</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method to return the number of edges in the graph, returns <em>numEdge</em>.</p>
 <p>To remove the Vertex from the Graph whose tag is equal to <em>vertexTag</em>. If <em>removeEdgeFlag</em> is <em>true</em> will also remove the Vertex from the remaining Vertices adjacency lists. returns a pointer to the removed Vertex if successful, <span class="math inline">\(0\)</span> if the Vertex was not in the Graph. Invokes <code>removeComponent(vertexTag)</code> on the vertex storage object and casts this to a Vertex * if not null. DOES NOT YET DEAL WITH <em>removeEdgeFlag</em>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span><span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method to print the graph. Invokes <code class="sourceCode cpp">Print<span class="op">(</span>s<span class="op">,</span> flag<span class="op">)</span></code> on the vertex storage object.</p>
 <p>Invokes <code>Print()</code> on the Graph <em>G</em>.</p>
 

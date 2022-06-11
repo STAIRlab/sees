@@ -12715,141 +12715,219 @@
 <p>The main abstractions of OpenSees will be explained using the OpenSees interpreter. The interpreter is an extension of the Tcl scripting language. Tcl is a string based procedural command language which allows substitution, loops, mathematical expressions, and procedures. The OpenSees interpreter adds commands to Tcl for finite element analysis. Each of these commands is associated (bound) with a C++ procedure that is provided. It is this procedure that is called upon by the interpreter to parse the command. In this document we outline only those commands which have been added to Tcl by opensees.</p>
 <h2 id="tcl-basics">Tcl Basics</h2>
 <p>The basic syntax for a Tcl command is</p>
-<pre><code>   command arg1 arg2 aropensees ...</code></pre>
+<div class="highlight"><pre><span></span>   command arg1 arg2 aropensees ...
+</pre></div>
+
 <p>where command is the name of the Tcl command or is a user defined procedure and arg1 arg2 ... are the arguments for the command. Tcl allows any argument to be a nested command:</p>
-<pre><code>   command [nested command 1] [nested command 2] ...</code></pre>
+<div class="highlight"><pre><span></span>   command [nested command 1] [nested command 2] ...
+</pre></div>
+
 <p>where the [ ] are used to delimit the nested commands. The Tcl interpreter will first evaluate the nested commands and will evaluate the outer command with the result of the nested commands.</p>
 <p>The most basic command in Tcl is the set command:</p>
-<pre><code>   set variable value</code></pre>
+<div class="highlight"><pre><span></span><span class="w">   </span><span class="n">set</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">value</span><span class="w"></span>
+</pre></div>
+
 <p>which takes two arguments, the variables name and the value it is to be assigned. Value may be a string or number (in Tcl everything is treated as a string). To obtain the value of a variable the <span class="math inline">\(\$\)</span> operator is used.</p>
 <p>To evaluate mathematical expressions the expr command is used:</p>
-<pre><code>   expr expression</code></pre>
+<div class="highlight"><pre><span></span>   expr expression
+</pre></div>
+
 <p>where the expression may be any valid mathematical expression used in the C programming language. Tcl allows variable substitution in the expression.</p>
 <p>Double quotes and braces can be used to group strings into one argument for a command. The difference is that quotes allow substitution to occur in the group, where as braces do not, for example:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> a <span class="dv">5</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>-&gt; <span class="dv">5</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="kw">puts</span> <span class="st">&quot;a is </span><span class="dt">$</span><span class="st">a&quot;</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>-&gt; a <span class="ot">is</span> <span class="dv">5</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">puts</span> <span class="kw">{</span>a <span class="ot">is</span> <span class="dt">$a</span><span class="kw">}</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>-&gt; a <span class="ot">is</span> <span class="dt">$a</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>a<span class="w"> </span><span class="mi">5</span>
+<span class="nv">-</span><span class="o">&gt;</span><span class="w"> </span><span class="mi">5</span>
+<span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;a is $a&quot;</span>
+<span class="nv">-</span><span class="o">&gt;</span><span class="w"> </span>a<span class="w"> </span>is<span class="w"> </span><span class="mi">5</span>
+<span class="nb">puts</span><span class="w"> </span><span class="k">{</span><span class="nv">a</span><span class="w"> </span>is<span class="w"> </span><span class="nv">$a</span><span class="k">}</span>
+<span class="nv">-</span><span class="o">&gt;</span><span class="w"> </span>a<span class="w"> </span>is<span class="w"> </span><span class="nv">$a</span>
+</pre></div>
+
 <p>Procedures are defined using the command proc:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">proc</span> <span class="ot">name</span> <span class="ot">args</span> <span class="ot">body</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">proc</span><span class="w"> </span>name<span class="w"> </span>args<span class="w"> </span>body
+</pre></div>
+
 <p>where name is the name of the Tcl procedure created, args is the procedure arguments and body is the body of the procedure, for example:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> a <span class="dv">5</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">proc</span> sum <span class="kw">{</span>arg1 arg2<span class="kw">}</span> <span class="kw">{</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">return</span> <span class="kw">[expr</span> <span class="dt">$arg1</span> + <span class="dt">$arg2</span><span class="kw">]</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>sum <span class="dt">$a</span> <span class="dt">$a</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>-&gt;<span class="dv">10</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>a<span class="w"> </span><span class="mi">5</span>
+<span class="k">proc</span><span class="w"> </span>sum<span class="w"> </span><span class="k">{</span><span class="nv">arg1</span><span class="w"> </span>arg2<span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$arg1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$arg2</span><span class="k">]</span>
+<span class="k">}</span>
+<span class="nv">sum</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="nv">$a</span>
+<span class="nv">-</span><span class="o">&gt;</span><span class="mi">10</span>
+</pre></div>
+
 <p>Tcl also allows for loops and conditional evaluation. For more details see ‘Practical Programming in Tcl and Tk’ by Brent B. Welch.</p>
 <h2 id="notation">Notation</h2>
 <p>For the rest of this document the following notation will be used. Input values are a string unless terminated by a <span class="math inline">\(?\)</span>, in which case an integer or floating point number is to be provided. Optional values are identified in enclosing <span class="math inline">\(&lt;\)</span> <span class="math inline">\(&gt;\)</span> braces. When specifying a quantity of x values are required, the command line contains (x values?). An arbitrary number of input values is indicated with the dotdotdot notation, i.e. value1? value2? ... .</p>
 <h2 id="the-model-command">The model Command</h2>
-<pre><code>   model modelBuilderType &lt;specific model builder args&gt;</code></pre>
+<div class="highlight"><pre><span></span>   model modelBuilderType &lt;specific model builder args&gt;
+</pre></div>
+
 <p>The model command has at least one argument which identifies the type of ModelBuilder object to be constructed. Currently there is only one type of ModelBuilder accepted, that of type BasicBuilder.</p>
-<pre><code>   model BasicBuilder -ndm ndm? &lt;-ndf ndf?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">model</span> <span class="n">BasicBuilder</span> <span class="o">-</span><span class="n">ndm</span> <span class="n">ndm</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">ndf</span> <span class="n">ndf</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>The command for constructing a BasicBuilder object contains additional arguments. The string -ndm followed by an integer defining the dimension of the problem, i.e. 1, 2 or 3-d. By default the number of degrees-of-freedom at a node (ndf) depend on the value of ndm (ndm=1, ndf=1; ndm=2, ndf=3; ndm=3, ndf=6). An optional string -ndf followed by an integer defining the number of degrees associated with each node can also be specified if the analyst should require degrees of freedom different from the defaults.</p>
 <p>The construction of the BasicBuilder object adds additional commands to the opensees language. These additional commands allow for the construction of Nodes, Elements, LoadPatterns, TimeSeries, Loads and Constraints. The additional commands are as follows:</p>
 <h3 id="the-node-command">The node Command</h3>
-<pre><code>   node nodeTag? (ndm coordinates?) &lt;-mass (ndf values?)&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">node</span> <span class="n">nodeTag</span><span class="o">?</span> <span class="p">(</span><span class="n">ndm</span> <span class="n">coordinates</span><span class="o">?</span><span class="p">)</span> <span class="o">&lt;-</span><span class="nf">mass </span><span class="p">(</span><span class="n">ndf</span> <span class="n">values</span><span class="o">?</span><span class="p">)</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>The node command is used to construct a Node object. The first argument to the node command defines the integer tag that uniquely identifies the node object among all other nodes in the model. Following the tag argument, ndm nodal coordinates must be provided to define the spatial location of the Node. An optional string -mass accompanied by ndf mass terms following the specification of the coordinates allows the analyst the option of associating nodal mass with the Node.</p>
 <h3 id="the-mass-command">The mass Command</h3>
-<pre><code>   mass nodeTag? (ndf values?)</code></pre>
+<div class="highlight"><pre><span></span>   mass nodeTag? (ndf values?)
+</pre></div>
+
 <p>The mass command is used to set the mass at a node. The first argument to the node command defines the integer tag that uniquely identifies the node for which the mass will be set. Following the tag argument, ndf mass terms are specified, where ndf is the number of degrees of freedom per node in the model.</p>
 <h3 id="the-uniaxialmaterial-command">The uniaxialMaterial Command</h3>
-<pre><code>   uniaxialMaterial materialType &lt;specific material args&gt;</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial materialType &lt;specific material args&gt;
+</pre></div>
+
 <p>The uniaxialMaterial command is used to construct a UniaxialMaterial object. UniaxialMaterial objects represent uniaxial stress-strain (or force-deformation) relationships. The command has at least two arguments, the string materialType and the material tag. The argument <code>tag</code> uniquely identifies this UniaxialMaterial object among UniaxialMaterial objects in the BasicBuilder object. The commands for specifying each type of uniaxial material are as outlined below.</p>
 <p>The valid queries to any uniaxial material when creating an ElementRecorder are ‘strain’, ‘stress’, and ‘tangent’.</p>
 <h4 id="elastic-material">Elastic Material</h4>
-<pre><code>   uniaxialMaterial Elastic tag? E? &lt;eta?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Elastic tag? E? &lt;eta?&gt;
+</pre></div>
+
 <p>To construct an elastic uniaxial material with a tangent of <code>E</code> and optional damping tangent of <code>eta</code>.</p>
 <h4 id="elastic-no-tension-material">Elastic-No Tension Material</h4>
-<pre><code>   uniaxialMaterial ENT tag? E?</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial ENT tag? E?
+</pre></div>
+
 <p>To construct a uniaxial elastic-no tension material model. The model takes a single parameter, <code>E</code>, the elastic modulus in compression. In tension, there is zero stress and zero tangent.</p>
 <h4 id="elastic-perfectly-plastic-material">Elastic-Perfectly Plastic Material</h4>
-<pre><code>   uniaxialMaterial ElasticPP tag? E? epsyP? &lt;epsyN? epsZero?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial ElasticPP tag? E? epsyP? &lt;epsyN? epsZero?&gt;
+</pre></div>
+
 <p>To construct an elastic perfectly plastic uniaxial material with an elastic tangent of <code>E</code> which reaches the plastic state at a strain of <code>epsyP</code>. There are two optional arguments for this material. First, <code>epsyN</code> is the yield strain in compression. If not specified, the yield strain in compression is assumed to be the same as in tension (<code>epsyP</code>). Second, <code>epsZero</code> is an initial strain, which is assumed to be zero if not specified.</p>
 <h4 id="elastic-perfectly-plastic-gap-material">Elastic-Perfectly Plastic Gap Material</h4>
-<pre><code>   uniaxialMaterial ElasticPPGap tag? E? fy? gap?</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial ElasticPPGap tag? E? fy? gap?
+</pre></div>
+
 <p>To construct an elastic perfectly plastic gap uniaxial material with an elastic modulus of <code>E</code>, which reaches the plastic state at a stress of <code>fy</code>. The initial gap of the model is given by the argument <code>gap</code>.</p>
 <h4 id="hardening-material">Hardening Material</h4>
-<pre><code>   uniaxialMaterial Hardening tag? E? sigmaY? Hiso? Hkin? &lt;eta?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Hardening tag? E? sigmaY? Hiso? Hkin? &lt;eta?&gt;
+</pre></div>
+
 <p>To construct a uniaxial material model with combined linear kinematic and isotropic hardening. The model contains a yield stress of <code>sigmaY</code>, an elastic modulus of <code>E</code>, an isotropic hardening modulus of <code>Hiso</code>, and a kinematic hardening modulus of <code>Hkin</code>. The material viscosity, <code>eta</code>, is optional (default is 0.0), for which a linear Perzyna viscoplastic formulation is used.</p>
 <h4 id="hysteretic-material">Hysteretic Material</h4>
-<div class="sourceCode" id="cb18"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial Hysteretic <span class="ot">tag</span>? s1p? e1p? s2p? e2p? &lt;s3p? e3p?&gt;</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>        s1n? e1n? s2n? e2n? &lt;s3n? e3n?&gt; pinchX? pinchY? d1? d2? &lt;beta?&gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Hysteretic<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>s1p<span class="o">?</span><span class="w"> </span>e1p<span class="o">?</span><span class="w"> </span>s2p<span class="o">?</span><span class="w"> </span>e2p<span class="o">?</span><span class="w"> </span><span class="o">&lt;</span>s3p<span class="o">?</span><span class="w"> </span>e3p<span class="o">?&gt;</span>
+<span class="w">        </span><span class="nv">s1n</span><span class="o">?</span><span class="w"> </span>e1n<span class="o">?</span><span class="w"> </span>s2n<span class="o">?</span><span class="w"> </span>e2n<span class="o">?</span><span class="w"> </span><span class="o">&lt;</span>s3n<span class="o">?</span><span class="w"> </span>e3n<span class="o">?&gt;</span><span class="w"> </span>pinchX<span class="o">?</span><span class="w"> </span>pinchY<span class="o">?</span><span class="w"> </span>d1<span class="o">?</span><span class="w"> </span>d2<span class="o">?</span><span class="w"> </span><span class="o">&lt;</span>beta<span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct a bilinear hysteretic model with pinching of force and deformation, damage due to ductility and energy, and degraded unloading stiffness based on ductility. Points on the backbone are specifed by the arguments <code>s1p</code>, <code>e1p</code>, etc., where <code>s</code> indicates force, <code>e</code> indicates deformation, <code>1</code> is the first point on the backbone (yield), <code>2</code> the second point, and <code>3</code> indicates an optional third point for a trilinear backbone. <code>p</code> indicates positive backbone points, and <code>n</code> negative backbone points. Note that negative backbone points should be entered as negative numeric values. The pinching factors <code>pinchX</code> and <code>pinchY</code> indicate the amount of pinching of deformation and force, respectively, during reloading. The factors <code>d1</code> and <code>d2</code> are for damage due to ductility, <span class="math inline">\(D_1(\mu-1)\)</span>, and energy, <span class="math inline">\(D_2(\frac{E_i}{E_{ult}})\)</span>, respectively. The optional parameter <code>beta</code> is a power used to determine degraded unloading stiffness based on ductility, <span class="math inline">\(\mu^{-\beta}\)</span>.</p>
 <h4 id="steel01-material">Steel01 Material</h4>
-<div class="sourceCode" id="cb19"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial Steel01 <span class="ot">tag</span>? fy? E? b? &lt;a1? a2? a3? a4?&gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Steel01<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>fy<span class="o">?</span><span class="w"> </span>E<span class="o">?</span><span class="w"> </span>b<span class="o">?</span><span class="w"> </span><span class="o">&lt;</span>a1<span class="o">?</span><span class="w"> </span>a2<span class="o">?</span><span class="w"> </span>a3<span class="o">?</span><span class="w"> </span>a4<span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct a uniaxial bilinear steel model with kinematic hardening and optional isotropic hardening described by a non-linear evolution equation. The model contains a yield strength of <code>fy</code>, an elastic modulus of <code>E</code>, and a hardening ratio of <code>b</code>. Isotropic hardening is controlled by the optional parameters <code>a1</code>, <code>a2</code>, <code>a3</code>, and <code>a4</code>. By default there is no isotropic hardening.</p>
 <h4 id="concrete01-material">Concrete01 Material</h4>
-<pre><code>   uniaxialMaterial Concrete01 tag? fpc? epsc0? fpcu? epscu?</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Concrete01 tag? fpc? epsc0? fpcu? epscu?
+</pre></div>
+
 <p>To construct a uniaxial Kent-Scott-Park concrete model with degraded linear unloading/reloading stiffness according to the work of Karsan-Jirsa and no strength in tension. The model contains a compressive strength of <code>fpc</code>, a strain at the compressive strength of <code>epsc0</code>, a crushing strength of <code>fpcu</code>, and a strain at the crushing strength of <code>epscu</code>. The initial slope for this model is (<span class="math inline">\(2f&#39;_c/\varepsilon_{c0}\)</span>). Compressive concrete parameters should be input as negative values for this model.</p>
 <h4 id="viscous-material">Viscous Material</h4>
-<pre><code>   uniaxialMaterial Viscous tag? C? alpha?</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Viscous tag? C? alpha?
+</pre></div>
+
 <p>To construct a uniaxial material model with a non-linear elastic stress-strain rate relation given by <span class="math inline">\(\sigma = C\dot{\varepsilon}^\alpha\)</span>, where <span class="math inline">\(C\)</span> and <span class="math inline">\(\alpha\)</span> are constant. The input parameters are <code>C</code> and <code>alpha</code>.</p>
 <h4 id="parallel-material">Parallel Material</h4>
-<pre><code>   uniaxialMaterial Parallel tag? matTag1? matTag2? ...</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Parallel tag? matTag1? matTag2? ...
+</pre></div>
+
 <p>To construct a parallel material model made up of an arbitrary number of previously constructed UniaxialMaterial objects, which are identified by the tags <code>matTag1 matTag2 ...</code> . In a parallel model, strains are equal and stresses and tangents are additive.</p>
 <h4 id="series-material">Series Material</h4>
-<pre><code>   uniaxialMaterial Series tag? matTag1? matTag2? ... </code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Series tag? matTag1? matTag2? ... 
+</pre></div>
+
 <p>To construct a series material model made up of an arbitrary number of previously constructed UniaxialMaterial objects, which are identified by the tags <code>matTag1 matTag2 ...</code> . In a series model, stresses are equal and strains and flexibilities are additive.</p>
 <h4 id="minmax-material">MinMax Material</h4>
-<pre><code>   uniaxialMaterial MinMax tag? matTag? &lt;-min epsMin?&gt; &lt;-max epsMax?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">uniaxialMaterial</span> <span class="n">MinMax</span> <span class="n">tag</span><span class="o">?</span> <span class="n">matTag</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">min</span> <span class="n">epsMin</span><span class="o">?&gt;</span> <span class="o">&lt;-</span><span class="n">max</span> <span class="n">epsMax</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct a min-max material model which imposes strain limits on a previously defined UniaxialMaterial object identified by the argument <code>matTag</code>. The optional arguments <code>epsMin</code> and <code>epsMax</code> denote the minimum and maximum strains for the material. When the material strain exceeds either of these values, the material is assumed to have failed, i.e., zero stress and tangent after exceedance.</p>
 <h4 id="pathindependent-material">PathIndependent Material</h4>
-<pre><code>   uniaxialMaterial PathIndependent tag? matTag?</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial PathIndependent tag? matTag?
+</pre></div>
+
 <p>To construct a path-independent material model from a previously defined UniaxialMaterial object identified by the argument <code>matTag</code>.</p>
 <h4 id="fedeas-materials">FEDEAS Materials</h4>
 <p>This section lists the uniaxial material models available from the FEDEAS ML1D library developed by F.C. Filippou. For more information see the FEDEAS materials webpage:</p>
-<pre><code>   http://www.ce.berkeley.edu/~filippou/Research/Fedeas/material.htm</code></pre>
+<div class="highlight"><pre><span></span>   http://www.ce.berkeley.edu/~filippou/Research/Fedeas/material.htm
+</pre></div>
+
 <p>Further information on the Concrete01 and Steel01 materials described earlier in this section can also be found at this webpage. Currently, each of the following FEDEAS materials are only available with the Win32 version of OpenSees.</p>
 <h5 id="concrete02-material">Concrete02 Material</h5>
-<pre><code>   uniaxialMaterial Concrete02 tag? fpc? epsc0? fpcu? epscu? ratio? ft? Ets?</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Concrete02 tag? fpc? epsc0? fpcu? epscu? ratio? ft? Ets?
+</pre></div>
+
 <p>To construct a uniaxial concrete model with tensile strength and linear tension softening. The compressive envelope is defined by the compressive strength, <code>fpc</code>, strain at the compressive strength <code>epsc0</code>, crushing strength, <code>fpcu</code>, and strain at the crushing strength <code>epscu</code>. The parameter <code>ratio</code> is the ratio between unloading slope at <code>epscu</code> and initial slope (<span class="math inline">\(2f&#39;_c/\varepsilon_{c0}\)</span>). Concrete tensile strength is given by <code>ft</code>, and <code>Ets</code> is the slope of the linear tension softening branch.</p>
 <h5 id="concrete03-material">Concrete03 Material</h5>
-<pre><code>   uniaxialMaterial Concrete03 tag? fpc? epsc0? fpcu? epscu? ratio? ft?
-                                    epst0? ft0? beta? epstu?</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Concrete03 tag? fpc? epsc0? fpcu? epscu? ratio? ft?
+                                    epst0? ft0? beta? epstu?
+</pre></div>
+
 <p>To construct a uniaxial concrete model with tensile strength and nonlinear tension softening. The compressive envelope is defined by the compressive strength, <code>fpc</code>, strain at the compressive strength <code>epsc0</code>, crushing strength, <code>fpcu</code>, and strain at the crushing strength <code>epscu</code>. The parameter <code>ratio</code> is the ratio between unloading slope at <code>epscu</code> and original slope (<span class="math inline">\(2f&#39;_c/\varepsilon_{c0}\)</span>). Concrete tensile strength is given by <code>ft</code>. <code>epst0</code> is the tensile strain at the transition from nonlinear to linear softening, and <code>ft0</code> is the stress at this transition. The exponent of the tension softening curve is <code>beta</code> and <code>epstu</code> is the ultimate tensile strain.</p>
 <h5 id="steel02-material">Steel02 Material</h5>
-<pre><code>   uniaxialMaterial Steel02 tag? fy? E? b? &lt;R0? cR1? cR2? &lt;a1? a2? a3? a4?&gt; &gt;</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Steel02 tag? fy? E? b? &lt;R0? cR1? cR2? &lt;a1? a2? a3? a4?&gt; &gt;
+</pre></div>
+
 <p>To construct a uniaxial Menegotto-Pinto steel model with isotropic strain hardening. The yield stress is given by <code>fy</code>, the elastic modulus, <code>E</code>, and strain hardening ratio <code>b</code>. The optional factors <code>R0</code>, <code>cR1</code>, and <code>cR2</code> control the transition from elastic to plastic branches. Reasonable default values are provided. Isotropic hardening is controlled by the optional parameters <code>a1</code>, <code>a2</code>, <code>a3</code>, and <code>a4</code>. By default there is no isotropic hardening.</p>
 <h5 id="bond01-material">Bond01 Material</h5>
-<pre><code>   uniaxialMaterial Bond01 tag? u1p? q1p? u2p? u3p? q3p?
-                                u1n? q1n? u2n? u3n? q3n? s0? bb?</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Bond01 tag? u1p? q1p? u2p? u3p? q3p?
+                                u1n? q1n? u2n? u3n? q3n? s0? bb?
+</pre></div>
+
 <p>To construct an Eligehausen bond model without damage. The tensile bond-slip backbone parameters are given by <code>u1p</code> (slip at first detachment), <code>q1p</code> (bond at first detachment), <code>u2p</code> (slip at start of degradation), <code>u3p</code> (slip at ultimate), and <code>q3p</code> (bond at ultimate). The corresponding compressive bond-slip backbone parameters are indicated with a suffix of <code>n</code>. The unloading stiffness is given by <code>s0</code>, and the exponent for the first branch of the backbone (prior to first detachment) is given by <code>bb</code>, i.e., <span class="math inline">\(q = u^{bb}\)</span>.</p>
 <h5 id="bond02-material">Bond02 Material</h5>
-<pre><code>   uniaxialMaterial Bond02 tag? u1p? q1p? u2p? u3p? q3p?
-                                u1n? q1n? u2n? u3n? q3n? s0? bb? alp? aln?</code></pre>
+<div class="highlight"><pre><span></span>   uniaxialMaterial Bond02 tag? u1p? q1p? u2p? u3p? q3p?
+                                u1n? q1n? u2n? u3n? q3n? s0? bb? alp? aln?
+</pre></div>
+
 <p>To construct an Eligehausen bond model with damage. The tensile bond-slip backbone parameters are given by <code>u1p</code> (slip at first detachment), <code>q1p</code> (bond at first detachment), <code>u2p</code> (slip at start of degradation), <code>u3p</code> (slip at ultimate), and <code>q3p</code> (bond at ultimate). The corresponding compressive bond-slip backbone parameters are indicated with a suffix of <code>n</code>. The unloading stiffness is given by <code>s0</code>, and the exponent for the first branch of the backbone (prior to first detachment) is given by <code>bb</code>, i.e., <span class="math inline">\(q = u^{bb}\)</span>. The arguments <code>alp</code> and <code>aln</code> are the damage factors in the positive and negative quadrants, respectively.</p>
 <h3 id="the-ndmaterial-command">The nDMaterial Command</h3>
-<pre><code>   nDMaterial materialType tag? &lt;specific material args&gt;</code></pre>
+<div class="highlight"><pre><span></span>   nDMaterial materialType tag? &lt;specific material args&gt;
+</pre></div>
+
 <p>The nDMaterial command is used to construct an NDMaterial object. NDMaterial objects represent stress-strain relationships at the integration points of continuum and force-deformation elements. The command has at least one argument, the material type and tag. The argument <code>tag</code> uniquely identifies the NDMaterial object among NDMaterials in the BasicBuilder object. The commands for specifying each type of material are as outlined below.</p>
 <p>The valid queries to any NDMaterial when creating an ElementRecorder are ‘strain’, ‘stress’, and ‘tangent’.</p>
 <h4 id="elastic-isotropic-material">Elastic Isotropic Material</h4>
-<pre><code>   nDMaterial ElasticIsotropic tag? E? nu? &lt;rho?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   nDMaterial ElasticIsotropic tag? E? nu? &lt;rho?&gt;
+</pre></div>
+
 <p>To construct an ElasticIsotropic material object with elastic modulus <code>E</code> and Poisson ratio <code>nu</code>. The material mass density per unit volume, <code>rho</code>, is optional (default is 0.0).</p>
 <p>The material formulations for the ElasticIsotropic object are “ThreeDimensional,” “PlaneStrain,” “PlaneStress,” “AxiSymmetric,” and “PlateFiber.” These are the valid strings that can be passed to the continuum elements for the type parameter.</p>
 <h4 id="j2-plasticity-material">J2 Plasticity Material</h4>
-<pre><code>   nDMaterial J2Plasticity tag? K? G? sig0? sigInf? delta? H? &lt;eta?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   nDMaterial J2Plasticity tag? K? G? sig0? sigInf? delta? H? &lt;eta?&gt;
+</pre></div>
+
 <p>To construct a J2Plasticity material object with a bulk modulus <code>K</code>, shear modulus <code>G</code>, initial yield stress <code>sig0</code>, final saturation yield stress <code>sigInf</code>, exponential hardening parameter <code>delta</code> and the linear hardening parameter <code>H</code>. The material viscosity, <code>eta</code>, is optional (default is 0.0), for which a linear Perzyna viscoplastic formulation is used.</p>
 <p>The material formulations for the J2Plasticity object are “ThreeDimensional,” “PlaneStrain,” “PlaneStress,” “AxiSymmetric,” and “PlateFiber.” These are the valid strings that can be passed to the continuum elements for the type parameter.</p>
 <h4 id="plane-stress-material">Plane Stress Material</h4>
-<pre><code>   nDMaterial PlaneStress tag? matTag? </code></pre>
+<div class="highlight"><pre><span></span>   nDMaterial PlaneStress tag? matTag? 
+</pre></div>
+
 <p>The plane stress material wrapper converts any three dimensional material into a plane stress material via static condensation. The argument <code>matTag</code> is the material tag for a three dimensional material model assumed to have been previously defined.</p>
 <h4 id="plate-fiber-material">Plate Fiber Material</h4>
-<pre><code>   nDMaterial PlateFiber tag? matTag? </code></pre>
+<div class="highlight"><pre><span></span>   nDMaterial PlateFiber tag? matTag? 
+</pre></div>
+
 <p>The plate fiber material wrapper converts any three dimensional material into a plate fiber material (by static condensation) appropiate for shell analysis. The argument <code>matTag</code> is the material tag for a three dimensional material model assumed to have been previously defined.</p>
 <h3 id="the-section-command">The section Command</h3>
-<pre><code>   section sectionType tag? &lt;specific section args&gt;</code></pre>
+<div class="highlight"><pre><span></span>   section sectionType tag? &lt;specific section args&gt;
+</pre></div>
+
 <p>The section command is used to construct a SectionForceDeformation object. SectionForceDeformation objects, hereto referred to as Section, represent force-deformation (resultant stress-strain) relationships at beam-column and plate sample points, as well as for zero length elements. The command has at least two arguments, the section type and tag. The argument <code>tag</code> uniquely identifies the Section object among Section objects in the BasicBuilder object. The commands for specifying each type of section are as outlined below.</p>
 <p>The valid queries to any section when creating an ElementRecorder are ‘force’ and ‘deformation’.</p>
 <h4 id="elastic-section">Elastic Section</h4>
-<pre><code>   section Elastic tag? E? A? Iz? &lt;Iy? G? J?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   section Elastic tag? E? A? Iz? &lt;Iy? G? J?&gt;
+</pre></div>
+
 <p>To construct an ElasticSection object appropriate for beam analysis. The arguments are the elastic modulus <code>E</code>, cross-section area <code>A</code>, and second moment of area about the local z-axis <code>Iz</code>. Optional arguments can be specified for three-dimensional analysis. These arguments are the second moment of area about the local y-axis <code>Iy</code>, shear modulus <code>G</code>, and second polar moment of area <code>J</code>.</p>
 <h4 id="uniaxial-section">Uniaxial Section</h4>
-<pre><code>   section Uniaxial  tag? matTag? code
-   section Generic1d tag? matTag? code</code></pre>
+<div class="highlight"><pre><span></span>   section Uniaxial  tag? matTag? code
+   section Generic1d tag? matTag? code
+</pre></div>
+
 <p>To construct a UniaxialSection (formerly GenericSection1d) object which uses a previously defined UniaxialMaterial object, identifed by the argument <code>matTag</code>, to represent a single section force-deformation response quantity. The argument <code>code</code> indicates the force-deformation quantity to be modeled by this section object. Values for <code>code</code> are given in Figure 2.</p>
 <div class="center">
 <table>
@@ -12882,160 +12960,222 @@
 </table>
 </div>
 <h4 id="section-aggregator">Section Aggregator</h4>
-<pre><code>   section Aggregator tag? matTag1? code1 matTag2? code2 ... &lt;-section secTag?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">section</span> <span class="n">Aggregator</span> <span class="n">tag</span><span class="o">?</span> <span class="n">matTag1</span><span class="o">?</span> <span class="n">code1</span> <span class="n">matTag2</span><span class="o">?</span> <span class="n">code2</span> <span class="kc">...</span> <span class="o">&lt;-</span><span class="n">section</span> <span class="n">secTag</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct a SectionAggregator object which groups previously defined UniaxialMaterial objects, represented by the arguments <code>matTag1 code1 matTag2 code2 ...</code> , into a single section force-deformation model. The optional <code>-section</code> switch is used to specify a previously defined Section object, identified by the argument <code>secTag</code>, to which these UniaxialMaterial objects may be added to recursively define a new Section object. The UniaxialMaterial objects aggregated in this Section object are uncoupled from each other as well as from the Section object represented by <code>secTag</code>, if present. Values for <code>code</code> are given in Figure <a href="#sectionCodes" data-reference-type="ref" data-reference="sectionCodes">[sectionCodes]</a>.</p>
 <h4 id="fiber-section">Fiber Section</h4>
-<pre><code>   section Fiber tag? {
+<div class="highlight"><pre><span></span>   section Fiber tag? {
       fiber &lt;fiber arguments&gt;
       patch &lt;patch arguments&gt;
       layer &lt;layer arguments&gt;
-   }</code></pre>
+   }
+</pre></div>
+
 <p>To construct a FiberSection object composed of Fiber objects. The available Fiber objects are UniaxialFiber2d/3d, which enforce the Bernoulli beam assumption. A fiber section has a general geometric configuration formed by subregions of simpler, regular shapes (e.g. quadrilateral, circular and triangular regions) called patches. In addition, layers of reinforcement bars can also be specified. The subcommands <code>fiber</code>, <code>patch</code>, and <code>layer</code> define the discretization of the section into fibers, and are described below. In these subcommands, the geometric parameters are defined with respect to a planar local coordinate system (y,z). See figures 3 and 7.</p>
 <h5 id="the-fiber-command">The fiber Command</h5>
-<pre><code>   fiber yLoc? zLoc? area? matTag?</code></pre>
+<div class="highlight"><pre><span></span>   fiber yLoc? zLoc? area? matTag?
+</pre></div>
+
 <p>The fiber command constructs a fiber object and adds it to the section. The arguments consist of the y,z coordinates of the fiber (<code>yLoc</code> and <code>zLoc</code>) in the section, the <code>area</code> of the fiber and the material tag (<code>matTag</code>) of the unixial material which represents the fiber stress-strain behavior.</p>
 <h5 id="the-patch-command">The patch Command</h5>
-<pre><code>   patch patchType matTag? &lt;specific patch args&gt;</code></pre>
+<div class="highlight"><pre><span></span>   patch patchType matTag? &lt;specific patch args&gt;
+</pre></div>
+
 <p>The patch command constructs a Patch object which is added to the section. The command has at least two arguments, the patch type and tag (<code>matTag</code>) of the uniaxial material which defines the stress-strain response of each fiber in the patch. The fibers generated by the patch commands are UniaxialFiber2d/3d, depending on the dimension of the problem. The commands for specifying each type are described below:</p>
-<pre><code>   patch quad matTag? numSubdivIJ? numSubdivJK? yVertI? zVertI? yVertJ? zVertJ? 
-                                                yVertK? zVertK? yVertL? zVertL?</code></pre>
+<div class="highlight"><pre><span></span>   patch quad matTag? numSubdivIJ? numSubdivJK? yVertI? zVertI? yVertJ? zVertJ? 
+                                                yVertK? zVertK? yVertL? zVertL?
+</pre></div>
+
 <p>To construct a patch with a quadrilateral shape. The geometry of the patch is defined by four vertices I, J, K and L, as illustrated in figure <a href="#quadPatch" data-reference-type="ref" data-reference="quadPatch">[quadPatch]</a>. The arguments <code>numSubdivIJ</code> and <code>numSubdivJK</code> are integers that specify the number of subdivisions (fibers) along the IJ and JK directions, respectively. The last arguments <code>yVertI</code>, <code>zVertI</code>, <code>yVertJ</code>, <code>zVertJ</code>, <code>yVertK</code>, <code>zVertK</code>, <code>yVertL</code>, and <code>zVertL</code> are the coordinates y and z of each of the four vertices specified in sequence (counter-clockwise).</p>
 <div class="center">
 <p> </p>
 </div>
-<pre><code>   patch circ matTag? numSubdivCirc? numSubdivRad? yCenter? zCenter? 
-                                   intRad? extRad? startAng? endAng?</code></pre>
+<div class="highlight"><pre><span></span>   patch circ matTag? numSubdivCirc? numSubdivRad? yCenter? zCenter? 
+                                   intRad? extRad? startAng? endAng?
+</pre></div>
+
 <p>To construct a patch with a circular shape. The arguments <code>numSubdivCirc</code> and <code>numSubdivRad</code> are integers that specify the number of subdivisions (fibers) along the circumferential and radial directions, respectively. The geometry of the patch is defined by its center position (<code>yCenter</code> and <code>zCenter</code>), the internal and external radius (<code>intRad</code> and <code>extRad</code>), and the starting and ending angles (<code>startAng</code> and <code>endAng</code>), according to figure <a href="#circPatch" data-reference-type="ref" data-reference="circPatch">[circPatch]</a>.</p>
 <div class="center">
 <p> </p>
 </div>
 <h5 id="the-layer-command">The layer Command</h5>
-<pre><code>   layer layerType matTag? &lt;specific layer args&gt;</code></pre>
+<div class="highlight"><pre><span></span>   layer layerType matTag? &lt;specific layer args&gt;
+</pre></div>
+
 <p>The layer command constructs a Layer object which is added to the section. The command has at least two arguments, the layer type and tag (<code>matTag</code>) of the uniaxialMaterial which defines the stress-strain response of each fiber in the layer. The fibers generated by the layer commands are UniaxialFiber2d/3d, depending on the dimension of the problem. The commands for specifying each type are described below:</p>
-<pre><code>   layer straight matTag? numReinfBars? reinfBarArea? yStartPt? zStartPt? 
-                                                      yEndPt? zEndPt?</code></pre>
+<div class="highlight"><pre><span></span>   layer straight matTag? numReinfBars? reinfBarArea? yStartPt? zStartPt? 
+                                                      yEndPt? zEndPt?
+</pre></div>
+
 <p>To construct a straight layer of reinforcing bars. The argument <code>numReinfBars</code> is an integer that specifies the number of reinforcing bars, each with area <code>reinfBarArea</code>. The last arguments <code>yStartPt</code>, <code>zStartPt</code>, <code>yEndPt</code> and <code>zEndPt</code> are the coordinates y and z of the starting and ending points of the reinforcing layer, as represented in figure <a href="#straightLayer" data-reference-type="ref" data-reference="straightLayer">[straightLayer]</a>.</p>
 <div class="center">
 <p> </p>
 </div>
-<pre><code>   layer circ matTag? numReinfBars? reinfBarArea? 
-         yCenter? zCenter? radius? &lt;startAng? endAng?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   layer circ matTag? numReinfBars? reinfBarArea? 
+         yCenter? zCenter? radius? &lt;startAng? endAng?&gt;
+</pre></div>
+
 <p>To construct a layer with a circular shape. The argument <code>numReinfBars</code> is an integer that specifies the number of reinforcing bars, each of area <code>reinfBarArea</code>. The geometry of the patch is defined by its center position (<code>yCenter</code> and <code>zCenter</code>), its <code>radius</code>, and the optional starting and ending angles (<code>startAng</code> and <code>endAng</code>), as shown in figure <a href="#circLayer" data-reference-type="ref" data-reference="circLayer">[circLayer]</a>. If the starting and ending angles are not specified, a full circle is assumed with the first bar at zero degrees.</p>
 <div class="center">
 <p> </p>
 </div>
 <h4 id="elastic-membrane-plate-section">Elastic Membrane Plate Section</h4>
-<pre><code>   section ElasticMembranePlateSection tag? E? nu? h? &lt;rho?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   section ElasticMembranePlateSection tag? E? nu? h? &lt;rho?&gt;
+</pre></div>
+
 <p>The ElasticMembranePlateSection is an isotropic section appropriate for plate and shell analysis. <code>E</code> is the elastic modulus, <code>nu</code> is Poisson’s ratio, <code>h</code> is the thickness of the plate section and <code>rho</code> is the mass density per unit <em>volume</em> of the material, which is optional (default is 0.0).</p>
 <h4 id="plate-fiber-section">Plate Fiber Section</h4>
-<pre><code>   section PlateFiber tag? matTag? h?</code></pre>
+<div class="highlight"><pre><span></span>   section PlateFiber tag? matTag? h?
+</pre></div>
+
 <p>The plate fiber section takes any plate fiber material and by thickness integration creates a plate section appropiate for shell analysis. The argument <code>matTag</code> is the material tag for a plate fiber material assumed to have been previously defined. Finally, <code>h</code> is the thickness of the plate section. Integration through the thickness is done by a five point Gauss-Lobatto rule.</p>
 <h4 id="bidirectional-section">Bidirectional Section</h4>
-<pre><code>   section Bidirectional tag? E? sigY? Hiso? Hkin?</code></pre>
+<div class="highlight"><pre><span></span>   section Bidirectional tag? E? sigY? Hiso? Hkin?
+</pre></div>
+
 <p>To construct a Bidirectional material object with an elastic modulus <code>E</code>, yield stress <code>sigY</code>, isotropic hardening modulus <code>Hiso</code>, and kinematic hardening modulus <code>Hkin</code>. A Bidirectional material object is the two dimensional generalization of a one dimensional elastoplasitc model with linear hardening. The yield surface is circular, making this model suitable for modeling base isolation bearings.</p>
 <h3 id="the-geomtransf-command">The geomTransf Command</h3>
-<pre><code>   geomTransf transfType transfTag? &lt;specific transf args&gt;</code></pre>
+<div class="highlight"><pre><span></span>   geomTransf transfType transfTag? &lt;specific transf args&gt;
+</pre></div>
+
 <p>The geomTransf command is used to construct a CrdTransf object. A CrdTransf object transforms beam element stiffness and resisting force from the basic system to the global coordinate system. The command has at least two arguments, the transformation type and tag (<code>transfTag</code>), which uniquely identifies this CrdTransf object among CrdTransf objects in the BasicBuilder object. The commands for specifying each type are as outlined below:</p>
 <h4 id="the-linear-transformation">The Linear Transformation</h4>
-<pre><code>   geomTransf Linear transfTag? &lt;-jntOffset dXi? dYi? dXj? dYj?&gt;
-   geomTransf Linear transfTag? vecxzX? vecxzY? vecxzZ?
-                     &lt;-jntOffset dXi? dYi? dZi? dXj? dYj? dZj?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">geomTransf</span> <span class="n">Linear</span> <span class="n">transfTag</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">jntOffset</span> <span class="n">dXi</span><span class="o">?</span> <span class="n">dYi</span><span class="o">?</span> <span class="n">dXj</span><span class="o">?</span> <span class="n">dYj</span><span class="o">?&gt;</span>
+   <span class="n">geomTransf</span> <span class="n">Linear</span> <span class="n">transfTag</span><span class="o">?</span> <span class="n">vecxzX</span><span class="o">?</span> <span class="n">vecxzY</span><span class="o">?</span> <span class="n">vecxzZ</span><span class="o">?</span>
+                     <span class="o">&lt;-</span><span class="n">jntOffset</span> <span class="n">dXi</span><span class="o">?</span> <span class="n">dYi</span><span class="o">?</span> <span class="n">dZi</span><span class="o">?</span> <span class="n">dXj</span><span class="o">?</span> <span class="n">dYj</span><span class="o">?</span> <span class="n">dZj</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct a LinearCrdTransf object which performs a linear geometric transformation of beam stiffness and resisting force from the basic system to the global coordinate system. For the three dimensional problem, additional arguments need to be specified. Optional rigid joint offsets can be specified with the <code>-jntOffset</code> switch. The joint offset values <code>dXi</code>, <code>dYi</code>, <code>dZi</code> and <code>dXj</code>, <code>dYj</code>, <code>dZj</code> are absolute offsets with respect to the global coordinate system from element end nodes I and J, respectively. The rigid joint offset arguments depend on the dimension of the current model.</p>
 <p>The element coordinate system is specified, according to figure <a href="#localAxis" data-reference-type="ref" data-reference="localAxis">[localAxis]</a>, as follows: the x axis is the axis connecting the two element nodes; the y and z axis are then defined using a vector that lies on the local xz plane (the components of this vector, <code>vecxzX</code>, <code>vecxzY</code>, <code>vecxzZ</code> are specified with respect to the global coordinate system X,Y,Z). The section is attached to the element such that the (y,z) coordinate system used to specify the section corresponds to the (y,z) axes of the element.</p>
 <h4 id="the-p-delta-transformation">The P-Delta Transformation</h4>
-<pre><code>   geomTransf PDelta transfTag? &lt;-jntOffset dXi? dYi? dXj? dYj?&gt;
-   geomTransf PDelta transfTag? vecxzX? vecxzY? vecxzZ? 
-                               &lt;-jntOffset dXi? dYi? dZi? dXj? dYj? dZj?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">geomTransf</span> <span class="n">PDelta</span> <span class="n">transfTag</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">jntOffset</span> <span class="n">dXi</span><span class="o">?</span> <span class="n">dYi</span><span class="o">?</span> <span class="n">dXj</span><span class="o">?</span> <span class="n">dYj</span><span class="o">?&gt;</span>
+   <span class="n">geomTransf</span> <span class="n">PDelta</span> <span class="n">transfTag</span><span class="o">?</span> <span class="n">vecxzX</span><span class="o">?</span> <span class="n">vecxzY</span><span class="o">?</span> <span class="n">vecxzZ</span><span class="o">?</span> 
+                               <span class="o">&lt;-</span><span class="n">jntOffset</span> <span class="n">dXi</span><span class="o">?</span> <span class="n">dYi</span><span class="o">?</span> <span class="n">dZi</span><span class="o">?</span> <span class="n">dXj</span><span class="o">?</span> <span class="n">dYj</span><span class="o">?</span> <span class="n">dZj</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct a PDeltaCrdTransf object which performs a linear geometric transformation of beam stiffness and resisting force from the basic system to the global coordinate system considering only P-<span class="math inline">\(\Delta\)</span> (“leaning column”) geometric effects. The arguments <code>vecxzX</code>, <code>vecxzY</code>, and <code>vecxzZ</code> are as defined for the Linear transformation above, as are the joint offset parameters.</p>
 <h4 id="the-corotational-transformation">The Corotational Transformation</h4>
-<pre><code>   geomTransf Corotational transfTag? &lt;-jntOffset dXi? dYi? dXj? dYj?&gt;
-   geomTransf Corotational transfTag? vecxzX? vecxzY? vecxzZ? 
-                               &lt;-jntOffset dXi? dYi? dZi? dXj? dYj? dZj?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">geomTransf</span> <span class="n">Corotational</span> <span class="n">transfTag</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">jntOffset</span> <span class="n">dXi</span><span class="o">?</span> <span class="n">dYi</span><span class="o">?</span> <span class="n">dXj</span><span class="o">?</span> <span class="n">dYj</span><span class="o">?&gt;</span>
+   <span class="n">geomTransf</span> <span class="n">Corotational</span> <span class="n">transfTag</span><span class="o">?</span> <span class="n">vecxzX</span><span class="o">?</span> <span class="n">vecxzY</span><span class="o">?</span> <span class="n">vecxzZ</span><span class="o">?</span> 
+                               <span class="o">&lt;-</span><span class="n">jntOffset</span> <span class="n">dXi</span><span class="o">?</span> <span class="n">dYi</span><span class="o">?</span> <span class="n">dZi</span><span class="o">?</span> <span class="n">dXj</span><span class="o">?</span> <span class="n">dYj</span><span class="o">?</span> <span class="n">dZj</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct a CorotCrdTransf object which performs an exact geometric transformation of beam stiffness and resisting force from the basic system to the global coordinate system. The arguments <code>vecxzX</code>, <code>vecxzY</code>, and <code>vecxzZ</code> are as defined for the Linear transformation above, as are the joint offset parameters.</p>
 <p>NOTE: The Corotational transformation is only available with the Win32 version of OpenSees.</p>
 <div class="center">
 <p> </p>
 </div>
 <h3 id="the-element-command">The element Command</h3>
-<pre><code>   element eleType tag? &lt;specific element type args&gt;</code></pre>
+<div class="highlight"><pre><span></span>   element eleType tag? &lt;specific element type args&gt;
+</pre></div>
+
 <p>The element command is used to construct an Element object. The command has at least two arguments, the element type and <code>tag</code>, which uniquely identifies this Element object among Elements in the domain. The commands for specifying each type of element are outlined below:</p>
 <h4 id="the-truss-element">The Truss Element</h4>
-<pre><code>   element truss tag? iNode? jNode? A? matTag?
-   element truss tag? iNode? jNode? secTag?</code></pre>
+<div class="highlight"><pre><span></span>   element truss tag? iNode? jNode? A? matTag?
+   element truss tag? iNode? jNode? secTag?
+</pre></div>
+
 <p>Constructs a truss object, which can be done in one of two ways. One way is to specify an area and a UniaxialMaterial identifier, the other to specify a Section identifier. The end nodes of the truss element are identified by the arguments <code>iNode</code> and <code>jNode</code>. To construct a Truss object with an area and a UniaxialMaterial, the analyst specifies the truss section area <code>A</code> and tag of the associated UniaxialMaterial, <code>matTag</code>. Note that the material must have already been added to the BasicBuilder object. To construct a Truss object with a Section, the analyst only specifies the Section tag, <code>secTag</code>. When constructed with a UniaxialMaterial object, the truss element considers strain rate effects and is thus suitable for use as a damping element.</p>
 <p>The valid queries to a truss element when creating an ElementRecorder are ‘axialForce’, ‘stiff’, ‘material matArg1 matArg2 ..., ’section sectArg1 sectArg2 ...’. There will be more valid queries after the interface for the methods involved have been further developed.</p>
 <h4 id="the-corotational-truss-element">The Corotational Truss Element</h4>
-<pre><code>   element corotTruss tag? iNode? jNode? A? matTag?
-   element corotTruss tag? iNode? jNode? secTag?</code></pre>
+<div class="highlight"><pre><span></span>   element corotTruss tag? iNode? jNode? A? matTag?
+   element corotTruss tag? iNode? jNode? secTag?
+</pre></div>
+
 <p>Constructs a corotational truss object, which takes into account an exact geometric transformation between local and global frames of reference. The input arguments for the corotational truss are exactly the same as those for the standard truss element described above. However, the corotational element does not take into account rate effects when constructed with a UniaxialMaterial object.</p>
 <p>The valid queries to a corotational truss element when creating an ElementRecorder are ‘axialForce’, ‘stiff’, ‘material matArg1 matArg2 ..., ’section sectArg1 sectArg2 ...’.</p>
 <h4 id="the-elastic-beam-column-element">The Elastic Beam Column Element</h4>
-<pre><code>   element elasticBeamColumn tag? iNode? jNode? A? E? Iz? transfTag?
-   element elasticBeamColumn tag? iNode? jNode? A? E? Iz? Iy? G? J? transfTag?</code></pre>
+<div class="highlight"><pre><span></span>   element elasticBeamColumn tag? iNode? jNode? A? E? Iz? transfTag?
+   element elasticBeamColumn tag? iNode? jNode? A? E? Iz? Iy? G? J? transfTag?
+</pre></div>
+
 <p>The arguments to construct an elastic beam-column element depend on the dimension of the problem, ndm. The element orientation is defined by the two end nodes <code>iNode</code> and <code>jNode</code>. For a two dimensional problem, the analyst specifies the section area <code>A</code>, elastic modulus <code>E</code> and second moment of section area <code>Iz</code> about the section z-axis (figure <a href="#localAxis" data-reference-type="ref" data-reference="localAxis">[localAxis]</a>). For a three dimensional problem, the analyst specifies additional material and section properties <code>Iy</code>, <code>G</code>, and <code>J</code>. <code>Iy</code> is the second moment of area about the section y-axis, <code>G</code> is the shear modulus, and <code>J</code> is the second polar moment of section area. For both two and three dimensional problems, the final argument to the elasticBeamColumn command is <code>transfTag</code>, which identifies a previously defined CrdTransf object.</p>
 <p>The valid queries to an elastic beam column element when creating an ElementRecorder are ‘stiffness’ and ‘force’.</p>
 <p><strong>NOTE</strong>: The sequence of input arguments in the three-dimensional case have changed since version 1.2.</p>
 <h4 id="the-nonlinear-beam-column-element">The Nonlinear Beam Column Element</h4>
-<pre><code>   element nonlinearBeamColumn tag? iNode? jNode? nIP? secTag? transfTag?
-                               &lt;-mass massDens&gt; &lt;-iter maxIters tol&gt; </code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">element</span> <span class="n">nonlinearBeamColumn</span> <span class="n">tag</span><span class="o">?</span> <span class="n">iNode</span><span class="o">?</span> <span class="n">jNode</span><span class="o">?</span> <span class="n">nIP</span><span class="o">?</span> <span class="n">secTag</span><span class="o">?</span> <span class="n">transfTag</span><span class="o">?</span>
+                               <span class="o">&lt;-</span><span class="n">mass</span> <span class="n">massDens</span><span class="o">&gt;</span> <span class="o">&lt;-</span><span class="n">iter</span> <span class="n">maxIters</span> <span class="n">tol</span><span class="o">&gt;</span> 
+</pre></div>
+
 <p>The nonlinearBeamColumn element is based on the non-iterative force formulation, and considers the spread of plasticity along the element. The arguments to construct the element are its two end nodes, <code>iNode</code> and <code>jNode</code>, the number of integration points along the element, <code>nIP</code>, the section tag, <code>secTag</code> (must be pre-defined), and the geometric transformation tag, <code>transfTag</code> (pre-defined). The integration along the element is based on the Gauss-Lobatto quadrature rule (two integration points at the element ends). The element is prismatic, i.e., the beam is represented by the section model identified by <code>secTag</code> at each integration point. An element mass density per unit length, <code>massDens</code>, from which a lumped mass matrix is formed, is specified via the <code>-mass</code> switch. An option is also provided for the iterative form of the force formulation by the <code>-iter</code> switch. The arguments for the iterative form are <code>maxIters</code>, the maximum number of iterations to undertake to satisfy element compatibility; and <code>tol</code>, the energy tolerance for satisfaction of element compatibility. Note that the iterative form can improve the rate of global convergence at the expense of more local element computation.</p>
 <p>The valid queries to a nonlinearBeamColumn element when creating an ElementRecorder are ‘force’, ‘stiffness’, or ‘section secNum secArg1 secArg2 ...’.</p>
 <h4 id="the-beam-with-hinges-element">The Beam With Hinges Element</h4>
-<pre><code>   element beamWithHinges tag? iNode? jNode? secTagI? lpI? secTagJ? lpJ?
-                          E? A? Iz? transfTag? &lt;-mass massDens&gt; &lt;-iter maxIters tol&gt; 
-   element beamWithHinges tag? iNode? jNode? secTagI? lpI? secTagJ? lpJ?
-                          E? A? Iz? Iy? G? J? transfTag? &lt;-mass massDens&gt;
-                          &lt;-iter maxIters tol&gt; </code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">element</span> <span class="n">beamWithHinges</span> <span class="n">tag</span><span class="o">?</span> <span class="n">iNode</span><span class="o">?</span> <span class="n">jNode</span><span class="o">?</span> <span class="n">secTagI</span><span class="o">?</span> <span class="n">lpI</span><span class="o">?</span> <span class="n">secTagJ</span><span class="o">?</span> <span class="n">lpJ</span><span class="o">?</span>
+                          <span class="n">E</span><span class="o">?</span> <span class="n">A</span><span class="o">?</span> <span class="n">Iz</span><span class="o">?</span> <span class="n">transfTag</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">mass</span> <span class="n">massDens</span><span class="o">&gt;</span> <span class="o">&lt;-</span><span class="n">iter</span> <span class="n">maxIters</span> <span class="n">tol</span><span class="o">&gt;</span> 
+   <span class="n">element</span> <span class="n">beamWithHinges</span> <span class="n">tag</span><span class="o">?</span> <span class="n">iNode</span><span class="o">?</span> <span class="n">jNode</span><span class="o">?</span> <span class="n">secTagI</span><span class="o">?</span> <span class="n">lpI</span><span class="o">?</span> <span class="n">secTagJ</span><span class="o">?</span> <span class="n">lpJ</span><span class="o">?</span>
+                          <span class="n">E</span><span class="o">?</span> <span class="n">A</span><span class="o">?</span> <span class="n">Iz</span><span class="o">?</span> <span class="n">Iy</span><span class="o">?</span> <span class="n">G</span><span class="o">?</span> <span class="n">J</span><span class="o">?</span> <span class="n">transfTag</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">mass</span> <span class="n">massDens</span><span class="o">&gt;</span>
+                          <span class="o">&lt;-</span><span class="n">iter</span> <span class="n">maxIters</span> <span class="n">tol</span><span class="o">&gt;</span> 
+</pre></div>
+
 <p>The beamWithHinges element is based on the non-iterative force formulation, and considers plasticity to be concentrated over specified hinge lengths at the element ends. The remaining beam interior is assumed linear elastic. The arguments to construct the element are its two end nodes, <code>iNode</code> and <code>jNode</code>, the section at node I, <code>secTagI</code> (pre-defined), and its corresponding plastic hinge length <code>lpI</code>, the section at node J, <code>secTagJ</code> (pre-defined), and plastic hinge length <code>lpJ</code>. The elastic properties of the beam interior are specified by the arguments <code>E</code>, <code>A</code>, and <code>Iz</code>; and the geometric transformation for the element is identified by <code>transfTag</code>. For three-dimensional problems additional elastic properties <code>Iy</code>, <code>G</code>, and <code>J</code> must be specified for the beam interior. An element mass density per unit length, <code>massDens</code>, from which a lumped mass matrix is formed, is specified via the <code>-mass</code> switch. An option is also provided for the iterative form of the force formulation by the <code>-iter</code> switch. The arguments for the iterative form are the same as those for the nonlinearBeamColumn element.</p>
 <p>Hinge integration is done via the midpoint rule, whereby section forces and deformations are sampled at the middle of the hinge. With midpoint integration, the section moment is not the maximum moment in the element; and there is an integration error in representing linear curvature distributions.</p>
 <p>The valid queries to a beamWithHinges element when creating an ElementRecorder are ‘force’, ‘stiffness’, ‘rotation’ (hinge rotation), or ‘section secNum secArg1 secArg2 ...’.</p>
 <p><strong>NOTE</strong>: The plastic hinge length input is the actual length, rather than a ratio to total element length, as was the case in version 1.2.</p>
 <h4 id="the-displacement-based-beam-column-element">The Displacement Based Beam Column Element</h4>
-<pre><code>   element dispBeamColumn tag? iNode? jNode? nIP? secTag? transfTag?
-                          &lt;-mass massDens&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">element</span> <span class="n">dispBeamColumn</span> <span class="n">tag</span><span class="o">?</span> <span class="n">iNode</span><span class="o">?</span> <span class="n">jNode</span><span class="o">?</span> <span class="n">nIP</span><span class="o">?</span> <span class="n">secTag</span><span class="o">?</span> <span class="n">transfTag</span><span class="o">?</span>
+                          <span class="o">&lt;-</span><span class="n">mass</span> <span class="n">massDens</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>The dispBeamColumn element is a distributed plasticity, displacement based beam-column element. The assumed displacement field over the element length leads to constant axial strain and linear curvature distributions. The arguments to construct the element are its end nodes <code>iNode</code> and <code>jNode</code>, the number of integration points along the element, <code>nIP</code>, the section tag, <code>secTag</code> (must be pre-defined), and the geometric transformation tag, <code>transfTag</code> (pre-defined). The integration along the element is based on Gauss-Legendre quadrature rule. The element is prismatic, i.e., the beam is represented by the section model identified by <code>secTag</code> at each integration point. An element mass density per unit length, <code>massDens</code>, from which a lumped mass matrix is formed, is specified via the <code>-mass</code> switch.</p>
 <p>The valid queries to a dispBeamColumn element when creating an ElementRecorder are ‘force’, ‘stiffness’, or ‘section secNum secArg1 secArg2 ...’.</p>
 <h4 id="the-zero-length-element">The Zero Length Element</h4>
-<pre><code>   element zeroLength tag? iNode? jNode? -mat matTag1? matTag2? ...
-                                         -dir dir1? dir2? ...
-                                         &lt;-orient x1? x2? x3? yp1? yp2? yp3?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">element</span> <span class="n">zeroLength</span> <span class="n">tag</span><span class="o">?</span> <span class="n">iNode</span><span class="o">?</span> <span class="n">jNode</span><span class="o">?</span> <span class="o">-</span><span class="n">mat</span> <span class="n">matTag1</span><span class="o">?</span> <span class="n">matTag2</span><span class="o">?</span> <span class="kc">...</span>
+                                         <span class="o">-</span><span class="n">dir</span> <span class="n">dir1</span><span class="o">?</span> <span class="n">dir2</span><span class="o">?</span> <span class="kc">...</span>
+                                         <span class="o">&lt;-</span><span class="n">orient</span> <span class="n">x1</span><span class="o">?</span> <span class="n">x2</span><span class="o">?</span> <span class="n">x3</span><span class="o">?</span> <span class="n">yp1</span><span class="o">?</span> <span class="n">yp2</span><span class="o">?</span> <span class="n">yp3</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>Constructs a zero length element defined by two nodes at the same geometric location. The nodes are connected by multiple UniaxialMaterial objects to represent the force-deformation relationship for the element. The zero length element is identified by its nodes <code>iNode</code> and <code>jNode</code>, UniaxialMaterial objects (previously defined) identified by <code>matTag1 matTag2 ...</code>, and material directions <code>dir1 dir2 ...</code> . Two optional orientation vectors can be specified for the element. The vector <code>x</code> defines the local x-axis for the element and the vector <code>yp</code> lies in the local x-y plane for the element. The local z-axis is the cross product between <code>x</code> and <code>yp</code>, and the local y-axis is the cross product between the local z-axis and <code>x</code>. If these orientation vectors are not specified, the local element axes coincide with the global axes. The values for <code>dir</code> are 1 through 6, where 1,2,3 indicate translation along the local x,y,z axes respectively; while 4,5,6 indicate rotation about the local x,y,z axes respectively.</p>
 <p>The valid queries to a zeroLength element when creating an ElementRecorder are ‘force’, ‘deformation’, ‘stiff’, or ‘material matNum matArg1 matArg2 ...’.</p>
 <h4 id="the-zero-length-section-element">The Zero Length Section Element</h4>
-<pre><code>   element zeroLengthSection tag? iNode? jNode? secTag?
-                             &lt;-orient x1? x2? x3? yp1? yp2? yp3?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">element</span> <span class="n">zeroLengthSection</span> <span class="n">tag</span><span class="o">?</span> <span class="n">iNode</span><span class="o">?</span> <span class="n">jNode</span><span class="o">?</span> <span class="n">secTag</span><span class="o">?</span>
+                             <span class="o">&lt;-</span><span class="n">orient</span> <span class="n">x1</span><span class="o">?</span> <span class="n">x2</span><span class="o">?</span> <span class="n">x3</span><span class="o">?</span> <span class="n">yp1</span><span class="o">?</span> <span class="n">yp2</span><span class="o">?</span> <span class="n">yp3</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>Constructs a ZeroLengthSection element defined by two nodes at the same geometric location. The nodes are connected by a single Section object to represent the force-deformation relationship for the element. The ZeroLengthSection element is identified by its two nodes <code>iNode</code> and <code>jNode</code>, and Section object (previously defined) identified by <code>secTag</code>. Two optional orientation vectors can be specified for the element. The vector <code>x</code> defines the local x-axis for the element and the vector <code>yp</code> lies in the local x-y plane for the element. The local z-axis is the cross product between <code>x</code> and <code>yp</code>, and the local y-axis is the cross product between the local z-axis and <code>x</code>. If these orientation vectors are not specified, the local element axes coincide with the global axes. The section force-deformation response represented by section code P acts along the element local x-axis, and the response for code Vy along the local y-axis. The other modes of section response follow from this orientation.</p>
 <p>The valid queries to a ZeroLengthSection element when creating an ElementRecorder are ‘force’, ‘deformation’, ‘stiff’, or ‘section secArg1 secArg2 ...’.</p>
 <h4 id="the-quad-element">The Quad Element</h4>
-<pre><code>   element quad tag? iNode? jNode? kNode? lNode? thick? type matTag? 
-                &lt;pressure? rho? b1? b2?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   element quad tag? iNode? jNode? kNode? lNode? thick? type matTag? 
+                &lt;pressure? rho? b1? b2?&gt;
+</pre></div>
+
 <p>Constructs a FourNodeQuad element which uses the bilinear isoparametric formulation. The element is identified by its four nodes <code>iNode</code>, <code>jNode</code>, <code>kNode</code>, and <code>lNode</code>, the element <code>thickness</code> (constant), a string representing the material behavior, <code>type</code>, and an NDMaterial object identified by <code>matTag</code> (previously defined). Valid options for the parameter <code>type</code> depend on the NDMaterial object and its available material formulations. The <code>type</code> parameter can be either “PlaneStrain” or “PlaneStress.” A uniform element normal traction can be specified by the <code>pressure</code> argument. Constant body forces <code>b1</code> and <code>b2</code>, defined in the isoparametric domain, can be specified as well and are optional, as is the element mass density per unit volume <code>rho</code>, for which a lumped element mass matrix is computed. Consistent nodal loads are computed for the pressure and body forces. The four nodes i through l must be input in counter-clockwise order around the element.</p>
 <p>The valid queries to a quad element when creating an ElementRecorder are ‘force’, ‘stiffness’, or ‘material matNum matArg1 matArg2 ...’, where matNum represents the material object at the integration point corresponding to the node numbers in the isoparametric domain.</p>
 <h4 id="the-shell-element">The Shell Element</h4>
-<pre><code>   element ShellMITC4 tag? iNode? jNode? kNode? lNode? secTag? </code></pre>
+<div class="highlight"><pre><span></span>   element ShellMITC4 tag? iNode? jNode? kNode? lNode? secTag? 
+</pre></div>
+
 <p>Constructs a shell element which uses a bilinear isoparametric formulation in combination with a modified shear interpolation to improve thin plate bending performance. The shell element is identified by its four nodes <code>iNode</code>, <code>jNode</code>, <code>kNode</code>, and <code>lNode</code> and a Section object identified by <code>secTag</code> (previously defined). Should the element be required to compute a mass matrix, a consistent translational element mass matrix is computed from the material mass density defined for the section. Rotational inertia terms are ignored. The four nodes i through l must be input in counter-clockwise order around the element.</p>
 <h4 id="the-bbar-plane-strain-quadrilateral-element">The Bbar Plane Strain Quadrilateral Element</h4>
-<pre><code>   element bbarQuad tag? iNode? jNode? kNode? lNode? matTag? </code></pre>
+<div class="highlight"><pre><span></span>   element bbarQuad tag? iNode? jNode? kNode? lNode? matTag? 
+</pre></div>
+
 <p>Constructs a four node quad element which uses a bilinear isoparametric formulation along with a mixed volume/pressure B-bar assumption. The bbarQuad element is identified by its four nodes <code>iNode</code>, <code>jNode</code>, <code>kNode</code>, and <code>lNode</code> and an NDMaterial object identified by <code>matTag</code> (previously defined). Should the element be required to compute a mass matrix, a consistent translational element mass matrix is computed from the material mass density. The four nodes i through l must be input in counter-clockwise order around the element. This element is for <em>plane strain</em> problems <em>only</em>.</p>
 <h4 id="the-enhanced-stain-quadrilateral-element">The Enhanced Stain Quadrilateral Element</h4>
-<pre><code>   element enhancedQuad tag? iNode? jNode? kNode? lNode? type matTag? </code></pre>
+<div class="highlight"><pre><span></span>   element enhancedQuad tag? iNode? jNode? kNode? lNode? type matTag? 
+</pre></div>
+
 <p>Constructs a four node quad element which uses a bilinear isoparametric formulation with enhanced strain modes. The enhancedQuad element is identified by its four nodes <code>iNode</code>, <code>jNode</code>, <code>kNode</code>, and <code>lNode</code>, a string representing the material behavior and an NDMaterial object identified by <code>matTag</code> (previously defined). Valid options for the parameter <code>type</code> depend on the NDMaterial object and its available material formulations. Typically <code>type</code> is either “PlaneStress” or “PlaneStrain.” Should the element be required to compute a mass matrix, a consistent translational element mass matrix is computed from the material mass density. The four nodes i through l must be input in counter-clockwise order around the element.</p>
 <h4 id="the-standard-brick-element">The Standard Brick Element</h4>
-<pre><code>   element stdBrick tag? iNode? jNode? kNode? lNode? 
-                         mNode? nNode? pNode? qNode? matTag?</code></pre>
+<div class="highlight"><pre><span></span>   element stdBrick tag? iNode? jNode? kNode? lNode? 
+                         mNode? nNode? pNode? qNode? matTag?
+</pre></div>
+
 <p>Constructs an eight node brick element which uses a trilinear isoparametric formulation. The stdBrick element is identified by its eight nodes <code>iNode</code>, <code>jNode</code>, <code>kNode</code>, <code>lNode</code>, <code>mNode</code>, <code>nNode</code>, <code>pNode</code>, and <code>qNode</code>, and an NDMaterial object identified by <code>matTag</code> (previously defined). Should the element be required to compute a mass matrix, a consistent translational element mass matrix is computed from the material mass density. The eight nodes i through q must be input as in Figure <a href="#bricknodenumbering" data-reference-type="ref" data-reference="bricknodenumbering">[bricknodenumbering]</a>.</p>
 <div class="center">
 
 </div>
 <h4 id="the-bbar-brick-element">The Bbar Brick Element</h4>
-<pre><code>   element bbarBrick tag? iNode? jNode? kNode? lNode? 
-                          mNode? nNode? pNode? qNode? matTag? </code></pre>
+<div class="highlight"><pre><span></span>   element bbarBrick tag? iNode? jNode? kNode? lNode? 
+                          mNode? nNode? pNode? qNode? matTag? 
+</pre></div>
+
 <p>Constructs an eight node mixed volume/pressure brick element which uses a trilinear isoparametric formulation. The bbarBrick element is identified by its eight nodes <code>iNode</code>, <code>jNode</code>, <code>kNode</code>, <code>lNode</code>, <code>mNode</code>, <code>nNode</code>, <code>pNode</code>, and <code>qNode</code>, and an NDMaterial object identified by <code>matTag</code> (previously defined). Should the element be required to compute a mass matrix, a consistent translational element mass matrix is computed from the material mass density. The eight nodes i through q must be input as in Figure <a href="#bricknodenumbering" data-reference-type="ref" data-reference="bricknodenumbering">[bricknodenumbering]</a>.</p>
 <h3 id="block-commands">Block Commands</h3>
 <p>The OpenSees block commands are used to generate meshes of quadrilateral or brick finite elements. The “block2D” command generates meshes of quadrilateral elements in two or three dimensions. In three dimensions, a two dimensional surface appropriate for shell analysis is generated. The “block3D” command generates three dimensional meshes of eight node brick solid elements.</p>
 <h4 id="block2d">block2D</h4>
 <p>The “block2D” command syntax is as follows :</p>
-<pre><code>block2D nx ny e1 n1 element elementArgs {
+<div class="highlight"><pre><span></span>block2D nx ny e1 n1 element elementArgs {
      1    x1    y1   &lt;z1&gt;
      2    x2    y2   &lt;z2&gt;
      3    x3    y3   &lt;z3&gt;
@@ -13045,7 +13185,9 @@
     &lt;7&gt;  &lt;x7&gt;  &lt;y7&gt;  &lt;z7&gt;
     &lt;8&gt;  &lt;x8&gt;  &lt;y8&gt;  &lt;z8&gt;
     &lt;9&gt;  &lt;x9&gt;  &lt;y9&gt;  &lt;z9&gt;
-}</code></pre>
+}
+</pre></div>
+
 <div class="center">
 
 </div>
@@ -13053,7 +13195,7 @@
 <p>The coordinates <span class="math inline">\(\{x1,...,x9\}\)</span> and <span class="math inline">\(\{y1,...,y9\}\)</span> define the coordiates of the block generation nodes in two dimensions, as seen in Figure <a href="#blocknodenumbering" data-reference-type="ref" data-reference="blocknodenumbering">[blocknodenumbering]</a>. For three dimensional problems <span class="math inline">\(\{z1,...,z9\}\)</span> are also used. In all cases, only the first four(4) nodes are mandatory. Nodes <span class="math inline">\(5-9\)</span> are used to generate curved meshes. The user may specify any combination of nodes <span class="math inline">\(5-9\)</span>, omitting some of them if desired.</p>
 <h4 id="block3d">block3D</h4>
 <p>The “block3D” command syntax is as follows :</p>
-<pre><code>block3D nx ny nz e1 n1 element elementArgs {
+<div class="highlight"><pre><span></span>block3D nx ny nz e1 n1 element elementArgs {
     1     x1    y1    z1 
     2     x2    y2    z2 
     3     x3    y3    z3 
@@ -13066,272 +13208,438 @@
    &lt;.&gt;    &lt;.&gt;   &lt;.&gt;   &lt;.&gt;
    &lt;.&gt;    &lt;.&gt;   &lt;.&gt;   &lt;.&gt;
    &lt;27&gt; &lt;x27&gt; &lt;y27&gt; &lt;z27&gt;
-}</code></pre>
+}
+</pre></div>
+
 <p>In the above, <span class="math inline">\(nx\)</span> is the number of elements in the local <span class="math inline">\(x\)</span>-direction of the block, <span class="math inline">\(ny\)</span> is the number of elements in the local <span class="math inline">\(y\)</span>-direction of the block and <span class="math inline">\(nz\)</span> is the number of elements in the local <span class="math inline">\(z\)</span>-direction of the block. The number <span class="math inline">\(e1\)</span> is the starting element number for generation, and the number <span class="math inline">\(n1\)</span> is the starting node number. These are very often both equal to one(1), but that is not a requirement. The text string <em>element</em> defines which brick element is being used. The text string <em>elementArgs</em> is a list of data parameters for said element. This list may include, but is not limited to, a matTag number.</p>
 <p>The coordinates <span class="math inline">\(\{x1,...,x27\}\)</span>, <span class="math inline">\(\{y1,...,y27\}\)</span> and <span class="math inline">\(\{z1,...,z27\}\)</span> define the coordiates of the block generation nodes in three dimensions. In all cases, only the first eight(8) nodes are mandatory. Nodes <span class="math inline">\(9-27\)</span> are used to generate curved meshes. The user may specify any combination of nodes <span class="math inline">\(9-27\)</span>, omitting some of them if desired.</p>
 <h3 id="the-fix-command">The fix Command</h3>
-<pre><code>   fix nodeTag? (ndf values?)</code></pre>
+<div class="highlight"><pre><span></span>   fix nodeTag? (ndf values?)
+</pre></div>
+
 <p>To construct homogeneous single-point boundary constraints, the user specifies the nodeTag of the node to be constrained and ndf (0,1) values. A <span class="math inline">\(1\)</span> specified for the i’th value indicates that the dof for the i’th degree-of-freedom is to be constrained, a <span class="math inline">\(0\)</span> that it is to be left unconstrained.</p>
 <h3 id="the-fixx-command">The fixX Command</h3>
-<pre><code>   fixX xCoordinate? (ndf values?) &lt;-tol tol?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">fixX</span> <span class="n">xCoordinate</span><span class="o">?</span> <span class="p">(</span><span class="n">ndf</span> <span class="n">values</span><span class="o">?</span><span class="p">)</span> <span class="o">&lt;-</span><span class="n">tol</span> <span class="n">tol</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct multiple homogeneous single-point boundary constraints for all nodes whose x-coordinate lies within tol of the specified xCoordinate. The user specifies the xCoordinate of the nodes to be constrained and ndf (0,1) values. A <span class="math inline">\(1\)</span> specified for the i’th value indicates that the dof for the i’th degree-of-freedom is to be constrained, a <span class="math inline">\(0\)</span> that it is to be left unconstrained. The optional flag -tol is followed by the user defined tolerence, a default of 1e-10 is used.</p>
 <h3 id="the-fixy-command">The fixY Command</h3>
-<pre><code>   fixY yCoordinate? (ndf values?) &lt;-tol tol?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">fixY</span> <span class="n">yCoordinate</span><span class="o">?</span> <span class="p">(</span><span class="n">ndf</span> <span class="n">values</span><span class="o">?</span><span class="p">)</span> <span class="o">&lt;-</span><span class="n">tol</span> <span class="n">tol</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct multiple homogeneous single-point boundary constraints for all nodes whose y-coordinate lies within tol of the specified yCoordinate. The user specifies the yCoordinate of the nodes to be constrained and ndf (0,1) values. A <span class="math inline">\(1\)</span> specified for the i’th value indicates that the dof for the i’th degree-of-freedom is to be constrained, a <span class="math inline">\(0\)</span> that it is to be left unconstrained. The optional flag -tol is followed by the user defined tolerence, a default of 1e-10 is used.</p>
 <h3 id="the-fixz-command">The fixZ Command</h3>
-<pre><code>   fixZ zCoordinate? (ndf values?) &lt;-tol tol?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">fixZ</span> <span class="n">zCoordinate</span><span class="o">?</span> <span class="p">(</span><span class="n">ndf</span> <span class="n">values</span><span class="o">?</span><span class="p">)</span> <span class="o">&lt;-</span><span class="n">tol</span> <span class="n">tol</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct multiple homogeneous single-point boundary constraints for all nodes whose z-coordinate lies within tol of the specified zCoordinate. The user specifies the zCoordinate of the nodes to be constrained and ndf (0,1) values. A <span class="math inline">\(1\)</span> specified for the i’th value indicates that the dof for the i’th degree-of-freedom is to be constrained, a <span class="math inline">\(0\)</span> that it is to be left unconstrained. The optional flag -tol is followed by the user defined tolerence, a default of 1e-10 is used.</p>
 <h3 id="types-of-timeseries-and-args-used-in-other-commands">Types of TimeSeries and Args used in other commands</h3>
-<pre><code>   seriesType &lt;arguments for series type&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="nv">seriesType</span> <span class="o">&lt;</span><span class="nv">arguments</span> <span class="k">for</span> <span class="nv">series</span> <span class="nv">type</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>While there is no timeSeries command in the language, a number of commands take as an argument a list of items which defines the TimeSeries object to be constructed as part of the command. The first element of the list is a string identifying the type of TimeSeries object to be constructed. There are a number of of time series objects that can be constructed. The arguments for creating each type of time series are as follows:</p>
 <h4 id="the-constant-time-series">The Constant Time Series</h4>
-<pre><code>   Constant &lt;-factor cFactor?&gt; </code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">Constant</span> <span class="o">&lt;-</span><span class="n">factor</span> <span class="n">cFactor</span><span class="o">?&gt;</span> 
+</pre></div>
+
 <p>To associate with the LoadPattern object a TimeSeries object of type ConstantSeries. A Constant causes a load factor of cFactor to be applied to the loads and constraints in the pattern, independent of the time in the domain. The default value of cFactor is <span class="math inline">\(1.0\)</span>. The analyst has the option of changing this using the optional arguments -factor and cFactor.</p>
 <h4 id="the-linear-time-series">The Linear Time Series</h4>
-<pre><code>   Linear &lt;-factor cFactor?&gt; </code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">Linear</span> <span class="o">&lt;-</span><span class="n">factor</span> <span class="n">cFactor</span><span class="o">?&gt;</span> 
+</pre></div>
+
 <p>To construct a TimeSeries object of type Linear and associate it with the load pattern or ground motion object being constructed. A Linear causes a load factor of cFactor*time to be applied to the loads and constraints in a load pattern, or cFactor to be set at the dof in a ground motion. This value is independent of the time in the domain. The default value of cFactor is <span class="math inline">\(1.0\)</span>. The analyst has the option of changing this using the optional arguments -factor and cFactor.</p>
 <h4 id="the-rectangular-time-series">The Rectangular Time Series</h4>
-<pre><code>   Rectangular tStart? tFinish? &lt;-factor cFactor?&gt; </code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">Rectangular</span> <span class="n">tStart</span><span class="o">?</span> <span class="n">tFinish</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">factor</span> <span class="n">cFactor</span><span class="o">?&gt;</span> 
+</pre></div>
+
 <p>To associate with the LoadPattern object a TimeSeries object of type RectangularSeries. A RectangularSeries causes a load factor of cFactor * time to be applied to the loads and constraints in the pattern when the value of time is between tStart and tFinish. The default value of cFactor is <span class="math inline">\(1.0\)</span>. The analyst has the option of changing this using the optional arguments -factor and cFactor.</p>
 <h4 id="the-sine-time-series">The Sine Time Series</h4>
-<pre><code>   Sine tStart? tFinish? period? &lt;-shift shift?&gt; &lt;-factor cFactor?&gt; </code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">Sine</span> <span class="n">tStart</span><span class="o">?</span> <span class="n">tFinish</span><span class="o">?</span> <span class="n">period</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">shift</span> <span class="n">shift</span><span class="o">?&gt;</span> <span class="o">&lt;-</span><span class="n">factor</span> <span class="n">cFactor</span><span class="o">?&gt;</span> 
+</pre></div>
+
 <p>To associate with the LoadPattern object a TimeSeries object of type TrigSeries. A TrigSeries is defined by a period, period, and optional phase shift (radians). The TrigSeries causes a load factor of cFactor * <span class="math inline">\(\sin(\frac{2\pi*(time-tStart)}{T} + shift)\)</span> to be applied to the loads and constraints in the pattern when the value of time is between tStart and tFinish. The default value of shift is <span class="math inline">\(0.0\)</span> and the default value of cFactor is <span class="math inline">\(1.0\)</span>. The analyst has the option of changing these values using the optional switches -shift and -factor.</p>
 <h4 id="the-path-time-series">The Path Time Series</h4>
-<pre><code>   Series -dt dt? -values {list of points} &lt;-factor cFactor?&gt; 
-   Series -time {list of times}  -values {list of points} &lt;-factor cFactor?&gt; 
-   Series -dt dt? -filePath fileName? &lt;-factor cFactor?&gt; 
-   Series -fileTime fileName1? -filePath fileName2? &lt;-factor cFactor?&gt; </code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">Series</span> <span class="o">-</span><span class="n">dt</span> <span class="n">dt</span><span class="o">?</span> <span class="o">-</span><span class="n">values</span> <span class="p">{</span><span class="n">list</span> <span class="n">of</span> <span class="n">points</span><span class="p">}</span> <span class="o">&lt;-</span><span class="n">factor</span> <span class="n">cFactor</span><span class="o">?&gt;</span> 
+   <span class="n">Series</span> <span class="o">-</span><span class="n">time</span> <span class="p">{</span><span class="n">list</span> <span class="n">of</span> <span class="n">times</span><span class="p">}</span>  <span class="o">-</span><span class="n">values</span> <span class="p">{</span><span class="n">list</span> <span class="n">of</span> <span class="n">points</span><span class="p">}</span> <span class="o">&lt;-</span><span class="n">factor</span> <span class="n">cFactor</span><span class="o">?&gt;</span> 
+   <span class="n">Series</span> <span class="o">-</span><span class="n">dt</span> <span class="n">dt</span><span class="o">?</span> <span class="o">-</span><span class="n">filePath</span> <span class="n">fileName</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">factor</span> <span class="n">cFactor</span><span class="o">?&gt;</span> 
+   <span class="n">Series</span> <span class="o">-</span><span class="n">fileTime</span> <span class="n">fileName1</span><span class="o">?</span> <span class="o">-</span><span class="n">filePath</span> <span class="n">fileName2</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">factor</span> <span class="n">cFactor</span><span class="o">?&gt;</span> 
+</pre></div>
+
 <p>To associate with the LoadPattern object a TimeSeries object of type PathSeries or PathTimeSeries (if time increments not constant). A PathSeries causes a load factor of cFactor * value to be applied to the loads and constraints in the pattern. The value used depends on the time and a linear interpolation between points on the load path. There are a number of ways to specify the load path, for a load path where the points are specified at constant time intervals the ‘-dt’ option. Following dt is either the option ‘-values’ indicating the points are in the accompanying list enclosed in braces, or ‘-filePath’ indicating that the points are contained in the file given by fileName. For a load path where the points are specified at non-constant time intervals the analyst can provide the time increments and points at these intervals in two strings or two files (not a string and a file). The default value of cFactor is <span class="math inline">\(1.0\)</span>. The analyst has the option of changing this using the optional arguments -factor and cFactor.</p>
 <h3 id="the-pattern-command">The pattern Command</h3>
-<pre><code>   pattern patternType patternTag? &lt;arguments for pattern type&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="nv">pattern</span> <span class="nv">patternType</span> <span class="nv">patternTag</span>? <span class="o">&lt;</span><span class="nv">arguments</span> <span class="k">for</span> <span class="nv">pattern</span> <span class="nv">type</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>The pattern command is used to construct a LoadPattern object, its associated TimeSeries object and the Load and Constraint objects for the pattern. There are a number of valid types of patternType: Plain, UniformExcitation, and MultipleSupport.</p>
-<pre><code>   pattern Plain patternTag? {TimeSeriesType and Args} {
-        load ...
-        sp ...
-   }    </code></pre>
+<div class="highlight"><pre><span></span><span class="w">   </span><span class="n">pattern</span><span class="w"> </span><span class="n">Plain</span><span class="w"> </span><span class="n">patternTag</span><span class="err">?</span><span class="w"> </span><span class="p">{</span><span class="n">TimeSeriesType</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">Args</span><span class="p">}</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nb">load</span><span class="w"> </span><span class="o">...</span><span class="w"></span>
+<span class="w">        </span><span class="n">sp</span><span class="w"> </span><span class="o">...</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w">    </span>
+</pre></div>
+
 <p>The string Plain is used to construct an ordinary LoadPattern object with a unique tag among load patterns in the Domain of patternTag. The third argument is a list which is parsed to construct the TimeSeries object associated with the LoadPattern object. The last argument in the command is a list of commands to create nodal load and single-point constraints.</p>
 <h4 id="the-uniformexcitation-pattern">The UniformExcitation Pattern</h4>
-<pre><code>   pattern UniformExcitation patternTag? dir? &lt;-accel {SeriesType and args}&gt; 
-                                              &lt;-vel0 vel0?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">pattern</span> <span class="n">UniformExcitation</span> <span class="n">patternTag</span><span class="o">?</span> <span class="n">dir</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">accel</span> <span class="p">{</span><span class="n">SeriesType</span> <span class="n">and</span> <span class="n">args</span><span class="p">}</span><span class="o">&gt;</span> 
+                                              <span class="o">&lt;-</span><span class="n">vel0</span> <span class="n">vel0</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To construct a UniformExcitation load pattern object with a tag, patternTag, unique among all load patterns. The UniformExcitation acts in the direction dir (1,2, or 3) when formulating the inertial loads for the transient analysis. The accelerations used in determining the inertial loads is specified using the -accel flag. The list of arguments after this flag identifies the TimeSeries object to be constructed for the acceleration record. In addition, the user has the option of specifying an initial velocity to be assigned to each node using the -vel0 flag.</p>
 <h4 id="the-multiplesupport-pattern">The MultipleSupport Pattern</h4>
-<pre><code>   pattern MultipleSupport patternTag? {
+<div class="highlight"><pre><span></span>   pattern MultipleSupport patternTag? {
         groundMotion ...
         imposedMotion ...
-   }    </code></pre>
+   }    
+</pre></div>
+
 <p>To construct a MultipleSupportExcitation load pattern object with a tag, patternTag, unique among all load patterns. The last argument in the command is a list of commands to create the GroundMotions and ImposedSupportSP constraint objects that are then added to the object to define the multiple support excitation that is being imposed on the model.</p>
 <h4 id="the-load-command">The load Command</h4>
-<pre><code>   load nodeTag? (ndf values?) &lt;-const&gt; &lt;-pattern patternTag?&gt;</code></pre>
+<div class="highlight"><pre><span></span><span class="w">   </span><span class="nb">load</span><span class="w"> </span><span class="n">nodeTag</span><span class="err">?</span><span class="w"> </span><span class="p">(</span><span class="n">ndf</span><span class="w"> </span><span class="n">values</span><span class="err">?</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="k">const</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;-</span><span class="n">pattern</span><span class="w"> </span><span class="n">patternTag</span><span class="err">?</span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+
 <p>The load command is used to construct a NodalLoad object. The first argument to the load command, nodeTag, is an integer tag identifying the node on which the load acts. Following the tag is the ndf reference load values that are to be applied to the node. The nodal load is added to the LoadPattern being defined in the enclosing scope of the pattern command. Optional arguments are the string -const, which identifies the load being applied to the node as being independent of any load factor, and the string -pattern and an integer patternTag identifying the load pattern to which the load is to be added.</p>
 <h4 id="the-sp-command">The sp Command</h4>
-<pre><code>   sp nodeTag? dofTag? value? &lt;-const&gt; &lt;-pattern patternTag?&gt;</code></pre>
+<div class="highlight"><pre><span></span><span class="w">   </span><span class="n">sp</span><span class="w"> </span><span class="n">nodeTag</span><span class="err">?</span><span class="w"> </span><span class="n">dofTag</span><span class="err">?</span><span class="w"> </span><span class="n">value</span><span class="err">?</span><span class="w"> </span><span class="o">&lt;-</span><span class="k">const</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;-</span><span class="n">pattern</span><span class="w"> </span><span class="n">patternTag</span><span class="err">?</span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+
 <p>The sp command is used to construct an SP_Constraint object. The first argument to the sp command, nodeTag, is an integer tag identifying the node on which the single-point constraint acts. Following this tag is an integer, dofTag, identifying the degree-of-freedom at the node being constrained, valid range is 1 through ndf. (Note: fortran indexing at the interpreter, internally OpenSees uses C indexing). The third argument, value, specifies the reference value of the constraint. The constraint is added to the LoadPattern being defined in the enclosing scope of the pattern command. Optional arguments are the string -const, which identifies the constraint being applied to the node as being independent of any load factor, and the string -pattern with an integer patternTag identifying the load pattern to which the constraint is to be added.</p>
 <h4 id="the-groundmotion-command">The groundMotion Command</h4>
-<pre><code>   groundMotion gMotionTag? gMotionType? &lt;type args&gt;</code></pre>
+<div class="highlight"><pre><span></span>   groundMotion gMotionTag? gMotionType? &lt;type args&gt;
+</pre></div>
+
 <p>The groundMotion command is used to construct a GroundMotion object used by the ImposedMotionSP constraints in a MultipleSuuportExcitation object. The first argument to the groundMotion command, gMotionTag, is an integer tag which uniquely identifies the GroundMotion in the MultipleSupportExcitation. Folowing the tag is a type identifier, identifying the type of GroundMotion object to be constructed, and the specific arguments for each type. At present there are two valid strings for gMotionType: Plain and Interpolated.</p>
 <h5 id="the-plain-groundmotion">The Plain GroundMotion</h5>
-<pre><code>   groundMotion gMotionTag? Plain &lt;-accel {SeriesType and Args}&gt;
-                                  &lt;-vel   {SeriesType and Args}&gt;
-                                  &lt;-disp  {SeriesType and Args}&gt;
-                                  &lt;-int   {IntegratorType and Args}&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">groundMotion</span> <span class="n">gMotionTag</span><span class="o">?</span> <span class="n">Plain</span> <span class="o">&lt;-</span><span class="n">accel</span> <span class="p">{</span><span class="n">SeriesType</span> <span class="n">and</span> <span class="n">Args</span><span class="p">}</span><span class="o">&gt;</span>
+                                  <span class="o">&lt;-</span><span class="n">vel</span>   <span class="p">{</span><span class="n">SeriesType</span> <span class="n">and</span> <span class="n">Args</span><span class="p">}</span><span class="o">&gt;</span>
+                                  <span class="o">&lt;-</span><span class="n">disp</span>  <span class="p">{</span><span class="n">SeriesType</span> <span class="n">and</span> <span class="n">Args</span><span class="p">}</span><span class="o">&gt;</span>
+                                  <span class="o">&lt;-</span><span class="n">int</span>   <span class="p">{</span><span class="n">IntegratorType</span> <span class="n">and</span> <span class="n">Args</span><span class="p">}</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>This command is used to construct a plain GroundMotion object. Each GroundMotion object is associated with a number of TimeSeries objects, which define the acceleration record, the velocity record and the displacement record. These are specified using the -accel, -vel and -disp flags and the list argument to define the TimeSeries object. If only the acceleration record is specified, the user has the option of specifying the TimeSeriesIntegrator that is to be used to integrate the acceleration record in order to determine velocity and displacement records. The TimeSeriesIntegrator object is specified using the -int flag and the list argument specifying the TimeSeriesINtegrator object to be constructed.</p>
 <h5 id="the-interpolated-groundmotion">The Interpolated GroundMotion</h5>
-<pre><code>   groundMotion gMotionTag? Interpolated gmTag1? gmTag2? ... -fact fact1? fact2? ...</code></pre>
+<div class="highlight"><pre><span></span>   groundMotion gMotionTag? Interpolated gmTag1? gmTag2? ... -fact fact1? fact2? ...
+</pre></div>
+
 <p>This command is used to construct an InterpoletdGroundMotion. The tags gmTag1, gmTag2, ... identify ground motions which have already been added to the MultipleSupportExcitation. The factors fact1, fact2, ... identify the factors that are used in the interpolation of these ground motions to determine the ground motion for this InterpolatedGroundMotion.</p>
 <h4 id="the-imposedmotion-command">The imposedMotion Command</h4>
-<pre><code>   imposedMotion nodeTag? dirn? gMotionTag? </code></pre>
+<div class="highlight"><pre><span></span>   imposedMotion nodeTag? dirn? gMotionTag? 
+</pre></div>
+
 <p>This command is used to construct an ImposedMotionSP constraint which is used to enforce the response of a dof, dirn, at a node, nodeTag, in the model. The response enforced at the node at any given time is obtained from the GroundMotion obejct associated with the constraint. This GroundMotion object is determined from the gMotionTag passed in the command. NOTE that the GroundMotion must be added to the MultipleSupportExcitation before the ImposedMotionSP.</p>
 <h3 id="the-equaldof-command">The equalDOF Command</h3>
-<pre><code>   equalDOF rNodeTag? cNodeTag? dof1? dof2? ...</code></pre>
+<div class="highlight"><pre><span></span>   equalDOF rNodeTag? cNodeTag? dof1? dof2? ...
+</pre></div>
+
 <p>The equalDOF command is used to construct a multi-point constraint between the nodes identified by rNodeTag and cNodeTag. rNodeTag is the retained node and cNodeTag is the constrained node. dof1 dof2 ... represent the nodal degrees of freedom that are constrained at the cNode to be the same as those at the rNode. The valid range for dof1 dof2 ... is 1 through ndf, the number of nodal degrees of freedom.</p>
 <h3 id="the-rigiddiaphragm-command">The rigidDiaphragm Command</h3>
-<pre><code>   rigidDiaphragm perpDirn? rNodeTag? cNodeTag1 ...</code></pre>
+<div class="highlight"><pre><span></span>   rigidDiaphragm perpDirn? rNodeTag? cNodeTag1 ...
+</pre></div>
+
 <p>The rigidDiaphragm command is used to construct a number of MP_Constraint objects. These constraints will constrain certain degrees-of-freedom at the the constrained nodes listed to move as if in a rigid plane with the retained node. The rigid plane can be the 12, 13 or 23 planes. The rigid plane is specified by the user providing the perpendicular plane direction, ie 3 for 12 plane. The constraint object is constructed assuming small rotations. The rigidDiaphragm command works only for problems in three dimensions with six degrees-of-freedom at the nodes.</p>
 <h3 id="the-rigidlink-command">The rigidLink Command</h3>
-<pre><code>   rigidLink -type? rNodeTag? cNodeTag</code></pre>
+<div class="highlight"><pre><span></span>   rigidLink -type? rNodeTag? cNodeTag
+</pre></div>
+
 <p>The rigidLink command is used to construct a single MP_Constraint object. The type can be either rod or beam. If rod is specified, the translational degrees-of-freedom will be constrained to be exactly the same as those at the retained node. If beam is specified, a rigid beam constraint is imposed on the constrained node, that is the translational and rotational degrees of freedom are constrained. The constraint object constructed for the beam option assumes small rotations.</p>
 <h2 id="the-analysis-command">The analysis Command</h2>
-<pre><code>   analysis analysisType </code></pre>
+<div class="highlight"><pre><span></span>   analysis analysisType 
+</pre></div>
+
 <p>The analysis command is used to construct the Analysis object. The valid strings for analysisType are: Static, Transient.</p>
 <h3 id="static-analysis">Static Analysis</h3>
-<pre><code>   analysis Static </code></pre>
+<div class="highlight"><pre><span></span>   analysis Static 
+</pre></div>
+
 <p>To construct a StaticAnalysis object. The analysis object is constructed with the component objects, i.e. SolutionAlgorithm, StaticIntegrator, ConstraintHandler, DOF_Numberer, LinearSOE, and LinearSolver objects previously created and by the analyst. If none has been created, default objects are constructed and used. These defaults are a NewtonRaphson EquiSolnAlgo with a CTestNormUnbalance with a tolerance of 1e-6 and a maximum of <span class="math inline">\(25\)</span> iterations, a PlainHandler ConstraintHandler, an RCM DOF_Numberer, a LoadControl StaticIntegrator with a constant load increment of <span class="math inline">\(1.0\)</span>, and a profiled symmetric positive definite LinearSOE and LinearSolver.</p>
 <h3 id="transient-analysis">Transient Analysis</h3>
-<pre><code>   analysis Transient</code></pre>
+<div class="highlight"><pre><span></span>   analysis Transient
+</pre></div>
+
 <p>To construct a DircetIntegrationAnalysis object. The analysis object is constructed with the component objects, i.e. SolutionAlgorithm, TransientIntegrator, ConstraintHandler, DOF_Numberer, LinearSOE, and LinearSolver objects previously created by the analyst. If none has been created, default objects are constructed and used. These defaults are a NewtonRaphson EquiSolnAlgo with a CTestNormUnbalance with a tolerance of 1e-6 and a maximum of <span class="math inline">\(25\)</span> iterations, a PlainHandler ConstraintHandler, an RCM DOF_Numberer, a Newmark TransientIntegrator with <span class="math inline">\(\gamma = 0.5\)</span> and <span class="math inline">\(\beta = 0.25\)</span>, and a profiled symmetric positive definite LinearSOE and LinearSolver.</p>
-<pre><code>   analysis VariableTransient</code></pre>
+<div class="highlight"><pre><span></span>   analysis VariableTransient
+</pre></div>
+
 <p>To construct a VariableTimeStepDircetIntegrationAnalysis object. The analysis object is constructed with the component objects, i.e. SolutionAlgorithm, TransientIntegrator, ConstraintHandler, DOF_Numberer, LinearSOE, and LinearSolver objects previously created by the analyst. If none has been created, default objects are constructed and used. These defaults are a NewtonRaphson EquiSolnAlgo with a CTestNormUnbalance with a tolerance of 1e-6 and a maximum of <span class="math inline">\(25\)</span> iterations, a PlainHandler ConstraintHandler, an RCM DOF_Numberer, a Newmark TransientIntegrator with <span class="math inline">\(\gamma = 0.5\)</span> and <span class="math inline">\(\beta = 0.25\)</span>, and a profiled symmetric positive definite LinearSOE and LinearSolver.</p>
 <h2 id="the-constraints-command">The constraints Command</h2>
-<pre><code>   constraints constraintHandlerType &lt;args for handler type&gt;</code></pre>
+<div class="highlight"><pre><span></span><span class="w">   </span><span class="n">constraints</span><span class="w"> </span><span class="n">constraintHandlerType</span><span class="w"> </span><span class="o">&lt;</span><span class="n">args</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">handler</span><span class="w"> </span><span class="n">type</span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+
 <p>The constraints command is used to construct the ConstraintHandler object. The ConstraintHandler object determines how the constraint equations are enforced in the analysis. The valid strings for constraintHandlerType are: Plain, Penalty, Lagrange, and Transformation.</p>
 <h3 id="plain-constraints">Plain Constraints</h3>
-<pre><code>   constraints Plain</code></pre>
+<div class="highlight"><pre><span></span><span class="w">   </span><span class="n">constraints</span><span class="w"> </span><span class="n">Plain</span><span class="w"></span>
+</pre></div>
+
 <p>This will create a PlainHandler which is only capable of enforcing homogeneous single-point constraints. If other types of constraints exist in the domain, a different constraint handler must be specified.</p>
 <h3 id="penalty-method">Penalty Method</h3>
-<pre><code>   constraints Penalty alphaSP? alphaMP?</code></pre>
+<div class="highlight"><pre><span></span><span class="w">   </span><span class="n">constraints</span><span class="w"> </span><span class="n">Penalty</span><span class="w"> </span><span class="n">alphaSP</span><span class="err">?</span><span class="w"> </span><span class="n">alphaMP</span><span class="err">?</span><span class="w"></span>
+</pre></div>
+
 <p>To construct a PenaltyConstraintHandler which will cause the constraints to be enforced using the penalty method. The alphaSP and alphaMP values are the factors used when adding the single-point and multi-point constraints into the system of equations.</p>
 <h3 id="lagrange-multipliers">Lagrange Multipliers</h3>
-<pre><code>   constraints Lagrange &lt;alphaSP?&gt; &lt;alphaMP?&gt;</code></pre>
+<div class="highlight"><pre><span></span><span class="w">   </span><span class="n">constraints</span><span class="w"> </span><span class="n">Lagrange</span><span class="w"> </span><span class="o">&lt;</span><span class="n">alphaSP</span><span class="err">?</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">alphaMP</span><span class="err">?</span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+
 <p>To construct a LagrangeConstraintHandler which will cause the constraints to be enforced using the method of Lagrange multipliers. The alphaSP and alphaMP values are the factors used when adding the single-point and multi-point constraints into the system of equations. If no values are specified values of <span class="math inline">\(1.0\)</span> are assumed. Values other than <span class="math inline">\(1.0\)</span> are permited to offset numerical roundoff problems. It should be noted that the resulting system of equations are not positive definite due to the introduction of zeroes on the diagonal by the constraint equations.</p>
 <h3 id="transformation-method">Transformation Method</h3>
-<pre><code>   constraints Transformation </code></pre>
+<div class="highlight"><pre><span></span><span class="w">   </span><span class="n">constraints</span><span class="w"> </span><span class="n">Transformation</span><span class="w"> </span>
+</pre></div>
+
 <p>To construct a TransformationConstraintHandler which will cause the constraints to be enforced using the transformation method. It should be noted that no retained node in an <code>MP_Constraint</code> can also be specified as being a constrained node in another <code>MP_Constraint</code> with the current implementation.</p>
 <h2 id="the-integrator-command">The integrator Command</h2>
-<pre><code>   integrator integratorType &lt;args for integrator type&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="nv">integrator</span> <span class="nv">integratorType</span> <span class="o">&lt;</span><span class="nv">args</span> <span class="k">for</span> <span class="nv">integrator</span> <span class="nv">type</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>The integrator command is used to construct the Integrator object. The Integrator object determines the meaning of the terms in the system of equation object. The valid strings for integratorType for a static analysis are: LoadControl, DisplacementControl, MinUnbalDispNorm, Arclength, and ArcLength1. <strong>It should be noted that static integrators should only be used with a Linear TimeSeries object with a factor of <span class="math inline">\(1.0\)</span></strong>. The valid strings for integratorType are for dynamic analysis: Newmark, Newmark1, HHT, and HHT1</p>
 <h3 id="load-control">Load Control</h3>
-<pre><code>   integrator LoadControl dlambda1? &lt;Jd? minLambda? maxLambda?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   integrator LoadControl dlambda1? &lt;Jd? minLambda? maxLambda?&gt;
+</pre></div>
+
 <p>To construct a StaticIntegrator object of type LoadControl. The third argument, dlambda1, is a floating-point number specifying the first load increment (pseudo-time step) in the next invocation of the analysis command. The load increment at subsequent iterations i is related to the load increment at (i-1), dlambda(i-1), and the number of iterations at i-1, J(i-1), by the following: dLambda(i) = dlambda(i-1)*Jd/J(i-1). The floating-point arguments minLambda and maxLambda are used to bound the increment.</p>
 <h3 id="displacement-control">Displacement Control</h3>
-<pre><code>   integrator  DisplacementControl nodeTag? dofTag? dU1? &lt;Jd? minDU? maxDU?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   integrator  DisplacementControl nodeTag? dofTag? dU1? &lt;Jd? minDU? maxDU?&gt;
+</pre></div>
+
 <p>To construct a StaticIntegrator object of type DisplacementControl. The third and fourth arguments, nodeTag and dofTag, are integers identifying the node and the degree-of-freedom at the node (1,ndf), whose response controls the solution. The fourth argument dU1, is a floating-point number specifying the first displacement increment (pseudo-time step) in the next invocation of the analysis command. The displacement increment at subsequent iterations <span class="math inline">\(i\)</span> is related to the displacement increment at (i-1), dU(i-1), and the number of iterations at i-1, J(i-1), by the following: dU(i) = dU(i-1)*Jd/J(i-1). The floating-point arguments minDU and maxDU are used to bound the increment.</p>
 <h3 id="minimum-unbalanced-displacement-norm">Minimum Unbalanced Displacement Norm</h3>
-<pre><code>   integrator MinUnbalDispNorm dlambda11? &lt;Jd? minLambda? maxLambda?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   integrator MinUnbalDispNorm dlambda11? &lt;Jd? minLambda? maxLambda?&gt;
+</pre></div>
+
 <p>To construct a StaticIntegrator object of type MinUnbalDispNorm. The third argument, dlambda11, is a floating-point number specifying the first load increment (pseudo-time step) at the first iteration in the next invocation of the analysis command. The first load increment at subsequent iterations <span class="math inline">\(i\)</span> is related to the load increment at (i-1), dlambda(i-1), and the number of iterations at <span class="math inline">\(i-1\)</span>, J(i-1), by the following: dLambda(1i) = dlambda(i-1)*Jd/J(i-1). The floating-point arguments minLambda and maxLambda are used to bound the increment.</p>
 <h3 id="arc-length-control">Arc-Length Control</h3>
-<pre><code>   integrator ArcLength  arclength? alpha?
-   integrator ArcLength1 arclength? alpha?</code></pre>
+<div class="highlight"><pre><span></span>   integrator ArcLength  arclength? alpha?
+   integrator ArcLength1 arclength? alpha?
+</pre></div>
+
 <p>To construct a StaticIntegrator object of type ArcLength or ArcLength1. The third and fourth arguments, are floating-point numbers defining the two arc length parameters to be used.</p>
 <h3 id="newmark-method">Newmark Method</h3>
-<pre><code>   integrator Newmark  gamma? beta? &lt;alphaM? betaK? betaKinit? betaKcomm?&gt; 
-   integrator Newmark1 gamma? beta? &lt;alphaM? betaK? betaKinit? betaKcomm?&gt; </code></pre>
+<div class="highlight"><pre><span></span>   integrator Newmark  gamma? beta? &lt;alphaM? betaK? betaKinit? betaKcomm?&gt; 
+   integrator Newmark1 gamma? beta? &lt;alphaM? betaK? betaKinit? betaKcomm?&gt; 
+</pre></div>
+
 <p>To construct a TransientIntegrator object of type Newmark or Newmark1, (Newmark1 predicts displacement and velocity and sets acceleration to <span class="math inline">\(0\)</span>, whereas Newmark predicts velocity and acceleration and leaves displacement as is). The third and fourth arguments, are floating-point numbers defining the two Newmark parameters <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\beta\)</span>. Optional arguments are provided for Rayleigh damping, where the damping matrix D = alphaM * M + betaK * Kcurrent + betaKcomm * KlastCommit + betaKinit * Kinit.</p>
 <h3 id="hilbert-hughes-taylor-method">Hilbert-Hughes-Taylor Method</h3>
-<pre><code>   integrator HHT  alpha? &lt;alphaM? betaK? betaKinit? betaKcomm?&gt; 
-   integrator HHT1 alpha? &lt;alphaM? betaK? betaKinit? betaKcomm?&gt; </code></pre>
+<div class="highlight"><pre><span></span>   integrator HHT  alpha? &lt;alphaM? betaK? betaKinit? betaKcomm?&gt; 
+   integrator HHT1 alpha? &lt;alphaM? betaK? betaKinit? betaKcomm?&gt; 
+</pre></div>
+
 <p>To construct a TransientIntegrator object of type HHT or HHT1, (HHT1 predicts displacement and velocity and sets acceleration to <span class="math inline">\(0\)</span>, whereas HHT predicts velocity and acceleration and leaves displacement as is). The third and fourth arguments, are floating-point numbers defining the two Newmark parameters <span class="math inline">\(\alpha\)</span>. Optional arguments are provided for Rayleigh damping, where the damping matrix D = alphaM * M + betaK * Kcurrent + betaKcomm * KlastCommit + betaKinit * Kinit.</p>
 <h2 id="the-algorithm-command">The algorithm Command</h2>
-<pre><code>   algorithm algorithmType &lt;args for algorithm type&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="nv">algorithm</span> <span class="nv">algorithmType</span> <span class="o">&lt;</span><span class="nv">args</span> <span class="k">for</span> <span class="nv">algorithm</span> <span class="nv">type</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>The algorithm command is used to construct the Algorithm object. The Algorithm object determines the sequence of steps taken to solve the non-linear equation. The valid strings for algorithmType are: Linear, Newton, ModifiedNewton, NewtonLineSearch, KrylovNewton, BFGS, and Broyden.</p>
 <h3 id="linear-algorithm">Linear Algorithm</h3>
-<pre><code>   algorithm Linear</code></pre>
+<div class="highlight"><pre><span></span>   algorithm Linear
+</pre></div>
+
 <p>To construct a Linear algorithm object which takes one iteration to solve the system of equations.</p>
 <h3 id="newton-algorithm">Newton Algorithm</h3>
-<pre><code>   algorithm Newton</code></pre>
+<div class="highlight"><pre><span></span>   algorithm Newton
+</pre></div>
+
 <p>To construct a NewtonRaphson algorithm object which uses the Newton-Raphson method to advance to the next time step. The tangent is updated at each iteration.</p>
 <h3 id="newton-with-line-search-algorithm">Newton with Line Search Algorithm</h3>
-<pre><code>   algorithm NewtonLineSearch ratio?</code></pre>
+<div class="highlight"><pre><span></span>   algorithm NewtonLineSearch ratio?
+</pre></div>
+
 <p>To construct a NewtonLineSearch algorithm object which uses the Newton-Raphson method with line search to advance to the next time step. If the ratio between the residuals before and after the incremental update is greater than that specified by ratio, which should be betweeen 0.5 and 0.8, the line search algorithm ala Crisfield is employed to try to improve the convergence.</p>
 <h3 id="modified-newton-algorithm">Modified Newton Algorithm</h3>
-<pre><code>   algorithm ModifiedNewton</code></pre>
+<div class="highlight"><pre><span></span>   algorithm ModifiedNewton
+</pre></div>
+
 <p>To construct a ModifiedNewton algorithm object which uses the modified Newton-Raphson method to advance to the next time step. The tangent at the first iteration of the current time step is used to iterate to the next time step.</p>
 <h3 id="krylov-newton-algorithm">Krylov-Newton Algorithm</h3>
-<pre><code>   algorithm KrylovNewton</code></pre>
+<div class="highlight"><pre><span></span>   algorithm KrylovNewton
+</pre></div>
+
 <p>To construct a KrylovNewton algorithm object which uses a modified Newton method with Krylov subspace acceleration to advance to the next time step. The accelerator is described by Carlson and Miller in “Design and Application of a 1D GWMFE Code” from SIAM Journal of Scientific Computing (Vol. 19, No. 3, pp. 728-765, May 1998).</p>
 <h3 id="bfgs-algorithm">BFGS Algorithm</h3>
-<pre><code>   algorithm BFGS &lt;count?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   algorithm BFGS &lt;count?&gt;
+</pre></div>
+
 <p>To construct a BFGS algorithm object for symmetric systems which performs successive rank-two updates of the tangent at the first iteration of the current time step. The optional argument count is the number of iterations within a time step until a new tangent is formed.</p>
 <h3 id="broyden-algorithm">Broyden Algorithm</h3>
-<pre><code>   algorithm Broyden &lt;count?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   algorithm Broyden &lt;count?&gt;
+</pre></div>
+
 <p>To construct a Broyden algorithm object for general unsymmetric systems which performs successive rank-one updates of the tangent at the first iteration of the current time step. The optional argument count is the number of iterations within a time step until a new tangent is formed.</p>
 <h2 id="the-test-command">The test Command</h2>
-<pre><code>   test convergenceTestType &lt;args for test type&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="nv">test</span> <span class="nv">convergenceTestType</span> <span class="o">&lt;</span><span class="nv">args</span> <span class="k">for</span> <span class="nv">test</span> <span class="nv">type</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>Certain SolutionAlgorithm objects require a ConvergenceTest object to determine if convergence has been achieved at the end of an iteration step. The test command is used to construct ConvergenceTest object. The valid strings for convergenceTestType are NormUnbalance, NormDispIncr and EnergyIncr.</p>
 <h3 id="norm-unbalance-test">Norm Unbalance Test</h3>
-<pre><code>   test NormUnbalance tol? maxNumIter? &lt;printFlag?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   test NormUnbalance tol? maxNumIter? &lt;printFlag?&gt;
+</pre></div>
+
 <p>To construct a CTestNormUnbalance which tests positive for convergence if the 2-norm of the <span class="math inline">\(b\)</span> vector (the unbalance) in the LinearSOE object is less than tol. A maximum of maxNumIter iterations will be performed before failure to converge will be returned. The optional printFlag can be used to print information on convergence, a <span class="math inline">\(1\)</span> will print information on each step, a <span class="math inline">\(2\)</span> when convergence has been achieved.</p>
 <h3 id="norm-displacement-increment-test">Norm Displacement Increment Test</h3>
-<pre><code>   test NormDispIncr tol? maxNumIter? &lt;printFlag?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   test NormDispIncr tol? maxNumIter? &lt;printFlag?&gt;
+</pre></div>
+
 <p>To construct a CTestNormDispIncr which tests positive for convergence if the 2-norm of the <span class="math inline">\(x\)</span> vector (the displacement increments) in the LinearSOE object is less than tol. A maximum of maxNumIter iterations will be performed before failure to converge will be returned. The optional printFlag can be used to print information on convergence, a <span class="math inline">\(1\)</span> will print information on each step, a <span class="math inline">\(2\)</span> when convergence has been achieved.</p>
 <h3 id="energy-increment-test">Energy Increment Test</h3>
-<pre><code>   test EnergyIncr tol? maxNumIter? &lt;printFlag?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   test EnergyIncr tol? maxNumIter? &lt;printFlag?&gt;
+</pre></div>
+
 <p>To construct a CTestEnergyIncr which tests positive for convergence if the half the inner-product of the <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> vectors (displacement increments and unbalance) in the LinearSOE object is less than tol. A maximum of maxNumIter iterations will be performed before failure to converge will be returned. The optional printFlag can be used to print information on convergence, a <span class="math inline">\(1\)</span> will print information on each step, a <span class="math inline">\(2\)</span> when convergence has been achieved.</p>
 <h2 id="the-numberer-command">The numberer Command</h2>
-<pre><code>   numberer numbererType &lt;args for numberer type&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="nv">numberer</span> <span class="nv">numbererType</span> <span class="o">&lt;</span><span class="nv">args</span> <span class="k">for</span> <span class="nv">numberer</span> <span class="nv">type</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>The numberer command is used to construct the DOF_Numberer object. The DOF_Numberer object determines the mapping between equation numbers and degrees-of-freedom. The valid strings are: Plain, RCM. None of the present types require additional arguments. As certain system of equation and solver objects do their own mapping, i.e. SuperLU, UmfPack, Kincho’s specifying a numberer other than plain may be a waste of time.</p>
 <h2 id="the-system-command">The system Command</h2>
-<pre><code>   system systemType &lt;args for system type&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="nv">system</span> <span class="nv">systemType</span> <span class="o">&lt;</span><span class="nv">args</span> <span class="k">for</span> <span class="nv">system</span> <span class="nv">type</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>The system command is used to construct the LinearSOE and a LinearSolver objects to store and solve the system of equations in the analysis. The valid types of systemType commands are: BandGeneral, BandSPD, ProfileSPD, SparseGeneral, UmfPack, and SparseSPD.</p>
 <h5 id="the-bandgeneral-soe">The BandGeneral SOE</h5>
-<pre><code>   system BandGeneral</code></pre>
+<div class="highlight"><pre><span></span>   system BandGeneral
+</pre></div>
+
 <p>To construct an un-symmetric banded system of equations object which will be factored and solved during the analysis using the Lapack band general solver.</p>
 <h5 id="the-bandspd-soe">The BandSPD SOE</h5>
-<pre><code>   system BandSPD</code></pre>
+<div class="highlight"><pre><span></span>   system BandSPD
+</pre></div>
+
 <p>To construct a symmetric positive definite banded system of equations object which will be factored and solved during the analysis using the lapack band spd solver.</p>
 <h5 id="the-profilespd-soe">The ProfileSPD SOE</h5>
-<pre><code>   system ProfileSPD</code></pre>
+<div class="highlight"><pre><span></span>   system ProfileSPD
+</pre></div>
+
 <p>To construct a symmetric positive definite profile system of equations object which will be factored and solved during the analysis using a profile solver.</p>
 <h5 id="the-sparsegeneral-soe">The SparseGeneral SOE</h5>
-<pre><code>   system SparseGeneral &lt;-piv&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">system</span> <span class="n">SparseGeneral</span> <span class="o">&lt;-</span><span class="n">piv</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>To construct a general sparse system of equations object which will be factored and solved during the analysis using the SuperLU solver. By default no partial pivoting is performed. The analyst can change this by specifying the -piv option.</p>
 <h5 id="the-umfpack-soe">The UmfPack SOE</h5>
-<pre><code>   system UmfPack </code></pre>
+<div class="highlight"><pre><span></span>   system UmfPack 
+</pre></div>
+
 <p>To construct a general sparse system of equations object which will be factored and solved during the analysis using the UMFPACK solver.</p>
 <h5 id="the-sparsespd-soe">The SparseSPD SOE</h5>
-<pre><code>   system SparseSPD</code></pre>
+<div class="highlight"><pre><span></span>   system SparseSPD
+</pre></div>
+
 <p>To construct a sparse symmetic positive definite system of equation object which will be factored and solved during the analysis using a sparse solver developed at Stanford by Kincho Law.</p>
 <h2 id="the-recorder-command">The recorder Command</h2>
-<pre><code>   recorder recorderType &lt;args for type&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="nv">recorder</span> <span class="nv">recorderType</span> <span class="o">&lt;</span><span class="nv">args</span> <span class="k">for</span> <span class="nv">type</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>The recorder command is used to construct a Recorder object. A Recorder object is used to monitor items of interest to the analyst at each commit(). Valid strings for recorderType are MaxNodeDisp, Element Node, display. Note that display is not yet available on the Windows version of opensees, this will be fixed shortly.</p>
 <h3 id="the-maxnodedisp-recorder">The MaxNodeDisp Recorder</h3>
-<pre><code>   recorder MaxNodeDisp dof? node1? node2? ...</code></pre>
+<div class="highlight"><pre><span></span>   recorder MaxNodeDisp dof? node1? node2? ...
+</pre></div>
+
 <p>To construct a recorder of type MaxNodeDisp to record the values of the maximum absolute values of the displacement in the degree-of-freedom direction dof for the nodes node1, node2, ...</p>
 <h3 id="the-node-recorder">The Node Recorder</h3>
-<pre><code>   recorder Node fileName responseType &lt;-time&gt; -node node1? ... -dof dof1? ...</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">recorder</span> <span class="n">Node</span> <span class="n">fileName</span> <span class="n">responseType</span> <span class="o">&lt;-</span><span class="n">time</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">node</span> <span class="n">node1</span><span class="o">?</span> <span class="kc">...</span> <span class="o">-</span><span class="n">dof</span> <span class="n">dof1</span><span class="o">?</span> <span class="kc">...</span>
+</pre></div>
+
 <p>To construct a recorder of type NodeRecorder to record the responseType in the degree-of-freedom directions dof1, ..., at the nodes node1, ... The results are saved in the file given by the string fileName. Each line of the file contains the result for a committed state of the domain. An optional argument -time will place the pseudo time of the Domain as the first entry in the line. The responseType defines the response type to be recorded, limited to one of the following: disp, vel, accel and incrDisp for displacements, velocities, accelerations and incremental displacements.</p>
 <h3 id="the-element-recorder">The Element Recorder</h3>
-<pre><code>   recorder Element eleID1? ...  &lt;-file fileName&gt; &lt;-time&gt; arg1? arg2? ...</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">recorder</span> <span class="n">Element</span> <span class="n">eleID1</span><span class="o">?</span> <span class="kc">...</span>  <span class="o">&lt;-</span><span class="n">file</span> <span class="n">fileName</span><span class="o">&gt;</span> <span class="o">&lt;-</span><span class="n">time</span><span class="o">&gt;</span> <span class="n">arg1</span><span class="o">?</span> <span class="n">arg2</span><span class="o">?</span> <span class="kc">...</span>
+</pre></div>
+
 <p>To construct a recorder of type ElementRecorder to record the response at a number of elements with tag eleID1, ... . The response recorded is element dependent and depends on the arguments arg1 arg2 ..., which are passed to the setResponse() element method. The results are printed directly to the screen or are saved in a file fileName if the optional -file argument is provided. An optional argument -time will place the pseudo time of the Domain as the first entry in the line. Note on playback, unless the results are stored in a file, nothing will be printed to the secreen for this type of recorder.</p>
 <h3 id="the-display-recorder">The Display Recorder</h3>
-<pre><code>   recorder display windowTitle? xLoc? yLoc? xPixels? yPixels? &lt;-file fineName?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">recorder</span> <span class="n">display</span> <span class="n">windowTitle</span><span class="o">?</span> <span class="n">xLoc</span><span class="o">?</span> <span class="n">yLoc</span><span class="o">?</span> <span class="n">xPixels</span><span class="o">?</span> <span class="n">yPixels</span><span class="o">?</span> <span class="o">&lt;-</span><span class="n">file</span> <span class="n">fineName</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To open a graphical window with the title windowTitle at location xLoc, yLoc which is xPixels wide by yPixels high for the displaying of graphical information. A TclFeViewer object is constructed. This constructor adds a number of additional commands to opensees, similar to the construction of the BasicBuilder. These other commands are used to define the viewing system for the image that is placed on the screen. These commands are under review and will be discussed in the next version of this document. If the optional -file argument is provided, in addition to displaying the model in the window, information is sent to a file so that the images displayed may be redisplayed at a later time.</p>
 <h3 id="the-plot-recorder">The Plot Recorder</h3>
-<pre><code>   recorder plot fileName? windowTitle? xLoc? yLoc? xPixels? yPixels? 
-        &lt;-columns xCol? yCol?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">recorder</span> <span class="n">plot</span> <span class="n">fileName</span><span class="o">?</span> <span class="n">windowTitle</span><span class="o">?</span> <span class="n">xLoc</span><span class="o">?</span> <span class="n">yLoc</span><span class="o">?</span> <span class="n">xPixels</span><span class="o">?</span> <span class="n">yPixels</span><span class="o">?</span> 
+        <span class="o">&lt;-</span><span class="n">columns</span> <span class="n">xCol</span><span class="o">?</span> <span class="n">yCol</span><span class="o">?&gt;</span>
+</pre></div>
+
 <p>To open a graphical window with the title windowTitle at location xLoc, yLoc which is xPixels wide by yPixels high for the plotting the contents of the file fileName. Unless the optional -columns flag is passed, the first column of the file is used as the x-axis and the second column as the y-axis.</p>
 <h2 id="the-analyze-command">The analyze Command</h2>
-<pre><code>   analyze numIncr? &lt;dt?&gt; &lt;dtMin? dtMax? Jd?&gt;</code></pre>
+<div class="highlight"><pre><span></span>   analyze numIncr? &lt;dt?&gt; &lt;dtMin? dtMax? Jd?&gt;
+</pre></div>
+
 <p>To invoke analyze(numIncr, <span class="math inline">\(&lt;\)</span>dt<span class="math inline">\(&gt;\)</span>, <span class="math inline">\(&lt;\)</span>dtMin<span class="math inline">\(&gt;\)</span>, <span class="math inline">\(&lt;\)</span>dtMax<span class="math inline">\(&gt;\)</span>, <span class="math inline">\(&lt;\)</span>Jd<span class="math inline">\(&gt;\)</span>) on the Analysis object constructed with the analysis command. Note that dt, the time step increment, is required if a transient analysis or variable time step transient analysis was specified. dtMin, dtMax and Jd (the min step, the max step and the number of iterations the user would like to perform at each time step) are required if a variable time step analysis method is specified. For both transient and variable time step the model will be moved from it’s current time to a time &gt;= numIncr * dt.</p>
 <p>RETURNS <span class="math inline">\(0\)</span> if successfull, a negative number if not.</p>
 <h2 id="the-eigen-command">The eigen Command</h2>
-<pre><code>   eigen numEigenvalues?</code></pre>
+<div class="highlight"><pre><span></span>   eigen numEigenvalues?
+</pre></div>
+
 <p>To perform a generalized eigenvalue problem to determine the first numEigenvalues eigenvalues and eigenvectors. The eigenvectors are stored at the nodes and can be printed out. Currently each invocation of this command constructs a new EigenvalueAnalysis object, each with new component objects: a ConstraintHandler of type Plain, an EigenvalueSOE and solver of type BandArpackSOE and BandArpackSolver and an algorithm of type FrequencyAlgo. These objects are destroyed when the command has finished. This will change.</p>
 <h2 id="the-database-commands">The database Commands</h2>
-<pre><code>   database databaseType </code></pre>
+<div class="highlight"><pre><span></span>   database databaseType 
+</pre></div>
+
 <p>To construct a FE_Datastore object of type databaseType. Currently there is only one type of datastore object available, that of type FileDatastore. The invocation of this command will add the additional commands <strong>save</strong> and <strong>restore</strong> to the opensees interpreter to allow users to save and restore model states.</p>
-<pre><code>   database File fileName</code></pre>
+<div class="highlight"><pre><span></span>   database File fileName
+</pre></div>
+
 <p>To construct a datastore object of type FileDatastore. The FileDatastore object will save the data into a number of files, e.g fileName.id11 for all ID objects of size 11 that sendSelf() is invoked upon.</p>
 <h3 id="the-save-command">The save Command</h3>
-<pre><code>   save commitTag?</code></pre>
+<div class="highlight"><pre><span></span>   save commitTag?
+</pre></div>
+
 <p>To save the state of the model in the database. The commitTag is the unique identifier that can be used to restore the state at a latter time.</p>
 <h3 id="the-restore-command">The restore Command</h3>
-<pre><code>   restore commitTag?</code></pre>
+<div class="highlight"><pre><span></span>   restore commitTag?
+</pre></div>
+
 <p>To restore the state of the model from the information stored in the database. The state of the model will be the same as when the command save commitTag was invoked.</p>
 <h2 id="misc.-commands">Misc. Commands</h2>
 <h5 id="the-playback-command">The playback Command</h5>
-<pre><code>   playback commitTag?</code></pre>
+<div class="highlight"><pre><span></span>   playback commitTag?
+</pre></div>
+
 <p>To invoke playback on all Recorder objects constructed with the recorder command. The record() method is invoked with the integer commitTag.</p>
 <h5 id="the-print-command">The print Command</h5>
-<pre><code>   print &lt;fileName&gt; 
-   print &lt;fileName&gt; -node &lt;-flag flag?&gt; &lt;node1? node2? ..&gt;
-   print &lt;fileName&gt; -ele &lt;-flag flag?&gt; &lt;ele1? ele2? ..&gt;</code></pre>
+<div class="highlight"><pre><span></span>   <span class="n">print</span> <span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span> 
+   <span class="n">print</span> <span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">node</span> <span class="o">&lt;-</span><span class="n">flag</span> <span class="n">flag</span><span class="o">?&gt;</span> <span class="o">&lt;</span><span class="n">node1</span><span class="o">?</span> <span class="n">node2</span><span class="o">?</span> <span class="n">..</span><span class="o">&gt;</span>
+   <span class="n">print</span> <span class="o">&lt;</span><span class="n">fileName</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">ele</span> <span class="o">&lt;-</span><span class="n">flag</span> <span class="n">flag</span><span class="o">?&gt;</span> <span class="o">&lt;</span><span class="n">ele1</span><span class="o">?</span> <span class="n">ele2</span><span class="o">?</span> <span class="n">..</span><span class="o">&gt;</span>
+</pre></div>
+
 <p>To cause output to be printed to a file or stderr, if fileName is not specified. If no string qualifier is used, the print method is invoked on all objects of the domain. If the string -node or -ele is provided, the print() method is invoked on just the nodes or elements. With the analyst can send the integer flag to the print() method. The analyst can also limit the element and nodes on which the print() method is invoked by supplying the objects tags, ele1, ele2, etc. and node1, node2, etc.</p>
 <h5 id="the-reset-command">The reset Command</h5>
-<pre><code>   reset</code></pre>
+<div class="highlight"><pre><span></span>   reset
+</pre></div>
+
 <p>To set the state of the domain to its original state. Invokes revertToStart() on the Domain object.</p>
 <h5 id="the-wipe-command">The wipe Command</h5>
-<pre><code>   wipe</code></pre>
+<div class="highlight"><pre><span></span>   wipe
+</pre></div>
+
 <p>To destroy all objects constructed, i.e. to start over again without having to exit and restart the interpreter.</p>
 <h5 id="the-wipeanalysis-command">The wipeAnalysis Command</h5>
-<pre><code>   wipeAnalysis</code></pre>
+<div class="highlight"><pre><span></span>   wipeAnalysis
+</pre></div>
+
 <p>To destroy all objects constructed for the analysis in order to start a new type of analysis. This command does not destroy elements, nodes, materials, etc.; only the solution strategies, i.e., the alogrithm, analysis, equation solver, constraint handler, etc. are destroyed.</p>
 <h5 id="the-loadconst-command">The loadConst Command</h5>
-<div class="sourceCode" id="cb149"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a>loadConst &lt;-<span class="kw">time</span> pseudoTime?&gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">loadConst</span><span class="w"> </span><span class="o">&lt;-</span>time<span class="w"> </span>pseudoTime<span class="o">?&gt;</span>
+</pre></div>
+
 <p>To invoke <code>setLoadConst()</code> on all <code>LoadPattern</code> objects which have been created to this point. If the optional string <code>-time</code> or is specified, the pseudo time in the domain will be set to pseudoTime.</p>
 <h5 id="the-settime-command">The setTime Command</h5>
-<div class="sourceCode" id="cb150"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>setTime pseudoTime?</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">setTime</span><span class="w"> </span>pseudoTime<span class="o">?</span>
+</pre></div>
+
 <p>To set the pseudo time in the domain to pseudoTime.</p>
 <h5 id="the-gettime-command">The getTime Command</h5>
-<div class="sourceCode" id="cb151"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a>getTime</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">getTime</span>
+</pre></div>
+
 <p>Returns the time in the domain.</p>
 <h5 id="the-gettime-command-1">The getTime Command</h5>
-<div class="sourceCode" id="cb152"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a>nodeDisp nodeTag? dof?</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">nodeDisp</span><span class="w"> </span>nodeTag<span class="o">?</span><span class="w"> </span>dof<span class="o">?</span>
+</pre></div>
+
 <p>Return the dof’th displacement at the node nodeTag.</p>
 <h5 id="the-build-command">The build Command</h5>
-<div class="sourceCode" id="cb153"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a>        build</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="w">        </span><span class="nv">build</span>
+</pre></div>
+
 <p>To invoke build() on the ModelBuilder object. Has no effect on a BasicBuilder object, but will on other types of ModelBuilder objects.</p>
 <h5 id="the-video-command">The video Command</h5>
-<div class="sourceCode" id="cb154"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a>        video<span class="ot"> -file</span> fileName<span class="ot"> -window</span> windowName?</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="w">        </span><span class="nv">video</span><span class="w"> </span><span class="o">-</span>file<span class="w"> </span>fileName<span class="w"> </span><span class="o">-</span>window<span class="w"> </span>windowName<span class="o">?</span>
+</pre></div>
+
 <p>To construct a TclVideoPlayer object for displaying the images in a file created by the recorder display command. The images are displayed by invoking the command <em>play</em>.</p>
 
 

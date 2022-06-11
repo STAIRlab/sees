@@ -12695,7 +12695,9 @@
 
 
 <h1 id="minunbaldispnorm">MinUnbalDispNorm</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/integrator/MinUnbalDispNorm.h&gt;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/integrator/MinUnbalDispNorm.h&gt;</span><span class="cp"></span>
+</pre></div>
+
 <p>UNDER CONSTRUCTION.</p>
 <p>class MinUnbalDispNorm: public StaticIntegrator<br />
 </p>
@@ -12725,17 +12727,23 @@ MinUnbalDispNorm is a subclass of StaticIntegrator, it is used to when performin
 <p>The integer <code>INTEGRATOR_TAGS_MinUnbalDispNorm</code> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the StaticIntegrator classes constructor.</p>
 <p><br />
 Does nothing.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> newStep<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">newStep</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>WHAT DO I DO?<br />
 </p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> update<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span><span class="er">$</span>\Delta U<span class="er">$</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">$</span><span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">U$</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>WHAT DO I DO?<br />
 <em>int sendSelf(int commitTag, Channel &amp;theChannel);</em><br />
 WHAT DO I DO?<br />
 <em>int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</em><br />
 WHAT DO I DO?<br />
 </p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>WHAT DO I DO?</p>
 
 

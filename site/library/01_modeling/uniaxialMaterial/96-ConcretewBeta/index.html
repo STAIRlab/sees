@@ -12716,12 +12716,14 @@ title="wikilink" alt="RC C-shaped wall">Reinforced concrete wall with a C-shaped
 </dl>
 </dd>
 </dl>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConcretewBeta <span class="dt">$matTag</span> <span class="dt">$fpc</span> <span class="dt">$ec0</span> <span class="dt">$fcint</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$ecint</span> <span class="dt">$fcres</span> <span class="dt">$ecres</span> <span class="dt">$ft</span> <span class="dt">$ftint</span> <span class="dt">$etint</span> <span class="dt">$ftres</span> <span class="dt">$etres</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -lambda</span> <span class="dt">$lambda</span> &gt; </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -alpha</span> <span class="dt">$alpha</span> &gt; &lt;<span class="ot"> -beta</span> <span class="dt">$bint</span> <span class="dt">$ebint</span> <span class="dt">$bres</span> <span class="dt">$ebres</span> &gt; </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -M</span> <span class="dt">$M</span> &gt; &lt;<span class="ot"> -E</span> <span class="dt">$Ec</span> &gt;</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -conf</span> <span class="dt">$fcc</span> <span class="dt">$ecc</span> &gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ConcretewBeta<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fpc</span><span class="w"> </span><span class="nv">$ec0</span><span class="w"> </span><span class="nv">$fcint</span>
+<span class="w">        </span><span class="nv">$ecint</span><span class="w"> </span><span class="nv">$fcres</span><span class="w"> </span><span class="nv">$ecres</span><span class="w"> </span><span class="nv">$ft</span><span class="w"> </span><span class="nv">$ftint</span><span class="w"> </span><span class="nv">$etint</span><span class="w"> </span><span class="nv">$ftres</span><span class="w"> </span><span class="nv">$etres</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-lambda</span><span class="w"> </span><span class="nv">$lambda</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>alpha<span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>beta<span class="w"> </span><span class="nv">$bint</span><span class="w"> </span><span class="nv">$ebint</span><span class="w"> </span><span class="nv">$bres</span><span class="w"> </span><span class="nv">$ebres</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>M<span class="w"> </span><span class="nv">$M</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>E<span class="w"> </span><span class="nv">$Ec</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-conf</span><span class="w"> </span><span class="nv">$fcc</span><span class="w"> </span><span class="nv">$ecc</span><span class="w"> </span><span class="o">&gt;</span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

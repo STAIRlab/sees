@@ -12691,9 +12691,11 @@
 
 
 <h1 id="ctestnormunbalance">CTestNormUnbalance</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;convergenceTest/CTestNormUnbalance.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CTestNormUnbalance<span class="op">:</span> <span class="kw">public</span> ConvergenceTest</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;convergenceTest/CTestNormUnbalance.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CTestNormUnbalance</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ConvergenceTest</span><span class="w"></span>
+</pre></div>
+
 <p>MovableObject ConvergenceTest</p>
 <p>A CTestNormUnbalance object is an object which can be used in an algorithmic class to test if convergence has been achieved. The CTestNormUnbalance class tests using the norm of the right hand side Vector of a LinearSOE object and a user specified tolerance value.</p>
 <p>The integer <code>CLASS_TAGS_CTestNormUnbalance</code>, defined in <code>&lt;classTags.h&gt;</code>, is passed to the ConvergenceTest constructor. Sets the tolerance used in <code>test()</code> to be <code>tol</code>, the max number of iterations to be performed to <em>maxNumIter</em> and the print flag used to determine what, if anything, is printed on each test to <em>printFlag</em>.</p>

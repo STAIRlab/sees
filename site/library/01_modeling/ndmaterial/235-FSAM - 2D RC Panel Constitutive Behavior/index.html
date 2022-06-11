@@ -12711,8 +12711,10 @@ Figure 1. FSAM for Converting In-Plane Strains to In-Plane Smeared Stresses on a
 <p>
 <strong>Input Format:</strong>
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nDMaterial FSAM <span class="dt">$mattag</span> <span class="dt">$rho</span> <span class="dt">$sX</span> <span class="dt">$sY</span> <span class="dt">$conc</span> <span class="dt">$rouX</span> <span class="dt">$rouY</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$nu</span> <span class="dt">$alfadow</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">nDMaterial</span><span class="w"> </span>FSAM<span class="w"> </span><span class="nv">$mattag</span><span class="w"> </span><span class="nv">$rho</span><span class="w"> </span><span class="nv">$sX</span><span class="w"> </span><span class="nv">$sY</span><span class="w"> </span><span class="nv">$conc</span><span class="w"> </span><span class="nv">$rouX</span><span class="w"> </span><span class="nv">$rouY</span>
+<span class="w">        </span><span class="nv">$nu</span><span class="w"> </span><span class="nv">$alfadow</span><span class="w"></span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -12987,8 +12989,10 @@ href="http://opensees.berkeley.edu/wiki/index.php/SFI_MVLEM_-_Cyclic_Shear-Flexu
 </p>
 <hr />
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>nDMaterial FSAM <span class="dv">1</span> <span class="fl">0.0</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">4</span> <span class="fl">0.0073</span> <span class="fl">0.0606</span> <span class="fl">0.1</span> <span class="fl">0.01</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>recorder Element<span class="ot"> -file</span> MVLEM_panel_strain.out<span class="ot"> -time -ele</span> <span class="dv">1</span> RCPanel <span class="dv">1</span> panel_strain</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">nDMaterial</span><span class="w"> </span>FSAM<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">0.0073</span><span class="w"> </span><span class="mf">0.0606</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="mf">0.01</span>
+<span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>MVLEM_panel_strain.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span>RCPanel<span class="w"> </span><span class="mi">1</span><span class="w"> </span>panel_strain
+</pre></div>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/FSAM_2a.png"
 title="Figure 2. Behavior and Input/Output Parameters of the FSAM Constitutive Model"

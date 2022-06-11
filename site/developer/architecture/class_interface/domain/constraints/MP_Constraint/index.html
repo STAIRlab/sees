@@ -12695,12 +12695,14 @@
 
 
 <h1 id="mp_constraint">MP_Constraint</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;domain/constraints/MP_Constraint.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MP_Constraint<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> DomainComponent</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    TaggedObject</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    MovableObject</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;domain/constraints/MP_Constraint.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">MP_Constraint</span><span class="o">:</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="n">DomainComponent</span><span class="w"></span>
+<span class="w">    </span><span class="n">TaggedObject</span><span class="w"></span>
+<span class="w">    </span><span class="n">MovableObject</span><span class="w"></span>
+</pre></div>
+
 <p>An <code>MP_Constraint</code> represents a multiple point constraint in the domain. A multiple point constraint imposes a relationship between the displacement for certain dof at two nodes in the model, typically called the <em>retained</em> node and the <em>constrained</em> node: <span class="math inline">\(U_c = C_{cr} U_r\)</span></p>
 <p>An <code>MP_Constraint</code> is responsible for providing information on the relationship between the dof, this is in the form of a constraint Matrix, <span class="math inline">\(C_{cr}\)</span>, and two ID objects, <em>retainedID</em> and <em>constrainedID</em> indicating the dof’s at the nodes represented by <span class="math inline">\(C_{cr}\)</span>. For example, for the following constraint imposing a relationship between the displacements at node <span class="math inline">\(1\)</span>, the constrained node, with the displacements at node <span class="math inline">\(2\)</span>, the retained node in a problem where the x,y,z components are identified as the 0,1,2 degrees-of-freedom:</p>
 <p><span class="math display">\[u_{1,x} = 2 u_{2,x} + u_{2,z}\]</span> <span class="math display">\[u_{1,y} = 3 u_{2,z}\]</span></p>
@@ -12745,12 +12747,18 @@ Returns, as a const, the <em>constrainedID</em> formed in the constructor. <em>v
 Returns, as a const, the <em>retainedID</em> formed in the constructor. <em>virtual int applyConstraint(double timeStamp)</em><br />
 A method to invoked to inform the <code>MP_Constraint</code> to determine <span class="math inline">\(C_{cr}\)</span>, for the time <em>timeStamp</em>. <strong>The base class will do nothing, as Matrix is assumed to be constant.</strong><br />
 </p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="at">const</span> Matrix <span class="op">&amp;</span>getConstraint<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getConstraint</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Returns the current constraint Matrix, that determined in the last call to <code>applyConstraint()</code>. For the <code>MP_Constraint</code> class, <span class="math inline">\(C_{cr}\)</span> determined in the constructor is returned.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> sendSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>theChannel<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sendSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Creates a Vector, stores the MP_Constraints tag, nodeRetain, nodeConstrained and value in the Vector, and sends the Vector to the Channel using the objects own database tag and <em>commitTag</em>. It then sends the <em>participatingDOF</em> ID and the <em>constraint</em> Matrix, again using the objects database tag and <em>commitTag</em>. Returns <span class="math inline">\(0\)</span> if successful, a negative number if the Channel object, <em>theChannel</em>, failed to send the data. <em>virtual int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</em><br />
 Creates a Vector, receives the Vector from the Channel using <em>commitTag</em> and the objects database tag, and sets theMP_Constraints tag, nodeRetain, nodeConstrained from the the Vector. Creates a Vector and a Matrix, and then receives the <em>participatingDOF</em> ID and the <em>constraint</em> Matrix into these objects. Returns <span class="math inline">\(0\)</span> if successful, a negative number if the Channel object, <em>theChannel</em>, failed to receive the data.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">void</span> Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Prints out the MP_Constraints tag, then the tags of the constrained and retained nodes, then the two ID’s and finally the constraint Matrix.</p>
 
 

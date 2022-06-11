@@ -12701,135 +12701,137 @@
 <p>A solution algorithm of type Newton is used for the problem. The solution algorithm uses a ConvergenceTest which tests convergence on the norm of the energy increment vector. Five static load steps are performed.</p>
 <p>Subsequent to the static analysis, the wipeAnalysis and remove loadPatern commands are used to remove the nodal loads and create a new analysis. The nodal displacements have not changed. However, with the external loads removed the structure is no longer in static equilibrium.</p>
 <p>The integrator for the dynamic analysis if of type GeneralizedMidpoint with <span class="math inline">\(\alpha := 0.5\)</span>. This choice is uconditionally stable and energy conserving for linear problems. Additionally, this integrator conserves linear and angular momentum for both linear and non-linear problems. The dynamic analysis is performed using <span class="math inline">\(100\)</span> time increments with a time step <span class="math inline">\(\Delta t := 2.0\)</span>.</p>
-<pre><code># ----------------------------
-# Start of model generation
-# ----------------------------
+<div class="highlight"><pre><span></span><span class="c1"># ----------------------------</span><span class="w"></span>
+<span class="c1"># Start of model generation</span><span class="w"></span>
+<span class="c1"># ----------------------------</span><span class="w"></span>
 
-# Create ModelBuilder with 3 dimensions and 6 DOF/node
-model basic -ndm 3 -ndf 3
-
-
-# create the material
-nDMaterial ElasticIsotropic   1   100   0.25  1.27
+<span class="c1"># Create ModelBuilder with 3 dimensions and 6 DOF/node</span><span class="w"></span>
+<span class="n">model</span><span class="w"> </span><span class="n">basic</span><span class="w"> </span><span class="o">-</span><span class="n">ndm</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="n">ndf</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
 
 
-# Define geometry
-# ---------------
-
-# define some  parameters
-set eleArgs &quot;1&quot; 
-
-set element stdBrick
-#set element BbarBrick
-
-set nz 6
-set nx 2 
-set ny 2
-
-set nn [expr ($nz+1)*($nx+1)*($ny+1) ]
-
-# mesh generation
-block3D $nx $ny $nz   1 1  $element  $eleArgs {
-    1   -1     -1      0
-    2    1     -1      0
-    3    1      1      0
-    4   -1      1      0 
-    5   -1     -1     10
-    6    1     -1     10
-    7    1      1     10
-    8   -1      1     10
-}
+<span class="c1"># create the material</span><span class="w"></span>
+<span class="n">nDMaterial</span><span class="w"> </span><span class="n">ElasticIsotropic</span><span class="w">   </span><span class="mi">1</span><span class="w">   </span><span class="mi">100</span><span class="w">   </span><span class="mf">0.25</span><span class="w">  </span><span class="mf">1.27</span><span class="w"></span>
 
 
-set load 0.10
+<span class="c1"># Define geometry</span><span class="w"></span>
+<span class="c1"># ---------------</span><span class="w"></span>
 
-# Constant point load
-pattern Plain 1 Linear {
-   load $nn  $load  $load  0.0
-}
+<span class="c1"># define some  parameters</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">eleArgs</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span>
 
-# boundary conditions
-fixZ 0.0   1 1 1 
+<span class="n">set</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">stdBrick</span><span class="w"></span>
+<span class="c1">#set element BbarBrick</span><span class="w"></span>
 
+<span class="n">set</span><span class="w"> </span><span class="n">nz</span><span class="w"> </span><span class="mi">6</span><span class="w"></span>
+<span class="n">set</span><span class="w"> </span><span class="n">nx</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span>
+<span class="n">set</span><span class="w"> </span><span class="n">ny</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
 
-# --------------------------------------------------------------------
-# Start of static analysis (creation of the analysis &amp; analysis itself)
-# --------------------------------------------------------------------
+<span class="n">set</span><span class="w"> </span><span class="n">nn</span><span class="w"> </span><span class="p">[</span><span class="n">expr</span><span class="w"> </span><span class="p">(</span><span class="o">$</span><span class="n">nz</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">$</span><span class="n">nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="o">$</span><span class="n">ny</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">]</span><span class="w"></span>
 
-# Load control with variable load steps
-#                       init   Jd  min   max
-integrator LoadControl  1.0  1   1.0   10.0
-
-# Convergence test
-#                  tolerance maxIter displayCode
-test NormUnbalance     1.0e-10    20         1
-
-# Solution algorithm
-algorithm Newton
-
-# DOF numberer
-numberer RCM
-
-# Cosntraint handler
-constraints Plain 
-
-# System of equations solver
-system ProfileSPD
-
-# Analysis for gravity load
-analysis Static 
-
-# Perform the analysis
-analyze 5
-
-# --------------------------
-# End of static analysis
-# --------------------------
-
-# ----------------------------
-# Start of recorder generation
-# ----------------------------
-
-recorder Node -file Node.out -time -node $nn -dof 1 disp
-recorder plot Node.out CenterNodeDisp 625 10 625 450 -columns 1 2
-
-recorder display ShakingBeam 0 0 300 300 -wipe
-prp -100 100 120.5
-vup 0 1 0 
-display 1 0 1 
-
-# --------------------------
-# End of recorder generation
-# --------------------------
+<span class="c1"># mesh generation</span><span class="w"></span>
+<span class="n">block3D</span><span class="w"> </span><span class="o">$</span><span class="n">nx</span><span class="w"> </span><span class="o">$</span><span class="n">ny</span><span class="w"> </span><span class="o">$</span><span class="n">nz</span><span class="w">   </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="o">$</span><span class="n">element</span><span class="w">  </span><span class="o">$</span><span class="n">eleArgs</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="mi">1</span><span class="w">   </span><span class="o">-</span><span class="mi">1</span><span class="w">     </span><span class="o">-</span><span class="mi">1</span><span class="w">      </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="mi">2</span><span class="w">    </span><span class="mi">1</span><span class="w">     </span><span class="o">-</span><span class="mi">1</span><span class="w">      </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="mi">3</span><span class="w">    </span><span class="mi">1</span><span class="w">      </span><span class="mi">1</span><span class="w">      </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="mi">4</span><span class="w">   </span><span class="o">-</span><span class="mi">1</span><span class="w">      </span><span class="mi">1</span><span class="w">      </span><span class="mi">0</span><span class="w"> </span>
+<span class="w">    </span><span class="mi">5</span><span class="w">   </span><span class="o">-</span><span class="mi">1</span><span class="w">     </span><span class="o">-</span><span class="mi">1</span><span class="w">     </span><span class="mi">10</span><span class="w"></span>
+<span class="w">    </span><span class="mi">6</span><span class="w">    </span><span class="mi">1</span><span class="w">     </span><span class="o">-</span><span class="mi">1</span><span class="w">     </span><span class="mi">10</span><span class="w"></span>
+<span class="w">    </span><span class="mi">7</span><span class="w">    </span><span class="mi">1</span><span class="w">      </span><span class="mi">1</span><span class="w">     </span><span class="mi">10</span><span class="w"></span>
+<span class="w">    </span><span class="mi">8</span><span class="w">   </span><span class="o">-</span><span class="mi">1</span><span class="w">      </span><span class="mi">1</span><span class="w">     </span><span class="mi">10</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 
-# ---------------------------------------
-# Create and Perform the dynamic analysis
-# ---------------------------------------
+<span class="n">set</span><span class="w"> </span><span class="nb">load</span><span class="w"> </span><span class="mf">0.10</span><span class="w"></span>
 
-# Remove the static analysis &amp; reset the time to 0.0
-wipeAnalysis
-setTime 0.0
+<span class="c1"># Constant point load</span><span class="w"></span>
+<span class="n">pattern</span><span class="w"> </span><span class="n">Plain</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">Linear</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="nb">load</span><span class="w"> </span><span class="o">$</span><span class="n">nn</span><span class="w">  </span><span class="o">$</span><span class="nb">load</span><span class="w">  </span><span class="o">$</span><span class="nb">load</span><span class="w">  </span><span class="mf">0.0</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-# Now remove the loads and let the beam vibrate
-remove loadPattern 1
-
-# add some mass proportional damping
-rayleigh 0.01 0.0 0.0 0.0
-
-# Create the transient analysis
-test EnergyIncr     1.0e-10    20         1
-algorithm Newton
-numberer RCM
-constraints Plain 
-integrator Newmark 0.5 0.25
-analysis Transient
+<span class="c1"># boundary conditions</span><span class="w"></span>
+<span class="n">fixZ</span><span class="w"> </span><span class="mf">0.0</span><span class="w">   </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
 
 
-# Perform the transient analysis (20 sec)
-#       numSteps  dt
-analyze 100 2.0
-}</code></pre>
+<span class="c1"># --------------------------------------------------------------------</span><span class="w"></span>
+<span class="c1"># Start of static analysis (creation of the analysis &amp; analysis itself)</span><span class="w"></span>
+<span class="c1"># --------------------------------------------------------------------</span><span class="w"></span>
+
+<span class="c1"># Load control with variable load steps</span><span class="w"></span>
+<span class="c1">#                       init   Jd  min   max</span><span class="w"></span>
+<span class="n">integrator</span><span class="w"> </span><span class="n">LoadControl</span><span class="w">  </span><span class="mf">1.0</span><span class="w">  </span><span class="mi">1</span><span class="w">   </span><span class="mf">1.0</span><span class="w">   </span><span class="mf">10.0</span><span class="w"></span>
+
+<span class="c1"># Convergence test</span><span class="w"></span>
+<span class="c1">#                  tolerance maxIter displayCode</span><span class="w"></span>
+<span class="n">test</span><span class="w"> </span><span class="n">NormUnbalance</span><span class="w">     </span><span class="mf">1.0e-10</span><span class="w">    </span><span class="mi">20</span><span class="w">         </span><span class="mi">1</span><span class="w"></span>
+
+<span class="c1"># Solution algorithm</span><span class="w"></span>
+<span class="n">algorithm</span><span class="w"> </span><span class="n">Newton</span><span class="w"></span>
+
+<span class="c1"># DOF numberer</span><span class="w"></span>
+<span class="n">numberer</span><span class="w"> </span><span class="n">RCM</span><span class="w"></span>
+
+<span class="c1"># Cosntraint handler</span><span class="w"></span>
+<span class="n">constraints</span><span class="w"> </span><span class="n">Plain</span><span class="w"> </span>
+
+<span class="c1"># System of equations solver</span><span class="w"></span>
+<span class="n">system</span><span class="w"> </span><span class="n">ProfileSPD</span><span class="w"></span>
+
+<span class="c1"># Analysis for gravity load</span><span class="w"></span>
+<span class="n">analysis</span><span class="w"> </span><span class="n">Static</span><span class="w"> </span>
+
+<span class="c1"># Perform the analysis</span><span class="w"></span>
+<span class="n">analyze</span><span class="w"> </span><span class="mi">5</span><span class="w"></span>
+
+<span class="c1"># --------------------------</span><span class="w"></span>
+<span class="c1"># End of static analysis</span><span class="w"></span>
+<span class="c1"># --------------------------</span><span class="w"></span>
+
+<span class="c1"># ----------------------------</span><span class="w"></span>
+<span class="c1"># Start of recorder generation</span><span class="w"></span>
+<span class="c1"># ----------------------------</span><span class="w"></span>
+
+<span class="n">recorder</span><span class="w"> </span><span class="n">Node</span><span class="w"> </span><span class="o">-</span><span class="n">file</span><span class="w"> </span><span class="n">Node</span><span class="o">.</span><span class="n">out</span><span class="w"> </span><span class="o">-</span><span class="n">time</span><span class="w"> </span><span class="o">-</span><span class="n">node</span><span class="w"> </span><span class="o">$</span><span class="n">nn</span><span class="w"> </span><span class="o">-</span><span class="n">dof</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">disp</span><span class="w"></span>
+<span class="n">recorder</span><span class="w"> </span><span class="n">plot</span><span class="w"> </span><span class="n">Node</span><span class="o">.</span><span class="n">out</span><span class="w"> </span><span class="n">CenterNodeDisp</span><span class="w"> </span><span class="mi">625</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">625</span><span class="w"> </span><span class="mi">450</span><span class="w"> </span><span class="o">-</span><span class="n">columns</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+
+<span class="n">recorder</span><span class="w"> </span><span class="n">display</span><span class="w"> </span><span class="n">ShakingBeam</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">300</span><span class="w"> </span><span class="mi">300</span><span class="w"> </span><span class="o">-</span><span class="n">wipe</span><span class="w"></span>
+<span class="n">prp</span><span class="w"> </span><span class="o">-</span><span class="mi">100</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="mf">120.5</span><span class="w"></span>
+<span class="n">vup</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span>
+<span class="n">display</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+
+<span class="c1"># --------------------------</span><span class="w"></span>
+<span class="c1"># End of recorder generation</span><span class="w"></span>
+<span class="c1"># --------------------------</span><span class="w"></span>
+
+
+<span class="c1"># ---------------------------------------</span><span class="w"></span>
+<span class="c1"># Create and Perform the dynamic analysis</span><span class="w"></span>
+<span class="c1"># ---------------------------------------</span><span class="w"></span>
+
+<span class="c1"># Remove the static analysis &amp; reset the time to 0.0</span><span class="w"></span>
+<span class="n">wipeAnalysis</span><span class="w"></span>
+<span class="n">setTime</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+
+<span class="c1"># Now remove the loads and let the beam vibrate</span><span class="w"></span>
+<span class="n">remove</span><span class="w"> </span><span class="n">loadPattern</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="c1"># add some mass proportional damping</span><span class="w"></span>
+<span class="n">rayleigh</span><span class="w"> </span><span class="mf">0.01</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+
+<span class="c1"># Create the transient analysis</span><span class="w"></span>
+<span class="n">test</span><span class="w"> </span><span class="n">EnergyIncr</span><span class="w">     </span><span class="mf">1.0e-10</span><span class="w">    </span><span class="mi">20</span><span class="w">         </span><span class="mi">1</span><span class="w"></span>
+<span class="n">algorithm</span><span class="w"> </span><span class="n">Newton</span><span class="w"></span>
+<span class="n">numberer</span><span class="w"> </span><span class="n">RCM</span><span class="w"></span>
+<span class="n">constraints</span><span class="w"> </span><span class="n">Plain</span><span class="w"> </span>
+<span class="n">integrator</span><span class="w"> </span><span class="n">Newmark</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="mf">0.25</span><span class="w"></span>
+<span class="n">analysis</span><span class="w"> </span><span class="n">Transient</span><span class="w"></span>
+
+
+<span class="c1"># Perform the transient analysis (20 sec)</span><span class="w"></span>
+<span class="c1">#       numSteps  dt</span><span class="w"></span>
+<span class="n">analyze</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="mf">2.0</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+
 <p>The results consist of the file cantilever.out, which contains a line for every time step. Each line contains the time and the horizontal displacement at the upper right corner the beam. The time history is as plotted on the screen.</p>
 <p>figure <a href="#cantileverdisp" data-reference-type="ref" data-reference="cantileverdisp">[cantileverdisp$$</a>.</p>
 <div class="center">

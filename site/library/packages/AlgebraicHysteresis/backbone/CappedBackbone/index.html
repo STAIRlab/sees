@@ -12695,21 +12695,22 @@
 <h1 id="capped">Capped</h1>
 <p>This file contains the implementation of CappedBackbone, which overlays two backbone curves.</p>
 <p>Written: MHS Created: Aug 2000</p>
-<pre><code>class CappedBackbone : public HystereticBackbone
-{
- public:
-  CappedBackbone(int tag, HystereticBackbone &amp;backbone, 
-                 HystereticBackbone &amp;cap);
-  
-  int setVariable(char *argv);
-  int getVariable(int varID, double &amp;theValue);
+<div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="n">CappedBackbone</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">public</span><span class="w"> </span><span class="n">HystereticBackbone</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w"> </span><span class="n">public</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">CappedBackbone</span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="n">HystereticBackbone</span><span class="w"> </span><span class="o">&amp;</span><span class="n">backbone</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                 </span><span class="n">HystereticBackbone</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cap</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">  </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">setVariable</span><span class="p">(</span><span class="nb">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">getVariable</span><span class="p">(</span><span class="nb nb-Type">int</span><span class="w"> </span><span class="n">varID</span><span class="p">,</span><span class="w"> </span><span class="n">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theValue</span><span class="p">);</span><span class="w"></span>
 
- private:
-  HystereticBackbone *theBackbone;
-  HystereticBackbone *theCap;
-  
-  double eCap;
-};</code></pre>
+<span class="w"> </span><span class="n">private</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="n">HystereticBackbone</span><span class="w"> </span><span class="o">*</span><span class="n">theBackbone</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">HystereticBackbone</span><span class="w"> </span><span class="o">*</span><span class="n">theCap</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span>
+<span class="w">  </span><span class="n">double</span><span class="w"> </span><span class="n">eCap</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
 
 
               

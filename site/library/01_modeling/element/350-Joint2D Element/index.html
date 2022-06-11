@@ -12694,8 +12694,10 @@
 <p>
 This command is used to construct a two-dimensional beam-column-joint element object. The two dimensional beam-column joint is idealized as a parallelogram shaped shear panel with adjacent elements connected to its mid-points. The midpoints of the parallelogram are referred to as external nodes. These nodes are the only analysis components that connect the joint element to the surrounding structure.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element Joint2D <span class="dt">$eleTag</span> <span class="dt">$Nd1</span> <span class="dt">$Nd2</span> <span class="dt">$Nd3</span> <span class="dt">$Nd4</span> <span class="dt">$NdC</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$Mat1</span> <span class="dt">$Mat2</span> <span class="dt">$Mat3</span> <span class="dt">$Mat4</span>&amp;gt; <span class="dt">$MatC</span> <span class="dt">$LrgDspTag</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>Joint2D<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$Nd1</span><span class="w"> </span><span class="nv">$Nd2</span><span class="w"> </span><span class="nv">$Nd3</span><span class="w"> </span><span class="nv">$Nd4</span><span class="w"> </span><span class="nv">$NdC</span>
+<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$Mat1</span><span class="w"> </span><span class="nv">$Mat2</span><span class="w"> </span><span class="nv">$Mat3</span><span class="w"> </span><span class="nv">$Mat4</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="nv">$MatC</span><span class="w"> </span><span class="nv">$LrgDspTag</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

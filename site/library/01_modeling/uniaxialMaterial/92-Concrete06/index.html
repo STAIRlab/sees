@@ -12694,8 +12694,10 @@
 <p>
 This command is used to construct a uniaxial concrete material object with tensile strength, nonlinear tension stiffening and compressive behavior based on Thorenfeldt curve.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial Concrete06 <span class="dt">$matTag</span> <span class="dt">$fc</span> <span class="dt">$e0</span> <span class="dt">$n</span> <span class="dt">$k</span> <span class="dt">$alpha1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$fcr</span> <span class="dt">$ecr</span> <span class="dt">$b</span> <span class="dt">$alpha2</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Concrete06<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fc</span><span class="w"> </span><span class="nv">$e0</span><span class="w"> </span><span class="nv">$n</span><span class="w"> </span><span class="nv">$k</span><span class="w"> </span><span class="nv">$alpha1</span>
+<span class="w">        </span><span class="nv">$fcr</span><span class="w"> </span><span class="nv">$ecr</span><span class="w"> </span><span class="nv">$b</span><span class="w"> </span><span class="nv">$alpha2</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>
@@ -12821,7 +12823,9 @@ Compressive concrete parameters should be input as negative values.
 </li>
 </ol>
 <h2 id="examples">Examples</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial Concrete06 <span class="dv">1</span><span class="ot"> -3 -0</span><span class="fl">.002</span> <span class="dv">2</span> <span class="dv">1</span> <span class="fl">0.32</span> <span class="fl">0.3</span> <span class="fl">0.00008</span> <span class="dv">4</span> <span class="fl">0.08</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Concrete06<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="mf">0.002</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">0.32</span><span class="w"> </span><span class="mf">0.3</span><span class="w"> </span><span class="mf">0.00008</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">0.08</span>
+</pre></div>
+
 <hr />
 <h2 id="discussion">Discussion</h2>
 <p>

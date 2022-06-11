@@ -12693,9 +12693,11 @@
 
 
 <h1 id="dof_numberer">DOF_Numberer</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/numberer/DOF_Numberer.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DOF_Numberer<span class="op">:</span> <span class="kw">public</span> MovableObject</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/numberer/DOF_Numberer.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DOF_Numberer</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">MovableObject</span><span class="w"></span>
+</pre></div>
+
 <p>The DOF_Numberer class is a base class. Its purpose is to define the interface common among all subclasses. A DOF_Numberer object is responsible for assigning the equation numbers to the individual dofs in each of the DOF_Groups in the AnalysisModel. The base DOF_Numberer uses a GraphNumberer object to first number the DOF_Groups, based on the ordering of the <code>DOF_Group</code> objects, it assigns the equation numbers to the individual degrees-of-freedom. Subtypes may wish to implement the numbering in a more efficient manner by using the <code>FE_Element</code> and DOF_Group objects directly.</p>
 <h3 id="constructors">Constructors</h3>
 <p><br />

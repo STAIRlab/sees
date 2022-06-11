@@ -12694,9 +12694,11 @@
 <p>
 This command is used to construct an multi dimensional material object that has a Drucker-Prager yield criterium.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nDMaterial DruckerPrager <span class="dt">$matTag</span> <span class="dt">$k</span> <span class="dt">$G</span> <span class="dt">$sigmaY</span> <span class="dt">$rho</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$rhoBar</span> <span class="dt">$Kinf</span> <span class="dt">$Ko</span> <span class="dt">$delta1</span> <span class="dt">$delta2</span> <span class="dt">$H</span> <span class="dt">$theta</span> <span class="dt">$density</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &amp;lt;<span class="dt">$atmPressure</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">nDMaterial</span><span class="w"> </span>DruckerPrager<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$k</span><span class="w"> </span><span class="nv">$G</span><span class="w"> </span><span class="nv">$sigmaY</span><span class="w"> </span><span class="nv">$rho</span>
+<span class="w">        </span><span class="nv">$rhoBar</span><span class="w"> </span><span class="nv">$Kinf</span><span class="w"> </span><span class="nv">$Ko</span><span class="w"> </span><span class="nv">$delta1</span><span class="w"> </span><span class="nv">$delta2</span><span class="w"> </span><span class="nv">$H</span><span class="w"> </span><span class="nv">$theta</span><span class="w"> </span><span class="nv">$density</span><span class="w"></span>
+<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$atmPressure</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -12965,146 +12967,148 @@ src="/OpenSeesRT/contrib/static/CtcResults.png" title="CtcResults.png" alt="CtcR
 <summary>
 Example Tcl script
 </summary>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># File is generated for the purposes of testing the </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Drucker-Prager model --&gt;; conventional triaxial </span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># compression test </span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Created: 03.16.2009 CRM </span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Updated: 12.02.2011 CRM</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#---&gt; Basic units used are kN and meters </span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">##</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># create the modelBuilder and build the model&lt;/li&gt;</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>wipe</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>model BasicBuilder<span class="ot"> -ndm</span> <span class="dv">3</span><span class="ot"> -ndf</span> <span class="dv">3</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># --create the nodes&lt;/li&gt;</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>node <span class="dv">1</span> <span class="fl">1.0</span> <span class="fl">0.0</span> <span class="fl">0.0</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>node <span class="dv">2</span> <span class="fl">1.0</span> <span class="fl">1.0</span> <span class="fl">0.0</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>node <span class="dv">3</span> <span class="fl">0.0</span> <span class="fl">1.0</span> <span class="fl">0.0</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>node <span class="dv">4</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="fl">0.0</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>node <span class="dv">5</span> <span class="fl">1.0</span> <span class="fl">0.0</span> <span class="fl">1.0</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>node <span class="dv">6</span> <span class="fl">1.0</span> <span class="fl">1.0</span> <span class="fl">1.0</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>node <span class="dv">7</span> <span class="fl">0.0</span> <span class="fl">1.0</span> <span class="fl">1.0</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>node <span class="dv">8</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="fl">1.0</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># --triaxial test boundary conditions&lt;/li&gt;</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>fix <span class="dv">1</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">1</span> </span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>fix <span class="dv">2</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">1</span> </span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>fix <span class="dv">3</span> <span class="dv">1</span> <span class="dv">0</span> <span class="dv">1</span> </span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>fix <span class="dv">4</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> </span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>fix <span class="dv">5</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">0</span> </span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>fix <span class="dv">6</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> </span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>fix <span class="dv">7</span> <span class="dv">1</span> <span class="dv">0</span> <span class="dv">0</span> </span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>fix <span class="dv">8</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">0</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># --define material parameters for the model&lt;/li&gt;</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># ---bulk modulus&lt;/li&gt;</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> k <span class="fl">27777.78</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># ---shear modulus&lt;/li&gt;</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> G <span class="fl">9259.26</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># ---yield stress&lt;/li&gt;</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> sigY <span class="fl">5.0</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># ---failure surface and associativity&lt;/li&gt;</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> rho <span class="fl">0.398</span> <span class="kw">set</span> rhoBar <span class="fl">0.398</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co"># ---isotropic hardening&lt;/li&gt;</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> Kinf <span class="fl">0.0</span> <span class="kw">set</span> Ko <span class="fl">0.0</span> <span class="kw">set</span> delta1 <span class="fl">0.0</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="co"># ---kinematic hardening&lt;/li&gt;</span></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> H <span class="fl">0.0</span> <span class="kw">set</span> theta <span class="fl">1.0</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a><span class="co"># ---tension softening&lt;/li&gt;</span></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> delta2 <span class="fl">0.0</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a><span class="co"># ---mass density&lt;/li&gt;</span></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> mDen <span class="fl">1.7</span></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="co"># --material models</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a><span class="co"># type tag k G sigY rho rhoBar Kinf Ko delta1 delta2 H theta density</span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>nDMaterial DruckerPrager <span class="dv">2</span> <span class="dt">$k</span> <span class="dt">$G</span> <span class="dt">$sigY</span> <span class="dt">$rho</span> <span class="dt">$rhoBar</span> <span class="dt">$Kinf</span> <span class="dt">$Ko</span> <span class="dt">$delta1</span> \</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$delta2</span> <span class="dt">$H</span> <span class="dt">$theta</span> <span class="dt">$mDen</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="co"># --create the element</span></span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a><span class="co"># type tag nodes matID bforce1 bforce2 bforce3</span></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>element stdBrick <span class="dv">1</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span> <span class="dv">6</span> <span class="dv">7</span> <span class="dv">8</span> <span class="dv">2</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="fl">0.0</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="kw">puts</span> <span class="st">&quot;model Built...&quot;</span></span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a><span class="co"># create the recorders</span></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> step <span class="fl">0.1</span></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a><span class="co"># record nodal displacements</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>recorder Node<span class="ot"> -file</span> displacements1.out<span class="ot"> -time -dT</span> <span class="dt">$step</span><span class="ot"> -nodeRange</span> <span class="dv">1</span> <span class="dv">8</span><span class="ot"> -dof</span> <span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> disp</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a><span class="co"># record the element stress, strain, and state at one of the Gauss</span></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="co"># points</span></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>recorder Element<span class="ot"> -ele</span> <span class="dv">1</span><span class="ot"> -time -file</span> stress1.out<span class="ot"> -dT</span> <span class="dt">$step</span> material <span class="dv">2</span> stress </span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>recorder Element<span class="ot"> -ele</span> <span class="dv">1</span><span class="ot"> -time -file</span> strain1.out<span class="ot"> -dT</span> <span class="dt">$step</span> material <span class="dv">2</span> strain </span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a>recorder Element<span class="ot"> -ele</span> <span class="dv">1</span><span class="ot"> -time -file</span> state1.out<span class="ot"> -dT</span> <span class="dt">$step</span> material <span class="dv">2</span> <span class="ot">state</span></span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="kw">puts</span> <span class="st">&quot;recorders set...&quot;</span></span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="co"># create the loading</span></span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a><span class="co"># --pressure magnitude</span></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> p <span class="fl">10.0</span> </span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> pNode <span class="kw">[expr</span> -<span class="dt">$p</span>/<span class="dv">4</span><span class="kw">]</span></span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a><span class="co"># --loading object for hydrostatic pressure</span></span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>pattern Plain <span class="dv">1</span> <span class="kw">{</span>Series<span class="ot"> -time</span> <span class="kw">{</span><span class="dv">0</span> <span class="dv">10</span> <span class="dv">100</span><span class="kw">}</span><span class="ot"> -values</span> <span class="kw">{</span><span class="dv">0</span> <span class="dv">1</span> <span class="dv">1</span><span class="kw">}</span><span class="ot"> -factor</span> <span class="dv">1</span><span class="kw">}</span> <span class="kw">{</span></span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>  <span class="kw">load</span> <span class="dv">1</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> <span class="fl">0.0</span> </span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>  <span class="kw">load</span> <span class="dv">2</span> <span class="dt">$pNode</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> </span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>  <span class="kw">load</span> <span class="dv">3</span> <span class="fl">0.0</span> <span class="dt">$pNode</span> <span class="fl">0.0</span></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a>  <span class="kw">load</span> <span class="dv">5</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> <span class="fl">0.0</span> </span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a>  <span class="kw">load</span> <span class="dv">6</span> <span class="dt">$pNode</span> <span class="dt">$pNode</span> <span class="fl">0.0</span> </span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a>  <span class="kw">load</span> <span class="dv">7</span> <span class="fl">0.0</span> <span class="dt">$pNode</span> <span class="fl">0.0</span></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a><span class="co"># --loading object deviator stress</span></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>pattern Plain <span class="dv">2</span> <span class="kw">{</span>Series<span class="ot"> -time</span> <span class="kw">{</span><span class="dv">0</span> <span class="dv">10</span> <span class="dv">100</span><span class="kw">}</span><span class="ot"> -values</span> <span class="kw">{</span><span class="dv">0</span> <span class="dv">1</span> <span class="dv">5</span><span class="kw">}</span><span class="ot"> -factor</span> <span class="dv">1</span><span class="kw">}</span> <span class="kw">{</span></span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a>  <span class="kw">load</span> <span class="dv">5</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="dt">$pNode</span> </span>
-<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a>  <span class="kw">load</span> <span class="dv">6</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="dt">$pNode</span> </span>
-<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a>  <span class="kw">load</span> <span class="dv">7</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="dt">$pNode</span> </span>
-<span id="cb2-121"><a href="#cb2-121" aria-hidden="true" tabindex="-1"></a>  <span class="kw">load</span> <span class="dv">8</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="dt">$pNode</span> </span>
-<span id="cb2-122"><a href="#cb2-122" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb2-123"><a href="#cb2-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-124"><a href="#cb2-124" aria-hidden="true" tabindex="-1"></a><span class="co"># create the analysis</span></span>
-<span id="cb2-125"><a href="#cb2-125" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-126"><a href="#cb2-126" aria-hidden="true" tabindex="-1"></a>integrator LoadControl <span class="fl">0.1</span> </span>
-<span id="cb2-127"><a href="#cb2-127" aria-hidden="true" tabindex="-1"></a>numberer RCM </span>
-<span id="cb2-128"><a href="#cb2-128" aria-hidden="true" tabindex="-1"></a><span class="ot">system</span> SparseGeneral</span>
-<span id="cb2-129"><a href="#cb2-129" aria-hidden="true" tabindex="-1"></a>constraints Transformation </span>
-<span id="cb2-130"><a href="#cb2-130" aria-hidden="true" tabindex="-1"></a>test NormDispIncr <span class="fl">1e-5</span> <span class="dv">10</span> <span class="dv">1</span> </span>
-<span id="cb2-131"><a href="#cb2-131" aria-hidden="true" tabindex="-1"></a>algorithm Newton</span>
-<span id="cb2-132"><a href="#cb2-132" aria-hidden="true" tabindex="-1"></a>analysis Static</span>
-<span id="cb2-133"><a href="#cb2-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-134"><a href="#cb2-134" aria-hidden="true" tabindex="-1"></a><span class="kw">puts</span> <span class="st">&quot;starting the hydrostatic analysis...&quot;</span> </span>
-<span id="cb2-135"><a href="#cb2-135" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> startT <span class="kw">[clock</span> <span class="ot">seconds</span><span class="kw">]</span> </span>
-<span id="cb2-136"><a href="#cb2-136" aria-hidden="true" tabindex="-1"></a>analyze <span class="dv">1000</span></span>
-<span id="cb2-137"><a href="#cb2-137" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> endT <span class="kw">[clock</span> <span class="ot">seconds</span><span class="kw">]</span> </span>
-<span id="cb2-138"><a href="#cb2-138" aria-hidden="true" tabindex="-1"></a><span class="kw">puts</span> <span class="st">&quot;triaxial shear application finished...&quot;</span> </span>
-<span id="cb2-139"><a href="#cb2-139" aria-hidden="true" tabindex="-1"></a><span class="kw">puts</span> <span class="st">&quot;loading analysis execution time: [expr </span><span class="dt">$</span><span class="st">endT-</span><span class="dt">$</span><span class="st">startT] seconds.&quot;</span></span>
-<span id="cb2-140"><a href="#cb2-140" aria-hidden="true" tabindex="-1"></a>wipe </span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="c"># File is generated for the purposes of testing the </span>
+<span class="c"># Drucker-Prager model --&gt;; conventional triaxial </span>
+<span class="c"># compression test </span>
+<span class="c">#</span>
+<span class="c"># Created: 03.16.2009 CRM </span>
+<span class="c"># Updated: 12.02.2011 CRM</span>
+<span class="c">#---&gt; Basic units used are kN and meters </span>
+<span class="c">##</span>
+<span class="c"># create the modelBuilder and build the model&lt;/li&gt;</span>
+<span class="nv">wipe</span>
+<span class="nv">model</span><span class="w"> </span>BasicBuilder<span class="w"> </span><span class="o">-</span>ndm<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span>ndf<span class="w"> </span><span class="mi">3</span>
+
+<span class="c"># --create the nodes&lt;/li&gt;</span>
+
+<span class="nv">node</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1.0</span>
+
+<span class="c"># --triaxial test boundary conditions&lt;/li&gt;</span>
+
+<span class="nv">fix</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+fix<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+fix<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+fix<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+fix<span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span>
+fix<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span>
+fix<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span>
+fix<span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="c"># --define material parameters for the model&lt;/li&gt;</span>
+<span class="c"># ---bulk modulus&lt;/li&gt;</span>
+
+<span class="k">set</span><span class="w"> </span>k<span class="w"> </span><span class="mf">27777.78</span>
+
+<span class="c"># ---shear modulus&lt;/li&gt;</span>
+
+<span class="k">set</span><span class="w"> </span>G<span class="w"> </span><span class="mf">9259.26</span>
+
+<span class="c"># ---yield stress&lt;/li&gt;</span>
+
+<span class="k">set</span><span class="w"> </span>sigY<span class="w"> </span><span class="mf">5.0</span>
+
+<span class="c"># ---failure surface and associativity&lt;/li&gt;</span>
+
+<span class="k">set</span><span class="w"> </span>rho<span class="w"> </span><span class="mf">0.398</span><span class="w"> </span>set<span class="w"> </span>rhoBar<span class="w"> </span><span class="mf">0.398</span>
+
+<span class="c"># ---isotropic hardening&lt;/li&gt;</span>
+
+<span class="k">set</span><span class="w"> </span>Kinf<span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>set<span class="w"> </span>Ko<span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>set<span class="w"> </span>delta1<span class="w"> </span><span class="mf">0.0</span>
+
+<span class="c"># ---kinematic hardening&lt;/li&gt;</span>
+
+<span class="k">set</span><span class="w"> </span>H<span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>set<span class="w"> </span>theta<span class="w"> </span><span class="mf">1.0</span>
+
+<span class="c"># ---tension softening&lt;/li&gt;</span>
+
+<span class="k">set</span><span class="w"> </span>delta2<span class="w"> </span><span class="mf">0.0</span>
+
+<span class="c"># ---mass density&lt;/li&gt;</span>
+
+<span class="k">set</span><span class="w"> </span>mDen<span class="w"> </span><span class="mf">1.7</span>
+
+<span class="c"># --material models</span>
+<span class="c"># type tag k G sigY rho rhoBar Kinf Ko delta1 delta2 H theta density</span>
+
+<span class="nv">nDMaterial</span><span class="w"> </span>DruckerPrager<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nv">$k</span><span class="w"> </span><span class="nv">$G</span><span class="w"> </span><span class="nv">$sigY</span><span class="w"> </span><span class="nv">$rho</span><span class="w"> </span><span class="nv">$rhoBar</span><span class="w"> </span><span class="nv">$Kinf</span><span class="w"> </span><span class="nv">$Ko</span><span class="w"> </span><span class="nv">$delta1</span><span class="w"> </span><span class="err">\</span>
+<span class="w">        </span><span class="nv">$delta2</span><span class="w"> </span><span class="nv">$H</span><span class="w"> </span><span class="nv">$theta</span><span class="w"> </span><span class="nv">$mDen</span><span class="w"></span>
+
+<span class="c"># --create the element</span>
+<span class="c"># type tag nodes matID bforce1 bforce2 bforce3</span>
+
+<span class="nv">element</span><span class="w"> </span>stdBrick<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;model Built...&quot;</span>
+
+<span class="c">#</span>
+<span class="c"># create the recorders</span>
+<span class="c">#</span>
+<span class="k">set</span><span class="w"> </span>step<span class="w"> </span><span class="mf">0.1</span>
+
+<span class="c"># record nodal displacements</span>
+<span class="nv">recorder</span><span class="w"> </span>Node<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>displacements1.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>dT<span class="w"> </span><span class="nv">$step</span><span class="w"> </span><span class="o">-</span>nodeRange<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span>disp
+
+<span class="c"># record the element stress, strain, and state at one of the Gauss</span>
+<span class="c"># points</span>
+<span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>stress1.out<span class="w"> </span><span class="o">-</span>dT<span class="w"> </span><span class="nv">$step</span><span class="w"> </span>material<span class="w"> </span><span class="mi">2</span><span class="w"> </span>stress<span class="w"> </span>
+recorder<span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>strain1.out<span class="w"> </span><span class="o">-</span>dT<span class="w"> </span><span class="nv">$step</span><span class="w"> </span>material<span class="w"> </span><span class="mi">2</span><span class="w"> </span>strain<span class="w"> </span>
+recorder<span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>state1.out<span class="w"> </span><span class="o">-</span>dT<span class="w"> </span><span class="nv">$step</span><span class="w"> </span>material<span class="w"> </span><span class="mi">2</span><span class="w"> </span>state
+
+<span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;recorders set...&quot;</span>
+
+<span class="c"># create the loading</span>
+
+
+<span class="c"># --pressure magnitude</span>
+
+<span class="k">set</span><span class="w"> </span>p<span class="w"> </span><span class="mf">10.0</span><span class="w"> </span>
+set<span class="w"> </span>pNode<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="o">-</span><span class="nv">$p</span><span class="o">/</span><span class="mi">4</span><span class="k">]</span>
+
+<span class="c"># --loading object for hydrostatic pressure</span>
+
+<span class="nv">pattern</span><span class="w"> </span>Plain<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">{</span><span class="nv">Series</span><span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="k">{</span><span class="nv">0</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">100</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>values<span class="w"> </span><span class="k">{</span><span class="nv">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>factor<span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
+<span class="w">  </span><span class="nb">load</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>
+<span class="w">  </span>load<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>
+<span class="w">  </span>load<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="w">  </span><span class="nb">load</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>
+<span class="w">  </span>load<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>
+<span class="w">  </span>load<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="k">}</span>
+
+<span class="c"># --loading object deviator stress</span>
+
+<span class="nv">pattern</span><span class="w"> </span>Plain<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">{</span><span class="nv">Series</span><span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="k">{</span><span class="nv">0</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">100</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>values<span class="w"> </span><span class="k">{</span><span class="nv">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">5</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>factor<span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
+<span class="w">  </span><span class="nb">load</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span>
+<span class="w">  </span>load<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span>
+<span class="w">  </span>load<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span>
+<span class="w">  </span>load<span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="nv">$pNode</span><span class="w"> </span>
+<span class="k">}</span>
+
+<span class="c"># create the analysis</span>
+
+<span class="nv">integrator</span><span class="w"> </span>LoadControl<span class="w"> </span><span class="mf">0.1</span><span class="w"> </span>
+numberer<span class="w"> </span>RCM<span class="w"> </span>
+system<span class="w"> </span>SparseGeneral
+<span class="nv">constraints</span><span class="w"> </span>Transformation<span class="w"> </span>
+test<span class="w"> </span>NormDispIncr<span class="w"> </span><span class="mi">1</span>e-5<span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>
+algorithm<span class="w"> </span>Newton
+<span class="nv">analysis</span><span class="w"> </span>Static
+
+<span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;starting the hydrostatic analysis...&quot;</span><span class="w"> </span>
+set<span class="w"> </span>startT<span class="w"> </span><span class="k">[</span><span class="nb">clock</span><span class="w"> </span>seconds<span class="k">]</span><span class="w"> </span>
+analyze<span class="w"> </span><span class="mi">1000</span>
+<span class="k">set</span><span class="w"> </span>endT<span class="w"> </span><span class="k">[</span><span class="nb">clock</span><span class="w"> </span>seconds<span class="k">]</span><span class="w"> </span>
+puts<span class="w"> </span><span class="s2">&quot;triaxial shear application finished...&quot;</span><span class="w"> </span>
+puts<span class="w"> </span><span class="s2">&quot;loading analysis execution time: [expr $endT-$startT] seconds.&quot;</span>
+<span class="nv">wipe</span><span class="w"> </span>
+</pre></div>
+
 </details>
 <h2 id="references">
 References

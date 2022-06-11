@@ -12895,15 +12895,19 @@ NOTE: this form of the command forces the element interior to be linear-elastic,
 <p>
 For 2D:
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element beamWithHinges <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$secTagI</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$Lpi</span> <span class="dt">$secTagJ</span> <span class="dt">$Lpj</span> <span class="dt">$E</span> <span class="dt">$A</span> <span class="dt">$Iz</span> <span class="dt">$transfTag</span> &amp;lt;-mass <span class="dt">$massDens</span>&amp;gt;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &amp;lt;-iter <span class="dt">$maxIters</span> <span class="dt">$tol</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>beamWithHinges<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$secTagI</span>
+<span class="w">        </span><span class="nv">$Lpi</span><span class="w"> </span><span class="nv">$secTagJ</span><span class="w"> </span><span class="nv">$Lpj</span><span class="w"> </span><span class="nv">$E</span><span class="w"> </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$Iz</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-iter</span><span class="w"> </span><span class="nv">$maxIters</span><span class="w"> </span><span class="nv">$tol</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <p>
 For 3D:
 </p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>element beamWithHinges <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$secTagI</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$Lpi</span> <span class="dt">$secTagJ</span> <span class="dt">$Lpj</span> <span class="dt">$E</span> <span class="dt">$A</span> <span class="dt">$Iz</span> <span class="dt">$Iy</span> <span class="dt">$G</span> <span class="dt">$J</span> <span class="dt">$transfTag</span> &amp;lt;-mass</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$massDens</span>&amp;gt; &amp;lt;-iter <span class="dt">$maxIters</span> <span class="dt">$tol</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>beamWithHinges<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$secTagI</span>
+<span class="w">        </span><span class="nv">$Lpi</span><span class="w"> </span><span class="nv">$secTagJ</span><span class="w"> </span><span class="nv">$Lpj</span><span class="w"> </span><span class="nv">$E</span><span class="w"> </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$Iz</span><span class="w"> </span><span class="nv">$Iy</span><span class="w"> </span><span class="nv">$G</span><span class="w"> </span><span class="nv">$J</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span>
+<span class="w">        </span><span class="nv">$massDens</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-iter</span><span class="w"> </span><span class="nv">$maxIters</span><span class="w"> </span><span class="nv">$tol</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <p>
 All inputs are the same as above, with the following additional inputs, which are used solely to create a “dummy” elastic section at the two Gauss integration points of the element interior
 </p>

@@ -12695,8 +12695,10 @@
 This command is used to construct a ViscousDamper material, which represents the <a
 href="http://en.wikipedia.org/wiki/Maxwell_material">Maxwell Model</a> (linear spring and nonlinear dashpot in series). The ViscousDamper material simulates the hysteretic response of nonlinear viscous dampers. An adaptive iterative algorithm has been implemented and validated to solve numerically the constitutive equations within a nonlinear viscous damper with a high-precision accuracy.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ViscousDamper <span class="dt">$matTag</span> <span class="dt">$K</span> <span class="dt">$Cd</span> <span class="dt">$alpha</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$LGap</span> &gt; &lt; <span class="dt">$NM</span> <span class="dt">$RelTol</span> <span class="dt">$AbsTol</span> <span class="dt">$MaxHalf</span> &gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ViscousDamper<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$K</span><span class="w"> </span><span class="nv">$Cd</span><span class="w"> </span><span class="nv">$alpha</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$LGap</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$NM</span><span class="w"> </span><span class="nv">$RelTol</span><span class="w"> </span><span class="nv">$AbsTol</span><span class="w"> </span><span class="nv">$MaxHalf</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

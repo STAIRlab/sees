@@ -12697,12 +12697,16 @@ This command is used to construct a linear coordinate transformation (LinearCrdT
 <p>
 For a two-dimensional problem:
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>geomTransf Linear <span class="dt">$transfTag</span> &lt;<span class="ot"> -jntOffset</span> <span class="dt">$dXi</span> <span class="dt">$dYi</span> <span class="dt">$dXj</span> <span class="dt">$dYj</span> &gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>jntOffset<span class="w"> </span><span class="nv">$dXi</span><span class="w"> </span><span class="nv">$dYi</span><span class="w"> </span><span class="nv">$dXj</span><span class="w"> </span><span class="nv">$dYj</span><span class="w"> </span><span class="o">&gt;</span>
+</pre></div>
+
 <p>
 For a three-dimensional problem:
 </p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>geomTransf Linear <span class="dt">$transfTag</span> <span class="dt">$vecxzX</span> <span class="dt">$vecxzY</span> <span class="dt">$vecxzZ</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="ot"> -jntOffset</span> <span class="dt">$dXi</span> <span class="dt">$dYi</span> <span class="dt">$dZi</span> <span class="dt">$dXj</span> <span class="dt">$dYj</span> <span class="dt">$dZj</span> &gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="nv">$vecxzX</span><span class="w"> </span><span class="nv">$vecxzY</span><span class="w"> </span><span class="nv">$vecxzZ</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-jntOffset</span><span class="w"> </span><span class="nv">$dXi</span><span class="w"> </span><span class="nv">$dYi</span><span class="w"> </span><span class="nv">$dZi</span><span class="w"> </span><span class="nv">$dXj</span><span class="w"> </span><span class="nv">$dYj</span><span class="w"> </span><span class="nv">$dZj</span><span class="w"> </span><span class="o">&gt;</span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>
@@ -12805,17 +12809,19 @@ Element orientation
 Element vectors
 </figcaption>
 </figure>
-<div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Element 1 : tag 1 : vecxZ = zaxis</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>geomTransf Linear <span class="dv">1</span> <span class="dv">0</span> <span class="dv">0</span><span class="ot"> -1</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Element 2 : tag 2 : vecxZ = y axis</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>geomTransf Linear <span class="dv">2</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">0</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># If there was a rigid offset at the top of element 1:</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>geomTransf Linear <span class="dv">1</span> <span class="dv">0</span> <span class="dv">0</span><span class="ot"> -1 -jntOffset</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="fl">0.0</span> <span class="fl">0.0</span> -<span class="dt">$Offset</span> <span class="fl">0.0</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="c"># Element 1 : tag 1 : vecxZ = zaxis</span>
+
+<span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+
+<span class="c"># Element 2 : tag 2 : vecxZ = y axis</span>
+
+<span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span>
+
+<span class="c"># If there was a rigid offset at the top of element 1:</span>
+
+<span class="nv">geomTransf</span><span class="w"> </span>Linear<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>jntOffset<span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="o">-</span><span class="nv">$Offset</span><span class="w"> </span><span class="mf">0.0</span>
+</pre></div>
+
 <p>
 Code Developed by: <span style="color:blue"> Remo Magalhaes de Souza </span>
 </p>

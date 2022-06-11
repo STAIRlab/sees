@@ -12692,14 +12692,16 @@
 
 <p>THE IMPLEMENTATION WILL HAVE TO CHANGE FOR DOMAIN-DECOMPOSITION ANALYSIS .. AS DOES THE CONVERGENCE TEST STUFF .. THIS IS BECAUSE USING DOT PRODUCTS OF VECTORS OBTAINED STRAIGHT FROM SYSTEM OF EQUATION .. MAYBE MODIFY LinearSOE TO DO THE DOT PRODUCT .. WILL WORK IN DD IF ALL USE ONE SOE .. WHAT PetSC DOES, TALK WITH P. DEMMEL ABOUT WHAT HE WILL PROVIDE.</p>
 <h1 id="arclength">ArcLength</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/integrator/ArcLength.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ArcLength<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> StaticIntegrator</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    MovableObject</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    Integrator</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    IncrementalIntegrator</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    StaticIntegrator</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/integrator/ArcLength.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ArcLength</span><span class="o">:</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="n">StaticIntegrator</span><span class="w"></span>
+<span class="w">    </span><span class="n">MovableObject</span><span class="w"></span>
+<span class="w">    </span><span class="n">Integrator</span><span class="w"></span>
+<span class="w">    </span><span class="n">IncrementalIntegrator</span><span class="w"></span>
+<span class="w">    </span><span class="n">StaticIntegrator</span><span class="w"></span>
+</pre></div>
+
 <p>ArcLength is a subclass of StaticIntegrator, it is used to when performing a static analysis on the FE_Model using an arc length method. In the arc length method implemented by this class, the following constraint equation is added to equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor</a> of the StaticIntegrator class:</p>
 <p><span class="math display">\[\Delta {\bf U}_n^T \Delta {\bf U}_n  + \alpha^2 \Delta \lambda_n^2  = \Delta s^2\]</span></p>
 <p>where</p>
@@ -12765,14 +12767,20 @@ d{\bf U}^{(i)} \right) + \alpha^2 \left( \Delta \lambda_n^{(i)} + d\lambda^{(i)}
 The integer <code>INTEGRATOR_TAGS_ArcLength</code> (defined in <code>&lt;classTags.h&gt;</code>) is passed to the StaticIntegrator classes constructor. The value of <span class="math inline">\(\alpha\)</span> is set to <em>alpha</em> and <span class="math inline">\(\Delta s\)</span> to <em>dS</em>.</p>
 <p><br />
 Invokes the destructor on the Vector objects created in <code>domainChanged()</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> newStep<span class="op">(</span><span class="dt">void</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">newStep</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p><code>newStep()</code> performs the first iteration, that is it solves for <span class="math inline">\(\lambda_n^{(1)}\)</span> and <span class="math inline">\(\Delta {\bf U}_n^{(1)}\)</span> and updates the model with <span class="math inline">\(\Delta {\bf U}_n^{(1)}\)</span> and increments the load factor by <span class="math inline">\(\lambda_n^{(1)}\)</span>. To do this it must set the rhs of the LinearSOE to <span class="math inline">\(\P\)</span>, invoke <code>formTangent()</code> on itself and solve the LinearSOE to get <span class="math inline">\(\Delta \dot{\bf U}_n^{(1)}\)</span>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> update<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span><span class="er">$</span>\Delta U<span class="er">$</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">$</span><span class="err">\</span><span class="n">Delta</span><span class="w"> </span><span class="n">U$</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Note the argument <span class="math inline">\(\Delta U\)</span> should be equal to <span class="math inline">\(\Delta \overline{\bf U}_n^{(i)}\)</span>. The object then determines <span class="math inline">\(\Delta \dot{\bf U}_n^{(i)}\)</span> by setting the rhs of the linear system of equations to be <span class="math inline">\(\P\)</span> and then solving the linearSOE. It then solves for <span class="math inline">\(\Delta \lambda_n^{(i)}\)</span> and <span class="math inline">\(\Delta {\bf U}_n^{(i)}\)</span> and updates the model with <span class="math inline">\(\Delta {\bf U}_n^{(i)}\)</span> and increments the load factor by <span class="math inline">\(\Delta \lambda_n^{(i)}\)</span>. Sets the vector <span class="math inline">\(x\)</span> in the LinearSOE object to be equal to <span class="math inline">\(\Delta {\bf U}_n^{(i)}\)</span> before returning (this is for the convergence test stuff.</p>
 <p>The object creates the Vector objects it needs. Vectors are created to stor <span class="math inline">\(\P\)</span>, <span class="math inline">\(\Delta \overline{\bf U}_n^{(i)}\)</span>, <span class="math inline">\(\Delta \dot{\bf U}_n^{(i)}\)</span>, <span class="math inline">\(\Delta \overline{\bf U}_n^{(i)}\)</span>, <span class="math inline">\(dU^{(i)}\)</span>. To form <span class="math inline">\(\P\)</span>, the current load factor is obtained from the model, it is incremented by <span class="math inline">\(1.0\)</span>, <code>formUnbalance()</code> is invoked on the object, and the <span class="math inline">\(b\)</span> vector is obtained from the linearSOE. This is <span class="math inline">\(\P\)</span>, the load factor on the model is then decremented by <span class="math inline">\(1.0\)</span>. <em>int sendSelf(int commitTag, Channel &amp;theChannel);</em><br />
 Places the values of <span class="math inline">\(\Delta s\)</span> and <span class="math inline">\(\alpha\)</span> in a vector of size <span class="math inline">\(2\)</span> and invokes <code>sendVector()</code> on <em>theChannel</em>. Returns <span class="math inline">\(0\)</span> if successful, a warning message is printed and a <span class="math inline">\(-1\)</span> is returned if <em>theChannel</em> fails to send the Vector. <em>int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker);</em><br />
 Receives in a Vector of size 2 the values of <span class="math inline">\(\Delta s\)</span> and <span class="math inline">\(\alpha\)</span>. Returns <span class="math inline">\(0\)</span> if successful, a warning message is printed, <span class="math inline">\(\delta \lambda\)</span> is set to <span class="math inline">\(0\)</span>, and a <span class="math inline">\(-1\)</span> is returned if <em>theChannel</em> fails to receive the Vector.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> Print<span class="op">(</span>OPS_Stream <span class="op">&amp;</span>s<span class="op">,</span> <span class="dt">int</span> flag <span class="op">=</span> <span class="dv">0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>The object sends to <span class="math inline">\(s\)</span> its type, the current value of <span class="math inline">\(\lambda\)</span>, and <span class="math inline">\(\delta \lambda\)</span>.</p>
 
 

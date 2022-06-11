@@ -12694,15 +12694,19 @@
 <p>
 This command is used to construct a displacement beam element object, which is based on the displacement formulation, and considers the spread of plasticity along the element.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element dispBeamColumn <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$numIntgrPts</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$secTag</span> <span class="dt">$transfTag</span> &amp;lt;-mass <span class="dt">$massDens</span>&amp;gt; &amp;lt;-cMass&amp;gt;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &amp;lt;-integration <span class="dt">$intType</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>dispBeamColumn<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$numIntgrPts</span>
+<span class="w">        </span><span class="nv">$secTag</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-cMass</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-integration</span><span class="w"> </span><span class="nv">$intType</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <p>
 To change the sections along the element length, the following form of command may be used:
 </p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>element dispBeamColumn <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$numIntgrPts</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>        -sections <span class="dt">$secTag1</span> <span class="dt">$secTag2</span> ... <span class="dt">$transfTag</span> &amp;lt;-mass <span class="dt">$massDens</span>&amp;gt;</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>        &amp;lt;-cMass&amp;gt; &amp;lt;-integration <span class="dt">$intType</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>dispBeamColumn<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$numIntgrPts</span>
+<span class="w">        </span><span class="nv">-sections</span><span class="w"> </span><span class="nv">$secTag1</span><span class="w"> </span><span class="nv">$secTag2</span><span class="w"> </span>...<span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-cMass</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-integration</span><span class="w"> </span><span class="nv">$intType</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

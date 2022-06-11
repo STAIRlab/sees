@@ -12694,12 +12694,14 @@
 <blockquote>
 <p>UNDER CONSTRUCTION.</p>
 </blockquote>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/handler/TransformationConstraintHandler.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TransformationConstraintHandler<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> ConstraintHandler</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    MovableObject</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    ConstraintHandler</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/handler/TransformationConstraintHandler.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">TransformationConstraintHandler</span><span class="o">:</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="n">ConstraintHandler</span><span class="w"></span>
+<span class="w">    </span><span class="n">MovableObject</span><span class="w"></span>
+<span class="w">    </span><span class="n">ConstraintHandler</span><span class="w"></span>
+</pre></div>
+
 <p>The TransformationConstraintHandler class is a class which deals with both single and multi point constraints using the Transformation method. This is done by, in addition to creating a <code>DOF_Group</code> object for each Node and an <code>FE_Element</code> for each Element in the Domain, creating either a TransformationSP_FE or a TransformationMP_FE object for each constraint in the Domain. It is these objects that enforce the constraints by moifying the tangent matrix and residual vector.</p>
 <h3 id="constructor">Constructor</h3>
 <p><br />

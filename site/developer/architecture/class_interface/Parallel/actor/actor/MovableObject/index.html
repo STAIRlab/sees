@@ -12719,11 +12719,17 @@
 </p>
 <p><br />
 A method which returns the class id, <em>classTag</em>, provided in the constructor.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> getDbTag<span class="op">(</span><span class="dt">void</span><span class="op">)</span> <span class="at">const</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">getDbTag</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>A method which returns the database tag, <em>dbTag</em>, provided in the constructor or last set in <code>setDbTag()</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dt">void</span> setDbTag<span class="op">(</span><span class="dt">int</span> dbTag<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">setDbTag</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">dbTag</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>A method to set the database tag to be equal to <em>dbTag</em>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="dt">int</span> sendSelf<span class="op">(</span><span class="dt">int</span> commitTag<span class="op">,</span> Channel <span class="op">&amp;</span>theChannel<span class="op">)</span> <span class="op">=</span><span class="dv">0</span><span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sendSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>This is a pure virtual method, one must be written for each instantiable subclass of MovableObject. Each object has to send the data needed to be able to reproduce that object in a remote process. The object uses the methods provided by <em>theChannel</em> object to send the data to another channel at the remote actor, the address of the channel is set before this method is called. An object of similar type at the remote actor is invoked with a <code>receiveSelf()</code> to receive the data. Returns <span class="math inline">\(0\)</span> if successful (successful in that the data got to the channel), or a <span class="math inline">\(-1\)</span> if no data was sent. <em>virtual int recvSelf(int commitTag, Channel &amp;theChannel, FEM_ObjectBroker &amp;theBroker) =0;</em><br />
 This is a pure virtual method, one must be written for each instantiable subclass of MovableObject. Each object has to receive the data needed to be able to recreate itself in the new process after it has been sent through <em>theChannel</em>. If the object is an aggregation containing other objects, new objects of the correct type can be constructed using <em>theBroker</em>. To return <span class="math inline">\(0\)</span> if successful or a <span class="math inline">\(-1\)</span> if not.</p>
 

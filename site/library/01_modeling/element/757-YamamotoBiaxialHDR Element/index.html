@@ -12694,9 +12694,11 @@
 <p>
 This command is used to construct a YamamotoBiaxialHDR element object, which is defined by two nodes. This element can be used to represent the isotropic behavior of high-damping rubber bearing in the local y-z plane.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>element YamamotoBiaxialHDR <span class="dt">$eleTag</span> <span class="dt">$iNode</span> <span class="dt">$jNode</span> <span class="dt">$Tp</span> <span class="dt">$DDo</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$DDi</span> <span class="dt">$Hr</span> &amp;lt;-coRS <span class="dt">$cr</span> <span class="dt">$cs</span>&amp;gt; &amp;lt;-orient &amp;lt;<span class="dt">$x1</span> <span class="dt">$x2</span> <span class="dt">$x3</span>&amp;gt; <span class="dt">$y1</span> <span class="dt">$y2</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$y3</span>&amp;gt; &amp;lt;-mass <span class="dt">$m</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>YamamotoBiaxialHDR<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$Tp</span><span class="w"> </span><span class="nv">$DDo</span>
+<span class="w">        </span><span class="nv">$DDi</span><span class="w"> </span><span class="nv">$Hr</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-coRS</span><span class="w"> </span><span class="nv">$cr</span><span class="w"> </span><span class="nv">$cs</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-orient</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$y3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$m</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>
