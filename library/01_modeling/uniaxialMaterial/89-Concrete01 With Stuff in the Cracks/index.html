@@ -12696,8 +12696,10 @@
 <p>
 This command is used to construct a modified uniaxial Kent-Scott-Park concrete material object with degraded linear unloading/reloading stiffness according to the work of Karsan-Jirsa and no tensile strength. The modification is to model the effect of Stuff In The Cracks (SITC). The command is as follows:
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial Concrete01WithSITC <span class="dt">$matTag</span> <span class="dt">$fpc</span> <span class="dt">$epsc0</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$fpcu</span> <span class="dt">$epsU</span> &lt; <span class="dt">$endStrainSITC</span> &gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Concrete01WithSITC<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fpc</span><span class="w"> </span><span class="nv">$epsc0</span>
+<span class="w">        </span><span class="nv">$fpcu</span><span class="w"> </span><span class="nv">$epsU</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$endStrainSITC</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

@@ -12693,12 +12693,16 @@
 
 
 <h1 id="systemofeqn">SystemOfEqn</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;system_of_eqn/SystemOfEqn.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SystemOfEqn<span class="op">:</span> <span class="kw">public</span> MovableObject</span></code></pre></div>
-<pre><code>MovableObject
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/SystemOfEqn.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SystemOfEqn</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">MovableObject</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>MovableObject
 LinearSOE
-EigenSOE</code></pre>
+EigenSOE
+</pre></div>
+
 <p>SystemOfEqn is an abstract class. A SystemOfEqn object is responsible for storing the system of equations it represents. A Solver object, which is associated with the SystemOfEqn object, is responsible for performing the numerical operations to solve for the system of equations.</p>
 <p>The integer <em>classTag</em> is provided to the constructor for the MovableObject.</p>
 <p>Does nothing. Declared to allow the subclass destructor to be called.</p>

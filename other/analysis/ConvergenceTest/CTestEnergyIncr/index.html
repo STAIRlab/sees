@@ -12691,9 +12691,11 @@
 
 
 <h1 id="ctestenergyincr">CTestEnergyIncr</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;convergenceTest/CTestEnergyIncr.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CTestEnergyIncr<span class="op">:</span> <span class="kw">public</span> ConvergenceTest</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;convergenceTest/CTestEnergyIncr.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CTestEnergyIncr</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ConvergenceTest</span><span class="w"></span>
+</pre></div>
+
 <p>MovableObject</p>
 <p>ConvergenceTest</p>
 <p>A CTestEnergyIncr object is an object which can be used in an algorithmic class to test if convergence has been achieved. The CTestEnergyIncr class tests using the energy increment, 0.5 times the absolute value of the dot product of the LinearSOE objects solution and rhs Vectors, and a user specified tolerance value.</p>

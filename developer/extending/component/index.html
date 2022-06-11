@@ -12690,12 +12690,14 @@
 
 <h1 id="compiling">Compiling</h1>
 <p>Inside each module-level <code>CMakeLists.txt</code> file there is a function call with the form:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cmake"><code class="sourceCode cmake"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">target_sources</span>(<span class="bn">OPS_Module</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="ot">PRIVATE</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;some source files&gt;...</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="ot">PUBLIC</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    &lt;some header files&gt;...</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nb">target_sources</span><span class="p">(</span><span class="s">OPS_Module</span><span class="w"> </span>
+<span class="w">  </span><span class="s">PRIVATE</span><span class="w"> </span>
+<span class="w">    </span><span class="s">&lt;some</span><span class="w"> </span><span class="s">source</span><span class="w"> </span><span class="s">files&gt;...</span>
+<span class="w">  </span><span class="s">PUBLIC</span>
+<span class="w">    </span><span class="s">&lt;some</span><span class="w"> </span><span class="s">header</span><span class="w"> </span><span class="s">files&gt;...</span>
+<span class="p">)</span>
+</pre></div>
+
 <p>Simple materials and elements can be added to the CMake build simply by including them in the relevant CMake <code>target_sources</code> call.</p>
 <p>For example, a new element might be implemented in a file called <code>ElasticFoo.cpp</code> with header <code>ElasticFoo.h</code> in the directory <code>OpenSees/SRC/element/</code>. These files would simply need to be added to the function call <code>target_sources(OPS_Element ...)</code> in the file <code>OpenSees/SRC/element/CMakeLists.txt</code>.</p>
 

@@ -12695,9 +12695,11 @@
 
 
 <h1 id="domainuser">DomainUser</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include  </span><span class="im">&lt;DomainUser.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DomainUser<span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;DomainUser.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">DomainUser</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>Analysis Design DomainDisplay</p>
 <p>The DomainUser class is an abstract base class. Its purpose is to define the interface common among all subclasses. A DomainUser is a user of the domain, example subtypes being Analysis and Design. The class defines the pure virtual function <code>domainChange()</code>: it is this method that is invoked by the domain on all domain users once the domain has changed, i.e. the connectivity has changed.</p>
 <p><br />

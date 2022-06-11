@@ -12686,27 +12686,37 @@
 <li>Build Python package (<code>python -m build</code>)</li>
 <li>use <a href="https://pypi.org/project/auditwheel/"><code>auditwheel</code></a> to handle dynamic libs</li>
 </ol>
-<pre class="shell"><code>{
+<div class="highlight"><pre><span></span><span class="o">{</span>
 docker run --rm dockcross/windows-shared-x86 
-} &gt; ./dockcross-windows-shared-x86
-chmod +x ./dockcross-windows-shared-x86</code></pre>
+<span class="o">}</span> &gt; ./dockcross-windows-shared-x86
+chmod +x ./dockcross-windows-shared-x86
+</pre></div>
+
 <blockquote>
 <p>You may need to run <code>sudo dockerd</code> first to start the docker daemon.</p>
 </blockquote>
 <p>Build numeric libraries:</p>
-<pre class="shell"><code>cd OTHER &amp;&amp; sudo ../dockcross_manylinux2014-x64 cmake -B bin_cross
-sudo ../dockcross_manylinux2014-x64 bash -c &#39;cd bin_cross &amp;&amp; make&#39;</code></pre>
-<pre class="shell"><code>sudo ./cross bash # start bash session in container
+<div class="highlight"><pre><span></span><span class="nb">cd</span> OTHER <span class="o">&amp;&amp;</span> sudo ../dockcross_manylinux2014-x64 cmake -B bin_cross
+sudo ../dockcross_manylinux2014-x64 bash -c <span class="s1">&#39;cd bin_cross &amp;&amp; make&#39;</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>sudo ./cross bash <span class="c1"># start bash session in container</span>
 sudo yum install tcl-devel
 python3 -m pip install -U pip
 python3 -m pip install pybind11
-cmake .. -DDependencies=Cross -Dpybind11_ROOT=$(python3 -m pybind11 --cmakedir)</code></pre>
-<pre><code>mkdir build_cross
+cmake .. -DDependencies<span class="o">=</span>Cross -Dpybind11_ROOT<span class="o">=</span><span class="k">$(</span>python3 -m pybind11 --cmakedir<span class="k">)</span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>mkdir build_cross
 cd build_cross
 cp ../conanfile.py .
-sudo ../dockcross-windows-shared-x86 conan install .</code></pre>
-<pre class="shell"><code>cd ../
-sudo ./dockcross-windows-shared-x86 cmake -B build_win/</code></pre>
+sudo ../dockcross-windows-shared-x86 conan install .
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="nb">cd</span> ../
+sudo ./dockcross-windows-shared-x86 cmake -B build_win/
+</pre></div>
+
 <p>```</p>
 
 

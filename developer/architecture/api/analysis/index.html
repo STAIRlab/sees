@@ -12692,15 +12692,25 @@
 
 <h1 id="analysis-api">Analysis API</h1>
 <h2 id="static-analysis">Static Analysis</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>G3_setStaticAnalysis<span class="op">(</span>G3_Runtime<span class="op">*</span> rt<span class="op">,</span> StaticAnalysis<span class="op">*</span> analysios<span class="op">)</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">G3_setStaticAnalysis</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="w"> </span><span class="n">rt</span><span class="p">,</span><span class="w"> </span><span class="n">StaticAnalysis</span><span class="o">*</span><span class="w"> </span><span class="n">analysios</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+
 <h2 id="transient-analysis">Transient Analysis</h2>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>G3_setTransientAnalysis<span class="op">(</span>G3_Runtime<span class="op">*</span> rt<span class="op">,</span> DirectIntegrationAnalysis<span class="op">*</span> analysis<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">G3_setTransientAnalysis</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="w"> </span><span class="n">rt</span><span class="p">,</span><span class="w"> </span><span class="n">DirectIntegrationAnalysis</span><span class="o">*</span><span class="w"> </span><span class="n">analysis</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <h2 id="systems-of-equations">Systems of Equations</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>G3_setLinearSoe<span class="op">(</span>G3_Runtime<span class="op">*</span> rt<span class="op">,</span> LinearSOE<span class="op">*</span> soe<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">G3_setLinearSoe</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="w"> </span><span class="n">rt</span><span class="p">,</span><span class="w"> </span><span class="n">LinearSOE</span><span class="o">*</span><span class="w"> </span><span class="n">soe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Point the runtime, <code>rt</code>, to the <a href="../class_interface/sys_of_eqn/linearSOE/LinearSOE"><code>LinearSOE</code></a> pointer, <code>soe</code>. If the runtime is aware of a <a href="../class_interface/analysis/analysis/StaticAnalysis"><code>StaticAnalysis</code></a> or [<code>DirectIntegrationAnalysis</code>], their respective <code>setLinearSOE()</code> methods will be called.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>LinearSOE<span class="op">**</span> G3_getLinearSoePtr<span class="op">(</span>G3_Runtime<span class="op">*</span> rt<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">LinearSOE</span><span class="o">**</span><span class="w"> </span><span class="nf">G3_getLinearSoePtr</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="w"> </span><span class="n">rt</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Get the current system of equations.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>LinearSOE <span class="op">*</span>G3_getDefaultLinearSoe<span class="op">(</span>G3_Runtime<span class="op">*</span> rt<span class="op">,</span> <span class="dt">int</span> flags<span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="n">LinearSOE</span><span class="w"> </span><span class="o">*</span><span class="nf">G3_getDefaultLinearSoe</span><span class="p">(</span><span class="n">G3_Runtime</span><span class="o">*</span><span class="w"> </span><span class="n">rt</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flags</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p><code>flags</code> is unused right now but could be useful<br />
 for ensuring properties about the SOE, like forcing fullGen.</p>
 

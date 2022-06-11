@@ -12699,9 +12699,11 @@
 
 
 <h1 id="penaltysp_fe">PenaltySP_FE</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;analysis/fe_ele/penalty/PenaltySP_FE.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> PenaltySP_FE<span class="op">:</span> <span class="kw">public</span> FE_Element<span class="op">;</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/fe_ele/penalty/PenaltySP_FE.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">PenaltySP_FE</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">FE_Element</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+
 <p>PenaltySP_FE is a subclass of <code>FE_Element</code> used to enforce a single point constraint. It does this by adding <span class="math inline">\(\alpha\)</span> to the tangent and <span class="math inline">\(\alpha * (U\_s - U\_t)\)</span> to the residual at the locations corresponding to the constrained degree-of-freedom specified by the <code>SP_Constraint</code>, where <span class="math inline">\(U_s\)</span> is the specified value of the constraint and <span class="math inline">\(U_t\)</span> the current trial displacement at the node corresponding to the constraint.</p>
 <h3 id="constructor">Constructor</h3>
 <h3 id="destructor">Destructor</h3>
@@ -12716,7 +12718,9 @@
 <p>Causes the <code>PenaltySP_FE</code> to determine the mapping between it’s equation numbers and the degrees-of-freedom. From the Node object link, created in the constructor, the <code>DOF_group</code> corresponding to the Node associated with the constraint is determined. From this <code>DOF_Group</code> object the mapping for the constrained degree of freedom is determined and the ID in the base class is set. Returns <span class="math inline">\(0\)</span> if successful. Prints a warning message and returns a negative number if an error occurs: <span class="math inline">\(-2\)</span> if the Node has no associated <code>DOF_Group</code>, <span class="math inline">\(-3\)</span> if the constrained DOF specified is invalid for this Node and <span class="math inline">\(-4\)</span> if the ID in the <code>DOF_Group</code> is too small for the Node.</p>
 <p>Returns the tangent Matrix created in the constructor.</p>
 <p>Sets the <code>FE_Elements</code> contribution to the residual to be <span class="math inline">\(\alpha * (U_s - U_t)\)</span>, where <span class="math inline">\(U_s\)</span> is the specified value of the constraint and <span class="math inline">\(U_t\)</span> the current trial displacement at the node corresponding to constrained degree-of-freedom. Prints a warning message and sets this contribution to <span class="math inline">\(0\)</span> if the specified constrained degree-of-freedom is invalid. Returns this residual Vector set.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">virtual</span> <span class="at">const</span> Vector <span class="op">&amp;</span>getTangForce<span class="op">(</span><span class="at">const</span> Vector <span class="op">&amp;</span>disp<span class="op">,</span> <span class="dt">double</span> fact <span class="op">=</span> <span class="fl">1.0</span><span class="op">);</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getTangForce</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">disp</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
 <p>Sets the FE_Elements contribution to the residual to be <span class="math inline">\(\alpha * (U\_s - disp\_t)\)</span>, where <span class="math inline">\(U\_s\)</span> is the specified value of the constraint and <span class="math inline">\(disp\_t\)</span> the value in <em>disp</em> corresponding to constrained degree-of-freedom. Prints a warning message and sets this contribution to <span class="math inline">\(0\)</span> if the mapping, determined in <code>setID()</code>, for the the specified constrained degree-of-freedom lies outside <em>disp</em>.</p>
 
 

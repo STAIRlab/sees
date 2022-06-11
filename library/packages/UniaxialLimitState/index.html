@@ -12685,9 +12685,11 @@
 <h1 id="limitstate">LimitState</h1>
 <p>This command is used to construct a uniaxial hysteretic material object with pinching of force and deformation, damage due to ductility and energy, and degraded unloading stiffness based on ductility. Failure of the material is defined by the associated <a href="Limit_Curve"
 title="wikilink">Limit Curve</a>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial LimitState <span class="dt">$matTag</span> <span class="dt">$s1p</span> <span class="dt">$e1p</span> <span class="dt">$s2p</span> <span class="dt">$e2p</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$s3p</span> <span class="dt">$e3p</span> <span class="dt">$s1n</span> <span class="dt">$e1n</span> <span class="dt">$s2n</span> <span class="dt">$e2n</span> <span class="dt">$s3n</span> <span class="dt">$e3n</span> <span class="dt">$pinchX</span> <span class="dt">$pinchY</span> <span class="dt">$damage1</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$damage2</span> <span class="dt">$beta</span> <span class="dt">$curveTag</span> <span class="dt">$curveType</span>.</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>LimitState<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$s1p</span><span class="w"> </span><span class="nv">$e1p</span><span class="w"> </span><span class="nv">$s2p</span><span class="w"> </span><span class="nv">$e2p</span>
+<span class="w">        </span><span class="nv">$s3p</span><span class="w"> </span><span class="nv">$e3p</span><span class="w"> </span><span class="nv">$s1n</span><span class="w"> </span><span class="nv">$e1n</span><span class="w"> </span><span class="nv">$s2n</span><span class="w"> </span><span class="nv">$e2n</span><span class="w"> </span><span class="nv">$s3n</span><span class="w"> </span><span class="nv">$e3n</span><span class="w"> </span><span class="nv">$pinchX</span><span class="w"> </span><span class="nv">$pinchY</span><span class="w"> </span><span class="nv">$damage1</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$damage2</span><span class="w"> </span><span class="nv">$beta</span><span class="w"> </span><span class="nv">$curveTag</span><span class="w"> </span><span class="nv">$curveType.</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>

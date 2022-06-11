@@ -12692,8 +12692,10 @@
 
 <h1 id="bwbn">BWBN</h1>
 <p>This command is used to construct a uniaxial Bouc-Wen pinching hysteretic material object. This material model is an extension of the original Bouc-Wen model that includes pinching (Baber and Noori (1986) and Foliente (1995)).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial BWBN <span class="dt">$matTag</span> <span class="dt">$alpha</span> <span class="dt">$ko</span> <span class="dt">$n</span> <span class="dt">$gamma</span> <span class="dt">$beta</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$Ao</span> <span class="dt">$q</span> <span class="dt">$zetas</span> <span class="dt">$p</span> <span class="dt">$Shi</span> <span class="dt">$deltaShi</span> <span class="dt">$lambda</span> <span class="dt">$tol</span> <span class="dt">$maxIter</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>BWBN<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="nv">$ko</span><span class="w"> </span><span class="nv">$n</span><span class="w"> </span><span class="nv">$gamma</span><span class="w"> </span><span class="nv">$beta</span>
+<span class="w">        </span><span class="nv">$Ao</span><span class="w"> </span><span class="nv">$q</span><span class="w"> </span><span class="nv">$zetas</span><span class="w"> </span><span class="nv">$p</span><span class="w"> </span><span class="nv">$Shi</span><span class="w"> </span><span class="nv">$deltaShi</span><span class="w"> </span><span class="nv">$lambda</span><span class="w"> </span><span class="nv">$tol</span><span class="w"> </span><span class="nv">$maxIter</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>
@@ -12811,6 +12813,9 @@ title="wikilink">BWBNParameterEstimation</a>
 </p>
 <hr />
 <h2 id="examples">Examples</h2>
+<div class="highlight"><pre><span></span>docs/contrib/examples/31-BWBNExample.html
+</pre></div>
+
 <hr />
 <h2 id="references">References</h2>
 <p>

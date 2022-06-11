@@ -20,7 +20,7 @@ metadata:
 
 
 filters:
-# - pygmentize
+  - pygmentize
   - include.lua
 #- pandoc-crossref
 #- citeproc # commented for dev build time

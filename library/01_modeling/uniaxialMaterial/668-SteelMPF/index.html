@@ -12695,8 +12695,10 @@
 <h1 id="steelmpf">SteelMPF</h1>
 <p>
 <p>This command is used to construct a uniaxialMaterial <strong>SteelMPF</strong> (Kolozvari et al., 2015), which represents the well-known uniaxial constitutive nonlinear hysteretic material model for steel proposed by Menegotto and Pinto (1973), and extended by Filippou et al. (1983) to include isotropic strain hardening effects.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial SteelMPF <span class="dt">$mattag</span> <span class="dt">$fyp</span> <span class="dt">$fyn</span> <span class="dt">$E0</span> <span class="dt">$bp</span> <span class="dt">$bn</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$R0</span> <span class="dt">$cR1</span> <span class="dt">$cR2</span> &lt; <span class="dt">$a1</span> <span class="dt">$a2</span> <span class="dt">$a3</span> <span class="dt">$a4</span> &gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>SteelMPF<span class="w"> </span><span class="nv">$mattag</span><span class="w"> </span><span class="nv">$fyp</span><span class="w"> </span><span class="nv">$fyn</span><span class="w"> </span><span class="nv">$E0</span><span class="w"> </span><span class="nv">$bp</span><span class="w"> </span><span class="nv">$bn</span>
+<span class="w">        </span><span class="nv">$R0</span><span class="w"> </span><span class="nv">$cR1</span><span class="w"> </span><span class="nv">$cR2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$a1</span><span class="w"> </span><span class="nv">$a2</span><span class="w"> </span><span class="nv">$a3</span><span class="w"> </span><span class="nv">$a4</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -12877,7 +12879,9 @@ Figure 1. Constitutive Model for Steel (Menegotto and Pinto, 1973)
 <p>
 <strong>Example:</strong>
 </p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial SteelMPF <span class="dv">1</span> <span class="dv">60</span> <span class="dv">60</span> <span class="dv">29000</span> <span class="fl">0.02</span> <span class="fl">0.02</span> <span class="fl">20.0</span> <span class="fl">0.925</span> <span class="fl">0.15</span></span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>SteelMPF<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="mi">29000</span><span class="w"> </span><span class="mf">0.02</span><span class="w"> </span><span class="mf">0.02</span><span class="w"> </span><span class="mf">20.0</span><span class="w"> </span><span class="mf">0.925</span><span class="w"> </span><span class="mf">0.15</span>
+</pre></div>
+
 <hr />
 <p>
 <strong>Discussion:</strong>

@@ -13082,38 +13082,42 @@
       0 &amp; -1 &amp; -1 &amp;  4 
    \end{array} \right], \hspace{0.3in} b = \left[\begin{array}{c} 
         6 \\ 0 \\ 0 \\ 6 \end{array} \right],\]</span> a program to solve this problem with an initial guess of <span class="math inline">\(u^T = (0, 0, 0, 0)\)</span> using <strong>JCG()</strong> with symmetric sparse storage and printing the final approximate solution vector follows.</p>
-<pre><code>         INTEGER IA(5), JA(8), IPARM(12), IWKSP(12)
-         REAL    A(8), RHS(4), u(4), WKSP(24), RPARM(12)
-         DATA A(1),A(2),A(3),A(4) / 4.0,-1.0,-1.0,4.0 /
-         DATA A(5),A(6),A(7),A(8) / -1.0,4.0,-1.0,4.0 /
-         DATA JA(1),JA(2),JA(3),JA(4) / 1,2,3,2 /
-         DATA JA(5),JA(6),JA(7),JA(8) / 4,3,4,4 / 
-         DATA IA(1),IA(2),IA(3),IA(4),IA(5) / 1,4,6,8,9 /
-         DATA RHS(1),RHS(2),RHS(3),RHS(4)  / 6.0,0.0,0.0,6.0 /
-         DATA N /4/, NW /24/, ITMAX /4/, LEVEL/1/, IDGTS/2/ 
-   C
-         CALL DFAULT (IPARM, RPARM)
-         IPARM(1) = ITMAX
-         IPARM(2) = LEVEL
-         IPARM(12) = IDGTS
-         CALL VFILL (N, U, 0.E0)
-         CALL JCG (N,IA,JA,A,RHS,U,IWKSP,NW,WKSP,IPARM,RPARM,IER)
-         STOP
-         END</code></pre>
+<div class="highlight"><pre><span></span>         <span class="kt">INTEGER</span> <span class="n">IA</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">JA</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">IPARM</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span> <span class="n">IWKSP</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+         <span class="kt">REAL</span>    <span class="n">A</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">RHS</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">u</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">WKSP</span><span class="p">(</span><span class="mi">24</span><span class="p">),</span> <span class="n">RPARM</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+         <span class="n">DATA</span> <span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">A</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">A</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="mf">4.0</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">4.0</span> <span class="o">/</span>
+         <span class="n">DATA</span> <span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="n">A</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="n">A</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span><span class="n">A</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">4.0</span><span class="p">,</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">4.0</span> <span class="o">/</span>
+         <span class="n">DATA</span> <span class="n">JA</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">JA</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">JA</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">JA</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span> <span class="o">/</span>
+         <span class="n">DATA</span> <span class="n">JA</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="n">JA</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span><span class="n">JA</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span><span class="n">JA</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="o">/</span> 
+         <span class="n">DATA</span> <span class="n">IA</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">IA</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">IA</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">IA</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span><span class="n">IA</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span> <span class="o">/</span>
+         <span class="n">DATA</span> <span class="n">RHS</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">RHS</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">RHS</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">RHS</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>  <span class="o">/</span> <span class="mf">6.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">6.0</span> <span class="o">/</span>
+         <span class="n">DATA</span> <span class="n">N</span> <span class="o">/</span><span class="mi">4</span><span class="o">/</span><span class="p">,</span> <span class="n">NW</span> <span class="o">/</span><span class="mi">24</span><span class="o">/</span><span class="p">,</span> <span class="n">ITMAX</span> <span class="o">/</span><span class="mi">4</span><span class="o">/</span><span class="p">,</span> <span class="n">LEVEL</span><span class="o">/</span><span class="mi">1</span><span class="o">/</span><span class="p">,</span> <span class="n">IDGTS</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span> 
+   <span class="n">C</span>
+         <span class="n">CALL</span> <span class="n">DFAULT</span> <span class="p">(</span><span class="n">IPARM</span><span class="p">,</span> <span class="n">RPARM</span><span class="p">)</span>
+         <span class="n">IPARM</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">ITMAX</span>
+         <span class="n">IPARM</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">LEVEL</span>
+         <span class="n">IPARM</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">=</span> <span class="n">IDGTS</span>
+         <span class="n">CALL</span> <span class="n">VFILL</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="mi">0</span><span class="p">.</span><span class="n">E0</span><span class="p">)</span>
+         <span class="n">CALL</span> <span class="n">JCG</span> <span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">IA</span><span class="p">,</span><span class="n">JA</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">RHS</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">IWKSP</span><span class="p">,</span><span class="n">NW</span><span class="p">,</span><span class="n">WKSP</span><span class="p">,</span><span class="n">IPARM</span><span class="p">,</span><span class="n">RPARM</span><span class="p">,</span><span class="n">IER</span><span class="p">)</span>
+         <span class="n">STOP</span>
+         <span class="kr">END</span>
+</pre></div>
+
 <p>The output for this run would be</p>
-<pre><code>  BEGINNING OF ITPACK SOLUTION MODULE JCG
+<div class="highlight"><pre><span></span>  <span class="n">BEGINNING</span> <span class="kr">OF</span> <span class="n">ITPACK</span> <span class="n">SOLUTION</span> <span class="kr">MODULE</span> <span class="n">JCG</span>
  
-  JCG HAS CONVERGED IN     2 ITERATIONS.
+  <span class="n">JCG</span> <span class="n">HAS</span> <span class="n">CONVERGED</span> <span class="kr">IN</span>     <span class="mi">2</span> <span class="n">ITERATIONS</span><span class="p">.</span>
  
-       APPROX. NO. OF DIGITS (EST. REL. ERROR) = 14.6  (DIGIT1)
-    APPROX. NO. OF DIGITS (EST. REL. RESIDUAL) = 14.3  (DIGIT2)
+       <span class="n">APPROX</span><span class="p">.</span> <span class="n">NO</span><span class="p">.</span> <span class="kr">OF</span> <span class="n">DIGITS</span> <span class="p">(</span><span class="n">EST</span><span class="p">.</span> <span class="n">REL</span><span class="p">.</span> <span class="n">ERROR</span><span class="p">)</span> <span class="o">=</span> <span class="mf">14.6</span>  <span class="p">(</span><span class="n">DIGIT1</span><span class="p">)</span>
+    <span class="n">APPROX</span><span class="p">.</span> <span class="n">NO</span><span class="p">.</span> <span class="kr">OF</span> <span class="n">DIGITS</span> <span class="p">(</span><span class="n">EST</span><span class="p">.</span> <span class="n">REL</span><span class="p">.</span> <span class="n">RESIDUAL</span><span class="p">)</span> <span class="o">=</span> <span class="mf">14.3</span>  <span class="p">(</span><span class="n">DIGIT2</span><span class="p">)</span>
  
  
-      SOLUTION VECTOR.
+      <span class="n">SOLUTION</span> <span class="n">VECTOR</span><span class="p">.</span>
  
-                 1              2              3              4
-       -------------------------------------------------------------
-         2.00000E+00    1.00000E+00    1.00000E+00    2.00000E+00</code></pre>
+                 <span class="mi">1</span>              <span class="mi">2</span>              <span class="mi">3</span>              <span class="mi">4</span>
+       <span class="o">-------------------------------------------------------------</span>
+         <span class="mf">2.00000E+00</span>    <span class="mf">1.00000E+00</span>    <span class="mf">1.00000E+00</span>    <span class="mf">2.00000E+00</span>
+</pre></div>
+
 <p>Textbook methods such as the Jacobi (J), Gauss-Seidel (GS), Successive Overrelaxation (SOR—fixed relaxation factor omega), Symmetric Successive Overrelaxation (SSOR—fixed relaxation factor omega), and the RS method can be obtained from this package by resetting appropriate parameters after the subroutine <strong>DFAULT()</strong> is called but before ITPACK routines are called.</p>
 <table>
 <thead>

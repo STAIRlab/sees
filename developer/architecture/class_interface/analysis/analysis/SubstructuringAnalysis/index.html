@@ -12695,12 +12695,14 @@
 
 
 <h1 id="substructuringanalysis">SubstructuringAnalysis</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include  </span><span class="im">&lt;/analysis/analysis/SubstructuringAnalysis.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SubstructuringAnalysis<span class="op">:</span> </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">public</span> DomainDecompositionAnalysis<span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    MovableObject Analysis</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    DomainDecompositionAnalysis</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w">  </span><span class="cpf">&lt;/analysis/analysis/SubstructuringAnalysis.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SubstructuringAnalysis</span><span class="o">:</span><span class="w"> </span>
+<span class="k">public</span><span class="w"> </span><span class="n">DomainDecompositionAnalysis</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">MovableObject</span><span class="w"> </span><span class="n">Analysis</span><span class="w"></span>
+<span class="w">    </span><span class="n">DomainDecompositionAnalysis</span><span class="w"></span>
+</pre></div>
+
 <p>SubstructuringAnalysis is a subclass of DomainDecompositionAnalysis. It is used when performing an analysis using the substructuring method. It differs from the DomainDecompositionAnalysis class only in that the constructor ensures that a SubstructuringSolver is given for the Solver.</p>
 <p>The constructor is responsible for ensuring a Substructuring solver is passed in as an argument. The base class does the rest. For this reason WE WILL FORGET THIS CLASS.</p>
 <p><br />

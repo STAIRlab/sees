@@ -12694,8 +12694,10 @@
 <p>
 This command is used to construct a multi-dimensional material object that that follows the constitutive behavior of a cyclic elastoplasticity model for large post- liquefaction deformation.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nDmaterial CycLiqCP <span class="dt">$matTag</span> <span class="dt">$G0</span> <span class="dt">$kappa</span> <span class="dt">$h</span> <span class="dt">$Mfc</span> <span class="dt">$dre1</span> <span class="dt">$Mdc</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$dre2</span> <span class="dt">$rdr</span> <span class="dt">$alpha</span> <span class="dt">$dir</span> <span class="dt">$ein</span> &amp;lt;<span class="dt">$rho</span>&amp;gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">nDmaterial</span><span class="w"> </span>CycLiqCP<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$G0</span><span class="w"> </span><span class="nv">$kappa</span><span class="w"> </span><span class="nv">$h</span><span class="w"> </span><span class="nv">$Mfc</span><span class="w"> </span><span class="nv">$dre1</span><span class="w"> </span><span class="nv">$Mdc</span>
+<span class="w">        </span><span class="nv">$dre2</span><span class="w"> </span><span class="nv">$rdr</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="nv">$dir</span><span class="w"> </span><span class="nv">$ein</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$rho</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <p>
 CycLiqCP material is a cyclic elastoplasticity model for large post-liquefaction deformation, and is implemented using a cutting plane algorithm. The model is capable of reproducing small to large deformation in the pre- to post-liquefaction regime. The elastic moduli of the model are pressure dependent. The plasticity in the model is developed within the framework of bounding surface plasticity, with special consideration to the formulation of reversible and irreversible dilatancy.
 </p>

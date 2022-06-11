@@ -12698,14 +12698,18 @@
   <h1>OpenSeesRT</h1>
 
 <p>UNDER CONSTRUCTION # ProfileSPDLinDirectSolver</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectSolver.h&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ProfileSPDLinDirectSolver<span class="op">:</span> <span class="kw">public</span> LinearSOESolver</span></code></pre></div>
-<pre><code>MovableObject\
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectSolver.h&gt;</span><span class="cp"></span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">ProfileSPDLinDirectSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOESolver</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>MovableObject\
 Solver\
 LinearSOESolver\
-ProfileSPDLinSolver\</code></pre>
+ProfileSPDLinSolver\
+</pre></div>
+
 <p>A <code>ProfileSPDLinDirectSolver</code> object can be constructed to solve a ProfileSPDLinSOE object. It does this by direct means, using the <span class="math inline">\(LDL^t\)</span> variation of the cholesky factorization. The matrx <span class="math inline">\(A\)</span> is factored one column at a time using a left-looking approach. No BLAS or LAPACK routines are called for the factorization or subsequent substitution.</p>
 <p>Constructor<br />
 </p>

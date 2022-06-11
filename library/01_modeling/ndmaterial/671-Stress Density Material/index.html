@@ -12694,9 +12694,11 @@
 <p>
 This command is used to construct a multi-dimensional stress density material object for modeling sand behaviour following the work of Cubrinovski and Ishihara (1998a,b). Note that as of January 2020 this material is still undergoing verification testing for more complex loading and initial conditions.
 </p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>nDMaterial stressDensity <span class="dt">$matTag</span> <span class="dt">$mDen</span> <span class="dt">$eNot</span> <span class="dt">$A</span> <span class="dt">$n</span> <span class="dt">$nu</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>        <span class="dt">$a1</span> <span class="dt">$b1</span> <span class="dt">$a2</span> <span class="dt">$b2</span> <span class="dt">$a3</span> <span class="dt">$b3</span> <span class="dt">$fd</span> <span class="dt">$muNot</span> <span class="dt">$muCyc</span> <span class="dt">$sc</span> <span class="dt">$M</span> <span class="dt">$patm</span> </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt; <span class="dt">$ssl1</span> <span class="dt">$ssl2</span> <span class="dt">$ssl3</span> <span class="dt">$ssl4</span> <span class="dt">$ssl5</span> <span class="dt">$ssl6</span> <span class="dt">$ssl7</span> <span class="dt">$hsl</span> <span class="dt">$pmin</span> &gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">nDMaterial</span><span class="w"> </span>stressDensity<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$mDen</span><span class="w"> </span><span class="nv">$eNot</span><span class="w"> </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$n</span><span class="w"> </span><span class="nv">$nu</span>
+<span class="w">        </span><span class="nv">$a1</span><span class="w"> </span><span class="nv">$b1</span><span class="w"> </span><span class="nv">$a2</span><span class="w"> </span><span class="nv">$b2</span><span class="w"> </span><span class="nv">$a3</span><span class="w"> </span><span class="nv">$b3</span><span class="w"> </span><span class="nv">$fd</span><span class="w"> </span><span class="nv">$muNot</span><span class="w"> </span><span class="nv">$muCyc</span><span class="w"> </span><span class="nv">$sc</span><span class="w"> </span><span class="nv">$M</span><span class="w"> </span><span class="nv">$patm</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$ssl1</span><span class="w"> </span><span class="nv">$ssl2</span><span class="w"> </span><span class="nv">$ssl3</span><span class="w"> </span><span class="nv">$ssl4</span><span class="w"> </span><span class="nv">$ssl5</span><span class="w"> </span><span class="nv">$ssl6</span><span class="w"> </span><span class="nv">$ssl7</span><span class="w"> </span><span class="nv">$hsl</span><span class="w"> </span><span class="nv">$pmin</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+
 <table>
 <tbody>
 <tr class="odd">
@@ -13026,264 +13028,214 @@ This nDMaterial object provides the stress density model for sands under monoton
 <h3 id="notes">
 Notes
 </h3>
-<h3 id="usage_examples">
-Usage Examples
-</h3>
+<h2 id="examples">Examples</h2>
+<p>The following example provides the input parameters for dry pluviated Toyura sand (with initial void ratio e = 0.73) after Cubrinovski and Ishihara (1998b). The units of this analysis are Mg, kN, s, and m.</p>
+<div class="highlight"><pre><span></span><span class="c"># mass density</span>
+<span class="k">set</span><span class="w"> </span>mDen<span class="w"> </span><span class="mf">1.8</span>
+
+<span class="c"># atmospheric pressure</span>
+<span class="k">set</span><span class="w"> </span>patm<span class="w"> </span><span class="mf">98.1</span>
+
+<span class="c"># stress density model parameters</span>
+<span class="k">set</span><span class="w"> </span>eNot<span class="w"> </span><span class="mf">0.730</span>
+<span class="k">set</span><span class="w"> </span>A<span class="w"> </span><span class="mf">250.0</span>
+<span class="k">set</span><span class="w"> </span>n<span class="w">  </span><span class="mf">0.60</span>
+<span class="k">set</span><span class="w"> </span>a1<span class="w"> </span><span class="mf">0.58</span>
+<span class="k">set</span><span class="w"> </span>b1<span class="w"> </span><span class="mf">0.023</span>
+<span class="k">set</span><span class="w"> </span>a2<span class="w"> </span><span class="mf">230.0</span>
+<span class="k">set</span><span class="w"> </span>b2<span class="w"> </span><span class="mf">65.0</span>
+<span class="k">set</span><span class="w"> </span>a3<span class="w"> </span><span class="mf">79.0</span>
+<span class="k">set</span><span class="w"> </span>b3<span class="w"> </span><span class="mf">16.0</span>
+<span class="k">set</span><span class="w"> </span>fd<span class="w"> </span><span class="mf">4.0</span>
+<span class="k">set</span><span class="w"> </span>muNot<span class="w"> </span><span class="mf">0.22</span>
+<span class="k">set</span><span class="w"> </span>muCyc<span class="w"> </span><span class="mf">0.0</span>
+<span class="k">set</span><span class="w"> </span>sc<span class="w"> </span><span class="mf">0.0055</span>
+<span class="k">set</span><span class="w"> </span>M<span class="w"> </span><span class="mf">0.607</span><span class="w"> </span>
+
+nDMaterial<span class="w"> </span>stressDensity<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">$mDen</span><span class="w"> </span><span class="err">\</span>
+<span class="w">  </span><span class="nv">$eNot</span><span class="w"> </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$n</span><span class="w"> </span><span class="nv">$nu</span><span class="w"> </span><span class="nv">$a1</span><span class="w"> </span><span class="nv">$b1</span><span class="w"> </span><span class="nv">$a2</span><span class="w"> </span><span class="nv">$b2</span><span class="w"> </span><span class="nv">$a3</span><span class="w"> </span><span class="nv">$b3</span><span class="w"> </span><span class="nv">$fd</span><span class="w"> </span><span class="nv">$muNot</span><span class="w"> </span><span class="err">$</span><span class="w"> </span><span class="nv">muCyc</span><span class="w"> </span><span class="nv">$sc</span><span class="w"> </span><span class="nv">$M</span><span class="w"> </span><span class="nv">$patm</span>
+</pre></div>
+
+<h3 id="example-analysis">Example Analysis</h3>
+<p>Element test with pure shear loading starting from isotropic initial state of stress.</p>
+<details>
+<summary>
+Tcl Script
+</summary>
+<div class="highlight"><pre><span></span><span class="c"># intended number of cycles in the test</span>
+<span class="k">set</span><span class="w"> </span>nCycles<span class="w"> </span><span class="mi">120</span>
+
+<span class="c"># shear strain increment for the test</span>
+
+<span class="k">set</span><span class="w"> </span>dg<span class="w"> </span><span class="mf">0.0001</span><span class="w"> </span>set<span class="w"> </span>wg<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mf">2.0</span><span class="o">*</span><span class="nv">$dg</span><span class="k">]</span>
+
+<span class="c"># max number of steps</span>
+
+<span class="k">set</span><span class="w"> </span>maxStep<span class="w"> </span><span class="mi">20000</span>
+
+<span class="c"># initial confinement pressure (kPa)</span>
+
+<span class="k">set</span><span class="w"> </span>pNot<span class="w"> </span><span class="o">-</span><span class="mf">95.0</span>
+
+<span class="c"># max/min shear stress in the test (kPa)</span>
+
+<span class="k">set</span><span class="w"> </span>CSR<span class="w"> </span><span class="mf">0.2</span><span class="w"> </span>set<span class="w"> </span>maxShear<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="o">-</span><span class="nv">$CSR</span><span class="o">*</span><span class="nv">$pNot</span><span class="k">]</span>
+<span class="nv">wipe</span>
+<span class="nv">model</span><span class="w"> </span>BasicBuilder<span class="w"> </span><span class="o">-</span>ndm<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span>ndf<span class="w"> </span><span class="mi">2</span>
+
+<span class="c"># Create nodes</span>
+
+<span class="nv">node</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1.0</span>
+
+<span class="c"># Create fixities</span>
+
+<span class="nv">fix</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="c"># atmospheric pressure</span>
+
+<span class="k">set</span><span class="w"> </span>patm<span class="w"> </span><span class="mf">98.1</span>
+
+<span class="c"># mass density</span>
+
+<span class="k">set</span><span class="w"> </span>mDen<span class="w"> </span><span class="mf">1.8</span>
+
+<span class="c"># steady state line void ratio</span>
+
+<span class="k">set</span><span class="w"> </span>ssl1<span class="w"> </span><span class="mf">0.832</span><span class="w"> </span>set<span class="w"> </span>ssl2<span class="w"> </span><span class="mf">0.832</span><span class="w"> </span>set<span class="w"> </span>ssl3<span class="w"> </span><span class="mf">0.810</span><span class="w"> </span>set<span class="w"> </span>ssl4<span class="w"> </span><span class="mf">0.796</span><span class="w"> </span>set<span class="w"> </span>ssl5
+<span class="nv">0.776</span><span class="w"> </span>set<span class="w"> </span>ssl6<span class="w"> </span><span class="mf">0.756</span><span class="w"> </span>set<span class="w"> </span>ssl7<span class="w"> </span><span class="mf">0.735</span>
+
+<span class="c"># hydrostatic state line void ratio</span>
+
+<span class="k">set</span><span class="w"> </span>hsl<span class="w"> </span><span class="mf">0.852</span>
+
+<span class="c"># reference pressures for state lines</span>
+
+<span class="k">set</span><span class="w"> </span>p1<span class="w"> </span><span class="mf">1.0</span>
+
+<span class="c"># stress density model parameters</span>
+
+<span class="k">set</span><span class="w"> </span>A<span class="w"> </span><span class="mf">250.0</span><span class="w"> </span>set<span class="w"> </span>m<span class="w"> </span><span class="mf">0.60</span><span class="w"> </span>set<span class="w"> </span>nu<span class="w"> </span><span class="mf">0.20</span><span class="w"> </span>set<span class="w"> </span>a1<span class="w"> </span><span class="mf">0.592</span><span class="w"> </span>set<span class="w"> </span>b1<span class="w"> </span><span class="mf">0.021</span><span class="w"> </span>set<span class="w"> </span>a2
+<span class="nv">291.0</span><span class="w"> </span>set<span class="w"> </span>b2<span class="w"> </span><span class="mf">55.0</span><span class="w"> </span>set<span class="w"> </span>a3<span class="w"> </span><span class="mf">98.0</span><span class="w"> </span>set<span class="w"> </span>b3<span class="w"> </span><span class="mf">13.0</span><span class="w"> </span>set<span class="w"> </span>fd<span class="w"> </span><span class="mf">4.0</span><span class="w"> </span>set<span class="w"> </span>muNot<span class="w"> </span><span class="mf">0.15</span><span class="w"> </span>set
+<span class="nv">sc</span><span class="w"> </span><span class="mf">0.0055</span><span class="w"> </span>set<span class="w"> </span>M<span class="w"> </span><span class="mf">0.607</span>
+
+<span class="c"># initial void ratio</span>
+
+<span class="k">set</span><span class="w"> </span>emax<span class="w"> </span><span class="mf">0.885</span><span class="w"> </span>set<span class="w"> </span>emin<span class="w"> </span><span class="mf">0.541</span><span class="w"> </span>set<span class="w"> </span>Dr<span class="w"> </span><span class="mf">0.54</span><span class="w"> </span>set<span class="w"> </span>eNot<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$emax</span><span class="w"> </span><span class="o">-</span>
+<span class="nv">$Dr</span><span class="o">*</span><span class="k">(</span><span class="nv">$emax-$emin</span><span class="k">)]</span><span class="w"> </span>set<span class="w"> </span>muCyc<span class="w"> </span><span class="mf">0.0</span>
+
+<span class="c"># Create material</span>
+
+<span class="nv">nDMaterial</span><span class="w"> </span>stressDensity<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nv">$mDen</span><span class="w"> </span><span class="nv">$eNot</span><span class="w"> </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="nv">$nu</span><span class="w"> </span><span class="nv">$a1</span><span class="w"> </span><span class="nv">$b1</span><span class="w"> </span><span class="nv">$a2</span><span class="w"> </span><span class="nv">$b2</span><span class="w"> </span><span class="nv">$a3</span>
+<span class="nv">$b3</span><span class="w"> </span><span class="nv">$fd</span><span class="w"> </span><span class="nv">$muNot</span><span class="w"> </span><span class="nv">$muCyc</span><span class="w"> </span><span class="err">\</span><span class="w"> </span><span class="nv">$sc</span><span class="w"> </span><span class="nv">$M</span><span class="w"> </span><span class="nv">$patm</span><span class="w"> </span><span class="nv">$ssl1</span><span class="w"> </span><span class="nv">$ssl2</span><span class="w"> </span><span class="nv">$ssl3</span><span class="w"> </span><span class="nv">$ssl4</span><span class="w"> </span><span class="nv">$ssl5</span><span class="w"> </span><span class="nv">$ssl6</span><span class="w"></span>
+<span class="nv">$ssl7</span><span class="w"> </span><span class="nv">$hsl</span><span class="w"> </span><span class="nv">$p1</span><span class="w"></span>
+<span class="nv">nDMaterial</span><span class="w"> </span>InitStress<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="nv">$pNot</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="c"># Create element</span>
+
+<span class="nv">element</span><span class="w"> </span>SSPquad<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>PlaneStrain<span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span>
+
+<span class="c"># Create recorders</span>
+
+<span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>stress.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span>stress<span class="w"> </span>recorder<span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file
+<span class="nv">strain.out</span><span class="w"> </span><span class="o">-</span>time<span class="w"> </span>strain<span class="w"> </span>recorder<span class="w"> </span>Node<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>disp.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span>
+<span class="nv">disp</span>
+<span class="k">set</span><span class="w"> </span>dt<span class="w"> </span><span class="mf">0.1</span>
+
+<span class="c"># Create analysis</span>
+
+<span class="nv">constraints</span><span class="w"> </span>Penalty<span class="w"> </span><span class="mf">1.0</span>e18<span class="w"> </span><span class="mf">1.0</span>e18<span class="w"> </span>
+algorithm<span class="w"> </span>Linear<span class="w"> </span>
+numberer<span class="w"> </span>RCM
+<span class="nv">system</span><span class="w"> </span>ProfileSPD<span class="w"> </span>
+integrator<span class="w"> </span>LoadControl<span class="w"> </span><span class="nv">$dt</span><span class="w"> </span>
+analysis<span class="w"> </span>Static
+<span class="k">set</span><span class="w"> </span>dMax<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mf">0.6</span><span class="o">/</span><span class="nv">$wg</span><span class="k">]</span><span class="w"> </span>
+eval<span class="w"> </span><span class="s2">&quot;timeSeries Path 400 -time {0 0.1 0.2 300.2} -values {0 0 0 $dMax} -factor 1.0&quot;</span><span class="w"> </span>
+pattern<span class="w"> </span>Plain<span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="k">{</span><span class="w"> </span>
+<span class="w">  </span><span class="nv">sp</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">$wg</span><span class="w"> </span>
+<span class="w">  </span>sp<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">$wg</span><span class="w"> </span>
+<span class="k">}</span><span class="w"> </span>
+analyze<span class="w"> </span><span class="mi">1</span>
+<span class="nv">setParameter</span><span class="w"> </span><span class="o">-</span>value<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span>materialState
+<span class="nv">analyze</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="c"># counter for max number of steps</span>
+
+<span class="k">set</span><span class="w"> </span>count<span class="w"> </span><span class="mi">0</span><span class="w"> </span>set<span class="w"> </span>cCount<span class="w"> </span><span class="mi">0</span><span class="w"> </span>set<span class="w"> </span>cyc<span class="w"> </span><span class="mi">1</span><span class="w"> </span>puts<span class="w"> </span><span class="s2">&quot;Beginning of Cycle 1&quot;</span>
+
+<span class="c"># loop through the total number of cycles</span>
+
+<span class="k">for</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>i<span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="nv">$nCycles</span><span class="k">]}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>i<span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="k">{</span><span class="nv">$cCount</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">2</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>cyc<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$cyc</span><span class="o">+</span><span class="mi">1</span><span class="k">]</span><span class="w"> </span>
+<span class="w">    </span>puts<span class="w"> </span><span class="s2">&quot;Beginning of Cycle $cyc&quot;</span><span class="w"> </span>set<span class="w"> </span>cCount<span class="w"> </span><span class="mi">0</span>
+<span class="w">  </span><span class="k">}</span>
+
+<span class="w">  </span><span class="c"># loop within each cycle</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="k">{set</span><span class="w"> </span>j<span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nv">$j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">5000</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="nb">incr</span><span class="w"> </span>j<span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="c"># abort if count is greater than max number of steps </span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">{</span><span class="nv">$count</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="err">=</span><span class="w"> </span><span class="nv">$maxStep</span><span class="k">}</span><span class="w"> </span><span class="k">{break}</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c"># analyze single step and get the current stress </span>
+<span class="w">    </span><span class="nv">analyze</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>set<span class="w"> </span>count<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$count</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="k">]</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c"># get stress from element  </span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>stress<span class="w"> </span><span class="k">[</span><span class="nv">eleResponse</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>stress<span class="k">]</span>
+<span class="w">    </span>
+<span class="w">    </span><span class="c"># shear stress is component 2</span>
+<span class="w">    </span><span class="k">set</span><span class="w"> </span>tau<span class="w"> </span><span class="k">[</span><span class="nb">lindex</span><span class="w"> </span><span class="nv">$stress</span><span class="w"> </span><span class="mi">2</span><span class="k">]</span>
+
+<span class="w">    </span><span class="c"># signal change in loading direction if needed</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">{[expr</span><span class="w"> </span>abs<span class="k">(</span><span class="nv">$tau</span><span class="k">)]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nv">$maxShear</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
+
+<span class="w">      </span><span class="c"># get strain from element </span>
+<span class="w">      </span><span class="k">set</span><span class="w"> </span>strain<span class="w"> </span><span class="k">[</span><span class="nv">eleResponse</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>strain<span class="k">]</span><span class="w"> </span>
+<span class="w">      </span>set<span class="w"> </span>gamma<span class="w"> </span><span class="k">[</span><span class="nb">lindex</span><span class="w"> </span><span class="nv">$strain</span><span class="w"> </span><span class="mi">2</span><span class="k">]</span><span class="w"> </span>
+<span class="w">      </span>puts<span class="w"> </span><span class="s2">&quot;direction change required: tau = $tau; gamma = $gamma&quot;</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c"># get current displacements of shearing nodes</span>
+<span class="w">      </span><span class="k">set</span><span class="w"> </span>f<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mf">2.0</span><span class="o">*</span><span class="k">[</span><span class="nv">nodeDisp</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="k">]]</span><span class="w"> </span>
+<span class="w">      </span>set<span class="w"> </span>b<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mf">2.0</span><span class="o">*</span><span class="k">[</span><span class="nv">nodeDisp</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">1</span><span class="k">]]</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c"># puts &quot;current displacement of front row is $f&quot;</span>
+<span class="w">      </span><span class="c"># puts &quot;current displacement of back row is $b&quot;</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c"># get number of steps required to reach current disp from zero</span>
+<span class="w">      </span><span class="k">set</span><span class="w"> </span>nStep<span class="w"> </span><span class="k">[expr</span><span class="w"> </span>round<span class="k">(</span><span class="nv">abs</span><span class="k">(</span><span class="nv">$b</span><span class="o">/</span><span class="nv">$wg</span><span class="k">))]</span>
+<span class="w">      </span>
+<span class="w">      </span><span class="c"># puts &quot;there are $nStep steps needed to get back to neutral loading&quot;</span>
+
+<span class="w">      </span><span class="c"># get current time</span>
+<span class="w">      </span><span class="k">set</span><span class="w"> </span>cTime<span class="w"> </span><span class="k">[</span><span class="nv">getTime</span><span class="k">]</span>
+
+<span class="w">      </span><span class="c"># puts &quot;current time is $cTime&quot;</span>
+<span class="w">      </span><span class="c"># set an end time for the load patterns</span>
+
+<span class="w">      </span><span class="k">set</span><span class="w"> </span>zTime<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$cTime</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nv">$nStep</span><span class="o">*</span><span class="nv">$dt</span><span class="k">]</span><span class="w"> </span>
+<span class="w">      </span>set<span class="w"> </span>eTime<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$zTime</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">100.0</span><span class="o">*</span><span class="nv">$nStep</span><span class="k">]</span>
+
+<span class="w">      </span><span class="c"># puts &quot;end time for the new load pattern is $eTime&quot;</span>
+
+<span class="w">      </span><span class="nv">remove</span><span class="w"> </span>loadPattern<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mi">400</span><span class="o">+</span><span class="nv">$i-1</span><span class="k">]</span>
+<span class="w">      </span><span class="k">eval</span><span class="w"> </span><span class="s2">&quot;timeSeries Path [expr 400+$i] -time {$cTime $eTime 1e10} -values {1 -1000 -1000}&quot;</span><span class="w"> </span>
+<span class="w">      </span>pattern<span class="w"> </span>Plain<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mi">400</span><span class="o">+</span><span class="nv">$i</span><span class="k">]</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mi">400</span><span class="o">+</span><span class="nv">$i</span><span class="k">]</span><span class="w"> </span><span class="k">{</span><span class="w"> </span>
+<span class="w">        </span><span class="nv">sp</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">$b</span><span class="w"> </span>sp<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">$b</span><span class="w"> </span>
+<span class="w">      </span><span class="k">}</span><span class="w"> </span>
+<span class="w">      </span>set<span class="w"> </span>cCount<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$cCount</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="k">]</span><span class="w"> </span>break<span class="w"> </span>
+<span class="w">    </span><span class="k">}</span><span class="w"> </span>
+<span class="w">  </span><span class="k">}</span>
+<span class="k">}</span>
+<span class="nv">wipe</span><span class="w"> </span>
+</pre></div>
+
+</details>
+<h2 id="references">References</h2>
 <p>
-The following usage example provides the input parameters for dry pluviated Toyura sand (with initial void ratio e = 0.73) after Cubrinovski and Ishihara (1998b). The units of this analysis are Mg, kN, s, and m.
-</p>
-<ol>
-<li>
-mass density
-</li>
-</ol>
-<p>
-set mDen 1.8
-</p>
-<ol>
-<li>
-atmospheric pressure
-</li>
-</ol>
-<p>
-set patm 98.1
-</p>
-<ol>
-<li>
-stress density model parameters
-</li>
-</ol>
-<p>
-set eNot 0.730 set A 250.0 set n 0.60 set a1 0.58 set b1 0.023 set a2 230.0 set b2 65.0 set a3 79.0 set b3 16.0 set fd 4.0 set muNot 0.22 set muCyc 0.0 set sc 0.0055 set M 0.607 nDMaterial stressDensity 1 $mDen $eNot $A $n $nu $a1 $b1 $a2 $b2 $a3 $b3 $fd $muNot $ muCyc $sc $M <span class="math inline">\(patm&lt;/p&gt; &lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt; &lt;p&gt;Cubrinovski, M. and Ishihara K. (1998a) &#39;Modelling of sand behaviour based on state concept,&#39; &lt;em&gt;Soils and Foundations,&lt;/em&gt; 38(3), 115-127.&lt;/p&gt; &lt;p&gt;Cubrinovski, M. and Ishihara K. (1998b) &#39;State concept and modified elastoplasticity for sand modelling,&#39; &lt;em&gt;Soils and Foundations,&lt;/em&gt; 38(4), 213-225.&lt;/p&gt; &lt;hr /&gt; &lt;h2 id=&quot;example_analysis&quot;&gt;Example Analysis&lt;/h2&gt; &lt;p&gt;Element test with pure shear loading starting from isotropic initial state of stress.&lt;/p&gt; &lt;p&gt; ```tcl &lt;/p&gt; &lt;ol&gt; &lt;li&gt;intended number of cycles in the test&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;set nCycles 120&lt;/p&gt; &lt;ol&gt; &lt;li&gt;shear strain increment for the test&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;set dg 0.0001 set wg [expr 2.0*\)</span>dg]
-</p>
-<ol>
-<li>
-max number of steps
-</li>
-</ol>
-<p>
-set maxStep 20000
-</p>
-<ol>
-<li>
-initial confinement pressure (kPa)
-</li>
-</ol>
-<p>
-set pNot -95.0
-</p>
-<ol>
-<li>
-max/min shear stress in the test (kPa)
-</li>
-</ol>
-<p>
-set CSR 0.2 set maxShear [expr -<span class="math inline">\(CSR*\)</span>pNot]
-</p>
-<p>
-wipe
-</p>
-<p>
-model BasicBuilder -ndm 2 -ndf 2
-</p>
-<ol>
-<li>
-Create nodes
-</li>
-</ol>
-<p>
-node 1 0.0 0.0 node 2 1.0 0.0 node 3 1.0 1.0 node 4 0.0 1.0
-</p>
-<ol>
-<li>
-Create fixities
-</li>
-</ol>
-<p>
-fix 1 1 1 fix 2 1 1 fix 3 1 1 fix 4 1 1
-</p>
-<ol>
-<li>
-atmospheric pressure
-</li>
-</ol>
-<p>
-set patm 98.1
-</p>
-<ol>
-<li>
-mass density
-</li>
-</ol>
-<p>
-set mDen 1.8
-</p>
-<ol>
-<li>
-steady state line void ratio
-</li>
-</ol>
-<p>
-set ssl1 0.832 set ssl2 0.832 set ssl3 0.810 set ssl4 0.796 set ssl5 0.776 set ssl6 0.756 set ssl7 0.735
-</p>
-<ol>
-<li>
-hydrostatic state line void ratio
-</li>
-</ol>
-<p>
-set hsl 0.852
-</p>
-<ol>
-<li>
-reference pressures for state lines
-</li>
-</ol>
-<p>
-set p1 1.0
-</p>
-<ol>
-<li>
-stress density model parameters
-</li>
-</ol>
-<p>
-set A 250.0 set m 0.60 set nu 0.20 set a1 0.592 set b1 0.021 set a2 291.0 set b2 55.0 set a3 98.0 set b3 13.0 set fd 4.0 set muNot 0.15 set sc 0.0055 set M 0.607
-</p>
-<ol>
-<li>
-initial void ratio
-</li>
-</ol>
-<p>
-set emax 0.885 set emin 0.541 set Dr 0.54 set eNot [expr $emax - <span class="math inline">\(Dr*(\)</span>emax-$emin)] set muCyc 0.0
-</p>
-<ol>
-<li>
-Create material
-</li>
-</ol>
-<p>
-nDMaterial stressDensity 2 $mDen $eNot $A $m $nu $a1 $b1 $a2 $b2 $a3 $b3 $fd $muNot <span class="math inline">\(muCyc \ \)</span>sc $M $patm $ssl1 $ssl2 $ssl3 $ssl4 $ssl5 $ssl6 $ssl7 $hsl $p1
-</p>
-<p>
-nDMaterial InitStress 1 2 $pNot 2
-</p>
-<ol>
-<li>
-Create element
-</li>
-</ol>
-<p>
-element SSPquad 1 1 2 3 4 1 PlaneStrain 1.0 0.0 0.0
-</p>
-<ol>
-<li>
-Create recorders
-</li>
-</ol>
-<p>
-recorder Element -file stress.out -time stress recorder Element -file strain.out -time strain recorder Node -file disp.out -time -dof 1 2 disp
-</p>
-<p>
-set dt 0.1
-</p>
-<ol>
-<li>
-Create analysis
-</li>
-</ol>
-<p>
-constraints Penalty 1.0e18 1.0e18 algorithm Linear numberer RCM system ProfileSPD integrator LoadControl <span class="math inline">\(dt analysis Static&lt;/p&gt; &lt;p&gt;set dMax [expr 0.6/\)</span>wg] eval “timeSeries Path 400 -time {0 0.1 0.2 300.2} -values {0 0 0 $dMax} -factor 1.0” pattern Plain 400 400 { sp 3 1 $wg sp 4 1 <span class="math inline">\(wg } analyze 1&lt;/p&gt; &lt;p&gt;setParameter -value 1 -ele 1 materialState&lt;/p&gt; &lt;p&gt;analyze 1&lt;/p&gt; &lt;ol&gt; &lt;li&gt;counter for max number of steps&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;set count 0 set cCount 0 set cyc 1 puts &quot;Beginning of Cycle 1&quot;&lt;/p&gt; &lt;ol&gt; &lt;li&gt;loop through the total number of cycles&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;for {set i 1} {\)</span>i &lt;= [expr 2*<span class="math inline">\(nCycles]} {incr i} { if {\)</span>cCount == 2} { set cyc [expr $cyc+1] puts “Beginning of Cycle <span class="math inline">\(cyc&quot; set cCount 0 }&lt;/p&gt; &lt;ol&gt; &lt;li&gt;loop within each cycle&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;for {set j 1} {\)</span>j &lt; 5000} {incr j} {
-</p>
-<ol>
-<li>
-abort if count is greater than max number of steps
-</li>
-</ol>
-<p>
-if {$count &gt;= $maxStep} {break}
-</p>
-<ol>
-<li>
-analyze single step and get the current stress
-</li>
-</ol>
-<p>
-analyze 1 set count [expr $count + 1]
-</p>
-<ol>
-<li>
-get stress from element
-</li>
-</ol>
-<p>
-set stress [eleResponse 1 stress]
-</p>
-<ol>
-<li>
-shear stress is component 2
-</li>
-</ol>
-<p>
-set tau [lindex <span class="math inline">\(stress 2]&lt;/p&gt; &lt;ol&gt; &lt;li&gt;signal change in loading direction if needed&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;if {[expr abs(\)</span>tau)] &gt;= $maxShear} {
-</p>
-<ol>
-<li>
-get strain from element
-</li>
-</ol>
-<p>
-set strain [eleResponse 1 strain] set gamma [lindex $strain 2] puts “direction change required: tau = $tau; gamma = $gamma”
-</p>
-<ol>
-<li>
-get current displacements of shearing nodes
-</li>
-</ol>
-<p>
-set f [expr 2.0<em>[nodeDisp 3 1]] set b [expr 2.0</em>[nodeDisp 4 1]]
-</p>
-<ol>
-<li>
-puts “current displacement of front row is $f”
-</li>
-<li>
-puts “current displacement of back row is <span class="math inline">\(b&quot;&lt;/li&gt; &lt;/ol&gt; &lt;ol&gt; &lt;li&gt;get number of steps required to reach current disp from zero&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;set nStep [expr round(abs(\)</span>b/$wg))]
-</p>
-<ol>
-<li>
-puts “there are $nStep steps needed to get back to neutral loading”
-</li>
-</ol>
-<ol>
-<li>
-get current time
-</li>
-</ol>
-<p>
-set cTime [getTime]
-</p>
-<ol>
-<li>
-puts “current time is $cTime”
-</li>
-<li>
-set an end time for the load patterns
-</li>
-</ol>
-<p>
-set zTime [expr $cTime + <span class="math inline">\(nStep*\)</span>dt] set eTime [expr <span class="math inline">\(zTime + 100.0*\)</span>nStep]
-</p>
-<ol>
-<li>
-puts “end time for the new load pattern is <span class="math inline">\(eTime&quot;&lt;/li&gt; &lt;/ol&gt; &lt;p&gt;remove loadPattern [expr 400+\)</span>i-1]
+Cubrinovski, M. and Ishihara K. (1998a) ‘Modelling of sand behaviour based on state concept,’ <em>Soils and Foundations,</em> 38(3), 115-127.
 </p>
 <p>
-eval “timeSeries Path [expr 400+<span class="math inline">\(i] -time {\)</span>cTime <span class="math inline">\(eTime 1e10} -values {1 -1000 -1000}&quot; pattern Plain [expr 400+\)</span>i] [expr 400+$i] { sp 3 1 $b sp 4 1 $b } set cCount [expr $cCount + 1] break } } }
-</p>
-<p>
-wipe ```
+Cubrinovski, M. and Ishihara K. (1998b) ‘State concept and modified elastoplasticity for sand modelling,’ <em>Soils and Foundations,</em> 38(4), 213-225.
 </p>
 
 

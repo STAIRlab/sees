@@ -12684,19 +12684,23 @@
 
 <h1 id="algebraichysteretic">AlgebraicHysteretic</h1>
 <p>This package provides an infrastructure for constructing algebraic univariate hysteretic models.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial OOHysteretic <span class="ot">tag</span>? </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>     bkbn+? unlRul+? stfDeg+? strDeg+?</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;bkbn-? unlRul-? stfDeg-? strDeg-?&gt; </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    &lt;pinchX? pinchY?&gt;</span></code></pre></div>
+<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>OOHysteretic<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>
+<span class="w">     </span>bkbn<span class="o">+?</span><span class="w"> </span>unlRul<span class="o">+?</span><span class="w"> </span>stfDeg<span class="o">+?</span><span class="w"> </span>strDeg<span class="o">+?</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nv">bkbn-</span><span class="o">?</span><span class="w"> </span>unlRul-<span class="o">?</span><span class="w"> </span>stfDeg-<span class="o">?</span><span class="w"> </span>strDeg-<span class="o">?&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="o">&lt;</span>pinchX<span class="o">?</span><span class="w"> </span>pinchY<span class="o">?&gt;</span>
+</pre></div>
+
 <ul>
 <li><p><code>HystereticBackbone</code></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>hystereticBackbone ReeseSoftClay <span class="ot">tag</span>? pu? y50? n?</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>hystereticBackbone ReeseSand <span class="ot">tag</span>? kx? ym? pm? yu? pu?</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hystereticBackbone ReeseStiffClayBelowWS <span class="ot">tag</span>? Esi? y50? As?  Pc?</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>hystereticBackbone Raynor <span class="ot">tag</span>? Es? fy? fsu? Epsilonsh? Epsilonsm? C1? Ey?</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>hystereticBackbone Capped <span class="ot">tag</span>? hystereticBackboneTag? capTag?</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>hystereticBackbone LinearCapped <span class="ot">tag</span>? backboneTag? eCap? E? sRes?</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>hystereticBackbone Material <span class="ot">tag</span>? matTag?</span></code></pre></div></li>
+<div class="highlight"><pre><span></span><span class="nv">hystereticBackbone</span><span class="w"> </span>ReeseSoftClay<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>pu<span class="o">?</span><span class="w"> </span>y50<span class="o">?</span><span class="w"> </span>n<span class="o">?</span>
+<span class="nv">hystereticBackbone</span><span class="w"> </span>ReeseSand<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>kx<span class="o">?</span><span class="w"> </span>ym<span class="o">?</span><span class="w"> </span>pm<span class="o">?</span><span class="w"> </span>yu<span class="o">?</span><span class="w"> </span>pu<span class="o">?</span>
+<span class="nv">hystereticBackbone</span><span class="w"> </span>ReeseStiffClayBelowWS<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>Esi<span class="o">?</span><span class="w"> </span>y50<span class="o">?</span><span class="w"> </span>As<span class="o">?</span><span class="w">  </span>Pc<span class="o">?</span>
+<span class="nv">hystereticBackbone</span><span class="w"> </span>Raynor<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>Es<span class="o">?</span><span class="w"> </span>fy<span class="o">?</span><span class="w"> </span>fsu<span class="o">?</span><span class="w"> </span>Epsilonsh<span class="o">?</span><span class="w"> </span>Epsilonsm<span class="o">?</span><span class="w"> </span>C1<span class="o">?</span><span class="w"> </span>Ey<span class="o">?</span>
+<span class="nv">hystereticBackbone</span><span class="w"> </span>Capped<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>hystereticBackboneTag<span class="o">?</span><span class="w"> </span>capTag<span class="o">?</span>
+<span class="nv">hystereticBackbone</span><span class="w"> </span>LinearCapped<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>backboneTag<span class="o">?</span><span class="w"> </span>eCap<span class="o">?</span><span class="w"> </span>E<span class="o">?</span><span class="w"> </span>sRes<span class="o">?</span>
+<span class="nv">hystereticBackbone</span><span class="w"> </span>Material<span class="w"> </span>tag<span class="o">?</span><span class="w"> </span>matTag<span class="o">?</span>
+</pre></div>
+</li>
 </ul>
 <!--
       hystereticBackbone Bilinear
@@ -12716,10 +12720,14 @@
 -->
 <ul>
 <li><p><code>UnloadingRule</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>unloadingRule <span class="ot">type</span>? <span class="ot">tag</span>? &lt;specific unloadingRule <span class="ot">args</span>&gt;</span></code></pre></div></li>
+<div class="highlight"><pre><span></span><span class="nv">unloadingRule</span><span class="w"> </span>type<span class="o">?</span><span class="w"> </span>tag<span class="o">?</span><span class="w"> </span><span class="o">&lt;</span>specific<span class="w"> </span>unloadingRule<span class="w"> </span>args<span class="o">&gt;</span>
+</pre></div>
+</li>
 <li><p><code>StiffnessDegradation</code></p></li>
 <li><p><code>StrengthDegradation</code></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>strengthDegradation <span class="ot">type</span>? <span class="ot">tag</span>? &lt;specific strengthDegradation <span class="ot">args</span>&gt;</span></code></pre></div></li>
+<div class="highlight"><pre><span></span><span class="nv">strengthDegradation</span><span class="w"> </span>type<span class="o">?</span><span class="w"> </span>tag<span class="o">?</span><span class="w"> </span><span class="o">&lt;</span>specific<span class="w"> </span>strengthDegradation<span class="w"> </span>args<span class="o">&gt;</span>
+</pre></div>
+</li>
 </ul>
 
 
