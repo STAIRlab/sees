@@ -9638,6 +9638,12 @@
         
           
         
+          
+        
+          
+        
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_2_4">
@@ -9705,6 +9711,51 @@
     <li class="md-nav__item">
       <a href="../../../02_analysis/Static_Integrator/387-Minimum%20Unbalanced%20Displacement%20Norm/" class="md-nav__link">
         Minimum Unbalanced Displacement Norm
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_analysis/Static_Integrator/HSConstraint/" class="md-nav__link">
+        HSConstraint
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_analysis/Static_Integrator/ParkLMS3/" class="md-nav__link">
+        ParkLMS3
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../02_analysis/Static_Integrator/StagedLoadControl/" class="md-nav__link">
+        StagedLoadControl
 
       </a>
     </li>
@@ -10021,8 +10072,6 @@
         
           
         
-          
-        
       
       
         
@@ -10083,21 +10132,6 @@
     <li class="md-nav__item">
       <a href="../35-BandGeneral%20SOE/" class="md-nav__link">
         BandGeneral SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../36-BandSPD%20SOE/" class="md-nav__link">
-        BandSPD SOE
 
       </a>
     </li>
@@ -13553,13 +13587,9 @@
 
 
 <h1 id="bandspdlinlapacksolver">BandSPDLinLapackSolver</h1>
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;"><strong>system BandSPD</strong></td>
-</tr>
-</tbody>
-</table>
+<div class="highlight"><pre><span></span><span class="nv">system</span><span class="w"> </span>BandSPD
+</pre></div>
+
 <p>This command is used to construct a BandSPDSOE linear system of equation object. As the name implies, this class is used for symmetric positive definite matrix systems which have a banded profile. The matrix is stored as shown below in a one dimensional array of size equal to the (<code>bandwidth</code>/2) times the number of unknowns. When a solution is required, the Lapack routines <code>DPBSV</code> and <code>DPBTRS</code> are used.</p>
 <h2 id="theory">Theory</h2>
 <p>An <em>n</em>×<em>n</em> matrix <em>A</em>=(<em>a</em><sub><em>i,j</em></sub>) is a <strong>symmmetric banded matrix</strong> if all matrix elements are zero outside a diagonally bordered band whose range is determined by constants <em>k</em>:</p>
@@ -13584,29 +13614,10 @@
  A_{55} &amp; A_{56} &amp; 0 \\
  A_{66} &amp; 0 &amp; 0
 \end{bmatrix}.\]</span></p>
-<hr />
-<p>Code Developed by: <span style="color:blue"> fmk </span></p>
-<h2 id="c">C++</h2>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/bandSPD/BandSPDLinLapackSolver.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">BandSPDLinLapackSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">BandSPDLinSolver</span><span class="w"></span>
-
-<span class="n">MovableObject</span><span class="w"></span>
-<span class="n">Solver</span><span class="w"></span>
-<span class="n">LinearSOESolver</span><span class="w"></span>
-</pre></div>
-
+<h2 id="c-interface">C++ Interface</h2>
 <p>A <code>BandSPDLinLapackSolver</code> object can be constructed to solve a <code>BandSPDLinSOE</code> object. It obtains the solution by making calls on the the LAPACK library. The class is defined to be a friend of the <a href="BandSPDLinSOE"><code>BandSPDLinSOE</code></a> class.</p>
-<h3 id="constructor">Constructor</h3>
-<h3 id="destructor">Destructor</h3>
-<p>// Public Methods<br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-A unique class tag (defined in <code>&lt;classTags.h&gt;</code>) is passed to the BandSPDLinSolver constructor.</p>
+<h3 id="public-methods">Public Methods</h3>
+<p>A unique class tag (defined in <code>&lt;classTags.h&gt;</code>) is passed to the BandSPDLinSolver constructor.</p>
 <p><br />
 Does nothing.</p>
 <p><br />
@@ -13614,6 +13625,8 @@ The solver first copies the B vector into X and then solves the BandSPDLinSOE sy
 <p>Does nothing but return <span class="math inline">\(0\)</span>.</p>
 <p>Does nothing but return <span class="math inline">\(0\)</span>.</p>
 <p>Does nothing but return <span class="math inline">\(0\)</span>.</p>
+<hr />
+<p>Code Developed by: <span style="color:blue"> fmk </span></p>
 
 
               
