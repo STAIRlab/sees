@@ -41,27 +41,27 @@ title="wikilink">&reg;</a></sup>: "<strong>stress</strong>",
 &sigma;<sub>xx</sub>,
 &sigma;<sub>yy</sub>,
 &sigma;<sub>zz</sub>,
-&sigma;<sub>xy</sub>, &amp;eta;<sub>r</sub>,
-where &amp;eta;<sub>r</sub> is the ratio between the shear
+&sigma;<sub>xy</sub>, &eta;<sub>r</sub>,
+where &eta;<sub>r</sub> is the ratio between the shear
 (deviatoric) stress and peak shear strength at the current confinement
-(0&lt;=&amp;eta;<sub>r</sub>&lt;=1.0). The strain output
-follows this order: &amp;epsilon;<sub>xx</sub>,
-&amp;epsilon;<sub>yy</sub>,
-&amp;gamma;<sub>xy</sub>.</p>
+(0&lt;=&eta;<sub>r</sub>&lt;=1.0). The strain output
+follows this order: &epsilon;<sub>xx</sub>,
+&epsilon;<sub>yy</sub>,
+&gamma;<sub>xy</sub>.</p>
 <p>For 3D problems, the stress output follows this order:
 &sigma;<sub>xx</sub>,
 &sigma;<sub>yy</sub>,
 &sigma;<sub>zz</sub>,
 &sigma;<sub>xy</sub>,
 &sigma;<sub>yz</sub>,
-&sigma;<sub>zx</sub>, &amp;eta;<sub>r</sub>,
+&sigma;<sub>zx</sub>, &eta;<sub>r</sub>,
 and the strain output follows this order:
-&amp;epsilon;<sub>xx</sub>,
-&amp;epsilon;<sub>yy</sub>,
-&amp;epsilon;<sub>zz</sub>,
-&amp;gamma;<sub>xy</sub>,
-&amp;gamma;<sub>yz</sub>,
-&amp;gamma;<sub>zx</sub>.</p>
+&epsilon;<sub>xx</sub>,
+&epsilon;<sub>yy</sub>,
+&epsilon;<sub>zz</sub>,
+&gamma;<sub>xy</sub>,
+&gamma;<sub>yz</sub>,
+&gamma;<sub>zx</sub>.</p>
 
 The "<strong>backbone</strong>" option records (secant) shear modulus
 reduction curves at one or more given confinements. The specific
@@ -71,7 +71,7 @@ recorder Element -ele $eleNum -file $fName -dT $deltaT material $GaussNum backbo
 ```
 where p1, p2, … are the confinements at which modulus reduction
 curves are recorded. In the output file, corresponding to each given
-confinement there are two columns: shear strain &amp;gamma; and secant
+confinement there are two columns: shear strain &gamma; and secant
 modulus G<sub>s</sub>. The number of rows equals the number
 of yield surfaces.
 
@@ -120,12 +120,12 @@ confining pressure refPress of p’<sub>r</sub> (see
 below).</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>`frictionAng` (&amp;Phi;)</strong></p></td>
+<td><p><strong>`frictionAng` (&Phi;)</strong></p></td>
 <td><p>Friction angle at peak shear strength, in degrees.</p></td>
 </tr>
 <tr class="odd">
 <td><p><strong>`peakShearStra`
-(&amp;gamma;<sub>max</sub>)</strong></p></td>
+(&gamma;<sub>max</sub>)</strong></p></td>
 <td><p>An octahedral shear strain at which the maximum shear strength is
 reached, specified at a reference mean effective confining pressure
 refPress of p’<sub>r</sub> (see below). Octahedral shear
@@ -139,7 +139,7 @@ alt="PreDep_OctGamma.png" />
 <tr class="even">
 <td><p><strong>`refPress` (p’<sub>r</sub>)</strong></p></td>
 <td><p>Reference mean effective confining pressure at which Gr, Br, and
-&amp;gamma;<sub>max</sub> are defined.</p></td>
+&gamma;<sub>max</sub> are defined.</p></td>
 </tr>
 <tr class="odd">
 <td><p><strong>`pressDependCoe` (d)</strong></p></td>
@@ -152,7 +152,7 @@ of instantaneous effective confinement p’:</p>
 </tr>
 <tr class="even">
 <td><p><strong>`PTAng`
-(&amp;Phi;<sub>PT</sub>)</strong></p></td>
+(&Phi;<sub>PT</sub>)</strong></p></td>
 <td><p>Phase transformation angle, in degrees.</p></td>
 </tr>
 <tr class="odd">
@@ -179,9 +179,9 @@ sands. Liquefac2 defines the maximum amount of perfectly plastic shear
 strain developed at zero effective confinement during each loading
 phase. Smaller values should be assigned to denser sands. Liquefac3
 defines the maximum amount of biased perfectly plastic shear strain
-&amp;gamma;<sub>b</sub> accumulated at each loading phase
+&gamma;<sub>b</sub> accumulated at each loading phase
 under biased shear loading conditions, as
-&amp;gamma;<sub>b</sub>=liquefac2 x liquefac3. Typically,
+&gamma;<sub>b</sub>=liquefac2 x liquefac3. Typically,
 liquefac3 takes a value between 0.0 and 3.0. Smaller values should be
 assigned to denser sands. See the references listed at the end of this
 chapter for more information.</p></td>
@@ -198,10 +198,10 @@ defined in Note 2 below.</p></td>
 can define yield surfaces directly based on desired shear modulus
 reduction curve.</strong> To do so, add a minus sign in front of
 noYieldSurf, then provide noYieldSurf pairs of shear strain
-(&amp;gamma;) and modulus ratio (G<sub>s</sub>) values. For
+(&gamma;) and modulus ratio (G<sub>s</sub>) values. For
 example, to define 10 surfaces: …
--10&amp;gamma;<sub>1</sub>G<sub>s1</sub> …
-&amp;gamma;<sub>10</sub>G<sub>s10</sub> …</p>
+-10&gamma;<sub>1</sub>G<sub>s1</sub> …
+&gamma;<sub>10</sub>G<sub>s10</sub> …</p>
 <p>See Note 3 below for some important notes.</p></td>
 </tr>
 <tr class="even">
@@ -250,8 +250,8 @@ cs2=0.02, cs3=0.7, p<sub>a</sub> =101 kPa).</p></td>
 
 <p><strong>NOTE:</strong></p>
 
-1. The friction angle &amp;Phi; defines the variation of peak
-  (octahedral) shear strength &amp;tau;<sub>f</sub> as a
+1. The friction angle &Phi; defines the variation of peak
+  (octahedral) shear strength &tau;<sub>f</sub> as a
   function of current effective confinement p’:
   <dl>
   <dt></dt>
@@ -278,7 +278,7 @@ cs2=0.02, cs3=0.7, p<sub>a</sub> =101 kPa).</p></td>
   </dd>
   </dl>
 2. (Automatic surface generation) At a constant confinement p’, the
-  shear stress &amp;tau;(octahedral) - shear strain &amp;gamma;
+  shear stress &tau;(octahedral) - shear strain &gamma;
   (octahedral) nonlinearity is defined by a hyperbolic curve (backbone
   curve):
   <dl>
@@ -293,7 +293,7 @@ cs2=0.02, cs3=0.7, p<sub>a</sub> =101 kPa).</p></td>
   </dl>
   </dd>
   </dl>
-  <p>where &amp;gamma;<sub>r</sub> satisfies the following
+  <p>where &gamma;<sub>r</sub> satisfies the following
   equation at p’<sub>r</sub>:</p>
   <dl>
   <dt></dt>
@@ -307,7 +307,7 @@ cs2=0.02, cs3=0.7, p<sub>a</sub> =101 kPa).</p></td>
   </dd>
   </dl>
 3. (User defined surfaces) The user specified friction angle
-  &amp;Phi; is ignored. Instead, &amp;Phi; is defined as follows:
+  &Phi; is ignored. Instead, &Phi; is defined as follows:
   <dl>
   <dt></dt>
   <dd>
@@ -322,9 +322,9 @@ cs2=0.02, cs3=0.7, p<sub>a</sub> =101 kPa).</p></td>
   <p>where &sigma;<sub>m</sub> is the product of the last
   modulus and strain pair in the modulus reduction curve. Therefore, it is
   important to adjust the backbone curve so as to render an appropriate
-  &amp;Phi;. If the resulting &amp;Phi; is smaller than the phase
-  transformation angle &amp;Phi;<sub>PT</sub>,
-  &amp;Phi;<sub>PT</sub> is set equal to &amp;Phi;. Also
+  &Phi;. If the resulting &Phi; is smaller than the phase
+  transformation angle &Phi;<sub>PT</sub>,
+  &Phi;<sub>PT</sub> is set equal to &Phi;. Also
   remember that improper modulus reduction curves can result in strain
   softening response (negative tangent shear modulus), which is not
   allowed in the current model formulation. Finally, note that the
@@ -344,148 +344,147 @@ cs2=0.02, cs3=0.7, p<sub>a</sub> =101 kPa).</p></td>
    great caution, and other information should be incorporated wherever
    possible.
 
-  <table>
-  <tbody>
-  <tr class="odd">
-  <td><p>Parameters</p></td>
-  <td><p>Loose Sand (15%-35%)</p></td>
-  <td><p>Medium Sand (35%-65%)</p></td>
-  <td><p>Medium-dense Sand (65%-85%)</p></td>
-  <td><p>Dense Sand (85%-100%)</p></td>
-  </tr>
-  <tr class="even">
-  <td><p>rho</p></td>
-  <td><p>1.7 ton/m<sup>3</sup> or
-  1.59x10<sup>-4</sup>
-  (lbf)(s<sup>2</sup>)/in<sup>4</sup></p></td>
-  <td><p>1.9 ton/m<sup>3</sup> or</p>
-  <p>1.778x10<sup>-4</sup>
-  (lbf)(s<sup>2</sup>)/in<sup>4</sup></p></td>
-  <td><p>2.0 ton/m<sup>3</sup> or</p>
-  <p>1.872x10<sup>-4</sup>
-  (lbf)(s<sup>2</sup>)/in<sup>4</sup></p></td>
-  <td><p>2.1 ton/m<sup>3</sup> or</p>
-  <p>1.965x10<sup>-4</sup>
-  (lbf)(s<sup>2</sup>)/in<sup>4</sup></p></td>
-  </tr>
-  <tr class="odd">
-  <td><p>refShearModul (at p’<sub>r</sub>=80 kPa or 11.6
-  psi)</p></td>
-  <td><p>5.5x10<sup>4</sup> kPa or
-  7.977x10<sup>3</sup> psi</p></td>
-  <td><p>7.5x10<sup>4</sup> kPa or
-  1.088x10<sup>4</sup> psi</p></td>
-  <td><p>1.0x10<sup>5</sup> kPa or
-  1.45x10<sup>4</sup> psi</p></td>
-  <td><p>1.3x10<sup>5</sup> kPa or
-  1.885x10<sup>4</sup> psi</p></td>
-  </tr>
-  <tr class="even">
-  <td><p>refBulkModu (at p’<sub>r</sub>=80 kPa or 11.6
-  psi)</p></td>
-  <td><p>1.5x10<sup>5</sup> kPa or
-  2.176x10<sup>4</sup> psi</p></td>
-  <td><p>2.0x10<sup>5</sup> kPa or
-  2.9x10<sup>4</sup> psi</p></td>
-  <td><p>3.0x10<sup>5</sup> kPa or
-  4.351x10<sup>4</sup> psi</p></td>
-  <td><p>3.9x10<sup>5</sup> kPa or
-  5.656x10<sup>4</sup> psi</p></td>
-  </tr>
-  <tr class="odd">
-  <td><p>frictionAng</p></td>
-  <td><p>29</p></td>
-  <td><p>33</p></td>
-  <td><p>37</p></td>
-  <td><p>40</p></td>
-  </tr>
-  <tr class="even">
-  <td><p>peakShearStra (at p’<sub>r</sub>=80 kPa or 11.6
-  psi)</p></td>
-  <td><p>0.1</p></td>
-  <td><p>0.1</p></td>
-  <td><p>0.1</p></td>
-  <td><p>0.1</p></td>
-  </tr>
-  <tr class="odd">
-  <td><p>refPress (p’<sub>r</sub>)</p></td>
-  <td><p>80 kPa or 11.6 psi</p></td>
-  <td><p>80 kPa or 11.6 psi</p></td>
-  <td><p>80 kPa or 11.6 psi</p></td>
-  <td><p>80 kPa or 11.6 psi</p></td>
-  </tr>
-  <tr class="even">
-  <td><p>pressDependCoe</p></td>
-  <td><p>0.5</p></td>
-  <td><p>0.5</p></td>
-  <td><p>0.5</p></td>
-  <td><p>0.5</p></td>
-  </tr>
-  <tr class="odd">
-  <td><p>PTAng</p></td>
-  <td><p>29</p></td>
-  <td><p>27</p></td>
-  <td><p>27</p></td>
-  <td><p>27</p></td>
-  </tr>
-  <tr class="even">
-  <td><p>contrac</p></td>
-  <td><p>0.21</p></td>
-  <td><p>0.07</p></td>
-  <td><p>0.05</p></td>
-  <td><p>0.03</p></td>
-  </tr>
-  <tr class="odd">
-  <td><p>dilat1</p></td>
-  <td><p>0.</p></td>
-  <td><p>0.4</p></td>
-  <td><p>0.6</p></td>
-  <td><p>0.8</p></td>
-  </tr>
-  <tr class="even">
-  <td><p>dilat2</p></td>
-  <td><p>0</p></td>
-  <td><p>2</p></td>
-  <td><p>3</p></td>
-  <td><p>5</p></td>
-  </tr>
-  <tr class="odd">
-  <td><p>liquefac1</p></td>
-  <td><p>10 kPa or 1.45 psi</p></td>
-  <td><p>10 kPa or 1.45 psi</p></td>
-  <td><p>5 kPa or 0.725 psi</p></td>
-  <td><p>0</p></td>
-  </tr>
-  <tr class="even">
-  <td><p>liquefac2</p></td>
-  <td><p>0.02</p></td>
-  <td><p>0.01</p></td>
-  <td><p>0.003</p></td>
-  <td><p>0</p></td>
-  </tr>
-  <tr class="odd">
-  <td><p>liquefac3</p></td>
-  <td><p>1</p></td>
-  <td><p>1</p></td>
-  <td><p>1</p></td>
-  <td><p>0</p></td>
-  </tr>
-  <tr class="even">
-  <td><p>e</p></td>
-  <td><p>0.85</p></td>
-  <td><p>0.7</p></td>
-  <td><p>0.55</p></td>
-  <td><p>0.45</p></td>
-  </tr>
-  </tbody>
-  </table>
-<h2 id="pressure_dependent_material_examples"><strong>Pressure Dependent
-Material Examples:</strong></h2>
-<p>&lt;table border=1 width=800&gt; <tr> <td colspan=2
+   <table>
+   <tbody>
+   <tr class="odd">
+   <td><p>Parameters</p></td>
+   <td><p>Loose Sand (15%-35%)</p></td>
+   <td><p>Medium Sand (35%-65%)</p></td>
+   <td><p>Medium-dense Sand (65%-85%)</p></td>
+   <td><p>Dense Sand (85%-100%)</p></td>
+   </tr>
+   <tr class="even">
+   <td><p>rho</p></td>
+   <td><p>1.7 ton/m<sup>3</sup> or
+   1.59x10<sup>-4</sup>
+   (lbf)(s<sup>2</sup>)/in<sup>4</sup></p></td>
+   <td><p>1.9 ton/m<sup>3</sup> or</p>
+   <p>1.778x10<sup>-4</sup>
+   (lbf)(s<sup>2</sup>)/in<sup>4</sup></p></td>
+   <td><p>2.0 ton/m<sup>3</sup> or</p>
+   <p>1.872x10<sup>-4</sup>
+   (lbf)(s<sup>2</sup>)/in<sup>4</sup></p></td>
+   <td><p>2.1 ton/m<sup>3</sup> or</p>
+   <p>1.965x10<sup>-4</sup>
+   (lbf)(s<sup>2</sup>)/in<sup>4</sup></p></td>
+   </tr>
+   <tr class="odd">
+   <td><p>refShearModul (at p’<sub>r</sub>=80 kPa or 11.6
+   psi)</p></td>
+   <td><p>5.5x10<sup>4</sup> kPa or
+   7.977x10<sup>3</sup> psi</p></td>
+   <td><p>7.5x10<sup>4</sup> kPa or
+   1.088x10<sup>4</sup> psi</p></td>
+   <td><p>1.0x10<sup>5</sup> kPa or
+   1.45x10<sup>4</sup> psi</p></td>
+   <td><p>1.3x10<sup>5</sup> kPa or
+   1.885x10<sup>4</sup> psi</p></td>
+   </tr>
+   <tr class="even">
+   <td><p>refBulkModu (at p’<sub>r</sub>=80 kPa or 11.6
+   psi)</p></td>
+   <td><p>1.5x10<sup>5</sup> kPa or
+   2.176x10<sup>4</sup> psi</p></td>
+   <td><p>2.0x10<sup>5</sup> kPa or
+   2.9x10<sup>4</sup> psi</p></td>
+   <td><p>3.0x10<sup>5</sup> kPa or
+   4.351x10<sup>4</sup> psi</p></td>
+   <td><p>3.9x10<sup>5</sup> kPa or
+   5.656x10<sup>4</sup> psi</p></td>
+   </tr>
+   <tr class="odd">
+   <td><p>frictionAng</p></td>
+   <td><p>29</p></td>
+   <td><p>33</p></td>
+   <td><p>37</p></td>
+   <td><p>40</p></td>
+   </tr>
+   <tr class="even">
+   <td><p>peakShearStra (at p’<sub>r</sub>=80 kPa or 11.6
+   psi)</p></td>
+   <td><p>0.1</p></td>
+   <td><p>0.1</p></td>
+   <td><p>0.1</p></td>
+   <td><p>0.1</p></td>
+   </tr>
+   <tr class="odd">
+   <td><p>refPress (p’<sub>r</sub>)</p></td>
+   <td><p>80 kPa or 11.6 psi</p></td>
+   <td><p>80 kPa or 11.6 psi</p></td>
+   <td><p>80 kPa or 11.6 psi</p></td>
+   <td><p>80 kPa or 11.6 psi</p></td>
+   </tr>
+   <tr class="even">
+   <td><p>pressDependCoe</p></td>
+   <td><p>0.5</p></td>
+   <td><p>0.5</p></td>
+   <td><p>0.5</p></td>
+   <td><p>0.5</p></td>
+   </tr>
+   <tr class="odd">
+   <td><p>PTAng</p></td>
+   <td><p>29</p></td>
+   <td><p>27</p></td>
+   <td><p>27</p></td>
+   <td><p>27</p></td>
+   </tr>
+   <tr class="even">
+   <td><p>contrac</p></td>
+   <td><p>0.21</p></td>
+   <td><p>0.07</p></td>
+   <td><p>0.05</p></td>
+   <td><p>0.03</p></td>
+   </tr>
+   <tr class="odd">
+   <td><p>dilat1</p></td>
+   <td><p>0.</p></td>
+   <td><p>0.4</p></td>
+   <td><p>0.6</p></td>
+   <td><p>0.8</p></td>
+   </tr>
+   <tr class="even">
+   <td><p>dilat2</p></td>
+   <td><p>0</p></td>
+   <td><p>2</p></td>
+   <td><p>3</p></td>
+   <td><p>5</p></td>
+   </tr>
+   <tr class="odd">
+   <td><p>liquefac1</p></td>
+   <td><p>10 kPa or 1.45 psi</p></td>
+   <td><p>10 kPa or 1.45 psi</p></td>
+   <td><p>5 kPa or 0.725 psi</p></td>
+   <td><p>0</p></td>
+   </tr>
+   <tr class="even">
+   <td><p>liquefac2</p></td>
+   <td><p>0.02</p></td>
+   <td><p>0.01</p></td>
+   <td><p>0.003</p></td>
+   <td><p>0</p></td>
+   </tr>
+   <tr class="odd">
+   <td><p>liquefac3</p></td>
+   <td><p>1</p></td>
+   <td><p>1</p></td>
+   <td><p>1</p></td>
+   <td><p>0</p></td>
+   </tr>
+   <tr class="even">
+   <td><p>e</p></td>
+   <td><p>0.85</p></td>
+   <td><p>0.7</p></td>
+   <td><p>0.55</p></td>
+   <td><p>0.45</p></td>
+   </tr>
+   </tbody>
+   </table>
+
+<h2 id="pressure_dependent_material_examples">Pressure Dependent Material Examples:</h2>
+<table border=1 width=800> <tr> <td colspan=2
 align=center ><b>Material in elastic, drained (or dry)
 state</b></td></p>
-<p></tr> <tr> &lt;td width=90&gt;<a
-href="PressureDependMultiYield-Example_1" title="wikilink">Example
+<p></tr> <tr> <td width=90><a href="PressureDependMultiYield-Example_1" title="wikilink">Example
 1</a></td> <td>Single quadrilateral element, subjected to
 sinusoidal base shaking</td> </tr> <tr> <td><a
 href="PressureDependMultiYield-Example_2" title="wikilink">Example
