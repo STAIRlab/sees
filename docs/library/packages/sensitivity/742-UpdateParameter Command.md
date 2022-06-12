@@ -1,0 +1,39 @@
+# UpdateParameter Command
+
+<dl>
+<dt></dt>
+<dd>
+Once the parameters in FE model are defined, their value can be updated:
+</dd>
+</dl>
+
+```tcl
+updateParameter $tag $newValue
+```
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><code class="parameter-table-variable">tag</code></p></td>
+<td><p>integer tag identifying an existing parameter that is to be
+updated.</p></td>
+</tr>
+<tr class="even">
+<td><p><strong>&lt;specific object arguments&gt;</strong></p></td>
+<td><p>the updated value to which the parameter needs to be
+set.</p></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<dl>
+<dt></dt>
+<dd>
+Reference:
+</dd>
+<dd>
+Scott M.H., Haukaas T. (2008). “Software framework for parameter
+updating and finite element response sensitivity analysis.” Journal of
+Computing in Civil Engineering, 22(5):281-291.
+</dd>
+</dl>

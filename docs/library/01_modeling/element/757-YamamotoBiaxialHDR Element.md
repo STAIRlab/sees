@@ -1,4 +1,4 @@
-# YamamotoBiaxialHDR Element
+# YamamotoBiaxialHDR
 
 <p>This command is used to construct a YamamotoBiaxialHDR element
 object, which is defined by two nodes. This element can be used to

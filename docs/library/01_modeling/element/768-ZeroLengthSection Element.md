@@ -1,4 +1,4 @@
-# ZeroLengthSection Element
+# ZeroLengthSection
 
 <p>This command is used to construct a zero length element object, which
 is defined by two nodes at the same location. The nodes are connected by

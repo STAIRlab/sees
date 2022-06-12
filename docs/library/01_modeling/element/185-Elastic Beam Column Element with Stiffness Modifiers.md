@@ -1,4 +1,7 @@
-# Elastic Beam Column Element with Stiffness Modifiers
+---
+descrption: Elastic Beam Column Element with Stiffness Modifiers
+---
+# ModElasticBeam2d
 
 <p>This command is used to construct a ModElasticBeam2d element object.
 The arguments for the construction of an elastic beam-column element

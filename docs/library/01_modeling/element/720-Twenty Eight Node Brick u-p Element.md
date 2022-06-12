@@ -10,17 +10,21 @@ material, based on Biot's theory of porous medium.</p>
 <p><strong>Please</strong> <a
 href="PressureDependMultiYield02-Example_3" title="wikilink"> click
 here</a> <strong>for examples.</strong></p>
+
 <p>OUTPUT INTERFACE:</p>
-<p>Pore pressure can be recorded at an element node using OpenSees Node
-Recorder:</p>
-<p><strong>recorder Node &lt;-file $fileName&gt; &lt;-time&gt; &lt;-node
-($nod1 $nod2 …)&gt; -dof 3 vel</strong></p>
+Pore pressure can be recorded at an element node using OpenSees Node
+Recorder:
+```tcl
+recorder Node &lt;-file $fileName&gt; &lt;-time&gt; &lt;-node ($nod1 $nod2 …)&gt; -dof 3 vel</strong></p>
+```
+
 <p>See OpenSees command manual (McKenna and Fenves 2001) for nodal
 displacement, velocity, or acceleration recorders.</p>
-<p>The valid queries to a Twenty_Eight_Node_BrickUP element when
-creating an ElementRecorder are 'force', 'stiffness', or 'material
-matNum matArg1 matArg2 ...', where matNum represents the material object
-at the corresponding integration point.</p>
+<p>The valid queries to a `Twenty_Eight_Node_BrickUP` element when
+creating an ElementRecorder are `'force'`, `'stiffness'`, or `'material
+matNum matArg1 matArg2 ...'`, where matNum represents the material object
+at the corresponding integration point.
+
 <table>
 <tbody>
 <tr class="odd">

@@ -17,10 +17,10 @@ href="#Recorders" title="wikilink">recorder</a>.</p>
 
 ```tcl
 element ElastomericX $eleTag $Nd1 $Nd2 $Fy $alpha $Gr
-        $Kbulk $D1 $D2 $ts $tr $n &lt;&lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
-        &lt;$kc&gt; &lt;$PhiM&gt; &lt;$ac&gt; &lt;$sDratio&gt; &lt;$m&gt;
-        &lt;$cd&gt; &lt;$tc&gt; &lt;$tag1&gt; &lt;$tag2&gt; &lt;$tag3&gt;
-        &lt;$tag4&gt;
+        $Kbulk $D1 $D2 $ts $tr $n < < $x1 $x2 $x3 > $y1 $y2 $y3 >
+        < $kc > < $PhiM > < $ac > < $sDratio > < $m >
+        < $cd > < $tc > < $tag1 > < $tag2 > < $tag3 >
+        < $tag4 >
 ```
 
 <hr />

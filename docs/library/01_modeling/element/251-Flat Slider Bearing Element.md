@@ -1,4 +1,4 @@
-# Flat Slider Bearing Element
+# FlatSliderBearing
 
 <p>This command is used to construct a flatSliderBearing element object,
 which is defined by two nodes. The iNode represents the flat sliding

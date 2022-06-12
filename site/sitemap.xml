@@ -1941,6 +1941,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/02_analysis/Static_Integrator/HSConstraint/</loc>
+         <lastmod>2022-06-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/02_analysis/Static_Integrator/ParkLMS3/</loc>
+         <lastmod>2022-06-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/02_analysis/Static_Integrator/StagedLoadControl/</loc>
+         <lastmod>2022-06-12</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/02_analysis/Transient_Integrator/231-Explicit%20Difference/</loc>
          <lastmod>2022-06-12</lastmod>
          <changefreq>daily</changefreq>
@@ -1997,11 +2012,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/numerics/LinearSolve/35-BandGeneral%20SOE/</loc>
-         <lastmod>2022-06-12</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/numerics/LinearSolve/36-BandSPD%20SOE/</loc>
          <lastmod>2022-06-12</lastmod>
          <changefreq>daily</changefreq>
     </url>

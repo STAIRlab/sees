@@ -1,0 +1,35 @@
+# Sp Command
+
+<p>This command is used to construct a single-point constraint object
+and add it to the enclosing LoadPattern.</p>
+
+```tcl
+sp $nodeTag $dofTag $dofValue
+```
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td><p><code class="parameter-table-variable">nodeTag</code></p></td>
+<td><p>tag of node to which constraint is applied.</p></td>
+</tr>
+<tr class="even">
+<td><p><code class="parameter-table-variable">dofTag</code></p></td>
+<td><p>the degree-of-freedom at the node to which constraint is applied
+(1 through ndf)</p></td>
+</tr>
+<tr class="odd">
+<td><p><code class="parameter-table-variable">dofValue</code></p></td>
+<td><p>reference constraint value.</p></td>
+</tr>
+</tbody>
+</table>
+<p>NOTES:</p>
+<ol>
+<li>The $dofValue is a reference value, it is the time series that
+provides the load factor. The load factor times the reference</li>
+</ol>
+<p>value is the constraint that is actually applied to the node.</p>
+<hr />
+<p>Code Developed by: <span style="color:blue">
+fmk</span></p>

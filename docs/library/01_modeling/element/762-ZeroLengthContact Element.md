@@ -1,9 +1,10 @@
-# ZeroLengthContact Element
+# ZeroLengthContact
 
-<p>This command is used to construct a zeroLengthContact2D element or a
+This command is used to construct a zeroLengthContact2D element or a
 zeroLengthContact3D element, which are Node-to-node frictional contact
 element used in two dimensional analysis and three dimensional
-analysis:</p>
+analysis:
+
 <p>2d analysis:</p>
 
 ```tcl
@@ -92,5 +93,5 @@ solver.</li>
 <hr />
 <p>REFERENCES:</p>
 <hr />
-<p>Code Developed by: <span style="color:blue"> Gang Wang,
-Geomatrix</span></p>
+
+<p>Code developed by: <span style="color:blue"> Gang Wang, Geomatrix</span></p>

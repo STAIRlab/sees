@@ -1,8 +1,8 @@
 # BandSPDLinLapackSolver
 
-  --------------------
-  **system BandSPD**
-  --------------------
+```tcl
+system BandSPD
+```
 
 
 This command is used to construct a BandSPDSOE linear system of equation
@@ -47,41 +47,21 @@ $$\begin{bmatrix}
  A_{66} & 0 & 0
 \end{bmatrix}.$$
 
-------------------------------------------------------------------------
 
-Code Developed by: `<span style="color:blue">`{=html} fmk
-`</span>`{=html}
+## C++ Interface
 
-## C++
-
-```cpp
-#include <system_of_eqn/linearSOE/bandSPD/BandSPDLinLapackSolver.h>
-
-class BandSPDLinLapackSolver: public BandSPDLinSolver
-
-MovableObject
-Solver
-LinearSOESolver
-```
 
 
 A `BandSPDLinLapackSolver` object can be constructed to solve a
 `BandSPDLinSOE` object. It obtains the solution by making calls on the the
 LAPACK library. The class is defined to be a friend of the [`BandSPDLinSOE`](BandSPDLinSOE) class.
 
-### Constructor
 
 
-### Destructor
+
+### Public Methods
 
 
-// Public Methods\
-
-\
-
-\
-
-\
 A unique class tag (defined in  `<classTags.h>`) is passed to the
 BandSPDLinSolver constructor.
 
@@ -103,4 +83,9 @@ Does nothing but return $0$.
 Does nothing but return $0$.
 
 Does nothing but return $0$.
+
+------------------------------------------------------------------------
+
+Code Developed by: `<span style="color:blue">`{=html} fmk
+`</span>`{=html}
 
