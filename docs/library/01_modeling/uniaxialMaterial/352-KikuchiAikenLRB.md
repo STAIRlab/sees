@@ -103,7 +103,7 @@ alt="KikuchiAikenLRB_ForceStrain.png" />
 aria-hidden="true">KikuchiAikenLRB Force Strain</figcaption>
 </figure>
 
-<p>REFERENCES:</p>
+## References
 <p>M. Kikuchi, T. Nakamura, I. D. Aiken, "Three-dimensional analysis for
 square seismic isolation bearings under large shear deformations and
 high axial loads", <em>Earthquake Engineering and Structural

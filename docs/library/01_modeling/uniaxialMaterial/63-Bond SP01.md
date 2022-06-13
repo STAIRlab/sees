@@ -164,7 +164,7 @@ parametric study has indicated that the simulation results would not be
 very sensitive to the compressive strain chosen to trigger the perfectly
 plastic behavior for the concrete fibers in the zero-length section
 element.</p>
-<p>REFERENCES:</p>
+## References
 <ol>
 <li>Zhao, J., and S. Sritharan. (2007) Modeling of strain penetration
 effects in fiber-based analysis of reinforced concrete structures. ACI

@@ -231,7 +231,7 @@ $kT_Factor $DF</p>
 the mass concentrated on the slider. Download the example file and the
 ground motions.</p>
 <hr />
-<p>REFERENCES</p>
+## References
 <p>Kumar, M., Whittaker, A. S., and Constantinou (2015a). “Seismic
 isolation of nuclear power plants using sliding bearings,” Report
 MCEER-15- 0006, University at Buffalo, State University of New York,

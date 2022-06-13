@@ -25,7 +25,7 @@ then use current stiffness for subsequent steps</p></td>
 </tbody>
 </table>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p><a href="http://en.wikipedia.org/wiki/Newton%27s_method">Read the
 page at Wikipedia</a></p>
 <hr />

@@ -88,7 +88,7 @@ $$\beta = \tfrac{1}{4}(1 + \gamma_M -
 
 </dd>
 </dl>
-<p>REFERENCES</p>
+## References
 <p>J. Chung, G.M.Hubert. "A Time Integration Algorithm for Structural
 Dynamics with Improved Numerical Dissipation: The
 Generalized-$\alpha$ Method" ASME Journal of

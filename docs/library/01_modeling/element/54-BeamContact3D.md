@@ -125,7 +125,7 @@ initial contact.</p>
 <p>Update all of the BeamContact3D elements with tags between 10 and 20
 to consider a frictionless interface</p>
 <p>setParameter -value 0 -eleRange 10 20 friction</p>
-<p><strong>REFERENCES:</strong></p>
+## References
 <p>Laursen, T. A. (2002). <em>Computational Contact and Impact
 Mechanics.</em> Springer-Verlag, Berlin.</p>
 <hr />

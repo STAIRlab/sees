@@ -71,7 +71,7 @@ amplitude.</p>
 
 ## Examples
 
-<p>REFERENCES:</p>
+## References
 <p>Muthukumar, S., and DesRoches, R. (2006). “A Hertz Contact Model with
 Non-linear Damping for Pounding Simulation.” Earthquake Engineering and
 Structural Dynamics, 35, 811-828.</p>

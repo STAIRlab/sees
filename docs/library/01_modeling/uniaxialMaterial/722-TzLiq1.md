@@ -104,7 +104,7 @@ referred to the documentation of PyLiq1 for details.</p>
 
 ## Examples
 
-<p>REFERENCES:</p>
+## References
 <p>"Seismic Soil-pile-strcture interaction experiments and analysis",
 Boulanger, R.W., Curras, C.J., Kutter, B.L., Wilson, D.W., and Abghari,
 A. (1990). Jornal of Geotechnical and Geoenvironmental Engineering,

@@ -300,7 +300,7 @@ aria-hidden="true">PinchingLimitStateMaterial1-2.jpg</figcaption>
 <p><a href="PinchingLimitStateMaterial_Example"
 title="wikilink">PinchingLimitStateMaterial Example</a></p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>1. LeBorgne M. R., 2012, "Modeling the Post Shear Failure Behavior of
 Reinforced Concrete Columns." Austin, Texas: University of Texas at
 Austin, PhD, 301.</p>

@@ -91,7 +91,7 @@ solver.</li>
 
 <p>Gang Wang to provide a smart example!</p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <hr />
 
 <p>Code developed by: <span style="color:blue"> Gang Wang, Geomatrix</span></p>

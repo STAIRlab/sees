@@ -111,7 +111,7 @@ connectivity with nodes 1, 2, 3, and 4, beam radius of 0.25, gap and
 force tolerances of 1.0e-10, and a contact flag set to initially assume
 contact.</p>
 <p>element BeamEndContact3D 1 1 2 3 4 0.25 1.0e-10 1.0e-10 0</p>
-<p><strong>REFERENCES:</strong></p>
+## References
 <p>Laursen, T. A. (2002). <em>Computational Contact and Impact
 Mechanics.</em> Springer-Verlag, Berlin.</p>
 <hr />

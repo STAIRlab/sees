@@ -102,7 +102,7 @@ alt="zeroLengthContactNTS2D_fig4.jpg" />
 <figcaption
 aria-hidden="true">zeroLengthContactNTS2D_fig4.jpg</figcaption>
 </figure>
-<p><strong>REFERENCES:</strong></p>
+## References
 <ol>
 <li>P. Wriggers, V.T. Vu and E. Stein, Finite-element formulation of
 large deformation impact-contact problems with friction, Comput. Struct.

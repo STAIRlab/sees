@@ -108,7 +108,7 @@ integration point.</li>
 <p>Please visit <a
 href="http://cyclic.ucsd.edu/opensees">http://cyclic.ucsd.edu/opensees</a>
 for examples.</p>
-<p>REFERENCES:</p>
+## References
 <hr />
 <p>Code Developed by: <span style="color:blue"> Zhaohui Yang, UC
 San Diego</span></p>

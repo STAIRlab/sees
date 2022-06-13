@@ -50,7 +50,7 @@ node numbers in the isoparametric domain.</li>
 
 ## Examples
 
-<p>REFERENCES:</p>
+## References
 <p><a
 href="https://www.colorado.edu/engineering/CAS/courses.d/AFEM.d/AFEM.Ch09.d/AFEM.Ch09.pdf">Carlos
 Felipa's AFEM Course: Chapter 9 The Linear Tetrahedron.</a></p>

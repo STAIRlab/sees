@@ -150,7 +150,7 @@ Panel details and equivalent OpenSees finite element model.</figcaption>
 title="wikilink">Cold-Formed Steel Wood Sheathed Shear Wall Panel
 examples</a></p>
 <hr />
-<p><strong>REFERENCES:</strong></p>
+## References
 <p><a
 href="http://www.sciencedirect.com/science/article/pii/S0263823115301026">Smail
 Kechidi and Nouredine Bourahla, Deteriorating hysteresis model for

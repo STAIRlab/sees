@@ -11,7 +11,7 @@ Commands</a></li>
 <li><a href="Reliability_Examples" title="wikilink">Reliability
 Examples</a></li>
 </ol>
-<p>REFERENCES:</p>
+## References
 <ul>
 <li>Scott, M.H. and Haukaas, T. "Software Framework for Parameter
 Updating and Finite Element Reliability Analysis." <em>Journal of

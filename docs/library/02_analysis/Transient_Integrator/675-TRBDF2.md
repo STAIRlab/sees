@@ -23,7 +23,7 @@ papers.</li>
 
 <p>integrator TRBDF2</p>
 <hr />
-<p>REFERENCES</p>
+## References
 <p>Bank, R.E., Coughran W.M., Fichter W., Grosse E.H., Rose, D.J., and
 Smith R.K. "Transient Simulations of Silicon Devices and Circuits", IEE
 Trans CAD, Vol(4), 436-451, 1985.</p>

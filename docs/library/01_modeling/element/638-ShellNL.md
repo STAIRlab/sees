@@ -45,7 +45,7 @@ domain.</li>
 ElasticIsotropic 1 200000 0.3 nDMaterial PlateFiber 2 1 section
 PlateFiber 3 2 $t element ShellNL 1 1 27 29 3 14 28 16 2 15 3
 &lt;/pre&gt;</p>
-<p>REFERENCES:</p>
+## References
 <p>Zienkiewicz o.c., Taylor r.l. vol. 2. The finite element method.
 Solid mechanics. Elsevier 2000</p>
 <hr />

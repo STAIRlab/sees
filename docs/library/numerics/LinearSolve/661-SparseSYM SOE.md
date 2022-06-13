@@ -15,7 +15,7 @@ as the option to the system command. For backward compatability this old
 option continues to work.</li>
 </ul>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>Kincho H. Law and David R. McKay, “A Parallel Row-Oriented Sparse
 Solution Method for Finite Element Structural Analysis,” International
 Journal for Numerical Methods in Engineering, 36:2895-2919, 1993.</p>

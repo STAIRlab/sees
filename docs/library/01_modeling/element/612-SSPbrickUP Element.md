@@ -127,7 +127,7 @@ recorder Element -eleRange 1 $numElem -time -file strain.out strain</p>
 the fourth degree-of-freedom)</p>
 <p>recorder Node -nodeRange 1 $numNode -time -file porePressure.out -dof
 4 vel</p>
-<p><strong>REFERENCES:</strong></p>
+## References
 <p>Zienkiewicz, O.C. and Shiomi, T. (1984). "Dynamic behavior of
 saturated porous media; the generalized Biot formulation and its
 numerical solution." <em>International Journal for Numerical Methods in

@@ -31,7 +31,7 @@ acceleration restarts (default = 3).</p></td>
 <hr />
 <p>NOTES:</p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>Scott, M.H. and G.L. Fenves. "A Krylov Subspace Accelerated Newton
 Algorithm: Application to Dynamic Progressive Collapse Simulation of
 Frames." Journal of Structural Engineering, 136(5), May 2010. <a

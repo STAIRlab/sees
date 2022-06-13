@@ -10,7 +10,7 @@ construct an AMD numberer is a follows:</p>
 numberer AMD
 ```
 <hr />
-<p>REFERENCES:</p>
+## References
 <ol>
 <li>Algorithm 837: AMD, An approximate minimum degree ordering
 algorithm, P. Amestoy, T. A. Davis, and I. S. Duff, ACM Transactions on

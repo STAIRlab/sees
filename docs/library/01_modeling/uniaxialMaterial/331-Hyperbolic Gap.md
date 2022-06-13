@@ -100,7 +100,7 @@ alt="HyperbolicGapB.png" />
 <figcaption aria-hidden="true">HyperbolicGapB.png</figcaption>
 </figure>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>Duncan, J. M., and Mokwa, R. L. (2001). "Passive earth pressures:
 theories and tests." Journal of Geotechnical and Geoenvironmental
 Engineering, 127(3), 248-257.</p>

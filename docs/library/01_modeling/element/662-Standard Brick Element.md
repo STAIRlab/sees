@@ -50,7 +50,7 @@ node numbers in the isoparametric domain.</li>
 
 ## Examples
 
-<p>REFERENCES:</p>
+## References
 <hr />
 <p>Code Developed by: <span style="color:blue"> Edward Love,
 Sandia National Laboratories </span></p>

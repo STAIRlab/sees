@@ -205,7 +205,7 @@ deterioration in strength, unloading stiffness and reloading
 stiffness:</p>
 <hr />
 
-<p>REFERENCES:</p>
+## References
 <p><a
 href="http://peer.berkeley.edu/publications/peer_reports/reports_2003/0310.pdf">PEER
 2003/10</a></p>

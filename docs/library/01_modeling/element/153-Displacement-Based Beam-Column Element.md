@@ -87,7 +87,7 @@ data is to be output valid entries being 1 through $numIntgrPts.</li>
 element added with tag 1 between nodes 2 and 4 that has 5 integration
 points, each using section 8, and the element uses geometric
 transformation 9</p>
-<p>REFERENCES:</p>
+## References
 <hr />
 <p>Code Developed by: <span style="color:blue"> Michael H. Scott,
 Oregon State University </span></p>

@@ -47,7 +47,7 @@ numerical damping proportional to &lt;math&gt; \gamma -
 \frac{\gamma}{2} &gt;= \tfrac{1}{4}&lt;/math&gt;</li>
 </ol>
 <hr />
-<p>REFERENCES</p>
+## References
 <p>Newmark, N.M. "A Method of Computation for Structural Dynamics" ASCE
 Journal of Engineering Mechanics Division, Vol 85. No EM3, 1959.</p>
 <hr />

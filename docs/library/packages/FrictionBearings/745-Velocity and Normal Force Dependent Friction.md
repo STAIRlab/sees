@@ -176,7 +176,7 @@ $aFast; all other constants defining μ are arbitrary.
 $nSlow [expr $muFast/pow($W,$nFast-1.0)] $nFast $alpha0 $alpha1 $alpha2
 3.0</p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>[1] Bowden F.P., Tabor D. (1964). "The friction and lubrication of
 solids - part II." Oxford University Press, London, Great Britain,
 1964.</p>

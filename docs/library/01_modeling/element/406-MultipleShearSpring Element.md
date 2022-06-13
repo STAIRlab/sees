@@ -94,7 +94,7 @@ alt="MultipleShearSpring_ForceDeformation_2y.png" />
 src="/OpenSeesRT/contrib/static/MultipleShearSpring_ForceDeformation_2z.png"
 title="MultipleShearSpring_ForceDeformation_2z.png" width="250"
 alt="MultipleShearSpring_ForceDeformation_2z.png" /></p>
-<p>REFERENCES:</p>
+## References
 <p>Wada. A. and Hirose K. , "Building Frames Subjected to 2D Earthquake
 Motion", <em>Seismic Engineering: Research and Practice, American
 Society of Civil Engineers</em>, 388-397, 1989.</p>

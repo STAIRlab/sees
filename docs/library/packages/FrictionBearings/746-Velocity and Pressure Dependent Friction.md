@@ -46,7 +46,7 @@ frictionModel VelPressureDep $frnTag $muSlow $muFast0 $A
 
 <p>frictionModel VelPressureDep 1 0.085 0.163 7.0686 0.05 0.08 0.77</p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>[1] Tsopelas P., and Constantinou M. C. (1996). "Experimental Study
 of FPS System in Bridge Seismic Isolation." Earthquake Eng. and
 Structural Dynamics, VOL. 25, 65-78.</p>

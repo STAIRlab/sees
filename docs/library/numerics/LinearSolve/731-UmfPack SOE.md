@@ -14,7 +14,7 @@ memory set aside for fill in during the matrix solution, by default the
 LVALUE factor is 10. You only need to experiment with this if you get
 error messages back about LVALUE being too small.</p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <ul>
 <li>A column pre-ordering strategy for the unsymmetric-pattern
 multifrontal method, T. A. Davis, ACM Transactions on Mathematical

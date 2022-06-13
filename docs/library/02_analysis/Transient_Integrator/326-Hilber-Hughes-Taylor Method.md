@@ -71,7 +71,7 @@ $$\gamma = \frac{3}{2} - \alpha$$
 
 </dd>
 </dl>
-<p>REFERENCES</p>
+## References
 <p>Hilber, H.M, Hughes,T.J.R and Talor, R.L. "Improved Numerical
 Dissipation for Time Integration Algorithms in Structural Dynamics"
 Earthquake Engineering and Structural Dynamics, 5:282-292, 1977.</p>

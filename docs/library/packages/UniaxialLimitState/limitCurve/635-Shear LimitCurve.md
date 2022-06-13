@@ -134,7 +134,7 @@ curve</p></td>
 Elwood: <a href="file:ElwoodCJCE2004.pdf"
 title="wikilink">file:ElwoodCJCE2004.pdf</a></p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>Elwood, K.J and Moehle, J.P., "Shake Table Tests and Analystical
 Studies on the Gravity Load Collapse of Reinforced Concrete Frames",
 Pacific Earthquake Engineering Research Center, University of

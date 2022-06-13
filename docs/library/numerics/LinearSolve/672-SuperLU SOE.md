@@ -12,7 +12,7 @@ system SparseGEN
 
 <hr />
 
-<p>REFERENCES:</p>
+## References
 <p>James W. Demmel and Stanley C. Eisenstat and John R. Gilbert and
 Xiaoye S. Li and Joseph W. H. Liu, "A supernodal approach to sparse
 partial pivoting", SIAM J. Matrix Analysis and Applications, 20(3),

@@ -99,7 +99,7 @@ alt="eccCompression.gif" />
 <figcaption aria-hidden="true">eccCompression.gif</figcaption>
 </figure>
 <hr />
-<p>REFERENCES:</p>
+## References
 <ol>
 <li>Han TS, Feenstra PH, Billington SL, "Simulation of Highly Ductile
 Fiber-Reinforced Cement-Based Composite Components Under Cyclic

@@ -102,7 +102,7 @@ width="250" alt="Bidirectional-X.png" />
 &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; <img
 src="/OpenSeesRT/contrib/static/Bidirectional-Y.png" title="Bidirectional-Y.png" width="250"
 alt="Bidirectional-Y.png" /></p>
-<p>REFERENCES:</p>
+## References
 <p>Masashi Yamamoto, Shigeo Minewaki, Harumi Yoneda and Masahiko
 Higashino, "Nonlinear behavior of high-damping rubber bearings under
 horizontal bidirectional loading: full-scale tests and analytical

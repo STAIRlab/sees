@@ -24,7 +24,7 @@ diagonal mass matrix a diagonal solver may and should be used.</li>
 \frac{1}{\pi}&lt;/math&gt;</li>
 </ol>
 <hr />
-<p>REFERENCES</p>
+## References
 <hr />
 
 ## Theory

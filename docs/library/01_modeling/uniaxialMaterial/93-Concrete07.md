@@ -180,7 +180,7 @@ element or a small amount if the user does want minimal axial load. Less
 than 0.05% of f'cAg is adequate to ensure a stable response. This will
 then be used instead of the default behavior described above.</p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <ol>
 <li>Chang, G.A., and Mander, J.B., (1994) "Seismic Energy Based Fatigue
 Damage Ananlysis of Bridge Columns:Part 1 - Evaluation of Seismic

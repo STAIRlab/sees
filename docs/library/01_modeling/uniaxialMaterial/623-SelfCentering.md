@@ -79,7 +79,7 @@ src="/OpenSeesRT/contrib/static/SC5.png" title="SC5.png" alt="SC5.png" /></p>
 <p><img src="/OpenSeesRT/contrib/static/SC6.png" title="SC6.png" alt="SC6.png" /> <img
 src="/OpenSeesRT/contrib/static/SC7.png" title="SC7.png" alt="SC7.png" /></p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>Christopoulos, C., Tremblay, R., Kim, H.-J., and Lacerte, M. (2008).
 "Self-Centering Energy Dissipative Bracing System for the Seismic
 Resistance of Structures: Development and Validation" Journal of

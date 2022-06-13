@@ -128,7 +128,7 @@ still well below</p>
 
 ## Examples
 
-<p>REFERENCES:</p>
+## References
 <p>"Seismic Soil-pile-strcture interaction experiments and analysis",
 Boulanger, R.W., Curras, C.J., Kutter, B.L., Wilson, D.W., and Abghari,
 A. (1990). Jornal of Geotechnical and Geoenvironmental Engineering,

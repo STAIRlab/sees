@@ -232,7 +232,7 @@ updateMaterialStage -material 1 -stage 1 updateMaterialStage -material 2
 1.e18 1.e18 algorithm Newton numberer RCM integrator Newmark 0.6 0.30
 analysis VariableTransient analyze 1000 0.01 0.0001 0.01 15
 &lt;/pre&gt;</p>
-<p>REFERENCES:</p>
+## References
 <p>"Seismic Soil-pile-strcture interaction experiments and analysis",
 Boulanger, R.w., Curras, C.J., Kutter, B.L., Wilson, D.W., and Abghari,
 A. (1990). Journal of Geotechnical and Geoenvironmental Engineering,

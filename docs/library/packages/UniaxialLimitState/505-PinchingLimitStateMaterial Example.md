@@ -33,7 +33,7 @@ alt="PinchingLimitState_Sp1-c.png" />
 <figcaption aria-hidden="true">PinchingLimitState_Sp1-c.png</figcaption>
 </figure>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>1. LeBorgne M. R., 2012, "Modeling the Post Shear Failure Behavior of
 Reinforced Concrete Columns." Austin, Texas: University of Texas at
 Austin, PhD, 301.</p>

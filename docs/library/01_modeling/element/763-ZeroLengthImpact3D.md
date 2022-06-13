@@ -112,7 +112,7 @@ page):</p>
 ```
  --&gt;</p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p><a href="ZeroLengthContact_Element" title="wikilink">
 zeroLengthContact3D </a> , <a href="Impact_Material" title="wikilink">
 ImpactMaterial </a></p>

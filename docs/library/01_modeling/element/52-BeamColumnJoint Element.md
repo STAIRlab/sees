@@ -113,7 +113,7 @@ some errors)</p>
 title="wikilink">BeamColumnJointExample_Corrected</a> (corrected by
 Vesna Terzic)</p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>Lowes, Laura N.; Mitra, Nilanjan; Altoontash, Arash A beam-column
 joint model for simulating the earthquake response of reinforced
 concrete frames PEER-2003/10 Pacific Earthquake Engineering Research

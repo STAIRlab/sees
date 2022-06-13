@@ -134,7 +134,7 @@ large deformations and the nodal positions will be corrected to maintain
 the initial joint size.</li>
 </ol>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>Arash Altoontash, 2004, "Simulation and damage models for performance
 assessment of reinforced concrete beam-column joints", PhD Dissertation,
 Stanford University, California, USA. <a

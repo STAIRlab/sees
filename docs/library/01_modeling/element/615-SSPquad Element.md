@@ -76,7 +76,7 @@ element (note the difference from the <a href="Quad_Element"
 title="wikilink">Quad Element</a>)</p>
 <p>recorder Element -eleRange 1 $numElem -time -file stress.out stress
 recorder Element -eleRange 1 $numElem -time -file strain.out strain</p>
-<p><strong>REFERENCES</strong></p>
+## References
 <p>McGann, C. R., Arduino, P., and Mackenzie-Helnwein, P. (2012).
 “Stabilized single-point 4-node quadrilateral element for dynamic
 analysis of fluid saturated porous media.” <em>Acta Geotechnica</em>,

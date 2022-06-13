@@ -92,7 +92,7 @@ and 4, material with tag 1, and gap and force tolerances of 1.0e-10.</p>
 <p>Update all of the SimpleContact2D elements with tags between 10 and
 20 to consider a frictionless interface</p>
 <p>setParameter -value 0 -eleRange 10 20 friction</p>
-<p><strong>REFERENCES:</strong></p>
+## References
 <ol>
 <li>Wriggers, P. (2002). <em>Computational Contact Mechanics.</em> John
 Wiley &amp; Sons, Ltd, West Sussex, England.</li>

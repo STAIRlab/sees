@@ -69,7 +69,7 @@ can be simulated (look at the NOTES)</p></td>
 <li>The material can only define stress-strain relationship.</li>
 </ol>
 
-<p>REFERENCES:</p>
+## References
 <p>Haukaas, T. and Der Kiureghian, A. (2003). "Finite element
 reliability and sensitivity methods for performance-based earthquake
 engineering." REER report, PEER-2003/14 <a

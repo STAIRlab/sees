@@ -135,7 +135,7 @@ recorder Element -eleRange 1 $numElem -time -file strain.out strain</p>
 the third degree-of-freedom)</p>
 <p>recorder Node -nodeRange 1 $numNode -time -file porePressure.out -dof
 3 vel</p>
-<p><strong>REFERENCES:</strong></p>
+## References
 <p>McGann, C. R., Arduino, P., and Mackenzie-Helnwein, P. (2012).
 “Stabilized single-point 4-node quadrilateral element for dynamic
 analysis of fluid saturated porous media.” <em>Acta Geotechnica</em>,

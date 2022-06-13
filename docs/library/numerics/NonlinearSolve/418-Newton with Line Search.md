@@ -45,7 +45,7 @@ valid types are:</p></td>
 </tbody>
 </table>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>M.A. Crisfield, "Nonlinear Finite Element Analysis of Solids and
 Structures, Volume 1:Essentials", Wiley, 1991.</p>
 <hr />

@@ -323,7 +323,7 @@ number under (or equal) 1000 and steel materials use tag numbers over
 </figure>
 <p>&lt;tcl&gt;Wall01.tcl&lt;/tcl&gt;</p>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>1. Massone, L. M., 2006; "RC Wall Shear - Flexure Interaction:
 Analytical and Experimental Responses", Ph.D. Dissertation, University
 of California, Los Angeles, June 2006, 398 pp.</p>

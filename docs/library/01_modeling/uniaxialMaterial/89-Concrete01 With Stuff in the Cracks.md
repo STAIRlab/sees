@@ -53,7 +53,7 @@ values.</li>
 <li>The initial slope for this model is (2*$fpc/$epsc0)</li>
 </ul>
 <hr />
-<p>REFERENCES:</p>
+## References
 <p>J.F. Stanton and H.D. McNiven, "The Development of a Mathematical
 Model to Predict the Flexural Response of Reinforced Concrete Beams to
 Cyclic Loads, Using System Identification", EERC Report Number 79/02,

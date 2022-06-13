@@ -150,7 +150,7 @@ transformation 9</p>
 <p>FURTHER DOCUMENTATION ON INTEGRATION OPTIONS:</p>
 <p><a href="image:IntegrationTypes.pdf"
 title="wikilink">image:IntegrationTypes.pdf</a></p>
-<p>REFERENCES:</p>
+## References
 <ul>
 <li>Neuenhofer, Ansgar, FC Filippou. Geometrically Nonlinear
 Flexibility-Based Frame Finite Element. ASCE Journal of Structural
