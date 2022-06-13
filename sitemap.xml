@@ -1261,6 +1261,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/DispBeamColumnW3D/</loc>
+         <lastmod>2022-06-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/geomTransf/</loc>
          <lastmod>2022-06-13</lastmod>
          <changefreq>daily</changefreq>
@@ -2322,6 +2327,16 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UCSD_CompGeoMech/PressureIndependMultiYield/</loc>
+         <lastmod>2022-06-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UCSD_CompGeoMech/PressureIndependMultiYield/541-PressureIndependentMultiYield-Example%201/</loc>
+         <lastmod>2022-06-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UCSD_CompGeoMech/PressureIndependMultiYield/542-PressureIndependentMultiYield-Example%202/</loc>
          <lastmod>2022-06-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
