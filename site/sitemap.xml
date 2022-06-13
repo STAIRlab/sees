@@ -1336,11 +1336,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/01_modeling/ndmaterial/254-FluidSolidPorousMaterial/</loc>
-         <lastmod>2022-06-13</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/01_modeling/ndmaterial/338-InitialStateAnalysisWrapper/</loc>
          <lastmod>2022-06-13</lastmod>
          <changefreq>daily</changefreq>
@@ -2172,6 +2167,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/packages/UCSD_CompGeoMech/</loc>
+         <lastmod>2022-06-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/packages/UCSD_CompGeoMech/254-FluidSolidPorousMaterial/</loc>
          <lastmod>2022-06-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
