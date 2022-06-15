@@ -98,7 +98,7 @@ Element</a></li>
 <li><a href="YamamotoBiaxialHDR">YamamotoBiaxialHDR Element</a></li>
 <li><a href="ElastomericX" >ElastomericX</a></li>
 <li><a href="LeadRubberX" >LeadRubberX</a></li>
-<li><a href="HDR" >HDR</a></li>
+<li><a href="HDR" >HDR</a> high damping rubber bearing (3D)</li>
 <li><a href="RJ-Watson_EQS_Bearing" >RJ-Watson EQS Bearing Element</a></li>
 <li><a href="FPBearingPTV" >FPBearingPTV</a></li>
 </ul></li>

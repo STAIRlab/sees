@@ -1,4 +1,4 @@
-# CatenaryCableElement
+# CatenaryCable
 
 <p>This command is used to construct a catenary cable element
 object.</p>
@@ -86,56 +86,89 @@ end-forces of the element in global coordinates (3 for each node).</li>
 achieved, will result in error and some diagnostic information is
 printed out.</li>
 </ol>
-<hr />
-<p>Code Developed by: <span style="color:blue">Pablo Ibañez and <a
-href="http://www.joseabell.com">José A. Abell at Universidad de los
-Andes, Chile</a></span></p>
 
 ## Examples
 
 <p>
 ```tcl
-</p>
-<ol>
-<li>This example implements a slight modification of the verification
-test from reference #1.</li>
-<li></li>
-</ol>
-<p>model BasicBuilder -ndm 3 -ndf 3</p>
-<p>set x 30. ; #Set to example from paper x = 30, 60, 80, 100. Will not
-work for x=0.01, system ill-conditioned.</p>
-<p>node 1 0.0 0.0 90.0 node 2 [expr $x/2] 0.0 40.0 node 3 $x 60 30.</p>
-<p>fix 1 1 1 1 fix 2 0 1 0 fix 3 1 1 1</p>
-<p>set w3 -0.00001 set E 3.e7 set A 1. set L0 100. set alfa 6.5e-6 set
-cambiodetemp 100. set rho [expr $w3 / 9.81]</p>
-<p>set errorTol 1e-6 set NSubSteps 20</p>
-<p>element CatenaryCable 1 1 2 $w3 $E $A [expr $L0/2] $alfa
-$cambiodetemp $rho $errorTol $NSubSteps 0 element CatenaryCable 2 2 3
-$w3 $E $A [expr $L0/2] $alfa $cambiodetemp $rho $errorTol $NSubSteps
-0</p>
-<p>set NSteps 10 timeSeries Linear 1 -factor 1</p>
-<p>pattern Plain 2 1 { eleLoad -ele 1 2 -type -beamUniform 0. 0. -1
-}</p>
-<p>recorder Node -file "disp.txt" -time -nodeRange 1 3 -dof 1 2 3 disp
-recorder Element -file "forces.txt" -time -eleRange 1 2 force</p>
-<p>system FullGeneral constraints Plain numberer Plain test NormDispIncr
-1.0e-5 100 1 integrator LoadControl [expr 1.0/$NSteps] algorithm Newton
-analysis Static</p>
-<p>analyze $NSteps</p>
-<p>print -node 2 
+# This example implements a slight modification of the verification test from reference #1.
+#
+
+model BasicBuilder -ndm 3 -ndf 3
+
+set x 30. ;     #Set to example from paper x = 30, 60, 80, 100. Will not work for x=0.01, system ill-conditioned.
+
+node 1 0.0 0.0 90.0
+node 2 [expr $x/2] 0.0 40.0
+node 3 $x 60 30.
+
+fix 1 1 1 1 
+fix 2 0 1 0 
+fix 3 1 1 1
+
+set w3  -0.00001
+set E  3.e7 
+set A  1.
+set L0  100. 
+set alfa  6.5e-6 
+set cambiodetemp  100.
+set rho [expr $w3 / 9.81]
+
+set errorTol 1e-6
+set NSubSteps 20
+
+element CatenaryCable 1 1 2 $w3 $E $A [expr $L0/2] $alfa $cambiodetemp $rho $errorTol $NSubSteps  0
+element CatenaryCable 2 2 3 $w3 $E $A [expr $L0/2] $alfa $cambiodetemp $rho $errorTol $NSubSteps 0
+
+set NSteps 10
+timeSeries Linear 1 -factor 1
+
+pattern Plain 2 1 {
+    eleLoad -ele 1 2 -type -beamUniform 0. 0. -1
+}
+
+
+recorder Node -file "disp.txt" -time -nodeRange 1 3 -dof 1 2 3 disp
+recorder Element -file "forces.txt" -time -eleRange 1 2 force
+
+system FullGeneral
+constraints Plain
+numberer Plain
+test NormDispIncr 1.0e-5 100 1
+integrator LoadControl [expr 1.0/$NSteps]
+algorithm Newton
+analysis Static
+
+analyze $NSteps
+
+print -node 2
 ```
-</p>
-<p>Results should be:</p>
-<p>Node: 2 Coordinates : 15 0 40 Disps: 8.58693 0 2.82578 unbalanced
-Load: 0 0 0 ID : 0 -1 1</p>
-<p>Compare the forces.txt (for node 3) file with the results from
-reference [1].</p>
+
+Results should be:
+
+```
+Node: 2
+   Coordinates  : 15 0 40 
+   Disps: 8.58693 0 2.82578 
+    unbalanced Load: 0 0 0 
+   ID : 0 -1 1 
+```
+
+Compare the `forces.txt` (for node 3) file with the results from reference [1].
+
+
 <h2 id="references">References</h2>
-<p>1. Salehi Ahmad Abad, M., Shooshtari, A., Esmaeili, V., &amp; Naghavi
-Riabi, A. (2013). Nonlinear analysis of cable structures under general
-loadings. Finite Elements in Analysis and Design, 73, 11-19. <a
-href="https://doi.org/10.1016/j.finel.2013.05.002">https://doi.org/10.1016/j.finel.2013.05.002</a></p>
-<p>2. Thai, H. T., &amp; Kim, S. E. (2011). Nonlinear static and dynamic
-analysis of cable structures. Finite Elements in Analysis and Design,
-47(3), 237-246. <a
-href="https://doi.org/10.1016/j.finel.2010.10.005">https://doi.org/10.1016/j.finel.2010.10.005</a></p>
+1. Salehi Ahmad Abad, M., Shooshtari, A., Esmaeili, V., &amp; Naghavi
+   Riabi, A. (2013). Nonlinear analysis of cable structures under general
+   loadings. Finite Elements in Analysis and Design, 73, 11-19. <a
+   href="https://doi.org/10.1016/j.finel.2013.05.002">https://doi.org/10.1016/j.finel.2013.05.002</a>
+
+2. Thai, H. T., &amp; Kim, S. E. (2011). Nonlinear static and dynamic
+   analysis of cable structures. Finite Elements in Analysis and Design,
+   47(3), 237-246. <a
+   href="https://doi.org/10.1016/j.finel.2010.10.005">https://doi.org/10.1016/j.finel.2010.10.005</a>
+
+<hr />
+<p>Code developed by: <span style="color:blue">Pablo Ibañez and <a href="http://www.joseabell.com">José A. Abell</a></span> at Universidad de los
+Andes, Chile</p>
+
