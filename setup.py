@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 
-import setuptools
+#import setuptools
+from skbuild import setup
 
 if __name__ == "__main__":
-    setuptools.setup(
+    setup(
+        cmake_install_dir="src/opensees/"
             # ext_modules=[
             #     setuptools.Extension(
             #         name='opensees.libOpenSeesRT',

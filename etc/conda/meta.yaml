@@ -17,6 +17,8 @@ requirements:
     - "{{ compiler('cxx') }}"
     - "{{ compiler('fortran') }}"
     - cmake
+    - build
+    - setuptools
 
   host:
     # Conda-Forge
@@ -26,13 +28,13 @@ requirements:
     - liblapack
     - arpack
     - python
+    - scikit-build
     - pybind11
     - pip !=22.1.0
 
   run:
     - python
     - numpy
-      #- tcl
     - matplotlib
 
 

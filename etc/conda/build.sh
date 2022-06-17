@@ -2,7 +2,7 @@ mkdir src/libg3/cbin
 mkdir src/libg3/OTHER/cbin
 
 cd src/libg3/OTHER/cbin
-cmake .. && make -j8
+cmake .. && make -j$(nproc)
 
 cd ../../cbin/
 cmake .. \
@@ -12,5 +12,8 @@ cmake .. \
   -DCONDA_PREFIX="$CONDA_PREFIX"
 
 
-cmake --build . --target OpenSeesRT -j5
+cmake --build . --target OpenSeesRT -j$(nproc)
 
+cd ../../../
+cp src/libg3/cbin/SRC/api/tclCommandPackage/libOpenSeesRT.so src/opensees/
+python -m build
