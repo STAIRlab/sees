@@ -1,3 +1,0 @@
-# Elastomeric Bearing Element
-
-
