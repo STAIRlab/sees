@@ -10,22 +10,25 @@ subjected to 1D sinusoidal base shaking</strong>&lt;/center&gt;</p></td>
 </tbody>
 </table>
 <h2 id="input_file">Input File</h2>
-<p>&lt;syntaxhighlight lang="tcl"&gt;</p>
-<ol>
-<li>single 20_8_BrickUP element with pressure dependent material.</li>
-<li>subjected to 1D sinusoidal base shaking</li>
-</ol>
-<ol>
-<li>Written by Jinchi Lu (May 2004)</li>
-</ol>
+
+```tcl
+
+# single 20_8_BrickUP element with pressure dependent material.
+# subjected to 1D sinusoidal base shaking
+
+
+# Written by Jinchi Lu (May 2004)
+
 <p>set matOpt 1 ;# 1 = pressure depend;</p>
 <dl>
 <dt># 2 = pressure independ;</dt>
 
 </dl>
-<p>wipe</p>
+wipe
 <p>set friction 31. ;#friction angle set phaseTransform 26. ;#phase
-transformation angle set G1 9.e4 ; set B1 22.e4 ; set gamma 0.600 ;#
+transformation angle set G1 9.e4 ;
+set B1 22.e4 ;
+set gamma 0.600 ;#
 Newmark integration parameter</p>
 <p>set dT 0.01 ;# time step for analysis, does not have to be the same
 as accDt. set numSteps 2500 ;# number of time steps set rhoS 1.80 ;#
@@ -41,102 +44,134 @@ inclination 0;</p>
 InitStiffnessProportionalDamping 0.003;</p>
 <p>set gravityX [expr $accGravity*sin($inclination/180.0*$pi)] ;#
 gravity acceleration in X direction set gravityY 0.0 ;# gravity
-acceleration in Y direction set gravityZ [expr
--$accGravity*cos($inclination/180.0*$pi)] ;# gravity acceleration in Z
+acceleration in Y direction set gravityZ [expr -$accGravity*cos($inclination/180.0*$pi)] ;# gravity acceleration in Z
 direction</p>
-<p>set ndm 3 ;# space dimension</p>
-<p>model BasicBuilder -ndm 3 -ndf 4 node 1 0.00000 0.0000 0.00000 node 2
-1.00000 0.0000 0.00000 node 3 1.00000 1.0000 0.00000 node 4 0.00000
-1.0000 0.00000 node 5 0.00000 0.0000 1.00000 node 6 1.00000 0.0000
-1.00000 node 7 1.00000 1.0000 1.00000 node 8 0.00000 1.0000 1.00000</p>
-<p>fix 1 1 1 1 0 fix 2 1 1 1 0 fix 3 1 1 1 0 fix 4 1 1 1 0 fix 5 0 1 0 1
-fix 6 0 1 0 1 fix 7 0 1 0 1 fix 8 0 1 0 1</p>
-<p>model BasicBuilder -ndm 3 -ndf 3</p>
-<p>node 9 0.50000 0.0000 0.00000 node 10 1.00000 0.5000 0.00000 node 11
-0.50000 1.0000 0.00000 node 12 0.00000 0.5000 0.00000 node 13 0.50000
-0.0000 1.00000 node 14 1.00000 0.5000 1.00000 node 15 0.50000 1.0000
-1.00000 node 16 0.00000 0.5000 1.00000 node 17 0.00000 0.0000 0.50000
-node 18 1.00000 0.0000 0.50000 node 19 1.00000 1.0000 0.50000 node 20
-0.00000 1.0000 0.50000</p>
-<p>fix 9 1 1 1 fix 10 1 1 1 fix 11 1 1 1 fix 12 1 1 1 fix 13 0 1 0 fix
-14 0 1 0 fix 15 0 1 0 fix 16 0 1 0 fix 17 0 1 0 fix 18 0 1 0 fix 19 0 1
-0 fix 20 0 1 0</p>
-<ol>
-<li>equalDOF</li>
-<li>tied nodes around</li>
-</ol>
-<p>equalDOF 5 6 1 3 equalDOF 5 7 1 3 equalDOF 5 8 1 3 equalDOF 5 13 1 3
-equalDOF 5 14 1 3 equalDOF 5 15 1 3 equalDOF 5 16 1 3 equalDOF 17 18 1 3
-equalDOF 17 19 1 3 equalDOF 17 20 1 3</p>
-<ol>
-<li>define material and properties</li>
-</ol>
+set ndm 3 ;# space dimension
+<p>model BasicBuilder -ndm 3 -ndf 4
+node 1 0.00000 0.0000 0.00000
+node 2 1.00000 0.0000 0.00000
+node 3 1.00000 1.0000 0.00000
+node 4 0.00000 1.0000 0.00000
+node 5 0.00000 0.0000 1.00000
+node 6 1.00000 0.0000 1.00000
+node 7 1.00000 1.0000 1.00000
+node 8 0.00000 1.0000 1.00000
+<p>fix 1 1 1 1 0
+fix 2 1 1 1 0
+fix 3 1 1 1 0
+fix 4 1 1 1 0
+fix 5 0 1 0 1
+fix 6 0 1 0 1
+fix 7 0 1 0 1
+fix 8 0 1 0 1</p>
+model BasicBuilder -ndm 3 -ndf 3
+node 9 0.50000 0.0000 0.00000
+node 10 1.00000 0.5000 0.00000
+node 11 0.50000 1.0000 0.00000
+node 12 0.00000 0.5000 0.00000
+node 13 0.50000 0.0000 1.00000
+node 14 1.00000 0.5000 1.00000
+node 15 0.50000 1.0000 1.00000
+node 16 0.00000 0.5000 1.00000
+node 17 0.00000 0.0000 0.50000
+node 18 1.00000 0.0000 0.50000
+node 19 1.00000 1.0000 0.50000
+node 20 0.00000 1.0000 0.50000
+fix 9 1 1 1
+fix 10 1 1 1
+fix 11 1 1 1
+fix 12 1 1 1
+fix 13 0 1 0 
+fix 14 0 1 0
+fix 15 0 1 0
+fix 16 0 1 0
+fix 17 0 1 0
+fix 18 0 1 0
+fix 19 0 1 0
+fix 20 0 1 0
+
+# equalDOF
+# tied nodes around
+equalDOF 5 6 1 3
+equalDOF 5 7 1 3
+equalDOF 5 8 1 3
+equalDOF 5 13 1 3
+equalDOF 5 14 1 3
+equalDOF 5 15 1 3
+equalDOF 5 16 1 3
+equalDOF 17 18 1 3
+equalDOF 17 19 1 3
+equalDOF 17 20 1 3
+
+# define material and properties
+
 <p>switch $matOpt { 1 { nDMaterial PressureDependMultiYield02 1 3 $rhoS
 $G1 $B1 $friction .1 80 0.5\ $phaseTransform 0.067 0.23 0.06 0.27 } 2 {
 nDMaterial PressureIndependMultiYield 2 3 1.8 4.e4 2.e5 40 .1 } }</p>
 <p>element 20_8_BrickUP 1 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18
 19 20 $matOpt $Bfluid $rhoF $perm $perm $perm $gravityX $gravityY
 $gravityZ</p>
-<ol>
-<li>recorder for nodal variables along the vertical center line.</li>
-</ol>
+
+# recorder for nodal variables along the vertical center line.
+
 <p>set SnodeList {} for {set i 0} {$i &lt; 20} {incr i 1} { lappend
 SnodeList [expr $i+1] }</p>
 <p>set FnodeList {} for {set i 0} {$i &lt; 8} {incr i 1} { lappend
 FnodeList [expr $i+1] }</p>
-<ol>
-<li>GRAVITY APPLICATION (elastic behavior)</li>
-</ol>
+
+# GRAVITY APPLICATION (elastic behavior)
+
 <p>numberer Plain system ProfileSPD test NormDispIncr 1.0e-8 20 1
 algorithm KrylovNewton constraints Penalty 1.e18 1.e18; # set nw 1.5 set
 nw2 [expr pow($nw+0.5, 2)/4] integrator Newmark $nw $nw2 analysis
 Transient</p>
-<p>analyze 10 5.e3</p>
-<ol>
-<li>switch the material to plastic</li>
-</ol>
-<p>updateMaterialStage -material $matOpt -stage 1 analyze 10 1.e1</p>
+analyze 10 5.e3
+
+# switch the material to plastic
+
+updateMaterialStage -material $matOpt -stage 1 analyze 10 1.e1
 <p>setTime 0.0 ;# reset time, otherwise reference time is not zero for
 time history analysis wipeAnalysis</p>
-<p>eval "recorder Node -file disp -time -node $SnodeList -dof 1 2 3 -dT
-$dT disp" eval "recorder Node -file pwp -time -node $FnodeList -dof 4
--dT $dT vel" eval "recorder Node -file acc -time -node $SnodeList -dof 1
-2 3 -dT $dT accel" recorder Element -ele 1 -time -file stress1 -dT $dT
+<p>eval "recorder Node -file disp -time -node $SnodeList -dof 1 2 3 -dT $dT disp"
+eval "recorder Node -file pwp -time -node $FnodeList -dof 4 -dT $dT vel"
+eval "recorder Node -file acc -time -node $SnodeList -dof 1 2 3 -dT $dT accel" recorder Element -ele 1 -time -file stress1 -dT $dT
 material 1 stress recorder Element -ele 1 -time -file strain1 -dT $dT
 material 1 strain recorder Element -ele 1 -time -file stress5 -dT $dT
 material 5 stress recorder Element -ele 1 -time -file strain5 -dT $dT
 material 5 strain recorder Element -ele 1 -time -file stress17 -dT $dT
 material 17 stress recorder Element -ele 1 -time -file strain17 -dT $dT
 material 17 strain</p>
-<ol>
+
 <li><ol>
 <li>create dynamic time history analysis ##################</li>
 </ol></li>
-</ol>
-<p>pattern UniformExcitation 1 1 -accel "Sine 0 10 1 -factor
-$accMul"</p>
+
+<p>pattern UniformExcitation 1 1 -accel "Sine 0 10 1 -factor $accMul"</p>
 <p>rayleigh $massProportionalDamping 0.0
-$InitStiffnessProportionalDamping 0.0 integrator Newmark $gamma [expr
-pow($gamma+0.5, 2)/4] constraints Penalty 1.e18 1.e18 ;# can't combine
+$InitStiffnessProportionalDamping 0.0 integrator Newmark $gamma [expr pow($gamma+0.5, 2)/4] constraints Penalty 1.e18 1.e18 ;# can't combine
 with test NormUnbalance test NormDispIncr 1.0e-3 25 0 ;# can't combine
 with constraints Lagrange</p>
-<ol>
+
 <li>algorithm Newton ;# tengent is updated at each iteration</li>
-</ol>
+
 <p>algorithm KrylovNewton ;# step not each iteration system ProfileSPD
 ;# Use sparse solver. Next numberer is better to be Plain. numberer
 Plain ;# method to map between between equation numbers of DOFs analysis
 VariableTransient ;# splitting time step requires VariableTransient</p>
-<ol>
+
 <li><ol>
 <li>perform the Analysis and record time used #############</li>
 </ol></li>
-</ol>
+
 <p>set startT [clock seconds] analyze $numSteps $dT [expr $dT/64] $dT 15
 set endT [clock seconds] puts "Execution time: [expr $endT-$startT]
-seconds." &lt;/syntaxhighlight&gt;</p>
+seconds." 
+```
+
 <h2 id="matlab_plotting_file">MATLAB Plotting File</h2>
-<p>&lt;syntaxhighlight lang="matlab"&gt; clear all;</p>
+
+```matlab
+ clear all;</p>
 <p>a1=load('acc'); d1=load('disp'); p1=load('pwp'); s1=load('stress1');
 e1=load('strain1'); s5=load('stress5'); e5=load('strain5');
 s9=load('stress17'); e9=load('strain17');</p>
@@ -190,7 +225,9 @@ set(gcf,'paperposition',fs2); saveas(gcf,'Acc','jpg');</p>
 <p>figure(4); close 4; figure(4); a=plot(p1(:,1),p1(:,2)); title ('Pore
 pressure at base'); xLabel('Time (s)'); yLabel('Pore pressure (kPa)');
 set(gcf,'paperposition',fs2); saveas(gcf,'EPWP','jpg');</p>
-<p>&lt;/syntaxhighlight&gt;</p>
+<p>
+```
+
 <h2 id="displacement_output_file">Displacement Output File</h2>
 <figure>
 <img src="PD02_Ex25Disp.jpg" title="PD02_Ex25Disp.jpg"
@@ -232,4 +269,4 @@ alt="PD02_Ex25Accel.jpg" />
 <figcaption aria-hidden="true">PD02_Ex25Accel.jpg</figcaption>
 </figure>
 <hr />
-<p>Return to: </p>
+Return to: 

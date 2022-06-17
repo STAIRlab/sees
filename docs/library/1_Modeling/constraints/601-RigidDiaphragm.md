@@ -1,13 +1,12 @@
-# RigidDiaphragm command
+# RigidDiaphragm
 
-<p>This command is used to construct a number of Multi-Point Constraint
-(MP_Constraint) objects. These objects will constrain certain
+This command is used to construct a number of Multi-Point Constraint
+(`MP_Constraint`) objects. These objects will constrain certain
 degrees-of-freedom at the listed constrained nodes to move as if in a
-rigid plane with the retained node.</p>
+rigid plane with the retained node.
 
 ```tcl
-rigidDiaphragm $perpDirn $rNodeTag $cNodeTag1 $cNodeTag2
-        ...
+rigidDiaphragm $perpDirn $rNodeTag $cNodeTag1 $cNodeTag2...
 ```
 <hr />
 <table>

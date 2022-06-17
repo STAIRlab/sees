@@ -10,21 +10,22 @@ material</strong>&lt;/center&gt;</p></td>
 </tbody>
 </table>
 <h2 id="input_file">Input File</h2>
-<p>&lt;syntaxhighlight lang="tcl"&gt;</p>
-<ol>
-<li>Created by Zhaohui Yang (zhyang@ucsd.edu)</li>
-<li></li>
-<li>plane strain, shear-beam type mesh with single material,</li>
-<li>dynamic analysis, SI units (m, s, KN, ton)</li>
-<li>input motion may be from a file, or a sinusoidal wave.</li>
-<li></li>
-</ol>
-<p>wipe</p>
-<ol>
-<li></li>
-<li>some user defined variables</li>
-<li></li>
-</ol>
+
+```tcl
+
+# Created by Zhaohui Yang (zhyang@ucsd.edu)
+# 
+# plane strain, shear-beam type mesh with single material,
+# dynamic analysis, SI units (m, s, KN, ton)
+# input motion may be from a file, or a sinusoidal wave.
+# 
+
+wipe
+
+# 
+# some user defined variables
+# 
+
 <p>set matOpt 1 ;# 1 = drained, pressure depend; 2 = undrained, pressure
 depend;</p>
 <dl>
@@ -32,7 +33,9 @@ depend;</p>
 
 </dl>
 <p>set mass 2.0 ;# saturated mass density set fmass 1.0 ;# fluid mass
-density set G 6.e4 ; set B 2.4e5 ; set press 0. ;# isotropic
+density set G 6.e4 ;
+set B 2.4e5 ;
+set press 0. ;# isotropic
 consolidation pressure on quad element(s) set accMul 2. ;# acc.
 multiplier (m/s/s) set accNam myACC ;# acc. file name if imposed motion
 is read from file</p>
@@ -51,25 +54,26 @@ InitStiffnessProportionalDamping 0.002;</p>
 <p>set numXele 1 ;# number of elements in x (H) direction set numYele 10
 ;# number of elements in y (V) direction set xSize 1.0 ;# x direction
 element size set ySize 1.0 ;# y direction element size</p>
-<ol>
+
 <li><ol>
-<li></li>
+# 
 </ol></li>
-<li>BUILD MODEL</li>
-</ol>
-<ol>
-<li>create the ModelBuilder</li>
-</ol>
-<p>model basic -ndm 2 -ndf 2</p>
-<ol>
-<li>define material and properties</li>
-</ol>
+# BUILD MODEL
+
+
+# create the ModelBuilder
+
+model basic -ndm 2 -ndf 2
+
+# define material and properties
+
 <p>switch $matOpt { 1 { nDMaterial PressureDependMultiYield 1 2 $mass $G
-$B 31.4 .1 80 0.5 \ 26.5 0.17 0.4 10 10 0.015 1.0 updateMaterialStage
+$B 31.4 .1 80 0.5 \
+        26.5 0.17 0.4 10 10 0.015 1.0 updateMaterialStage
 -material 1 -stage 0</p>
-<p>set gravY [expr -9.81*$mass] ;#gravity set gravX [expr
--$gravY*$loadBias] } 2 { nDMaterial PressureDependMultiYield 1 2 $mass
-$G $B 31.4 .1 80 0.5 \ 26.5 0.17 0.4 10 10 0.015 1.0 nDMaterial
+<p>set gravY [expr -9.81*$mass] ;#gravity set gravX [expr -$gravY*$loadBias] } 2 { nDMaterial PressureDependMultiYield 1 2 $mass
+$G $B 31.4 .1 80 0.5 \
+        26.5 0.17 0.4 10 10 0.015 1.0 nDMaterial
 FluidSolidPorous 2 2 1 2.2e6</p>
 <p>set gravY [expr -9.81*($mass-$fmass)] ;# buoyant unit weight set
 gravX [expr -$gravY*$loadBias] } 3 { nDMaterial
@@ -77,104 +81,99 @@ PressureIndependMultiYield 1 2 $mass 4.e4 2.e5 20 .1 nDMaterial
 FluidSolidPorous 3 2 1 2.2e6</p>
 <p>updateMaterialStage -material 1 -stage 0 updateMaterialStage
 -material 3 -stage 0</p>
-<p>set gravY [expr -9.81*($mass-fmass)] ;# buoyant unit weight set gravX
-[expr -$gravY*$loadBias] } 4 { nDMaterial ElasticIsotropic 4 2000 0.3
-$mass set gravY [expr -9.81*$mass] ;#gravity set gravX [expr
--$gravY*$loadBias] } }</p>
-<ol>
-<li>define the nodes</li>
-</ol>
-<p>set numXnode [expr $numXele+1] set numYnode [expr $numYele+1]</p>
+<p>set gravY [expr -9.81*($mass-fmass)] ;# buoyant unit weight set gravX [expr -$gravY*$loadBias] } 4 { nDMaterial ElasticIsotropic 4 2000 0.3
+$mass set gravY [expr -9.81*$mass] ;#gravity set gravX [expr -$gravY*$loadBias] } }</p>
+
+# define the nodes
+
+set numXnode [expr $numXele+1] set numYnode [expr $numYele+1]
 <p>for {set i 1} {$i &lt;= $numXnode} {incr i 1} { for {set j 1} {$j
-&lt;= $numYnode} {incr j 1} { set xdim [expr ($i-1)*$xSize] set ydim
-[expr ($j-1)*$ySize] set nodeNum [expr $i + ($j-1)*$numXnode] node
+&lt;= $numYnode} {incr j 1} { set xdim [expr ($i-1)*$xSize] set ydim [expr ($j-1)*$ySize] set nodeNum [expr $i + ($j-1)*$numXnode] node
 $nodeNum $xdim $ydim } }</p>
-<ol>
-<li>define elements</li>
-</ol>
+
+# define elements
+
 <p>for {set i 1} {$i &lt;= $numXele} {incr i 1} { for {set j 1} {$j
 &lt;= $numYele} {incr j 1} { set eleNum [expr $i + ($j-1)*$numXele] set
 n1 [expr $i + ($j-1)*$numXnode] set n2 [expr $i + ($j-1)*$numXnode + 1]
 set n4 [expr $i + $j*$numXnode + 1] set n3 [expr $i + $j*$numXnode]</p>
-<ol>
-<li>thick material maTag press density gravity</li>
-</ol>
+
+# thick material maTag press density gravity
+
 <p>element quad $eleNum $n1 $n2 $n4 $n3 1.0 "PlaneStrain" $matOpt $press
 0.0 $gravX $gravY } }</p>
 <p>updateMaterialStage -material 1 -stage 0 updateMaterialStage
 -material 2 -stage 0</p>
-<ol>
-<li>fix the base</li>
-</ol>
+
+# fix the base
+
 <p>for {set i 1} {$i &lt;= $numXnode} {incr i 1} { fix $i 1 1 }</p>
-<ol>
-<li>tie two lateral sides</li>
-</ol>
-<p>for {set i 1} {$i &lt; $numYnode} {incr i 1} { set nodeNum1 [expr
-$i*$numXnode + 1] set nodeNum2 [expr ($i+1)*$numXnode] equalDOF
+
+# tie two lateral sides
+
+<p>for {set i 1} {$i &lt; $numYnode} {incr i 1} { set nodeNum1 [expr $i*$numXnode + 1] set nodeNum2 [expr ($i+1)*$numXnode] equalDOF
 $nodeNum1 $nodeNum2 1 2 }</p>
-<ol>
+
 <li><ol>
-<li></li>
+# 
 </ol></li>
-<li>GRAVITY APPLICATION (elastic behavior)</li>
-</ol>
-<ol>
+# GRAVITY APPLICATION (elastic behavior)
+
+
 <li>create the SOE, ConstraintHandler, Integrator, Algorithm and
 Numberer</li>
-</ol>
-<p>system ProfileSPD test NormDispIncr 1.e-5 10 0 algorithm
+
+<p>system ProfileSPD 
+test NormDispIncr 1.e-5 10 0 algorithm
 ModifiedNewton constraints Transformation integrator LoadControl 1 1 1 1
 numberer RCM</p>
-<ol>
-<li>create the Analysis</li>
-</ol>
-<p>analysis Static</p>
-<p>analyze 2</p>
-<ol>
-<li>switch material stage from elastic (gravity) to plastic</li>
-</ol>
+
+# create the Analysis
+
+analysis Static
+analyze 2
+
+# switch material stage from elastic (gravity) to plastic
+
 <p>switch $matOpt { 1 { updateMaterialStage -material 1 -stage 1
 updateMaterials -material 1 bulkModulus [expr $G*2/3.] } 2 {
 updateMaterialStage -material 1 -stage 1 updateMaterialStage -material 2
 -stage 1 updateMaterials -material 1 bulkModulus [expr $G*2/3.] } 3 {
 updateMaterialStage -material 1 -stage 1 updateMaterialStage -material 3
 -stage 1 } 4 ;# do nothing }</p>
-<ol>
+
 <li><ol>
-<li></li>
+# 
 </ol></li>
-<li>NOW APPLY LOADING SEQUENCE AND ANALYZE (plastic)</li>
-</ol>
-<ol>
-<li>rezero time</li>
-</ol>
-<p>setTime 0.0 wipeAnalysis</p>
-<ol>
-<li></li>
-<li>Sinusoidal motion, comment next line if using input motion file</li>
-</ol>
-<p>pattern UniformExcitation 1 1 -accel "Sine 0 10 $period -factor
-$accMul"</p>
-<ol>
-<li>decomment next line if using input motion file</li>
-<li>pattern UniformExcitation 1 1 -accel "Series -factor $accMul
--filePath $accNam -dt $accDt"</li>
-</ol>
-<ol>
-<li>recorder for nodal displacement along the vertical center line.</li>
-</ol>
+# NOW APPLY LOADING SEQUENCE AND ANALYZE (plastic)
+
+
+# rezero time
+
+setTime 0.0 wipeAnalysis
+
+# 
+# Sinusoidal motion, comment next line if using input motion file
+
+<p>pattern UniformExcitation 1 1 -accel "Sine 0 10 $period -factor $accMul"</p>
+
+# decomment next line if using input motion file
+<li>pattern UniformExcitation 1 1 -accel "Series -factor $accMul -filePath $accNam -dt $accDt"</li>
+
+
+# recorder for nodal displacement along the vertical center line.
+
 <p>set nodeList {} for {set i 0} {$i &lt; $numYnode} {incr i 1} {
-lappend nodeList [expr $numXnode/2 + $i*$numXnode] } eval "recorder Node
--file disp -time -node $nodeList -dof 1 2 -dT $deltaT disp" eval
-"recorder Node -file acc -time -node $nodeList -dof 1 2 -dT $deltaT
-accel"</p>
-<ol>
-<li>recorder for element output along the vertical center line.</li>
-</ol>
-<p>set name1 "stress"; set name2 "strain"; set name3 "press" for {set i
-1} {$i &lt; $numYnode} {incr i 1} { set ele [expr
-$numXele-$numXele/2+($i-1)*$numXele] set name11 [join [list $name1 $i]
+lappend nodeList [expr $numXnode/2 + $i*$numXnode] }
+eval "recorder Node -file disp -time -node $nodeList -dof 1 2 -dT $deltaT disp" eval
+"recorder Node -file acc -time -node $nodeList -dof 1 2 -dT $deltaT accel"</p>
+
+# recorder for element output along the vertical center line.
+
+<p>set name1 "stress";
+set name2 "strain";
+set name3 "press" for {set i
+1} {$i &lt; $numYnode} {incr i 1} { set ele [expr $numXele-$numXele/2+($i-1)*$numXele] set name11 [join [list $name1 $i]
 {}] set name22 [join [list $name2 $i] {}] set name33 [join [list $name3
 $i] {}] recorder Element -ele $ele -time -file $name11 material 1 stress
 recorder Element -ele $ele -time -file $name22 material 1 strain if {
@@ -182,17 +181,18 @@ $matOpt == 2 || $matOpt == 3 } { ;#excess pore pressure ouput recorder
 Element -ele $ele -time -file $name33 material 1 pressure } }</p>
 <p>constraints Transformation test NormDispIncr 1.e-4 10 0 numberer RCM
 algorithm Newton system ProfileSPD rayleigh $massProportionalDamping 0.0
-$InitStiffnessProportionalDamping 0. integrator Newmark $gamma [expr
-pow($gamma+0.5, 2)/4] analysis VariableTransient</p>
-<ol>
-<li>analyze</li>
-</ol>
-<p>set startT [clock seconds] analyze $numSteps $deltaT [expr
-$deltaT/100] $deltaT 5 set endT [clock seconds] puts "Execution time:
-[expr $endT-$startT] seconds."</p>
-<p>wipe #flush ouput stream &lt;/syntaxhighlight&gt;</p>
+$InitStiffnessProportionalDamping 0. integrator Newmark $gamma [expr pow($gamma+0.5, 2)/4] analysis VariableTransient</p>
+
+# analyze
+
+<p>set startT [clock seconds] analyze $numSteps $deltaT [expr $deltaT/100] $deltaT 5 set endT [clock seconds] puts "Execution time: [expr $endT-$startT] seconds."</p>
+<p>wipe #flush ouput stream 
+```
+
 <h2 id="matlab_plotting_file">MATLAB Plotting File</h2>
-<p>&lt;syntaxhighlight lang="matlab"&gt; clear all;</p>
+
+```matlab
+ clear all;</p>
 <p>a1=load('acc'); d1=load('disp'); p1=load('press1');
 s1=load('stress1'); e1=load('strain1'); p6=load('press6');
 s5=load('stress5'); e5=load('strain5'); p10=load('press10');
@@ -258,7 +258,9 @@ xLabel('Time (s)'); yLabel('Excess pore pressure (kPa)');
 subplot(3,1,3),a=plot(p1(:,1),-p1(:,2),'r'); legend(a,'10 m depth',4);
 xLabel('Time (s)'); yLabel('Excess pore pressure (kPa)');
 set(gcf,'paperposition',fs); saveas(gcf,'EPWP','jpg');</p>
-<p>&lt;/syntaxhighlight&gt;</p>
+<p>
+```
+
 <h2 id="displacement_output_file">Displacement Output File</h2>
 <figure>
 <img src="PD_Ex20Disp.jpg" title="PD_Ex20Disp.jpg"
@@ -299,4 +301,4 @@ alt="PD_Ex20Accel.jpg" />
 <figcaption aria-hidden="true">PD_Ex20Accel.jpg</figcaption>
 </figure>
 <hr />
-<p>Return to: </p>
+Return to: 

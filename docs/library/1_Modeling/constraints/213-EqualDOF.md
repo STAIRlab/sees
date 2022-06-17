@@ -1,4 +1,4 @@
-# EqualDOF command
+# EqualDOF
 
 <p>This command is used to construct a multi-point constraint between
 nodes.</p>
@@ -33,14 +33,17 @@ degrees-of-freedom.</p></td>
 
 ## Examples
 
-<p>equalDOF 2 3 1 3 5;</p>
-<ol>
-<li>impose the displacements at dof's 1,3 and 5 of node 3 to be the same
-as those of node 2.</li>
-</ol>
-<p>REFERENCE:</p>
+Impose the displacements at dof's 1,3 and 5 of node 3 to be the same
+as those of node 2:
+
+```tcl
+equalDOF 2 3 1 3 5;
+```
+
+## References
 <p>Cook, R.D., Malkus, D.S., Plesha, M. E., and Witt, R. J., "Concepts
 and Applications of Finite Element Analysis," 4th edition, John Wiley
 and Sons publishers, 2002.</p>
+
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

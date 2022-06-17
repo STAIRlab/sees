@@ -98,6 +98,8 @@ principles and algorithms.
 <li><a href="Initial_Stress_Material">Initial Stress</a></li>
 <li><a href="Fatigue_Material">Fatigue</a></li>
 <li><a href="MinMax_Material">MinMax</a></li>
+<li><em>SimpleFractureMaterial</em></li>
+<li><em>ContinuumUniaxial</em> performs static condensation to impose a uniaxial state of stress on a three-dimensional `NDMaterial`</li>
 </ul>
 
 ### Other Uniaxial Materials

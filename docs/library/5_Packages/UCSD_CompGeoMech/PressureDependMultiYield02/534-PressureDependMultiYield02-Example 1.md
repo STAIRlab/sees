@@ -11,22 +11,24 @@ shaking</strong>&lt;/center&gt;</p></td>
 </tbody>
 </table>
 <h2 id="input_file">Input File</h2>
-<p>&lt;syntaxhighlight lang="tcl"&gt;</p>
-<ol>
-<li>Written by Jinchi Lu and Zhaohui Yang (May 2004)</li>
-</ol>
-<p>wipe set matOpt 1 ;# 1 = pressure depend;</p>
-<dl>
-<dt># 2 = pressure independ;</dt>
 
-</dl>
-<p>set fmass 1 ;# fluid mass density set smass 2.0 ;# saturated soil
-mass density set G 9.0e4 set B 2.2e5 set bulk 2.2e6 ;#fluid-solid
-combined bulk modulus set vperm 5.e-6 ;#vertical permeability (m/s) set
-hperm [expr $vperm] ;#horizontal permeability (m/s)</p>
-<p>set accGravity 9.81 ;#acceleration of gravity set vperm [expr
-$vperm/$accGravity/$fmass] ;#actual value used in computation set hperm
-[expr $hperm/$accGravity/$fmass] ;#actual value used in computation set
+```tcl
+# Written by Jinchi Lu and Zhaohui Yang (May 2004)
+
+wipe 
+set matOpt 1 ;
+# 1 = pressure depend;
+# 2 = pressure independ;
+
+
+set fmass 1 ;# fluid mass density 
+set smass 2.0 ;# saturated soil mass density 
+set G 9.0e4 
+set B 2.2e5 
+set bulk 2.2e6 ;#fluid-solid combined bulk modulus 
+set vperm 5.e-6 ;#vertical permeability (m/s) 
+set hperm [expr $vperm] ;#horizontal permeability (m/s)</p>
+<p>set accGravity 9.81 ;#acceleration of gravity set vperm [expr $vperm/$accGravity/$fmass] ;#actual value used in computation set hperm [expr $hperm/$accGravity/$fmass] ;#actual value used in computation set
 loadBias 0.0 ;# Static shear load, in percentage</p>
 <dl>
 <dt># of gravity load (=sin(inclination angle))</dt>
@@ -35,99 +37,121 @@ loadBias 0.0 ;# Static shear load, in percentage</p>
 <p>set accMul 2. ;# acc. multiplier set period 1.0 ;# Period for applied
 Sine wave set deltaT 0.01 ;# time step for analysis set numSteps 2500 ;#
 number of time steps set gamma 0.6 ;# Newmark integration parameter</p>
-<p>set massProportionalDamping 0. ; set InitStiffnessProportionalDamping
+<p>set massProportionalDamping 0. ;
+set InitStiffnessProportionalDamping
 0.002;</p>
-<ol>
+
 <li><ol>
-<li></li>
+# 
 </ol></li>
-<li>BUILD MODEL</li>
-</ol>
-<ol>
-<li>create the ModelBuilder</li>
-</ol>
-<p>model basic -ndm 2 -ndf 3 node 1 0 0 node 2 2.5 0 node 3 2.5 2 node 4
-0 2</p>
-<p>fix 1 1 1 0 fix 2 1 1 0 fix 3 0 0 1 fix 4 0 0 1 equalDOF 3 4 1 2</p>
-<p>model basic -ndm 2 -ndf 2 node 5 1.25 0. node 6 2.5 1 node 7 1.25 2
-node 8 0 1 node 9 1.25 1</p>
-<p>fix 5 1 1 equalDOF 3 7 1 2 equalDOF 6 8 1 2 equalDOF 6 9 1 2</p>
-<p>set gravY [expr -$accGravity] ;#calc. gravity set gravX [expr
--$gravY*$loadBias]</p>
-<ol>
-<li>define material and properties</li>
-</ol>
-<p>switch $matOpt { 1 { nDMaterial PressureDependMultiYield02 1 2 1.8 $G
-$B 32 .1 80 0.5\ 26. 0.067 0.23 0.06 0.27 } 2 { nDMaterial
-PressureIndependMultiYield 2 2 1.8 4.e4 2.e5 40 .1 } }</p>
-<ol>
+# BUILD MODEL
+
+
+# create the ModelBuilder
+model basic -ndm 2 -ndf 3
+
+node 1 0 0
+node 2 2.5 0
+node 3 2.5 2
+node 4 0 2
+fix 1 1 1 0
+fix 2 1 1 0
+fix 3 0 0 1
+fix 4 0 0 1 
+equalDOF 3 4 1 2
+
+model basic -ndm 2 -ndf 2
+node 5 1.25 0. node 6 2.5 1
+node 7 1.25 2
+node 8 0 1
+node 9 1.25 1
+fix 5 1 1 
+equalDOF 3 7 1 2 
+equalDOF 6 8 1 2 
+equalDOF 6 9 1 2
+
+set gravY [expr -$accGravity] ;#calc. gravity 
+set gravX [expr -$gravY*$loadBias]
+
+# define material and properties
+
+switch $matOpt { 
+    1 { 
+        nDMaterial PressureDependMultiYield02 1 2 1.8 $G $B 32 .1 80 0.5\
+        26. 0.067 0.23 0.06 0.27 
+    } 2 { 
+        nDMaterial PressureIndependMultiYield 2 2 1.8 4.e4 2.e5 40 .1 
+    } 
+}
+
 <li>ele# thick maTag bulk mDensity perm1 perm2 gravity</li>
-</ol>
-<p>element 9_4_QuadUP 1 1 2 3 4 5 6 7 8 9 1.0 1 $bulk $fmass $hperm
-$vperm $gravX $gravY</p>
-<ol>
-<li>set material to elastic for gravity loading</li>
-</ol>
-<p>updateMaterialStage -material $matOpt -stage 0</p>
-<ol>
-<li>recorder for nodal variables along the vertical center line.</li>
-</ol>
-<p>set SnodeList {} for {set i 0} {$i &lt; 9} {incr i 1} { lappend
-SnodeList [expr $i+1] }</p>
-<p>set FnodeList {} for {set i 0} {$i &lt; 4} {incr i 1} { lappend
-FnodeList [expr $i+1] }</p>
-<ol>
-<li><ol>
-<li></li>
-</ol></li>
-<li>GRAVITY APPLICATION (elastic behavior)</li>
-</ol>
-<ol>
-<li>create the SOE, ConstraintHandler, Integrator, Algorithm and
-Numberer</li>
-</ol>
-<p>numberer RCM system ProfileSPD test NormDispIncr 1.0e-8 30 0
-algorithm KrylovNewton constraints Penalty 1.e18 1.e18 set nw 1.5 set
-nw2 [expr pow($nw+0.5, 2)/4] integrator Newmark $nw $nw2 analysis
-Transient</p>
-<p>analyze 10 5e3</p>
-<p>updateMaterialStage -material $matOpt -stage 1</p>
-<p>analyze 100 1.e0</p>
-<ol>
-<li>rezero time</li>
-</ol>
-<p>wipeAnalysis setTime 0.0</p>
-<ol>
-<li><ol>
-<li></li>
-</ol></li>
-<li>NOW APPLY LOADING SEQUENCE AND ANALYZE (plastic)</li>
-</ol>
-<ol>
-<li>base input motion</li>
-</ol>
-<p>pattern UniformExcitation 1 1 -accel "Sine 0. 10. $period -factor
-$accMul"</p>
-<p>eval "recorder Node -file disp -time -node $SnodeList -dof 1 2 -dT
-$deltaT disp" eval "recorder Node -file pwp -time -node $FnodeList -dof
-3 -dT $deltaT vel" eval "recorder Node -file acc -time -node $SnodeList
--dof 1 2 -dT $deltaT accel" recorder Element -ele 1 -time -file stress1
--dT $deltaT material 1 stress recorder Element -ele 1 -time -file
-strain1 -dT $deltaT material 1 strain recorder Element -ele 1 -time
--file stress5 -dT $deltaT material 5 stress recorder Element -ele 1
--time -file strain5 -dT $deltaT material 5 strain recorder Element -ele
-1 -time -file stress9 -dT $deltaT material 9 stress recorder Element
--ele 1 -time -file strain9 -dT $deltaT material 9 strain</p>
-<p>constraints Penalty 1.e18 1.e18 test NormDispIncr 1.e-4 25 0 numberer
-RCM algorithm KrylovNewton system ProfileSPD integrator Newmark $gamma
-[expr pow($gamma+0.5, 2)/4] rayleigh $massProportionalDamping 0.0
-$InitStiffnessProportionalDamping 0.0 analysis VariableTransient</p>
-<p>set startT [clock seconds] analyze $numSteps $deltaT [expr
-$deltaT/100] $deltaT 15 set endT [clock seconds] puts "Execution time:
-[expr $endT-$startT] seconds."</p>
-<p>wipe #flush ouput stream &lt;/syntaxhighlight&gt;</p>
+
+element 9_4_QuadUP 1 1 2 3 4 5 6 7 8 9 1.0 1 $bulk $fmass $hperm $vperm $gravX $gravY
+
+# set material to elastic for gravity loading
+updateMaterialStage -material $matOpt -stage 0
+
+# recorder for nodal variables along the vertical center line.
+set SnodeList {} 
+for {set i 0} {$i &lt; 9} {incr i 1} {lappend SnodeList [expr $i+1] }
+set FnodeList {} 
+for {set i 0} {$i &lt; 4} {incr i 1} {lappend FnodeList [expr $i+1] }
+
+# 
+# GRAVITY APPLICATION (elastic behavior)
+#
+#create the SOE, ConstraintHandler, Integrator, Algorithm and Numberer
+
+numberer RCM 
+system ProfileSPD 
+test NormDispIncr 1.0e-8 30 0
+algorithm KrylovNewton 
+constraints Penalty 1.e18 1.e18 
+set nw 1.5 
+set nw2 [expr pow($nw+0.5, 2)/4] 
+integrator Newmark $nw $nw2 
+analysis Transient
+analyze 10 5e3
+updateMaterialStage -material $matOpt -stage 1
+analyze 100 1.e0
+
+# rezero time
+wipeAnalysis setTime 0.0
+
+# 
+# NOW APPLY LOADING SEQUENCE AND ANALYZE (plastic)
+
+
+# base input motion
+
+pattern UniformExcitation 1 1 -accel "Sine 0. 10. $period -factor $accMul"
+eval "recorder Node -file disp -time -node $SnodeList -dof 1 2 -dT $deltaT disp" 
+eval "recorder Node -file pwp -time -node $FnodeList -dof 3 -dT $deltaT vel" 
+eval "recorder Node -file acc -time -node $SnodeList -dof 1 2 -dT $deltaT accel" 
+recorder Element -ele 1 -time -file stress1 -dT $deltaT material 1 stress
+recorder Element -ele 1 -time -file strain1 -dT $deltaT material 1 strain
+recorder Element -ele 1 -time -file stress5 -dT $deltaT material 5 stress
+recorder Element -ele 1 -time -file strain5 -dT $deltaT material 5 strain
+recorder Element -ele 1 -time -file stress9 -dT $deltaT material 9 stress
+recorder Element -ele 1 -time -file strain9 -dT $deltaT material 9 strain
+
+constraints Penalty 1.e18 1.e18 
+test NormDispIncr 1.e-4 25 0 
+numberer RCM 
+algorithm KrylovNewton 
+system ProfileSPD 
+integrator Newmark $gamma [expr pow($gamma+0.5, 2)/4] 
+rayleigh $massProportionalDamping 0.0 $InitStiffnessProportionalDamping 0.0 
+analysis VariableTransient
+
+<p>set startT [clock seconds] analyze $numSteps $deltaT [expr $deltaT/100] $deltaT 15 set endT [clock seconds] puts "Execution time: [expr $endT-$startT] seconds."</p>
+<p>wipe #flush ouput stream 
+```
+
 <h2 id="matlab_plotting_file">MATLAB Plotting File</h2>
-<p>&lt;syntaxhighlight lang="matlab"&gt; clear all;</p>
+
+```matlab
+ clear all;</p>
 <p>a1=load('acc'); d1=load('disp'); p1=load('pwp'); s1=load('stress1');
 e1=load('strain1'); s5=load('stress5'); e5=load('strain5');
 s9=load('stress9'); e9=load('strain9');</p>
@@ -181,46 +205,49 @@ set(gcf,'paperposition',fs2); saveas(gcf,'Acc','jpg');</p>
 <p>figure(4); close 4; figure(4); a=plot(p1(:,1),p1(:,2)); title ('Pore
 pressure at base'); xLabel('Time (s)'); yLabel('Pore pressure (kPa)');
 set(gcf,'paperposition',fs2); saveas(gcf,'EPWP','jpg');</p>
-<p>&lt;/syntaxhighlight&gt;</p>
+<p>
+```
+
 <h2 id="displacement_output_file">Displacement Output File</h2>
 <figure>
-<img src="PD02_Ex23Disp.jpg" title="PD02_Ex23Disp.jpg"
+<img src="/OpenSeesRT/contrib/static/PD02_Ex23Disp.jpg"
 alt="PD02_Ex23Disp.jpg" />
 <figcaption aria-hidden="true">PD02_Ex23Disp.jpg</figcaption>
 </figure>
 <h2 id="stress_strain_output_file_integration_point_1">Stress-Strain
 Output File (integration point 1)</h2>
 <figure>
-<img src="PD02_Ex23SS_PQ1.jpg" title="PD02_Ex23SS_PQ1.jpg"
+<img src="/OpenSeesRT/contrib/static/PD02_Ex23SS_PQ1.jpg"
 alt="PD02_Ex23SS_PQ1.jpg" />
 <figcaption aria-hidden="true">PD02_Ex23SS_PQ1.jpg</figcaption>
 </figure>
 <h2 id="stress_strain_output_file_integration_point_5">Stress-Strain
 Output File (integration point 5)</h2>
 <figure>
-<img src="PD02_Ex23SS_PQ5.jpg" title="PD02_Ex23SS_PQ5.jpg"
+<img src="/OpenSeesRT/contrib/static/PD02_Ex23SS_PQ5.jpg"
 alt="PD02_Ex23SS_PQ5.jpg" />
 <figcaption aria-hidden="true">PD02_Ex23SS_PQ5.jpg</figcaption>
 </figure>
 <h2 id="stress_strain_output_file_integration_point_9">Stress-Strain
 Output File (integration point 9)</h2>
 <figure>
-<img src="PD02_Ex23SS_PQ9.jpg" title="PD02_Ex23SS_PQ9.jpg"
+<img src="/OpenSeesRT/contrib/static/PD02_Ex23SS_PQ9.jpg"
 alt="PD02_Ex23SS_PQ9.jpg" />
 <figcaption aria-hidden="true">PD02_Ex23SS_PQ9.jpg</figcaption>
 </figure>
 <h2 id="excess_pore_pressure_output_file">Excess Pore Pressure Output
 File</h2>
 <figure>
-<img src="PD02_Ex23EPP.jpg" title="PD02_Ex23EPP.jpg"
+<img src="/OpenSeesRT/contrib/static/PD02_Ex23EPP.jpg"
 alt="PD02_Ex23EPP.jpg" />
 <figcaption aria-hidden="true">PD02_Ex23EPP.jpg</figcaption>
 </figure>
 <h2 id="acceleration_output_file">Acceleration Output File</h2>
 <figure>
-<img src="PD02_Ex23Accel.jpg" title="PD02_Ex23Accel.jpg"
+<img src="/OpenSeesRT/contrib/static/PD02_Ex23Accel.jpg"
 alt="PD02_Ex23Accel.jpg" />
 <figcaption aria-hidden="true">PD02_Ex23Accel.jpg</figcaption>
 </figure>
+
 <hr />
-<p>Return to: </p>
+Return to: 

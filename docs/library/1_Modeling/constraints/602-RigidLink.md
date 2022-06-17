@@ -1,4 +1,4 @@
-# RigidLink command
+# RigidLink
 
 <p>This command is used to construct a single MP_Constraint object.</p>
 
@@ -38,11 +38,16 @@ small rotations</p>
 
 ## Examples
 
-<p>rigidLink beam 2 3; # connect node 3 to node 2 via a rigid
-link-beam.</p>
-<p>REFERENCE:</p>
+connect node 3 to node 2 via a rigid link-beam.
+
+```tcl
+rigidLink beam 2 3; 
+```
+
+## References
 <p>Cook, R.D., Malkus, D.S., Plesha, M. E., and Witt, R. J., "Concepts
 and Applications of Finite Element Analysis," 4th edition, John Wiley
 and Sons publishers, 2002.</p>
+
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

@@ -9,113 +9,123 @@ Pushover</strong>&lt;/center&gt;</p></td>
 </tbody>
 </table>
 <h2 id="input_file">Input File</h2>
-<p>&lt;syntaxhighlight lang="tcl"&gt;</p>
-<ol>
-<li>Created by Zhaohui Yang (zhyang@ucsd.edu)</li>
-<li>plastic pressure dependent material</li>
-<li>plane strain, single element, monotonic pushover.</li>
-<li>SI units (m, s, KN, ton)</li>
-<li></li>
-<li>4 3</li>
+
+```tcl
+
+# Created by Zhaohui Yang (zhyang@ucsd.edu)
+# plastic pressure dependent material
+# plane strain, single element, monotonic pushover.
+# SI units (m, s, KN, ton)
+# 
+# 4 3
 <li>------- --&gt; F (loads applied to node 3)</li>
 <li>| |</li>
 <li>| |</li>
 <li>| |</li>
-<li>1-------2 (nodes 1 and 2 fixed)</li>
-<li>^ ^</li>
-</ol>
-<p>wipe</p>
-<ol>
-<li></li>
-<li>some user defined variables</li>
-<li></li>
-</ol>
+# 1-------2 (nodes 1 and 2 fixed)
+# ^ ^
+
+wipe
+
+# 
+# some user defined variables
+# 
+
 <p>set massDen 2. ;# mass density set massProportionalDamping 0.0 ; set
-InitStiffnessProportionalDamping 0.001 ; set fangle 31.40 ;#friction
+InitStiffnessProportionalDamping 0.001 ;
+set fangle 31.40 ;#friction
 angle set ptangle 26.50 ;#phase transformation angle set E 90000.0
-;#Young's modulus set poisson 0.40 ; set G [expr $E/(2*(1+$poisson))] ;
-set B [expr $E/(3*(1-2*$poisson))] ; set press 0.0 ;# isotropic
+;#Young's modulus set poisson 0.40 ;
+set G [expr $E/(2*(1+$poisson))] ;
+set B [expr $E/(3*(1-2*$poisson))] ;
+set press 0.0 ;# isotropic
 consolidation pressure on quad element(s) set deltaT 0.010 ;# time step
 for analysis set numSteps 500 ;# Number of analysis steps set gamma
 0.500 ;# Newmark integration parameter set period 1 ;# Period of applied
-sinusoidal load set pi 3.1415926535 ; set inclination 0 ; set
+sinusoidal load set pi 3.1415926535 ;
+set inclination 0 ; set
 unitWeightX [expr $massDen*9.81*sin($inclination/180.0*$pi)] ;# unit
-weight in X direction set unitWeightY [expr
--$massDen*9.81*cos($inclination/180.0*$pi)] ;# unit weight in Y
+weight in X direction set unitWeightY [expr -$massDen*9.81*cos($inclination/180.0*$pi)] ;# unit weight in Y
 direction set loadIncr 1 ;# Static shear load bias</p>
-<ol>
+
 <li><ol>
-<li></li>
+# 
 </ol></li>
-</ol>
-<ol>
-<li>create the ModelBuilder</li>
-</ol>
-<p>model basic -ndm 2 -ndf 2</p>
-<ol>
-<li>define material and properties</li>
-</ol>
+
+
+# create the ModelBuilder
+
+model basic -ndm 2 -ndf 2
+
+# define material and properties
+
 <p>nDMaterial PressureDependMultiYield 2 2 $massDen $G $B $fangle .1 80
 0.5 \ $ptangle 0.17 0.4 10 00 0.015 1.0</p>
-<ol>
-<li>define the nodes</li>
-</ol>
-<p>node 1 0.0 0.0 node 2 1.0 0.0 node 3 1.0 1.0 node 4 0.0 1.0</p>
-<ol>
-<li>define the element thick material maTag press density gravity</li>
-</ol>
+
+# define the nodes
+
+node 1 0.0 0.0
+node 2 1.0 0.0
+node 3 1.0 1.0
+node 4 0.0 1.0
+
+# define the element thick material maTag press density gravity
+
 <p>element quad 1 1 2 3 4 1.0 "PlaneStrain" 2 $press 0.0 $unitWeightX
 $unitWeightY</p>
-<p>updateMaterialStage -material 2 -stage 0</p>
-<ol>
-<li>fix the base in vertical direction</li>
-</ol>
-<p>fix 1 1 1 fix 2 1 1 equalDOF 3 4 1 2 ;#tie nodes 3 and 4</p>
-<ol>
+updateMaterialStage -material 2 -stage 0
+
+# fix the base in vertical direction
+
+fix 1 1 1
+fix 2 1 1 equalDOF 3 4 1 2 ;#tie nodes 3 and 4
+
 <li><ol>
-<li></li>
+# 
 </ol></li>
-<li>GRAVITY APPLICATION (elastic behavior)</li>
+# GRAVITY APPLICATION (elastic behavior)
 <li>create the SOE, ConstraintHandler, Integrator, Algorithm and
 Numberer</li>
-</ol>
-<p>system ProfileSPD test NormDispIncr 1.e-12 25 0 constraints
-Transformation integrator LoadControl 1 1 1 1 algorithm Newton numberer
+
+<p>system ProfileSPD 
+test NormDispIncr 1.e-12 25 0
+constraints Transformation
+ integrator LoadControl 1 1 1 1 algorithm Newton numberer
 RCM</p>
-<ol>
-<li>create the Analysis</li>
-</ol>
-<p>analysis Static</p>
-<ol>
-<li>analyze</li>
-</ol>
-<p>analyze 2</p>
-<ol>
-<li>switch the material to plastic</li>
-</ol>
+
+# create the Analysis
+
+analysis Static
+
+# analyze
+
+analyze 2
+
+# switch the material to plastic
+
 <p>updateMaterialStage -material 2 -stage 1 updateMaterials -material 2
 bulkModulus [expr $G*2/3.];</p>
-<ol>
-<li>analyze</li>
-</ol>
-<p>analyze 1</p>
-<ol>
+
+# analyze
+
+analyze 1
+
 <li><ol>
-<li></li>
+# 
 </ol></li>
-<li>NOW APPLY LOADING SEQUENCE AND ANALYZE (plastic)</li>
-</ol>
-<ol>
-<li>rezero time</li>
-</ol>
-<p>setTime 0.0</p>
-<ol>
-<li>loadConst -time 0.0</li>
-</ol>
-<p>wipeAnalysis</p>
-<ol>
-<li>create a LoadPattern with a Linear time series</li>
-</ol>
+# NOW APPLY LOADING SEQUENCE AND ANALYZE (plastic)
+
+
+# rezero time
+
+setTime 0.0
+
+# loadConst -time 0.0
+
+wipeAnalysis
+
+# create a LoadPattern with a Linear time series
+
 <p>pattern Plain 1 Linear { load 3 $loadIncr 0.0 ;#load applied in x
 direction }</p>
 <p>recorder Node -file disp.out -time -node 1 2 3 4 -dof 1 2 -dT 0.01
@@ -125,24 +135,26 @@ accel recorder Element -ele 1 -time -file stress1.out -dT 0.01 material
 material 1 strain recorder Element -ele 1 -time -file stress3.out -dT
 0.01 material 3 stress recorder Element -ele 1 -time -file strain3.out
 -dT 0.01 material 3 strain</p>
-<ol>
-<li>create the Analysis</li>
-</ol>
+
+# create the Analysis
+
 <p>constraints Transformation; # Penalty 1.0e18 1.0e18 ;# test
 NormDispIncr 1.e-12 25 0 algorithm Newton numberer RCM system ProfileSPD
 rayleigh $massProportionalDamping 0.0 $InitStiffnessProportionalDamping
 0. integrator Newmark $gamma [expr pow($gamma+0.5, 2)/4] analysis
 VariableTransient</p>
-<ol>
-<li>analyze</li>
-</ol>
-<p>set startT [clock seconds] analyze $numSteps $deltaT [expr
-$deltaT/100] $deltaT 10 set endT [clock seconds] puts "Execution time:
-[expr $endT-$startT] seconds."</p>
-<p>wipe #flush ouput stream</p>
-<p>&lt;/syntaxhighlight&gt;</p>
+
+# analyze
+
+<p>set startT [clock seconds] analyze $numSteps $deltaT [expr $deltaT/100] $deltaT 10 set endT [clock seconds] puts "Execution time: [expr $endT-$startT] seconds."</p>
+wipe #flush ouput stream
+<p>
+```
+
 <h2 id="matlab_plotting_file">MATLAB Plotting File</h2>
-<p>&lt;syntaxhighlight lang="matlab"&gt; clear all;</p>
+
+```matlab
+ clear all;</p>
 <p>a1=load('acce.out'); d1=load('disp.out'); s1=load('stress1.out');
 e1=load('strain1.out'); s5=load('stress3.out');
 e5=load('strain3.out');</p>
@@ -175,7 +187,9 @@ saveas(gcf,'SS_PQ5','jpg');</p>
 subplot(2,1,1),plot(d1(:,1),d1(:,6),'r'); title ('Lateral displacement
 at element top'); xLabel('Time (s)'); yLabel('Displacement (m)');
 set(gcf,'paperposition',fs); saveas(gcf,'D','jpg');</p>
-<p>&lt;/syntaxhighlight&gt;</p>
+<p>
+```
+
 <h2 id="displacement_output_file">Displacement Output File</h2>
 <figure>
 <img src="/OpenSeesRT/contrib/static/PD_Ex12Disp.png" title="PD_Ex12Disp.png"
@@ -189,4 +203,4 @@ alt="PD_Ex12SS_PQ13.png" />
 <figcaption aria-hidden="true">PD_Ex12SS_PQ13.png</figcaption>
 </figure>
 <hr />
-<p>Return to: </p>
+Return to: 

@@ -55,16 +55,20 @@ internally).</li>
 
 ## Examples
 
-<p>uniaxialMaterial Concrete01 1 -4.0 -0.002 0.0 -0.005; # the concrete
-material with tag 1 reaches compressive strength of 4.0 at strain of
-0.002 and reaches ultimate strength of 0.0 at strain of 0.005.</p>
+The following example creates a concrete material with tag $1$ which reaches compressive 
+strength of $4.0$ at a strain of $0.002$ and reaches ultimate strength of $0.0$ at 
+strain of $0.005$.
+
+```tcl
+uniaxialMaterial Concrete01 1 -4.0 -0.002 0.0 -0.005; 
+```
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/Concrete01Hysteretic.jpg" title="Concrete01Hysteretic.jpg"
 alt="Concrete01Hysteretic.jpg" />
 <figcaption aria-hidden="true">Concrete01Hysteretic.jpg</figcaption>
 </figure>
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> Filip Filippou, UC
-Berkeley </span></p>
-<p>Images Developed by: <span style="color:blue"> Silvia Mazzoni
-</span></p>
+<p>Code Developed by: <span style="color:blue"> Filip Filippou, UC Berkeley </span></p>
+<p>Images Developed by: <span style="color:blue"> Silvia Mazzoni</span></p>

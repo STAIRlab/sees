@@ -26,12 +26,13 @@ geomTransf Linear $transfTag $vecxzX $vecxzY $vecxzZ
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">vecxzX vecxzY vecxzZ</code></p></td>
-<td><p>X, Y, and Z components of vecxz, the vector used to define the
+<td><p>$X$, $Y$, and $Z$ components of `vecxz`, the vector used to define the
 local x-z plane of the local-coordinate system. The local y-axis is
-defined by taking the cross product of the vecxz vector and the
-x-axis.</p>
-<p>These components are specified in the global-coordinate system X,Y,Z
-and define a vector that is in a plane parallel to the x-z plane of the
+defined by taking the cross product of the `vecxz` vector and the
+x-axis.
+
+These components are specified in the global-coordinate system $X$,$Y$,$Z$
+and define a vector that is in a plane parallel to the $x-z$ plane of the
 local-coordinate system.</p>
 <p>These items need to be specified for the three-dimensional
 problem.</p></td>
