@@ -141,6 +141,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/ConvergenceTest/</loc>
+         <lastmod>2022-06-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/DOF_Numberer/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
@@ -191,17 +196,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/convergenceTest/ConvergenceTest/</loc>
-         <lastmod>2022-06-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/CentralDifference/</loc>
-         <lastmod>2022-06-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/DisplacementControl/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -212,21 +207,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/Integrator/</loc>
-         <lastmod>2022-06-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/LoadControl/</loc>
-         <lastmod>2022-06-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/LoadPath/</loc>
-         <lastmod>2022-06-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/integrator/MinUnbalDispNorm/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1741,6 +1721,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/2_Analysis/Eigen_Analysis/ArpackSolver/</loc>
+         <lastmod>2022-06-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/2_Analysis/Static_Analysis/integrator/154-Displacement%20Control/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
@@ -1761,7 +1746,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/2_Analysis/Static_Analysis/integrator/EQPath/</loc>
+         <lastmod>2022-06-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/2_Analysis/Static_Analysis/integrator/HSConstraint/</loc>
+         <lastmod>2022-06-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/2_Analysis/Static_Analysis/integrator/LoadPath/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1857,11 +1852,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Convergence_Test/590-RelativeNormUnbalance/</loc>
-         <lastmod>2022-06-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/EigenDecomp/ArpackSolver/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2326,16 +2316,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/</loc>
-         <lastmod>2022-06-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/364-LimitStateMaterialExample/</loc>
-         <lastmod>2022-06-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/365-LimitStateMaterialExampleDebugged/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
@@ -2351,22 +2331,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/limitCurve/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/LimitState/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/limitCurve/28-Axial%20LimitCurve/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/Limit_Curves/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/limitCurve/608-RotationShearCurve/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/Limit_Curves/28-Axial%20LimitCurve/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/limitCurve/635-Shear%20LimitCurve/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/Limit_Curves/608-RotationShearCurve/</loc>
+         <lastmod>2022-06-17</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/Limit_Curves/635-Shear%20LimitCurve/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2647,11 +2632,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/other/analysis/StaticIntegrator/ArcLength1/</loc>
-         <lastmod>2022-06-17</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/StaticIntegrator/EQPath/</loc>
          <lastmod>2022-06-17</lastmod>
          <changefreq>daily</changefreq>
     </url>
