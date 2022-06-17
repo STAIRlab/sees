@@ -19,5 +19,6 @@ integrator EQPath $arc_length $type
   FULLTEXT : https://www.researchgate.net/publication/263361974_Comprehensive_evaluation_of_structural_geometrical_nonlinear_solution_techniques_Part_II_Comparing_efficiencies_of_the_methods
 
 
-  Written: M. Salehi opensees.net@gmail.com
-  Created: 02/19
+Code developed by: <span style="color:blue">M. Salehi</span> opensees.net@gmail.com
+
+Created: 02/19

@@ -9,7 +9,8 @@ integration is used on the element interior while two-point Gauss-Radau
 integration is applied over lengths of 4LpI and 4LpJ at the element
 ends, viz. "modified Gauss-Radau plastic hinge integration". A total of
 six integration points are used in the element state determination (two
-for each hinge and two for the interior).</p>
+for each hinge and two for the interior).
+
 <p>Users may be familiar with the <strong>beamWithHinges</strong>
 command format (see below); however, the format shown here allows for
 the simple but important case of using a material nonlinear section
@@ -17,22 +18,22 @@ model on the element interior. The previous beamWithHinges command
 constrained the user to an elastic interior, which often led to
 unconservative estimates of the element resisting force when plasticity
 spread beyond the plastic hinge regions in to the element interior.</p>
-<p>The advantages of this new format over the previous
-<strong>beamWithHinges</strong> command are</p>
+
+The advantages of this new format over the previous
+<strong>beamWithHinges</strong> command are
+
 <ul>
-<li>Plasticity can spread beyond the plastic hinge regions</li>
-<li>Hinges can form on the element interior, e.g., due to distributed
-member loads</li>
+  <li>Plasticity can spread beyond the plastic hinge regions</li>
+  <li>Hinges can form on the element interior, e.g., due to distributed member loads</li>
 </ul>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element forceBeamColumn $eleTag $iNode $jNode $transfTag
-"HingeRadau $secTagI $LpI $secTagJ $LpJ $secTagInterior" &lt;-mass
-$massDens&gt; &lt;-iter $maxIters $tol&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+element forceBeamColumn $eleTag $iNode $jNode $transfTag
+        "HingeRadau $secTagI $LpI $secTagJ $LpJ $secTagInterior" 
+        < -mass $massDens > 
+        < -iter $maxIters $tol >
+```
+
 <table>
 <tbody>
 <tr class="odd">
@@ -84,50 +85,48 @@ default=10-16)</p></td>
 </tr>
 </tbody>
 </table>
-<p>NOTE: The keyword <strong>HingeRadau</strong> can be changed to one
+
+NOTE: The keyword <strong>HingeRadau</strong> can be changed to one
 of the following in order to use a different hinge integration
-approach:</p>
+approach:
+
 <ul>
-<li><strong>HingeRadau</strong> -- two-point Gauss-Radau applied to the
-hinge regions over 4LpI and 4LpJ (six element integration points)</li>
-<li><strong>HingeRadauTwo</strong> -- two-point Gauss-Radau in the hinge
-regions applied over LpI and LpJ (six element integration points)</li>
-<li><strong>HingeMidpoint</strong> -- midpoint integration over the
-hinge regions (four element integration points)</li>
-<li><strong>HingeEndpoint</strong> -- endpoint integration over the
-hinge regions (four element integration points)</li>
+  <li><strong>HingeRadau</strong> -- two-point Gauss-Radau applied to the hinge regions over 4LpI and 4LpJ (six element integration points)</li>
+  <li><strong>HingeRadauTwo</strong> -- two-point Gauss-Radau in the hinge regions applied over LpI and LpJ (six element integration points)</li>
+  <li><strong>HingeMidpoint</strong> -- midpoint integration over the hinge regions (four element integration points)</li>
+  <li><strong>HingeEndpoint</strong> -- endpoint integration over the hinge regions (four element integration points)</li>
 </ul>
-<p>For more information on the behavior, advantages, and disadvantages
-of these approaches to plastic hinge integration, see</p>
-<p>Scott, M.H. and G.L. Fenves. "<a
-href="http://dx.doi.org/10.1061/(ASCE)0733-9445(2006)132:2(244)">Plastic
-Hinge Integration Methods for Force-Based Beam-Column Elements</a>",
-Journal of Structural Engineering, 132(2):244-252, February 2006.</p>
-<p>Scott, M.H. and K.L. Ryan. "<a
-href="http://dx.doi.org/10.1193/1.4000136">Moment-Rotation Behavior of
-Force-Based Plastic Hinge Elements</a>", Earthquake Spectra,
-29(2):597-607, May 2013.</p>
+
+For more information on the behavior, advantages, and disadvantages
+of these approaches to plastic hinge integration, see
+
+- Scott, M.H. and G.L. Fenves. "<a
+  href="http://dx.doi.org/10.1061/(ASCE)0733-9445(2006)132:2(244)">Plastic
+  Hinge Integration Methods for Force-Based Beam-Column Elements</a>",
+  Journal of Structural Engineering, 132(2):244-252, February 2006.
+
+- Scott, M.H. and K.L. Ryan. "<a
+  href="http://dx.doi.org/10.1193/1.4000136">Moment-Rotation Behavior of
+  Force-Based Plastic Hinge Elements</a>", Earthquake Spectra, 29(2):597-607, May 2013.
+
 <p>The primary advantages of <strong>HingeRadau</strong> are</p>
 <ul>
-<li>The user can specify a physically meaningful plastic hinge
-length</li>
-<li>The largest bending moment is captured at the element ends</li>
-<li>The exact numerical solution is recovered for a linear-elastic
-prismatic beam</li>
-<li>The characteristic length is equal to the user-specified plastic
-hinge length when deformations localize at the element ends</li>
+  <li>The user can specify a physically meaningful plastic hinge length</li>
+  <li>The largest bending moment is captured at the element ends</li>
+  <li>The exact numerical solution is recovered for a linear-elastic prismatic beam</li>
+  <li>The characteristic length is equal to the user-specified plastic hinge length when deformations localize at the element ends</li>
 </ul>
+
 <p>while the primary disadvantages are</p>
 <ul>
-<li>The element post-yield response is too flexible for strain-hardening
-section response (consider using <strong>HingeRadauTwo</strong>)</li>
-<li>The user needs to know the plastic hinge length <em>a priori</em>
-(empirical equations are available)</li>
+  <li>The element post-yield response is too flexible for strain-hardening section response (consider using <strong>HingeRadauTwo</strong>)</li>
+  <li>The user needs to know the plastic hinge length <em>a priori</em> (empirical equations are available)</li>
 </ul>
+
 <p>NOTE: See the <strong><a href="Force-Based_Beam-Column_Element"
-title="wikilink"> forceBeamColumn</a></strong> page for valid recorder
-queries.</p>
+title="wikilink"> forceBeamColumn</a></strong> page for valid recorder queries.</p>
 <hr />
+
 <p>Original command (maintained for backward compatibility)</p>
 <p>NOTE: this form of the command forces the element interior to be
 linear-elastic, which is not always the best approach.</p>
@@ -135,16 +134,16 @@ linear-elastic, which is not always the best approach.</p>
 
 ```tcl
 element beamWithHinges $eleTag $iNode $jNode $secTagI
-        $Lpi $secTagJ $Lpj $E $A $Iz $transfTag &lt;-mass $massDens&gt;
-        &lt;-iter $maxIters $tol&gt;
+        $Lpi $secTagJ $Lpj $E $A $Iz $transfTag < -mass $massDens >
+        < -iter $maxIters $tol >
 ```
 
 <p>For 3D:</p>
 
 ```tcl
 element beamWithHinges $eleTag $iNode $jNode $secTagI
-        $Lpi $secTagJ $Lpj $E $A $Iz $Iy $G $J $transfTag &lt;-mass
-        $massDens&gt; &lt;-iter $maxIters $tol&gt;
+        $Lpi $secTagJ $Lpj $E $A $Iz $Iy $G $J $transfTag < -mass
+        $massDens > < -iter $maxIters $tol >
 ```
 
 <p>All inputs are the same as above, with the following additional
@@ -183,6 +182,5 @@ portion</p></td>
 <hr />
 
 <p>Code maintained by: <a
-href="http://web.engr.oregonstate.edu/~mhscott">Michael H. Scott, Oregon
-State University</a></p>
+href="http://web.engr.oregonstate.edu/~mhscott">Michael H. Scott, Oregon State University</a></p>
 
