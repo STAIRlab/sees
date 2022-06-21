@@ -15,7 +15,7 @@
     
     
       
-        <title>SurfaceLoad Element - OpenSeesRT</title>
+        <title>SurfaceLoad - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SurfaceLoad Element
+              SurfaceLoad
 
             
           </span>
@@ -6597,7 +6597,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        SurfaceLoad Element
+        SurfaceLoad
 
       </a>
       
@@ -13762,12 +13762,9 @@
 
 
 
-<h1 id="surfaceload-element">SurfaceLoad Element</h1>
-<p>
-This command is used to construct a SurfaceLoad element object.
-</p>
-<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$kNode</span><span class="w"> </span><span class="nv">$lNode</span>
-<span class="w">        </span><span class="nv">$p</span><span class="w"></span>
+<h1 id="surfaceload">SurfaceLoad</h1>
+<p>This command is used to construct a <code>SurfaceLoad</code> element object.</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$kNode</span><span class="w"> </span><span class="nv">$lNode</span><span class="w"> </span><span class="nv">$p</span>
 </pre></div>
 
 <table>
@@ -13821,83 +13818,92 @@ There are no valid ElementalRecorder queries for the SurfaceLoad element. Its so
 The pressure loading from the SurfaceLoad element can be applied in a load pattern. See the analysis example below.
 </li>
 </ol>
-<p>
-<strong>EXAMPLES:</strong>
-</p>
-<p>
-SurfaceLoad element definition with element tag 1, nodes 1, 2, 3, and 4, and pressure of -10.0
-</p>
-<p>
-element SurfaceLoad 1 1 2 3 4 -10.0
-</p>
-<hr />
-<p>
-Code Developed by: <span style="color:blue"> Chris McGann, Pedro Arduino, &amp; Peter Mackenzie-Helnwein, at the University of Washington </span>
-</p>
-<hr />
-<p>
-<strong>EXAMPLE ANALYSIS:</strong>
-</p>
-<p>
-The example input file below involves applying a compressive 0.1 kPa loading to a four-element mesh of brick elements. The applied loading is increased linearly over the first 0.1 seconds of pseudo-time, then held constant.
-</p>
-<p>
-<div class="highlight"><pre><span></span><span class="w"> </span><span class="nv">wipe</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>model<span class="w"> </span>BasicBuilder<span class="w"> </span><span class="o">-</span>ndm<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span>ndf<span class="w"> </span><span class="mi">3</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>nodes<span class="o">&lt;/</span>li<span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>node<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">0.0</span>
-<span class="nv">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">8</span>
-<span class="nv">3.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">6.0</span>
-<span class="nv">node</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="mf">6.0</span>
-<span class="nv">3.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span>node<span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>boundary<span class="w"> </span>conditions<span class="o">&lt;/</span>li<span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>fix<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
-<span class="nv">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>fix<span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>material<span class="o">&lt;/</span>li<span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>nDMaterial<span class="w"> </span>ElasticIsotropic<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">25000.0</span><span class="w"> </span><span class="mf">0.0</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>brick<span class="w"> </span>elements<span class="o">&lt;/</span>li<span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>element<span class="w"> </span>SSPbrick<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>element<span class="w"> </span>SSPbrick<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">5</span>
-<span class="nv">11</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>element<span class="w"> </span>SSPbrick<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>element<span class="w"> </span>SSPbrick
-<span class="nv">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mi">1</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>surface<span class="w"> </span>load<span class="w"> </span>elements<span class="o">&lt;/</span>li<span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>element<span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="o">-</span><span class="mf">0.1</span><span class="w"> </span>element<span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">15</span>
-<span class="nv">14</span><span class="w"> </span><span class="o">-</span><span class="mf">0.1</span><span class="w"> </span>element<span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">-</span><span class="mf">0.1</span><span class="w"> </span>element<span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">14</span>
-<span class="nv">15</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="o">-</span><span class="mf">0.1</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>recorders<span class="o">&lt;/</span>li<span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>recorder<span class="w"> </span>Node<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>displacement.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>nodeRange<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">2</span>
-<span class="nv">disp</span><span class="w"> </span>recorder<span class="w"> </span>Node<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>reactions.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>nodeRange<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">2</span>
-<span class="nv">reaction</span><span class="w"> </span>recorder<span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>stress.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>eleRange<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">4</span>
-<span class="nv">stress</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>load<span class="w"> </span>pattern<span class="o">&lt;/</span>li<span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>pattern<span class="w"> </span>Plain<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">{</span><span class="nv">Series</span><span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="k">{</span><span class="nv">0</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="mi">10000</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>values<span class="w"> </span><span class="k">{</span><span class="nv">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>factor
-<span class="nv">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"> </span><span class="nv">eleLoad</span><span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">-</span>type<span class="w"> </span><span class="o">-</span>surfaceLoad<span class="w"> </span>eleLoad<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">-</span>type<span class="w"> </span><span class="o">-</span>surfaceLoad
-<span class="nv">eleLoad</span><span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">-</span>type<span class="w"> </span><span class="o">-</span>surfaceLoad<span class="w"> </span>eleLoad<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">-</span>type<span class="w"> </span><span class="o">-</span>surfaceLoad
-<span class="k">}</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">li</span><span class="o">&gt;</span>analysis<span class="o">&lt;/</span>li<span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="nv">ol</span><span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>constraints<span class="w"> </span>Transformation<span class="w"> </span>test<span class="w"> </span>NormDispIncr<span class="w"> </span><span class="mi">1</span>e-5<span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>algorithm
-<span class="nv">Newton</span><span class="w"> </span>numberer<span class="w"> </span>Plain<span class="w"> </span>system<span class="w"> </span>SparseSPD<span class="w"> </span>integrator<span class="w"> </span>LoadControl<span class="w"> </span><span class="mf">0.01</span>
-<span class="nv">analysis</span><span class="w"> </span>Static<span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>analyze<span class="w"> </span><span class="mi">105</span><span class="o">&lt;/</span>p<span class="o">&gt;</span>
-<span class="o">&lt;</span><span class="nv">p</span><span class="o">&gt;</span>wipe<span class="w"> </span>
+<h2 id="examples">Examples</h2>
+<p>SurfaceLoad element definition with element tag <span class="math inline">\(1\)</span>, nodes <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span>, and <span class="math inline">\(4\)</span>, and pressure of <span class="math inline">\(-10.0\)</span>:</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">-</span><span class="mf">10.0</span>
 </pre></div>
 
-</p>
+<hr />
+<p>The example input file below involves applying a compressive <span class="math inline">\(0.1\)</span> kPa loading to a four-element mesh of brick elements. The applied loading is increased linearly over the first <span class="math inline">\(0.1\)</span> seconds of pseudo-time, then held constant.</p>
+<div class="highlight"><pre><span></span><span class="w"> </span><span class="nv">wipe</span>
+
+<span class="nv">model</span><span class="w"> </span>BasicBuilder<span class="w"> </span><span class="o">-</span>ndm<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span>ndf<span class="w"> </span><span class="mi">3</span>
+
+<span class="c"># nodes</span>
+<span class="nv">node</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">6.0</span>
+<span class="nv">node</span><span class="w">  </span><span class="mi">2</span><span class="w">  </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">6.0</span>
+<span class="nv">node</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">6.0</span>
+<span class="nv">node</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span>
+<span class="nv">node</span><span class="w">  </span><span class="mi">5</span><span class="w">  </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span>
+<span class="nv">node</span><span class="w">  </span><span class="mi">6</span><span class="w">  </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span>
+<span class="nv">node</span><span class="w">  </span><span class="mi">7</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">node</span><span class="w">  </span><span class="mi">8</span><span class="w">  </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">node</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">10</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">6.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">11</span><span class="w">  </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">6.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">12</span><span class="w">  </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">6.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">13</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">14</span><span class="w">  </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">15</span><span class="w">  </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">16</span><span class="w">  </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">17</span><span class="w">  </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span>
+<span class="nv">node</span><span class="w"> </span><span class="mi">18</span><span class="w">  </span><span class="mf">6.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="mf">0.0</span>
+
+<span class="c"># boundary conditions</span>
+<span class="nv">fix</span><span class="w">  </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">fix</span><span class="w">  </span><span class="mi">2</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">fix</span><span class="w">  </span><span class="mi">3</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">fix</span><span class="w">  </span><span class="mi">4</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">fix</span><span class="w">  </span><span class="mi">5</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">fix</span><span class="w">  </span><span class="mi">6</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">fix</span><span class="w">  </span><span class="mi">7</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">fix</span><span class="w">  </span><span class="mi">8</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">fix</span><span class="w">  </span><span class="mi">9</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="c"># material</span>
+<span class="nv">nDMaterial</span><span class="w"> </span>ElasticIsotropic<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">25000.0</span><span class="w"> </span><span class="mf">0.0</span>
+
+<span class="c"># brick elements</span>
+<span class="nv">element</span><span class="w"> </span>SSPbrick<span class="w"> </span><span class="mi">1</span><span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">element</span><span class="w"> </span>SSPbrick<span class="w"> </span><span class="mi">2</span><span class="w">  </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">element</span><span class="w"> </span>SSPbrick<span class="w"> </span><span class="mi">3</span><span class="w">  </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">13</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">element</span><span class="w"> </span>SSPbrick<span class="w"> </span><span class="mi">4</span><span class="w">  </span><span class="mi">5</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="c"># surface load elements</span>
+<span class="nv">element</span><span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="mi">5</span><span class="w">  </span><span class="mi">10</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">13</span><span class="w">  </span><span class="o">-</span><span class="mf">0.1</span>
+<span class="nv">element</span><span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="mi">6</span><span class="w">  </span><span class="mi">11</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="mi">14</span><span class="w">  </span><span class="o">-</span><span class="mf">0.1</span>
+<span class="nv">element</span><span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="mi">7</span><span class="w">  </span><span class="mi">13</span><span class="w"> </span><span class="mi">14</span><span class="w"> </span><span class="mi">17</span><span class="w"> </span><span class="mi">16</span><span class="w">  </span><span class="o">-</span><span class="mf">0.1</span>
+<span class="nv">element</span><span class="w"> </span>SurfaceLoad<span class="w"> </span><span class="mi">8</span><span class="w">  </span><span class="mi">14</span><span class="w"> </span><span class="mi">15</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="mi">17</span><span class="w">  </span><span class="o">-</span><span class="mf">0.1</span>
+
+<span class="c"># recorders</span>
+<span class="nv">recorder</span><span class="w"> </span>Node<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>displacement.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>nodeRange<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">2</span><span class="w"> </span>disp
+<span class="nv">recorder</span><span class="w"> </span>Node<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>reactions.out<span class="w">    </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>nodeRange<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">2</span><span class="w"> </span>reaction
+<span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>stress.out<span class="w">    </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>eleRange<span class="w">  </span><span class="mi">1</span><span class="w"> </span><span class="mi">4</span><span class="w">  </span>stress
+
+<span class="c"># load pattern</span>
+<span class="nv">pattern</span><span class="w"> </span>Plain<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">{</span><span class="nv">Series</span><span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="k">{</span><span class="nv">0</span><span class="w"> </span><span class="mf">0.1</span><span class="w"> </span><span class="mi">10000</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>values<span class="w"> </span><span class="k">{</span><span class="nv">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>factor<span class="w"> </span><span class="mi">1</span><span class="k">}</span><span class="w"> </span><span class="k">{</span><span class="w"></span>
+<span class="w">    </span><span class="nv">eleLoad</span><span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">-</span>type<span class="w"> </span><span class="o">-</span>surfaceLoad
+<span class="w">    </span><span class="nv">eleLoad</span><span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">-</span>type<span class="w"> </span><span class="o">-</span>surfaceLoad
+<span class="w">    </span><span class="nv">eleLoad</span><span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">-</span>type<span class="w"> </span><span class="o">-</span>surfaceLoad
+<span class="w">    </span><span class="nv">eleLoad</span><span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">-</span>type<span class="w"> </span><span class="o">-</span>surfaceLoad
+<span class="k">}</span>
+
+<span class="c"># analysis</span>
+<span class="nv">constraints</span><span class="w"> </span>Transformation
+<span class="nv">test</span><span class="w">        </span>NormDispIncr<span class="w"> </span><span class="mi">1</span>e-5<span class="w"> </span><span class="mi">50</span><span class="w"> </span><span class="mi">1</span>
+<span class="nv">algorithm</span><span class="w">   </span>Newton
+<span class="nv">numberer</span><span class="w">    </span>Plain
+<span class="nv">system</span><span class="w">      </span>SparseSPD
+<span class="nv">integrator</span><span class="w">  </span>LoadControl<span class="w"> </span><span class="mf">0.01</span>
+<span class="nv">analysis</span><span class="w">    </span>Static
+
+<span class="nv">analyze</span><span class="w">    </span><span class="mi">105</span>
+
+<span class="nv">wipe</span>
+</pre></div>
+
+<hr />
+<p>Code developed by: <span style="color:blue"> Chris McGann, Pedro Arduino, &amp; Peter Mackenzie-Helnwein, at the University of Washington </span></p>
 
 
               
