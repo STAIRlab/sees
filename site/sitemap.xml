@@ -1416,17 +1416,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/classical/177-Elastic-No%20Tension/</loc>
+         <lastmod>2022-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/classical/179-Elastic-Perfectly%20Plastic/</loc>
+         <lastmod>2022-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/classical/180-ElasticBilin/</loc>
+         <lastmod>2022-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/classical/181-ElasticMultiLinear/</loc>
+         <lastmod>2022-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/classical/195-Elastic%20Uniaxial/</loc>
+         <lastmod>2022-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/classical/322-Hardening/</loc>
          <lastmod>2022-06-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/classical/381-Maxwell/</loc>
-         <lastmod>2022-06-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/classical/730-UVCuniaxial%20%28Updated%20Voce-Chaboche%29/</loc>
          <lastmod>2022-06-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1442,11 +1462,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/concrete/234-FRPConfinedConcrete/</loc>
-         <lastmod>2022-06-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/concrete/87-Concrete01/</loc>
          <lastmod>2022-06-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1496,36 +1511,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/elastic/177-Elastic-No%20Tension/</loc>
-         <lastmod>2022-06-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/elastic/178-Elastic-Perfectly%20Plastic%20Gap/</loc>
-         <lastmod>2022-06-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/elastic/179-Elastic-Perfectly%20Plastic/</loc>
-         <lastmod>2022-06-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/elastic/180-ElasticBilin/</loc>
-         <lastmod>2022-06-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/elastic/181-ElasticMultiLinear/</loc>
-         <lastmod>2022-06-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/elastic/195-Elastic%20Uniaxial/</loc>
-         <lastmod>2022-06-21</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/metalic/158-DoddRestrepo/</loc>
          <lastmod>2022-06-21</lastmod>
          <changefreq>daily</changefreq>
@@ -1557,6 +1542,16 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/metalic/668-SteelMPF/</loc>
+         <lastmod>2022-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/metalic/730-UVCuniaxial/</loc>
+         <lastmod>2022-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/other/178-Elastic-Perfectly%20Plastic%20Gap/</loc>
          <lastmod>2022-06-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2532,6 +2527,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/material/737-UniaxialMaterial%20commands/</loc>
+         <lastmod>2022-06-21</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/material/87-Concrete01/</loc>
          <lastmod>2022-06-21</lastmod>
          <changefreq>daily</changefreq>
     </url>
