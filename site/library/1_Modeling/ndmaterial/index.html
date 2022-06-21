@@ -7553,8 +7553,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_5_1_5_2">
@@ -7622,21 +7620,6 @@
     <li class="md-nav__item">
       <a href="../uniaxialMaterial/bearings/352-KikuchiAikenLRB/" class="md-nav__link">
         KikuchiAikenLRB
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../uniaxialMaterial/bearings/623-SelfCentering/" class="md-nav__link">
-        SelfCentering
 
       </a>
     </li>
@@ -7960,7 +7943,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../uniaxialMaterial/concrete/88-Concrete01%20--%20Zero%20Tensile%20Strength/" class="md-nav__link">
+      <a href="../uniaxialMaterial/concrete/88-Concrete01/" class="md-nav__link">
         Concrete01
 
       </a>
@@ -7990,7 +7973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../uniaxialMaterial/concrete/90-Concrete02%20--%20Linear%20Tension%20Softening/" class="md-nav__link">
+      <a href="../uniaxialMaterial/concrete/90-Concrete02/" class="md-nav__link">
         Concrete02
       </a>
     </li>
@@ -8004,7 +7987,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../uniaxialMaterial/concrete/91-Concrete04%20--%20Popovics%20Concrete/" class="md-nav__link">
+      <a href="../uniaxialMaterial/concrete/91-Concrete04/" class="md-nav__link">
         Concrete04
       </a>
     </li>
@@ -8338,7 +8321,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../uniaxialMaterial/metalic/666-Steel02%20--%20Giuffr%C3%A9-Menegotto-Pinto%20Model%20with%20Isotropic%20Strain%20Hardening/" class="md-nav__link">
+      <a href="../uniaxialMaterial/metalic/666-Steel02/" class="md-nav__link">
         Steel02
 
       </a>
@@ -8397,6 +8380,8 @@
       
       
       
+        
+          
         
           
         
@@ -8585,6 +8570,21 @@
     <li class="md-nav__item">
       <a href="../uniaxialMaterial/other/59-BilinearOilDamper/" class="md-nav__link">
         BilinearOilDamper
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uniaxialMaterial/other/623-SelfCentering/" class="md-nav__link">
+        SelfCentering
 
       </a>
     </li>
@@ -14127,50 +14127,51 @@
 <h1 id="ndmaterial-library">NDMaterial Library</h1>
 <p>This command is used to construct an <code>NDMaterial</code> object which represents the stress-strain relationship at the gauss-point of a continuum element.</p>
 <hr />
-<p>
-NOTE:
-</p>
 <p>The valid queries to any uniaxial material when creating an <code>ElementRecorder</code> are <code>"strain"</code>, and <code>"stress"</code>. Some materials have additional queries to which they will respond. These are documented in the NOTES section for those materials.</p>
 <h2 id="wrappers">Wrappers</h2>
 <p>See Prof. Scott’s post <a href="https://portwooddigital.com/2020/07/11/theres-a-wrapper-for-that/">here</a></p>
 <ul>
 <li><code>InitStressNDMaterial</code></li>
 <li><code>BeamFiberMaterial</code></li>
-<li><code>PlateFromPlaneStressMaterial</code> wrapper adds linear-elastic shear behavior to a plane stress material in order to get the plate fiber stress condition.</li>
+<li><code>PlateFromPlaneStressMaterial</code> wrapper adding linear-elastic shear behavior to a plane stress material in order to get the plate fiber stress condition.</li>
 </ul>
+<h2 id="elastic">Elastic</h2>
 <ul>
 <li>
-<a href="Elastic_Isotropic_Material" title="wikilink">Elastic Isotropic Material</a>
+<a href="Elastic_Isotropic_Material" >Elastic Isotropic Material</a>
 </li>
 <li>
-<a href="Elastic_Orthotropic_Material" title="wikilink">Elastic Orthotropic Material</a>
+<a href="Elastic_Orthotropic_Material" >Elastic Orthotropic Material</a>
+</li>
+</ul>
+<h2 id="other">Other</h2>
+<ul>
+<li>
+<a href="J2_Plasticity_Material" >J2 Plasticity</a>
 </li>
 <li>
-<a href="J2_Plasticity_Material" title="wikilink">J2 Plasticity</a>
+<a href="Drucker_Prager" > Drucker Prager</a>
 </li>
 <li>
-<a href="Drucker_Prager" title="wikilink"> Drucker Prager</a>
+<a href="Damage2p" > Concrete Damage Model</a>
 </li>
 <li>
-<a href="Damage2p" title="wikilink"> Concrete Damage Model</a>
+<a href="Plane_Stress_Material" >Plane Stress Material</a>
 </li>
 <li>
-<a href="Plane_Stress_Material" title="wikilink">Plane Stress Material</a>
+<a href="Plane_Strain_Material" >Plane Strain Material</a>
 </li>
 <li>
-<a href="Plane_Strain_Material" title="wikilink">Plane Strain Material</a>
+<a href="MCP" > Multi Axial Cyclic Plasticity</a>
 </li>
 <li>
-<a href="MCP" title="wikilink"> Multi Axial Cyclic Plasticity</a>
+<a href="Bounding_Cam_Clay" > Bounding Surface Cam Clay Material</a>
 </li>
 <li>
-<a href="Bounding_Cam_Clay" title="wikilink"> Bounding Surface Cam Clay Material</a>
+<a href="Plate_Fiber_Material" >Plate Fiber</a>
 </li>
 <li>
-<a href="Plate_Fiber_Material" title="wikilink">Plate Fiber</a>
-</li>
-<li>
-<a href="Plane_Stress_Concrete_Materials" title="wikilink">Plane Stress Concrete Materials</a>
+<a href="Plane_Stress_Concrete_Materials" >Plane Stress Concrete Materials</a>
 </li>
 <li>
 <a href="FSAM_-_2D_RC_Panel_Constitutive_Behavior" >FSAM - 2D RC Panel Constitutive Behavior</a>
@@ -14180,27 +14181,27 @@ Tsinghua Sand Models
 <ul>
 <li>
 <a href="CycLiqCP_Material_(Cyclic_ElasticPlasticity)"
-  title="wikilink">CycLiqCP Material (Cyclic ElasticPlasticity)</a>
+  >CycLiqCP Material (Cyclic ElasticPlasticity)</a>
 </li>
 <li>
-<a href="CycLiqCPSP_Material" title="wikilink">CycLiqCPSP</a>
+<a href="CycLiqCPSP_Material" >CycLiqCPSP</a>
 </li>
 </ul>
 </li>
 <li>
-<a href="Manzari_Dafalias_Material" title="wikilink">Manzari Dafalias Material</a>
+<a href="Manzari_Dafalias_Material" >Manzari Dafalias Material</a>
 </li>
 <li>
-<a href="J2CyclicBoundingSurface_Material" title="wikilink">J2CyclicBoundingSurface Material</a>
+<a href="J2CyclicBoundingSurface_Material" >J2CyclicBoundingSurface Material</a>
 </li>
 <li>
-<a href="PM4Sand_Material" title="wikilink">PM4Sand</a>
+<a href="PM4Sand_Material" >PM4Sand</a>
 </li>
 <li>
-<a href="PM4Silt_Material_(Beta)" title="wikilink">PM4Silt Material (Beta)</a>
+<a href="PM4Silt_Material_(Beta)" >PM4Silt Material (Beta)</a>
 </li>
 <li>
-<a href="Stress_Density_Material" title="wikilink">Stress Density</a>
+<a href="Stress_Density_Material" >Stress Density</a>
 </li>
 <li>
 Materials for Modeling Concrete Walls
@@ -14271,12 +14272,12 @@ UC San Diego Saturated Undrained soil
 Misc.
 <ul>
 <li>
-<a href="AcousticMedium" title="wikilink">AcousticMedium</a>
+<a href="AcousticMedium" >AcousticMedium</a>
 </li>
 </ul>
 </li>
 <li>
-Steel &amp;amp; Reinforcing-Steel Materials
+Steel &amp; Reinforcing-Steel Materials
 <ul>
 <li>
 <a href="UVCmultiaxial_(Updated_Voce-Chaboche)" >UVCmultiaxial (Updated Voce-Chaboche)</a>
