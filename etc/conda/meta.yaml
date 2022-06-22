@@ -1,14 +1,15 @@
 
 package:
   name: opensees
-  version: 0.0.15
+  version: 0.0.20
 
 source:
   path: ../..
 
 build:
   script_env: [CONDA_PREFIX]
-  #number: 0
+  # number: 0
+  script: "$PYTHON setup.py build -- -- -j8"
     #script: python -m pip install . -vvv
 
 requirements:
@@ -18,6 +19,7 @@ requirements:
     - "{{ compiler('fortran') }}"
     - cmake
     - build
+    - scikit-build
     - setuptools
 
   host:

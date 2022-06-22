@@ -6,8 +6,12 @@ from skbuild import setup
 if __name__ == "__main__":
     setup(
         cmake_install_dir="src/opensees/",
-        cmake_args=['-DDependencies=Conda'],
-        cmake_install_target="OpenSeesRT"
+        cmake_args=['-DDependencies=Conda', "-DCMAKE_JOB_POOLS=8"],
+        cmake_install_target="OpenSeesPyRT",
+
+        package_dir = {"": "src"},
+        package = ["opensees"]
+
             # ext_modules=[
             #     setuptools.Extension(
             #         name='opensees.libOpenSeesRT',
