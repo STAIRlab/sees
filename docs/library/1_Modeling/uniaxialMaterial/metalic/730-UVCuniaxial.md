@@ -118,28 +118,34 @@ built-in nonlinear isotropic/kinematic material in Abaqus.</figcaption>
 </figure>
 
 <p><strong><em>2. Comparison with structural steels:</em></strong></p>
-<p>The applicability of the UVC material model for structural steels is
+
+The applicability of the UVC material model for structural steels is
 demonstrated through two comparisons with experimental data from
 uniaxial coupon tests. A comparison with a North American steel, A992
 Gr. 50 (nominal fy = 345 MPa), is shown in Figure 2. A comparison with a
 European steel, S355J2+N (nominal fy = 355 MPa), is shown in Figure 3.
 In both cases the UVC model is able to represent well the initial yield
-stress as well as the material behavior in later loading cycles.</p>
-<p>The parameters used for the A992 Gr. 50 and S355J2+N steels, along
+stress as well as the material behavior in later loading cycles.
+
+The parameters used for the A992 Gr. 50 and S355J2+N steels, along
 with other common structural steels, are provided and discussed in the
-next section.</p>
-<p>
+next section.
+
 <center>
+
 <div class="gallery" widths=400px heights=300px > 
-<a href="File:A992_flange_UVC.png">File:A992_flange_UVC.png</a> | Figure 2.
-Comparison of UVC model with uniaxial coupon test data from the A992 Gr.
-50 W14X82 flange data set. <a
+<figure>
+<img src="/OpenSeesRT/contrib/static/A992_flange_UVC.png">
+<figcaption>Figure 2. Comparison of UVC model with uniaxial coupon test data from the A992 Gr.
+50 W14X82 flange data set. </figcaption>
+<a
 href="File:S355j2_UVC.png">File:S355j2_UVC.png</a> | Figure 3.
 Comparison of UVC model with uniaxial coupon test data from the S355J2+N
 25 mm plate data set. 
+</figure>
 </div> 
 </center>
-</p>
+
 
 <hr />
 <p><strong>UVC model parameters for structural steels</strong></p>

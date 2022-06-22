@@ -30,8 +30,8 @@ def dumps(model):
         from opensees.emit import OpenSeesWriter
         return OpenSeesWriter(model).dump()
     else:
-        from opensees.emit.opensees import ScriptBuilder
-        writer = ScriptBuilder()
+        from opensees.emit.opensees import TclScriptBuilder
+        writer = TclScriptBuilder()
         writer.send(model)
         if not writer.python_objects:
             return writer.getScript(indexed=True)

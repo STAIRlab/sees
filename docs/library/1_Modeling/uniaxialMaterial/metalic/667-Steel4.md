@@ -1,5 +1,16 @@
 # Steel4
 
+<style>
+img {
+    transition:transform 0.25s ease;
+}
+
+img:hover {
+    -webkit-transform:scale(1.5); /* or some other value */
+    transform:scale(1.5);
+}
+</style>
+
 <p>This command is used to construct a general uniaxial material
 with combined kinematic and isotropic hardening and optional
 non-symmetric behavior.</p>
@@ -50,10 +61,10 @@ uniaxialMaterial Steel4 $matTag $f_y $E_0 < -asym >
 <table>
 <tbody>
 <tr class="odd">
-<td><p>colspan = "2" style="text-align: justify" | Kinematic hardening
+<td colspan="2" style="text-align: justify" > Kinematic hardening
 is based on the Menegotto-Pinto model. The parameters and their use is
 identical to those of the Steel02 material.</p></td>
-<td><p>rowspan = "7" | <img src="/OpenSeesRT/contrib/static/Steel4_param_kin.png"
+<td rowspan="7" > <img src="/OpenSeesRT/contrib/static/Steel4_param_kin.png"
 title="Steel4_param_kin.png" width="400"
 alt="Steel4_param_kin.png" /></p></td>
 </tr>
@@ -68,8 +79,7 @@ alt="Steel4_param_kin.png" /></p></td>
 <tr class="even">
 <td><code class="parameter-table-variable">R_0</code></td>
 <td><p>control the exponential transition from linear elastic to
-hardening asymptote recommended values: <em>$R_0 = 20 $r_1 = 0.90 $r_2 =
-0.15</em></p></td>
+hardening asymptote recommended values: `R_0 = 20`, `r_1 = 0.90`, `r_2 = 0.15`</p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">r_1</code></p></td>
@@ -100,11 +110,11 @@ hardening asymptote recommended values: <em>$R_0 = 20 $r_1 = 0.90 $r_2 =
 <table>
 <tbody>
 <tr class="odd">
-<td><p>colspan = "2" style="text-align: justify" | Isotropic hardening
+<td colspan="2" style="text-align: justify" > Isotropic hardening
 increases the yield strength of the material. The applied increase is
 calculated as a function of the accumulated plastic strain. The
 following parameters control that function.</p></td>
-<td><p>rowspan = "9" | <img src="/OpenSeesRT/contrib/static/Steel4_param_iso.png"
+<td rowspan="9" > <img src="/OpenSeesRT/contrib/static/Steel4_param_iso.png"
 title="Steel4_param_iso.png" width="400"
 alt="Steel4_param_iso.png" /></p></td>
 </tr>
@@ -159,17 +169,17 @@ asymptote</p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p>colspan = "2" style="text-align: justify" | The ultimate strength
+<td colspan="2" style="text-align: justify" > The ultimate strength
 limit serves as an upper limit of material resistance. After the limit
 is reached the material behaves in a perfectly plastic manner.
 Exponential transition is provided from the kinematic hardening to the
 perfectly plastic asymptote.</p></td>
-<td><p>rowspan = "6" | <img src="/OpenSeesRT/contrib/static/Steel4_param_ult.png"
+<td rowspan="6" > <img src="/OpenSeesRT/contrib/static/Steel4_param_ult.png"
 title="Steel4_param_ult.png" width="400"
 alt="Steel4_param_ult.png" /></p></td>
 </tr>
 <tr class="even">
-<td><p>colspan = "2" style="text-align: justify" | Note that isotropic
+<td colspan="2" style="text-align: justify" > Note that isotropic
 hardening is also limited by the ultimate strength, but the transition
 from the isotropic hardening to the perfectly plastic asymptote is
 instantaneous.</p></td>
@@ -209,14 +219,14 @@ perfectly plastic asymptote</p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p>colspan = "2" style="text-align: justify" | If non-symmetric
+<td colspan="2" style="text-align: justify" > If non-symmetric
 behavior is assumed, material response under tension and compression
 will be controlled by two different parameter sets. The normal
 parameters control behavior under tension. Additional parameters shall
 be specified to describe behavior under compression. The following
 parameters are expected after the normal parameters when the options
 below are used.</p></td>
-<td><p>rowspan = "6" | <img src="/OpenSeesRT/contrib/static/Steel4_param_asymk.png"
+<td rowspan="6" > <img src="/OpenSeesRT/contrib/static/Steel4_param_asymk.png"
 title="Steel4_param_asymk.png" width="400"
 alt="Steel4_param_asymk.png" /></p></td>
 </tr>
@@ -264,11 +274,11 @@ alt="Steel4_param_asymk.png" /></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p>colspan = "2" style="text-align: justify" | Initial stress is
+<td colspan="2" style="text-align: justify" > Initial stress is
 assumed at 0 strain at the beginning of the loading process. The
 absolute value of the initial stress is assumed to be less than the
 yield strength of the material.</p></td>
-<td><p>rowspan = "4" | <img src="/OpenSeesRT/contrib/static/Steel4_param_init.png"
+<td rowspan="4" > <img src="/OpenSeesRT/contrib/static/Steel4_param_init.png"
 title="Steel4_param_init.png" width="400"
 alt="Steel4_param_init.png" /></p></td>
 </tr>
@@ -299,17 +309,17 @@ alt="Steel4_param_init.png" /></p></td>
 <table>
 <tbody>
 <tr class="odd">
-<td><p>colspan = "2" style="text-align: justify" | The load history
+<td colspan="2" style="text-align: justify" > The load history
 memory is a database of preceding load cycles. It is updated at every
 load reversal point during the loading process. It is turned on by
 default. Turning it off will reduce the memory consumption of
 Steel4.</p></td>
-<td><p>rowspan = "8" | <img src="/OpenSeesRT/contrib/static/Steel4_param_mem.png"
+<td rowspan="8" > <img src="/OpenSeesRT/contrib/static/Steel4_param_mem.png"
 title="Steel4_param_mem.png" width="400"
 alt="Steel4_param_mem.png" /></p></td>
 </tr>
 <tr class="even">
-<td><p>colspan = "2" style="text-align: justify" | The available data on
+<td colspan="2" style="text-align: justify" > The available data on
 preceding cycles is currently used to correct a typical error in the
 Steel02 material. The error stems from the formulation of the
 Menegotto-Pinto kinematic hardening model. It leads to overestimation of
@@ -321,7 +331,7 @@ converge to previous load cycles.</p></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td><p>colspan = "2" style="text-align: justify" | The load history
+<td colspan="2" style="text-align: justify" > The load history
 memory can be used in the future to describe other characteristics of
 the response that depend on preceding load cycles.</p></td>
 <td></td>
@@ -338,12 +348,11 @@ process</p></td>
 <tr class="even">
 <td></td>
 <td><p>Efficiency of the material can be slightly increased by correctly
-setting this value. The default value is <em>$cycNum = 50</em></p></td>
+setting this value. The default value is `cycNum = 50`</p></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><p>Load history memory can be turned off by setting <em>$cycNum =
-0</em>.</p></td>
+<td><p>Load history memory can be turned off by setting `cycNum = 0`.</p></td>
 </tr>
 <tr class="even">
 <td></td>

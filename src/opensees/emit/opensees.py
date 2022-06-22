@@ -1,102 +1,9 @@
 from .writer import ModelWriter
+from .emitter import Emitter, ScriptBuilder
 from opensees.ast import Arg
-from collections import defaultdict
-
-class Identifier: 
-    def __init__(self, tag_space, space_name):
-        self.nm = (tag_space, space_name)
-
-    def __hash__(self):
-        return hash(self.nm)
-
-    def tclstr(self):
-        return f"{self.nm[0]}({self.nm[1]})"
-
-class TagSpace:
-    def __init__(self):
-        self.current_tag = 1
-        self.obj_by_tag = {}
-        self.tag_by_obj = {}
-        self.forced_tags = set()
-        self.forced_names = set()
-    
-    def __getitem__(self, name):
-        return self.tag_by_obj[name]
-
-    def new_tag(self):
-        t = self.current_tag
-        while t in self.forced_tags: t += 1
-        self.current_tag = t + 1
-        return t
-
-    def add(self, name, force_tag=None)->bool:
-        if force_tag is not None:
-            tag = force_tag
-            if force_tag in self.forced_tags:
-                raise ValueError("Duplicate forced tag:" + 
-                        f"{name} and {self.obj_by_tag[force_tag]}"
-                )
-            elif tag in self.obj_by_tag:
-                new_tag = self.new_tag()
-                old_obj = self.obj_by_tag[tag]
-                self.tag_by_obj[old_obj] = new_tag
-                self.obj_by_tag[new_tag] = old_obj
-            self.forced_tags.add(force_tag)
-        else:
-            tag = self.new_tag()
-
-        self.tag_by_obj[name] = tag
-        self.obj_by_tag[tag] = name
-        return True
-
-class Registry:
-    def __init__(self):
-        self.tag_spaces = defaultdict(TagSpace)
-        self.identifiers = {}
-        self.objects = {}
-        self.anonid = 1
-
-    def __getitem__(self, tag_space: str)->TagSpace:
-        return self.tag_spaces[tag_space]
-
-    def registered(self, obj):
-        return id(obj) in self.objects
-
-    def register(self, obj, name=None, tag_space=None, force_tag=None) -> Identifier:
-        try:
-            ts = tag_space or obj.tag_space
-        except AttributeError:
-            # references where type is given as string
-            ts = obj
-
-        if force_tag is not None:
-            id2 = str(force_tag)
-        elif name is None:
-            # Anonymous
-            assert obj is not None
-            id2 = f"<{self.anonid}>"
-            self.anonid += 1
-        else:
-            id2 = str(name)
-
-        self.tag_spaces[ts].add(id2, force_tag=force_tag)
-
-        ident = Identifier(ts, id2)
-        self.objects[id(obj)] = ident
-        self.identifiers[ident] = id(obj)
-        return ident
-
-    def index(self)->dict:
-        return {
-            i: self.tag_spaces[i.nm[0]][i.nm[1]]
-            for i in self.identifiers if i.nm[0] is not None
-        }
-
-    def ident(self, obj)->Identifier:
-        return self.objects[id(obj)]
 
 
-class TclWriter:
+class TclWriter(Emitter):
     def Arg(this, self, value=None)->list:
         if self.__class__.__name__ in dir(this):
             getattr(this, self.__class__.__name__)(self, value=value)
@@ -205,97 +112,7 @@ class TclWriter:
 
         return this.write(self.flag, *vals)
 
-from io import StringIO 
-
-class ObjectSerializationError(Exception): pass
-
-class ScriptBuilder:
-    TAB = object()
-    RET = object()
-    class Writer(TclWriter):
-        def __init__(self, strm, parent):
-            self.idnt = ""
-            self.strm = strm
-            self.parent = parent
-            self.refs = set()
-            self.newline = True
-            self.registry = Registry()
-            # self.tags = {}
-
-        def write(self, *args, end=" "):
-            if self.newline:
-                self.newline=False
-                print(self.idnt, end="", file=self.strm)
-            for arg in args:
-                if isinstance(arg, (int,float,str)):
-                    print(f"{arg}", end=end, file=self.strm)
-                else:
-                    raise ValueError()
-
-        def endln(self):
-            self.newline = True
-            print("", file=self.strm)
-                
-        def rshift(self):
-            self.idnt += "\t"
-
-        def lshift(self):
-            self.idnt = self.idnt[:-1]
-
-    def __init__(self):
-        self.sent = set()
-        self.streams = [ScriptBuilder.Writer(StringIO(), self)]
-        self.python_objects = {}
-
-    def getIndex(self):
-        return "\n".join(
-            (f"set {i.tclstr()} {tag}" 
-                for i,tag in self.registry.index().items())
-        )
-
-    def getScript(self, indexed=True)->str:
-        index = self.getIndex() if indexed else ""
-        return "\n\n".join((index, self.streams[0].strm.getvalue()))
-    
-    @property
-    def registry(self):
-        return self.streams[0].registry
-
-    def send(self, obj, idnt=None):
-        w = self.streams[0]
-
-        if not hasattr(obj,"_args"):
-            raise ObjectSerializationError(f"object {obj}")
-        
-        if self.registry.registered(obj):
-            return self
-
-        for ref,tag_space in obj.get_refs():
-            try: self.send(ref)
-
-            except ObjectSerializationError:
-                ident = self.registry.register(ref, tag_space=tag_space)
-                self.python_objects[ident] = ref
-
-        w.write(" ".join(obj._cmd))
-        w.current_obj = obj # TODO: Clean this up
-
-        for arg in obj._args:
-            typ = arg.__class__.__name__
-            value = getattr(obj, arg.field)
-
-            try:
-                getattr(w, typ)(arg, value=value)
-            except AttributeError:
-                w.Arg(arg, value=value)
-
-        w.endln();
-
-        if not self.registry.registered(obj):
-            self.registry.register(obj)
-
-        return self
-
+TclScriptBuilder = lambda : ScriptBuilder(TclWriter)
 
 class OpenSeesWriter(ModelWriter):
     def __init__(self, model=None):
@@ -339,7 +156,7 @@ class OpenSeesWriter(ModelWriter):
         return cmds
     
     def dump_materials(self, *materials, definitions={}):
-        builder = ScriptBuilder()
+        builder = TclScriptBuilder()
         writer = builder.streams[0]
         cmds = "\n".join(f"set {k} {v};" for k,v in definitions.items()) + "\n"
         writer.write(
