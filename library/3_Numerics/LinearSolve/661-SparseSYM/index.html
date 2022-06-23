@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/FullGenLapack/">
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/661-SparseSYM/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-, mkdocs-material-8.2.13">
     
     
       
-        <title>FullGenLinLapackSolver - OpenSeesRT</title>
+        <title>SparseSYM SOE - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              FullGenLinLapackSolver
+              SparseSYM SOE
 
             
           </span>
@@ -10321,10 +10321,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -10383,7 +10379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../35-BandGeneral%20SOE/" class="md-nav__link">
+      <a href="../35-BandGeneral/" class="md-nav__link">
         BandGeneral SOE
 
       </a>
@@ -10398,7 +10394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../546-ProfileSPD%20SOE/" class="md-nav__link">
+      <a href="../546-ProfileSPD/" class="md-nav__link">
         ProfileSPD SOE
 
       </a>
@@ -10413,83 +10409,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../660-SparseSPD%20SOE/" class="md-nav__link">
+      <a href="../660-SparseSPD/" class="md-nav__link">
         SparseSPD SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../661-SparseSYM%20SOE/" class="md-nav__link">
-        SparseSYM SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../672-SuperLU%20SOE/" class="md-nav__link">
-        SparseGEN (SuperLU)
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../731-UmfPack%20SOE/" class="md-nav__link">
-        UmfPack SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BandGenLapack/" class="md-nav__link">
-        BandGenLinLapackSolver
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BandSPDLapack/" class="md-nav__link">
-        BandSPDLinLapackSolver
 
       </a>
     </li>
@@ -10511,10 +10432,55 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        FullGenLinLapackSolver
+        SparseSYM SOE
 
       </a>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../672-SuperLU/" class="md-nav__link">
+        SparseGEN (SuperLU)
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../731-UmfPack/" class="md-nav__link">
+        UmfPack SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../BandSPDLapack/" class="md-nav__link">
+        BandSPDLinLapackSolver
+
+      </a>
     </li>
   
 
@@ -14570,35 +14536,35 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/library/3_Numerics/LinearSolve/FullGenLapack.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/library/3_Numerics/LinearSolve/661-SparseSYM.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="fullgenlinlapacksolver">FullGenLinLapackSolver</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;~/system_of_eqn/linearSOE/fullGEN/FullGenLinLapackSolver.h&gt;</span><span class="cp"></span>
-
-<span class="k">class</span><span class="w"> </span><span class="nc">FullGenLinLapackSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">FullGenLinSolver</span><span class="w"></span>
+<h1 id="sparsesym-soe">SparseSYM SOE</h1>
+<p>This command is used to construct a sparse symmetric system of equations which uses a row-oriented solution method in the solution phase. The following command is used to construct such a system:</p>
+<div class="highlight"><pre><span></span><span class="nv">system</span><span class="w"> </span>SparseSYM
 </pre></div>
 
-<div class="highlight"><pre><span></span>MovableObject
-Solver
-LinearSOESolver
-</pre></div>
-
-<p>A <code>FullGenLinLapackSolver</code> object can be constructed to solve a FullGenLinSOE object. It obtains the solution by making calls on the the LAPACK library. The class is defined to be a friend of the FullGenLinSOE class (see <a href="FullGenLinSOE"><code>FullGenLinSOE</code></a>).</p>
-<h3 id="constructor">Constructor</h3>
-<h3 id="destructor">Destructor</h3>
-<h3 id="public-methods">Public Methods</h3>
-<p>A unique class tag (defined in <code>&lt;classTags.h&gt;</code>) is passed to the FullGenLinSolver constructor. Sets the size of <em>iPiv</em> to <span class="math inline">\(0\)</span>, <em>iPiv</em> being an integer array needed by the LAPACK routines.</p>
-<p><br />
-Invokes delete on <em>iPiv</em> to free the memory it was allocated.</p>
-<p><br />
-First copies <span class="math inline">\(B\)</span> into <span class="math inline">\(X\)</span> and then solves the FullGenLinSOE system it is associated with (pointer kept by parent class) by calling the LAPACK routines <code>dgesv()</code>, if the system is marked as not having been factored, or <code>dgetrs()</code>, if system is marked as having been factored. If the solution is successfully obtained, i.e. the LAPACK routines return <span class="math inline">\(0\)</span> in the INFO argument, it marks the system has having been factored and returns <span class="math inline">\(0\)</span>, otherwise it prints a warning message and returns INFO. The solve process changes <span class="math inline">\(A\)</span> and <span class="math inline">\(X\)</span>.</p>
-<p>Is used to construct a 1d integer array, <em>iPiv</em> that is needed by the LAPACK solvers. It checks to see if current size of <code>iPiv</code> is large enough, if not it deletes the cold and creates a larger array. Returns <span class="math inline">\(0\)</span> if successful, prints a warning message and returns a <span class="math inline">\(-1\)</span> if not enough memory is available for this new array.</p>
-<p>Does nothing but return <span class="math inline">\(0\)</span>.</p>
-<p>Does nothing but return <span class="math inline">\(0\)</span>.</p>
+<hr />
+<p>
+NOTES:
+</p>
+<ul>
+<li>
+versions upto and including 2.2.0 use SparseSPD instead of SparseSYM as the option to the system command. For backward compatability this old option continues to work.
+</li>
+</ul>
+<hr />
+<h2 id="references">References</h2>
+<p>
+Kincho H. Law and David R. McKay, “A Parallel Row-Oriented Sparse Solution Method for Finite Element Structural Analysis,” International Journal for Numerical Methods in Engineering, 36:2895-2919, 1993.
+</p>
+<hr />
+<p>
+Code Developed by: <span style="color:blue"> Jun Peng, Stanford and now GOOGLE </span>
+</p>
 
 
               

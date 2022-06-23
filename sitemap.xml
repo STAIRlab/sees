@@ -1866,47 +1866,37 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/35-BandGeneral%20SOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/35-BandGeneral/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/546-ProfileSPD%20SOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/546-ProfileSPD/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/660-SparseSPD%20SOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/660-SparseSPD/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/661-SparseSYM%20SOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/661-SparseSYM/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/672-SuperLU%20SOE/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/672-SuperLU/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/731-UmfPack%20SOE/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/BandGenLapack/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/731-UmfPack/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/BandSPDLapack/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/FullGenLapack/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>

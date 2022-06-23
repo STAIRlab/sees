@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/672-SuperLU%20SOE/">
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/546-ProfileSPD/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-, mkdocs-material-8.2.13">
     
     
       
-        <title>SparseGEN (SuperLU) - OpenSeesRT</title>
+        <title>ProfileSPD SOE - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SparseGEN (SuperLU)
+              ProfileSPD SOE
 
             
           </span>
@@ -10321,10 +10321,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -10383,53 +10379,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../35-BandGeneral%20SOE/" class="md-nav__link">
+      <a href="../35-BandGeneral/" class="md-nav__link">
         BandGeneral SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../546-ProfileSPD%20SOE/" class="md-nav__link">
-        ProfileSPD SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../660-SparseSPD%20SOE/" class="md-nav__link">
-        SparseSPD SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../661-SparseSYM%20SOE/" class="md-nav__link">
-        SparseSYM SOE
 
       </a>
     </li>
@@ -10451,7 +10402,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        SparseGEN (SuperLU)
+        ProfileSPD SOE
 
       </a>
       
@@ -10466,8 +10417,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../731-UmfPack%20SOE/" class="md-nav__link">
-        UmfPack SOE
+      <a href="../660-SparseSPD/" class="md-nav__link">
+        SparseSPD SOE
 
       </a>
     </li>
@@ -10481,8 +10432,38 @@
   
   
     <li class="md-nav__item">
-      <a href="../BandGenLapack/" class="md-nav__link">
-        BandGenLinLapackSolver
+      <a href="../661-SparseSYM/" class="md-nav__link">
+        SparseSYM SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../672-SuperLU/" class="md-nav__link">
+        SparseGEN (SuperLU)
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../731-UmfPack/" class="md-nav__link">
+        UmfPack SOE
 
       </a>
     </li>
@@ -10498,21 +10479,6 @@
     <li class="md-nav__item">
       <a href="../BandSPDLapack/" class="md-nav__link">
         BandSPDLinLapackSolver
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FullGenLapack/" class="md-nav__link">
-        FullGenLinLapackSolver
 
       </a>
     </li>
@@ -14570,27 +14536,77 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/library/3_Numerics/LinearSolve/672-SuperLU SOE.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/library/3_Numerics/LinearSolve/546-ProfileSPD.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="sparsegen-superlu">SparseGEN (SuperLU)</h1>
+<h1 id="profilespd-soe">ProfileSPD SOE</h1>
 <p>
-This command is used to construct a SparseGEN linear system of equation object. As the name implies, this class is used for sparse matrix systems. The solution of the sparse matrix is carried out using <a href="http://crd.lbl.gov/~xiaoye/SuperLU/">SuperLU</a>. To following command is used to construct such a system:
+This command is used to construct a profileSPDSOE linear system of equation object. As the name implies, this class is used for symmetric positive definite matrix systems. The matrix is stored as shown below in a 1 dimensional array with only those values below the first non-zero row in any column being stored. This is sometimes also referred to as a skyline storage scheme. The following command is used to construct such a system:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">system</span><span class="w"> </span>SparseGEN
+<div class="highlight"><pre><span></span><span class="nv">system</span><span class="w"> </span>ProfileSPD
 </pre></div>
 
 <hr />
-<h2 id="references">References</h2>
 <p>
-James W. Demmel and Stanley C. Eisenstat and John R. Gilbert and Xiaoye S. Li and Joseph W. H. Liu, “A supernodal approach to sparse partial pivoting”, SIAM J. Matrix Analysis and Applications, 20(3), 720-755, 1999.
+THEORY:
+</p>
+<p>
+An <em>n</em>&amp;times;<em>n</em> matrix <em>A</em>=(<em>a</em>&lt;sub&gt;<em>i,j</em> &lt;/sub&gt;) is a <strong>symmmetric postive definite matrix</strong> if:
+</p>
+<dl>
+<dt>
+</dt>
+<dd>
+<p><span class="math display">\[a_{i,j} = a_{j,i}\,\]</span></p>
+</dd>
+</dl>
+$$ y^T A y != 0 ,&lt;/math&gt; for all non-zero vectors <em>y</em> with real entries (<span class="math inline">\(y \in \mathbb{R}^n\)</span>.
+</dd>
+</dl>
+<p>
+In the skyline or profile storage scheme only the entries below the first no-zero row entry in any column are stored if storing by rows: The reason for this is that as no reordering of the rows is required in gaussian eleimination because the matrix is SPD, no non-zero entries will ocur in the elimination process outside the area stored.
+</p>
+<p>
+For example, a symmetric 6-by-6 matrix with a structura as shown below:
+</p>
+$$
+</dd>
+</dl>
+<p>
+<span class="math display">\[\begin{bmatrix} A_{11} &amp;amp; A_{12} &amp;amp; 0 &amp;amp; 0 &amp;amp; 0 \\ &amp;amp;
+A_{22} &amp;amp; A_{23} &amp;amp; 0 &amp;amp; A_{25} \\ &amp;amp; &amp;amp; A_{33} &amp;amp; 0
+&amp;amp; 0 \\ &amp;amp; &amp;amp; &amp;amp; A_{44} &amp;amp; A_{45} \\ &amp;amp; sym &amp;amp;
+&amp;amp; &amp;amp; A_{55} \end{bmatrix}\]</span>
+. &lt;/math&gt;
+</p>
+<p>
+The matrix is stored as 1-d array
+</p>
+$$
+</dd>
+</dl>
+<p>
+<span class="math display">\[\begin{bmatrix} A_{11} &amp;amp; A_{12} &amp;amp; A_{22} &amp;amp; A_{23} &amp;amp;
+A_{33} &amp;amp; A_{44} &amp;amp; A_{25} &amp;amp; 0 &amp;amp; A_{45} &amp;amp; A_{55}
+\end{bmatrix}\]</span>
+. &lt;/math&gt;
+</p>
+<p>
+with a further array containing indices of diagonal elements:
+</p>
+$$
+</dd>
+</dl>
+<p>
+<span class="math display">\[\begin{bmatrix} 1 &amp;amp; 3 &amp;amp; 5 &amp;amp; 6 &amp;amp; 10 \end{bmatrix}\]</span>
+. &lt;/math&gt;
 </p>
 <hr />
 <p>
-Code Developed by: <span style="color:blue">fmk</span>
+Code Developed by: <span style="color:blue"> fmk </span>
 </p>
 
 
