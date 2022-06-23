@@ -856,26 +856,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/47-Bbar%20Brick%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/48-Bbar%20Plane%20Strain%20Quadrilateral%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/613-SSPbrick%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/615-SSPquad%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/2010-DispBeamColumnW3D/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
@@ -991,6 +971,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/brick/47-Bbar%20Brick%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/brick/613-SSPbrick%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/brick/662-Standard%20Brick%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
@@ -1056,11 +1046,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/misc/8710-Tri31%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/misc/8721-Two%20Node%20Link%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
@@ -1076,7 +1061,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/48-Bbar%20Plane%20Strain%20Quadrilateral%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/562-Quad%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/615-SSPquad%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1112,6 +1107,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/tetrahedron/4265-FourNodeTetrahedron/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/triangle/8710-Tri31%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
