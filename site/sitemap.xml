@@ -1256,27 +1256,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/102-ContactMaterial2D/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/103-ContactMaterial3D/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/111-CycLiqCPSP%20Material/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/113-CycLiqCP%20Material%20%28Cyclic%20ElasticPlasticity%29/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/117-Cyclic%20ElastocPlasticity/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1291,27 +1271,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/188-Elastic%20Isotropic%20Material/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/191-Elastic%20Orthotropic%20Material/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/235-FSAM%20-%202D%20RC%20Panel%20Constitutive%20Behavior/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/338-InitialStateAnalysisWrapper/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/348-J2%20Plasticity%20Material/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1326,47 +1286,87 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/487-PM4Sand%20Material/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/488-PM4Silt%20Material%20%28Beta%29/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/511-Plane%20Strain%20Material/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/513-Plane%20Stress%20Material/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/514-Plate%20Fiber%20Material/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/65-Bounding%20Cam%20Clay/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/671-Stress%20Density%20Material/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/contact/102-ContactMaterial2D/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/727-UVCmultiaxial%20%28Updated%20Voce-Chaboche%29/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/contact/103-ContactMaterial3D/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/728-UVCplanestress%20%28Updated%20Voce-Chaboche%29/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/elastic/188-Elastic%20Isotropic%20Material/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/elastic/191-Elastic%20Orthotropic%20Material/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/metalic/348-J2%20Plasticity%20Material/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/metalic/727-UVCmultiaxial%20%28Updated%20Voce-Chaboche%29/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/metalic/728-UVCplanestress%20%28Updated%20Voce-Chaboche%29/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/111-CycLiqCPSP%20Material/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/117-Cyclic%20ElastocPlasticity/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/487-PM4Sand%20Material/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/488-PM4Silt%20Material%20%28Beta%29/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/671-Stress%20Density%20Material/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/wrapper/338-InitialStateAnalysisWrapper/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/wrapper/511-Plane%20Strain%20Material/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/wrapper/513-Plane%20Stress%20Material/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/wrapper/514-Plate%20Fiber%20Material/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
