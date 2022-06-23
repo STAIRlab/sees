@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/661-SparseSYM%20SOE/">
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/35-BandGeneral/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-, mkdocs-material-8.2.13">
     
     
       
-        <title>SparseSYM SOE - OpenSeesRT</title>
+        <title>BandGeneral SOE - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SparseSYM SOE
+              BandGeneral SOE
 
             
           </span>
@@ -10321,10 +10321,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -10381,12 +10377,20 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../35-BandGeneral%20SOE/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         BandGeneral SOE
 
       </a>
+      
     </li>
   
 
@@ -10398,7 +10402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../546-ProfileSPD%20SOE/" class="md-nav__link">
+      <a href="../546-ProfileSPD/" class="md-nav__link">
         ProfileSPD SOE
 
       </a>
@@ -10413,7 +10417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../660-SparseSPD%20SOE/" class="md-nav__link">
+      <a href="../660-SparseSPD/" class="md-nav__link">
         SparseSPD SOE
 
       </a>
@@ -10426,20 +10430,12 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../661-SparseSYM/" class="md-nav__link">
         SparseSYM SOE
 
       </a>
-      
     </li>
   
 
@@ -10451,7 +10447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../672-SuperLU%20SOE/" class="md-nav__link">
+      <a href="../672-SuperLU/" class="md-nav__link">
         SparseGEN (SuperLU)
 
       </a>
@@ -10466,23 +10462,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../731-UmfPack%20SOE/" class="md-nav__link">
+      <a href="../731-UmfPack/" class="md-nav__link">
         UmfPack SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BandGenLapack/" class="md-nav__link">
-        BandGenLinLapackSolver
 
       </a>
     </li>
@@ -10498,21 +10479,6 @@
     <li class="md-nav__item">
       <a href="../BandSPDLapack/" class="md-nav__link">
         BandSPDLinLapackSolver
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FullGenLapack/" class="md-nav__link">
-        FullGenLinLapackSolver
 
       </a>
     </li>
@@ -14570,34 +14536,114 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/library/3_Numerics/LinearSolve/661-SparseSYM SOE.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/library/3_Numerics/LinearSolve/35-BandGeneral.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="sparsesym-soe">SparseSYM SOE</h1>
-<p>This command is used to construct a sparse symmetric system of equations which uses a row-oriented solution method in the solution phase. The following command is used to construct such a system:</p>
-<div class="highlight"><pre><span></span><span class="nv">system</span><span class="w"> </span>SparseSYM
+<h1 id="bandgeneral-soe">BandGeneral SOE</h1>
+<p>
+This command is used to construct a BandGeneralSOE linear system of equation object. As the name implies, this class is used for matrix systems which have a banded profile. The matrix is stored as shown below in a 1dimensional array of size equal to the bandwidth times the number of unknowns. When a solution is required, the Lapack routines DGBSV and SGBTRS are used. The following command is used to construct such a system:
+</p>
+<div class="highlight"><pre><span></span><span class="nv">system</span><span class="w"> </span>BandGeneral
 </pre></div>
 
 <hr />
 <p>
-NOTES:
+THEORY:
 </p>
-<ul>
-<li>
-versions upto and including 2.2.0 use SparseSPD instead of SparseSYM as the option to the system command. For backward compatability this old option continues to work.
-</li>
-</ul>
-<hr />
-<h2 id="references">References</h2>
 <p>
-Kincho H. Law and David R. McKay, “A Parallel Row-Oriented Sparse Solution Method for Finite Element Structural Analysis,” International Journal for Numerical Methods in Engineering, 36:2895-2919, 1993.
+An <em>n</em>×<em>n</em> matrix <em>A</em>=(<em>a</em><sub><em>i,j</em> </sub>) is a <strong>band matrix</strong> if all matrix elements are zero outside a diagonally bordered band whose range is determined by constants <em>k</em><sub>1</sub> and <em>k</em><sub>2</sub>:
 </p>
+<dl>
+<dt>
+</dt>
+<dd>
+<p><span class="math display">\[a_{i,j}=0 \quad\mbox{if}\quad j&lt;i-k_1 \quad\mbox{ or
+}\quad j&gt;i+k_2; \quad k_1, k_2 \ge 0.\,\]</span></p>
+</dd>
+</dl>
+<p>
+The quantities <em>k</em><sub>1</sub> and <em>k</em><sub>2</sub> are the <em>left</em> and <em>right</em> <em>half-bandwidth</em>, respectively. The <em>bandwidth</em> of the matrix is <em>k</em><sub>1</sub> + <em>k</em><sub>2</sub> + 1 (in other words, the smallest number of adjacent diagonals to which the non-zero elements are confined).
+</p>
+<p>
+and matrices are usually stored by storing the diagonals in the band; the rest is implicitly zero.
+</p>
+<p>
+For example, 6-by-6 a matrix with bandwidth 3:
+</p>
+<p><span class="math display">\[
+\begin{bmatrix} B_{11} &amp; B_{12} &amp; 0 &amp; \cdots &amp; \cdots
+&amp; 0 \\ B_{21} &amp; B_{22} &amp; B_{23} &amp; \ddots &amp; \ddots
+&amp; \vdots \\ 0 &amp; B_{32} &amp; B_{33} &amp; B_{34} &amp; \ddots
+&amp; \vdots \\ \vdots &amp; \ddots &amp; B_{43} &amp; B_{44} &amp;
+B_{45} &amp; 0 \\ \vdots &amp; \ddots &amp; \ddots &amp; B_{54} &amp;
+B_{55} &amp; B_{56} \\ 0 &amp; \cdots &amp; \cdots &amp; 0 &amp; B_{65}
+&amp; B_{66} \end{bmatrix} 
+\]</span></p>
+<p>is stored as the 6-by-3 matrix</p>
+<p><span class="math display">\[
+\begin{bmatrix} 0 &amp; B_{11} &amp; B_{12}\\ B_{21} &amp; B_{22}
+&amp; B_{23} \\ B_{32} &amp; B_{33} &amp; B_{34} \\ B_{43} &amp; B_{44}
+&amp; B_{45} \\ B_{54} &amp; B_{55} &amp; B_{56} \\ B_{65} &amp; B_{66}
+&amp; 0 \end{bmatrix}.
+\]</span></p>
+<h1 id="bandgenlinlapacksolver">BandGenLinLapackSolver</h1>
+<p>This command is used to construct a BandGeneralSOE linear system of equation object. As the name implies, this class is used for matrix systems which have a banded profile. The matrix is stored as shown below in a one-dimensional array of size equal to the bandwidth times the number of unknowns. When a solution is required, the Lapack routines DGBSV and SGBTRS are used.</p>
+<h2 id="theory">Theory</h2>
+<p>An <span class="math inline">\(n\timesn\)</span> matrix <em>A</em>=(<em>a</em><sub><em>i,j</em></sub>) is a <strong>band matrix</strong> if all matrix elements are zero outside a diagonally bordered band whose range is determined by constants <em>k</em><sub>1</sub> and <em>k</em><sub>2</sub>:</p>
+<p><span class="math display">\[a_{i,j}=0 \quad\mbox{if}\quad j&lt;i-k_1 \quad\mbox{ or }\quad j&gt;i+k_2; \quad k_1, k_2 \ge 0.\,\]</span></p>
+<p>The quantities <em>k</em><sub>1</sub> and <em>k</em><sub>2</sub> are the <em>left</em> and <em>right</em> <em>half-bandwidth</em>, respectively. The <em>bandwidth</em> of the matrix is <em>k</em><sub>1</sub> + <em>k</em><sub>2</sub> + 1 (in other words, the smallest number of adjacent diagonals to which the non-zero elements are confined).</p>
+<p>and matrices are usually stored by storing the diagonals in the band; the rest is implicitly zero.</p>
+<p>For example, 6-by-6 a matrix with bandwidth 3:</p>
+<p><span class="math display">\[\begin{bmatrix}
+ B_{11} &amp; B_{12} &amp; 0      &amp; \cdots &amp; \cdots &amp; 0 \\
+ B_{21} &amp; B_{22} &amp; B_{23} &amp; \ddots &amp; \ddots &amp; \vdots \\
+  0     &amp; B_{32} &amp; B_{33} &amp; B_{34} &amp; \ddots &amp; \vdots \\
+ \vdots &amp; \ddots &amp; B_{43} &amp; B_{44} &amp; B_{45} &amp; 0 \\
+ \vdots &amp; \ddots &amp; \ddots &amp; B_{54} &amp; B_{55} &amp; B_{56} \\
+ 0      &amp; \cdots &amp; \cdots &amp; 0      &amp; B_{65} &amp; B_{66}
+\end{bmatrix}\]</span> is stored as the 6-by-3 matrix</p>
+<p><span class="math display">\[\begin{bmatrix}
+ 0 &amp; B_{11} &amp; B_{12}\\
+ B_{21} &amp; B_{22} &amp; B_{23} \\
+ B_{32} &amp; B_{33} &amp; B_{34} \\
+ B_{43} &amp; B_{44} &amp; B_{45} \\
+ B_{54} &amp; B_{55} &amp; B_{56} \\
+ B_{65} &amp; B_{66} &amp; 0
+\end{bmatrix}.\]</span></p>
+<h2 id="c-interface">C++ Interface</h2>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/bandGEN/BandGenLinLapackSolver.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BandGenLinLapackSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">BandGenLinSolver</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>   MovableObject
+   Solver
+   LinearSOESolver
+</pre></div>
+
+<p>A <code>BandGenLinLapackSolver</code> object can be constructed to solve a <code>BandGenLinSOE</code> object. It obtains the solution by making calls on the the LAPACK library. The class is defined to be a friend of the BandGenLinSOE class (see <code>&lt;BandGenLinSOE.h&gt;</code>).</p>
+<h3 id="constructor">Constructor</h3>
+<p><br />
+### Destructor</p>
+<p><br />
+// Public Methods<br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p><br />
+A unique class tag (defined in <code>&lt;classTags.h&gt;</code>) is passed to the BandGenLinSolver constructor. Sets the size of <em>iPiv</em> to <span class="math inline">\(0\)</span>, <em>iPiv</em> being an integer array needed by the LAPACK routines.</p>
+<p><br />
+Invokes delete on <em>iPiv</em> to free the memory allocated to store the array.</p>
+<p>The solver first copies the B vector into X and then solves the BandGenLinSOE system by calling the LAPACK routines <code>dgbsv()</code>, if the system is marked as not having been factored, and <code>dgbtrs()</code> if system is marked as having been factored. If the solution is successfully obtained, i.e. the LAPACK routines return <span class="math inline">\(0\)</span> in the INFO argument, it marks the system has having been factored and returns <span class="math inline">\(0\)</span>, otherwise it prints a warning message and returns INFO. The solve process changes <span class="math inline">\(A\)</span> and <span class="math inline">\(X\)</span>.</p>
+<p>Is used to construct a 1d integer array, <em>iPiv</em> that is needed by the LAPACK solvers. It checks to see if current size of <em>iPiv</em> is large enough, if not it deletes the cold and creates a larger array. Returns <span class="math inline">\(0\)</span> if successful, prints a warning message and returns a <span class="math inline">\(-1\)</span> if not enough memory is available for this new array.</p>
 <hr />
 <p>
-Code Developed by: <span style="color:blue"> Jun Peng, Stanford and now GOOGLE </span>
+Code developed by: <span style="color:blue"> fmk</span>
 </p>
 
 

@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/660-SparseSPD%20SOE/">
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/731-UmfPack/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-, mkdocs-material-8.2.13">
     
     
       
-        <title>SparseSPD SOE - OpenSeesRT</title>
+        <title>UmfPack SOE - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SparseSPD SOE
+              UmfPack SOE
 
             
           </span>
@@ -10321,10 +10321,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -10383,7 +10379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../35-BandGeneral%20SOE/" class="md-nav__link">
+      <a href="../35-BandGeneral/" class="md-nav__link">
         BandGeneral SOE
 
       </a>
@@ -10398,8 +10394,53 @@
   
   
     <li class="md-nav__item">
-      <a href="../546-ProfileSPD%20SOE/" class="md-nav__link">
+      <a href="../546-ProfileSPD/" class="md-nav__link">
         ProfileSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../660-SparseSPD/" class="md-nav__link">
+        SparseSPD SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../661-SparseSYM/" class="md-nav__link">
+        SparseSYM SOE
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../672-SuperLU/" class="md-nav__link">
+        SparseGEN (SuperLU)
 
       </a>
     </li>
@@ -10421,7 +10462,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        SparseSPD SOE
+        UmfPack SOE
 
       </a>
       
@@ -10436,83 +10477,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../661-SparseSYM%20SOE/" class="md-nav__link">
-        SparseSYM SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../672-SuperLU%20SOE/" class="md-nav__link">
-        SparseGEN (SuperLU)
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../731-UmfPack%20SOE/" class="md-nav__link">
-        UmfPack SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BandGenLapack/" class="md-nav__link">
-        BandGenLinLapackSolver
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../BandSPDLapack/" class="md-nav__link">
         BandSPDLinLapackSolver
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FullGenLapack/" class="md-nav__link">
-        FullGenLinLapackSolver
 
       </a>
     </li>
@@ -14570,13 +14536,44 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/library/3_Numerics/LinearSolve/660-SparseSPD SOE.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/library/3_Numerics/LinearSolve/731-UmfPack.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="sparsespd-soe">SparseSPD SOE</h1>
+<h1 id="umfpack-soe">UmfPack SOE</h1>
+<p>
+This command is used to construct a sparse system of equations which uses the <a
+href="http://www.cise.ufl.edu/research/sparse/umfpack/">UmfPack</a> solver. The following command is used to construct such a system:
+</p>
+<div class="highlight"><pre><span></span><span class="nv">system</span><span class="w"> </span>UmfPack<span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">-lvalueFact</span>
+<span class="w">        </span><span class="nv">$LVALUE</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
+<p>
+(LVALUE*the number of nonzero entries) is the amount of additional memory set aside for fill in during the matrix solution, by default the LVALUE factor is 10. You only need to experiment with this if you get error messages back about LVALUE being too small.
+</p>
+<hr />
+<h2 id="references">References</h2>
+<ul>
+<li>
+A column pre-ordering strategy for the unsymmetric-pattern multifrontal method, T. A. Davis, ACM Transactions on Mathematical Software, vol 30, no. 2, June 2004, pp. 165-195.
+</li>
+<li>
+Algorithm 832: UMFPACK, an unsymmetric-pattern multifrontal method, T. A. Davis, ACM Transactions on Mathematical Software, vol 30, no. 2, June 2004, pp. 196-199.
+</li>
+<li>
+A combined unifrontal/multifrontal method for unsymmetric sparse matrices, T. A. Davis and I. S. Duff, ACM Transactions on Mathematical Software, vol. 25, no. 1, pp. 1-19, March 1999.
+</li>
+<li>
+An unsymmetric-pattern multifrontal method for sparse LU factorization, T. A. Davis and I. S. Duff, SIAM Journal on Matrix Analysis and Applications, vol 18, no. 1, pp. 140-158, Jan. 1997.
+</li>
+</ul>
+<hr />
+<p>
+Code Developed by: <span style="color:blue"> fmk </span>
+</p>
 
 
               

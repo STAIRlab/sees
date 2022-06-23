@@ -10321,10 +10321,6 @@
         
           
         
-          
-        
-          
-        
       
       
         
@@ -10391,7 +10387,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../35-BandGeneral%20SOE/" class="md-nav__link">
+      <a href="../35-BandGeneral/" class="md-nav__link">
         BandGeneral SOE
 
       </a>
@@ -10406,7 +10402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../546-ProfileSPD%20SOE/" class="md-nav__link">
+      <a href="../546-ProfileSPD/" class="md-nav__link">
         ProfileSPD SOE
 
       </a>
@@ -10421,7 +10417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../660-SparseSPD%20SOE/" class="md-nav__link">
+      <a href="../660-SparseSPD/" class="md-nav__link">
         SparseSPD SOE
 
       </a>
@@ -10436,7 +10432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../661-SparseSYM%20SOE/" class="md-nav__link">
+      <a href="../661-SparseSYM/" class="md-nav__link">
         SparseSYM SOE
 
       </a>
@@ -10451,7 +10447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../672-SuperLU%20SOE/" class="md-nav__link">
+      <a href="../672-SuperLU/" class="md-nav__link">
         SparseGEN (SuperLU)
 
       </a>
@@ -10466,23 +10462,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../731-UmfPack%20SOE/" class="md-nav__link">
+      <a href="../731-UmfPack/" class="md-nav__link">
         UmfPack SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../BandGenLapack/" class="md-nav__link">
-        BandGenLinLapackSolver
 
       </a>
     </li>
@@ -10498,21 +10479,6 @@
     <li class="md-nav__item">
       <a href="../BandSPDLapack/" class="md-nav__link">
         BandSPDLinLapackSolver
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../FullGenLapack/" class="md-nav__link">
-        FullGenLinLapackSolver
 
       </a>
     </li>
@@ -14588,6 +14554,27 @@ NOTES:
 <p>
 This type of system should almost never be used! This is because it requires a lot more memory than every other solver and takes more time in the actal solving operation than any other solver. It is required if the user is interested in looking at the global system matrix.
 </p>
+<h1 id="fullgenlinlapacksolver">FullGenLinLapackSolver</h1>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;~/system_of_eqn/linearSOE/fullGEN/FullGenLinLapackSolver.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">FullGenLinLapackSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">FullGenLinSolver</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span>MovableObject
+Solver
+LinearSOESolver
+</pre></div>
+
+<p>A <code>FullGenLinLapackSolver</code> object can be constructed to solve a FullGenLinSOE object. It obtains the solution by making calls on the the LAPACK library. The class is defined to be a friend of the FullGenLinSOE class (see <a href="FullGenLinSOE"><code>FullGenLinSOE</code></a>).</p>
+<h3 id="constructor">Constructor</h3>
+<h3 id="destructor">Destructor</h3>
+<h3 id="public-methods">Public Methods</h3>
+<p>A unique class tag (defined in <code>&lt;classTags.h&gt;</code>) is passed to the FullGenLinSolver constructor. Sets the size of <em>iPiv</em> to <span class="math inline">\(0\)</span>, <em>iPiv</em> being an integer array needed by the LAPACK routines.</p>
+<p><br />
+Invokes delete on <em>iPiv</em> to free the memory it was allocated.</p>
+<p><br />
+First copies <span class="math inline">\(B\)</span> into <span class="math inline">\(X\)</span> and then solves the FullGenLinSOE system it is associated with (pointer kept by parent class) by calling the LAPACK routines <code>dgesv()</code>, if the system is marked as not having been factored, or <code>dgetrs()</code>, if system is marked as having been factored. If the solution is successfully obtained, i.e. the LAPACK routines return <span class="math inline">\(0\)</span> in the INFO argument, it marks the system has having been factored and returns <span class="math inline">\(0\)</span>, otherwise it prints a warning message and returns INFO. The solve process changes <span class="math inline">\(A\)</span> and <span class="math inline">\(X\)</span>.</p>
+<p>Is used to construct a 1d integer array, <em>iPiv</em> that is needed by the LAPACK solvers. It checks to see if current size of <code>iPiv</code> is large enough, if not it deletes the cold and creates a larger array. Returns <span class="math inline">\(0\)</span> if successful, prints a warning message and returns a <span class="math inline">\(-1\)</span> if not enough memory is available for this new array.</p>
 <p>
 Code Developed by: <span style="color:blue">fmk</span>
 </p>
