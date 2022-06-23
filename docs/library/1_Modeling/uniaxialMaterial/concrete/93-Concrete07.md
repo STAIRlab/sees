@@ -6,18 +6,19 @@ description: Chang & Mander’s 1994 Concrete Model
 # Concrete07
 
 
-<p>Concrete07 is an implementation of Chang &amp; Mander's 1994 concrete
+Concrete07 is an implementation of Chang and Mander's 1994 concrete
 model with simplified unloading and reloading curves. Additionally the
 tension envelope shift with respect to the origin proposed by Chang and
 Mander has been removed. The model requires eight input parameters to
 define the monotonic envelope of confined and unconfined concrete in the
-following form:</p>
+following form:
 
 ```tcl
-uniaxialMaterial Concrete07 $matTag $fc $ec $Ec $ft $et
-        $xp $xn $r
+uniaxialMaterial Concrete07 $matTag $fc $ec $Ec $ft $et $xp $xn $r
 ```
-<hr />
+
+----------------------------------------------------------------------
+
 <table>
 <tbody>
 <tr class="odd">
@@ -60,49 +61,93 @@ straight line descent begins in compression</p></td>
 </tr>
 </tbody>
 </table>
-<p><img src="/OpenSeesRT/contrib/static/Concrete07.png" title="Concrete07.png"
-alt="Concrete07.png" /> <a
-href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/4055.htm">check
-this page!</a></p>
+
+<p><img src="/OpenSeesRT/contrib/static/Concrete07.png" title="Concrete07.png" alt="Concrete07.png" /> <a
+href="http://opensees.berkeley.edu/OpenSees/manuals/usermanual/4055.htm">check this page!</a></p>
+
 <hr />
+
 <p>NOTES:</p>
-<ul>
-<li>Compressive concrete parameters should be input as negative
-values.</li>
-</ul>
-<ul>
-<li>Unconfined Concrete</li>
-</ul>
-<p>For unconfined concrete, the peak compressive strength fc in the
+
+- Compressive concrete parameters should be input as negative values.
+
+
+### Unconfined Concrete
+
+For unconfined concrete, the peak compressive strength fc in the
 above figure is f'c0 and corresponding strain ec is e'c0. Assuming that
 the compressive strength for unconfined concrete is readily available,
 the key parameters required for the model can be found using the
-following recommendations which include:</p>
+following recommendations which include:
+
+$$
+\begin{aligned}
+&f_{c 0}^{\prime}=\text { compressive strength (psi) } \\
+&\varepsilon_{c 0}=\frac{f_{c 0}^{\prime}}{4000} \\
+&E_{c}=185,000 *\left(f_{c 0}^{\prime}\right)^{\frac{1}{8}} \\
+&f_{t}=7.5 * \sqrt{f_{c 0}^{\prime}} \\
+&\varepsilon_{t}=\frac{2 * f_{t}}{E_{c}} \\
+&x_{p}=2 \\
+&x_{n}=2.3 \\
+&r=\frac{f_{c 0}^{\prime}}{750}-1.9
+\end{aligned}
+$$
+
 <figure>
-<img src="/OpenSeesRT/contrib/static/US_Customary_Units.png" title="US_Customary_Units.png"
-alt="US_Customary_Units.png" />
+<img src="/OpenSeesRT/contrib/static/US_Customary_Units.png" alt="US_Customary_Units.png" />
 <figcaption aria-hidden="true">US_Customary_Units.png</figcaption>
 </figure>
+
+$$
+\begin{aligned}
+&f_{c 0}=\text { cylinder strength (MPa) } \\
+&\varepsilon_{c 0}=\frac{f_{c 0}^{\prime} \frac{1}{4}}{28} \\
+&E_{c}=8,200 *\left(f_{c 0}^{\prime}\right)^{\frac{3}{8}} \\
+&f_{t}=0.62 * \sqrt{f_{c o}^{\prime}} \\
+&\varepsilon_{t}=\frac{2 * f_{t}}{E_{c}} \\
+&x_{p}=2 \\
+&x_{n}=2.3 \\
+&r=\frac{f_{c 0}^{\prime}}{5.2}-1.9
+\end{aligned}
+$$
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/SI_Metric_Units.png" title="SI_Metric_Units.png"
 alt="SI_Metric_Units.png" />
 <figcaption aria-hidden="true">SI_Metric_Units.png</figcaption>
 </figure>
-<ul>
-<li>Confined Concrete</li>
-</ul>
-<p>Confinement increases the strength and ductility of concrete. These
+
+
+### Confined Concrete
+Confinement increases the strength and ductility of concrete. These
 effects are accounted in the above figure by replaceing the peak
 compressive strength and the corresponding strain with f' cc and e'cc,
 respectively. The value of r is also decreased. The recommended approach
 to define all critical parameters needed to model the confined concrete
-under compression are as follows:</p>
-<figure>
-<img src="/OpenSeesRT/contrib/static/Confined_Concrete.png" title="Confined_Concrete.png"
-alt="Confined_Concrete.png" />
-<figcaption aria-hidden="true">Confined_Concrete.png</figcaption>
-</figure>
+under compression are as follows:
+
+$$
+f_{c c}^{\prime}=f_{c 0}^{\prime} *\left(1+k_{1} * x^{\prime}\right)
+$$
+
 <p>where:</p>
+
+$$
+\begin{aligned}
+&f_{c 0}^{\prime}=\text { unconfined peak compressive strength } \\
+&k_{1}=A *\left[0.1+\frac{0.9}{1+B * x^{\prime}}\right] \\
+&x^{\prime}=\frac{f_{l 1}+f_{l 2}}{2 f_{c 0}^{\prime}} \\
+&A=6.886-(0.6069+17.275 \mathrm{q}) e^{-4.989 \mathrm{q}} \\
+&B=\frac{4.5}{\frac{5}{A}\left[0.9849-0.6306 e^{-3.8939 \mathrm{q}}\right]-0.1}-5
+&q=\frac{f_{l 1}}{f_{l 2}} \quad f_{l 2} \geq f_{l 1} \\
+&\varepsilon_{c c}^{\prime}=\varepsilon_{c 0}\left(1+k_{2} * x^{\prime}\right) \\
+&k_{2}=5 \mathrm{k}_{1} \quad \text { for normal strength transverse reinforcement } \\
+&k_{2}=3 \mathrm{k}_{1} \quad \text { for high strength transverse reinforcement } \\
+&x_{n}=30 \text { (value is recommended in order to follow the descending branch to large strains) } \\
+&n=\frac{E_{c} * \varepsilon_{c c}}{f_{c c}^{\prime}} \\
+&r=\frac{n}{n-1}
+$$
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/Confined_Concrete_Parameters.png"
 title="Confined_Concrete_Parameters.png"
@@ -150,12 +195,14 @@ alt="Hysteretic_behavior_of_Concrete07.png" />
 <figcaption
 aria-hidden="true">Hysteretic_behavior_of_Concrete07.png</figcaption>
 </figure>
-<p>Concrete07 gives larger residual displacements than Concrete03.
+
+`Concrete07` gives larger residual displacements than Concrete03.
 Concrete07 also has a higher initial stiffness compared with Concrete03
 and has a much slower softening post-peak in tension. Chang and Mander
 state that the abrupt loss of capacity shown in Concrete03 in tension is
 due to testing conditions and not representative of the true material
-behavior.</p>
+behavior.
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/Comp1.png" title="Comp1.png" alt="Comp1.png" />
 <figcaption aria-hidden="true">Comp1.png</figcaption>
@@ -164,33 +211,38 @@ behavior.</p>
 <img src="/OpenSeesRT/contrib/static/Comp2.png" title="Comp2.png" alt="Comp2.png" />
 <figcaption aria-hidden="true">Comp2.png</figcaption>
 </figure>
-<ul>
-<li>Axial Load</li>
-</ul>
-<p>If the material model is used in a section that is going to be
+
+
+### Axial Load
+
+If the material model is used in a section that is going to be
 subjected to cyclic loading, problems can occur if there is no axial
 load on the section. The section should be subjected to axial load due
 to the self weight of the element. If the material is loaded into
 tension without any compression strain, and then reversed, the model
-will target -0.00002 strain if cracking has not occurred or 5% of the
+will target $-0.00002$ strain if cracking has not occurred or 5% of the
 peak strain if cracking has occurred. The increased value after cracking
 is due to material being wedged in the open cracks. Users are encouraged
 to apply some axial load to the section equal to the self weight of the
 element or a small amount if the user does want minimal axial load. Less
 than 0.05% of f'cAg is adequate to ensure a stable response. This will
-then be used instead of the default behavior described above.</p>
+then be used instead of the default behavior described above.
+
 <hr />
+
 ## References
 <ol>
-<li>Chang, G.A., and Mander, J.B., (1994) "Seismic Energy Based Fatigue
-Damage Ananlysis of Bridge Columns:Part 1 - Evaluation of Seismic
-Capacity," NCEER Technical Report No. NCEER-94-0006 State University of
-New York, Buffalo, N.Y.</li>
-<li>Waugh, J., (2009) "Nonlinear analysis of T-shaped concrete walls
-subjected to multi-directional displacements", PhD Thesis, Iowa State
-University, IA.</li>
-</ol>
+- Chang, G.A., and Mander, J.B., (1994) "Seismic Energy Based Fatigue
+  Damage Ananlysis of Bridge Columns:Part 1 - Evaluation of Seismic
+  Capacity," NCEER Technical Report No. NCEER-94-0006 State University of
+  New York, Buffalo, N.Y.
+- Waugh, J., (2009) "Nonlinear analysis of T-shaped concrete walls
+  subjected to multi-directional displacements", PhD Thesis, Iowa State
+  University, IA.
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> Jonathan Waugh,
+
+<p>Code developed by: <span style="color:blue"> Jonathan Waugh,
 Iowa State University </span> and <span style="color:blue">
 Sri Sritharan, Iowa State University </span></p>
+

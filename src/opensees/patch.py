@@ -65,11 +65,10 @@ class _Polygon:
         self._fibers = None
 
     def __contains__(self, p:tuple) -> bool:
-        v = np.asarray(self.vertices)
-        edges = np.array(
-            [[v[i-1], v[i]] for i in range(len(v))]
+        v = self.vertices
+        inside = (1 == sum(
+            _rayIntersectSeg(p, (v[i-1], v[i])) for i in range(len(v)))%2
         )
-        inside = (1 == sum(_rayIntersectSeg(p, edge) for edge in edges)%2)
         return inside
 
     @property
@@ -560,7 +559,7 @@ def _rayIntersectSeg(p, edge)->bool:
     if a[1] > b[1]:
         a,b = b,a
     if p[1] == a[1] or p[1] == b[1]:
-        p = np.array([p[0], p[1] + _eps])
+        p = np.array((p[0], p[1] + _eps))
  
     intersect = False
  
@@ -568,7 +567,7 @@ def _rayIntersectSeg(p, edge)->bool:
         return False
  
     if p[0] < min(a[0], b[0]):
-        intersect = True
+        return True
     else:
         if abs(a[0] - b[0]) > _tiny:
             m_red = (b[1] - a[1]) / float(b[0] - a[0])
