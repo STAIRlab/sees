@@ -876,31 +876,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/636-ShellDKGQ/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/637-ShellDKGT/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/638-ShellNL/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/639-ShellNLDKGQ/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/640-ShellNLDKGT/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/2010-DispBeamColumnW3D/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
@@ -1102,6 +1077,31 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/562-Quad%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/shell/636-ShellDKGQ/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/shell/637-ShellDKGT/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/shell/638-ShellNL/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/shell/639-ShellNLDKGQ/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/shell/640-ShellNLDKGT/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
