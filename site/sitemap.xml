@@ -856,132 +856,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/1074-CatenaryCable/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/1107-Corotational%20Truss%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/1716-Truss2/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/1717-Truss/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/183-ElasticTubularJoint%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/2010-DispBeamColumnW3D/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/2056-Beam%20With%20Hinges%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/2153-Displacement-Based%20Beam-Column%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/2184-Elastic%20Beam%20Column%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/2185-Elastic%20Beam%20Column%20Element%20with%20Stiffness%20Modifiers/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/2194-Elastic%20Timoshenko%20Beam%20Column%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/252-Flexure-Shear%20Interaction%20Displacement-Based%20Beam-Column%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/257-Force-Based%20Beam-Column%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/350-Joint2D%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/376-MVLEM%20-%20Multiple-Vertical-Line-Element-Model%20for%20RC%20Walls/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/4211-Enhanced%20Strain%20Quadrilateral%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/4265-FourNodeTetrahedron/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/47-Bbar%20Brick%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/48-Bbar%20Plane%20Strain%20Quadrilateral%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/52-BeamColumnJoint%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/53-BeamContact2D/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/54-BeamContact3D/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/55-BeamEndContact3D/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/562-Quad%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/6109-CoupledZeroLength/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/611-SFI%20MVLEM%20-%20Cyclic%20Shear-Flexure%20Interaction%20Model%20for%20RC%20Walls/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1021,212 +901,332 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/641-Shell%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/2010-DispBeamColumnW3D/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/643-SimpleContact2D/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/2056-Beam%20With%20Hinges%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/644-SimpleContact3D/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/2153-Displacement-Based%20Beam-Column%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/662-Standard%20Brick%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/2184-Elastic%20Beam%20Column%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/6759-ZeroLengthContactNTS2D/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/2185-Elastic%20Beam%20Column%20Element%20with%20Stiffness%20Modifiers/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/6762-ZeroLengthContact%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/2194-Elastic%20Timoshenko%20Beam%20Column%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/6763-ZeroLengthImpact3D/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/252-Flexure-Shear%20Interaction%20Displacement-Based%20Beam-Column%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/6764-ZeroLengthInterface2D/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/257-Force-Based%20Beam-Column%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/6767-ZeroLengthND%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3057-YamamotoBiaxialHDR/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/6768-ZeroLengthSection%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3196-ElastomericX/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/6769-ZeroLength%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3197-Elastomeric%20Bearing%20%28Bouc-Wen%29%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/7045-BbarBrickUP/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3198-Elastomeric%20Bearing%20%28Plasticity%29%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/7046-BbarQuadUP/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/320-HDR/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/7066-BrickUP/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3233-FPBearingPTV/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/7264-FourNodeQuadUP/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3251-FlatSliderBearing/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/7266-Four%20Node%20QuadUP/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3406-MultipleShearSpring%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/7419-NineFourNodeQuadUP/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/354-KikuchiBearing%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/7612-SSPbrickUP/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3568-RJ-Watson%20EQS%20Bearing%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/7614-SSPquadUP/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/361-LeadRubberX/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/7720-TwentyEightNodeBrickUP/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3650-Single%20Concave%20Friction%20Pendulum%20Bearing%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/8002-AC3D8/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3651-Single%20Friction%20Pendulum%20Bearing%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/8004-ASI3D8/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3714-TripleFrictionPendulumBearing/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/8005-AV3D4/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearing/3715-TripleFrictionPendulum/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/8710-Tri31%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/brick/662-Standard%20Brick%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/8721-Two%20Node%20Link%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/contact/53-BeamContact2D/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/8743-VS3D4/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/contact/54-BeamContact3D/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3057-YamamotoBiaxialHDR/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/contact/55-BeamEndContact3D/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3196-ElastomericX/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/contact/643-SimpleContact2D/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3197-Elastomeric%20Bearing%20%28Bouc-Wen%29%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/contact/644-SimpleContact3D/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3198-Elastomeric%20Bearing%20%28Plasticity%29%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/joint/183-ElasticTubularJoint%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/320-HDR/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/joint/350-Joint2D%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3233-FPBearingPTV/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3251-FlatSliderBearing/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3406-MultipleShearSpring%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/354-KikuchiBearing%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3568-RJ-Watson%20EQS%20Bearing%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/361-LeadRubberX/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3650-Single%20Concave%20Friction%20Pendulum%20Bearing%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3651-Single%20Friction%20Pendulum%20Bearing%20Element/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3714-TripleFrictionPendulumBearing/</loc>
-         <lastmod>2022-06-23</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/bearings/3715-TripleFrictionPendulum/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/joint/52-BeamColumnJoint%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/misc/673-SurfaceLoad%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/misc/8002-AC3D8/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/misc/8004-ASI3D8/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/misc/8005-AV3D4/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/misc/8710-Tri31%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/misc/8721-Two%20Node%20Link%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/misc/8743-VS3D4/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/4211-Enhanced%20Strain%20Quadrilateral%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/562-Quad%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/shell/641-Shell%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/tetrahedron/4265-FourNodeTetrahedron/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/truss/1074-CatenaryCable/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/truss/1107-Corotational%20Truss%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/truss/1716-Truss2/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/truss/1717-Truss/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/u-p/7045-BbarBrickUP/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/u-p/7046-BbarQuadUP/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/u-p/7066-BrickUP/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/u-p/7264-FourNodeQuadUP/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/u-p/7266-Four%20Node%20QuadUP/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/u-p/7419-NineFourNodeQuadUP/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/u-p/7612-SSPbrickUP/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/u-p/7614-SSPquadUP/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/u-p/7720-TwentyEightNodeBrickUP/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/walls/376-MVLEM%20-%20Multiple-Vertical-Line-Element-Model%20for%20RC%20Walls/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/walls/611-SFI%20MVLEM%20-%20Cyclic%20Shear-Flexure%20Interaction%20Model%20for%20RC%20Walls/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/zero_length/6109-CoupledZeroLength/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/zero_length/6759-ZeroLengthContactNTS2D/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/zero_length/6762-ZeroLengthContact%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/zero_length/6763-ZeroLengthImpact3D/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/zero_length/6764-ZeroLengthInterface2D/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/zero_length/6767-ZeroLengthND%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/zero_length/6768-ZeroLengthSection%20Element/</loc>
+         <lastmod>2022-06-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/zero_length/6769-ZeroLength%20Element/</loc>
          <lastmod>2022-06-23</lastmod>
          <changefreq>daily</changefreq>
     </url>
