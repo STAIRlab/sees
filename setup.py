@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 #import setuptools
-from skbuild import setup
+from skbuild import setup#, find_packages
 
 if __name__ == "__main__":
     setup(
@@ -9,8 +9,12 @@ if __name__ == "__main__":
         cmake_args=['-DDependencies=Conda', "-DCMAKE_JOB_POOLS=8"],
         cmake_install_target="OpenSeesPyRT",
 
-        package_dir = {"": "src"},
-        package = ["opensees"]
+        package_dir = {
+            "": "src"
+        },
+        packages=["opensees"]
+
+        #package = find_packages(where="src"),#["opensees"]
 
             # ext_modules=[
             #     setuptools.Extension(
