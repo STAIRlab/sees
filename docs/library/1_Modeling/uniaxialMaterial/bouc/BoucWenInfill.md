@@ -1,6 +1,6 @@
-# BoucWenInfill Material {#BoucWenInfill}
+# BoucWenInfill {#BoucWenInfill}
 
-This command is used to construct the uniaxial BoucWenInfill material
+This command is used to construct the uniaxial `BoucWenInfill` material
 producing smooth hysteretic loops with stiffness and strength
 degradation and pinching effect. The pinching formulation is
 particularly suitable to simulate the behavior of infill panels and
@@ -53,7 +53,7 @@ uniaxialMaterial BoucWenInfill matTag mass alpha beta0 eta0
 
 ::: note
 ::: title
-Note
+Notes
 :::
 
 The determination of constitutive parameters is supported by their
@@ -99,8 +99,7 @@ uniaxialMaterial BoucWenInfill 1 1 0.06 0.25 0.1 1.2 65 1 0.005 0.005 0.001 0.01
 ```
 :::
 
-Code Developed by: Stefano Sirotti, University of Modena and Reggio
-Emilia, Italy, <stefano.sirotti@unimore.it>
+## References
 
 ::: {#citations}
 
@@ -128,3 +127,8 @@ Emilia, Italy, <stefano.sirotti@unimore.it>
     147(11), 04021092. DOI:
     <https://doi.org/10.1061/(ASCE)EM.1943-7889.0002001>.
 :::
+
+Code developed by: <span style="color:blue">Stefano Sirotti</span>, University of Modena and Reggio
+Emilia, Italy, <stefano.sirotti@unimore.it>
+
+

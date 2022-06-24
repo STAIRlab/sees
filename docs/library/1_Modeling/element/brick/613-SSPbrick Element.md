@@ -1,11 +1,10 @@
-# SSPbrick Element
+# SSPbrick
 
-<p>This command is used to construct a SSPbrick element object.</p>
+This command is used to construct a `SSPbrick` element.
 
 ```tcl
 element SSPbrick $eleTag $iNode $jNode $kNode $lNode
-        $mNode $nNode $pNode $qNode $matTag &lt;$b1 $b2
-        $b3&gt;
+        $mNode $nNode $pNode $qNode $matTag < $b1 $b2 $b3 >
 ```
 
 <table>
@@ -35,7 +34,8 @@ respectively (optional, default = 0.0)</p></td>
 </tbody>
 </table>
 <hr />
-<p>The SSPbrick element is an eight-node hexahedral element using
+
+The SSPbrick element is an eight-node hexahedral element using
 physically stabilized single-point integration (SSP --&gt; Stabilized
 Single Point). The stabilization incorporates an enhanced assumed strain
 field, resulting in an element which is free from volumetric and shear
@@ -43,33 +43,45 @@ locking. The elimination of shear locking results in greater coarse mesh
 accuracy in bending dominated problems, and the elimination of
 volumetric locking improves accuracy in nearly-incompressible problems.
 Analysis times are generally faster than corresponding full integration
-elements.</p>
+elements.
+
 <p><strong>NOTES:</strong></p>
 <ol>
 <li>Valid queries to the SSPbrick element when creating an
-ElementalRecorder object correspond to those for the nDMaterial object
-assigned to the element (e.g., 'stress', 'strain'). Material response is
-recorded at the single integration point located in the center of the
-element.</li>
+   ElementalRecorder object correspond to those for the nDMaterial object
+   assigned to the element (e.g., 'stress', 'strain'). Material response is
+   recorded at the single integration point located in the center of the
+   element.</li>
 <li>The SSPbrick element was designed with intentions of duplicating the
-functionality of the <a href="Standard_Brick_Element" title="wikilink">
-stdBrick Element</a>. If an example is found where the SSPbrick element
-cannot do something that works for the <a href="Standard_Brick_Element"
-title="wikilink"> stdBrick Element</a>, e.g., material updating, please
-contact the developers listed below so the bug can be fixed.</li>
+   functionality of the <a href="Standard_Brick_Element" title="wikilink">
+   stdBrick Element</a>. If an example is found where the SSPbrick element
+   cannot do something that works for the <a href="Standard_Brick_Element"
+   title="wikilink"> stdBrick Element</a>, e.g., material updating, please
+   contact the developers listed below so the bug can be fixed.</li>
 </ol>
+
 <p><strong>EXAMPLES:</strong></p>
+
 <p>SSPbrick element definition with element tag 1, nodes 1, 2, 3, 4, 5,
-6, 7, and 8, material tag 1, x- and y-directed body forces of zero, and
-z-directed body force of -10.0</p>
-<p>element SSPbrick 1 1 2 3 4 5 6 7 8 1 0.0 0.0 -10.0</p>
-<p>Elemental recorders for stress and strain when using the SSPbrick
+6, 7, and 8, material tag 1, $x$- and $y$-directed body forces of zero, and
+z-directed body force of $-10.0$
+
+```tcl
+element SSPbrick 1 1 2 3 4 5 6 7 8 1 0.0 0.0 -10.0
+```
+
+Elemental recorders for stress and strain when using the SSPbrick
 element (note the difference from the <a href="Standard_Brick_Element"
 title="wikilink"> stdBrick Element</a>)</p>
-<p>recorder Element -eleRange 1 $numElem -time -file stress.out stress
-recorder Element -eleRange 1 $numElem -time -file strain.out strain</p>
-<hr />
-<p>Code Developed by: <span style="color:blue"> Chris McGann,
+
+```tcl
+recorder Element -eleRange 1 $numElem -time -file stress.out stress
+recorder Element -eleRange 1 $numElem -time -file strain.out strain
+```
+
+----------------------------------------------------------------------
+
+Code developed by: <span style="color:blue"> Chris McGann,
 Pedro Arduino, &amp; Peter Mackenzie-Helnwein, at the University of
-Washington </span></p>
+Washington </span>
 <hr />
