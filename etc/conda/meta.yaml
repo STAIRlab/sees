@@ -9,7 +9,7 @@ source:
 build:
   script_env: [CONDA_PREFIX]
   # number: 0
-  script: "$PYTHON setup.py build -- -- -j8"
+  script: "{{PYTHON}} setup.py install -vvv -- -- -j8"
     #script: python -m pip install . -vvv
 
 requirements:
@@ -40,15 +40,15 @@ requirements:
     - matplotlib
 
 
-test:
-  requires:
-    - pytest
-  imports:
-    - opensees
-  source_files:
-    - tests
-  commands:
-    - python -m pytest
+  # test:
+  #   requires:
+  #     - pytest
+  #   imports:
+  #     - opensees
+  #     # source_files:
+  #     #   - tests
+  #     # commands:
+  #     #   - python -m pytest
 
 about:
   summary: "Idiomatic and idempotent bindings to the OpenSees framework."
