@@ -10565,8 +10565,6 @@
         
           
         
-          
-        
       
       
         
@@ -10642,21 +10640,6 @@
     <li class="md-nav__item">
       <a href="../../LinearSolve/546-ProfileSPD/" class="md-nav__link">
         ProfileSPD SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../LinearSolve/660-SparseSPD/" class="md-nav__link">
-        SparseSPD SOE
 
       </a>
     </li>
@@ -15167,16 +15150,12 @@ NOTES:
 <li>
 When using the Lagrange Multipliers method additional unknown, the Lagrange multipliers, exist in the solution vector, making
 </li>
-</ol>
-<p>
-convergence using this test usually impossible (even though solution might have converged).
-</p>
-<ol>
+<p>convergence using this test usually impossible (even though solution might have converged).</p>
 <li>
-&lt;math&gt; ^0 !&lt;/math&gt; is the initial solution when solveCurrentStep() is invoked on the algorithm.
+<span class="math inline">\(\parallel \DeltaU^0 \parallel \!\)</span> is the initial solution when solveCurrentStep() is invoked on the algorithm.
 </li>
 <li>
-Sometimes there may be problems converging if &lt;math&gt;  ^0 !&lt;/math&gt; is very small to being with.
+Sometimes there may be problems converging if <span class="math inline">\(\parallel  \DeltaU^0 \parallel \!\)</span> is very small to being with.
 </li>
 </ol>
 <hr />
@@ -15189,7 +15168,7 @@ If the system of equations formed by the integrator is:
 This integrator is testing:
 </p>
 <p><span class="math display">\[\frac{\parallel \DeltaU^i \parallel}{\parallel \DeltaU^0
-\parallel} &amp;lt; \text{tol} \!\]</span></p>
+\parallel} &lt; \text{tol} \!\]</span></p>
 <hr />
 <p>
 Code Developed by: <span style="color:blue"> fmk </span>

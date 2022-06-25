@@ -82,7 +82,7 @@ $$K \Delta U^i = R(U^i)\,\!$$
 
 <p>This integrator is testing:</p>
 
-$$ \frac{\Delta U^i R(U^i)}{\Delta U^0 R(U^0)} &lt; \text{tol}
+$$ \frac{\Delta U^i R(U^i)}{\Delta U^0 R(U^0)} < \text{tol}
 \!$$
 
 

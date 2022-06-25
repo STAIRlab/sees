@@ -10567,8 +10567,6 @@
         
           
         
-          
-        
       
       
         
@@ -10644,21 +10642,6 @@
     <li class="md-nav__item">
       <a href="../../../../3_Numerics/LinearSolve/546-ProfileSPD/" class="md-nav__link">
         ProfileSPD SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../3_Numerics/LinearSolve/660-SparseSPD/" class="md-nav__link">
-        SparseSPD SOE
 
       </a>
     </li>
@@ -15065,14 +15048,14 @@ This command is used to construct a Truss2 or CorotTruss2 element object, a biax
 Truss:
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>Truss2<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$mGNode</span><span class="w"> </span><span class="nv">$nGNode</span><span class="w"> </span><span class="nv">$A</span>
-<span class="w">        </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-rho</span><span class="w"> </span><span class="nv">$rho</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-rayleigh</span><span class="w"> </span><span class="nv">$rflag</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-rho</span><span class="w"> </span><span class="nv">$rho</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>rayleigh<span class="w"> </span><span class="nv">$rflag</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <p>
 Corotational Truss:
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>CorotTruss2<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$mGNode</span><span class="w"> </span><span class="nv">$nGNode</span>
-<span class="w">        </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-rho</span><span class="w"> </span><span class="nv">$rho</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$A</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-rho</span><span class="w"> </span><span class="nv">$rho</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <hr />
@@ -15175,26 +15158,18 @@ href="Truss_Element" title="wikilink"> Truss</a></strong> Element (default = 0; 
 <p>
 NOTES:
 </p>
-<p>
 <ol type="1">
-<li>If the material used does not use biaxial effects, the element will behave like the uniaxial counterpart (<strong><a
-href="Truss_Element" title="wikilink">Truss</a></strong> or <strong><a
-href="Corotational_Truss_Element" title="wikilink"> CorotTruss</a></strong>). For the <strong><a
-href="ConcretewBeta_Material" title="wikilink"> ConcretewBeta</a></strong> material, the normal strain will be passed to the material to be used in calculation of the material response.
+<li><p>If the material used does not use biaxial effects, the element will behave like the uniaxial counterpart (<strong><a
+  href="Truss_Element" title="wikilink">Truss</a></strong> or <strong><a
+  href="Corotational_Truss_Element" title="wikilink"> CorotTruss</a></strong>). For the <strong><a
+  href="ConcretewBeta_Material" title="wikilink"> ConcretewBeta</a></strong> material, the normal strain will be passed to the material to be used in calculation of the material response.</p></li>
+<li><p>Consistent with the implementation of the <strong><a
+  href="Truss_Element" title="wikilink"> Truss</a></strong> element, the Truss2 element does not include Rayleigh damping by default. Rayleigh damping can be included by using the <code>-rayleigh</code> option with <code class="tcl-variable">rFlag</code> = 1.</p>
 </p>
-<p>
-<ol start="2" type="1">
-<li>Consistent with the implementation of the <strong><a
-href="Truss_Element" title="wikilink"> Truss</a></strong> element, the Truss2 element does not include Rayleigh damping by default. Rayleigh damping can be included by using the -rayleigh option with <code class="tcl-variable">rFlag</code> = 1.
-</p>
-<p>
-However, like the <strong><a href="Corotational_Truss_Element"
-title="wikilink"> CorotTruss</a></strong> element, the CorotTruss2 element includes the Rayleigh damping by default so the -rayleigh option is not available to the CorotTruss2 element.
-</p>
-<p>
-<ol start="3" type="1">
-<li>At this time, there is no trussSection equivalent implementation of these biaxial trusses.
-</p>
+<p>However, like the <strong><a href="Corotational_Truss_Element"
+  title="wikilink"> CorotTruss</a></strong> element, the CorotTruss2 element includes the Rayleigh damping by default so the <code>-rayleigh</code> option is not available to the CorotTruss2 element.</p></li>
+<li><p>At this time, there is no trussSection equivalent implementation of these biaxial trusses.</p></li>
+</ol>
 <h2 id="implementation">
 Implementation
 </h2>
@@ -15206,19 +15181,18 @@ Implementation
 <dt>
 </dt>
 <dd>
-<a href="File:Truss2_Eq1.png"
-title="wikilink">thumb|upright=1.5|Equation 1.</a>
+<img src="/OpenSeesRT/contrib/static/Truss2_Eq1.png"
+title="wikilink"> Equation 1.
 </dd>
 </dl>
 </dd>
 </dl>
-<p>
 The above figure shows the layout of the truss and zero-stiffness gauge elements that make up the Truss2 Element object. The truss element part behaves identically to the <strong><a href="Truss_Element"
 title="wikilink"> Truss</a></strong> Element object (or the <strong><a
 href="Corotational_Truss_Element" title="wikilink"> CorotTruss</a></strong> Element object for the case of CorotTruss2).
 </p>
 <p>
-The zero-stiffness gauge element is used to measure the strain in the direction of the gauge. The strain in the direction normal to the truss element is described by Equation 1, where <em>&amp;epsilon;&lt;sub&gt;truss&lt;/sub&gt;</em> is the strain calculated in the truss element, <em>&amp;epsilon;&lt;sub&gt;gauge&lt;/sub&gt;</em> is the strain calculated in the gauge element, and <em>&amp;theta;&lt;sub&gt;g&lt;/sub&gt;</em> is the angle between the truss and gauge elements. It is suggested to make <em>&amp;theta;&lt;sub&gt;g&lt;/sub&gt;</em> as close to 90&amp;deg; as possible.
+The zero-stiffness gauge element is used to measure the strain in the direction of the gauge. The strain in the direction normal to the truss element is described by Equation 1, where <em>&amp;epsilon;<sub>truss</sub></em> is the strain calculated in the truss element, <em>&amp;epsilon;<sub>gauge</sub></em> is the strain calculated in the gauge element, and <em>θ<sub>g</sub></em> is the angle between the truss and gauge elements. It is suggested to make <em>θ<sub>g</sub></em> as close to 90° as possible.
 </p>
 <dl>
 <dt>
@@ -15245,11 +15219,8 @@ Panagiotou, M., Restrepo, J.I., Schoettler, M., and Kim G. (2012). “Nonlinear 
 </p>
 <hr />
 <p>
-Code Developed by: <span style="color:blue"> Yuan Lu, UC Berkeley </span> and <span style="color:blue"> Marios Panagiotou, UC Berkeley </span>
-</p></li>
-</ol></li>
-</ol></li>
-</ol>
+Code developed by: <span style="color:blue"> Yuan Lu, UC Berkeley </span> and <span style="color:blue"> Marios Panagiotou, UC Berkeley </span>
+</p>
 
 
               

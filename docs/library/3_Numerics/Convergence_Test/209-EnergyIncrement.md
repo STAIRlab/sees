@@ -81,7 +81,7 @@ $$K \Delta U^i = R(U^i)\,\!$$
 
 <p>This integrator is testing:</p>
 
-$$ \Delta U^i R(U^i) &lt; \text{tol} \!$$
+$$ \Delta U^i R(U^i) < \text{tol} \!$$
 
 
 <hr />
