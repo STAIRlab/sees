@@ -2724,8 +2724,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2_5_6">
@@ -2786,69 +2784,17 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_2_5_6_3">
-          beamWithHinges
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="beamWithHinges" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_6_3">
-          <span class="md-nav__icon md-icon"></span>
-          beamWithHinges
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../developer/architecture/class_interface/element/beamWithHinges/BeamWithHinges2D/" class="md-nav__link">
-        BeamWithHinges2D
-
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_6_4" type="checkbox" id="__nav_2_2_5_6_4" >
-      
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_6_4">
           zeroLength
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="zeroLength" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_6_4">
+        <label class="md-nav__title" for="__nav_2_2_5_6_3">
           <span class="md-nav__icon md-icon"></span>
           zeroLength
         </label>
@@ -15113,7 +15059,7 @@
 
 <h1 id="beamwithhinges">BeamWithHinges</h1>
 <p>
-<p>This command is used to construct a forceBeamColumn element object, which is based on the non-iterative (or iterative) flexibility formulation. The locations and weights of the element integration points are based on so-called plastic hinge integration, which allows the user to specify plastic hinge lenghts at the element ends. Two-point Gauss integration is used on the element interior while two-point Gauss-Radau integration is applied over lengths of 4LpI and 4LpJ at the element ends, viz. “modified Gauss-Radau plastic hinge integration”. A total of six integration points are used in the element state determination (two for each hinge and two for the interior).</p>
+<p>This command is used to construct a forceBeamColumn element object, which is based on the non-iterative (or iterative) flexibility formulation. The locations and weights of the element integration points are based on so-called plastic hinge integration, which allows the user to specify plastic hinge lenghts at the element ends. Two-point Gauss integration is used on the element interior while two-point Gauss-Radau integration is applied over lengths of <span class="math inline">\(4\ell_{p,i}\)</span> and <span class="math inline">\(4\ell_{p,j}\)</span> at the element ends, viz. “modified Gauss-Radau plastic hinge integration”. A total of six integration points are used in the element state determination (two for each hinge and two for the interior).</p>
 <p>
 Users may be familiar with the <strong>beamWithHinges</strong> command format (see below); however, the format shown here allows for the simple but important case of using a material nonlinear section model on the element interior. The previous beamWithHinges command constrained the user to an elastic interior, which often led to unconservative estimates of the element resisting force when plasticity spread beyond the plastic hinge regions in to the element interior.
 </p>
@@ -15382,11 +15328,144 @@ Shear Modulus of elastic portion.
 </tr>
 </tbody>
 </table>
+<h2 id="c-interface-beamwithhinges2d">C++ Interface (BeamWithHinges2D)</h2>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;element/BeamWithHinges2D.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">BeamWithHinges2D</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">DomainComponent</span>\
+
+<span class="n">TaggedObject</span>\
+<span class="n">MovableObject</span>\
+<span class="n">DomainComponent</span>\
+<span class="n">Element</span>\
+</pre></div>
+
+<p>BeamWithHinges2D is a beam-column element which uses the force based formulation for its state determination. This element has material non-linear hinges at both ends and exhibits linear elastic behavior through its interior region, including linear elastic shear effects.</p>
+<h3 id="constructors">Constructors</h3>
+<h3 id="destructor">Destructor</h3>
+<p>Constructs a BeamWithHinges2D object with tag <code>tag</code>, unique among all elements in the domain. The end nodes of the element are set to be those with tags <code>nodeI</code> and <code>nodeJ</code>. The elastic properties of the interior beam region are set to be <code>E</code>, the modulus of elasticity; <code>I</code>, the second moment of area of the beam cross-section; <code>A</code>, the beam cross-sectional area; <code>G</code>, the shear modulus; and <code>alpha</code>, the cross-section shape factor for elastic shear effects. Element hinges are created by obtaining copies of <code>sectionI</code> and <code>sectionJ</code>. The hinge lengths are specified as ratios of the total element length, <code>ratioI</code> and <code>ratioJ</code>. The element distributed load (reference value) is set to be <code>distrLoad</code>, and the element mass density per unit length is <code>massDens</code>.</p>
+<p>Constructs a BeamWithHinges2D object with tag <code>tag</code>, unique among all elements in the domain. The end nodes of the element are set to be those with tags <code>nodeI</code> and <code>nodeJ</code>. The elastic properties of the interior beam region are set to be <code>E</code>, the modulus of elasticity; <code>I</code>, the second moment of area of the beam cross-section; <code>A</code>, the beam cross-sectional area; <code>G</code>, the shear modulus; and <code>alpha</code>, the cross-section shape factor for elastic shear effects. Element hinges are created by obtaining copies of <code>sectionI</code> and <code>sectionJ</code>. The hinge lengths are specified as ratios of the total element length, <code>ratioI</code> and <code>ratioJ</code>. The element mass density per unit length is <code>massDens</code>.</p>
+<p>Constructs a blank BeamWithHinges2D object.</p>
+<p>Invokes the section destructors.</p>
+<p>// Public Methods dealing with Nodes and dof<br />
+</p>
+<p><br />
+</p>
+<p><br />
+// Public Methods dealing with State<br />
+</p>
+<p><br />
+</p>
+<p><br />
+// Public Methods for obtaining Linearized Stiffness, Mass and Damping Matrices<br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p>// Public Methods for obtaining Resisting Forces<br />
+</p>
+<p><br />
+</p>
+<p><br />
+</p>
+<p><br />
+Returns 2, the number of external nodes for this element.</p>
+<p>Returns an ID containing the tags of the two external nodes for this element.</p>
+<p>Returns 6, the number of degrees of freedom for this element.</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">commitState</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>Invokes <code>commitState()</code> on each section and returns the sum of the result of these invocations.</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">revertToLastCommit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>Invokes <code>revertToLastCommit()</code> on each section and returns the sum of the result of these invocations.</p>
+<div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">revertToStart</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>Invokes <code>revertToStart()</code> on each section and returns the sum of the result of these invocations.</p>
+<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getTangentStiff</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>Computes the element flexibility matrix, then returns its inverse, the element stiffness matrix. The element flexibility is the sum of the hinge flexibilities, <span class="math inline">\(\mathbf{f}_I\)</span> and <span class="math inline">\(\mathbf{f}_J\)</span>, and the elastic flexibility of the beam interior, <span class="math inline">\(\mathbf{f}_{mid}\)</span>.</p>
+<p><span class="math display">\[\label{eq:fele}
+\fbas := \int_{0}^{L}{\bint^T \fsec \bint \: dx} = \mathbf{f}_I + \mathbf{f}_{mid} + \mathbf{f}_J\]</span></p>
+<p>The flexibility of the beam interior is obtained in closed form,</p>
+<p><span class="math display">\[\mathbf{f}_{mid} = \int_{l_I}^{L-l_J}{\bint^T \fsec_{mid} \bint \: dx}\]</span></p>
+<p>where <span class="math inline">\(\bint\)</span> is the force interpolation matrix,</p>
+<p><span class="math display">\[\bint := \left[
+   \begin{array}{c c c}
+      1 &amp;           0 &amp;               0 \\
+      0 &amp; \frac{x}{L} &amp; \frac{x}{L} - 1 \\
+      0 &amp; \frac{1}{L} &amp;     \frac{1}{L}
+   \end{array} 
+ \right]\]</span></p>
+<p>and <span class="math inline">\(\fsec\)</span> is the elastic section flexibility of the beam interior.</p>
+<p><span class="math display">\[\fsec_{mid} = \left[
+   \begin{array}{c c c}
+      \frac{1}{EA} &amp;            0 &amp;                   0 \\
+                 0 &amp; \frac{1}{EI} &amp;                   0 \\
+                 0 &amp;            0 &amp; \frac{1}{\alpha GA}
+   \end{array}
+ \right]\]</span></p>
+<p>The hinge flexibilities, <span class="math inline">\(\mathbf{f}_I\)</span> and <span class="math inline">\(\mathbf{f}_J\)</span>, are obtained by the midpoint integration rule,</p>
+<p><span class="math display">\[{\mathbf{f}}_i = \bint(x_i)^T \fsec_i \bint(x_i) * l_i, \:\: i=I,J\]</span></p>
+<p>where <span class="math inline">\(x_i\)</span> is the midpoint of hinge <span class="math inline">\(i\)</span>, measured along the length of the beam, and is the point at which the force interpolation matrix, <span class="math inline">\(\bint\)</span> is evaluated. The flexiblity, <span class="math inline">\(\fsec_i\)</span>, is obtained from the constitutive relation for section <span class="math inline">\(i\)</span>. The element stiffness is then obtained by inversion of the element flexibility, given by Equation <a href="#eq:fele" data-reference-type="ref" data-reference="eq:fele">[eq:fele$$</a>.</p>
+<p><span class="math display">\[\label{eq:kele}
+\kbas = \fbas^{-1}\]</span></p>
+<p>The element then obtains the matrix, <span class="math inline">\(\mathbf{A}\)</span>, which transforms the element basic stiffness from its corotating frame to the global frame of reference. The transformed stiffness matrix, <span class="math inline">\(\kele\)</span>, is then assembled into the structural system of equations.</p>
+<p><span class="math display">\[\kele = \mathbf{A}^T \kbas \mathbf{A}\]</span><br />
+</p>
+<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getSecantStiff</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>To return the elements secant stiffness matrix. THIS SECANT MAY BE REMOVED.</p>
+<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getDamp</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>To return the damping matrix.</p>
+<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getMass</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>Returns the element lumped mass matrix, <span class="math inline">\(\textrm{mass}\)</span>. It is assumed that the mass density per unit length, <span class="math inline">\(\rho\)</span>, is constant along the entire element, including the hinge regions.</p>
+<p><span class="math display">\[\label{eq:mele}
+\textrm{mass} = \left[
+   \begin{array}{c c c c c c}
+      \frac{\rho L}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+      0 &amp; \frac{\rho L}{2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+      0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+      0 &amp; 0 &amp; 0 &amp; \frac{\rho L}{2} &amp; 0 &amp; 0 \\
+      0 &amp; 0 &amp; 0 &amp; 0 &amp; \frac{\rho L}{2} &amp; 0 \\
+      0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+   \end{array}
+ \right]\]</span></p>
+<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">zeroLoad</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>This is a method invoked to zero the element load contributions to the residual.</p>
+<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getResistingForce</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>Returns the element resisting force vector. The basic element force vector is obtained as the product of the basic element stiffness, <span class="math inline">\(\kbas\)</span>, given by Equation <a href="#eq:kele" data-reference-type="ref" data-reference="eq:kele">[eq:kele$$</a>, and the basic element deformations, <span class="math inline">\(\vbas\)</span>.</p>
+<p><span class="math display">\[\qbas = \kbas \vbas\]</span></p>
+<p>The basic element force vector is then transformed from the corotating frame to the global frame of reference. The transformed force vector is then assembled into the structural system of equations.</p>
+<p><span class="math display">\[\label{eq:qele}
+\qele = \mathbf{A}^T \qbas\]</span><br />
+</p>
+<div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getResistingForceIncInertia</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+<p>Returns the element resisting force vector, <span class="math inline">\(\tilde{\qele}\)</span> with inertia forces included,</p>
+<p><span class="math display">\[\tilde{\qele} = \qele - \textrm{mass} \ddot{\mathbf u}\]</span></p>
+<p>where <span class="math inline">\(\qele\)</span> and <span class="math inline">\(\textrm{mass}\)</span> are obtained from Equations <a href="#eq:mele" data-reference-type="ref" data-reference="eq:mele">[eq:qele<span class="math display">\[
+](#eq:qele){reference-type=&quot;ref&quot; reference=&quot;eq:qele&quot;} and
+[\[eq:mele\]</span></a>, respectively, and <span class="math inline">\(\ddot{\mathbf u}\)</span> is the vector of trial nodal accelerations for the element.</p>
 <hr />
 <p>
 Code maintained by: <a
 href="http://web.engr.oregonstate.edu/~mhscott">Michael H. Scott, Oregon State University</a>
 </p>
+<p>NEED TO ADD ADD_INERTIA_LOAD TO INTERFACE .. SEE EARTHQUAKE_PATTERN CLASS.</p>
 
 
               

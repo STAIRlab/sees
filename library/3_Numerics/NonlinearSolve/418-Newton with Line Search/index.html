@@ -2724,8 +2724,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2_5_6">
@@ -2786,69 +2784,17 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_2_2_5_6_3">
-          beamWithHinges
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="beamWithHinges" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_6_3">
-          <span class="md-nav__icon md-icon"></span>
-          beamWithHinges
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/class_interface/element/beamWithHinges/BeamWithHinges2D/" class="md-nav__link">
-        BeamWithHinges2D
-
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_6_4" type="checkbox" id="__nav_2_2_5_6_4" >
-      
-      
-      
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_6_4">
           zeroLength
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="zeroLength" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_6_4">
+        <label class="md-nav__title" for="__nav_2_2_5_6_3">
           <span class="md-nav__icon md-icon"></span>
           zeroLength
         </label>
@@ -15256,21 +15202,13 @@ s_L = s_{n+1},\!\]</span>
 </p>
 <h3 id="secant-line-search">Secant Line Search</h3>
 <blockquote>
-<code class="sourceCode cpp"><span class="cf">while</span></code> (<span class="math inline">\(\frac{s_n}{s_0}\!\)</span> &gt; <code>tol</code> &amp; count &lt; $maxIter} {
+<code class="sourceCode cpp"><span class="cf">while</span></code> (<span class="math inline">\(\frac{s_n}{s_0}\!\)</span> &gt; <code>tol</code> &amp;&amp; <code>count</code> &lt; <code>maxIter</code> ) <code>{</code>
 </p>
-<span class="math display">\[ \eta_{n+1} = \eta_j -
-\frac{s_j*(\eta_{j-1}-\eta_j)}{s_{j-1}-S_j} ,\!$
-&lt;/dd&gt;
-&lt;dd&gt;
-if $ s_{n+1} * s_L &amp;lt; 0 \Rightarrow \eta_U = \eta_{n+1},
-s_U = s_{n+1},\!$
-&lt;/dd&gt;
-&lt;dd&gt;
-if $ s_{n+1} * s_U &amp;lt; 0 \Rightarrow \eta_L = \eta_{n+1},
-s_L = s_{n+1},\!\]</span>
-<p>
-}
-</p>
+<p><span class="math inline">\(\eta_{n+1} = \eta_j - \frac{s_j*(\eta_{j-1}-\eta_j)}{s_{j-1}-S_j} ,\!\)</span></p>
+<p><code>if</code> <span class="math inline">\(s_{n+1} * s_L &lt; 0\)</span> &gt; <span class="math inline">\(\eta_U = \eta_{n+1}\)</span> &gt; <span class="math inline">\(s_U = s_{n+1},\!\)</span></p>
+</blockquote>
+<blockquote>
+<p>if $ s_{n+1} * s_U$ &lt; <span class="math inline">\(0\)</span> &gt; <span class="math inline">\(\eta_L = \eta_{n+1},\)</span> &gt; <span class="math inline">\(s_L = s_{n+1},\!\)</span> <code>}</code></p>
 </blockquote>
 <h2 id="references">References</h2>
 <p>
