@@ -66,6 +66,41 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/Channel/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/MachineBroker/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/Shadow/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/LoadBalancer/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/LoadBalancer/ReleaseHeavierToLighterNeighbours/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/LoadBalancer/ShedHeaviest/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/LoadBalancer/SwapHeavierToLighterNeighbours/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/actor/</loc>
          <lastmod>2022-06-25</lastmod>
          <changefreq>daily</changefreq>
@@ -92,41 +127,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/actor/objectBroker/ObjectBroker/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/channel/Channel/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/loadBalancer/LoadBalancer/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/loadBalancer/ReleaseHeavierToLighterNeighbours/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/loadBalancer/ShedHeaviest/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/loadBalancer/SwapHeavierToLighterNeighbours/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/machineBroker/MachineBroker/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/shadow/Shadow/</loc>
          <lastmod>2022-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -471,17 +471,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/recorder/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/recorder/DatastoreRecorder/</loc>
          <lastmod>2022-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/recorder/MaxNodeDispRecorder/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/recorder/Recorder/</loc>
          <lastmod>2022-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>

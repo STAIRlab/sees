@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/shadow/Shadow/">
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/LoadBalancer/ReleaseHeavierToLighterNeighbours/">
       
       <link rel="icon" href="../../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-, mkdocs-material-8.2.13">
     
     
       
-        <title>Shadow - OpenSeesRT</title>
+        <title>OpenSeesRT</title>
       
     
     
@@ -99,8 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Shadow
-
+              
             
           </span>
         </div>
@@ -754,11 +753,163 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../Channel/" class="md-nav__link">
+        Channel
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MachineBroker/" class="md-nav__link">
+        MachineBroker
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shadow/" class="md-nav__link">
+        Shadow
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_5" type="checkbox" id="__nav_2_2_5_2_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">LoadBalancer</a>
+          
+            <label for="__nav_2_2_5_2_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="LoadBalancer" data-md-level="5">
+        <label class="md-nav__title" for="__nav_2_2_5_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          LoadBalancer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ShedHeaviest/" class="md-nav__link">
+        ShedHeaviest
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SwapHeavierToLighterNeighbours/" class="md-nav__link">
+        SwapHeavierToLighterNeighbours
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_2" type="checkbox" id="__nav_2_2_5_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_6" type="checkbox" id="__nav_2_2_5_2_6" >
       
       
       
@@ -780,14 +931,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../actor/">Actor</a>
           
-            <label for="__nav_2_2_5_2_2">
+            <label for="__nav_2_2_5_2_6">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Actor" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_2_2">
+        <label class="md-nav__title" for="__nav_2_2_5_2_6">
           <span class="md-nav__icon md-icon"></span>
           Actor
         </label>
@@ -804,7 +955,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_2_2" type="checkbox" id="__nav_2_2_5_2_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_6_2" type="checkbox" id="__nav_2_2_5_2_6_2" >
       
       
       
@@ -815,13 +966,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_2_2_2">
+        <label class="md-nav__link" for="__nav_2_2_5_2_6_2">
           Actor
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Actor" data-md-level="6">
-        <label class="md-nav__title" for="__nav_2_2_5_2_2_2">
+        <label class="md-nav__title" for="__nav_2_2_5_2_6_2">
           <span class="md-nav__icon md-icon"></span>
           Actor
         </label>
@@ -873,7 +1024,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_2_3" type="checkbox" id="__nav_2_2_5_2_2_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_6_3" type="checkbox" id="__nav_2_2_5_2_6_3" >
       
       
       
@@ -882,13 +1033,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_2_2_3">
+        <label class="md-nav__link" for="__nav_2_2_5_2_6_3">
           Message
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Message" data-md-level="6">
-        <label class="md-nav__title" for="__nav_2_2_5_2_2_3">
+        <label class="md-nav__title" for="__nav_2_2_5_2_6_3">
           <span class="md-nav__icon md-icon"></span>
           Message
         </label>
@@ -925,7 +1076,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_2_4" type="checkbox" id="__nav_2_2_5_2_2_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_6_4" type="checkbox" id="__nav_2_2_5_2_6_4" >
       
       
       
@@ -936,13 +1087,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_2_2_4">
+        <label class="md-nav__link" for="__nav_2_2_5_2_6_4">
           objectBroker
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="objectBroker" data-md-level="6">
-        <label class="md-nav__title" for="__nav_2_2_5_2_2_4">
+        <label class="md-nav__title" for="__nav_2_2_5_2_6_4">
           <span class="md-nav__icon md-icon"></span>
           objectBroker
         </label>
@@ -980,274 +1131,6 @@
           
         </ul>
       </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_3" type="checkbox" id="__nav_2_2_5_2_3" >
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_2_3">
-          Channel
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Channel" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          Channel
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../channel/Channel/" class="md-nav__link">
-        Channel
-
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_4" type="checkbox" id="__nav_2_2_5_2_4" >
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_2_4">
-          loadBalancer
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="loadBalancer" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_2_4">
-          <span class="md-nav__icon md-icon"></span>
-          loadBalancer
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../loadBalancer/LoadBalancer/" class="md-nav__link">
-        LoadBalancer
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../loadBalancer/ReleaseHeavierToLighterNeighbours/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../loadBalancer/ShedHeaviest/" class="md-nav__link">
-        ShedHeaviest
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../loadBalancer/SwapHeavierToLighterNeighbours/" class="md-nav__link">
-        SwapHeavierToLighterNeighbours
-
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_5" type="checkbox" id="__nav_2_2_5_2_5" >
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_2_5">
-          machineBroker
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="machineBroker" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_2_5">
-          <span class="md-nav__icon md-icon"></span>
-          machineBroker
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../machineBroker/MachineBroker/" class="md-nav__link">
-        MachineBroker
-
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_6" type="checkbox" id="__nav_2_2_5_2_6" checked>
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_2_6">
-          Shadow
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Shadow" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_2_6">
-          <span class="md-nav__icon md-icon"></span>
-          Shadow
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Shadow
-
-      </a>
-      
     </li>
   
 
@@ -3390,6 +3273,8 @@
       
         
           
+            
+          
         
           
         
@@ -3397,10 +3282,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_9">
-          Recorder
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../recorder/">Recorder</a>
+          
+            <label for="__nav_2_2_5_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Recorder" data-md-level="4">
         <label class="md-nav__title" for="__nav_2_2_5_9">
@@ -3408,6 +3299,8 @@
           Recorder
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -3432,21 +3325,6 @@
     <li class="md-nav__item">
       <a href="../../../recorder/MaxNodeDispRecorder/" class="md-nav__link">
         MaxNodeDispRecorder
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../recorder/Recorder/" class="md-nav__link">
-        Recorder
 
       </a>
     </li>
@@ -15309,85 +15187,39 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/developer/architecture/class_interface/Parallel/shadow/Shadow.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/developer/architecture/class_interface/Parallel/LoadBalancer/ReleaseHeavierToLighterNeighbours.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="shadow">Shadow</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;actor/shadow/Shadow.h&gt;</span><span class="cp"></span>
+  <h1>OpenSeesRT</h1>
+
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;domain/loadBalancer/ReleaseHeavierToLighterNeighbours.h&gt;</span><span class="cp"></span>
 </pre></div>
 
-<p>class Shadow<br />
+<p>clas ReleaseHeavierToLighterNeighbours: public LoadBalancer<br />
+</p>
+<p>LoadBalancer<br />
 </p>
 <p><br />
-</p>
-<p>Shadow is meant as an abstract class, i.e. no instances of Shadow should exist. A Shadow object is associated with an Actor object which may exist in another process. The Shadow acts like a normal object in the users address space, data and processing that is done by the Shadow may be stored and processed in a remote process, the Actor object resides in this remote address space. The Actor and the Shadow both have a Channel, a communication port. This allows the two to communicate with each other.</p>
+A ReleaseHeavierToLighterNeighbours is an object used to balance a PartitionedDomain. It does this by shedding the boundary vertices on the heaviest loaded partition (subdomain).</p>
 <h3 id="constructors">Constructors</h3>
 <p><br />
 </p>
 <h3 id="destructor">Destructor</h3>
 <p><br />
-// Protected Methods for Sending Objects to Remote Actor<br />
+// Public Methods<br />
 </p>
 <p><br />
 </p>
 <p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p>This constructor is used when the actor process is already up and running. The constructor sets its channel to be <em>theChannel</em>, its associated object broker to be <em>theBroker</em>, and the address to which it will send data to be <em>thaActorsAddress</em>.</p>
-<p>This constructor is used to get an actor process up and running. If <em>startShadow</em> is <em>true</em>, the constructor invokes <em>startActor(program,theChannel,compDemand)</em> on <em>theMachineBroker</em> object. It then invokes <code>setUpShadow()</code> on <em>theChannel</em> and <code>getLastSendersAddress()</code> on <em>theChannel</em> to set up store the address of the actors channel, <em>theActorsAddress</em>; this is done in case multiple shadow objects use a single channel. If an error occurs an error message is printed and the program terminated.</p>
+Sets <em>numRealeases</em> to <span class="math inline">\(1\)</span> and <em>factorGreater</em> to <span class="math inline">\(1.0\)</span>. These are the paramemeters used in the <code>balance()</code> method.</p>
+<p>Sets the parameters used in the <code>balance()</code> method.</p>
 <p><br />
 Does nothing.</p>
 <p><br />
-</p>
-<p>A method which will send the MovableObject <em>theObject</em> to the actor object through the shadows channel. It returns the result of invoking <em>sendObj(0,0,theObject, theBroker, theActorsAddress)</em> on the shadow’s associated channel <em>theChannel</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recvObject</span><span class="p">(</span><span class="n">MovableObject</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theObject</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<p>A method which will cause the object to read the MovableObject <em>theObject</em> from the channel. It will return the result of invoking <em>recvObj(0,0,theObject, theBroker, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<p>A method which will send the message <em>theMessage</em> to the actor object through the shadows channel. It will return the result of invoking <em>sendMsg(0,0,theMessage, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recvMessage</span><span class="p">(</span><span class="n">Message</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theMessage</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<p>A method which will cause the object to read the message <em>theMessage</em> from the channel. It will return the result of invoking <em>recvMsg(0,0,theMessage, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<p>A method which will send the Matrix <em>theMatrix</em> to the actor object through the shadows channel. It will return the result of invoking <em>sendMatrix(0,0,theMatrix, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recvMatrix</span><span class="p">(</span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theMatrix</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<p>A method which will cause the object to read the Matrix <em>theMatrix</em> from the channel. It will return the result of invoking <em>recvMatrix(0,0,theMatrix, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<p>A method which will send the Vector <em>theVector</em> to the actor object through the shadows channel. It will return the result of invoking <em>sendVector(0,0,theVector, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recvVector</span><span class="p">(</span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theVector</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<p>A method which will cause the object to read the Vector <em>theVector</em> from the channel. It will return the result of invoking <em>recvVector(0,0,theVector, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<p>A method which will send the ID <em>theID</em> to the actor object through the shadows channel. It will return the result of invoking <em>sendID(0,0,theID, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">recvID</span><span class="p">(</span><span class="n">ID</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theID</span><span class="p">);</span><span class="w"></span>
-</pre></div>
-
-<p>A method which will cause the object to read the ID <em>theID</em> from the channel. It will return the result of invoking <em>recvID(0,0,theID, theActorsAddress)</em> on the shadows associated channel <em>theChannel</em>.</p>
-<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getChannelPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<p>A method which returns a pointer to the channel currently set.</p>
-<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getObjectBrokerPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<p>A method which returns a pointer to the FEM_ObjectBroker passed in the constructor.</p>
-<div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="n">ObjectBroker</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">getActorAddressPtr</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<p>A method which returns a pointer to the channel in the actors address space.</p>
+For <em>numRelease</em> times the Vertices of <em>theWeightedGraph</em> are iterated through. For each Vertex, <span class="math inline">\(i\)</span>, <em>releaseBoundary(i, theWeightedGraph, true, factorGreater)</em> is invoked on the DomainPartitioner. Returns <span class="math inline">\(0\)</span> if successful, otherwise a negative number and a warning message are returned if either no link has been set to the DomainPartitioner or <code>releaseBoundary()</code> returns a negative number.</p>
 
 
               
