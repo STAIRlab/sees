@@ -811,21 +811,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/GenericSection1D/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/GenericSectionND/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/Patch/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/constraints/</loc>
          <lastmod>2022-06-25</lastmod>
          <changefreq>daily</changefreq>
@@ -1367,6 +1352,56 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/190-Elastic%20Membrane%20Plate%20Section/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/192-Elastic%20Section/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/243-Fiber%20Section/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/407-NDFiber%20Section/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/515-Plate%20Fiber%20Section/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/57-Bidirectional%20Section/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/619-Section%20Aggregator/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/738-Uniaxial%20Section/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/GenericSection1D/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/GenericSectionND/</loc>
          <lastmod>2022-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2542,6 +2577,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/nDMaterial/</loc>
+         <lastmod>2022-06-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/material/17-Aggregator/</loc>
          <lastmod>2022-06-25</lastmod>
          <changefreq>daily</changefreq>
     </url>
