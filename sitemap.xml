@@ -1891,11 +1891,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/660-SparseSPD/</loc>
-         <lastmod>2022-06-25</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/LinearSolve/661-SparseSYM/</loc>
          <lastmod>2022-06-25</lastmod>
          <changefreq>daily</changefreq>

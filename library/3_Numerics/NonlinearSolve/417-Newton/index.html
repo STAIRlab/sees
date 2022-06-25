@@ -10555,8 +10555,6 @@
         
           
         
-          
-        
       
       
         
@@ -10632,21 +10630,6 @@
     <li class="md-nav__item">
       <a href="../../LinearSolve/546-ProfileSPD/" class="md-nav__link">
         ProfileSPD SOE
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../LinearSolve/660-SparseSPD/" class="md-nav__link">
-        SparseSPD SOE
 
       </a>
     </li>
@@ -15056,9 +15039,7 @@
 
 
 <h1 id="newton">Newton</h1>
-<p>
-This command is used to construct a NewtonRaphson algorithm object which is uses the Newton-Raphson algorithm to solve the nonlinear residual equation. The Newton-Raphson method is the most widely used and most robust method for solving nonlinear algebraic equations. The command is of the following form:
-</p>
+<p>This command is used to construct a <code>NewtonRaphson</code> algorithm object which is uses the Newton-Raphson algorithm to solve the nonlinear residual equation. The Newton-Raphson method is the most widely used and most robust method for solving nonlinear algebraic equations. The command is of the following form:</p>
 <div class="highlight"><pre><span></span><span class="nv">algorithm</span><span class="w"> </span>Newton<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>initial<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>initialThenCurrent<span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
@@ -15098,10 +15079,10 @@ optional flag to indicate to use initial stiffness on first step, then use curre
 <hr />
 <h2 id="theory">Theory</h2>
 <p>
-The Newton method used in finite element analysis is identical to that taught in basic calculus courses. It is just extended for the n unknown degrees-of-freedom. The method as taught in basic calculus, is a root-finding algorithm that uses the first few terms of the Taylor series of a function &lt;math&gt;f(x),!&lt;/math&gt; in the vicinity of a suspected root &lt;math&gt;x_n,!&lt;/math&gt; to find the root &lt;math&gt;x_{n+1},!&lt;/math&gt;. Newton’s method is sometimes also known as Newton’s iteration, although in this work the latter term is reserved to the application of Newton’s method for computing square roots.
+The Newton method used in finite element analysis is identical to that taught in basic calculus courses. It is just extended for the n unknown degrees-of-freedom. The method as taught in basic calculus, is a root-finding algorithm that uses the first few terms of the Taylor series of a function <span class="math inline">\(f(x)\,\!\)</span> in the vicinity of a suspected root <span class="math inline">\(x_n\,\!\)</span> to find the root <span class="math inline">\(x_{n+1}\,\!\)</span>. Newton’s method is sometimes also known as Newton’s iteration, although in this work the latter term is reserved to the application of Newton’s method for computing square roots.
 </p>
 <p>
-The Taylor series of &lt;math&gt;r(x),!&lt;/math&gt; about the point &lt;math&gt;x=x_n+x,!&lt;/math&gt; is given by
+The Taylor series of <span class="math inline">\(r(x)\,\!\)</span> about the point <span class="math inline">\(x=x_n+\Delta x\,\!\)</span> is given by
 </p>
 <p><span class="math display">\[f(x_n+\Delta x) = f(x_n)+r^{&#39;}(x_n)\Delta x + 1/2r^{&#39;&#39;}(x_n)
 \Delta x^2+....\,\!\]</span></p>
@@ -15110,13 +15091,11 @@ Keeping terms only to first order,
 </p>
 <p><span class="math display">\[f(x_n+\Delta x) \approx f(x_n)+r^&#39;(x_n)\Delta x = f(x_n)+
 \frac{df(x_n)}{dx}\Delta x\]</span></p>
-<p>
-and since at the root we wish to find <span class="math inline">\(x_n + \Delta x\)</span> , the function equates to 0, i.e. &lt;math&gt;f(x_n+ x) = 0&lt;/math&gt;, we can solve for an approximate &lt;math&gt; x&lt;/math&gt;
-</p>
+<p>and since at the root we wish to find <span class="math inline">\(x_n + \Delta x\)</span> , the function equates to 0, i.e. <span class="math inline">\(f(x_n+\Delta x) = 0\)</span>, we can solve for an approximate <span class="math inline">\(\Delta x\)</span></p>
 <p><span class="math display">\[ \Delta x \approx -\frac{f(x_n)}{f^&#39;(x_n)} = -
 \frac{df(x_n)}{dx}^{-1}f(x_n)\]</span></p>
 <p>
-The Newmark method is thus an iterative method in which, starting at a good initial guess &lt;math&gt;x_0,!&lt;/math&gt; we keep iterating until our convergence criteria is met with the following:
+The Newmark method is thus an iterative method in which, starting at a good initial guess <span class="math inline">\(x_0\,\!\)</span> we keep iterating until our convergence criteria is met with the following:
 </p>
 <p><span class="math display">\[ \Delta x = - \frac{df(x_n)}{dx}^{-1}f(x_n)\,\!\]</span></p>
 <p><span class="math display">\[ x_{n+1} = x_n + \Delta x\,\!\]</span></p>
@@ -15125,9 +15104,7 @@ The method is generalized to n unknowns by replacing the above scalar equations 
 </p>
 <p><span class="math display">\[R(U_n+\Delta x) = R(U_n)+\frac{\partial R(U_n)}{\partial U}
 \Delta U + O(\Delta U ^2) \,\!\]</span></p>
-<p>
-The matrix &lt;math&gt;,!&lt;/math&gt; is called the system Jacobian matrix and will be denoted K:
-</p>
+<p>The matrix <span class="math inline">\(\frac{\partial R(U_n)}{\partial U}\,\!\)</span> is called the system Jacobian matrix and will be denoted <span class="math inline">\(K\)</span>:</p>
 <p><span class="math display">\[K = \frac{\partial R(U_n)}{\partial U}\,\!\]</span></p>
 <p>
 resulting in our iterative procedure where starting from a good initial guess we iterate until our <a href="Test_Command"
@@ -15137,7 +15114,7 @@ title="wikilink"> convergence criteria</a> is met with the following:
 <p><span class="math display">\[ U_{n+1} = U_n + \Delta U\,\!\]</span></p>
 <hr />
 <p>
-Code Developed by: <span style="color:blue"> fmk </span>
+Code developed by: <span style="color:blue"> fmk </span>
 </p>
 
 
