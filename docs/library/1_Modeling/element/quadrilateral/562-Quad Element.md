@@ -1,12 +1,13 @@
-# Quad Element
+# FourNodeQuad
 
-<p>This command is used to construct a FourNodeQuad element object which
-uses a bilinear isoparametric formulation.</p>
+This command is used to construct a FourNodeQuad element object which
+uses a bilinear isoparametric formulation.
 
 ```tcl
 element quad $eleTag $iNode $jNode $kNode $lNode $thick
-        $type $matTag &lt;$pressure $rho $b1 $b2&gt;
+        $type $matTag < $pressure $rho $b1 $b2 >
 ```
+
 <hr />
 <table>
 <tbody>

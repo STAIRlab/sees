@@ -10,7 +10,7 @@ force interaction surface.</p>
 
 ```tcl
 element CoupledZeroLength $eleTag $iNode $jNode $dirn1
-        $dirn2 $matTag &lt;$rFlag&gt;
+        $dirn2 $matTag < $rFlag >
 ```
 <hr />
 <table>
@@ -52,25 +52,34 @@ ElementRecorder object are 'force,' and 'material matArg1 matArg2
 
 ## Examples
 
-<p>element CoupledZeroLength 1 2 4 5 6 7; # truss tag 1 between nodes 2
-and 4 acting in directions 5 and 6 with material 7.</p>
+truss tag 1 between nodes 2 and 4 acting in directions 5 and 6 with material 7:
+```tcl
+element CoupledZeroLength 1 2 4 5 6 7; 
+```
+
 <hr />
 
 ## Theory
 
-<p>if change in element end displacements for 2 dof of interest are d1
-and d2:</p>
+If change in element end displacements for 2 dof of interest are d1
+and d2:
+
 <p>the deformation (strain in uniaxial material) of the material is set
 to be:</p>
-<p>&lt;math&gt;\epsilon = sqrt( \delta 1^2 + \delta
-2^2)&lt;/math&gt;</p>
-<p>and if resulting force (stress from uniaxial material) is Sigma then
+
+$$\epsilon = sqrt( \delta_1^2 + \delta_2^2)$$
+
+and if resulting force (stress from uniaxial material) is Sigma then
 the force computed for the two directions 1 and 2 are:</p>
-<p>&lt;math&gt; F_1 = (\Sigma * \delta 1) / \epsilon &lt;/math&gt;
-&lt;math&gt; F_2 = (\Sigma * \delta 2) / \epsilon &lt;/math&gt;</p>
-<p>NOTE: in case where $\epsilon = 0.0$, the
-forces are computed using $\Sigma$ and the last
-committed set of displacements that were not zero.</p>
+$$F_1 = (\Sigma * \delta 1) / \epsilon$$
+
+$$F_2 = (\Sigma * \delta 2) / \epsilon$$
+
+>NOTE: in case where $\epsilon = 0.0$, the
+>forces are computed using $\Sigma$ and the last
+>committed set of displacements that were not zero.
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> fmk
+<p>Code developed by: <span style="color:blue"> fmk
 </span></p>
+
