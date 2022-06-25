@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/loadBalancer/LoadBalancer/">
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/Parallel/LoadBalancer/ShedHeaviest/">
       
       <link rel="icon" href="../../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-, mkdocs-material-8.2.13">
     
     
       
-        <title>LoadBalancer - OpenSeesRT</title>
+        <title>ShedHeaviest - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LoadBalancer
+              ShedHeaviest
 
             
           </span>
@@ -754,11 +754,163 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../Channel/" class="md-nav__link">
+        Channel
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MachineBroker/" class="md-nav__link">
+        MachineBroker
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Shadow/" class="md-nav__link">
+        Shadow
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_5" type="checkbox" id="__nav_2_2_5_2_5" checked>
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">LoadBalancer</a>
+          
+            <label for="__nav_2_2_5_2_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="LoadBalancer" data-md-level="5">
+        <label class="md-nav__title" for="__nav_2_2_5_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          LoadBalancer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ReleaseHeavierToLighterNeighbours/" class="md-nav__link">
+        
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ShedHeaviest
+
+      </a>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SwapHeavierToLighterNeighbours/" class="md-nav__link">
+        SwapHeavierToLighterNeighbours
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_2" type="checkbox" id="__nav_2_2_5_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_6" type="checkbox" id="__nav_2_2_5_2_6" >
       
       
       
@@ -780,14 +932,14 @@
         <div class="md-nav__link md-nav__link--index ">
           <a href="../../actor/">Actor</a>
           
-            <label for="__nav_2_2_5_2_2">
+            <label for="__nav_2_2_5_2_6">
               <span class="md-nav__icon md-icon"></span>
             </label>
           
         </div>
       
       <nav class="md-nav" aria-label="Actor" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_2_2">
+        <label class="md-nav__title" for="__nav_2_2_5_2_6">
           <span class="md-nav__icon md-icon"></span>
           Actor
         </label>
@@ -804,7 +956,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_2_2" type="checkbox" id="__nav_2_2_5_2_2_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_6_2" type="checkbox" id="__nav_2_2_5_2_6_2" >
       
       
       
@@ -815,13 +967,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_2_2_2">
+        <label class="md-nav__link" for="__nav_2_2_5_2_6_2">
           Actor
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Actor" data-md-level="6">
-        <label class="md-nav__title" for="__nav_2_2_5_2_2_2">
+        <label class="md-nav__title" for="__nav_2_2_5_2_6_2">
           <span class="md-nav__icon md-icon"></span>
           Actor
         </label>
@@ -873,7 +1025,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_2_3" type="checkbox" id="__nav_2_2_5_2_2_3" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_6_3" type="checkbox" id="__nav_2_2_5_2_6_3" >
       
       
       
@@ -882,13 +1034,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_2_2_3">
+        <label class="md-nav__link" for="__nav_2_2_5_2_6_3">
           Message
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Message" data-md-level="6">
-        <label class="md-nav__title" for="__nav_2_2_5_2_2_3">
+        <label class="md-nav__title" for="__nav_2_2_5_2_6_3">
           <span class="md-nav__icon md-icon"></span>
           Message
         </label>
@@ -925,7 +1077,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_2_4" type="checkbox" id="__nav_2_2_5_2_2_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_6_4" type="checkbox" id="__nav_2_2_5_2_6_4" >
       
       
       
@@ -936,13 +1088,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_2_2_4">
+        <label class="md-nav__link" for="__nav_2_2_5_2_6_4">
           objectBroker
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="objectBroker" data-md-level="6">
-        <label class="md-nav__title" for="__nav_2_2_5_2_2_4">
+        <label class="md-nav__title" for="__nav_2_2_5_2_6_4">
           <span class="md-nav__icon md-icon"></span>
           objectBroker
         </label>
@@ -980,274 +1132,6 @@
           
         </ul>
       </nav>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_3" type="checkbox" id="__nav_2_2_5_2_3" >
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_2_3">
-          Channel
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Channel" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          Channel
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../channel/Channel/" class="md-nav__link">
-        Channel
-
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_4" type="checkbox" id="__nav_2_2_5_2_4" checked>
-      
-      
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_2_4">
-          loadBalancer
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="loadBalancer" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_2_4">
-          <span class="md-nav__icon md-icon"></span>
-          loadBalancer
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        LoadBalancer
-
-      </a>
-      
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ReleaseHeavierToLighterNeighbours/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ShedHeaviest/" class="md-nav__link">
-        ShedHeaviest
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../SwapHeavierToLighterNeighbours/" class="md-nav__link">
-        SwapHeavierToLighterNeighbours
-
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_5" type="checkbox" id="__nav_2_2_5_2_5" >
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_2_5">
-          machineBroker
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="machineBroker" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_2_5">
-          <span class="md-nav__icon md-icon"></span>
-          machineBroker
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../machineBroker/MachineBroker/" class="md-nav__link">
-        MachineBroker
-
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_2_6" type="checkbox" id="__nav_2_2_5_2_6" >
-      
-      
-      
-        
-          
-        
-      
-      
-        <label class="md-nav__link" for="__nav_2_2_5_2_6">
-          Shadow
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Shadow" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_2_6">
-          <span class="md-nav__icon md-icon"></span>
-          Shadow
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../shadow/Shadow/" class="md-nav__link">
-        Shadow
-
-      </a>
     </li>
   
 
@@ -3390,6 +3274,8 @@
       
         
           
+            
+          
         
           
         
@@ -3397,10 +3283,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_9">
-          Recorder
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../recorder/">Recorder</a>
+          
+            <label for="__nav_2_2_5_9">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Recorder" data-md-level="4">
         <label class="md-nav__title" for="__nav_2_2_5_9">
@@ -3408,6 +3300,8 @@
           Recorder
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -3432,21 +3326,6 @@
     <li class="md-nav__item">
       <a href="../../../recorder/MaxNodeDispRecorder/" class="md-nav__link">
         MaxNodeDispRecorder
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../recorder/Recorder/" class="md-nav__link">
-        Recorder
 
       </a>
     </li>
@@ -15309,44 +15188,38 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/developer/architecture/class_interface/Parallel/loadBalancer/LoadBalancer.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/developer/architecture/class_interface/Parallel/LoadBalancer/ShedHeaviest.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="loadbalancer">LoadBalancer</h1>
-<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;domain/loadBalancer/LoadBalancer.h&gt;</span><span class="cp"></span>
+<h1 id="shedheaviest">ShedHeaviest</h1>
+<div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;domain/loadBalancer/ShedHeaviest.h&gt;</span><span class="cp"></span>
 </pre></div>
 
-<p>class LoadBalancer<br />
+<p>class ShedHeaviest: public LoadBalancer<br />
+</p>
+<p>LoadBalancer<br />
 </p>
 <p><br />
-</p>
-<p>A LoadBalancer is an object used to balance a PartitionedDomain. The LoadBalancer does this by invoking methods in the DomainPartitioner object with which it is associated.</p>
-<h3 id="constructor">Constructor</h3>
+A ShedHeaviest is an object used to balance a PartitionedDomain. It does this by shedding the boundary vertices on the heaviest loaded partition (subdomain).</p>
+<h3 id="constructors">Constructors</h3>
 <p><br />
-### Destructor</p>
+</p>
+<h3 id="destructor">Destructor</h3>
 <p><br />
 // Public Methods<br />
 </p>
 <p><br />
 </p>
-<p>// Public Methods<br />
-</p>
 <p><br />
-</p>
-<p>Sets the pointer to the associated PartitionedDomain to be <span class="math inline">\(0\)</span>.</p>
+Sets <em>numRealeases</em> to <span class="math inline">\(1\)</span> and <em>factorGreater</em> to <span class="math inline">\(1.0\)</span>. These are the paramemeters used in the <code>balance()</code> method.</p>
+<p>Sets the parameters used in the <code>balance()</code> method.</p>
 <p><br />
-Does nothing. Provided so the subclasses destructor will be called.</p>
+Does nothing.</p>
 <p><br />
-Sets the pointer to the DomainPartitioner object associated with the LoadBalancer to point to <em>thePartitioner</em>.</p>
-<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">balance</span><span class="p">(</span><span class="n">Graph</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theWeightedGraph</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-</pre></div>
-
-<p>Each subclass must provide an implementation of this method. This method is invoked to balance the PartitionedDomain. The Graph <em>theWeightedGraph</em> is a weighted graph in which the vertices represent the Subdomains, the edges Subdomains sharing common boundary nodes and the weight the cost of the previous Subdomain calculations (determined by invoking <code>getCost()</code> on the Subdomains).</p>
-<p><br />
-Returns a pointer to the DomainPartitioner. If no DomainPartitioner has been set, a warning message is printed and <span class="math inline">\(0\)</span> returned.</p>
+The heaviest loaded partition, <em>max</em>, is first determined by iterating through the Graph <em>theWeightedGraph</em> looking at the vertex weights. Then <em>releaseBoundary(max, theWieightedGraph, true, factorGreater)</em> is invoked on the DomainPartitioner <em>numRelease</em> times. Returns <span class="math inline">\(0\)</span> if successful, otherwise a negative number and a warning message are returned if either no link has been set to the DomainPartitioner or <code>releaseBoundary()</code> returns a negative number.</p>
 
 
               
