@@ -5645,7 +5645,7 @@
   
     <li class="md-nav__item">
       <a href="../252-Flexure-Shear%20Interaction%20Displacement-Based%20Beam-Column%20Element/" class="md-nav__link">
-        Flexure-Shear Interaction Displacement-Based Beam-Column Element
+        DispBeamColumnInt
 
       </a>
     </li>
@@ -15210,20 +15210,18 @@
 
 
 <h1 id="displacement-based-beam-column">Displacement-Based Beam-Column</h1>
-<p>
-This command is used to construct a displacement beam element object, which is based on the displacement formulation, and considers the spread of plasticity along the element.
-</p>
+<p>This command is used to construct a displacement beam element object, which is based on the displacement formulation, and considers the spread of plasticity along the element.</p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>dispBeamColumn<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$numIntgrPts</span>
-<span class="w">        </span><span class="nv">$secTag</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-cMass</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-integration</span><span class="w"> </span><span class="nv">$intType</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$secTag</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>cMass<span class="w"> </span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-integration</span><span class="w"> </span><span class="nv">$intType</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <p>
 To change the sections along the element length, the following form of command may be used:
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>dispBeamColumn<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$numIntgrPts</span>
-<span class="w">        </span><span class="nv">-sections</span><span class="w"> </span><span class="nv">$secTag1</span><span class="w"> </span><span class="nv">$secTag2</span><span class="w"> </span>...<span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-cMass</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-integration</span><span class="w"> </span><span class="nv">$intType</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">-sections</span><span class="w"> </span><span class="nv">$secTag1</span><span class="w"> </span><span class="nv">$secTag2</span><span class="w"> </span>...<span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>mass<span class="w"> </span><span class="nv">$massDens</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-cMass</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>integration<span class="w"> </span><span class="nv">$intType</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <hr />
@@ -15274,7 +15272,12 @@ identifier for previously-defined section object
 <tr class="odd">
 <td>
 <p>
-<strong>$secTag1 <span class="math inline">\(secTag2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>numIntgrPts identifiers of previously-defined section object
+<strong><code>secTag1</code> <code>secTag2</code> …</strong>
+</p>
+</td>
+<td>
+<p>
+<code>numIntgrPts</code> identifiers of previously-defined section object
 </p>
 </td>
 </tr>
@@ -15329,21 +15332,18 @@ NOTE:
 <li>
 The default integration along the element is based on Gauss-Legendre quadrature rule.
 </li>
-</ul>
-<ul>
 <li>
-The default element is prismatic, i.e. the beam is represented by the section model identified by $secTag at each integration point.
+The default element is prismatic, i.e. the beam is represented by the section model identified by <code>secTag</code> at each integration point.
 </li>
-</ul>
-<ul>
 <li>
-The valid queries to a displacement-based beam-column element when creating an ElementRecorder object are ‘force,’ and ‘section $secNum secArg1 secArg2…’ Where $secNum refers to the integration point whose data is to be output valid entries being 1 through $numIntgrPts.
+The valid queries to a displacement-based beam-column element when creating an ElementRecorder object are <code>force</code>, and <code>section $secNum $secArg1 $secArg2...</code> Where <code>secNum</code> refers to the integration point whose data is to be output valid entries being 1 through <code>numIntgrPts</code>.
 </li>
 </ul>
 <h2 id="examples">Examples</h2>
-<p>
-element dispBeamColumn 1 2 4 5 8 9; # displacement-based beam column element added with tag 1 between nodes 2 and 4 that has 5 integration points, each using section 8, and the element uses geometric transformation 9
-</p>
+<p>displacement-based beam column element added with tag 1 between nodes 2 and 4 that has 5 integration points, each using section 8, and the element uses geometric transformation <code>9</code></p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>dispBeamColumn<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">9</span><span class="k">;</span><span class="w"> </span>
+</pre></div>
+
 <h2 id="references">References</h2>
 <hr />
 <p>
