@@ -6,9 +6,6 @@
 class SparseGenColLinSolver: public LinearSOESolver
 ```
 
-    MovableObject
-    Solver
-
 
 SparseGenColLinSolver is an abstract class. The SparseGenColLinSolver
 class provides access for each subclass to the SparseGenColLinSOE object

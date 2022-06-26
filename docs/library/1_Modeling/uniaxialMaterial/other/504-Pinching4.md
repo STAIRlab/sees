@@ -1,10 +1,10 @@
 # Pinching4
 
-<p>This command is used to construct a uniaxial material that represents
-a 'pinched' load-deformation response and exhibits degradation under
+This command is used to construct a uniaxial material that represents
+a "pinched" load-deformation response and exhibits degradation under
 cyclic loading. Cyclic degradation of strength and stiffness occurs in
 three ways: unloading stiffness degradation, reloading stiffness
-degradation, strength degradation.</p>
+degradation, strength degradation.
 
 ```tcl
 uniaxialMaterial Pinching4 $matTag $ePf1 $ePd1 $ePf2
@@ -140,62 +140,49 @@ d_i)$$
 
 </dd>
 </dl>
-<p>where $d_{\text{max i}}$ is the deformation
+
+where $d_{\text{max i}}$ is the deformation
 demand that defines the end of the reload cycle for increasing
 deformation demand, $d_{\text{max 0}} $ is the
 maximum historic deformation demand (which would be the deformation
 demand defining the end of the reload cycle if degradation of reloading
 stiffness is ignored), and $\delta d_i$ (defined
-below) is the value of reloading stiffness damage index at time $t_i$.</p>
-<dl>
-<dt></dt>
-<dd>
+below) is the value of reloading stiffness damage index at time $t_i$.
+
 
 $$f_{\text{max i}} = f_{\text{max 0}}(1 -\delta
 f_i)$$
 
-</dd>
-</dl>
-<p>where $f_{\text{max i}}$ is the current
-envelope maximum strength at time $t_i$,
-$f_{\text{max 0}} $ is the initial envelope
-maximum strength for the case of no damage, and $\delta f_i$ (defined below) is the value of strength value index at
-time $t_i$.</p>
-<p>The damage indices $\delta k_i$,
-$\delta d_i$, and $\delta f_i$, may be defined to be a function of displacement
-history only (`dmgType = "cycle"`) or displacement history and energy
-accumulation (`dmgType = "energy"`). For either case, all of the damage
-indices are computed using the same basic equation.</p>
-<p>If the damage indices are assumed to be a function of displacement
+
+where $f_{\text{max i}}$ is the current envelope maximum strength at time $t_i$,
+$f_{\text{max 0}} $ is the initial envelope maximum strength for the case of no 
+damage, and $\delta f_i$ (defined below) is the value of strength value index at
+time $t_i$.
+
+The damage indices $\delta k_i$, $\delta d_i$, and $\delta f_i$, may be defined 
+to be a function of displacement history only (`dmgType = "cycle"`) or displacement 
+history and energy accumulation (`dmgType = "energy"`). For either case, all of the damage
+indices are computed using the same basic equation.
+
+If the damage indices are assumed to be a function of displacement
 history and energy accumulation, the unloading stiffness damage index,
-$\delta k_i$ is computed as follows:</p>
-<dl>
-<dt></dt>
-<dd>
+$\delta k_i$ is computed as follows:
 
 $$\delta k_i = \left( \text{gK1} (d_{max})^\text{gK3} +
 \text{gK2} \left (\frac{E_i}{E_\text{monotonic}} \right )^\text{gK3}
-\right ) &lt;= \text{gKLim}$$
+\right ) \le \text{gKLim}$$
 
-</dd>
-</dl>
-<p>where</p>
-<dl>
-<dt></dt>
-<dd>
+where
 
 $$(d_{max} = \text{max} \left[ \frac{d_\text{max
 i}}{\text{def}_\text{max}}, \frac{d_\text{min i}}{\text{def}_\text{min}}
 \right ]$$
 
-</dd>
-</dl>
-<hr />
 
 ## Examples
 
-<p><a href="Pinching4MaterialExample"
-title="wikilink">Pinching4MaterialExample</a></p>
+<p><a href="Pinching4MaterialExample" title="wikilink">Pinching4MaterialExample</a></p>
+
 <hr />
 
 <p>DESCRIPTION:</p>
@@ -203,12 +190,15 @@ title="wikilink">Pinching4MaterialExample</a></p>
 "load" history. The same basic equations are used to describe
 deterioration in strength, unloading stiffness and reloading
 stiffness:</p>
+
 <hr />
 
 ## References
 <p><a
 href="http://peer.berkeley.edu/publications/peer_reports/reports_2003/0310.pdf">PEER
 2003/10</a></p>
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> Nilinjan Mitra,
+<p>Code developed by: <span style="color:blue"> Nilinjan Mitra,
 University of Washington</span></p>
+

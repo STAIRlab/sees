@@ -75,8 +75,8 @@ $$K \Delta U^i = R(U^i)\,\!$$
 
 <p>This integrator is testing:</p>
 
-$$\parallel \Delta U^i \parallel &lt; \text{tol}
-\!$$
+$$\parallel \Delta U^i \parallel < \text{tol}
+$$
 
 
 <hr />

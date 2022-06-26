@@ -4,7 +4,7 @@ description: Uniaxial updated Voce-Chaboche material
 
 # UVCuniaxial 
 
-<p>This command is used to construct an Updated Voce-Chaboche (UVC)
+This command is used to construct an Updated Voce-Chaboche (UVC)
 material for uniaxial stress states (e.g., beam elements). This material
 is a refined version of the classic nonlinear isotropic/kinematic
 hardening material model based on the Voce isotropic hardening law and
@@ -12,7 +12,8 @@ the Chaboche kinematic hardening law. The UVC model contains an updated
 isotropic hardening law, with parameter constraints, to simulate the
 permanent decrease in yield stress with initial plastic loading
 associated with the discontinuous yielding phenomenon in mild
-steels.</p>
+steels.
+
 <p>Details regarding the model, its implementation, and calibration can
 be found in the references cited at the end. The <a
 href="https://opensees.berkeley.edu/wiki/index.php/UVCmultiaxial_(Updated_Voce-Chaboche)">multiaxial</a>
@@ -22,13 +23,14 @@ href="https://opensees.berkeley.edu/wiki/index.php/UVCplanestress_(Updated_Voce-
 multiaxial and plane-stress implementations have the exact same
 hardening rules as this uniaxial model, and only differ in their purpose
 and numerical implementation.</p>
+
 <p>Available in OpenSees version 3.1.0+.</p>
+
 <hr />
 
 ```tcl
-uniaxialMaterial UVCuniaxial $matTag $E $fy $QInf $b
-        $DInf $a $N $C1 $gamma1 &lt;$C2 $gamma2 $C3 $gamma3 … $C8
-        $gamma8&gt;
+uniaxialMaterial UVCuniaxial $matTag $E $fy $QInf $b $DInf $a $N $C1 $gamma1 
+        < $C2 $gamma2 $C3 $gamma3 … $C8 $gamma8 >
 ```
 
 <hr />
@@ -132,22 +134,21 @@ with other common structural steels, are provided and discussed in the
 next section.
 
 <center>
-
 <div class="gallery" widths=400px heights=300px > 
 <figure>
 <img src="/OpenSeesRT/contrib/static/A992_flange_UVC.png">
 <figcaption>Figure 2. Comparison of UVC model with uniaxial coupon test data from the A992 Gr.
 50 W14X82 flange data set. </figcaption>
-<a
-href="File:S355j2_UVC.png">File:S355j2_UVC.png</a> | Figure 3.
-Comparison of UVC model with uniaxial coupon test data from the S355J2+N
-25 mm plate data set. 
+<img src="/OpenSeesRT/contrib/static/S355j2_UVC.png">
+<figcaption>Figure 3. Comparison of UVC model with uniaxial coupon test data from the S355J2+N
+25 mm plate data set. </figcaption>
 </figure>
 </div> 
 </center>
 
 
 <hr />
+
 <p><strong>UVC model parameters for structural steels</strong></p>
 <p>Below is a list of UVC model parameters for twelve structural steels
 from Reference [1] using two backstresses. These parameters are
@@ -364,26 +365,31 @@ ln(1+(L-L_0)/L_0) and s_true = F/A_0 * (1 + (L-L_0)/L_0).</p>
 </td></tr></tbody></table>
 
 
-<hr />
-<p><strong>References</strong>:</p>
-<p>Please use Reference [1] when citing the UVC model.</p>
+
+## References
+Please use Reference [1] when citing the UVC model.
+
 <p><strong>[1]</strong> Hartloper, A. R., de Castro e Sousa A., and
 Lignos D.G. "Constitutive Modeling of Structural Steels: Nonlinear
 Isotropic/Kinematic Hardening Material Model and its Calibration", <a
 href="https://doi.org/10.1061/(ASCE)ST.1943-541X.0002964">https://doi.org/10.1061/(ASCE)ST.1943-541X.0002964</a>.</p>
+
 <p><strong>[2]</strong> Hartloper, A. R., de Castro e Sousa A., and
 Lignos D.G. (2019). "Sensitivity of Simulated Steel Column Instabilities
 to Plasticity Model Assumptions". 12th Canadian Conference on Earthquake
 Engineering, Quebec City, QC, Canada. <a
 href="https://infoscience.epfl.ch/record/267788">https://infoscience.epfl.ch/record/267788</a></p>
+
 <p><strong>[3]</strong> Hartloper, A. R., de Castro e Sousa A., and
 Lignos D.G. (2019). "A Nonlinear Isotropic/Kinematic Hardening Model for
 Materials with Discontinuous Yielding". Report No. 271062, Resilient
 Steel Structures Laboratory (RESSLab), EPFL, Lausanne, Switzerland. <a
 href="https://infoscience.epfl.ch/record/271062">https://infoscience.epfl.ch/record/271062</a>.</p>
-<hr />
+
+
+---------------------------------------------------------------------
+
 <p>Code developed, implemented, and maintained by: 
 <span style="color:blue"> Alex Hartloper (EPFL). </span> Issues,
-bugs, and feature requests can be opened at the <a
-href="https://github.com/ahartloper/UVC_MatMod">github
-repository</a>.</p>
+bugs, and feature requests can be opened at the 
+<a href="https://github.com/ahartloper/UVC_MatMod">github repository</a>.</p>

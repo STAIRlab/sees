@@ -1,19 +1,17 @@
 # Node Recorder
 
-<p>The Node recorder type records the response of a number of nodes at
-every converged step. The command to create a node recorder is:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><em>recorder Node &lt;-file $fileName&gt; &lt;-xml $fileName&gt;
-&lt;-binary $fileName&gt; &lt;-tcp $inetAddress $port&gt; &lt;-precision
-$nSD&gt; &lt;-timeSeries $tsTag&gt; &lt;-time&gt; &lt;-dT $deltaT&gt;
-&lt;-closeOnWrite&gt; &lt;-node $node1 $node2 ...&gt; &lt;-nodeRange
-$startNode $endNode&gt; &lt;-region $regionTag&gt; -dof ($dof1 $dof2
-...) $respType</em>'</p></td>
-</tr>
-</tbody>
-</table>
+The Node recorder type records the response of a number of nodes at
+every converged step. The command to create a node recorder is:
+
+```tcl
+recorder Node < -file $fileName > < -xml $fileName >
+      < -binary $fileName > < -tcp $inetAddress $port > 
+      < -precision $nSD > < -timeSeries $tsTag > < -time > < -dT $deltaT >
+      < -closeOnWrite > < -node $node1 $node2 ... > 
+      < -nodeRange $startNode $endNode > 
+      < -region $regionTag > -dof ($dof1 $dof2 ...) $respType
+```
+
 <hr />
 <table>
 <tbody>
@@ -76,7 +74,7 @@ default: omitted)</p></td>
 region. (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$dof1 dof2 ...</strong></p></td>
+<td><p><code>dof1 dof2 ...</code></p></td>
 <td><p>the specified dof at the nodes whose response is
 requested.</p></td>
 </tr>
@@ -87,19 +85,20 @@ in table below.</p></td>
 </tr>
 </tbody>
 </table>
+
 <table>
 <tbody>
 <tr class="odd">
 <td><p><strong>disp</strong></p></td>
-<td><p>displacement*</p></td>
+<td><p>displacement\*</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>vel</strong></p></td>
-<td><p>velocity*</p></td>
+<td><p>velocity\*</p></td>
 </tr>
 <tr class="odd">
 <td><p><strong>accel</strong></p></td>
-<td><p>acceleration*</p></td>
+<td><p>acceleration\*</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>incrDisp</strong></p></td>
@@ -119,37 +118,46 @@ in table below.</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>RETURNS</p>
 <p><strong>&gt;0</strong> an integer tag that can be used as a handle on
 the recorder for the <a href="Remove_Command" title="wikilink"> remove
 recorder</a> commmand.</p>
 <p><strong>-1</strong> recorder command failed if integer
 <strong>-1</strong> returned.</p>
+
 <p>NOTES</p>
+
 <ul>
-<li>Only one of -file, -xml, -binary, -tcp will be used. If multiple
-specified last option is used.</li>
-<li>-tcp option only available for version 2.2.1 and higher.</li>
+<li>Only one of `-file`, `-xml`, `-binary`, `-tcp` will be used. If multiple
+  specified last option is used.</li>
+<li>`-tcp` option only available for version 2.2.1 and higher.</li>
 <li>In case you want to remove a recorder you need to know the tag for
-that recorder. Here is an example on how to get the tag of a
-recorder:</li>
+  that recorder. Here is an example on how to get the tag of a
+  recorder:</li>
+
+      set tagRc [recorder Node -file nodesD.out -time -node 1 2 3 4 -dof 1 2 disp]
+
 </ul>
-<p>set tagRc [recorder Node -file nodesD.out -time -node 1 2 3 4 -dof 1
-2 disp]</p>
+
+
 <p>EXAMPLES</p>
-<p>1. recorder Node -file nodesD.out -time -node 1 2 3 4 -dof 1 2
-disp;</p>
-<p>Generates output file nodesD.out that contains relative displacements
-in x and y direction at nodes 1, 2, 3, and 4. The output file will
-contain 9 columns (time, disp. in x at node 1, disp. in y at node 1, ...
-, disp. in y at node 4))</p>
-<p>2. recorder Node -file nodesA.out -timeSeries 1 -time -node 1 2 3 4
--dof 1 accel;</p>
-<p>For a UniformExcitation analysis, this command generates output file
-nodesA.out that contains absolute accelerations (ground motion
-acceleration + relative acceleration) in x direction for nodes 1, 2, 3,
-and 4. NOTE that if no TimeSeries is provided and a uniform excitation
-analysis is performed, the relative accelerations are recorded.</p>
+- Generates output file nodesD.out that contains relative displacements
+  in x and y direction at nodes 1, 2, 3, and 4. The output file will
+  contain 9 columns (time, disp. in x at node 1, disp. in y at node 1, ...
+  , disp. in y at node 4))
+
+     recorder Node -file nodesD.out -time -node 1 2 3 4 -dof 1 2 disp;
+
+- For a UniformExcitation analysis, this command generates output file
+  `nodesA.out` that contains absolute accelerations (ground motion
+  acceleration + relative acceleration) in x direction for nodes 1, 2, 3,
+  and 4. NOTE that if no TimeSeries is provided and a uniform excitation
+  analysis is performed, the relative accelerations are recorded.
+
+     recorder Node -file nodesA.out -timeSeries 1 -time -node 1 2 3 4 -dof 1 accel;
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>
+

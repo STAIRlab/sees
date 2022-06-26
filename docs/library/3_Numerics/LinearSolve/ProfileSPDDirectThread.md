@@ -11,13 +11,8 @@ UNDER CONSTRUCTION
 class ProfileSPDLinDirectThreadSolver: public LinearSOESolver
 ```
 
-    MovableObject
-    Solver
-    LinearSOESolver
-    ProfileSPDLinSolver
 
-
-A ProfileSPDLinDirectThreadSolver object can be constructed to solve a
+A `ProfileSPDLinDirectThreadSolver` object can be constructed to solve a
 ProfileSPDLinSOE object. It does this in parallel using threads by
 direct means, using the $LDL^t$ variation of the cholesky factorization.
 The matrx $A$ is factored one row block at a time using a left-looking
@@ -47,9 +42,3 @@ Does nothing.
 \
 The solver first copies the B vector into X. FILL IN The solve process
 changes $A$ and $X$.
-
-Does nothing but return $0$.
-
-Does nothing but return $0$.
-
-Does nothing but return $0$.

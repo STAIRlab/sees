@@ -8,8 +8,8 @@ class Matrix:
 
 
 The Matrix class provides the matrix abstraction. A matrix of order
-numRows X numCols is an ordered 2d array of numbers arranged in numRows
-rows and numCols columns. For example, a matrix $A$ of order 2 X 3:
+`numRows` $\times$ `numCols` is an ordered 2d array of numbers arranged in `numRows`
+rows and `numCols` columns. For example, a matrix $A$ of order $2 \times 3$:
 
 $$A =
 \left[
@@ -236,15 +236,16 @@ To read the contents of the Matrix from the input stream *s*. The method
 expects the components one row at a time.
 
 ```{.cpp}
-friend OPS_Stream &operator$<<$(OPS_Stream &s, const Matrix &M);
+friend OPS_Stream &operator<<(OPS_Stream &s, const Matrix &M);
 ```
 
 A function to print out the contents of the Matrix *M* to the output
 stream *s*. Does this by invoking `Output()` on the Matrix *M*.
 
 ```{.cpp}
-friend OPS_Stream &operator$>>$(istream &s, const Matrix &M);
+friend OPS_Stream &operator>>(istream &s, const Matrix &M);
 ```
 
 A function to print out the contents of the Matrix *M* to the output
 stream *s*. Does this by invoking `Output()` on the Matrix *M*.
+

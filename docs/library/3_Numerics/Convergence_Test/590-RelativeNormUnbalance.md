@@ -59,19 +59,18 @@ error message BUT RETURN A SUCCESSFUL test</p></td>
 </tbody>
 </table>
 <hr />
+
 <p>NOTES:</p>
 <ol>
 <li>When using the Penalty method additional large forces to enforce the
-penalty functions exist on the right hand side, making</li>
-</ol>
-<p>convergence using this test usually impossible (even though solution
-might have converged).</p>
-<ol>
-<li>&lt;math&gt; \parallel R(U^0) \parallel \!&lt;/math&gt; is the
-initial unbalance seen by the system when solveCurrentStep() is invoked
-on the algorithm.</li>
-<li>Sometimes there may be problems converging if &lt;math&gt; \parallel
-R(U^0) \parallel \!&lt;/math&gt; is very small to being with.</li>
+  penalty functions exist on the right hand side, making
+  convergence using this test usually impossible (even though solution
+  might have converged).</li>
+<li>$\parallel R(U^0) \parallel$ is the
+  initial unbalance seen by the system when solveCurrentStep() is invoked
+  on the algorithm.</li>
+<li>Sometimes there may be problems converging if $\parallel
+  R(U^0) \parallel$ is very small to being with.</li>
 </ol>
 <hr />
 
@@ -85,9 +84,10 @@ $$K \Delta U^i = R(U^i)\,\!$$
 <p>This integrator is testing:</p>
 
 $$\frac{\parallel R(U^i) \parallel}{\parallel R(U^0)
-\parallel} &lt; \text{tol} \!$$
+\parallel} < \text{tol} \!$$
 
 
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>
+

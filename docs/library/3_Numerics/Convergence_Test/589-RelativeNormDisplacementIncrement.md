@@ -59,19 +59,19 @@ error message BUT RETURN A SUCCESSFUL test</p></td>
 </tbody>
 </table>
 <hr />
+
 <p>NOTES:</p>
 <ol>
 <li>When using the Lagrange Multipliers method additional unknown, the
-Lagrange multipliers, exist in the solution vector, making</li>
-</ol>
-<p>convergence using this test usually impossible (even though solution
-might have converged).</p>
-<ol>
-<li>&lt;math&gt; \parallel \DeltaU^0 \parallel \!&lt;/math&gt; is the
-initial solution when solveCurrentStep() is invoked on the
-algorithm.</li>
-<li>Sometimes there may be problems converging if &lt;math&gt; \parallel
-\DeltaU^0 \parallel \!&lt;/math&gt; is very small to being with.</li>
+  Lagrange multipliers, exist in the solution vector, making</li>
+  convergence using this test usually impossible (even though solution
+  might have converged).
+
+<li>$\parallel \DeltaU^0 \parallel \!$ is the
+  initial solution when solveCurrentStep() is invoked on the
+  algorithm.</li>
+<li>Sometimes there may be problems converging if $\parallel
+   \DeltaU^0 \parallel \!$ is very small to being with.</li>
 </ol>
 <hr />
 
@@ -85,7 +85,7 @@ $$K \Delta U^i = R(U^i)\,\!$$
 <p>This integrator is testing:</p>
 
 $$\frac{\parallel \DeltaU^i \parallel}{\parallel \DeltaU^0
-\parallel} &lt; \text{tol} \!$$
+\parallel} < \text{tol} \!$$
 
 
 <hr />
