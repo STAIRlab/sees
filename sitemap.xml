@@ -1051,22 +1051,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/4211-Enhanced%20Strain%20Quadrilateral%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/4211-Enhanced%20Strain%20Quadrilateral/</loc>
          <lastmod>2022-06-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/48-Bbar%20Plane%20Strain%20Quadrilateral%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/48-Bbar%20Plane%20Strain%20Quadrilateral/</loc>
          <lastmod>2022-06-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/562-Quad%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/562-Quad/</loc>
          <lastmod>2022-06-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/615-SSPquad%20Element/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/quadrilateral/615-SSPquad/</loc>
          <lastmod>2022-06-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1976,51 +1976,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/NonlinearSolve/</loc>
-         <lastmod>2022-06-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/NonlinearSolve/30-BFGS/</loc>
-         <lastmod>2022-06-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/NonlinearSolve/356-Krylov-Newton/</loc>
-         <lastmod>2022-06-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/NonlinearSolve/368-Linear/</loc>
-         <lastmod>2022-06-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/NonlinearSolve/398-Modified%20Newton/</loc>
-         <lastmod>2022-06-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/NonlinearSolve/417-Newton/</loc>
-         <lastmod>2022-06-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/NonlinearSolve/418-Newton%20with%20Line%20Search/</loc>
-         <lastmod>2022-06-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/NonlinearSolve/618-Secant%20Newton/</loc>
-         <lastmod>2022-06-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/NonlinearSolve/67-Broyden/</loc>
-         <lastmod>2022-06-26</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Numberer/</loc>
          <lastmod>2022-06-26</lastmod>
          <changefreq>daily</changefreq>
@@ -2052,6 +2007,51 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Partitioner/Metis/</loc>
+         <lastmod>2022-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Solution_Algorithm/</loc>
+         <lastmod>2022-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Solution_Algorithm/30-BFGS/</loc>
+         <lastmod>2022-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Solution_Algorithm/356-Krylov-Newton/</loc>
+         <lastmod>2022-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Solution_Algorithm/368-Linear/</loc>
+         <lastmod>2022-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Solution_Algorithm/398-Modified%20Newton/</loc>
+         <lastmod>2022-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Solution_Algorithm/417-Newton/</loc>
+         <lastmod>2022-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Solution_Algorithm/418-Newton%20with%20Line%20Search/</loc>
+         <lastmod>2022-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Solution_Algorithm/618-Secant%20Newton/</loc>
+         <lastmod>2022-06-26</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/3_Numerics/Solution_Algorithm/67-Broyden/</loc>
          <lastmod>2022-06-26</lastmod>
          <changefreq>daily</changefreq>
     </url>
