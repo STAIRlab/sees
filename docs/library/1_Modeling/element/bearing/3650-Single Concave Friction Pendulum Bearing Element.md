@@ -1,6 +1,6 @@
-# Single Concave Friction Pendulum Bearing Element
+# Single Concave Friction Pendulum Bearing
 
-<p>This command is used to construct a singleFPBearing element object,
+This command is used to construct a singleFPBearing element object,
 which is defined by two nodes. The iNode represents the concave sliding
 surface and the jNode represents the articulated slider. The element can
 have zero length or the appropriate bearing height. The bearing has
@@ -14,9 +14,10 @@ behavior. P-Delta moments are entirely transferred to the concave
 sliding surface (iNode). It is important to note that rotations of the
 concave sliding surface (rotations at the iNode) affect the shear
 behavior of the bearing. If the element has non-zero length, the local
-x-axis is determined from the nodal geometry unless the optional x-axis
+$x$-axis is determined from the nodal geometry unless the optional $x$-axis
 vector is specified in which case the nodal geometry is ignored and the
-user-defined orientation is utilized.</p>
+user-defined orientation is utilized.
+
 <p>For a two-dimensional problem:</p>
 
 ```tcl
@@ -30,8 +31,7 @@ element singleFPBearing $eleTag $iNode $jNode $frnMdlTag
 ```tcl
 element singleFPBearing $eleTag $iNode $jNode $frnMdlTag
         $R $h $uy -P $matTag -T $matTag -My $matTag -Mz $matTag < -orient
-        < $x1 $x2 $x3 > $y1 $y2 $y3 > < -mass $m > < -iter $maxIter
-        $tol >
+        < $x1 $x2 $x3 > $y1 $y2 $y3 > < -mass $m > < -iter $maxIter $tol >
 ```
 
 <hr />
@@ -107,24 +107,33 @@ default = 1E-8)</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>NOTE:</p>
-<p>If the element has zero length and optional orientation vectors are
-not specified, the local element axes coincide with the global axes.
-Otherwise the local z-axis is defined by the cross product between the
-x- and y-vectors specified on the command line.</p>
-<p>The valid queries to a single concave friction pendulum bearing
-element when creating an ElementRecorder object are 'force,'
-'localForce,' 'basicForce,' 'localDisplacement,' 'basicDisplacement' and
-'material $matNum matArg1 matArg2 ...' Where $matNum is the number
-associated with the material whose data is to be output.</p>
+
+- If the element has zero length and optional orientation vectors are
+  not specified, the local element axes coincide with the global axes.
+  Otherwise the local $z$-axis is defined by the cross product between the
+  $x$- and $y$-vectors specified on the command line.
+
+- The valid queries to a single concave friction pendulum bearing
+  element when creating an ElementRecorder object are `force`,
+  `localForce`, `basicForce`, `localDisplacement`, `basicDisplacement` and
+  `material $matNum matArg1 matArg2 ...` Where $matNum is the number
+  associated with the material whose data is to be output.
 
 ## Examples
 
-<p>element singleFPBearing 1 1 2 1 37.28 2.60 0.01 -P 1 -Mz 2 -orient 0
-1 0 -1 0 0; # for a 2D single concave friction pendulum bearing</p>
-<p>element singleFPBearing 1 1 2 1 37.28 2.60 0.01 -P 1 -T 2 -My 3 -Mz 4
--orient 0 0 1 -1 0 0; # for a 3D single concave friction pendulum
-bearing</p>
+For a 2D single concave friction pendulum bearing:
+```tcl
+element singleFPBearing 1 1 2 1 37.28 2.60 0.01 -P 1 -Mz 2 -orient 0 1 0 -1 0 0; 
+```
+
+For a 3D single concave friction pendulum bearing:
+```tcl
+element singleFPBearing 1 1 2 1 37.28 2.60 0.01 -P 1 -T 2 -My 3 -Mz 4 -orient 0 0 1 -1 0 0; 
+```
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> Andreas
+<p>Code developed by: <span style="color:blue"> Andreas
 Schellenberg, University of California, Berkeley. </span></p>
+

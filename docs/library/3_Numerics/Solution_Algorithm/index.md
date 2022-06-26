@@ -1,9 +1,13 @@
-# Algorithm
+# Solution Algorithm
 
-<p>The `algorithm` field configures a `SolutionAlgorithm` object, which
+The `algorithm` field configures a `SolutionAlgorithm` object, which
 determines the sequence of steps taken to solve a non-linear system of
-equations.</p>
+equations.
 
+This object defines the sequence of operations performed by the the `Integrator` and
+the `LinearSOE` objects in solving the equilibrium equation $R(U) = 0$
+given the current state of the domain at each time step in a direct
+integration analysis or load increment in a static analysis.
 
 <hr />
 

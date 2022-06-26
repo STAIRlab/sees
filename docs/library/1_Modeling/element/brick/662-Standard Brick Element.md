@@ -1,12 +1,11 @@
-# Standard Brick Element
+# Standard Brick
 
-<p>This element is used to construct an eight-node brick element object,
-which uses a trilinear isoparametric formulation.</p>
+This element is used to construct an eight-node brick element object,
+which uses a trilinear isoparametric formulation.
 
 ```tcl
 element stdBrick $eleTag $node1 $node2 $node3 $node4
-        $node5 $node6 $node7 $node8 $matTag &lt;$b1 $b2
-        $b3&gt;
+        $node5 $node6 $node7 $node8 $matTag  < $b1 $b2 $b3 >
 ```
 
 <hr />

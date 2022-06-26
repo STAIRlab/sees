@@ -181,9 +181,8 @@ therefore
 
 $$ d\mathbf{e}^p = \langle L \rangle \mathbf{R'}$$
 
-and $d\varepsilon^p_v = \langle L \rangle D$.
-
-The hardening modulus in this model is defined as
+and $d\varepsilon^p_v = \langle L \rangle D$. The hardening modulus in 
+this model is defined as
 
 $$ K_p = \frac{2}{3} p h (\mathbf{\alpha}^b_{\theta} -
 \mathbf{\alpha}): \mathbf{n}$$
@@ -193,20 +192,17 @@ where $\mathbf{n}$ is the deviatoric part of the gradient to yield surface.
 $$ \mathbf{\alpha}^b_{\theta} = \sqrt{\frac{2}{3}}
 \left[g(\theta,c) M_c exp(-n^b\Psi) - m\right] \mathbf{n}$$
 
-, $\Psi$ being the state parameter.</p>
-the hardening parameter $h$ is defined as
+, $\Psi$ being the state parameter. The hardening parameter, $h$, is defined as
 
 $$ h =
 \frac{b_0}{(\mathbf{\alpha}-\mathbf{\alpha_{in}}):\mathbf{n}}
 $$
 
-, $\mathbf{\alpha_{in}}$ is the
-value of $\mathbf{\alpha}$ at initiation of
-loading cycle.</p>
+, $\mathbf{\alpha_{in}}\!$ is the value of $\mathbf{\alpha}\!$ at initiation of loading cycle.
 
 
 $$b_0 = G_0 h_0 (1-c_h e)
-\left(\frac{p}{p_{atm}}\right)^{-1/2} $$
+\left(\frac{p}{p_{atm}}\right)^{-1/2}$$
 
 
 <p>Also the dilation parameters are defined as</p>
@@ -220,6 +216,7 @@ $$ \mathbf{\alpha}^d_{\theta} = \sqrt{\frac{2}{3}}
 $$
 
 $$ A_d = A_0 (1+\langle \mathbf{z : n}\rangle)$$
+
 where $\mathbf{z}$ is the fabric tensor.
 
 The evolution of fabric and the back stress-ratio tensors are defined as

@@ -77,46 +77,45 @@ with
 
 $$s_0 = \Delta U R(U_n),\!$$
 
-<h2 id="interpolated_line_search">Interpolated Line Search:</h2>
 
-<p>while ($\frac{s_n}{s_0}\!$ &gt; `tol` &amp; `count` &lt; `maxIter`} {</p>
+### Interpolated Line Search
 
-$$ \eta_{n+1} = \frac{\eta_n *s0}{s0 -s_{n+1}}
-,\!$$
+<p>while ($\frac{s_n}{s_0}\!$ &gt; `tol` &amp;&amp; `count` &lt; `maxIter`} {</p>
+
+> $$ \eta_{n+1} = \frac{\eta_n *s0}{s0 -s_{n+1}},\!$$
 
 <p>}</p>
 
 
 ### RegulaFalsi Line Search
-<p>while ($\frac{s_n}{s_0}\!$ &gt; `tol` &amp; count &lt; $maxIter} {</p>
+<p>while ($\frac{s_n}{s_0}\!$ &gt; `tol` &amp;&amp; count &lt; maxIter } {</p>
 
-$$ \eta_{n+1} = \eta_U - \frac{s_U*(\eta_L-\eta_U)}{s_L-S_U}
-,\!$$
-
-`if` $s_{n+1} * s_L < 0 \Rightarrow \eta_U = \eta_{n+1}, s_U = s_{n+1},\!$
-
-`if` $s_{n+1} * s_U &lt; 0 \Rightarrow \eta_L = \eta_{n+1}, s_L = s_{n+1},\!$
-
+> $$ \eta_{n+1} = \eta_U - \frac{s_U*(\eta_L-\eta_U)}{s_L-S_U},\!$$
+>
+> `if` $s_{n+1} * s_L < 0 \Rightarrow \eta_U = \eta_{n+1}, s_U = s_{n+1},\!$
+>
+> `if` $s_{n+1} * s_U &lt; 0 \Rightarrow \eta_L = \eta_{n+1}, s_L = s_{n+1},\!$
 
 <p>}</p>
 
 ### Bisection Line Search
 <p>while ($\frac{s_n}{s_0}\!$ &gt; `tol` &amp; count &lt; $maxIter} {</p>
 
-$$ \eta_{n+1} = \frac{\eta_L - \eta_U}{2.0} ,\!$
-</dd>
-<dd>
-if $ s_{n+1} * s_L &lt; 0 \Rightarrow \eta_U = \eta_{n+1},
-s_U = s_{n+1},\!$
-</dd>
-<dd>
-if $ s_{n+1} * s_U &lt; 0 \Rightarrow \eta_L = \eta_{n+1},
-s_L = s_{n+1},\!$$
+> $$\eta_{n+1} = \frac{\eta_L - \eta_U}{2.0} ,\!$$
+> if $s_{n+1}   s_L < 0 \Rightarrow $
+> > $$\eta_U = \eta_{n+1},$$
+> > $$s_U = s_{n+1},\!$$
+>
+> if $s_{n+1} s_U < 0 \Rightarrow
+> > $$\eta_L = \eta_{n+1},$$
+> > $$s_L = s_{n+1},\!$$
+
 <p>}</p>
 
 ### Secant Line Search
 
-> `while`{.cpp} ($\frac{s_n}{s_0}\!$ &gt; `tol` &amp;&amp; `count` &lt; `maxIter` ) `{`</p>
+`while`{.cpp} ($\frac{s_n}{s_0}\!$ &gt; `tol` &amp;&amp; `count` &lt; `maxIter` ) `{`
+
 > 
 > $\eta_{n+1} = \eta_j - \frac{s_j*(\eta_{j-1}-\eta_j)}{s_{j-1}-S_j} ,\!$
 >
@@ -127,7 +126,8 @@ s_L = s_{n+1},\!$$
 > if $ s_{n+1} * s_U$ &lt; $0$
 > > $\eta_L = \eta_{n+1},$
 > > $s_L = s_{n+1},\!$
-> `}`
+
+`}`
 
 
 ## References

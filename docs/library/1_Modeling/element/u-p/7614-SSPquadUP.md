@@ -1,4 +1,4 @@
-# SSPquadUP Element
+# SSPquadUP
 
 <p>This command is used to construct a SSPquadUP element object.</p>
 

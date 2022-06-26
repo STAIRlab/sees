@@ -1,4 +1,4 @@
-# TripleFrictionPendulum Element
+# TripleFrictionPendulum
 
 This command is used to construct a Triple Friction Pendulum Bearing
 (TPB) (Figure 1) element object. The element is a 3-dimensional element
@@ -116,7 +116,8 @@ alt="TPB_Nhan_Fig2.jpg" />
 </figure>
 <p>Overturning moment and torsion due to the eccentricity of internal
 forces are equally distributed to the 2 nodes of the element.</p>
-<p>In the vertical direction, the element is multi-linear elastic with
+
+In the vertical direction, the element is multi-linear elastic with
 different stiffnesses k_vc and k_vt in compression and tension,
 respectively. Even though a TPB has no resistance in tension, a small
 nonzero stiffness should be provided in tension for stability of the
@@ -124,50 +125,40 @@ numerical procedure. The reasonable vertical stiffness in tension
 depends on the stiffness of the superstructure, but a value between 10
 N/m to 100 N/m should work well in most cases. Very small ratio of
 k_vt/k_vc may cause the convergence difficulty when the superstructure
-is uplifted.</p>
+is uplifted.
 
 <p><strong>SPECIAL CASES:</strong></p>
-<p>1. Vertical-horizontal uncoupled bearing:</p>
 <dl>
-<dt></dt>
+<dt>Vertical-horizontal uncoupled bearing:</dt>
 <dd>
-<dl>
-<dt></dt>
+  Restrain vertical displacement of the 2 nodes and set `minFv` = static
+  vertical reaction of the bearing.
+</dd>
+
+<dt>Neglecting rotational stiffness:</dt>
 <dd>
-Restrain vertical displacement of the 2 nodes and set `minFv` = static
-vertical reaction of the bearing.
+  Rotational stiffness of the bearing can be neglected by defining a very
+  small value for the `rotXMatTag`, `rotYMatTag` and `rotZMatTag`. However,
+  using a too small number may cause a numerical convergence problem.
 </dd>
 </dl>
-</dd>
-</dl>
-<p>2. Neglecting rotational stiffness:</p>
-<dl>
-<dt></dt>
-<dd>
-<dl>
-<dt></dt>
-<dd>
-Rotational stiffness of the bearing can be neglected by defining a very
-small value for the `rotXMatTag`, `rotYMatTag` and `rotZMatTag`. However,
-using a too small number may cause a numerical convergence problem.
-</dd>
-</dl>
-</dd>
-</dl>
+
 <p><strong>NOTES:</strong></p>
-<p>The current element requires 6 degree of freedoms at each node and
-defines the local coordinate system to be the same as the global
-coordinate system, where the vertical axis must be 3.</p>
-<p>Since the element accounts for the vertical-horizontal coupling
-behavior of TPBs, the time step size in analysis of vertically stiff
-structures should be small enough so that the high frequency components
-in responses can be captured.</p>
-<p>Rayleigh damping is automatically included when using Rayleigh
-command.</p>
-<p>The height of the bearing (for computing overturning moment from
-horizontal force) is computed from the vertical distance between the two
-end nodes.</p>
-<hr />
+- The current element requires 6 degree of freedoms at each node and
+  defines the local coordinate system to be the same as the global
+  coordinate system, where the vertical axis must be 3.
+
+- Since the element accounts for the vertical-horizontal coupling
+  behavior of TPBs, the time step size in analysis of vertically stiff
+  structures should be small enough so that the high frequency components
+  in responses can be captured.
+
+- Rayleigh damping is automatically included when using Rayleigh command.
+
+- The height of the bearing (for computing overturning moment from
+  horizontal force) is computed from the vertical distance between the two
+  end nodes.
+
 
 ## Examples
 

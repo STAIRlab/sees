@@ -1,4 +1,4 @@
-# Nine Four Node Quad u-p Element
+# Nine Four Node Quad u-p
 
 <p><strong>Nine_Four_Node_QuadUP</strong> is a 9-node quadrilateral
 plane-strain element. The four corner nodes have 3 degrees-of-freedom
@@ -7,6 +7,7 @@ pressure (p). The other five nodes have 2 DOFs each for solid
 displacement. This element is implemented for simulating dynamic
 response of solid-fluid fully coupled material, based on Biot's theory
 of porous medium.</p>
+
 <p><strong>Please</strong> <a
 href="PressureDependMultiYield02-Example_1" title="wikilink"> click
 here</a> <strong>for examples.</strong></p>
@@ -17,10 +18,12 @@ Recorder:</p>
 ($nod1 $nod2 …)&gt; -dof 3 vel</strong></p>
 <p>See OpenSees command manual (McKenna and Fenves 2001) for nodal
 displacement, velocity, or acceleration recorders.</p>
-<p>The valid queries to a Nine_Four_Node_QuadUP element when creating an
-ElementRecorder are 'force', 'stiffness', or 'material matNum matArg1
-matArg2 ...', where matNum represents the material object at the
-corresponding integration point.</p>
+
+The valid queries to a **Nine_Four_Node_QuadUP** element when creating an
+ElementRecorder are `force`, `stiffness`, or 
+`material matNum matArg1 matArg2 ...`, where matNum represents the material 
+object at the corresponding integration point.
+
 <table>
 <tbody>
 <tr class="odd">
@@ -82,7 +85,9 @@ vertical directions respectively (defaults are 0.0)</p></td>
 </tr>
 </tbody>
 </table>
-<p>Code Developed by: <span style="color:blue"> UC San Diego (Dr.
+
+<p>Code developed by: <span style="color:blue"> UC San Diego (Dr.
 Zhaohui Yang)</span>:</p>
 <hr />
 <p>UC San Diego Soil Model: </p>
+

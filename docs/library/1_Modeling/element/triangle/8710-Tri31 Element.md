@@ -1,4 +1,4 @@
-# Tri31 Element
+# Tri31
 
 <p>This command is used to construct a constant strain triangular
 element (Tri31) which uses three nodes and one integration points.</p>

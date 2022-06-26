@@ -1,11 +1,11 @@
-# SSPbrickUP Element
+# SSPbrickUP
 
 <p>This command is used to construct a SSPbrickUP element object.</p>
 
 ```tcl
 element SSPbrickUP $eleTag $iNode $jNode $kNode $lNode
         $mNode $nNode $pNode $qNode $matTag $fBulk $fDen $k1 $k2 $k3 $void
-        $alpha &lt;$b1 $b2 $b3&gt;
+        $alpha < $b1 $b2 $b3 >
 ```
 
 <table>

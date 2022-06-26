@@ -1,13 +1,13 @@
 # Displacement-Based Beam-Column
 
-<p>This command is used to construct a displacement beam element object,
+This command is used to construct a displacement beam element object,
 which is based on the displacement formulation, and considers the spread
-of plasticity along the element.</p>
+of plasticity along the element.
 
 ```tcl
 element dispBeamColumn $eleTag $iNode $jNode $numIntgrPts
-        $secTag $transfTag &lt;-mass $massDens&gt; &lt;-cMass&gt;
-        &lt;-integration $intType&gt;
+        $secTag $transfTag < -mass $massDens > < -cMass >
+        < -integration $intType >
 ```
 
 <p>To change the sections along the element length, the following form
@@ -15,8 +15,8 @@ of command may be used:</p>
 
 ```tcl
 element dispBeamColumn $eleTag $iNode $jNode $numIntgrPts
-        -sections $secTag1 $secTag2 ... $transfTag &lt;-mass $massDens&gt;
-        &lt;-cMass&gt; &lt;-integration $intType&gt;
+        -sections $secTag1 $secTag2 ... $transfTag < -mass $massDens >
+        < -cMass > < -integration $intType >
 ```
 
 <hr />
@@ -39,8 +39,8 @@ element dispBeamColumn $eleTag $iNode $jNode $numIntgrPts
 <td><p>identifier for previously-defined section object</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$secTag1 $secTag2 ...</strong></p></td>
-<td><p>$numIntgrPts identifiers of previously-defined section
+<td><p><strong>`secTag1` `secTag2` ...</strong></p></td>
+<td><p>`numIntgrPts` identifiers of previously-defined section
 object</p></td>
 </tr>
 <tr class="even">
@@ -65,29 +65,33 @@ NewtonCotes, Trapezoidal (optional, default = Legendre)</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>NOTE:</p>
 <ul>
-<li>The default integration along the element is based on Gauss-Legendre
-quadrature rule.</li>
-</ul>
-<ul>
+<li>The default integration along the element is based on Gauss-Legendre quadrature rule.</li>
+
 <li>The default element is prismatic, i.e. the beam is represented by
-the section model identified by $secTag at each integration point.</li>
-</ul>
-<ul>
+the section model identified by `secTag` at each integration point.</li>
+
 <li>The valid queries to a displacement-based beam-column element when
-creating an ElementRecorder object are 'force,' and 'section $secNum
-secArg1 secArg2...' Where $secNum refers to the integration point whose
-data is to be output valid entries being 1 through $numIntgrPts.</li>
+  creating an ElementRecorder object are `force`, and 
+  `section $secNum $secArg1 $secArg2...` Where `secNum` refers to the integration point whose
+  data is to be output valid entries being 1 through `numIntgrPts`.</li>
 </ul>
 
 ## Examples
 
-<p>element dispBeamColumn 1 2 4 5 8 9; # displacement-based beam column
+displacement-based beam column
 element added with tag 1 between nodes 2 and 4 that has 5 integration
 points, each using section 8, and the element uses geometric
-transformation 9</p>
+transformation `9`
+
+```tcl
+element dispBeamColumn 1 2 4 5 8 9; 
+```
+
 ## References
 <hr />
 <p>Code Developed by: <span style="color:blue"> Michael H. Scott,
 Oregon State University </span></p>
+

@@ -7,8 +7,7 @@ for the element.</p>
 
 ```tcl
 element zeroLengthSection $eleTag $iNode $jNode $secTag
-        &lt;-orient $x1 $x2 $x3 $yp1 $yp2 $yp3&gt; &lt;-doRayleigh
-        $rFlag&gt;
+        < -orient $x1 $x2 $x3 $yp1 $yp2 $yp3 > < -doRayleigh $rFlag >
 ```
 
 <hr />
@@ -54,25 +53,32 @@ lies in the local x-y plane for the element. (optional)</p></td>
 <ol>
 <li>If the optional orientation vectors are not specified, the local
 element axes coincide with the global axes. Otherwise the local z-axis
-is defined by the cross product between the vectors x and yp vectors
+is defined by the cross product between the vectors `x` and `yp` vectors
 specified on the command line.</li>
+
 <li>The section force-deformation response represented by section string
-P acts along the element local x-axis, and the response for code Vy
-along the local y-axis. The other modes of section response follow from
+`P` acts along the element local $x$-axis, and the response for code `Vy`
+along the local $y$-axis. The other modes of section response follow from
 this orientation.</li>
+
 <li>The valid queries to a zero-length element when creating an
-ElementRecorder object are 'force,' 'deformation,' 'stiff,' and 'section
-$secArg1 secArg2 ...'.</li>
+ElementRecorder object are `force,` `deformation,` `stiff,` and `section
+$secArg1 secArg2 ...`.</li>
 </ol>
 
 ## Examples
 
-<p>element zeroLengthSection 1 2 4 6; # truss tag 1 between nodes 2 and
-4 usinga type 6 section.</p>
-<p>element zeroLengthSection 1 1 2 1 -orient 0 1 0 0 0 -1; # element tag
-1 between nodes 1 and 2 defined with section 1. Local direction x,
+Truss tag 1 between nodes 2 and 4 usinga type 6 section:
+```tcl
+element zeroLengthSection 1 2 4 6;
+```
+
+Element tag 1 between nodes 1 and 2 defined with section 1. Local direction x,
 perpendicular to element section, is aligned with the global Y axis and
-the vector yp is aligned with the negative global Z axis.</p>
+the vector yp is aligned with the negative global Z axis:
+```tcl
+element zeroLengthSection 1 1 2 1 -orient 0 1 0 0 0 -1; 
+```
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> Micheal Scott,
-Oregon State University. </span></p>
+<p>Code developed by: <span style="color:blue"> Michael Scott, Oregon State University. </span></p>

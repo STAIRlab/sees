@@ -1,8 +1,9 @@
-# Truss Element
+# Truss
 
-<p>This command is used to construct a truss element object. There are
-two ways to construct a truss element object:</p>
-<p>One way is to specify an area and a UniaxialMaterial identifier:</p>
+This command is used to construct a truss element object. There are
+two ways to construct a truss element object:
+
+<p>One way is to specify an area and a `UniaxialMaterial` identifier:</p>
 
 ```tcl
 element truss $eleTag $iNode $jNode $A $matTag &lt;-rho

@@ -1,6 +1,6 @@
-# RJ-Watson EQS Bearing Element
+# RJ-Watson EQS Bearing
 
-<p>This command is used to construct a RJWatsonEqsBearing element
+This command is used to construct a RJWatsonEqsBearing element
 object, which is defined by two nodes. The iNode represents the masonry
 plate and the jNode represents the sliding surface plate. The element
 can have zero length or the appropriate bearing height. The bearing has
@@ -19,14 +19,15 @@ viscous damping in the isolation system (sometimes referred to as
 contribute to the Rayleigh damping by default. If the element has
 non-zero length, the local x-axis is determined from the nodal geometry
 unless the optional x-axis vector is specified in which case the nodal
-geometry is ignored and the user-defined orientation is utilized.</p>
+geometry is ignored and the user-defined orientation is utilized.
+
 <p>For a two-dimensional problem:</p>
 
 ```tcl
 element RJWatsonEqsBearing $eleTag $iNode $jNode
-        $frnMdlTag $kInit -P $matTag -Vy $matTag -Mz $matTag &lt;-orient $x1 $x2
-        $x3 $y1 $y2 $y3&gt; &lt;-shearDist $sDratio&gt; &lt;-doRayleigh&gt;
-        &lt;-mass $m&gt; &lt;-iter $maxIter $tol&gt;
+        $frnMdlTag $kInit -P $matTag -Vy $matTag -Mz $matTag < -orient $x1 $x2
+        $x3 $y1 $y2 $y3 > < -shearDist $sDratio > < -doRayleigh >
+        < -mass $m > < -iter $maxIter $tol >
 ```
 
 <p>For a three-dimensional problem:</p>
@@ -34,9 +35,9 @@ element RJWatsonEqsBearing $eleTag $iNode $jNode
 ```tcl
 element RJWatsonEqsBearing $eleTag $iNode $jNode
         $frnMdlTag $kInit -P $matTag -Vy $matTag -Vz $matTag -T $matTag -My
-        $matTag -Mz $matTag &lt;-orient &lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
-        &lt;-shearDist $sDratio&gt; &lt;-doRayleigh&gt; &lt;-mass $m&gt;
-        &lt;-iter $maxIter $tol&gt;
+        $matTag -Mz $matTag < -orient < $x1 $x2 $x3 > $y1 $y2 $y3 >
+        < -shearDist $sDratio > < -doRayleigh > < -mass $m >
+        < -iter $maxIter $tol >
 ```
 
 <hr />

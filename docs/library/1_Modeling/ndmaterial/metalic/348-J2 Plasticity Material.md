@@ -56,13 +56,13 @@ title="wikilink">http://en.wikipedia.org/wiki/Von_Mises_yield_criterion</a></p>
 J2 isotropic hardening material class
 
 - Elastic Model
-  $$\sigma = K*trace(\epsilon_e) + (2*G)*dev(\epsilon_e)$$
+  $$\sigma = K*\operatorname{trace}(\epsilon_e) + (2*G)*\operatorname{dev}(\epsilon_e)$$
 
 - Yield Function
-  $$\phi(\sigma,q) = || dev(\sigma) || - \sqrt(\tfrac{2}{3}*q(xi)$$
+  $$\phi(\sigma, q) = || \operatorname{dev}(\sigma) || - \sqrt(\tfrac{2}{3}*q(\xi)$$
 
 - Saturation Isotropic Hardening with linear term</p>
-  $$q(xi) = \sigma_0 + (\sigma_\inf - \sigma_0)*exp(-delta*\xi) + H*\xi $$
+  $$q(\xi) = \sigma_0 + (\sigma_\inf - \sigma_0)*\exp(-delta*\xi) + H*\xi $$
 
 - Flow Rules
   $$\dot {\epsilon_p} = \gamma * \frac{\partial \phi}{\partial \sigma} $$
@@ -82,5 +82,5 @@ Backward Euler Integration Routine Yield condition enforced at time $n+1$
 
 <hr />
 
-<p>Code Developed by: <span style="color:blue"> Ed Love
-</span></p>
+<p>Code developed by: <span style="color:blue"> Ed Love</span></p>
+

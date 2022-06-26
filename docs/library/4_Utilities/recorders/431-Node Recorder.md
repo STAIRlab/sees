@@ -1,4 +1,4 @@
-# Node Recorder
+# Node
 
 The Node recorder type records the response of a number of nodes at
 every converged step. The command to create a node recorder is:
@@ -18,12 +18,12 @@ recorder Node < -file $fileName > < -xml $fileName >
 <tr class="odd">
 <td><p><code class="parameter-table-variable">fileName</code></p></td>
 <td><p>name of file to which output is sent. file output is either in
-xml format (-xml option), textual (-file option) or binary (-binary
-option)</p></td>
+xml format (`-xml` option), plain text (`-file` option) or binary (`-binary`
+option).</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>inetAddr</strong></p></td>
-<td><p>ip address, "xx.xx.xx.xx", of remote machine to which data is
+<td><p>ip address, `xx.xx.xx.xx`, of remote machine to which data is
 sent</p></td>
 </tr>
 <tr class="odd">
@@ -50,7 +50,7 @@ to monitor the data during the analysis.</p></td>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">deltaT</code></p></td>
 <td><p>time interval for recording. will record when next step is
-$deltaT greater than last recorder step. (optional, default: records at
+`deltaT` greater than last recorder step. (optional, default: records at
 every time step)</p></td>
 </tr>
 <tr class="even">
@@ -59,12 +59,12 @@ every time step)</p></td>
 at each time step are added to load factor from series</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$node1 $node2 ..</strong></p></td>
+<td><p><strong>`node1` `node2` ..</strong></p></td>
 <td><p>tags of nodes whose response is being recorded (optional,
 default: omitted)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$startNode $endNode ..</strong></p></td>
+<td><p><strong>`startNode` `endNode` ..</strong></p></td>
 <td><p>tag for start and end nodes whose response is being recorded
 (optional, default: omitted)</p></td>
 </tr>
@@ -142,20 +142,22 @@ recorder</a> commmand.</p>
 
 
 <p>EXAMPLES</p>
-- Generates output file nodesD.out that contains relative displacements
-  in x and y direction at nodes 1, 2, 3, and 4. The output file will
+- Generates output file `nodesD.out` that contains relative displacements
+  in $x$ and $y$ direction at nodes 1, 2, 3, and 4. The output file will
   contain 9 columns (time, disp. in x at node 1, disp. in y at node 1, ...
   , disp. in y at node 4))
+  ```tcl
+  recorder Node -file nodesD.out -time -node 1 2 3 4 -dof 1 2 disp;
+  ```
 
-     recorder Node -file nodesD.out -time -node 1 2 3 4 -dof 1 2 disp;
-
-- For a UniformExcitation analysis, this command generates output file
+- For a `UniformExcitation` analysis, this command generates output file
   `nodesA.out` that contains absolute accelerations (ground motion
   acceleration + relative acceleration) in x direction for nodes 1, 2, 3,
-  and 4. NOTE that if no TimeSeries is provided and a uniform excitation
+  and 4. NOTE that if no `TimeSeries` is provided and a uniform excitation
   analysis is performed, the relative accelerations are recorded.
-
-     recorder Node -file nodesA.out -timeSeries 1 -time -node 1 2 3 4 -dof 1 accel;
+  ```tcl
+  recorder Node -file nodesA.out -timeSeries 1 -time -node 1 2 3 4 -dof 1 accel;
+  ```
 
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk

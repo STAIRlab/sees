@@ -1,14 +1,17 @@
-# Flexure-Shear Interaction Displacement-Based Beam-Column Element
+---
+description: Flexure-Shear Interaction Displacement-Based Beam-Column Element
+---
+# DispBeamColumnInt
 
-<p>This command is used to construct a dispBeamColumnInt element object,
+This command is used to construct a dispBeamColumnInt element object,
 which is a distributed-plasticity, displacement-based beam-column
 element which includes interaction between flexural and shear
-components.</p>
+components.
 
 ```tcl
 element dispBeamColumnInt $eleTag $iNode $jNode
-        $numIntgrPts $secTag $transfTag $cRot &lt;-mass
-        $massDens&gt;
+        $numIntgrPts $secTag $transfTag $cRot 
+        < -mass $massDens >
 ```
 
 <hr />
@@ -48,11 +51,12 @@ matrix is formed (optional, default=0.0)</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>NOTE:</p>
 <ol>
 <li>The valid queries to a nonlinear beam-column element when creating
-an ElementRecorder object are 'force,' and 'section $secNum secArg1
-secArg2...' Where $secNum refers to the integration point whose data is
+an ElementRecorder object are `force,` and `section $secNum secArg1
+secArg2...` Where `secNum` refers to the integration point whose data is
 to be output.</li>
 <li>The element requires a special section and special care when
 numbering the materials. see Discussion below for section command and
@@ -61,8 +65,11 @@ material numbering.</li>
 
 ## Examples
 
-<p>geomTransf LinearInt 1</p>
-<p>element dispBeamColumnInt 1 1 3 2 2 1 0.4</p>
+```tcl
+geomTransf LinearInt 1
+element dispBeamColumnInt 1 1 3 2 2 1 0.4
+```
+
 <hr />
 <p>DISCUSSION:</p>
 <p>In the original fiber element (Displacement-Based Beam-Column
@@ -82,6 +89,7 @@ element. It also requires a specific geometric transformation called
 "LinearInt", which is based on the traditional geometric linear
 transformation, and therefore no other geometric transformation can be
 used.</p>
+
 <p>The input parameters are the same as the original fiber element,
 however a new term, the location of the center of rotation (c), is
 required to distribute transversal displacement between flexural
@@ -167,11 +175,12 @@ containing a UniaxialMaterial, an area and a location (y,z). The command
 to generate FiberSection object contains in <strong>{ }</strong> the
 commands to generate all the fibers in the object. To construct a
 FiberSection and populate it, the following command is used:</p>
+
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>section FiberInt $secTag -NStrip $nStrip1 $thick1
-$nStrip2 $thick2 $nStrip3 $thick3 {</strong></p></td>
+<td><p><code>section FiberInt $secTag -NStrip $nStrip1 $thick1
+$nStrip2 $thick2 $nStrip3 $thick3 {</code></p></td>
 </tr>
 <tr class="even">
 <td><p><strong><a href="fiber_Command" title="wikilink">
@@ -188,6 +197,7 @@ fiber</a>...</strong></p></td>
 </tr>
 </tbody>
 </table>
+
 <hr />
 <table>
 <tbody>
@@ -200,27 +210,27 @@ fiber</a>...</strong></p></td>
 <td><p>section thickness 1.</p></td>
 </tr>
 <tr class="odd">
-<td><p><em>$nStrip1</em>'</p></td>
-<td><p>number of strips with thickness $thick1. Considers first $nStrip1
-strips in the fiber section with thickness $thick1.</p></td>
+<td><p><code>nStrip1</code>'</p></td>
+<td><p>number of strips with thickness `thick1`. Considers first `nStrip1`
+strips in the fiber section with thickness `thick1`.</p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">thick2</code></p></td>
 <td><p>section thickness 2.</p></td>
 </tr>
 <tr class="odd">
-<td><p><em>$nStrip2</em>'</p></td>
-<td><p>number of strips with thickness $thick2. Considers next $nStrip2
-strips in the fiber section with thickness $thick2.</p></td>
+<td><p><code>nStrip2</code>'</p></td>
+<td><p>number of strips with thickness `thick2`. Considers next `nStrip2`
+strips in the fiber section with thickness `thick2`.</p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">thick3</code></p></td>
 <td><p>section thickness 3.</p></td>
 </tr>
 <tr class="odd">
-<td><p><em>$nStrip3</em>'</p></td>
-<td><p>umber of strips with thickness $thick3. Considers last $nStrip3
-strips in the fiber section with thickness $thick3. Total number of
+<td><p><code>nStrip3</code>'</p></td>
+<td><p>umber of strips with thickness `thick3`. Considers last `nStrip3`
+strips in the fiber section with thickness `thick3`. Total number of
 strips has to match the fiber section defined.</p></td>
 </tr>
 <tr class="even">
@@ -242,19 +252,20 @@ fiber</a>...</strong></p></td>
 ## Examples
 
 
-## Examples
+```tcl
+section FiberInt 2 -NStrip 1 6.5 1 2.0 1 6.5 {
+  fiber -25.55 0 15.6 2
+  fiber -25.55 0 1.24 1003
+  fiber 0 0 35.6 2
+  fiber 0 0 0.84 1003
+  fiber +25.55 0 15.6 2
+  fiber +25.55 0 1.24 1003
+  Hfiber 0 0 0.0718 1005
+}
+```
 
-<p>section FiberInt 2 -NStrip 1 6.5 1 2.0 1 6.5 {</p>
-<p>fiber -25.55 0 15.6 2</p>
-<p>fiber -25.55 0 1.24 1003</p>
-<p>fiber 0 0 35.6 2</p>
-<p>fiber 0 0 0.84 1003</p>
-<p>fiber +25.55 0 15.6 2</p>
-<p>fiber +25.55 0 1.24 1003</p>
-<p>Hfiber 0 0 0.0718 1005</p>
-<p>}</p>
 <p>FIBER MODELLING:</p>
-<p>As described previously, the section is created based on strips, and
+As described previously, the section is created based on strips, and
 each strip consists of vertical fibers (fiber) that represent steel and
 concrete materials and horizontal fibers (Hfiber) that represent the
 horizontal steel. Since uniform distribution of reinforcement steel is
@@ -268,9 +279,10 @@ handles two different types of materials: steel and concrete. Since
 different steel and concrete stress-strain laws can be implemented and
 used with this model, the program needs to distinguish between concrete
 and steel. For simplicity, it has been selected the material tag
-($matTag) to define whether a material is concrete or steel. Concrete
+(`matTag`) to define whether a material is concrete or steel. Concrete
 materials are defined as materials with tag number under (or equal to)
-1000 and steel materials use tag numbers over 1000 (see example).</p>
+1000 and steel materials use tag numbers over 1000 (see example).
+
 <p>HFiber Command</p>
 
 ```tcl
@@ -302,38 +314,45 @@ not required in calculations)</p></td>
 
 ## Examples
 
-<p>uniaxialMaterial Concrete01 2 -3 -0.002 0 -0.01</p>
-<p>uniaxialMaterial Steel02 1003 60 29000 0.02 20 0.9 0.2 0 0.1 0
-0.1</p>
-<p>uniaxialMaterial Steel02 1005 60 29000 0.02 20 0.9 0.2 0 0.1 0
-0.1</p>
-<p>.</p>
-<p>.</p>
-<p>.</p>
-<p>fiber -25.55 0 15.6 2 # vert. concrete</p>
-<p>fiber -25.55 0 1.24 1003 # vert. steel</p>
-<p>Hfiber 0 0 0.0718 1005 # horz. steel</p>
+```tcl
+uniaxialMaterial Concrete01 2 -3 -0.002 0 -0.01
+uniaxialMaterial Steel02 1003 60 29000 0.02 20 0.9 0.2 0 0.1 0 0.1
+uniaxialMaterial Steel02 1005 60 29000 0.02 20 0.9 0.2 0 0.1 0 0.1
+.
+.
+.
+fiber -25.55 0 15.6 2; # vert. concrete
+fiber -25.55 0 1.24 1003; # vert. steel
+Hfiber 0 0 0.0718 1005; # horz. steel
+```
+
 <p>NOTE Note: concrete materials are defined as materials with tag
 number under (or equal) 1000 and steel materials use tag numbers over
 1000 (see example).</p>
+
 <hr />
+
 <figure>
-<embed src="Wall01.tcl" title="Wall01.tcl" />
+<!-- <embed src="Wall01.tcl" title="Wall01.tcl" /> -->
 <figcaption aria-hidden="true">Wall01.tcl</figcaption>
 </figure>
+
 <p>&lt;tcl&gt;Wall01.tcl&lt;/tcl&gt;</p>
 <hr />
+
 ## References
-<p>1. Massone, L. M., 2006; "RC Wall Shear - Flexure Interaction:
-Analytical and Experimental Responses", Ph.D. Dissertation, University
-of California, Los Angeles, June 2006, 398 pp.</p>
-<p>2. Massone, L. M.; Orakcal, K.; and Wallace, J. W. , 2006; "Shear -
-Flexure Interaction for Structural Walls"; SP-236, ACI Special
-Publication - Deformation Capacity and Shear Strength of Reinforced
-Concrete Members Under Cyclic Loading, editors: Adolfo Matamoros &amp;
-Kenneth Elwood, p. 127-150.</p>
+1. Massone, L. M., 2006; "RC Wall Shear - Flexure Interaction:
+  Analytical and Experimental Responses", Ph.D. Dissertation, University
+  of California, Los Angeles, June 2006, 398 pp.</p>
+2. Massone, L. M.; Orakcal, K.; and Wallace, J. W. , 2006; "Shear -
+  Flexure Interaction for Structural Walls"; SP-236, ACI Special
+  Publication - Deformation Capacity and Shear Strength of Reinforced
+  Concrete Members Under Cyclic Loading, editors: Adolfo Matamoros &amp;
+  Kenneth Elwood, p. 127-150.</p>
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> Leo Massone,
 University of Chile </span> and <span style="color:blue">
 Kutay Orakcal</span> and <span style="color:blue"> John
 Wallace, UCLA </span></p>
+

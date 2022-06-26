@@ -1,2 +1,2 @@
-# Bbar Brick Element
+# Bbar Brick
 

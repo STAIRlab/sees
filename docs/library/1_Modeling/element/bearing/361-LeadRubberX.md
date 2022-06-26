@@ -16,11 +16,10 @@ lead-core, yield strength) can also be recorded using the "parameters"
 
 ```tcl
 element LeadRubberX $eleTag $Nd1 $Nd2 $Fy $alpha $Gr
-        $Kbulk $D1 $D2 $ts $tr $n &lt;&lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt;
-        &lt;$kc&gt; &lt;$PhiM&gt; &lt;$ac&gt; &lt;$sDratio&gt; &lt;$m&gt;
-        &lt;$cd&gt; &lt;$tc&gt; &lt;$qL&gt; &lt;$cL&gt; &lt;$kS&gt; &lt;$aS&gt;
-        &lt;$tag1&gt; &lt;$tag2&gt; &lt;$tag3&gt; &lt;$tag4&gt;
-        &lt;$tag5&gt;
+        $Kbulk $D1 $D2 $ts $tr $n < < $x1 $x2 $x3 > $y1 $y2 $y3 >
+        < $kc > < $PhiM > < $ac > < $sDratio > < $m >
+        < $cd > < $tc > < $qL > < $cL > < $kS > < $aS >
+        < $tag1 > < $tag2 > < $tag3 > < $tag4 > < $tag5 >
 ```
 
 <hr />

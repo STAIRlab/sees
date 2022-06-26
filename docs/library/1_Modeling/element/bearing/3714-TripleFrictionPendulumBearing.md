@@ -1,11 +1,11 @@
-# Triple Friction Pendulum Bearing Element
+# Triple Friction Pendulum Bearing
 
 <p>This command is used to construct a Triple Friction Pendulum Bearing
 element object, which is defined by two nodes. The element can have zero
 length or the appropriate bearing height. The bearing has unidirectional
 (2D) or coupled (3D) friction properties (with post-yield stiffening due
 to the concave sliding surface) for the shear deformations, and
-force-deformation behaviors defined by UniaxialMaterials in the
+force-deformation behaviors defined by `UniaxialMaterials` in the
 remaining two (2D) or four (3D) directions. To capture the uplift
 behavior of the bearing, the user-specified UniaxialMaterial in the
 axial direction is modified for no-tension behavior. P-Delta moments are
@@ -23,9 +23,8 @@ alt="TFP_backbone.gif" />
 </figure>
 
 ```tcl
-element TFP $eleTag $iNode $jNode $R1 $R2 $R3 $R4 $D1 $D2
-        $D3 $D4 $d1 $d2 $d3 $d4 $mu1 $mu2 $mu3 $mu4 $h1 $h2 $h3 $h4 $H0 $colLoad
-        &lt;$K&gt;
+element TFP $eleTag $iNode $jNode $R1 $R2 $R3 $R4 $D1 $D2 $D3 $D4 \
+        $d1 $d2 $d3 $d4 $mu1 $mu2 $mu3 $mu4 $h1 $h2 $h3 $h4 $H0 $colLoad < $K >
 ```
 
 <hr />
@@ -153,28 +152,32 @@ alt="TFP_displaced.gif" />
 <li>If the element has zero length and optional orientation vectors are
 not specified, the local element axes coincide with the global axes.
 Otherwise the local z-axis is defined by the cross product between the
-x- and y-vectors specified on the command line.</li>
+$x$- and $y$-vectors specified on the command line.</li>
+
 <li>The valid queries to a triple friction pendulum bearing element when
-creating an ElementRecorder object are 'force,' 'localForce,'
-'basicForce,' 'localDisplacement,' 'basicDisplacement', 'relativeDisp',
-'plasticDisp', and 'material $matNum matArg1 matArg2 ...' Where $matNum
+creating an ElementRecorder object are `force`, `localForce`,
+`basicForce`, `localDisplacement`, `basicDisplacement`, `relativeDisp`,
+`plasticDisp`, and `material $matNum matArg1 matArg2 ...` Where `matNum`
 is the number associated with the material whose data is to be output.
-<ol>
-<li><strong>relativeDisp</strong> returns relative displacements between
-the sliding components in the bearing. Relative displacements is the
-rotation (as shown in the figure above) multiplied by the respective
-radii. For each time step it returns 8 values; 4 for each horizontal
-direction.</li>
-<li><strong>plasticDisp</strong> returns plastic displacements
-associated with relativeDisp</li>
-</ol></li>
+  <ol>
+  <li><strong>relativeDisp</strong> returns relative displacements between
+  the sliding components in the bearing. Relative displacements is the
+  rotation (as shown in the figure above) multiplied by the respective
+  radii. For each time step it returns 8 values; 4 for each horizontal
+  direction.</li>
+  <li><strong>plasticDisp</strong> returns plastic displacements
+  associated with relativeDisp</li>
+  </ol></li>
 </ol>
 
 ## Examples
 
-<p>element TFP 1 1 2 12.0 12.0 88.0 88.0 12.0 12.0 44.0 44.0 8.0 8.0
-12.5 12.5 0.02 0.02 0.09 0.12 3.0 3.0 4.5 4.5 12.5 45.0;</p>
-<p>REFERENCE:</p>
+```tcl
+element TFP 1 1 2 12.0 12.0 88.0 88.0 12.0 12.0 44.0 44.0 8.0 8.0 \
+    12.5 12.5 0.02 0.02 0.09 0.12 3.0 3.0 4.5 4.5 12.5 45.0;
+```
+
+## References
 <p>Becker, TC, Mahin, SA. "Experimental and analytical study of the
 bi-directional behavior of the triple friction pendulum isolator,"
 Earthquake Engineering and Structural Dynamics. (accepted for

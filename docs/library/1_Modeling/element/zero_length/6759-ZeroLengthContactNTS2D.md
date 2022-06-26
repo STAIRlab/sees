@@ -1,9 +1,9 @@
 # ZeroLengthContactNTS2D
 
-<p>This command is used to construct a zeroLengthContactNTS2D element
-object. This is a Node-To-Segment (NTS) frictional contact element used
+This command is used to construct a `ZeroLengthContactNTS2D` element.
+This is a Node-To-Segment (NTS) frictional contact element used
 in two dimensional analysis for contact between elements with 2 DOF
-nodes.</p>
+nodes.
 
 ```tcl
 element zeroLengtContactNTS2D $eleTag -cNdNum $cNdNum
@@ -61,14 +61,15 @@ will be calculated automatically at each step.</li>
 <li>contact element is implemented to handle large deformations.</li>
 </ol>
 <p><strong>EXAMPLE:</strong></p>
+
 <figure>
-<img src="/OpenSeesRT/contrib/static/zeroLengthContactNTS2Drc.png"
-title="zeroLengthContactNTS2Drc.png"
-alt="zeroLengthContactNTS2Drc.png" />
+<img src="/OpenSeesRT/contrib/static/ZeroLengthContactNTS2Drc.png" alt="zeroLengthContactNTS2Drc.png" />
 <figcaption aria-hidden="true">zeroLengthContactNTS2Drc.png</figcaption>
 </figure>
-<p>element zeroLengthContactNTS2D 1 -cNdNum 6 -rNdNum 6 - Nodes 5 10 12
-3 9 11 1 4 2 8 7 6 1e8 1e8 16</p>
+
+```tcl
+element zeroLengthContactNTS2D 1 -cNdNum 6 -rNdNum 6 - Nodes 5 10 12 3 9 11 1 4 2 8 7 6 1e8 1e8 16
+```
 <p><strong>Example 1:</strong></p>
 <p>This example simply shows the two quadrilateral elements in normal
 contact. The top element is in normal downward uniform force. The Tcl
@@ -81,6 +82,7 @@ alt="ZeroLengthContactNTS2D_fig2.jpg" />
 <figcaption
 aria-hidden="true">ZeroLengthContactNTS2D_fig2.jpg</figcaption>
 </figure>
+
 <p><strong>Example 2:</strong></p>
 <p>This example shows two cantilever beams in contact. The beams were
 modeled using four-node quadrilateral elements and the end of top beam
@@ -88,20 +90,24 @@ was subjected to a linearly increasing displacement. The Tcl scripts for
 this example can be found <a href="ZeroLengthContactNTS2D_Example2"
 title="wikilink">here</a>.</p>
 <figure>
-<img src="/OpenSeesRT/contrib/static/zeroLengthContactNTS2D_fig3.jpg"
+
+<img src="/OpenSeesRT/contrib/static/ZeroLengthContactNTS2D_fig3.jpg"
 title="zeroLengthContactNTS2D_fig3.jpg"
 alt="zeroLengthContactNTS2D_fig3.jpg" />
 <figcaption
 aria-hidden="true">zeroLengthContactNTS2D_fig3.jpg</figcaption>
 </figure>
+
 <p>The following Figure shows the deflections of the two beams.</p>
+
 <figure>
-<img src="/OpenSeesRT/contrib/static/zeroLengthContactNTS2D_fig4.jpg"
+<img src="/OpenSeesRT/contrib/static/ZeroLengthContactNTS2D_fig4.jpg"
 title="zeroLengthContactNTS2D_fig4.jpg"
 alt="zeroLengthContactNTS2D_fig4.jpg" />
 <figcaption
 aria-hidden="true">zeroLengthContactNTS2D_fig4.jpg</figcaption>
 </figure>
+
 ## References
 <ol>
 <li>P. Wriggers, V.T. Vu and E. Stein, Finite-element formulation of
@@ -110,9 +116,11 @@ large deformation impact-contact problems with friction, Comput. Struct.
 <li>Peter Wriggers. Computational Contact Mechanics. John Wiley &amp;
 Sons Ltd. Chichester, 2002.</li>
 </ol>
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> <a
 href="http://www.roozbehgm.com/">Roozbeh G. Mikola</a>, UC
 Berkeley</span> and <span style="color:blue"> <a
 href="http://www.ce.berkeley.edu/~sitar/">N. Sitar</a>, UC
 Berkeley</span></p>
+

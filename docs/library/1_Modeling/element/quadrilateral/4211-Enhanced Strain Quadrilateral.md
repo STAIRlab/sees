@@ -1,4 +1,4 @@
-# Enhanced Strain Quadrilateral Element
+# Enhanced Strain Quadrilateral
 
 <p>This command is used to construct a four-node quadrilateral element,
 which uses a bilinear isoparametric formulation with enhanced strain
