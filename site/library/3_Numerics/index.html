@@ -15198,11 +15198,27 @@
 
 
 <h1 id="numeric-libraries">Numeric Libraries</h1>
-<h3 id="eigenvalue-solvers">Eigenvalue Solvers</h3>
-<p>The following methods provide the solution of the generalized eigenvalue problem <span class="math inline">\(Kv = MvL\)</span></p>
+<h3 id="solution-algorithms">Solution Algorithms</h3>
+<p>Iteration from the last time step to the current is done by the following methods</p>
 <ul>
-<li><a href="">Symmetric Arpack</a> – Arpack solver for symmetric matrices</li>
-<li><a href="">Band Arpack</a> – Arpack solver for banded matrices</li>
+<li><a href="">Linear</a> – Uses the solution at the first iteration and continues</li>
+<li><a href="">Newton</a> – Uses the tangent at the current iteration to iterate to convergence</li>
+<li><a href="">Modified Newton</a> – Uses the tangent at the first iteration to iterate to convergence</li>
+</ul>
+<h3 id="convergence-tests">Convergence Tests</h3>
+<p>Accepting the current state of the domain as being on the converged solution path is accomplished by the following tests</p>
+<ul>
+<li><a href="">Norm Unbalance</a> – Specifies a tolerance on the norm of the unbalanced load at the current iteration</li>
+<li><a href="">Norm Displacement Increment</a> – Specifies a tolerance on the norm of the displacement increments at the current iteration</li>
+<li><a href="">Energy Increment</a> – Specifies a tolerance on the inner product of the unbalanced load and displacement increments at the current iteration</li>
+</ul>
+<h3 id="constraint-handlers">Constraint Handlers</h3>
+<p>The constraints defined on the domain can be handled by the following methods</p>
+<ul>
+<li><a href="Constraint/Plain">Plain</a> – Removes constrained degrees of freedom from the system of equations</li>
+<li><a href="Constraint/Lagrange">Lagrange</a> – Uses the method of Lagrange multipliers to enforce constraints</li>
+<li><a href="Constraint/Penalty">Penalty</a> – Uses penalty numbers to enforce constraints</li>
+<li><a href="Constraint/Transformation">Transformation</a> – Performs a condensation of constrained degrees of freedom</li>
 </ul>
 
 

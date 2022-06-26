@@ -15210,11 +15210,9 @@
 
 
 <h1 id="elastic-orthotropic-material">Elastic Orthotropic Material</h1>
-<p>
-This command is used to construct an ElasticOrthotropic material object.
-</p>
+<p>This command is used to construct an ElasticOrthotropic material object.</p>
 <div class="highlight"><pre><span></span><span class="nv">nDMaterial</span><span class="w"> </span>ElasticOrthotropic<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$Ex</span><span class="w"> </span><span class="nv">$Ey</span><span class="w"> </span><span class="nv">$Ez</span><span class="w"> </span><span class="nv">$vxy</span>
-<span class="w">        </span><span class="nv">$vyz</span><span class="w"> </span><span class="nv">$vzx</span><span class="w"> </span><span class="nv">$Gxy</span><span class="w"> </span><span class="nv">$Gyz</span><span class="w"> </span><span class="nv">$Gzx</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$rho</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$vyz</span><span class="w"> </span><span class="nv">$vzx</span><span class="w"> </span><span class="nv">$Gxy</span><span class="w"> </span><span class="nv">$Gyz</span><span class="w"> </span><span class="nv">$Gzx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$rho</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 
 <hr />
@@ -15233,7 +15231,31 @@ integer tag identifying material
 <tr class="even">
 <td>
 <p>
-<strong>$Ex, $Ey, <span class="math inline">\(Ez&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;elastic modulii in three mutually perpendicular directions (x, y, and z)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>vxy, $vyz, <span class="math inline">\(vzx&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Poisson&#39;s ratios&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>Gxy, $Gyz, $Gzx</strong>
+<code>Ex, Ey, Ez</code>
+</p>
+</td>
+<td>
+<p>
+elastic modulii in three mutually perpendicular directions (<span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span>, and <span class="math inline">\(z\)</span>)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code>vxy, vyz, vzx</code>
+</p>
+</td>
+<td>
+<p>
+Poisson’s ratios
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>Gxy, Gyz, Gzx</code>
 </p>
 </td>
 <td>
@@ -15254,9 +15276,7 @@ mass density, optional default = 0.0.
 </tr>
 </tbody>
 </table>
-<p>
-The material formulations for the ElasticOrthotropic object are “ThreeDimensional”, “PlaneStrain”, “Plane Stress”, “AxiSymmetric”, “BeamFiber”, and “PlateFiber”.
-</p>
+<p>The material formulations for the ElasticOrthotropic object are - <code>ThreeDimensional</code>, - <code>PlaneStrain</code>, - <code>Plane Stress</code>, - <code>AxiSymmetric</code>, - <code>BeamFiber</code>, and - <code>PlateFiber</code>.</p>
 <hr />
 <p>
 Code Developed by: <span style="color:blue"> Micheal Scott, Oregon State University </span>
