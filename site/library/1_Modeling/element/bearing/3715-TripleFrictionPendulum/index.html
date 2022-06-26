@@ -5522,6 +5522,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_2_2">
@@ -5649,6 +5651,21 @@
     <li class="md-nav__item">
       <a href="../../beam/257-Force-Based%20Beam-Column%20Element/" class="md-nav__link">
         Force-Based Beam-Column Element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beam/ForceBeamColumnCBDI2d/" class="md-nav__link">
+        ForceBeamColumnCBDI2d
 
       </a>
     </li>
@@ -15360,64 +15377,33 @@ TPB_Nhan_Fig2.jpg
 <p>
 Overturning moment and torsion due to the eccentricity of internal forces are equally distributed to the 2 nodes of the element.
 </p>
-<p>
-In the vertical direction, the element is multi-linear elastic with different stiffnesses k_vc and k_vt in compression and tension, respectively. Even though a TPB has no resistance in tension, a small nonzero stiffness should be provided in tension for stability of the numerical procedure. The reasonable vertical stiffness in tension depends on the stiffness of the superstructure, but a value between 10 N/m to 100 N/m should work well in most cases. Very small ratio of k_vt/k_vc may cause the convergence difficulty when the superstructure is uplifted.
-</p>
+<p>In the vertical direction, the element is multi-linear elastic with different stiffnesses k_vc and k_vt in compression and tension, respectively. Even though a TPB has no resistance in tension, a small nonzero stiffness should be provided in tension for stability of the numerical procedure. The reasonable vertical stiffness in tension depends on the stiffness of the superstructure, but a value between 10 N/m to 100 N/m should work well in most cases. Very small ratio of k_vt/k_vc may cause the convergence difficulty when the superstructure is uplifted.</p>
 <p>
 <strong>SPECIAL CASES:</strong>
 </p>
-<p>
-<ol type="1">
-<li>Vertical-horizontal uncoupled bearing:
-</p>
 <dl>
 <dt>
-</dt>
-<dd>
-<dl>
-<dt>
+Vertical-horizontal uncoupled bearing:
 </dt>
 <dd>
 Restrain vertical displacement of the 2 nodes and set <code>minFv</code> = static vertical reaction of the bearing.
 </dd>
-</dl>
-</dd>
-</dl>
-<p>
-<ol start="2" type="1">
-<li>Neglecting rotational stiffness:
-</p>
-<dl>
 <dt>
-</dt>
-<dd>
-<dl>
-<dt>
+Neglecting rotational stiffness:
 </dt>
 <dd>
 Rotational stiffness of the bearing can be neglected by defining a very small value for the <code>rotXMatTag</code>, <code>rotYMatTag</code> and <code>rotZMatTag</code>. However, using a too small number may cause a numerical convergence problem.
 </dd>
 </dl>
-</dd>
-</dl>
 <p>
 <strong>NOTES:</strong>
 </p>
-<p>
-The current element requires 6 degree of freedoms at each node and defines the local coordinate system to be the same as the global coordinate system, where the vertical axis must be 3.
-</p>
-<p>
-Since the element accounts for the vertical-horizontal coupling behavior of TPBs, the time step size in analysis of vertically stiff structures should be small enough so that the high frequency components in responses can be captured.
-</p>
-<p>
-Rayleigh damping is automatically included when using Rayleigh command.
-</p>
-<p>
-The height of the bearing (for computing overturning moment from horizontal force) is computed from the vertical distance between the two end nodes.
-</p>
-<hr /></li>
-</ol></li>
-</ol>
+<ul>
+<li><p>The current element requires 6 degree of freedoms at each node and defines the local coordinate system to be the same as the global coordinate system, where the vertical axis must be 3.</p></li>
+<li><p>Since the element accounts for the vertical-horizontal coupling behavior of TPBs, the time step size in analysis of vertically stiff structures should be small enough so that the high frequency components in responses can be captured.</p></li>
+<li><p>Rayleigh damping is automatically included when using Rayleigh command.</p></li>
+<li><p>The height of the bearing (for computing overturning moment from horizontal force) is computed from the vertical distance between the two end nodes.</p></li>
+</ul>
 <h2 id="examples">Examples</h2>
 <div class="highlight"><pre><span></span><span class="nv">frictionModel</span><span class="w"> </span>VelNormalFrcDep<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mf">0.012</span><span class="o">/</span>pow<span class="k">(</span><span class="nv">$W</span>,0.8-1.0<span class="k">)]</span><span class="w"> </span><span class="mf">0.8</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mf">0.018</span><span class="o">/</span>pow<span class="k">(</span><span class="nv">$W</span>,0.7-1.0<span class="k">)]</span><span class="w"> </span><span class="mf">0.7</span><span class="w"> </span><span class="mf">25.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span>
 <span class="nv">frictionModel</span><span class="w"> </span>VelNormalFrcDep<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mf">0.052</span><span class="o">/</span>pow<span class="k">(</span><span class="nv">$W</span>,0.8-1.0<span class="k">)]</span><span class="w"> </span><span class="mf">0.8</span><span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mf">0.075</span><span class="o">/</span>pow<span class="k">(</span><span class="nv">$W</span>,0.7-1.0<span class="k">)]</span><span class="w"> </span><span class="mf">0.7</span><span class="w"> </span><span class="mf">25.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span>

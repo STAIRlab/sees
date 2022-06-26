@@ -5522,6 +5522,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_2_2">
@@ -5649,6 +5651,21 @@
     <li class="md-nav__item">
       <a href="../../beam/257-Force-Based%20Beam-Column%20Element/" class="md-nav__link">
         Force-Based Beam-Column Element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beam/ForceBeamColumnCBDI2d/" class="md-nav__link">
+        ForceBeamColumnCBDI2d
 
       </a>
     </li>
@@ -15200,11 +15217,10 @@ This command is used to construct a LeadRubberX bearing element object in three-
 For a 3D problem:
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>LeadRubberX<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$Nd1</span><span class="w"> </span><span class="nv">$Nd2</span><span class="w"> </span><span class="nv">$Fy</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="nv">$Gr</span>
-<span class="w">        </span><span class="nv">$Kbulk</span><span class="w"> </span><span class="nv">$D1</span><span class="w"> </span><span class="nv">$D2</span><span class="w"> </span><span class="nv">$ts</span><span class="w"> </span><span class="nv">$tr</span><span class="w"> </span><span class="nv">$n</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"> </span><span class="nv">$y3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$kc</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$PhiM</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$ac</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$sDratio</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$m</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$cd</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$tc</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$qL</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$cL</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$kS</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$aS</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$tag1</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$tag2</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$tag3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$tag4</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$tag5</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$Kbulk</span><span class="w"> </span><span class="nv">$D1</span><span class="w"> </span><span class="nv">$D2</span><span class="w"> </span><span class="nv">$ts</span><span class="w"> </span><span class="nv">$tr</span><span class="w"> </span><span class="nv">$n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"> </span><span class="nv">$y3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$kc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$PhiM</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$ac</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$sDratio</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$cd</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$qL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$cL</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$kS</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$aS</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tag1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tag2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tag3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tag4</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tag5</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 
 <hr />
