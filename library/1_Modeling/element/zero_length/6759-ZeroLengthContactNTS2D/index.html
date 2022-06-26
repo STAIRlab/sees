@@ -5522,6 +5522,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_2_2">
@@ -5649,6 +5651,21 @@
     <li class="md-nav__item">
       <a href="../../beam/257-Force-Based%20Beam-Column%20Element/" class="md-nav__link">
         Force-Based Beam-Column Element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beam/ForceBeamColumnCBDI2d/" class="md-nav__link">
+        ForceBeamColumnCBDI2d
 
       </a>
     </li>
@@ -15193,9 +15210,7 @@
 
 
 <h1 id="zerolengthcontactnts2d">ZeroLengthContactNTS2D</h1>
-<p>
-This command is used to construct a zeroLengthContactNTS2D element object. This is a Node-To-Segment (NTS) frictional contact element used in two dimensional analysis for contact between elements with 2 DOF nodes.
-</p>
+<p>This command is used to construct a <code>ZeroLengthContactNTS2D</code> element. This is a Node-To-Segment (NTS) frictional contact element used in two dimensional analysis for contact between elements with 2 DOF nodes.</p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>zeroLengtContactNTS2D<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="o">-</span>cNdNum<span class="w"> </span><span class="nv">$cNdNum</span>
 <span class="w">        </span><span class="nv">-rNdNum</span><span class="w"> </span><span class="nv">$rNdNum</span><span class="w"> </span><span class="o">-</span>Nodes<span class="w"> </span><span class="nv">$Nodes</span><span class="w"> </span><span class="nv">$Kn</span><span class="w"> </span><span class="nv">$kt</span><span class="w"> </span><span class="nv">$phi</span>
 </pre></div>
@@ -15301,16 +15316,14 @@ contact element is implemented to handle large deformations.
 <strong>EXAMPLE:</strong>
 </p>
 <figure>
-<img src="/OpenSeesRT/contrib/static/zeroLengthContactNTS2Drc.png"
-title="zeroLengthContactNTS2Drc.png"
-alt="zeroLengthContactNTS2Drc.png" />
+<img src="/OpenSeesRT/contrib/static/ZeroLengthContactNTS2Drc.png" alt="zeroLengthContactNTS2Drc.png" />
 <figcaption aria-hidden="true">
 zeroLengthContactNTS2Drc.png
 </figcaption>
 </figure>
-<p>
-element zeroLengthContactNTS2D 1 -cNdNum 6 -rNdNum 6 - Nodes 5 10 12 3 9 11 1 4 2 8 7 6 1e8 1e8 16
-</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>zeroLengthContactNTS2D<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>cNdNum<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">-</span>rNdNum<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">-</span><span class="w"> </span>Nodes<span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">12</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">1</span>e8<span class="w"> </span><span class="mi">1</span>e8<span class="w"> </span><span class="mi">16</span>
+</pre></div>
+
 <p>
 <strong>Example 1:</strong>
 </p>
@@ -15334,7 +15347,7 @@ This example shows two cantilever beams in contact. The beams were modeled using
 title="wikilink">here</a>.
 </p>
 <figure>
-<img src="/OpenSeesRT/contrib/static/zeroLengthContactNTS2D_fig3.jpg"
+<img src="/OpenSeesRT/contrib/static/ZeroLengthContactNTS2D_fig3.jpg"
 title="zeroLengthContactNTS2D_fig3.jpg"
 alt="zeroLengthContactNTS2D_fig3.jpg" />
 <figcaption aria-hidden="true">
@@ -15345,7 +15358,7 @@ zeroLengthContactNTS2D_fig3.jpg
 The following Figure shows the deflections of the two beams.
 </p>
 <figure>
-<img src="/OpenSeesRT/contrib/static/zeroLengthContactNTS2D_fig4.jpg"
+<img src="/OpenSeesRT/contrib/static/ZeroLengthContactNTS2D_fig4.jpg"
 title="zeroLengthContactNTS2D_fig4.jpg"
 alt="zeroLengthContactNTS2D_fig4.jpg" />
 <figcaption aria-hidden="true">

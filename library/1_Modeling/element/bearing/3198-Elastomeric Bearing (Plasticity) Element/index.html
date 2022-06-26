@@ -5522,6 +5522,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_2_2">
@@ -5649,6 +5651,21 @@
     <li class="md-nav__item">
       <a href="../../beam/257-Force-Based%20Beam-Column%20Element/" class="md-nav__link">
         Force-Based Beam-Column Element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beam/ForceBeamColumnCBDI2d/" class="md-nav__link">
+        ForceBeamColumnCBDI2d
 
       </a>
     </li>
@@ -15193,26 +15210,23 @@
 
 
 <h1 id="elastomeric-bearing-plasticity">Elastomeric Bearing (Plasticity)</h1>
-<p>
-This command is used to construct an elastomericBearing element object, which is defined by two nodes. The element can have zero length or the appropriate bearing height. The bearing has unidirectional (2D) or coupled (3D) plasticity properties for the shear deformations, and force-deformation behaviors defined by UniaxialMaterials in the remaining two (2D) or four (3D) directions. By default (sDratio = 0.5) P-Delta moments are equally distributed to the two end-nodes. To avoid the introduction of artificial viscous damping in the isolation system (sometimes referred to as “damping leakage in the isolation system”), the bearing element does not contribute to the Rayleigh damping by default. If the element has non-zero length, the local x-axis is determined from the nodal geometry unless the optional x-axis vector is specified in which case the nodal geometry is ignored and the user-defined orientation is utilized.
-</p>
+<p>This command is used to construct an elastomericBearing element object, which is defined by two nodes. The element can have zero length or the appropriate bearing height. The bearing has unidirectional (2D) or coupled (3D) plasticity properties for the shear deformations, and force-deformation behaviors defined by UniaxialMaterials in the remaining two (2D) or four (3D) directions. By default (sDratio = 0.5) P-Delta moments are equally distributed to the two end-nodes. To avoid the introduction of artificial viscous damping in the isolation system (sometimes referred to as “damping leakage in the isolation system”), the bearing element does not contribute to the Rayleigh damping by default. If the element has non-zero length, the local x-axis is determined from the nodal geometry unless the optional x-axis vector is specified in which case the nodal geometry is ignored and the user-defined orientation is utilized.</p>
 <p>
 For a two-dimensional problem:
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>elastomericBearingPlasticity<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span>
-<span class="w">        </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$kInit</span><span class="w"> </span><span class="nv">$qd</span><span class="w"> </span><span class="nv">$alpha1</span><span class="w"> </span><span class="nv">$alpha2</span><span class="w"> </span><span class="nv">$mu</span><span class="w"> </span><span class="nv">-P</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>Mz<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">-orient</span>
-<span class="w">        </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"> </span><span class="nv">$y3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-shearDist</span><span class="w"> </span><span class="nv">$sDratio</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-doRayleigh</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$m</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$kInit</span><span class="w"> </span><span class="nv">$qd</span><span class="w"> </span><span class="nv">$alpha1</span><span class="w"> </span><span class="nv">$alpha2</span><span class="w"> </span><span class="nv">$mu</span><span class="w"> </span><span class="nv">-P</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>Mz<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>orient<span class="w"> </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"> </span><span class="nv">$y3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>shearDist<span class="w"> </span><span class="nv">$sDratio</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-doRayleigh</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>mass<span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <p>
 For a three-dimensional problem:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>elastomericBearingPlasticity<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span>
-<span class="w">        </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$kInit</span><span class="w"> </span><span class="nv">$qd</span><span class="w"> </span><span class="nv">$alpha1</span><span class="w"> </span><span class="nv">$alpha2</span><span class="w"> </span><span class="nv">$mu</span><span class="w"> </span><span class="nv">-P</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>T<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>My<span class="w"> </span><span class="nv">$matTag</span>
-<span class="w">        </span><span class="nv">-Mz</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">-orient</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"> </span><span class="nv">$y3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-shearDist</span><span class="w"> </span><span class="nv">$sDratio</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-doRayleigh</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span>
-<span class="w">        </span><span class="nv">$m</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>elastomericBearingPlasticity<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$kInit</span><span class="w"> </span><span class="nv">$qd</span><span class="w"> </span><span class="nv">$alpha1</span><span class="w"> </span><span class="nv">$alpha2</span><span class="w"> </span>
+<span class="w">        </span><span class="nv">$mu</span><span class="w"> </span><span class="o">-</span>P<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>T<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>My<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>Mz<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>orient<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"> </span><span class="nv">$y3</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-shearDist</span><span class="w"> </span><span class="nv">$sDratio</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>doRayleigh<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>mass<span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <hr />
@@ -15412,34 +15426,26 @@ ElastomericBearingPlasticityFig01.png
 <p>
 NOTE:
 </p>
-<p>
 <ol type="1">
-<li>If the element has zero length and optional orientation vectors are not specified, the local element axes coincide with the global axes. Otherwise the local z-axis is defined by the cross product between the x- and y-vectors specified on the command line.
-</p>
-<p>
-<ol start="2" type="1">
-<li>Elastomeric bearings are very stiff in compression, but not rigid. It is not a good idea to specify an extremely large axial stiffness (such as 1E10), because it can lead to problems with numerical sensitivity. Always specify a realistic value for the stiffness of the material that is assigned along the axial direction. To assign different compression and tension stiffness the <a
-href="http://opensees.berkeley.edu/wiki/index.php/Elastic_Material">Elastic</a> or <a
-href="http://opensees.berkeley.edu/wiki/index.php/ElasticMultiLinear_Material">ElasticMultiLinear</a> material can be used.
-</p>
-<p>
-<ol start="3" type="1">
-<li>The valid queries to an elastomeric bearing element when creating an ElementRecorder object are ‘force,’ ‘localForce,’ ‘basicForce,’ ‘localDisplacement,’ ‘basicDisplacement’ and ‘material $matNum matArg1 matArg2 …’ Where $matNum is the number associated with the material whose data is to be output.
-</p>
-<hr /></li>
-</ol></li>
-</ol></li>
+<li><p>If the element has zero length and optional orientation vectors are not specified, the local element axes coincide with the global axes. Otherwise the local <span class="math inline">\(z\)</span>-axis is defined by the cross product between the <span class="math inline">\(x\)</span>- and <span class="math inline">\(y\)</span>-vectors specified on the command line.</p></li>
+<li><p>Elastomeric bearings are very stiff in compression, but not rigid. It is not a good idea to specify an extremely large axial stiffness (such as 1E10), because it can lead to problems with numerical sensitivity. Always specify a realistic value for the stiffness of the material that is assigned along the axial direction. To assign different compression and tension stiffness the <a
+  href="http://opensees.berkeley.edu/wiki/index.php/Elastic_Material">Elastic</a> or <a
+  href="http://opensees.berkeley.edu/wiki/index.php/ElasticMultiLinear_Material">ElasticMultiLinear</a> material can be used.</p></li>
+<li><p>The valid queries to an elastomeric bearing element when creating an ElementRecorder object are <code>force,</code> <code>localForce,</code> <code>basicForce,</code> <code>localDisplacement,</code> <code>basicDisplacement</code> and <code>material $matNum matArg1   matArg2 ...</code> Where <code>matNum</code> is the number associated with the material whose data is to be output.</p></li>
 </ol>
+<hr />
 <h2 id="examples">Examples</h2>
-<p>
-element elastomericBearingPlasticity 1 1 2 20.0 2.50 0.02 0.0 3.0 -P 1 -Mz 2; # for a 2D elastomeric bearing
-</p>
-<p>
-element elastomericBearingPlasticity 1 1 2 20 2.50 0.02 0.0 3.0 -P 1 -T 2 -My 3 -Mz 4; # for a 3D elastomeric bearing
-</p>
+<p>For a 2D elastomeric bearing:</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>elastomericBearingPlasticity<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mf">20.0</span><span class="w"> </span><span class="mf">2.50</span><span class="w"> </span><span class="mf">0.02</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="o">-</span>P<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>Mz<span class="w"> </span><span class="mi">2</span><span class="k">;</span><span class="w"> </span>
+</pre></div>
+
+<p>For a 3D elastomeric bearing:</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>elastomericBearingPlasticity<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="mf">2.50</span><span class="w"> </span><span class="mf">0.02</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">3.0</span><span class="w"> </span><span class="o">-</span>P<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>T<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span>My<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span>Mz<span class="w"> </span><span class="mi">4</span><span class="k">;</span><span class="w"> </span>
+</pre></div>
+
 <hr />
 <p>
-Code Developed by: <span style="color:blue"> Andreas Schellenberg, University of California, Berkeley. </span>
+Code developed by: <span style="color:blue"> Andreas Schellenberg, University of California, Berkeley. </span>
 </p>
 
 

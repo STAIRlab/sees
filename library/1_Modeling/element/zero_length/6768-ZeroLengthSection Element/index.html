@@ -5522,6 +5522,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_2_2">
@@ -5649,6 +5651,21 @@
     <li class="md-nav__item">
       <a href="../../beam/257-Force-Based%20Beam-Column%20Element/" class="md-nav__link">
         Force-Based Beam-Column Element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beam/ForceBeamColumnCBDI2d/" class="md-nav__link">
+        ForceBeamColumnCBDI2d
 
       </a>
     </li>
@@ -15197,8 +15214,7 @@
 This command is used to construct a zero length element object, which is defined by two nodes at the same location. The nodes are connected by a single section object to represent the force-deformation relationship for the element.
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>zeroLengthSection<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$secTag</span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-orient</span><span class="w"> </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="nv">$yp1</span><span class="w"> </span><span class="nv">$yp2</span><span class="w"> </span><span class="nv">$yp3</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-doRayleigh</span>
-<span class="w">        </span><span class="nv">$rFlag</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-orient</span><span class="w"> </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="nv">$yp1</span><span class="w"> </span><span class="nv">$yp2</span><span class="w"> </span><span class="nv">$yp3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>doRayleigh<span class="w"> </span><span class="nv">$rFlag</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <hr />
@@ -15295,25 +15311,27 @@ NOTE:
 </p>
 <ol>
 <li>
-If the optional orientation vectors are not specified, the local element axes coincide with the global axes. Otherwise the local z-axis is defined by the cross product between the vectors x and yp vectors specified on the command line.
+If the optional orientation vectors are not specified, the local element axes coincide with the global axes. Otherwise the local z-axis is defined by the cross product between the vectors <code>x</code> and <code>yp</code> vectors specified on the command line.
 </li>
 <li>
-The section force-deformation response represented by section string P acts along the element local x-axis, and the response for code Vy along the local y-axis. The other modes of section response follow from this orientation.
+The section force-deformation response represented by section string <code>P</code> acts along the element local <span class="math inline">\(x\)</span>-axis, and the response for code <code>Vy</code> along the local <span class="math inline">\(y\)</span>-axis. The other modes of section response follow from this orientation.
 </li>
 <li>
-The valid queries to a zero-length element when creating an ElementRecorder object are ‘force,’ ‘deformation,’ ‘stiff,’ and ‘section $secArg1 secArg2 …’.
+The valid queries to a zero-length element when creating an ElementRecorder object are <code>force,</code> <code>deformation,</code> <code>stiff,</code> and <code>section $secArg1 secArg2 ...</code>.
 </li>
 </ol>
 <h2 id="examples">Examples</h2>
-<p>
-element zeroLengthSection 1 2 4 6; # truss tag 1 between nodes 2 and 4 usinga type 6 section.
-</p>
-<p>
-element zeroLengthSection 1 1 2 1 -orient 0 1 0 0 0 -1; # element tag 1 between nodes 1 and 2 defined with section 1. Local direction x, perpendicular to element section, is aligned with the global Y axis and the vector yp is aligned with the negative global Z axis.
-</p>
+<p>Truss tag 1 between nodes 2 and 4 usinga type 6 section:</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>zeroLengthSection<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">6</span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
+<p>Element tag 1 between nodes 1 and 2 defined with section 1. Local direction x, perpendicular to element section, is aligned with the global Y axis and the vector yp is aligned with the negative global Z axis:</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>zeroLengthSection<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>orient<span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="k">;</span><span class="w"> </span>
+</pre></div>
+
 <hr />
 <p>
-Code Developed by: <span style="color:blue"> Micheal Scott, Oregon State University. </span>
+Code developed by: <span style="color:blue"> Michael Scott, Oregon State University. </span>
 </p>
 
 
