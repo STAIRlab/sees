@@ -5635,7 +5635,7 @@
   
     <li class="md-nav__item">
       <a href="../../beam/252-Flexure-Shear%20Interaction%20Displacement-Based%20Beam-Column%20Element/" class="md-nav__link">
-        Flexure-Shear Interaction Displacement-Based Beam-Column Element
+        DispBeamColumnInt
 
       </a>
     </li>
@@ -15210,22 +15210,8 @@
 
 
 <h1 id="sfi-mvlem---cyclic-shear-flexure-interaction-model-for-rc-walls">SFI MVLEM - Cyclic Shear-Flexure Interaction Model for RC Walls</h1>
-<p>
-<strong>Code developed by:</strong>
-</p>
-<p>
-<a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span> <span style="color:black"></a>, California State University, Fullerton
-</p>
-<p>
-<span style="color:blue"> Kutay Orakcal&lt;span style=“color:black”&gt;, Bogazici University, Istanbul, Turkey
-</p>
-<p>
-<span style="color:blue"> John Wallace&lt;span style=“color:black”&gt;, Univeristy of California, Los Angeles
-</p>
-<p>
-The <strong>SFI_MVLEM</strong> command is used to construct a Shear-Flexure Interaction Multiple-Vertical-Line-Element Model (SFI-MVLEM, Kolozvari et al., 2015a, b, c), which captures interaction between axial/flexural and shear behavior of RC structural walls and columns under cyclic loading. The <strong>SFI_MVLEM</strong> element (Figure 1) incorporates 2-D RC panel behavior described by the Fixed-Strut-Angle-Model (nDMaterial <a
-href="http://opensees.berkeley.edu/wiki/index.php/FSAM_-_2D_RC_Panel_Constitutive_Behavior"><strong>FSAM</strong></a>; Ulugtekin, 2010; Orakcal et al., 2012), into a 2-D macroscopic fiber-based model (MVLEM). The interaction between axial and shear behavior is captured at each RC panel (macro-fiber) level, which further incorporates interaction between shear and flexural behavior at the <strong>SFI_MVLEM</strong> element level.
-</p>
+<p>The <strong>SFI_MVLEM</strong> command is used to construct a Shear-Flexure Interaction Multiple-Vertical-Line-Element Model (SFI-MVLEM, Kolozvari et al., 2015a, b, c), which captures interaction between axial/flexural and shear behavior of RC structural walls and columns under cyclic loading. The <strong>SFI_MVLEM</strong> element (Figure 1) incorporates 2-D RC panel behavior described by the Fixed-Strut-Angle-Model (nDMaterial <a
+href="http://opensees.berkeley.edu/wiki/index.php/FSAM_-_2D_RC_Panel_Constitutive_Behavior"><strong>FSAM</strong></a>; Ulugtekin, 2010; Orakcal et al., 2012), into a 2-D macroscopic fiber-based model (MVLEM). The interaction between axial and shear behavior is captured at each RC panel (macro-fiber) level, which further incorporates interaction between shear and flexural behavior at the <strong>SFI_MVLEM</strong> element level.</p>
 <p>
 <strong>Source:</strong> /usr/local/cvs/OpenSees/SRC/element/SFI_MVLEM/
 </p>
@@ -15391,49 +15377,16 @@ href="http://opensees.berkeley.edu/wiki/index.php/FSAM_-_2D_RC_Panel_Constitutiv
 <p>
 <strong>Examples:</strong>
 </p>
-<p>
-Element SFI_MVLEM 1 1 2 5 0.4 -thick 6 6 6 6 6 -width 9 10 10 10 9 -mat 7 6 6 6 7
-</p>
-<p>
-Recorder Element -file SFI_MVLEM_Fgl.out -time -ele 1 2 3 globalForce
-</p>
-<p>
-Recorder Element -file SFI_MVLEM_panel_strain.out -time -ele 1 RCPanel 1 panel_strain
-</p>
-<hr />
-<p>
-<strong>References:</strong>
-</p>
-<p>
-<ol type="1">
-<li>Kolozvari K., Orakcal K., and Wallace J. W. (2015a). “Shear-Flexure Interaction Modeling of reinforced Concrete Structural Walls and Columns under Reversed Cyclic Loading”, Pacific Earthquake Engineering Research Center, University of California, Berkeley, <a
-href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER Report No. 2015/12</a>
-</p>
-<p>
-<ol start="2" type="1">
-<li>Kolozvari K., Orakcal K., and Wallace J. W. (2015b). ”Modeling of Cyclic Shear-Flexure Interaction in Reinforced Concrete Structural Walls. I: Theory”, ASCE Journal of Structural Engineering, 141(5), 04014135 <a
-href="http://dx.doi.org/10.1061/(ASCE)ST.1943-541X.0001059">doi</a>
-</p>
-<p>
-<ol start="3" type="1">
-<li>Kolozvari K., Tran T., Orakcal K., and Wallace, J.W. (2015c). ”Modeling of Cyclic Shear-Flexure Interaction in Reinforced Concrete Structural Walls. II: Experimental Validation”, ASCE Journal of Structural Engineering, 141(5), 04014136 <a
-href="http://dx.doi.org/10.1061/(ASCE)ST.1943-541X.0001083">doi</a>
-</p>
-<p>
-<ol start="4" type="1">
-<li>Kolozvari K. (2013). “Analytical Modeling of Cyclic Shear-Flexure Interaction in Reinforced Concrete Structural Walls”, PhD Dissertation, University of California, Los Angeles.
-</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>SFI_MVLEM<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mf">0.4</span><span class="w"> </span><span class="o">-</span>thick<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">-</span>width<span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">-</span>mat<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span>
+<span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>SFI_MVLEM_Fgl.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span>globalForce
+<span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>SFI_MVLEM_panel_strain.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span>RCPanel<span class="w"> </span><span class="mi">1</span><span class="w"> </span>panel_strain
+</pre></div>
+
 <hr />
 <p>
 <strong>Example 1. Simulation of Shear-Flexural Behavior of a Medium-Rise RC Wall Specimen under Cyclic Loading using the SFI-MVLEM Model</strong>
 </p>
-<p>
-The behavior of RC wall specimen RW-A15-P10-S78 (Tran and Wallace,</li>
-</ol></li>
-</ol></li>
-</ol></li>
-<li>tested under constant axial load and cyclic lateral displacement history applied at the top of the wall is predicted using the <strong>SFI_MVLEM</strong> model. The input parameters and output results are presented in the following sections.
-</p>
+<p>The behavior of RC wall specimen RW-A15-P10-S78 (Tran and Wallace, 2012) tested under constant axial load and cyclic lateral displacement history applied at the top of the wall is predicted using the <strong>SFI_MVLEM</strong> model. The input parameters and output results are presented in the following sections.</p>
 <p>
 <strong>E1.1. Model Calibration</strong>
 </p>
@@ -15700,18 +15653,14 @@ title="Figure E2.8. Model Element Responses: a) Lateral Load vs. Displacement, b
 width="650"
 alt="Figure E2.8. Model Element Responses: a) Lateral Load vs. Displacement, b) Lateral Load vs. Flexural Deformation, c) Lateral Load vs. Shear Deformation, d) Moment vs. Curvature" />
 <figcaption aria-hidden="true">
-Figure E2.8. Model Element Responses: a) Lateral Load vs. Displacement, b) Lateral Load vs. Flexural Deformation,</li>
-</ol>
-<ol start="3" type="a">
-<li>Lateral Load vs. Shear Deformation, d) Moment vs. Curvature
+Figure E2.8. Model Element Responses: a) Lateral Load vs. Displacement, b) Lateral Load vs. Flexural Deformation, c) Lateral Load vs. Shear Deformation, d) Moment vs. Curvature
 </figcaption>
 </figure>
 <p>
 <em>E2.4.5. Single RC Panel Responses</em>
 </p>
 <p>
-Analytically-predicted strain-stress responses of a single RC panel (macro-fiber) located at the left wall boundary of the bottom wall element are presented. Global panel stress-strain relationships presented on Figure E2.9 are obtained using element recorder <em>RCPanel</em> with commands <em>panel_strain</em> and <em>panel_stress</em>; the uniaxial behavior of concrete along the two concrete struts presented on Figure E2.10 are recorded using <em>strain_stress_concrete1</em> and <em>strain_stress_concrete2</em> commands; uniaxial stress-strain behavior of horizontal and vertical reinforcing steel presented on Figure E2.11 are obtained using <em>strain_stress_steelX</em> and <em>strain_stress_steelY</em> commands. Other panel responses described in Section 3 could be plotted in a similar manner.
-</p>
+<p>Analytically-predicted strain-stress responses of a single RC panel (macro-fiber) located at the left wall boundary of the bottom wall element are presented. Global panel stress-strain relationships presented on Figure E2.9 are obtained using element recorder <em>RCPanel</em> with commands <em>panel_strain</em> and <em>panel_stress</em>; the uniaxial behavior of concrete along the two concrete struts presented on Figure E2.10 are recorded using <em>strain_stress_concrete1</em> and <em>strain_stress_concrete2</em> commands; uniaxial stress-strain behavior of horizontal and vertical reinforcing steel presented on Figure E2.11 are obtained using <em>strain_stress_steelX</em> and <em>strain_stress_steelY</em> commands. Other panel responses described in Section 3 could be plotted in a similar manner.</p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_9.png"
 title="Figure E2.9. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear"
@@ -15739,9 +15688,7 @@ alt="Figure E2.11. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X)
 Figure E2.11. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)
 </figcaption>
 </figure>
-<p>
-Finally, vertical profiles of maximum vertical strains (Figure E2.12a) are obtained using element recorder with <em>RCPanel</em> and <em>panel_strain</em> recorder commands, whereas maximum wall rotations over the wall height (Figure E2.12b) are derived from element <em>Curvature</em> recorder. Similarly, the distribution of other wall responses could be plotted over the wall height (e.g., shear deformations, etc.).
-</p>
+<p>Finally, vertical profiles of maximum vertical strains (Figure E2.12a) are obtained using element recorder with <em>RCPanel</em> and <em>panel_strain</em> recorder commands, whereas maximum wall rotations over the wall height (Figure E2.12b) are derived from element <em>Curvature</em> recorder. Similarly, the distribution of other wall responses could be plotted over the wall height (e.g., shear deformations, etc.).</p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_12.png"
 title="Figure E2.12. Local Responses - Vertical Profiles of Maximum: a) Vertical Strains, b) Rotations"
@@ -15750,8 +15697,30 @@ alt="Figure E2.12. Local Responses - Vertical Profiles of Maximum: a) Vertical S
 <figcaption aria-hidden="true">
 Figure E2.12. Local Responses - Vertical Profiles of Maximum: a) Vertical Strains, b) Rotations
 </figcaption>
-</figure></li>
+</figure>
+<hr />
+<h2 id="references">References</h2>
+<ol type="1">
+<li><p>Kolozvari K., Orakcal K., and Wallace J. W. (2015a). “Shear-Flexure Interaction Modeling of reinforced Concrete Structural Walls and Columns under Reversed Cyclic Loading”, Pacific Earthquake Engineering Research Center, University of California, Berkeley, <a
+  href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER Report No. 2015/12</a></p></li>
+<li><p>Kolozvari K., Orakcal K., and Wallace J. W. (2015b). ”Modeling of Cyclic Shear-Flexure Interaction in Reinforced Concrete Structural Walls. I: Theory”, ASCE Journal of Structural Engineering, 141(5), 04014135 <a
+  href="http://dx.doi.org/10.1061/(ASCE)ST.1943-541X.0001059">doi</a></p></li>
+<li><p>Kolozvari K., Tran T., Orakcal K., and Wallace, J.W. (2015c). “Modeling of Cyclic Shear-Flexure Interaction in Reinforced Concrete Structural Walls. II: Experimental Validation”, ASCE Journal of Structural Engineering, 141(5), 04014136 <a
+  href="http://dx.doi.org/10.1061/(ASCE)ST.1943-541X.0001083">doi</a></p></li>
+<li><p>Kolozvari K. (2013). “Analytical Modeling of Cyclic Shear-Flexure Interaction in Reinforced Concrete Structural Walls”, PhD Dissertation, University of California, Los Angeles.</p></li>
 </ol>
+<p>
+<strong>Code developed by:</strong>
+</p>
+<p>
+<a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span> <span style="color:black"></a>, California State University, Fullerton
+</p>
+<p>
+<span style="color:blue"> Kutay Orakcal&lt;span style=“color:black”&gt;, Bogazici University, Istanbul, Turkey
+</p>
+<p>
+<span style="color:blue"> John Wallace&lt;span style=“color:black”&gt;, Univeristy of California, Los Angeles
+</p>
 
 
               
