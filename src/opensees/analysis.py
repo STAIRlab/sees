@@ -43,7 +43,7 @@ class StaticAnalysis(Analysis):
         super().__init__(model, strategy=strategy, patterns=patterns)
 
         # Import C++ bindings and create an instance of the analysis
-        from . import libOpenSeesRT
+        from . import OpenSeesPyRT as libOpenSeesRT
         self._analysis = libOpenSeesRT._StaticAnalysis(self.rt._rt, self._strategy)
 
 
@@ -80,7 +80,7 @@ class DirectIntegrationAnalysis(Analysis):
     ):
         super().__init__(model, strategy=strategy, patterns=patterns)
         # Import C++ bindings and create an instance of the analysis
-        from . import libOpenSeesRT
+        from . import OpenSeesPyRT as libOpenSeesRT
         self._analysis = libOpenSeesRT._DirectIntegrationAnalysis(self.rt._rt, self._strategy)
 
 

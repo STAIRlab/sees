@@ -1,4 +1,3 @@
-
 package:
   name: opensees
   version: 0.0.20
@@ -8,9 +7,7 @@ source:
 
 build:
   script_env: [CONDA_PREFIX]
-  # number: 0
-  script: "{{PYTHON}} setup.py install -vvv -- -- -j8"
-    #script: python -m pip install . -vvv
+  script: "{{PYTHON}} setup.py install -v -- -- -j8"
 
 requirements:
   build:
@@ -48,8 +45,6 @@ requirements:
       - opensees
     source_files:
       - notebooks/
-      # commands:
-      #   - python -m pytest
     commands:
       - python -m pytest --nbmake notebooks/
 
@@ -64,6 +59,4 @@ about:
 extra:
   recipe-maintainers:
     - claudioperez
-
-
 

@@ -13,11 +13,11 @@ class Component:
         # when a TclRuntime() is created) so that Tcl stubs
         # are initialized. Otherwise there will be a segfault
         # when a python c-binding attempts to call a Tcl
-        # C function. Users should never import libOpenSeesRT
+        # C function. Users should never import OpenSeesPyRT
         # themselves
         from .tcl import TclRuntime
         rt = TclRuntime()
-        from . import libOpenSeesRT
+        from . import OpenSeesPyRT as libOpenSeesRT
 
         if self.tag_space == "uniaxialMaterial":
             rt.model(self)

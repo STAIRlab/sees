@@ -4,14 +4,18 @@ import tkinter
 import pathlib
 from opensees.obj import Component
 
-def TclInterpreter():
+def TclInterpreter(verbose=False, tcl_lib=None):
     if "OPENSEESRT_LIB" in os.environ:
         libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
     else:
         install_dir = pathlib.Path(__file__).parents[0]
         libOpenSeesRT_path = install_dir/'libOpenSeesRT.so'
+
+    if verbose:
+        print(f"OpenSeesRT: {libOpenSeesRT_path}", file=sys.stderr)
+
     interp = tkinter.Tcl()
-    #from . import libOpenSeesRT
+    #from . import OpenSeesPyRT as libOpenSeesRT
     interp.eval(f"load {libOpenSeesRT_path}")
     return interp
 
@@ -41,12 +45,12 @@ def dumps(model):
 
 
 class TclRuntime:
-    def __init__(self,  model=None):
+    def __init__(self,  model=None, verbose=False):
         from functools import partial
         self._partial = partial
         self._c_domain = None
         self._c_rt = None
-        self._interp = TclInterpreter()
+        self._interp = TclInterpreter(verbose=verbose)
         if model is not None:
             self.model(model)
     
@@ -66,7 +70,7 @@ class TclRuntime:
                     self.eval(m)
                 else:
                     self.eval(m.getIndex())
-                    from . import libOpenSeesRT
+                    from . import OpenSeesPyRT as libOpenSeesRT
                     _builder = libOpenSeesRT.get_builder(self._interp.interpaddr())
                     for ident,obj in m.python_objects.items():
                         tag = self.eval(f"set {ident.tclstr()}")
@@ -80,14 +84,14 @@ class TclRuntime:
     @property
     def _rt(self):
         if self._c_rt is None:
-            from . import libOpenSeesRT
+            from . import OpenSeesPyRT as libOpenSeesRT
             self._c_rt = libOpenSeesRT.getRuntime(self._interp.tk.interpaddr())
         return self._c_rt
 
     @property
     def _domain(self):
         if self._c_domain is None:
-            from . import libOpenSeesRT
+            from . import OpenSeesPyRT as libOpenSeesRT
             self._c_domain = libOpenSeesRT.get_domain(self._rt)
         return self._c_domain
 
