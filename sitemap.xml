@@ -761,6 +761,21 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/Load_Pattern/Multisupport_Excitation/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/Load_Pattern/Plain_Loading/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/Load_Pattern/Uniform_Excitation/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/constraints/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
@@ -2416,11 +2431,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/505-PinchingLimitStateMaterial%20Example/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/UniaxialLimitState/506-Pinching%20Limit%20State/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
@@ -2702,136 +2712,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/sensitivity/626-SensitivityIntegrator%20Command/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/ConvergenceTest/CTestEnergyIncr/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/ConvergenceTest/CTestNormDispIncr/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/ConvergenceTest/CTestNormUnbalance/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/StaticIntegrator/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/StaticIntegrator/ArcLength/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/StaticIntegrator/ArcLength1/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/TransientIntegrator/GeneralizedAlpha/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/TransientIntegrator/HHT/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/TransientIntegrator/Newmark/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/TransientIntegrator/WilsonTheta/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/constraint_enforcement/Lagrange/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/constraint_enforcement/Penalty/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/constraint_enforcement/Plain/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/constraint_enforcement/Transformation/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/nonlinear_solve/Linear/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/nonlinear_solve/ModifiedNewton/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/analysis/nonlinear_solve/NewtonRaphson/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/modeling/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/modeling/constraint/rigidBeam/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/modeling/damping/rayleigh/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/modeling/nD/BidirectionalMaterial/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/modeling/nD/ElasticIsotropicPlaneStrain2D/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/modeling/nD/ElasticIsotropicPlaneStress2D/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/modeling/section/GenericSection1D/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/other/modeling/section/GenericSectionND/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
