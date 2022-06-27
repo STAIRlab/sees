@@ -8600,6 +8600,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_5_5">
@@ -8754,6 +8756,21 @@
     <li class="md-nav__item">
       <a href="../../../uniaxialMaterial/concrete/97-ConfinedConcrete01/" class="md-nav__link">
         ConfinedConcrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxialMaterial/concrete/Concrete02IS/" class="md-nav__link">
+        Concrete02IS
 
       </a>
     </li>
@@ -15166,9 +15183,9 @@ This command is used to construct a flatSliderBearing element object, which is d
 For a two-dimensional problem:
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>flatSliderBearing<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span>
-<span class="w">        </span><span class="nv">$frnMdlTag</span><span class="w"> </span><span class="nv">$kInit</span><span class="w"> </span><span class="nv">-P</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>Mz<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">-orient</span><span class="w"> </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span>
-<span class="w">        </span><span class="nv">$y3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-shearDist</span><span class="w"> </span><span class="nv">$sDratio</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-doRayleigh</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$m</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-iter</span><span class="w"> </span><span class="nv">$maxIter</span><span class="w"> </span><span class="nv">$tol</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$frnMdlTag</span><span class="w"> </span><span class="nv">$kInit</span><span class="w"> </span><span class="nv">-P</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>Mz<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>orient<span class="w"> </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span>
+<span class="w">        </span><span class="nv">$y3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-shearDist</span><span class="w"> </span><span class="nv">$sDratio</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>doRayleigh<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>mass<span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-iter</span><span class="w"> </span><span class="nv">$maxIter</span><span class="w"> </span><span class="nv">$tol</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <p>
@@ -15176,9 +15193,9 @@ For a three-dimensional problem:
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>flatSliderBearing<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span>
 <span class="w">        </span><span class="nv">$frnMdlTag</span><span class="w"> </span><span class="nv">$kInit</span><span class="w"> </span><span class="nv">-P</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>T<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>My<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="o">-</span>Mz<span class="w"> </span><span class="nv">$matTag</span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-orient</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"> </span><span class="nv">$y3</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-shearDist</span>
-<span class="w">        </span><span class="nv">$sDratio</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-doRayleigh</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$m</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-iter</span><span class="w"> </span><span class="nv">$maxIter</span>
-<span class="w">        </span><span class="nv">$tol</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-orient</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"> </span><span class="nv">$y3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>shearDist
+<span class="w">        </span><span class="nv">$sDratio</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-doRayleigh</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>mass<span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>iter<span class="w"> </span><span class="nv">$maxIter</span>
+<span class="w">        </span><span class="nv">$tol</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 
 <hr />
@@ -15364,31 +15381,19 @@ FlatSliderBearingFig01.png
 <p>
 NOTE:
 </p>
-<p>
 <ol type="1">
-<li>If the element has zero length and optional orientation vectors are not specified, the local element axes coincide with the global axes. Otherwise the local z-axis is defined by the cross product between the x- and y-vectors specified on the command line.
-</p>
-<p>
-<ol start="2" type="1">
-<li>Because the friction force is affected by both the axial force and the slip rate, the element can be sensitive numerically. It is recommended that for dynamic analysis a smaller time step is being used than what would be used for a comparable structure with no isolators.
-</p>
-<p>
-<ol start="3" type="1">
-<li>If there is uplift (and therefore impact) in the bearing element, it can be helpful to use an integration method that provides numerical damping. Providing some viscous damping for the material that is assigned to the axial direction can also be helpful in dissipating impact energy.
-</p>
-<p>
-<ol start="4" type="1">
-<li>The valid queries to a flat slider bearing element when creating an ElementRecorder object are ‘force,’ ‘localForce,’ ‘basicForce,’ ‘localDisplacement,’ ‘basicDisplacement’ and ‘material $matNum matArg1 matArg2 …’ Where $matNum is the number associated with the material whose data is to be output.
-</p>
-<hr /></li>
-</ol></li>
-</ol></li>
-</ol></li>
+<li>If the element has zero length and optional orientation vectors are not specified, the local element axes coincide with the global axes. Otherwise the local z-axis is defined by the cross product between the x- and y-vectors specified on the command line.</li>
+<li>Because the friction force is affected by both the axial force and the slip rate, the element can be sensitive numerically. It is recommended that for dynamic analysis a smaller time step is being used than what would be used for a comparable structure with no isolators.</li>
+<li>If there is uplift (and therefore impact) in the bearing element, it can be helpful to use an integration method that provides numerical damping. Providing some viscous damping for the material that is assigned to the axial direction can also be helpful in dissipating impact energy.</li>
+<li>The valid queries to a flat slider bearing element when creating an ElementRecorder object are <code>force</code>, <code>localForce</code>, <code>basicForce</code>, <code>localDisplacement</code>, <code>basicDisplacement</code> and <code>material $matNum matArg1 matArg2 ...</code> Where <code>matNum</code> is the number associated with the material whose data is to be output.</li>
 </ol>
+<hr />
 <h2 id="examples">Examples</h2>
 <p>
-For a 2D flat slider bearing: element flatSliderBearing 1 1 2 1 250.0 -P 1 -Mz 2 -orient 0 1 0 -1 0 0;
-</p>
+<p>For a 2D flat slider bearing:</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>flatSliderBearing<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">250.0</span><span class="w"> </span><span class="o">-</span>P<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>Mz<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span>orient<span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <ul>
 <li>
 <a href="TestSlider2d_0.tcl" title="wikilink">TestSlider2d_0.tcl</a> models a rigid isolated mass and the bearing element has zero length. It also tests the different friction models.
@@ -15407,8 +15412,10 @@ For a 2D flat slider bearing: element flatSliderBearing 1 1 2 1 250.0 -P 1 -Mz 2
 </li>
 </ul>
 <p>
-For a 3D flat slider bearing: element flatSliderBearing 1 1 2 1 250.0 -P 1 -T 2 -My 3 -Mz 4 -orient 0 0 1 -1 0 0;
-</p>
+<p>For a 3D flat slider bearing:</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>flatSliderBearing<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">250.0</span><span class="w"> </span><span class="o">-</span>P<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>T<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span>My<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span>Mz<span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">-</span>orient<span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mi">0</span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <ul>
 <li>
 <a href="TestSlider3d_0.tcl" title="wikilink">TestSlider3d_0.tcl</a> models a rigid isolated mass and the bearing element has zero length. It also tests the different friction models.
@@ -15433,7 +15440,7 @@ title="wikilink">AllSliderExamples.zip</a> as a compressed file.
 </p>
 <hr />
 <p>
-Code Developed by: <span style="color:blue"> Andreas Schellenberg, University of California, Berkeley. </span>
+Code developed by: <span style="color:blue"> Andreas Schellenberg, University of California, Berkeley. </span>
 </p>
 
 

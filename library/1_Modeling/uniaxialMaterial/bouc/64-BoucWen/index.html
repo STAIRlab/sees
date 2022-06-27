@@ -8600,6 +8600,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_5_5">
@@ -8754,6 +8756,21 @@
     <li class="md-nav__item">
       <a href="../../concrete/97-ConfinedConcrete01/" class="md-nav__link">
         ConfinedConcrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concrete/Concrete02IS/" class="md-nav__link">
+        Concrete02IS
 
       </a>
     </li>
@@ -15162,91 +15179,134 @@
 <p>
 This command is used to construct a uniaxial Bouc-Wen smooth hysteretic material object. This material model is an extension of the original Bouc-Wen model that includes stiffness and strength degradation (Baber and Noori (1985)).
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>BoucWen<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="nv">$ko</span><span class="w"> </span><span class="nv">$n</span><span class="w"> </span><span class="nv">$gamma</span>
-<span class="w">        </span><span class="nv">$beta</span><span class="w"> </span><span class="nv">$Ao</span><span class="w"> </span><span class="nv">$deltaA</span><span class="w"> </span><span class="nv">$deltaNu</span><span class="w"> </span><span class="nv">$deltaEta</span><span class="w"></span>
-</pre></div>
-
-<hr />
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">BoucWen</span>(name, alpha, ko, n, a, b, c, **kwds) </span></p>
+<div>
 <table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
 <tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">matTag</code>
-</td>
-<td>
-<p>
-integer tag identifying material
-</p>
-</td>
+<tr>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">alpha</code>
+alpha
 </td>
 <td>
-<p>
-ratio of post-yield stiffness to the initial elastic stiffenss (0&lt; <span class="math inline">\(\alpha\)</span> &lt;1)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+ratio of post-yield stiffness to the initial elastic stiffenss (0&lt; α &lt;1)
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">ko</code>
+ko
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 initial elastic stiffness
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">n</code>
+n
 </td>
 <td>
-<p>
+<code>Int(int)</code>
+</td>
+<td>
 parameter that controls transition from linear to nonlinear range (as n increases the transition becomes sharper; n is usually grater or equal to 1)
-</p>
-</td>
 </tr>
-<tr class="odd">
-<td>
-<p>
-<code class="parameter-table-variable">gamma beta</code>
-</p>
+<tr>
+<td colspan="2">
+a
 </td>
 <td>
-<p>
-parameters that control shape of hysteresis loop; depending on the values of <span class="math inline">\(\gamma\)</span> and <span class="math inline">\(\beta\)</span> softening, hardening or quasi-linearity can be simulated (look at the NOTES)
-</p>
+<code>[gamma,beta]</code>, parameters that control shape of hysteresis loop; depending on the values of γ and β softening, hardening or quasi-linearity can be simulated (look at the NOTES)
+<table>
+<tr>
+<td>
+gamma
 </td>
+<td>
+<code>Num(float)</code>
+</td>
+<td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">Ao deltaA</code>
-</p>
+beta
 </td>
 <td>
-<p>
-parameters that control tangent stiffness
-</p>
+<code>Num(float)</code>
 </td>
+<td>
 </tr>
-<tr class="odd">
-<td>
-<p>
-<code class="parameter-table-variable">deltaNu deltaEta</code>
-</p>
+</td>
+</table>
+</tr>
+<tr>
+<td colspan="2">
+b
 </td>
 <td>
-<p>
-parameters that control material degradation
-</p>
+<code>[Ao,deltaA]</code>, parameters that control tangent stiffness
+<table>
+<tr>
+<td>
+Ao
 </td>
+<td>
+<code>Num(float)</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+deltaA
+</td>
+<td>
+<code>Num(float)</code>
+</td>
+<td>
+</tr>
+</td>
+</table>
+</tr>
+<tr>
+<td colspan="2">
+c
+</td>
+<td>
+<code>[deltaNu,deltaEta]</code>, parameters that control material degradation
+<table>
+<tr>
+<td>
+deltaNu
+</td>
+<td>
+<code>Num(float)</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+deltaEta
+</td>
+<td>
+<code>Num(float)</code>
+</td>
+<td>
+</tr>
+</td>
+</table>
 </tr>
 </tbody>
 </table>
+</div>
 <p>
 NOTES:
 </p>
