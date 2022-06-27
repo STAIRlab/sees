@@ -786,12 +786,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ND_Material/120-Damage2p/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ND_Material/160-Drucker%20Prager/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ND_Material/160-Drucker%20Prager/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ND_Material/concrete/120-Damage2p/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2012,11 +2012,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/4_Utilities/recorders/517-Plot%20Recorder/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/4_Utilities/sections/patch/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
