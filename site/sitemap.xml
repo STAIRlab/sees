@@ -1336,61 +1336,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/190-Elastic%20Membrane%20Plate%20Section/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/192-Elastic%20Section/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/243-Fiber%20Section/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/407-NDFiber%20Section/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/515-Plate%20Fiber%20Section/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/57-Bidirectional%20Section/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/619-Section%20Aggregator/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/738-Uniaxial%20Section/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/GenericSection1D/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/section/GenericSectionND/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
@@ -2287,6 +2232,61 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/integration/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/190-Elastic%20Membrane%20Plate%20Section/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/192-Elastic%20Section/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/243-Fiber%20Section/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/407-NDFiber%20Section/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/515-Plate%20Fiber%20Section/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/57-Bidirectional%20Section/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/619-Section%20Aggregator/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/738-Uniaxial%20Section/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/GenericSection1D/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/section/GenericSectionND/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
