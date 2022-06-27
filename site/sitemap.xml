@@ -836,7 +836,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/ElasticForceBeamColumn2d/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/ElasticForceBeamColumn3d/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/ForceBeamColumnCBDI2d/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/beam/ForceBeamColumnWarping2d/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2181,72 +2196,57 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/BeamIntegration/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/BeamIntegration/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/Cell/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/Cell/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/DistHingeIntegration/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/DistHingeIntegration/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/ElasticForceBeamColumn2d/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/FiberSectionRepr/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/ElasticForceBeamColumn3d/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/Patch/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/FiberSectionRepr/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/ReinfBar/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/ForceBeamColumnWarping2d/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/ReinfLayer/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/Patch/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/SectionForceDeformation/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/ReinfBar/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/SectionRepres/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/ReinfLayer/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/UserDefinedBeamIntegration/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/SectionForceDeformation/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/SectionRepres/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/UserDefinedBeamIntegration/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/UserDefinedHingeIntegration/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/developer/UserDefinedHingeIntegration/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2267,6 +2267,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/geometry/480-PDelta%20Transformation/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/NonlinearBeamColumn/integration/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
