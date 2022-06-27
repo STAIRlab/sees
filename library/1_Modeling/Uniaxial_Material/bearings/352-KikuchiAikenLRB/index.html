@@ -14634,10 +14634,8 @@ reduction rate for stiffness (<code class="tcl-variable">rs</code>) and force (<
 <p>
 NOTES:
 </p>
-<p>
 <ol type="1">
 <li>Following rubber types for <code class="tcl-variable">type</code> are available:
-</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -14653,19 +14651,11 @@ lead-rubber bearing, up to 400% shear strain [Kikuchi et al., 2010 &amp; 2012]
 </td>
 </tr>
 </tbody>
-</table>
-<p>
-<ol start="2" type="1">
-<li>This material uses SI unit in calculation formula. Input arguments must be converted into <strong>[m]</strong>, <strong>[m^2]</strong>, <strong>[N/m^2]</strong>.
-</p>
-<p>
-<ol start="3" type="1">
-<li><code class="tcl-variable">rs</code> and <code class="tcl-variable">rf</code> are available if this material is applied to multipleShearSpring (MSS) element. Recommended values are <code class="tcl-variable">rs</code>=1/sum(i=0,n-1){ sin(pi<em>i/n)^2} and <code class="tcl-variable">rf</code>=1/sum(i=0,n-1){sin(pi</em>i/n)}, where n is the number of springs in the MSS. For example, when n=8, $rs=0.2500 and $rf=0.1989.
-</p>
-<hr /></li>
-</ol></li>
-</ol></li>
+</table></li>
+<li>This material uses SI unit in calculation formula. Input arguments must be converted into <strong>[m]</strong>, <strong>[m^2]</strong>, <strong>[N/m^2]</strong>.</li>
+<li><code class="tcl-variable">rs</code> and <code class="tcl-variable">rf</code> are available if this material is applied to multipleShearSpring (MSS) element. Recommended values are <code class="tcl-variable">rs</code>=1/sum(i=0,n-1){ sin(pi<em>i/n)^2} and <code class="tcl-variable">rf</code>=1/sum(i=0,n-1){sin(pi</em>i/n)}, where n is the number of springs in the MSS. For example, when n=8, $rs=0.2500 and $rf=0.1989.</li>
 </ol>
+<hr />
 <h2 id="examples">Examples</h2>
 <p>
 <a href="Media:KikuchiAikenLRB_sample.tcl"
