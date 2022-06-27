@@ -18,6 +18,9 @@ Setunge’s model is implemented in calculating each active curve
 of the confined concrete. IMPORTANT: the units to be used are MPa,
 mm.</p>
 
+:::{apidoc="opensees.uniaxial.ConfinedConcrete01"}
+:::
+
 ```tcl
 uniaxialMaterial ConfinedConcrete01 $tag $secType $fpc $Ec 
   ( < -epscu $epscu >  OR  < -gamma $gamma > ) 

@@ -2,6 +2,7 @@
 
 <p>This command is used to construct a Dodd-Restrepo steel material</p>
 
+::: {apidoc="opensees.uniaxial.DoddRestrepo"}
 ```tcl
 uniaxialMaterial Dodd_Restrepo $tag $Fy $Fsu $ESH $ESU
         $Youngs $ESHI $FSHI < $OmegaFac >
@@ -55,16 +56,23 @@ near a bilinear Bauschinger curve. Default = 1.0.</p></td>
 </tr>
 </tbody>
 </table>
+
+:::
+
 <p>Note: Stresses and strains are defined in engineering terms, as they
 are reported in a tensile test.</p>
 <hr />
 <p><strong>Examples:</strong></p>
 <hr />
-<p><strong>References</strong>:</p>
-<p>Code developed by: <span style="color:blue"> L.L. Dodd &amp;
-J.I. Restrepo </span></p>
+
+## References
 <p><a
-href="http://ascelibrary.org/sto/resource/1/jsendh/v121/i3/p433_s1?isAuthorized=no">Dodd,
+href="https://doi.org/10.1061/(ASCE)0733-9445(1995)121:3(433)">Dodd,
 L. L. and Restrepo-Posada, J. I. (1995). Model for Predicting Cyclic
 Behaviour of Reinforcing Steel. ASCE Journal of Structural Engineering,
 V.121, No 3, pp. 433-445.</a></p>
+
+---------------------------------------------------------------------
+
+<p>Code developed by: <span style="color:blue"> L.L. Dodd &amp;
+J.I. Restrepo </span></p>

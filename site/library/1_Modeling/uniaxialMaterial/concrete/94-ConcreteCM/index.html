@@ -8594,6 +8594,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_5_5">
@@ -8756,6 +8758,21 @@
     <li class="md-nav__item">
       <a href="../97-ConfinedConcrete01/" class="md-nav__link">
         ConfinedConcrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Concrete02IS/" class="md-nav__link">
+        Concrete02IS
 
       </a>
     </li>
@@ -15162,132 +15179,120 @@
 
 <h1 id="concretecm">ConcreteCM</h1>
 <p>This command is used to construct a <code>UniaxialMaterial</code> <code>ConcreteCM</code> (Kolozvari et al., 2015), which is a uniaxial hysteretic constitutive model for concrete developed by Chang and Mander (1994). This model is a refined, rule-based, generalized, and non-dimensional constitutive model that allows calibration of the monotonic and hysteretic material modeling parameters, and can simulate the hysteretic behavior of confined and unconfined, ordinary and high-strength concrete, in both cyclic compression and tension (Figure 1). The model addresses important behavioral features, such as continuous hysteretic behavior under cyclic compression and tension, progressive stiffness degradation associated with smooth unloading and reloading curves at increasing strain values, and gradual crack closure effects. Details of the model are available in the report by Chang and Mander (1994).</p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ConcreteCM<span class="w"> </span><span class="nv">$mattag</span><span class="w"> </span><span class="nv">$fpcc</span><span class="w"> </span><span class="nv">$epcc</span><span class="w"> </span><span class="nv">$Ec</span><span class="w"> </span><span class="nv">$rc</span>
-<span class="w">        </span><span class="nv">$xcrn</span><span class="w"> </span><span class="nv">$ft</span><span class="w"> </span><span class="nv">$et</span><span class="w"> </span><span class="nv">$rt</span><span class="w"> </span><span class="nv">$xcrp</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-GapClose</span><span class="w"> </span><span class="nv">$gap</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">ConcreteCM</span>(name, fpcc, epcc, Ec, rc, xcrn, ft, et, rt, xcrp, gap, **kwds) </span></p>
+<div>
 <table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
 <tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">mattag</code>
-</td>
-<td>
-<p>
-Unique <em>uniaxialMaterial</em> tag
-</p>
-</td>
+<tr>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">fpcc</code>
+fpcc
 </td>
 <td>
-<p>
-Compressive strength (f’<sub class="subscript">c</sub>)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Compressive strength (f’c)
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">epcc</code>
+epcc
 </td>
 <td>
-<p>
-Strain at compressive strength (<span class="math inline">\(\epsilon\)</span>’<sub
-class="subscript">c</sub>)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Strain at compressive strength (<math></math>’c)
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">Ec</code>
+Ec
 </td>
 <td>
-<p>
-Initial tangent modulus (E<sub
-class="subscript">c</sub>)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Initial tangent modulus (Ec)
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">rc</code>
+rc
 </td>
 <td>
-<p>
-Shape parameter in Tsai’s equation defined for compression (r<sub class="subscript">c</sub>)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Shape parameter in Tsai’s equation defined for compression (rc)
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">xcrn</code>
+xcrn
 </td>
 <td>
-<p>
-Non-dimensional critical strain on compression envelope (<span class="math inline">\(\epsilon\)</span><sup
-class="superscript">-</sup><sub
-class="subscript">cr</sub>, where the envelope curve starts following a straight line)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Non-dimensional critical strain on compression envelope (<math></math>-cr, where the envelope curve starts following a straight line)
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">ft</code>
+ft
 </td>
 <td>
-<p>
-Tensile strength (f<sub
-class="subscript">t</sub>)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Tensile strength (ft)
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">et</code>
+et
 </td>
 <td>
-<p>
-Strain at tensile strength ( <span class="math inline">\(\epsilon_\textrm{t}\)</span> )
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Strain at tensile strength (<math></math>t)
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">rt</code>
+rt
 </td>
 <td>
-<p>
-Shape parameter in Tsai’s equation defined for tension (r<sub
-class="subscript">t</sub>)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Shape parameter in Tsai’s equation defined for tension (rt)
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">xcrp</code>
+xcrp
 </td>
 <td>
-<p>
-Non-dimensional critical strain on tension envelope (<span class="math inline">\(\epsilon^+_{cr}\)</span>, where the envelope curve starts following a straight line - large value [e.g., 10000] recommended when tension stiffening is considered)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Non-dimensional critical strain on tension envelope (<math></math> cr, where the envelope curve starts following a straight line – large value [e.g., 10000] recommended when tension stiffening is considered)
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<p>
-<strong>&lt;-GapClose $gap&gt;</strong>
-</p>
+gap
 </td>
 <td>
-<p>
-<strong>gap</strong> = 0, less gradual gap closure (default); <strong>gap</strong> = 1, more gradual gap closure
-</p>
+<code>Int(int)</code>
 </td>
+<td>
+gap = 0, less gradual gap closure (default); gap = 1, more gradual gap closure
 </tr>
 </tbody>
 </table>
+</div>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ConcreteCM_0.png"
 title="Figure 1. Hysteretic Constitutive Model for Concrete by Chang and Mander (1994)"

@@ -52,7 +52,8 @@ principles and algorithms.
 <li><a href="Steel4">Steel4</a></li>   
 <li><a href="Hysteretic_Material">Hysteretic</a></li> 
 <li><a href="Reinforcing_Steel_Material">ReinforcingSteel</a></li> 
-<li><a href="DoddRestrepo">Dodd Restrepo</a></li> 
+<li><a href="DoddRestrepo">Dodd Restrepo</a> A new model which allows the "softness" of the Bauschinger curve, as determined by the area under the curve
+relative to the enclosing parallelogram, to be controlled.</li> 
 <li><a href="RambergOsgoodSteel">RambergOsgoodSteel</a></li>
 <li><a href="SteelMPF">SteelMPF</a>
    Menegotto and Pinto (1973) model Extended by Filippou et al. (1983)</li>
@@ -63,13 +64,13 @@ principles and algorithms.
 ### Concrete
 
 <ul>
-<li><a href="Concrete01">Concrete01</a>Hognestad's concrete curve with zero tensile strength</li>
+<li><a href="Concrete01">Concrete01</a> Hognestad's concrete curve with zero tensile strength</li>
 <li><a href="Concrete02">Concrete02</a> Concrete01 with linear tension softening</li>
 <li><a href="Concrete04">Concrete04</a> Popovics concrete curve</li>
-<li><a href="Concrete06">Concrete06</a></li>
+<li><a href="Concrete06">Concrete06</a> Thorenfeldt curve</li>
 <li><a href="Concrete07">Concrete07</a> Chang &amp; Mander’s 1994 Concrete Model</li>
 <li><a href="ConfinedConcrete01">ConfinedConcrete01</a></li>  
-<li><a href="ConcreteD">ConcreteD</a></li>
+<li><a href="ConcreteD">ConcreteD</a>   concrete material based on the Chinese design code</li>
 <li><a href="ConcreteCM">ConcreteCM</a> Complete Concrete Model by Chang and Mander (1994)</li>
 <li><a href="FRPConfinedConcrete">FRPConfinedConcrete</a></li>
 </ul>

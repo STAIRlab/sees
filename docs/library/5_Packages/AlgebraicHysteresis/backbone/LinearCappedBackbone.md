@@ -4,7 +4,12 @@ This file contains the implementation of
 LinearCappedBackbone, which is a linear cap given by a
 cap deformation and a slope imposed on a hysteretic backbone.
 
-Written: MHS
+::: {apidoc="opensees.backbone.LinearCapped"}
+:::
+
+
+Code developed by: <span style="color:blue">MHS</span>
+
 Created: Aug 2000
 
 

@@ -19,11 +19,11 @@ reloading curves at increasing strain values, and gradual crack closure
 effects. Details of the model are available in the report by Chang and
 Mander (1994).
 
+:::{apidoc="opensees.uniaxial.ConcreteCM"}
 ```tcl
 uniaxialMaterial ConcreteCM $mattag $fpcc $epcc $Ec $rc
         $xcrn $ft $et $rt $xcrp < -GapClose $gap >
 ```
-
 
 <table>
 <tbody>
@@ -88,6 +88,7 @@ tension stiffening is considered)</p></td>
 </tr>
 </tbody>
 </table>
+:::
 
 <figure>
 <img src="/OpenSeesRT/contrib/static/ConcreteCM_0.png"

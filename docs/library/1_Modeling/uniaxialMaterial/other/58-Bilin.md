@@ -200,32 +200,33 @@ institute.</p></td>
 <tr class="odd">
 <td><p><strong>[5]</strong></p></td>
 <td><p>Lignos, D.G., Krawinkler, H. (2009). “Sidesway collapse of
-deteriorating structural systems under seismic excitations,” Rep.No.TB
-172, The John A. Blume Earthquake Engineering Research Center, Stanford
-University, Stanford, CA.</p></td>
-</tr>
+  deteriorating structural systems under seismic excitations,” Rep.No.TB
+  172, The John A. Blume Earthquake Engineering Research Center, Stanford
+  University, Stanford, CA.</p></td>
+  </tr>
 <tr class="even">
 <td><p><strong>[6]</strong></p></td>
 <td><p>Lignos, D. G., Krawinkler, H. and Whittaker, A.S. (2011).
-"Prediction and validation of sidesway collapse of two scale models of a
-4-story steel moment frame", Earthquake Engineering and Structural
-Dynamics, EESD, Vol. 40 (7), 807-825.</p></td>
-</tr>
+  "Prediction and validation of sidesway collapse of two scale models of a
+  4-story steel moment frame", Earthquake Engineering and Structural
+  Dynamics, EESD, Vol. 40 (7), 807-825.</p></td>
+  </tr>
 <tr class="odd">
 <td><p><strong>[7]</strong></p></td>
 <td><p>Lignos, D.G., and Krawinkler, H. (2010b). “A steel database for
-component deterioration of tubular hollow square steel columns under
-varying axial load for collapse assessment of steel structures under
-earthquakes”, Proc. 7th International Conference on Urban Earthquake
-Engineering (7CUEE), March 3-5, Tokyo, Japan.</p></td>
-</tr>
+  component deterioration of tubular hollow square steel columns under
+  varying axial load for collapse assessment of steel structures under
+  earthquakes”, Proc. 7th International Conference on Urban Earthquake
+  Engineering (7CUEE), March 3-5, Tokyo, Japan.</p></td>
+  </tr>
 <tr class="even">
 <td><p><strong>[8]</strong></p></td>
 <td><p>Lignos, D.G., and Krawinkler, H. (2011). “Deterioration modeling
-of steel components in support of collapse prediction of steel moment
-frames under earthquake loading”, Journal of Structural Engineering,
-ASCE, Vol. 137 (11), 1291-1302. <embed src="BilinMaterialOpenSees.pdf"
-title="BilinMaterialOpenSees.pdf" /></p></td>
+  of steel components in support of collapse prediction of steel moment
+  frames under earthquake loading”, Journal of Structural Engineering,
+  ASCE, Vol. 137 (11), 1291-1302. 
+  [https://doi.org/10.1061/(ASCE)ST.1943-541X.0000376](https://doi.org/10.1061/(ASCE)ST.1943-541X.0000376)
+  </p></td>
 </tr>
 <tr class="odd">
 <td><p><strong>[9]</strong></p></td>
@@ -240,9 +241,11 @@ Engineering Research Center, Redwood City, CA..</p></td>
 </tr>
 </tbody>
 </table>
-<p>Code Developed by: <span style="color:blue">Dr. Dimitrios
+<p>Code developed by: <span style="color:blue">Dr. Dimitrios
 G. Lignos, McGill University and was implemented by Dr. Theodore
 Karavasilis, Oxford University </span></p>
+
 <p>nFactor Implemented by: <span style="color:blue"> by Dr. Andre
 R. Barbosa, Oregon State University and Mr. Filipe L.A. Ribeiro,
 Universidade Nova de Lisboa </span></p>
+

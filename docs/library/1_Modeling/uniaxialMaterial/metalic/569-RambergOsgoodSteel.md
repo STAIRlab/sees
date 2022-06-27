@@ -1,8 +1,9 @@
 # RambergOsgoodSteel
 
-<p>This command is used to construct a Ramberg-Osgood steel material
-object.</p>
+This command is used to construct a Ramberg-Osgood steel material
+object.
 
+::: {apidoc="opensees.uniaxial.RambergOsgoodSteel"}
 ```tcl
 uniaxialMaterial RambergOsgoodSteel $matTag $fy $E0 $a $n
 ```
@@ -36,6 +37,7 @@ Commonly used values for <code>n</code> are 5 or greater.
 </tr>
 </tbody>
 </table>
+:::
 
 <hr />
 <p><strong>Introduction to the Ramberg-Osgood’s Material

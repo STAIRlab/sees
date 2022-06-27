@@ -8600,6 +8600,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_5_5">
@@ -8754,6 +8756,21 @@
     <li class="md-nav__item">
       <a href="../../concrete/97-ConfinedConcrete01/" class="md-nav__link">
         ConfinedConcrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concrete/Concrete02IS/" class="md-nav__link">
+        Concrete02IS
 
       </a>
     </li>
@@ -15159,57 +15176,59 @@
 
 
 <h1 id="elastic">Elastic</h1>
-<p>
-This command is used to construct an elastic uniaxial material object.
-</p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Elastic<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$E</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$eta</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$Eneg</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
-<hr />
+<p>This command is used to construct an elastic uniaxial material object.</p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">ElasticUniaxialMaterial</span>(name,<br>   elastic_modulus,<br>   damp_tangent,<br>   negative_modulus,<br>   shear_modulus,<br>   **kwds) </span></p>
+<div>
 <table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
 <tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">matTag</code>
-</td>
-<td>
-<p>
-integer tag identifying material
-</p>
-</td>
+<tr>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">E</code>
+E
 </td>
 <td>
-<p>
-tangent
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Young’s modulus of elasticity
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">eta</code>
+eta
 </td>
 <td>
-<p>
-damping tangent (optional, default=0.0)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+damping tangent
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">Eneg</code>
+Eneg
 </td>
 <td>
-<p>
-tangent in compression (optional, default=E)
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+</tr>
+<tr>
+<td>
+G
+</td>
+<td>
+<code>Num(float)</code>
+</td>
+<td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>
 <img src="/OpenSeesRT/contrib/static/Elastic.gif" title="Elastic.gif" alt="Elastic.gif" /> <img
 src="/OpenSeesRT/contrib/static/ElasticPosNeg.png" title="ElasticPosNeg.png"
@@ -15217,7 +15236,7 @@ alt="ElasticPosNeg.png" />
 </p>
 <hr />
 <p>
-Code Developed by: <span style="color:blue"> fmk </span>
+Code Developed by: <span style="color:blue"> fmk</span>
 </p>
 
 

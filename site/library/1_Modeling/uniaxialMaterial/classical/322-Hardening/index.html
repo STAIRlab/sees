@@ -8600,6 +8600,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_5_5">
@@ -8754,6 +8756,21 @@
     <li class="md-nav__item">
       <a href="../../concrete/97-ConfinedConcrete01/" class="md-nav__link">
         ConfinedConcrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concrete/Concrete02IS/" class="md-nav__link">
+        Concrete02IS
 
       </a>
     </li>
@@ -15162,75 +15179,70 @@
 <p>
 This command is used to construct a uniaxial material object with combined linear kinematic and isotropic hardening. The model includes optional visco-plasticity using a Perzyna formulation.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Hardening<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$E</span><span class="w"> </span><span class="nv">$sigmaY</span><span class="w"> </span><span class="nv">$H_iso</span>
-<span class="w">        </span><span class="nv">$H_kin</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$eta</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-</pre></div>
-
-<hr />
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">HardeningMaterial</span>(name, elastic_modulus, fy, H_iso, H_kin, eta, **kwds) </span></p>
+<div>
 <table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
 <tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">matTag</code>
-</td>
-<td>
-<p>
-integer tag identifying material
-</p>
-</td>
+<tr>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">E</code>
+E
 </td>
 <td>
-<p>
-tangent stiffness
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+Young’s modulus of elasticity
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">sigmaY</code>
+fy
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 yield stress or force
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">H_iso</code>
+H_iso
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 isotropic hardening Modulus
-</p>
-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">H_kin</code>
+H_kin
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 kinematic hardening Modulus
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">eta</code>
+eta
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 visco-plastic coefficient (optional, default=0.0)
-</p>
-</td>
 </tr>
 </tbody>
 </table>
+</div>
 <figure>
 <img src="/OpenSeesRT/contrib/static/HardeningMaterial.gif" title="HardeningMaterial.gif"
 alt="HardeningMaterial.gif" />

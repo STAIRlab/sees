@@ -3,17 +3,14 @@
 <p>The EnvelopeNode recorder type records the min, max and absolute max
 of a number of nodal response quantaties. The command to create a node
 envelope recorder is:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><em>recorder EnvelopeNode &lt;-file $fileName&gt; &lt;-xml
-$fileName&gt; &lt;-precision $nSD&gt; &lt;-time&gt;
-&lt;-closeOnWrite&gt; &lt;-timeSeries $tsTag&gt; &lt;-node $node1 $node2
-...&gt; &lt;-nodeRange $startNode $endNode&gt; &lt;-region
-$regionTag&gt; -dof ($dof1 $dof2 ...) $respType</em>'</p></td>
-</tr>
-</tbody>
-</table>
+
+```tcl
+recorder EnvelopeNode < -file $fileName > < -xml $fileName > < -precision $nSD > 
+  < -time > < -closeOnWrite > < -timeSeries $tsTag > < -node $node1 $node2 ... > 
+  < -nodeRange $startNode $endNode > < -region $regionTag > -dof ($dof1 $dof2 ...) 
+  $respType
+```
+
 <hr />
 <table>
 <tbody>
@@ -46,12 +43,12 @@ to monitor the data during the analysis.</p></td>
 at each time step are added to load factor from series</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$node1 $node2 ..</strong></p></td>
+<td><p><code>node1 node2 ..</code></p></td>
 <td><p>tags of nodes whose response is being recorded (optional,
 default: omitted)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$startNode $endNode ..</strong></p></td>
+<td><p><code>startNode endNode ..</code></p></td>
 <td><p>tag for start and end nodes whose response is being recorded
 (optional, default: omitted)</p></td>
 </tr>
@@ -61,7 +58,7 @@ default: omitted)</p></td>
 region. (optional)</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dof1 dof2 ...</strong></p></td>
+<td><p><code>dof1 dof2 ...</code></p></td>
 <td><p>the specified dof at the nodes whose response is
 requested.</p></td>
 </tr>

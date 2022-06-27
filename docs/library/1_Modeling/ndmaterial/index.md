@@ -27,6 +27,32 @@ See Prof. Scott's post [here](https://portwooddigital.com/2020/07/11/theres-a-wr
 <li><a href="Elastic_Orthotropic_Material" >Elastic Orthotropic Material</a></li>
 </ul>
 
+
+PlaneStress2D
+    ElasticIsotropicPlaneStress2D
+
+PlaneStrain2D
+    ElasticIsotropicPlaneStrain2D
+
+AxiSymmetric2D
+    ElasticIsotropicAxiSymm
+  
+ThreeDimensional
+    ElasticIsotropicThreeDimensional
+
+PlateFiber
+    ElasticIsotropicPlateFiber
+
+
+BeamFiber
+    ElasticIsotropicBeamFiber
+
+
+BeamFiber2d
+    ElasticIsotropicBeamFiber2d
+
+
+
 ## Other
 <ul>
 <li><a href="J2_Plasticity_Material" >J2 Plasticity</a></li>

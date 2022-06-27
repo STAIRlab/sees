@@ -1,8 +1,9 @@
 # Elastic 
 
-<p>This command is used to construct an elastic uniaxial material
-object.</p>
+This command is used to construct an elastic uniaxial material
+object.
 
+:::{apidoc="opensees.uniaxial.Elastic"}
 ```tcl
 uniaxialMaterial Elastic $matTag $E < $eta > < $Eneg >
 ```
@@ -27,9 +28,12 @@ uniaxialMaterial Elastic $matTag $E < $eta > < $Eneg >
 </tr>
 </tbody>
 </table>
+:::
+
 <p><img src="/OpenSeesRT/contrib/static/Elastic.gif" title="Elastic.gif" alt="Elastic.gif" /> <img
 src="/OpenSeesRT/contrib/static/ElasticPosNeg.png" title="ElasticPosNeg.png"
 alt="ElasticPosNeg.png" /></p>
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> fmk
-</span></p>
+<p>Code Developed by: <span style="color:blue"> fmk</span></p>
+

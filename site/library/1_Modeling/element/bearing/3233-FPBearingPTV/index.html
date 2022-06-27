@@ -8600,6 +8600,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_5_5">
@@ -8754,6 +8756,21 @@
     <li class="md-nav__item">
       <a href="../../../uniaxialMaterial/concrete/97-ConfinedConcrete01/" class="md-nav__link">
         ConfinedConcrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxialMaterial/concrete/Concrete02IS/" class="md-nav__link">
+        Concrete02IS
 
       </a>
     </li>
@@ -15160,22 +15177,15 @@
 
 <h1 id="fpbearingptv">FPBearingPTV</h1>
 <p>
-The FPBearingPTV command creates a single Friction Pendulum bearing element, which is capable of accounting for the changes in the coefficient of friction at the sliding surface with instantaneous values of the sliding velocity, axial pressure and temperature at the sliding surface. The constitutive modelling is similar to the existing singleFPBearing element, otherwise. The FPBearingPTV element has been verified and validated in accordance with the ASME guidelines, details of which are presented in Chapter 4 of Kumar et al. (2015a).
-</p>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-’’’ element FPBearingPTV $eleTag $iNode $jNode $MuRef $IsPressureDependent $pRef $isTemperatureDependent $Diffusivity $Conductivity $IsVelocityDependent $rateParameter $ReffectiveFP $Radius_Contact $kInitial $theMaterialA $theMaterialB $theMaterialC $theMaterialD $x1 $x2 $x3 $y1 $y2 $y3 $shearDist $doRayleigh $mass $iter $tol $unit
-</p>
-<p>
-’’’
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+<p>The FPBearingPTV command creates a single Friction Pendulum bearing element, which is capable of accounting for the changes in the coefficient of friction at the sliding surface with instantaneous values of the sliding velocity, axial pressure and temperature at the sliding surface. The constitutive modelling is similar to the existing singleFPBearing element, otherwise. The FPBearingPTV element has been verified and validated in accordance with the ASME guidelines, details of which are presented in Chapter 4 of Kumar et al. (2015a).</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>FPBearingPTV<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$MuRef</span>
+<span class="w">        </span><span class="nv">$IsPressureDependent</span><span class="w"> </span><span class="nv">$pRef</span><span class="w"> </span><span class="nv">$isTemperatureDependent</span><span class="w"> </span><span class="nv">$Diffusivity</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$Conductivity</span><span class="w"> </span><span class="nv">$IsVelocityDependent</span><span class="w"> </span><span class="nv">$rateParameter</span><span class="w"> </span><span class="nv">$ReffectiveFP</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$Radius_Contact</span><span class="w"> </span><span class="nv">$kInitial</span><span class="w"> </span><span class="nv">$theMaterialA</span><span class="w"> </span><span class="nv">$theMaterialB</span><span class="w"> </span><span class="nv">$theMaterialC</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$theMaterialD</span><span class="w"> </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"> </span><span class="nv">$y3</span><span class="w"> </span><span class="nv">$shearDist</span><span class="w"> </span><span class="nv">$doRayleigh</span><span class="w"> </span><span class="nv">$mass</span><span class="w"> </span><span class="nv">$iter</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$tol</span><span class="w"> </span><span class="nv">$unit</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <table>
 <tbody>
@@ -15512,18 +15522,9 @@ Tag to identify the unit from the list below.
 <p>
 NOTE: Updating the coefficient of friction during analysis
 </p>
-<p>
-The coefficient of friction at the sliding surface of a sliding bearing changes continuously with instantaneous values of sliding velocity, temperature at the sliding surface and axial pressure. The following definition of the coefficient of friction is implemented in the element.
-</p>
-<p>
-Kv=1-0.5e^(-av) (1)
-</p>
-<p>
-kp = 0.70^((p-p0)/50) (2)
-</p>
-<p>
-kt = 0.79(0.70^(T/50)+0.40) (3)
-</p>
+<p>The coefficient of friction at the sliding surface of a sliding bearing changes continuously with instantaneous values of sliding velocity, temperature at the sliding surface and axial pressure. The following definition of the coefficient of friction is implemented in the element.</p>
+<p><span class="math display">\[Kv=1-0.5e^{-av} \quad(1)\]</span> <span class="math display">\[kp = 0.70^{(p-p_0)/50} \quad(2)\]</span></p>
+<span class="math display">\[kt = 0.79(0.70^{T/50} + 0.40) \qquad (3)\]</span>
 <p>
 where kv,kp and kt and are the factors to account for the effects of sliding velocity, axial pressure and temperature at the sliding surface, respectively, v,p and T are velocity of sliding, axial pressure and temperature at the sliding surface, respectively, controls the shape of the kv vs. v curve, and p0 is the reference axial pressure.
 </p>
@@ -15545,67 +15546,35 @@ OUTPUT
 <p>
 The global and local forces, displacements, velocities and accelerations can be output through node and element recorders. In addition, temperature, three friction factors ( in sequence), and adjusted coefficient of friction can be output using the element recorder with tags Temperature, FrictionFactors, MuAdjusted, respectively. Examples are given below.
 </p>
-<p>
-recorder Element -file Results/Temperature.out -time -ele 1 Temperature;
-</p>
-<p>
-recorder Element -file Results/Mu.out -time -ele 1 MuAdjusted;
-</p>
-<p>
-recorder Element -file Results/MuFactors.out -time -ele 1 MuFactors;
-</p>
+<div class="highlight"><pre><span></span><span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>Results<span class="o">/</span>Temperature.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span>Temperature<span class="k">;</span><span class="w"></span>
+<span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>Results<span class="o">/</span>Mu.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span>MuAdjusted<span class="k">;</span><span class="w"></span>
+<span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>Results<span class="o">/</span>MuFactors.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span>MuFactors<span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <hr />
 <p>
 EXAMPLE (All numbers are in SI units (kg, m, C, S)):
 </p>
-<p>
-set iNode 1;
-</p>
-<p>
-set jNode 2;
-</p>
-<p>
-set R 2.2352 ;
-</p>
-<p>
-set Mu_Ref 0.06 ;
-</p>
-<p>
-set p_Ref 50000000 ;
-</p>
-<p>
-set kp_Factor 1 ;
-</p>
-<p>
-set kT_Factor 1 ;
-</p>
-<p>
-set kv_Factor 1 ;
-</p>
-<p>
-set DF 4.44e-6;
-</p>
-<p>
-set TK 18.0;
-</p>
-<p>
-set a 100.0;
-</p>
-<p>
-set Radius 0.2;
-</p>
-<p>
-set pi [expr 22.0/7.0];
-</p>
-<p>
-set Mass_Slider [expr <span class="math inline">\(p_Ref*1.0*\)</span>pi*<span class="math inline">\(Radius*\)</span>Radius/9.81];
-</p>
-<p>
-set kInit [expr <span class="math inline">\(Mass_Slider*\)</span>accelGravity*<span class="math inline">\(Mu_Ref/\)</span>uy];
-</p>
-<p>
-element FPBearingPTV 1 $iNode $jNode $Mu_Ref $kp_Factor $p_Ref $kT_Factor <span class="math inline">\(DF&lt;/p&gt; &lt;p&gt;\)</span>TK $kv_Factor $a $R $Radius $kInit 1 2 3 4 0.0 0.0 1.0 1.0 0.0 0.0 0.0 0 0.0 100 1.0E-8 1 ;
-</p>
+<div class="highlight"><pre><span></span><span class="k">set</span><span class="w"> </span>iNode<span class="w"> </span><span class="mi">1</span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>jNode<span class="w"> </span><span class="mi">2</span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>R<span class="w"> </span><span class="mf">2.2352</span><span class="w"> </span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>Mu_Ref<span class="w"> </span><span class="mf">0.06</span><span class="w"> </span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>p_Ref<span class="w"> </span><span class="mi">50000000</span><span class="w"> </span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>kp_Factor<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>kT_Factor<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>kv_Factor<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>DF<span class="w"> </span><span class="mf">4.44</span>e-6<span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>TK<span class="w"> </span><span class="mf">18.0</span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>a<span class="w"> </span><span class="mf">100.0</span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>Radius<span class="w"> </span><span class="mf">0.2</span><span class="k">;</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>pi<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mf">22.0</span><span class="o">/</span><span class="mf">7.0</span><span class="k">];</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>Mass_Slider<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$p_Ref</span><span class="o">*</span><span class="mf">1.0</span><span class="o">*</span><span class="nv">$pi</span><span class="o">*</span><span class="nv">$Radius</span><span class="o">*</span><span class="nv">$Radius</span><span class="o">/</span><span class="mf">9.81</span><span class="k">];</span><span class="w"></span>
+<span class="k">set</span><span class="w"> </span>kInit<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$Mass_Slider</span><span class="o">*</span><span class="nv">$accelGravity</span><span class="o">*</span><span class="nv">$Mu_Ref</span><span class="o">/</span><span class="nv">$uy</span><span class="k">];</span><span class="w"></span>
+<span class="nv">element</span><span class="w"> </span>FPBearingPTV<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$Mu_Ref</span><span class="w"> </span><span class="nv">$kp_Factor</span><span class="w"> </span><span class="nv">$p_Ref</span><span class="w"> </span><span class="nv">$kT_Factor</span><span class="w"> </span><span class="nv">$DF</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="nv">$TK</span><span class="w"> </span><span class="nv">$kv_Factor</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="nv">$R</span><span class="w"> </span><span class="nv">$Radius</span><span class="w"> </span><span class="nv">$kInit</span><span class="w"> </span><span class="nv">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">1.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="err">\</span>
+<span class="w">    </span><span class="nv">0.0</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="mf">0.0</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="mf">1.0</span>E-8<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
 <p>
 FPWithUpdate.tcl files models a single concave sliding bearing with the mass concentrated on the slider. Download the example file and the ground motions.
 </p>

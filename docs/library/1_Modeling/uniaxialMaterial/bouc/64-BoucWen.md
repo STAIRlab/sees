@@ -5,6 +5,7 @@ hysteretic material object. This material model is an extension of the
 original Bouc-Wen model that includes stiffness and strength degradation
 (Baber and Noori (1985)).</p>
 
+:::{apidoc="opensees.uniaxial.BoucWen"}
 ```tcl
 uniaxialMaterial BoucWen $matTag $alpha $ko $n $gamma
         $beta $Ao $deltaA $deltaNu $deltaEta
@@ -48,6 +49,8 @@ can be simulated (look at the NOTES)</p></td>
 </tr>
 </tbody>
 </table>
+:::
+
 
 <p>NOTES:</p>
 <ol>

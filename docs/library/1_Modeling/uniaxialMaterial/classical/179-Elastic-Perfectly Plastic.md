@@ -3,6 +3,7 @@
 <p>This command is used to construct an elastic perfectly-plastic
 uniaxial material object.</p>
 
+:::{apidoc="opensees.uniaxial.ElasticPP"}
 ```tcl
 uniaxialMaterial ElasticPP $matTag $E $epsyP < $epsyN $eps0 >
 ```
@@ -38,6 +39,8 @@ compression.</p></td>
 </tr>
 </tbody>
 </table>
+:::
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElasticPP.gif" title="ElasticPP.gif" alt="ElasticPP.gif" />
 <figcaption aria-hidden="true">ElasticPP.gif</figcaption>

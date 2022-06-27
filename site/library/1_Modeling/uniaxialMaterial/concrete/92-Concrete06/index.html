@@ -8592,6 +8592,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_5_5">
@@ -8754,6 +8756,21 @@
     <li class="md-nav__item">
       <a href="../97-ConfinedConcrete01/" class="md-nav__link">
         ConfinedConcrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Concrete02IS/" class="md-nav__link">
+        Concrete02IS
 
       </a>
     </li>
@@ -15159,122 +15176,111 @@
 
 
 <h1 id="concrete06">Concrete06</h1>
-<p>
-This command is used to construct a uniaxial concrete material object with tensile strength, nonlinear tension stiffening and compressive behavior based on Thorenfeldt curve.
-</p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Concrete06<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fc</span><span class="w"> </span><span class="nv">$e0</span><span class="w"> </span><span class="nv">$n</span><span class="w"> </span><span class="nv">$k</span><span class="w"> </span><span class="nv">$alpha1</span>
-<span class="w">        </span><span class="nv">$fcr</span><span class="w"> </span><span class="nv">$ecr</span><span class="w"> </span><span class="nv">$b</span><span class="w"> </span><span class="nv">$alpha2</span><span class="w"></span>
-</pre></div>
-
-<hr />
+<p>This command is used to construct a uniaxial concrete material object with tensile strength, nonlinear tension stiffening and compressive behavior based on Thorenfeldt curve.</p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">Concrete06</span>(name, fc, e0, n, k, alpha1, fcr, ecr, b, alpha2, **kwds) </span></p>
+<div>
 <table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
 <tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">matTag</code>
-</td>
-<td>
-<p>
-integer tag identifying material
-</p>
-</td>
+<tr>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">fc</code>
+fc
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 concrete compressive strength (compression is negative)*
-</p>
-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">e0</code>
+e0
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 strain at compressive strength*
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">n</code>
+n
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 compressive shape factor
-</p>
-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">k</code>
+k
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 post-peak compressive shape factor
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">alpha1</code>
-</p>
+alpha1
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 <span class="math inline">\(\alpha_1\)</span> parameter for compressive plastic strain definition
-</p>
-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">fcr</code>
+fcr
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 tensile strength
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">ecr</code>
+ecr
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 tensile strain at peak stress (<code>fcr</code>)
-</p>
-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">b</code>
+b
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 exponent of the tension stiffening curve
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">alpha2</code>
-</p>
+alpha2
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 <span class="math inline">\(\alpha_2\)</span> parameter for tensile plastic strain definition
-</p>
-</td>
 </tr>
 </tbody>
 </table>
+</div>
 <figure>
 <img src="/OpenSeesRT/contrib/static/Concrete06C.png" title="Concrete06C.png"
 alt="Concrete06C.png" />

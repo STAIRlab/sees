@@ -1,9 +1,10 @@
 # Concrete06
 
-<p>This command is used to construct a uniaxial concrete material object
+This command is used to construct a uniaxial concrete material object
 with tensile strength, nonlinear tension stiffening and compressive
-behavior based on Thorenfeldt curve.</p>
+behavior based on Thorenfeldt curve.
 
+:::{apidoc="opensees.uniaxial.Concrete06"}
 ```tcl
 uniaxialMaterial Concrete06 $matTag $fc $e0 $n $k $alpha1
         $fcr $ecr $b $alpha2
@@ -56,6 +57,7 @@ strain definition</p></td>
 </tr>
 </tbody>
 </table>
+:::
 
 <figure>
 <img src="/OpenSeesRT/contrib/static/Concrete06C.png" title="Concrete06C.png"

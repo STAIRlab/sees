@@ -8600,6 +8600,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_5_1_5_5">
@@ -8754,6 +8756,21 @@
     <li class="md-nav__item">
       <a href="../../concrete/97-ConfinedConcrete01/" class="md-nav__link">
         ConfinedConcrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../concrete/Concrete02IS/" class="md-nav__link">
+        Concrete02IS
 
       </a>
     </li>
@@ -15162,97 +15179,80 @@
 <p>
 This command is used to construct an elastic bilinear uniaxial material object. Unlike all other bilinear materials, the unloading curve follows the loading curve exactly.
 </p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ElasticBilin<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$EP1</span><span class="w"> </span><span class="nv">$EP2</span><span class="w"> </span><span class="nv">$epsP2</span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$EN1</span><span class="w"> </span><span class="nv">$EN2</span><span class="w"> </span><span class="nv">$epsN2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-</pre></div>
-
-<hr />
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">ElasticBilin</span>(name, elastic_modulus, E2, eps2, EN1, EN2, epsN2, **kwds) </span></p>
+<div>
 <table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
 <tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">matTag</code>
-</td>
-<td>
-<p>
-integer tag identifying material
-</p>
-</td>
+<tr>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">EP1</code>
-</p>
+E
 </td>
 <td>
-<p>
-tangent in tension for stains: 0 &lt;= strains &lt;= <code>epsP2</code>
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+tangent in tension for stains: 0 &lt;= strains <span class="math inline">\(\le\)</span> <code>epsP2</code>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">EP2</code>
-</p>
+E2
 </td>
 <td>
-<p>
-tangent when material in tension with strains <code>epsP2</code>
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+tangent when material in tension with strains &gt; <code>epsP2</code>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">epsP2</code>
-</p>
+eps2
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 strain at which material changes tangent in tension.
-</p>
-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">EN1</code>
-</p>
+EN1
 </td>
 <td>
-<p>
-optional, default = <code>EP1</code>. tangent in compression for stains: 0 &lt; strains &lt;= <code>epsN2</code>
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+optional, default = <code>EP1</code>. tangent in compression for stains: 0 &lt; strains <span class="math inline">\(\le\)</span> <code>epsN2</code>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">EN2</code>
-</p>
+EN2
 </td>
 <td>
-<p>
-optional, default = <code>EP2</code>. tangent in compression with strains &lt; $epsN2
-</p>
+<code>Num(float)</code>
 </td>
+<td>
+optional, default = <code>EP2</code>. tangent in compression with strains &lt; <code>epsN2</code>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">epsN2</code>
-</p>
+epsN2
 </td>
 <td>
-<p>
+<code>Num(float)</code>
+</td>
+<td>
 optional, default = -epsP2. strain at which material changes tangent in compression.
-</p>
-</td>
 </tr>
 </tbody>
 </table>
+</div>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElasticPP.gif" title="ElasticPP.gif" alt="ElasticPP.gif" />
 <figcaption aria-hidden="true">

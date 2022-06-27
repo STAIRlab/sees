@@ -5,8 +5,7 @@ description: Hognestad curve with linear tension softening
 
 # Concrete02
 
-
-
+::: {apidoc="opensees.uniaxial.Concrete02"}
 ```tcl
 uniaxialMaterial Concrete02 $matTag $fpc $epsc0 $fpcu $epsU 
         $lambda $ft $Ets
@@ -52,6 +51,8 @@ tension softening branch)</p></td>
 </tr>
 </tbody>
 </table>
+:::
+
 <p>NOTE:</p>
 <ul>
 <li>Compressive concrete parameters should be input as negative

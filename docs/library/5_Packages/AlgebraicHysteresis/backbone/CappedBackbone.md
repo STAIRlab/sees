@@ -3,7 +3,7 @@
 This file contains the implementation of 
 CappedBackbone, which overlays two backbone curves.
 
-Written: MHS
+Code developed by: <span style="color:blue">MHS</span>
 Created: Aug 2000
 
 ```

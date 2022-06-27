@@ -1,11 +1,18 @@
 # ForceBeamColumnCBDI2d
 
+:::
+```tcl
+element ForceBeamColumnCBDI eleTag iNode jNode transfTag integrationTag
+        <-iter $maxIter> <-mass $mass>
+```
+:::
+
 
   // $Revision: 1.13 $
   // $Date: 2009-02-05 16:28:20 $
   // $Source: /usr/local/cvs/OpenSees/SRC/element/forceBeamColumn/ForceBeamColumnCBDI2d.h,v $
 
-
+## References
 #### State Determination Algorithm
 - Neuenhofer, A. and F. C. Filippou (1997). "Evaluation of Nonlinear Frame Finite
   Element Models." Journal of Structural Engineering, 123(7):958-966.

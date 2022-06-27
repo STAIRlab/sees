@@ -17,6 +17,6 @@ class ReeseSandBackbone : public HystereticBackbone
 };
 ```
 
-Written: MHS
+Code developed by: <span style="color:blue">MHS</span>
 Created: Aug 2000
 

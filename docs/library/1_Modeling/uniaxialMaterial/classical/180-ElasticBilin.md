@@ -4,6 +4,7 @@
 material object. Unlike all other bilinear materials, the unloading
 curve follows the loading curve exactly.</p>
 
+:::{apidoc="opensees.uniaxial.ElasticBilin"}
 ```tcl
 uniaxialMaterial ElasticBilin $matTag $EP1 $EP2 $epsP2
         < $EN1 $EN2 $epsN2 >
@@ -46,6 +47,7 @@ tangent in compression.</p></td>
 </tr>
 </tbody>
 </table>
+:::
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElasticPP.gif" title="ElasticPP.gif" alt="ElasticPP.gif" />
 <figcaption aria-hidden="true">ElasticPP.gif</figcaption>

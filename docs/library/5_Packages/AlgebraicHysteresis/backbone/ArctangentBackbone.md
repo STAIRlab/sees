@@ -2,10 +2,13 @@
 
 This file contains the implementation of 
 ArctangentBackbone, which is a continuous function given
-by `K1*atan(K2*strain)` as developed by Ranzo and Petrangeli (1998)
+by $K_1 \operatorname{atan}(K_2*\texttt{strain})$ as developed by Ranzo and Petrangeli (1998)
+
+:::{apidoc="opensees.backbone.Arctangent"}
+:::
 
 
-Written: MHS
+Code developed by: <span style="color:blue">MHS</span>
 Created: Aug 2000
 
 

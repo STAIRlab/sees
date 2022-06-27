@@ -5,7 +5,7 @@ MaterialBackbone, which treats a uniaxial material as
 a hysteretic backbone by removing path dependency, i.e.
 commitState is never called on the uniaxial material.
 
-Written: MHS
+Code developed by: <span style="color:blue">MHS</span>
 Created: Aug 2000
 
 ## C++ Interface

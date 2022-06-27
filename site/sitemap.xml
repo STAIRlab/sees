@@ -1536,6 +1536,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/concrete/Concrete02IS/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/uniaxialMaterial/metalic/158-DoddRestrepo/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>

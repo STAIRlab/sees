@@ -1,22 +1,11 @@
 # ReinforcingSteel
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>Contact Authors:</strong></p></td>
-<td><p>Jon Mohle M.S., P.E.</p></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>Sashi Kunnath: <a
-href="http://cee.engr.ucdvis.edu/faculty/kunnath/kunnath.htm">http://cee.engr.ucdvis.edu/faculty/kunnath/kunnath.htm</a></p></td>
-</tr>
-</tbody>
-</table>
-
-<p>This command is used to construct a ReinforcingSteel uniaxial
+This command is used to construct a `ReinforcingSteel` uniaxial
 material object. This object is intended to be used in a reinforced
-concrete fiber section as the steel reinforcing material.</p>
+concrete fiber section as the steel reinforcing material.
+
+::: {apidoc="opensees.uniaxial.ReinforcingSteel"}
+:::
 
 ```tcl
 uniaxialMaterial ReinforcingSteel $matTag $fy $fu $Es $Esh $esh $eult 
@@ -154,6 +143,7 @@ Default: alpha=1.0, this parameter is optional.
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-CMFatigue</code></p></td>
 <td><p>Coffin-Manson Fatigue and Strength Reduction</p>
+
 <!--
 </td>
 </tr>
@@ -161,6 +151,7 @@ Default: alpha=1.0, this parameter is optional.
 </table>
 <p>&lt;blockquote&gt;</p>
 -->
+
 <table>
 <tbody>
 <tr class="odd">
@@ -256,7 +247,8 @@ Limit =1.0, then no reduction takes place (default =0.01)
 </tbody>
 </table>
 
-<!-- <p>&lt;/blockquote&gt;</p> -->
+:::
+
 
 <p><strong>NOTE:</strong> This simulation is based on the Chang and
 Mander(1994) uniaxial steel model. The simulation has incorporated
@@ -490,17 +482,32 @@ interdependent making the model easier to calibrate.
 ## References
 <ul>
 <li>Chang, G. and Mander, J. (1994). "Seismic Energy Based Fatigue
-Damage Analysis of Bridge Columns: Part I - Evaluation of Seismic
-Capacity." NCEER Technical Report 94-0006.</li>
+  Damage Analysis of Bridge Columns: Part I - Evaluation of Seismic
+  Capacity." NCEER Technical Report 94-0006.</li>
 <li>Dodd, L. and Restrepo-Posada, J. (1995). "Model for Predicting
-Cyclic Behavior of Reinforcing Steel" J. Struct. Eng., 121(3),
-433-445.</li>
+  Cyclic Behavior of Reinforcing Steel" J. Struct. Eng., 121(3),
+  433-445.</li>
 <li>Gomes, A., and Appleton, J. (1997). "Nonlinear Cyclic Stress-Strain
-Relationship of Reinforcing Bars Including Buckling." Eng. Struct.,
-19(10), 822-826.</li>
+  Relationship of Reinforcing Bars Including Buckling." Eng. Struct.,
+  19(10), 822-826.</li>
 <li>Brown, J. and Kunnath, S.K. (2000). "Low Cycle Fatigue Behavior of
-Longitudinal Reinforcement in Reinforced Concrete Bridge Columns." NCEER
-Technical Report 00-0007.</li>
+  Longitudinal Reinforcement in Reinforced Concrete Bridge Columns." NCEER
+  Technical Report 00-0007.</li>
 <li>Dhakal, R. and Maekawa, K. (2002). "Modeling for Postyield Buckled
-of Reinforcement" J. Struct. Eng., 128(9), 1139-1147.</li>
+  of Reinforcement" J. Struct. Eng., 128(9), 1139-1147.</li>
 </ul>
+
+<table>
+<tbody>
+<tr class="odd">
+<td><p><strong>Code developed by:</strong></p></td>
+<td><p>Jon Mohle M.S., P.E.</p></td>
+</tr>
+<tr class="even">
+<td></td>
+<td><p>Sashi Kunnath: <a
+href="http://cee.engr.ucdvis.edu/faculty/kunnath/kunnath.htm">http://cee.engr.ucdvis.edu/faculty/kunnath/kunnath.htm</a></p></td>
+</tr>
+</tbody>
+</table>
+

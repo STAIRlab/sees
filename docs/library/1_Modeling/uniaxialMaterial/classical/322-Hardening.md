@@ -4,6 +4,7 @@
 combined linear kinematic and isotropic hardening. The model includes
 optional visco-plasticity using a Perzyna formulation.</p>
 
+:::{apidoc="opensees.uniaxial.Hardening"}
 ```tcl
 uniaxialMaterial Hardening $matTag $E $sigmaY $H_iso
         $H_kin < $eta >
@@ -37,6 +38,8 @@ uniaxialMaterial Hardening $matTag $E $sigmaY $H_iso
 </tr>
 </tbody>
 </table>
+:::
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/HardeningMaterial.gif" title="HardeningMaterial.gif"
 alt="HardeningMaterial.gif" />

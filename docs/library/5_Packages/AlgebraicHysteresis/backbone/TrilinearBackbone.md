@@ -3,7 +3,7 @@
 This file contains the implementation of 
 TrilinearBackbone, which is a trilinear backbone
 
-Written: MHS
+Code developed by: <span style="color:blue">MHS</span>
 Created: Aug 2000
 
 ```cpp

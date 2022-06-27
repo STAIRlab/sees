@@ -146,6 +146,7 @@ $$
 &x_{n}=30 \text { (value is recommended in order to follow the descending branch to large strains) } \\
 &n=\frac{E_{c} * \varepsilon_{c c}}{f_{c c}^{\prime}} \\
 &r=\frac{n}{n-1}
+\end{aligned}
 $$
 
 <figure>
