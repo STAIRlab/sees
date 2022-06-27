@@ -1,5 +1,6 @@
 
-verbosity: INFO
+# verbosity: INFO
+
 #from: markdown+raw_html-markdown_in_html_blocks+raw_attribute+inline_code_attributes+link_attributes
 #from: markdown+implicit_figures+raw_html-markdown_in_html_blocks+raw_attribute+inline_code_attributes+shortcut_reference_links+link_attributes
 from: markdown+implicit_figures+raw_html+markdown_in_html_blocks+raw_attribute+inline_code_attributes+shortcut_reference_links+link_attributes
@@ -20,6 +21,7 @@ metadata:
 
 
 filters:
+  - tools/apidoc.lua
   - pygmentize
   - include.lua
 #- pandoc-crossref
