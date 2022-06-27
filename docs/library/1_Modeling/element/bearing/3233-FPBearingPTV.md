@@ -7,20 +7,17 @@ of the sliding velocity, axial pressure and temperature at the sliding
 surface. The constitutive modelling is similar to the existing
 singleFPBearing element, otherwise. The FPBearingPTV element has been
 verified and validated in accordance with the ASME guidelines, details
-of which are presented in Chapter 4 of Kumar et al. (2015a).</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p>''' element FPBearingPTV $eleTag $iNode $jNode $MuRef
-$IsPressureDependent $pRef $isTemperatureDependent $Diffusivity
-$Conductivity $IsVelocityDependent $rateParameter $ReffectiveFP
-$Radius_Contact $kInitial $theMaterialA $theMaterialB $theMaterialC
-$theMaterialD $x1 $x2 $x3 $y1 $y2 $y3 $shearDist $doRayleigh $mass $iter
-$tol $unit</p>
-<p>'''</p></td>
-</tr>
-</tbody>
-</table>
+of which are presented in Chapter 4 of Kumar et al. (2015a).
+
+```tcl
+element FPBearingPTV $eleTag $iNode $jNode $MuRef
+        $IsPressureDependent $pRef $isTemperatureDependent $Diffusivity
+        $Conductivity $IsVelocityDependent $rateParameter $ReffectiveFP
+        $Radius_Contact $kInitial $theMaterialA $theMaterialB $theMaterialC
+        $theMaterialD $x1 $x2 $x3 $y1 $y2 $y3 $shearDist $doRayleigh $mass $iter
+        $tol $unit
+```
+
 <hr />
 <table>
 <tbody>
@@ -170,15 +167,19 @@ element</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>NOTE: Updating the coefficient of friction during analysis</p>
-<p>The coefficient of friction at the sliding surface of a sliding
+
+The coefficient of friction at the sliding surface of a sliding
 bearing changes continuously with instantaneous values of sliding
 velocity, temperature at the sliding surface and axial pressure. The
 following definition of the coefficient of friction is implemented in
-the element.</p>
-<p>Kv=1-0.5e^(-av) (1)</p>
-<p>kp = 0.70^((p-p0)/50) (2)</p>
-<p>kt = 0.79(0.70^(T/50)+0.40) (3)</p>
+the element.
+
+$$Kv=1-0.5e^{-av} \quad(1)$$
+$$kp = 0.70^{(p-p_0)/50} \quad(2)$$
+
+$$kt = 0.79(0.70^{T/50} + 0.40) \qquad (3)$$
 <p>where kv,kp and kt and are the factors to account for the effects of
 sliding velocity, axial pressure and temperature at the sliding surface,
 respectively, v,p and T are velocity of sliding, axial pressure and
@@ -194,6 +195,7 @@ axial pressure</p>
 <p>where all parameters were defined previously. More details on this
 definition of the coefficient of friction are presented in Kumar et al.
 (2015a, 2015b).</p>
+
 <p>OUTPUT</p>
 <p>The global and local forces, displacements, velocities and
 accelerations can be output through node and element recorders. In
@@ -201,32 +203,37 @@ addition, temperature, three friction factors ( in sequence), and
 adjusted coefficient of friction can be output using the element
 recorder with tags Temperature, FrictionFactors, MuAdjusted,
 respectively. Examples are given below.</p>
-<p>recorder Element -file Results/Temperature.out -time -ele 1
-Temperature;</p>
-<p>recorder Element -file Results/Mu.out -time -ele 1 MuAdjusted;</p>
-<p>recorder Element -file Results/MuFactors.out -time -ele 1
-MuFactors;</p>
+
+```tcl
+recorder Element -file Results/Temperature.out -time -ele 1 Temperature;
+recorder Element -file Results/Mu.out -time -ele 1 MuAdjusted;
+recorder Element -file Results/MuFactors.out -time -ele 1 MuFactors;
+```
+
 <hr />
 <p>EXAMPLE (All numbers are in SI units (kg, m, C, S)):</p>
-<p>set iNode 1;</p>
-<p>set jNode 2;</p>
-<p>set R 2.2352 ;</p>
-<p>set Mu_Ref 0.06 ;</p>
-<p>set p_Ref 50000000 ;</p>
-<p>set kp_Factor 1 ;</p>
-<p>set kT_Factor 1 ;</p>
-<p>set kv_Factor 1 ;</p>
-<p>set DF 4.44e-6;</p>
-<p>set TK 18.0;</p>
-<p>set a 100.0;</p>
-<p>set Radius 0.2;</p>
-<p>set pi [expr 22.0/7.0];</p>
-<p>set Mass_Slider [expr $p_Ref*1.0*$pi*$Radius*$Radius/9.81];</p>
-<p>set kInit [expr $Mass_Slider*$accelGravity*$Mu_Ref/$uy];</p>
-<p>element FPBearingPTV 1 $iNode $jNode $Mu_Ref $kp_Factor $p_Ref
-$kT_Factor $DF</p>
-<p>$TK $kv_Factor $a $R $Radius $kInit 1 2 3 4 0.0 0.0 1.0 1.0 0.0 0.0
-0.0 0 0.0 100 1.0E-8 1 ;</p>
+
+```tcl
+set iNode 1;
+set jNode 2;
+set R 2.2352 ;
+set Mu_Ref 0.06 ;
+set p_Ref 50000000 ;
+set kp_Factor 1 ;
+set kT_Factor 1 ;
+set kv_Factor 1 ;
+set DF 4.44e-6;
+set TK 18.0;
+set a 100.0;
+set Radius 0.2;
+set pi [expr 22.0/7.0];
+set Mass_Slider [expr $p_Ref*1.0*$pi*$Radius*$Radius/9.81];
+set kInit [expr $Mass_Slider*$accelGravity*$Mu_Ref/$uy];
+element FPBearingPTV 1 $iNode $jNode $Mu_Ref $kp_Factor $p_Ref $kT_Factor $DF \
+    $TK $kv_Factor $a $R $Radius $kInit 1 2 3 4 0.0 0.0 1.0 1.0 0.0 0.0 \
+    0.0 0 0.0 100 1.0E-8 1 ;
+```
+
 <p>FPWithUpdate.tcl files models a single concave sliding bearing with
 the mass concentrated on the slider. Download the example file and the
 ground motions.</p>

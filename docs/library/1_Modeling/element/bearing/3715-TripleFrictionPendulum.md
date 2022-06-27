@@ -163,14 +163,21 @@ is uplifted.
 ## Examples
 
 ```tcl
-frictionModel VelNormalFrcDep 1 [expr 0.012/pow($W,0.8-1.0)] 0.8 [expr 0.018/pow($W,0.7-1.0)] 0.7 25.0 0.0 0.0 3.0
-frictionModel VelNormalFrcDep 2 [expr 0.052/pow($W,0.8-1.0)] 0.8 [expr 0.075/pow($W,0.7-1.0)] 0.7 25.0 0.0 0.0 3.0
-frictionModel VelNormalFrcDep 3 [expr 0.12/pow($W,0.8-1.0)] 0.8 [expr 0.16/pow($W,0.7-1.0)] 0.7 25.0 0.0 0.0 3.0
+frictionModel VelNormalFrcDep 1 [expr 0.012/pow($W,0.8-1.0)] 0.8 \
+        [expr 0.018/pow($W,0.7-1.0)] 0.7 25.0 0.0 0.0 3.0
+
+frictionModel VelNormalFrcDep 2 [expr 0.052/pow($W,0.8-1.0)] 0.8 \
+        [expr 0.075/pow($W,0.7-1.0)] 0.7 25.0 0.0 0.0 3.0
+
+frictionModel VelNormalFrcDep 3 [expr 0.12/pow($W,0.8-1.0)] 0.8 \
+        [expr 0.16/pow($W,0.7-1.0)] 0.7 25.0 0.0 0.0 3.0
+
 uniaxialMaterial Elastic 1 1.e6
 uniaxialMaterial Elastic 2 100.;
 uniaxialMaterial Elastic 3 100.;
 uniaxialMaterial Elastic 4 10.;
-element TripleFrictionPendulum 1 1 2 1 2 3 1 4 2 3 0.36 1.25 1.25 0.1 0.2 0.2 1000.0 0.0005 1.0 0.1 1.E-5;
+element TripleFrictionPendulum 1 1 2 1 2 3 1 4 2 3 0.36 1.25 1.25 \
+       0.1 0.2 0.2 1000.0 0.0005 1.0 0.1 1.E-5;
 ```
 
 <hr />

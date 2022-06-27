@@ -23,9 +23,9 @@ and the user-defined orientation is utilized.</p>
 
 ```tcl
 element flatSliderBearing $eleTag $iNode $jNode
-        $frnMdlTag $kInit -P $matTag -Mz $matTag &lt;-orient $x1 $x2 $x3 $y1 $y2
-        $y3&gt; &lt;-shearDist $sDratio&gt; &lt;-doRayleigh&gt; &lt;-mass $m&gt;
-        &lt;-iter $maxIter $tol&gt;
+        $frnMdlTag $kInit -P $matTag -Mz $matTag < -orient $x1 $x2 $x3 $y1 $y2
+        $y3 > < -shearDist $sDratio > < -doRayleigh > < -mass $m >
+        < -iter $maxIter $tol >
 ```
 
 <p>For a three-dimensional problem:</p>
@@ -33,9 +33,9 @@ element flatSliderBearing $eleTag $iNode $jNode
 ```tcl
 element flatSliderBearing $eleTag $iNode $jNode
         $frnMdlTag $kInit -P $matTag -T $matTag -My $matTag -Mz $matTag
-        &lt;-orient &lt;$x1 $x2 $x3&gt; $y1 $y2 $y3&gt; &lt;-shearDist
-        $sDratio&gt; &lt;-doRayleigh&gt; &lt;-mass $m&gt; &lt;-iter $maxIter
-        $tol&gt;
+        < -orient < $x1 $x2 $x3 > $y1 $y2 $y3 > < -shearDist
+        $sDratio > < -doRayleigh > < -mass $m > < -iter $maxIter
+        $tol >
 ```
 
 <hr />
@@ -119,33 +119,39 @@ default = 1E-8)</p></td>
 width="600" alt="FlatSliderBearingFig01.png" />
 <figcaption aria-hidden="true">FlatSliderBearingFig01.png</figcaption>
 </figure>
+
 <hr />
+
 <p>NOTE:</p>
-<p>1) If the element has zero length and optional orientation vectors
-are not specified, the local element axes coincide with the global axes.
-Otherwise the local z-axis is defined by the cross product between the
-x- and y-vectors specified on the command line.</p>
-<p>2) Because the friction force is affected by both the axial force and
-the slip rate, the element can be sensitive numerically. It is
-recommended that for dynamic analysis a smaller time step is being used
-than what would be used for a comparable structure with no
-isolators.</p>
-<p>3) If there is uplift (and therefore impact) in the bearing element,
-it can be helpful to use an integration method that provides numerical
-damping. Providing some viscous damping for the material that is
-assigned to the axial direction can also be helpful in dissipating
-impact energy.</p>
-<p>4) The valid queries to a flat slider bearing element when creating
-an ElementRecorder object are 'force,' 'localForce,' 'basicForce,'
-'localDisplacement,' 'basicDisplacement' and 'material $matNum matArg1
-matArg2 ...' Where $matNum is the number associated with the material
-whose data is to be output.</p>
+1) If the element has zero length and optional orientation vectors
+  are not specified, the local element axes coincide with the global axes.
+  Otherwise the local z-axis is defined by the cross product between the
+  x- and y-vectors specified on the command line.
+2) Because the friction force is affected by both the axial force and
+  the slip rate, the element can be sensitive numerically. It is
+  recommended that for dynamic analysis a smaller time step is being used
+  than what would be used for a comparable structure with no
+  isolators.
+3) If there is uplift (and therefore impact) in the bearing element,
+  it can be helpful to use an integration method that provides numerical
+  damping. Providing some viscous damping for the material that is
+  assigned to the axial direction can also be helpful in dissipating
+  impact energy.
+4) The valid queries to a flat slider bearing element when creating
+  an ElementRecorder object are `force`, `localForce`, `basicForce`,
+  `localDisplacement`, `basicDisplacement` and `material $matNum matArg1 matArg2 ...` 
+  Where `matNum` is the number associated with the material
+  whose data is to be output.
+
 <hr />
 
 ## Examples
 
-<p>For a 2D flat slider bearing: element flatSliderBearing 1 1 2 1 250.0
--P 1 -Mz 2 -orient 0 1 0 -1 0 0;</p>
+<p>For a 2D flat slider bearing: 
+```tcl
+element flatSliderBearing 1 1 2 1 250.0 -P 1 -Mz 2 -orient 0 1 0 -1 0 0;
+```
+
 <ul>
 <li><a href="TestSlider2d_0.tcl" title="wikilink">TestSlider2d_0.tcl</a>
 models a rigid isolated mass and the bearing element has zero length. It
@@ -163,8 +169,12 @@ has finite length.</li>
 models an isolated five story one bay building and the bearing element
 has finite length.</li>
 </ul>
-<p>For a 3D flat slider bearing: element flatSliderBearing 1 1 2 1 250.0
--P 1 -T 2 -My 3 -Mz 4 -orient 0 0 1 -1 0 0;</p>
+
+<p>For a 3D flat slider bearing: 
+```tcl
+element flatSliderBearing 1 1 2 1 250.0 -P 1 -T 2 -My 3 -Mz 4 -orient 0 0 1 -1 0 0;
+```
+
 <ul>
 <li><a href="TestSlider3d_0.tcl" title="wikilink">TestSlider3d_0.tcl</a>
 models a rigid isolated mass and the bearing element has zero length. It
@@ -186,6 +196,8 @@ has finite length.</li>
 title="wikilink">GroundMotions.zip</a> as a compressed file or download
 <a href="Media:AllSliderExamples.zip"
 title="wikilink">AllSliderExamples.zip</a> as a compressed file.</p>
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> Andreas
+<p>Code developed by: <span style="color:blue"> Andreas
 Schellenberg, University of California, Berkeley. </span></p>
+
