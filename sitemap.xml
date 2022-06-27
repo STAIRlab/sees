@@ -1226,11 +1226,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/113-CycLiqCP%20Material%20%28Cyclic%20ElasticPlasticity%29/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/120-Damage2p/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
@@ -1241,22 +1236,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/235-FSAM%20-%202D%20RC%20Panel%20Constitutive%20Behavior/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/378-Manzari%20Dafalias%20Material/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/405-MultiYieldSurfaceClay/</loc>
-         <lastmod>2022-06-27</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/65-Bounding%20Cam%20Clay/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/concrete/235-FSAM%20-%202D%20RC%20Panel%20Constitutive%20Behavior/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1301,7 +1281,22 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/113-CycLiqCP%20Material%20%28Cyclic%20ElasticPlasticity%29/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/117-Cyclic%20ElastocPlasticity/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/378-Manzari%20Dafalias%20Material/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/405-MultiYieldSurfaceClay/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -1312,6 +1307,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/488-PM4Silt%20Material%20%28Beta%29/</loc>
+         <lastmod>2022-06-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ndmaterial/soil/65-Bounding%20Cam%20Clay/</loc>
          <lastmod>2022-06-27</lastmod>
          <changefreq>daily</changefreq>
     </url>
