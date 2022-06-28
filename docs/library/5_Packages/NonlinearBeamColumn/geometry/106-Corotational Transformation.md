@@ -47,26 +47,6 @@ the global coordinate system for element-end node j (optional)</p></td>
 </tr>
 </tbody>
 </table>
-<p>The element coordinate system is specified as follows:</p>
-The x-axis is the axis connecting the two element nodes; the y- and
-z-axes are then defined using a vector that lies on a plane parallel to
-the local x-z plane -- vecxz. The local y-axis is defined by taking the
-cross product of the vecxz vector and the x-axis. The z-axis by taking
-cross product of x and new y. The section is attached to the element
-such that the y-z coordinate system used to specify the section
-corresponds to the y-z axes of the element.
-
-<figure>
-<img src="/OpenSeesRT/contrib/static/ElementOrentation.gif" title="ElementOrentation.gif"
-alt="ElementOrentation.gif" />
-<figcaption aria-hidden="true">ElementOrentation.gif</figcaption>
-</figure>
-<figure>
-<img src="/OpenSeesRT/contrib/static/RigidElementOffsets.gif" title="RigidElementOffsets.gif"
-alt="RigidElementOffsets.gif" />
-<figcaption aria-hidden="true">RigidElementOffsets.gif</figcaption>
-</figure>
-<hr />
 
 ## Examples
 
@@ -85,15 +65,17 @@ alt="ElementOrientation.png" />
 alt="ElementVectors.png" />
 <figcaption aria-hidden="true">ElementVectors.png</figcaption>
 </figure>
-<ol>
-<li>Element 1 : tag 1 : vecxZ = zaxis</li>
-</ol>
-<p>geomTransf Corotational 1 0 0 -1</p>
-<ol>
-<li>Element 2 : tag 2 : vecxZ = y axis</li>
-</ol>
-<p>geomTransf Corotational 2 0 1 0</p>
-<p>Code Developed by: <span style="color:blue"> Remo Magalhaes de
+
+```tcl
+# Element 1 : tag 1 : vecxZ = zaxis
+
+geomTransf Corotational 1 0 0 -1
+
+# Element 2 : tag 2 : vecxZ = y axis
+
+geomTransf Corotational 2 0 1 0
+```
+Code Developed by: <span style="color:blue"> Remo Magalhaes de
 Souza </span></p>
 <p>Images Developed by: <span style="color:blue"> Silvia Mazzoni
 </span></p>

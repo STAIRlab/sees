@@ -1,4 +1,8 @@
-# NDMaterial Library
+---
+title: "$N$-Dimensional Materials"
+...
+
+# $N$-Dimensional Materials
 
 This command is used to construct an `NDMaterial`
 object which represents the stress-strain relationship at the

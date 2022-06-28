@@ -105,7 +105,6 @@ geomTransf PDelta 1 0 0 -1</p>
 geomTransf PDelta 2 0 1 0
 ```
 
-<p>Code Developed by: <span style="color:blue"> Remo Magalhaes de
-Souza </span></p>
+<p>Code developed by: <span style="color:blue"> Remo Magalhaes de Souza </span></p>
 <p>Images Developed by: <span style="color:blue"> Silvia Mazzoni
 </span></p>

@@ -1,15 +1,15 @@
 # Damage2p
 
-<p>This command is used to construct a three-dimensional material object
+This command is used to construct a three-dimensional material object
 that has a Drucker-Prager plasticity model coupled with a two-parameter
-damage model.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>nDMaterial Damage2p $matTag $fcc &lt;-fct $fct&gt; &lt;-E
-$E&gt; &lt;-ni $ni&gt; &lt;-Gt $Gt&gt; &lt;-Gc $Gc&gt; &lt;-rho_bar
-$rho_bar&gt; &lt;-H $H&gt; &lt;-theta $theta&gt; &lt;-tangent
-$tangent&gt;</strong></p></td>
+damage model.
+
+```tcl
+nDMaterial Damage2p $matTag $fcc < -fct $fct > < -E
+        $E > < -ni $ni > < -Gt $Gt > < -Gc $Gc > < -rho_bar $rho_bar > 
+        < -H $H > < -theta $theta > < -tangent $tangent >
+```
+
 </tr>
 </tbody>
 </table>
@@ -76,7 +76,7 @@ automatically)</p></td>
 <tr class="even">
 <td><code class="parameter-table-variable">fct</code></td>
 <td><p>positive real value (for concrete like materials is less than
-$fcc)</p></td>
+`fcc`)</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">Gt</code></td>
@@ -94,11 +94,11 @@ the peak in compression)</p></td>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">H</code></td>
-<td><p>positive real value (usually less than $E)</p></td>
+<td><p>positive real value (usually less than `E`)</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">theta</code></td>
-<td><p>positive real value 0=$theta=1 (with: 0 hardening kinematic only
+<td><p>positive real value 0=`theta`=1 (with: 0 hardening kinematic only
 and 1 hardening isotropic only</p></td>
 </tr>
 <tr class="even">
@@ -119,18 +119,18 @@ parameters:</p>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">E</code></td>
-<td><p>= 4750*sqrt(abs(fcc)) if abs(fcc)&lt;2000 because fcc is assumed
+<td><p>`= 4750\*sqrt(abs(fcc))`{.c} if `abs(fcc)`&lt;`2000` because `fcc` is assumed
 in MPa (see ACI 318)</p>
-<p>= 57000*sqrt(abs(fcc)) if abs(fcc)&gt;2000 because fcc is assumed in
+<p>`= 57000\*sqrt(abs(fcc))` if `abs(fcc)` &gt; `2000` because `fcc` is assumed in
 psi (see ACI 318)</p></td>
 </tr>
 <tr class="odd">
-<td><p><code class="tcl-variable">ni</code>'</p></td>
+<td><p><code class="tcl-variable">ni</code></p></td>
 <td><p>= 0.15 (from comparison with tests by Kupfer Hilsdorf Rusch
 1969)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>'$Gt</strong></p></td>
+<td><p><code>Gt</code></p></td>
 <td><p>= 1840*fct*fct/E (from comparison with tests by Gopalaratnam and
 Shah 1985)</p></td>
 </tr>
@@ -146,13 +146,12 @@ Shah 1985)</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">H</code></td>
-<td><p>= 0.25*E (from comparison with tests by Karsan and Jirsa 1969 and
+<td><p>$= 0.25 E$ (from comparison with tests by Karsan and Jirsa 1969 and
 Gopalaratnam and Shah 1985)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>'$theta</strong></p></td>
-<td><p>= 0.5 (from comparison with tests by Karsan and Jirsa 1969 and
-Gopalaratnam and Shah 1985)</p></td>
+<td><p><code>theta</code></p></td>
+<td><p>$= 0.5$ (from comparison with tests by Karsan and Jirsa 1969 and Gopalaratnam and Shah 1985)</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">tangent</code></td>
@@ -160,7 +159,9 @@ Gopalaratnam and Shah 1985)</p></td>
 </tr>
 </tbody>
 </table>
+
 <h2 id="development_team">Development Team</h2>
+
 <p>This code has been Developed by: 
 <span style="color:blue">Leopoldo Tesser - Dept. DICEA - Univeristy of
 Padua - Italy</span>,</p>
@@ -173,3 +174,4 @@ Italy, 2012. (soon available at paduareserach.cab.unipd.it)</p>
 <p>Petek K.A., "Development and application of mixed beam-solid models
 for analysis of soil-pile interaction problems", Ph.D. dissertation,
 Univerisity of Washington, USA, 2006</p>
+

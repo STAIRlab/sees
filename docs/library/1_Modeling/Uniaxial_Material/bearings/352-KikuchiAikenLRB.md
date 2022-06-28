@@ -69,26 +69,28 @@ force at zero displacement (<code class="tcl-variable">rq</code>)</p></td>
 </tbody>
 </table>
 <p>NOTES:</p>
-<p>1) Following rubber types for <code class="tcl-variable">type</code> are
-available:</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>1</strong></p></td>
-<td><p>lead-rubber bearing, up to 400% shear strain [Kikuchi et al.,
-2010 &amp; 2012]</p></td>
-</tr>
-</tbody>
-</table>
-<p>2) This material uses SI unit in calculation formula. Input arguments
-must be converted into <strong>[m]</strong>, <strong>[m^2]</strong>,
-<strong>[N/m^2]</strong>.</p>
-<p>3) <code class="tcl-variable">rs</code> and <code class="tcl-variable">rf</code> are available if
-this material is applied to multipleShearSpring (MSS) element.
-Recommended values are <code class="tcl-variable">rs</code>=1/sum(i=0,n-1){
-sin(pi*i/n)^2} and <code class="tcl-variable">rf</code>=1/sum(i=0,n-1){sin(pi*i/n)},
-where n is the number of springs in the MSS. For example, when n=8,
-$rs=0.2500 and $rf=0.1989.</p>
+
+1. Following rubber types for <code class="tcl-variable">type</code> are
+  available:
+  <table>
+  <tbody>
+  <tr class="odd">
+  <td><p><strong>1</strong></p></td>
+  <td><p>lead-rubber bearing, up to 400% shear strain [Kikuchi et al.,
+  2010 &amp; 2012]</p></td>
+  </tr>
+  </tbody>
+  </table>
+2. This material uses SI unit in calculation formula. Input arguments
+  must be converted into <strong>[m]</strong>, <strong>[m^2]</strong>,
+  <strong>[N/m^2]</strong>.
+3. <code class="tcl-variable">rs</code> and <code class="tcl-variable">rf</code> are available if
+  this material is applied to multipleShearSpring (MSS) element.
+  Recommended values are <code class="tcl-variable">rs</code>=1/sum(i=0,n-1){
+  sin(pi*i/n)^2} and <code class="tcl-variable">rf</code>=1/sum(i=0,n-1){sin(pi*i/n)},
+  where n is the number of springs in the MSS. For example, when n=8,
+  $rs=0.2500 and $rf=0.1989.
+
 <hr />
 
 ## Examples
@@ -105,13 +107,15 @@ aria-hidden="true">KikuchiAikenLRB Force Strain</figcaption>
 
 ## References
 <p>M. Kikuchi, T. Nakamura, I. D. Aiken, "Three-dimensional analysis for
-square seismic isolation bearings under large shear deformations and
-high axial loads", <em>Earthquake Engineering and Structural
-Dynamics</em>, Vol. 39, 1513-1531, 2010.</p>
+  square seismic isolation bearings under large shear deformations and
+  high axial loads", <em>Earthquake Engineering and Structural
+  Dynamics</em>, Vol. 39, 1513-1531, 2010.</p>
 <p>M. Kikuchi , I. D. Aiken, A. Kasalanati , "Simulation analysis for
-the ultimate behavior of full-scale lead-rubber seismic isolation
-bearings", <em>15th World Conference on Earthquake Engineering</em>, No.
-1688, 2012.</p>
+  the ultimate behavior of full-scale lead-rubber seismic isolation
+  bearings", <em>15th World Conference on Earthquake Engineering</em>, No.
+  1688, 2012.</p>
+
 <hr />
+
 <p>Code Developed by: <span style="color:blue"> mkiku
 </span></p>
