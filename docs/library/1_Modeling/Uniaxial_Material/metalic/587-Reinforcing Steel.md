@@ -426,13 +426,21 @@ cycles to failure. Keeping the failure and degradation terms independent
 is convenient for calibration. Equation 3 is rewritten below utilizing
 the strength degradation constant $C_d$.
 
-<p><img src="/OpenSeesRT/contrib/static/ReinfSteel2444.png" title="ReinfSteel2444.png"
-alt="ReinfSteel2444.png" /> (4)</p>
-<p>The constants K<sub class="subscript">1</sub>, and
-$C_d$ can be related as shown in
-Equation 5.</p>
-<p><img src="/OpenSeesRT/contrib/static/ReinfSteel2445.png" title="ReinfSteel2445.png"
-alt="ReinfSteel2445.png" /> (5)</p>
+
+$$
+\phi_{S R}=\sum\left(\frac{\Delta \varepsilon_{p}}{C_{d}}\right)^{\frac{1}{\alpha}} \quad\quad\text{(4)}
+$$
+
+<!-- <p><img src="/OpenSeesRT/contrib/static/ReinfSteel2444.png" title="ReinfSteel2444.png" /> (4)</p> -->
+
+The constants $K_1$, and $C_d$ can be related as shown in Equation 5.
+
+$$
+C_{d}=\frac{C_{f}}{K_{1}^{\alpha}} \quad\quad \text{(5)}
+$$
+
+<!-- <p><img src="/OpenSeesRT/contrib/static/ReinfSteel2445.png" title="ReinfSteel2445.png"
+alt="ReinfSteel2445.png" /> (5)</p>  -->
 
 Suggested starting values have been obtained from data reported by
 Brown and Kunnath (2000) for bars with a slenderness of $6$. Keep in mind
@@ -440,11 +448,15 @@ that this experimental data is limited and additional calibration may be
 necessary to capture realistic behavior in a reinforcing bar embedded in
 concrete and influenced by other factors such as confinement.
 
+<center>
+
 |        |          |
 |--------|----------|
 | $a$    | $0.506$  |
 | $C_f$  | $0.260$  |
 | $C_d$  | $0.389$  |
+
+</center>
 
 #### Sample Simulations of Degradation behavior
 
@@ -468,13 +480,13 @@ response.
 </figure>
 
 In Figure 8, the upper left response contains no strength degradation by
-setting the $C_d$ variable to 0.0. The upper right response shows strength
+setting the $C_d$ variable to $0.0$. The upper right response shows strength
 degradation due to the suggested values of $C_f$, $a$, and $C_d$. The response
 shown on the lower left demonstrates the change in the response when the
 suggested values of $C_f$ and $a$ are used with $C_d=0.6$. Making the value of
 $C_d$ larger results in less strength reduction due to damage. The response on
 the lower right once again returns to the suggested values but $C_f$ is changed
-to 0.15. This results in a more rapid accumulation of damage causing the bar to
+to $0.15$. This results in a more rapid accumulation of damage causing the bar to
 fail sooner. Note however that the strength degradation is unaffected by the
 more rapid accumulation of damage. The strength reduction and failure are not
 interdependent making the model easier to calibrate.

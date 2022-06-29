@@ -27,6 +27,9 @@ class Arg:
         default = None,
         **kwds
     ):
+        if name and name[0] == "-":
+            flag = name
+            name = name[1:]
         self.name  = name
         self.flag  = flag if flag is not None else ""
         self.value = None
@@ -180,7 +183,7 @@ class Grp(Arg):
                 self.type(f"{self.name}{i+1}") for i in range(num)
             ]
         else:
-            assert isinstance(self.kwds["args"],list)
+            assert isinstance(self.kwds["args"],list), self.name
             self.args = self.kwds["args"]
         self.num = len(self.args)
 

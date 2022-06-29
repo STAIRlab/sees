@@ -1,10 +1,10 @@
 # BeamContact2D
 
-<p>This command is used to construct a BeamContact2D element object.</p>
+This command is used to construct a BeamContact2D element object.
 
 ```tcl
 element BeamContact2D $eleTag $iNode $jNode $cNode $lNode
-        $matTag $width $gTol $fTol &lt;$cFlag$&gt;
+        $matTag $width $gTol $fTol < $cFlag$ >
 ```
 
 <table>
@@ -76,56 +76,70 @@ href="Excavation_Supported_by_Cantilevered_Sheet_Pile_Wall"
 title="wikilink">Excavation Supported by Cantilevered Sheet Pile
 Wall</a> practical example provides some further examples and discussion
 on the usage of this element.</p>
+
 <p><strong>NOTE:</strong></p>
 <ol>
+
 <li>The BeamContact2D element has been written to work exclusively with
-the <a href="ContactMaterial2D" title="wikilink">ContactMaterial2D
-nDMaterial</a> object.</li>
+  the <a href="ContactMaterial2D" title="wikilink">ContactMaterial2D
+  nDMaterial</a> object.</li>
+
 <li>The valid recorder queries for this element are:
-<ol>
-<li><em>force</em> - returns the contact force acting on the constrained
-node in vector form.</li>
-<li><em>frictionforce</em> - returns the frictional force acting on the
-constrained node in vector form.</li>
-<li><em>forcescalar</em> - returns the scalar magnitudes of the normal
-and tangential contact forces.</li>
-<li><em>masterforce</em> - returns the reactions (forces and moments)
-acting on the retained nodes.</li>
+
+  - `force` - returns the contact force acting on the constrained
+    node in vector form.</li>
+  - `frictionforce` - returns the frictional force acting on the
+    constrained node in vector form.
+  - `forcescalar` - returns the scalar magnitudes of the normal
+    and tangential contact forces.
+  - `masterforce` - returns the reactions (forces and moments)
+    acting on the retained nodes.
+</li>
+
 <li>The BeamContact2D elements are set to consider frictional behavior
-as a default, but the frictional state of the BeamContact2D element can
-be changed from the input file using the <a href="setParameter"
-title="wikilink">setParameter</a> command. When updating, value of 0
-corresponds to the frictionless condition, and a value of 1 signifies
-the inclusion of friction. An example command for this update procedure
-is provided below</li>
-</ol></li>
+  as a default, but the frictional state of the BeamContact2D element can
+  be changed from the input file using the <a href="setParameter"
+  title="wikilink">setParameter</a> command. When updating, value of 0
+  corresponds to the frictionless condition, and a value of 1 signifies
+  the inclusion of friction. An example command for this update procedure
+  is provided below</li>
+</li>
 <li>The BeamContact2D element works well in static and pseudo-static
-analysis situations.</li>
+  analysis situations.</li>
 <li>In transient analysis, the presence of the contact constraints can
-effect the stability of commonly-used time integration methods in the
-HHT or Newmark family (e.g., Laursen, 2002). For this reason, use of
-alternative time-integration methods which numerically damp spurious
-high frequency behavior may be required. The <a href="TRBDF2"
-title="wikilink">TRBDF2</a> integrator is an effective method for this
-purpose. The Newmark integrator can also be effective with proper
-selection of the gamma and beta coefficients. The trapezoidal rule,
-i.e., Newmark with gamma = 0.5 and beta = 0.25, is particularly prone to
-instability related to the contact constraints and is not
-recommended.</li>
+  effect the stability of commonly-used time integration methods in the
+  HHT or Newmark family (e.g., Laursen, 2002). For this reason, use of
+  alternative time-integration methods which numerically damp spurious
+  high frequency behavior may be required. The <a href="TRBDF2"
+  title="wikilink">TRBDF2</a> integrator is an effective method for this
+  purpose. The Newmark integrator can also be effective with proper
+  selection of the gamma and beta coefficients. The trapezoidal rule,
+  i.e., Newmark with gamma = 0.5 and beta = 0.25, is particularly prone to
+  instability related to the contact constraints and is not
+  recommended.</li>
 </ol>
+
 <p><strong>EXAMPLES:</strong></p>
-<p>BeamContact2D element with tag 1, connectivity with nodes 1, 2, 3,
-and 4, material with tag 1, width 0.5, gap and force tolerances of
-1.0e-10, and a contact flag set to assume initial contact.</p>
-<p>element BeamContact2D 1 1 2 3 4 1 0.5 1.0e-10 1.0e-10 0</p>
-<p>Update all of the BeamContact2D elements with tags between 10 and 20
-to consider a frictionless interface</p>
-<p>setParameter -value 0 -eleRange 10 20 friction</p>
+
+```tcl
+# BeamContact2D element with tag 1, connectivity with nodes 1, 2, 3,
+# and 4, material with tag 1, width 0.5, gap and force tolerances of
+# 1.0e-10, and a contact flag set to assume initial contact.
+element BeamContact2D 1 1 2 3 4 1 0.5 1.0e-10 1.0e-10 0
+
+# Update all of the BeamContact2D elements with tags between 10 and 20
+# to consider a frictionless interface
+setParameter -value 0 -eleRange 10 20 friction
+```
+
 ## References
 <p>Laursen, T. A. (2002). <em>Computational Contact and Impact
 Mechanics.</em> Springer-Verlag, Berlin.</p>
-<hr />
-<p>Code Developed by: <span style="color:blue"> Chris McGann,
+
+-----------------------------------------------------------------------
+
+<p>Code developed by: <span style="color:blue"> Chris McGann,
 Pedro Arduino, &amp; Peter Mackenzie-Helnwein, at the University of
 Washington </span></p>
 <hr />
+

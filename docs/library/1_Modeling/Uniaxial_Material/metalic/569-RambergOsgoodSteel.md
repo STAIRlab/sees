@@ -1,7 +1,6 @@
 # RambergOsgoodSteel
 
-This command is used to construct a Ramberg-Osgood steel material
-object.
+This command is used to construct a Ramberg-Osgood steel material object.
 
 ::: {apidoc="opensees.uniaxial.RambergOsgoodSteel"}
 ```tcl
@@ -40,25 +39,26 @@ Commonly used values for <code>n</code> are 5 or greater.
 :::
 
 <hr />
-<p><strong>Introduction to the Ramberg-Osgood’s Material
-Model:</strong></p>
+<p><strong>Introduction to the Ramberg-Osgood Material Model:</strong></p>
+
 <p>In earthquake engineering, Ramberg-Osgood functions are often used to
 model the behavior of structural steel materials and components. These
 functions are obtained when the power is normalized to an arbitrary
-strain, ε0, for which the plastic component of the strain, εplastic, is
-not zero. Generally the yield strain, εy, provides a good choice for
-normalization of strain, the Ramberg-Osgood function is expressed as
-[1]:</p>
+strain, $\varepsilon_0$, for which the plastic component of the strain, $\varepsilon_\text{plastic}$, is
+not zero. Generally the yield strain, $\varepsilon_y$, provides a good choice for
+normalization of strain. 
+
+The Ramberg-Osgood function is expressed as [1]:
 
 $$
-\varepsilon=\frac{\sigma}{E_{0}}+a\left(\frac{\sigma}{\sigma_{0}}\right)^{n}
+\varepsilon=\frac{\sigma}{E_{0}}+a \left(\frac{\sigma}{\sigma_{0}}\right)^{n}
 $$
 
 <p>Where E0 is the initial elastic modulus and σ0 is equal to Eε0.</p>
 <hr />
 
 <p><strong>More explanation about parameter “a” (yielding offset)</strong></p>
-The value “a” which is equal to ασ/E_0 can be seen as a yield offset,
+The value “a” which is equal to $\alpha\frac{\sigma}{E_0}$ can be seen as a yield offset,
 as shown in Fig.1. This comes from the fact that
 
 $$
@@ -121,3 +121,4 @@ Dalhousie University, reza.sepasdar@dal.ca</p>
 <p>Mohammad Reza Banan, Associate Professor of Civil Engineering,
 Department of Civil and Environmental Engineering, Shiraz University,
 Shiraz, Iran, banan@shirazu.ac.ir</p>
+

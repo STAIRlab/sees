@@ -1,11 +1,11 @@
 # UniaxialMaterial Library
 
 This command is used to construct a `UniaxialMaterial`
-object which represents uniaxial stress-strain (or force-deformation)
-relationships.
+object which represents a single-variable work-conjugate relationship
+(e.g., uniaxial stress-strain, force-deformation, etc.).
 
 The valid queries to any uniaxial material when creating an
-ElementRecorder are `strain`, `stress`, and `tangent`. Some materials
+[`ElementRecorder`] are `strain`, `stress`, and `tangent`. Some materials
 have additional queries to which they will respond. These are documented
 in the NOTES section for those materials.
 
@@ -46,17 +46,16 @@ principles and algorithms.
 ### Metallic 
 
 <ul>
-<li><a href="Steel01">Steel01</a></li>
-<li><a href="Steel02">Steel02</a>
-   Giuffré-Menegotto-Pinto Model with Isotropic Strain Hardening</li>
-<li><a href="Steel4">Steel4</a></li>   
 <li><a href="Hysteretic_Material">Hysteretic</a></li> 
-<li><a href="Reinforcing_Steel_Material">ReinforcingSteel</a></li> 
-<li><a href="DoddRestrepo">Dodd Restrepo</a> A new model which allows the "softness" of the Bauschinger curve, as determined by the area under the curve
-relative to the enclosing parallelogram, to be controlled.</li> 
-<li><a href="RambergOsgoodSteel">RambergOsgoodSteel</a></li>
+<li><a href="RambergOsgoodSteel">RambergOsgoodSteel</a> A simple metalic model exhibiting a nonlinear hardening curve.</li>
+<li><a href="Steel01">Steel01</a></li>
+<li><a href="Steel02">Steel02</a> Giuffré-Menegotto-Pinto Model with Isotropic Strain Hardening</li>
 <li><a href="SteelMPF">SteelMPF</a>
    Menegotto and Pinto (1973) model Extended by Filippou et al. (1983)</li>
+<li><a href="Steel4">Steel4</a></li>   
+<li><a href="DoddRestrepo">Dodd Restrepo</a> A new model which allows the "softness" of the Bauschinger curve, as determined by the area under the curve
+  relative to the enclosing parallelogram, to be controlled.</li> 
+<li><a href="Reinforcing_Steel_Material">ReinforcingSteel</a></li> 
 <li><a href="UVCuniaxial_(Updated_Voce-Chaboche)">UVCuniaxial</a> Updated Voce-Chaboche</li>
 </ul>
 
@@ -166,3 +165,7 @@ for p-y, t-z and q-z elements for modeling soil-structure interaction through th
 <li><a href="Limit_State">Limit State</a></li>
 <li>AlgebraicHysteresis</li>
 </ul>
+
+
+[`ElementRecorder`]: "/OpenSeesRT/library/4_Utilities/recorders/"
+

@@ -28,6 +28,7 @@ and numerical implementation.</p>
 
 <hr />
 
+:::{apidoc="opensees.uniaxial.UVC"}
 ```tcl
 uniaxialMaterial UVCuniaxial $matTag $E $fy $QInf $b $DInf $a $N $C1 $gamma1 
         < $C2 $gamma2 $C3 $gamma3 … $C8 $gamma8 >
@@ -90,6 +91,7 @@ that only the first N backstresses will be read by the parser.</p></td>
 </tr>
 </tbody>
 </table>
+:::
 
 <hr />
 
@@ -154,6 +156,7 @@ next section.
 from Reference [1] using two backstresses. These parameters are
 applicable for all implementations of the UVC model (uniaxial,
 plane-stress, multiaxial).</p>
+
 <p>References [1,3] contain detailed information on the calibration
 procedure used to obtain the model parameters. All of the parameters
 provided in the table below were obtained by minimizing the total
@@ -172,9 +175,16 @@ package can be used to generate UVC model parameters for other steel
 materials if the data is available. Details and examples on the
 calibration are provided on the <a
 href="https://pypi.org/project/RESSPyLab/">RESSPyLab</a> web page.</p>
-<p>Note that the parameters provided in the table below were calibrated
-using the true stress-strain definition, i.e., e_true =
-ln(1+(L-L_0)/L_0) and s_true = F/A_0 * (1 + (L-L_0)/L_0).</p>
+
+> Note that the parameters provided in the table below were calibrated
+> using the true stress-strain definition, i.e., 
+> 
+> $$\e_\text{true} = \ln(1+\frac{L-L_0}{L_0})$$ 
+> 
+> and 
+> 
+> $$s_\text{true} = F/A_0 \left( 1 + \frac{L-L_0}{L_0}\right).$$
+
 
 
 <table>
@@ -393,3 +403,4 @@ href="https://infoscience.epfl.ch/record/271062">https://infoscience.epfl.ch/rec
 <span style="color:blue"> Alex Hartloper (EPFL). </span> Issues,
 bugs, and feature requests can be opened at the 
 <a href="https://github.com/ahartloper/UVC_MatMod">github repository</a>.</p>
+

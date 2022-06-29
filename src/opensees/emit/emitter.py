@@ -43,6 +43,9 @@ class ScriptBuilder:
         self.streams = [emitter(StringIO(), self)]
         self.python_objects = {}
 
+    def __repr__(self):
+        return self.getScript()
+
     def getIndex(self):
         return "\n".join(
             (f"set {i.tclstr()} {tag}" 

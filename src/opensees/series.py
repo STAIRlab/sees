@@ -10,3 +10,6 @@ def sawtooth(t, period=2*math.pi, amplitude = 2):
 
 def square(t, period=2*math.pi, amplitude=2):
     pass
+
+#def cycles(number, fidelity=2, shape="triangle"):
+#    return getattr(__module__

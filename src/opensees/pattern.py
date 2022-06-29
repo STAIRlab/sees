@@ -11,9 +11,9 @@ class TimeSeries:
     _name = "Path"
     _args = [
         Tag(),
-        Lst("time", flag="-time", type=float),
+        Lst("time",   flag="-time",   type=float),
         Lst("values", flag="-values", type=float),
-        Num("scale", reqd=False)
+        Num("scale",  reqd=False)
     ]
 
     def init(self, series=None, step=None, time=None):
@@ -69,7 +69,7 @@ load = cmd("load", "load", args=[Ref("node"), Grp("load", min=1, type=Num)])
 class Plain:
     _args = [
         Tag(),
-        Ref("series"),
+        Ref("series", type=TimeSeries),
         Blk("loads"),
         Num("scale", reqd=False),
     ]
@@ -90,8 +90,8 @@ class UniformExcitation:
     _args = [
         Tag(),
         Int("dof"),
-        Ref("accel", flag="-accel", typ=TimeSeries, attr="name"),
-        Num("v0", reqd=False),
+        Ref("accel", flag="-accel", type=TimeSeries, attr="name", about="acceleration time series"),
+        Num("v0",    reqd=False, about="initial velocity."),
         Num("scale", reqd=False)
     ]
     _refs = ["accel"]

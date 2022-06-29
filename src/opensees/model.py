@@ -1,13 +1,37 @@
-import math
+# Claudio Perez
 import fnmatch
-from .lib import Node
+from math import isclose
+
+from .obj import cmd
+from .ast import Tag, Grp, Num
+
+
+Node = cmd("Node", "node", [
+    Tag(),
+    Grp("crd", type=Num, args=[Num("x"), Num("y"), Num("z")]),
+    Grp("mass", flag="-mass", reqd=False, default=[0.0]*6, args=[
+        Num("x"),Num("y"), Num("z"), Num("x"),Num("y"), Num("z")
+    ]),
+])
 
 
 class model:
-    def __init__(self, *args, ndm, ndf, 
+    def __init__(self, *args, ndm=None, ndf=None,
             assm={}, prototypes=None, units="metric", **kwds):
+
+        if ndm is None:
+            if "nodes" in kwds:
+                ndm = len(next(kwds["nodes"].values()))
+            else:
+                raise ValueError("Argument `ndm` is required if nodes are not supplied")
+
+        if ndf is None:
+            if "zeros" in kwds:
+                ndf = len(kwds["zeros"][0][1])
+            else:
+                raise ValueError("Argument `ndf` is required if zeros are not supplied")
+
         self._units = units
-        self.meta = kwds
         self.ndm = ndm
         self.ndf = ndf
         self.prototypes = prototypes if prototypes is not None else {}
@@ -348,11 +372,11 @@ def _filter_nodes_by_coords(x, y, z):
     def f(node):
         match = True
         if x is not None:
-            match = match and math.isclose(node.x, x)
+            match = match and isclose(node.x, x)
         if y is not None:
-            match = match and math.isclose(node.y, y)
+            match = match and isclose(node.y, y)
         if z is not None:
-            match = match and math.isclose(node.z, z)
+            match = match and isclose(node.z, z)
         return match
     return f
 
