@@ -14441,7 +14441,7 @@
 <p>
 This command is used to construct a Dodd-Restrepo steel material
 </p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">Dodd_Restrepo</span>(name,<br>   Fy,<br>   Fsu,<br>   esh,<br>   esu,<br>   elastic_modulus,<br>   eshI,<br>   fshI,<br>   OmegaFac,<br>   **kwds) </span></p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">Dodd_Restrepo</span>(name,<br>   yield_stress,<br>   fu,<br>   esh,<br>   esu,<br>   elastic_modulus,<br>   eshI,<br>   fshI,<br>   OmegaFac,<br>   **kwds) </span></p>
 <div>
 <table>
 <colgroup>
@@ -14454,17 +14454,17 @@ This command is used to construct a Dodd-Restrepo steel material
 </tr>
 <tr>
 <td>
-Fy
+fy
 </td>
 <td>
 <code>float</code>
 </td>
 <td>
-Yield strength
+Yield stress.
 </tr>
 <tr>
 <td>
-Fsu
+fu
 </td>
 <td>
 <code>float</code>
@@ -14510,7 +14510,7 @@ eshI
 <code>float</code>
 </td>
 <td>
-Tensile strain for a point on strain hardening curve, recommended range of values for eshI: [ (ESU 5esh)/6, (ESU 3esh)/4]
+Tensile strain for a point on strain hardening curve, recommended range of values for eshI: <span class="math inline">\([ (\texttt{esu} 5 \texttt{esh})/6, (\texttt{esu} 3 \texttt{esh)/4]\)</span>
 </tr>
 <tr>
 <td>
@@ -14524,13 +14524,13 @@ Tensile stress at point on strain hardening curve corresponding to eshI
 </tr>
 <tr>
 <td>
-OmegaFac
+OmegaFac = 1.0
 </td>
 <td>
 <code>float</code>
 </td>
 <td>
-Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: [0.75, 1.15]. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0.
+Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: <span class="math inline">\(\[0.75, 1.15\]\)</span>. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0.
 </tr>
 </tbody>
 </table>
