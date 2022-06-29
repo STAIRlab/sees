@@ -14450,131 +14450,129 @@ href="https://opensees.berkeley.edu/wiki/index.php/UVCplanestress_(Updated_Voce-
 Available in OpenSees version 3.1.0+.
 </p>
 <hr />
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>UVCuniaxial<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$E</span><span class="w"> </span><span class="nv">$fy</span><span class="w"> </span><span class="nv">$QInf</span><span class="w"> </span><span class="nv">$b</span><span class="w"> </span><span class="nv">$DInf</span><span class="w"> </span><span class="nv">$a</span><span class="w"> </span><span class="nv">$N</span><span class="w"> </span><span class="nv">$C1</span><span class="w"> </span><span class="nv">$gamma1</span><span class="w"> </span>
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$C2</span><span class="w"> </span><span class="nv">$gamma2</span><span class="w"> </span><span class="nv">$C3</span><span class="w"> </span><span class="nv">$gamma3</span><span class="w"> </span><span class="err">…</span><span class="w"> </span><span class="nv">$C8</span><span class="w"> </span><span class="nv">$gamma8</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
-<hr />
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">UVCuniaxial</span>(name,<br>   elastic_modulus,<br>   yield_stress,<br>   QInf,<br>   b,<br>   DInf,<br>   a,<br>   N,<br>   backstress,<br>   **kwds) </span></p>
+<div>
 <table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
 <tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">matTag</code>
-</td>
-<td>
-<p>
-Integer tag identifying the material.
-</p>
-</td>
+<tr>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">E</code>
+E
 </td>
 <td>
-<p>
-Elastic modulus of the steel material.
-</p>
+<code>float</code>
 </td>
+<td>
+Young’s modulus of elasticity
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">fy</code>
+fy
 </td>
 <td>
-<p>
-Initial yield stress of the steel material.
-</p>
+<code>float</code>
 </td>
+<td>
+Yield stress.
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">QInf</code>
+QInf
 </td>
 <td>
-<p>
+<code>float</code>
+</td>
+<td>
 Maximum increase in yield stress due to cyclic hardening (isotropic hardening).
-</p>
-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">b</code>
+b
 </td>
 <td>
-<p>
+<code>float</code>
+</td>
+<td>
 Saturation rate of QInf, b &gt; 0.
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">DInf</code>
+DInf
 </td>
 <td>
-<p>
+<code>float</code>
+</td>
+<td>
 Decrease in the initial yield stress, to neglect the model updates set DInf = 0.
-</p>
-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">a</code>
+a
 </td>
 <td>
-<p>
-Saturation rate of DInf, a &gt; 0. If DInf == 0, then a is arbitrary (but still a &gt; 0).
-</p>
+<code>float</code>
 </td>
+<td>
+Saturation rate of DInf, <span class="math inline">\(a &gt; 0\)</span>. If <span class="math inline">\(D_\infty == 0\)</span>, then a is arbitrary (but still a &gt; 0).
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">N</code>
+N
 </td>
 <td>
-<p>
+<code>float</code>
+</td>
+<td>
 Number of backstresses to define, N &gt;= 1.
-</p>
-</td>
 </tr>
-<tr class="odd">
-<td>
-<p>
-<code class="parameter-table-variable">C1</code>
-</p>
+<tr>
+<td colspan="2">
+backstress
 </td>
 <td>
-<p>
-Kinematic hardening parameter associated with backstress component 1.
-</p>
+<code>[[C,gamma]]</code>, Backstress parameters, up to 9 pairs may be specified. If <code>C</code> is specified, then the corresponding <code>gamma</code> must also be specified. Note that only the first N backstresses will be read by the parser.
+<table>
+<tr>
+<td colspan="2">
+<code>[C,gamma]</code>
 </td>
+<td>
+<code>Grp(Num)</code>,<br />
+
+<table>
+<tr>
+<td>
+C
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">gamma1</code>
-</p>
+gamma
 </td>
 <td>
-<p>
-Saturation rate of kinematic hardening associated with backstress component 1.
-</p>
+<code>float</code>
 </td>
+<td>
 </tr>
-<tr class="odd">
-<td>
-<p>
-<code>&lt;C2 gamma2 C3 gamma3 … C8 gamma8&gt;</strong>
-</p>
 </td>
-<td>
-<p>
-Additional backstress parameters, up to 8 may be specified. If C is specified, then the corresponding gamma must also be specified. Note that only the first N backstresses will be read by the parser.
-</p>
+</table>
+</tr>
 </td>
+</table>
 </tr>
 </tbody>
 </table>
+</div>
 <hr />
 <p>
 <strong>Examples</strong>

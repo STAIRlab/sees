@@ -14488,19 +14488,20 @@ n
 <code>float</code>
 </td>
 <td>
+Parameter to control the transition from elastic to plastic branches. Additionally controls the hardening of the material: by increasing <span class="math inline">\(n\)</span>, hardening ratio will be decreased.
 </tr>
 </tbody>
 </table>
 </div>
 <hr />
 <p>
-<strong>Introduction to the Ramberg-Osgood’s Material Model:</strong>
+<strong>Introduction to the Ramberg-Osgood Material Model:</strong>
 </p>
 <p>
-In earthquake engineering, Ramberg-Osgood functions are often used to model the behavior of structural steel materials and components. These functions are obtained when the power is normalized to an arbitrary strain, ε0, for which the plastic component of the strain, εplastic, is not zero. Generally the yield strain, εy, provides a good choice for normalization of strain, the Ramberg-Osgood function is expressed as [1]:
-</p>
+<p>In earthquake engineering, Ramberg-Osgood functions are often used to model the behavior of structural steel materials and components. These functions are obtained when the power is normalized to an arbitrary strain, <span class="math inline">\(\varepsilon_0\)</span>, for which the plastic component of the strain, <span class="math inline">\(\varepsilon_\text{plastic}\)</span>, is not zero. Generally the yield strain, <span class="math inline">\(\varepsilon_y\)</span>, provides a good choice for normalization of strain.</p>
+<p>The Ramberg-Osgood function is expressed as [1]:</p>
 <p><span class="math display">\[
-\varepsilon=\frac{\sigma}{E_{0}}+a\left(\frac{\sigma}{\sigma_{0}}\right)^{n}
+\varepsilon=\frac{\sigma}{E_{0}}+a \left(\frac{\sigma}{\sigma_{0}}\right)^{n}
 \]</span></p>
 <p>
 Where E0 is the initial elastic modulus and σ0 is equal to Eε0.
@@ -14509,7 +14510,7 @@ Where E0 is the initial elastic modulus and σ0 is equal to Eε0.
 <p>
 <strong>More explanation about parameter “a” (yielding offset)</strong>
 </p>
-<p>The value “a” which is equal to ασ/E_0 can be seen as a yield offset, as shown in Fig.1. This comes from the fact that</p>
+<p>The value “a” which is equal to <span class="math inline">\(\alpha\frac{\sigma}{E_0}\)</span> can be seen as a yield offset, as shown in Fig.1. This comes from the fact that</p>
 <p><span class="math display">\[
 \epsilon=\dfrac{(1+\alpha) \sigma_{0}}{E}
 \]</span></p>
