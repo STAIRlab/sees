@@ -766,21 +766,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/Load_Pattern/Multisupport_Excitation/</loc>
-         <lastmod>2022-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/Load_Pattern/Plain_Loading/</loc>
-         <lastmod>2022-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/Load_Pattern/Uniform_Excitation/</loc>
-         <lastmod>2022-06-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/ND_Material/</loc>
          <lastmod>2022-06-29</lastmod>
          <changefreq>daily</changefreq>
@@ -2731,7 +2716,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/object_oriented/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/reference/types/</loc>
          <lastmod>2022-06-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2741,7 +2726,27 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/01_BasicModel/</loc>
+         <lastmod>2022-06-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/reference/objects/UniaxialMaterial/</loc>
+         <lastmod>2022-06-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/Multisupport_Excitation/</loc>
+         <lastmod>2022-06-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/Plain_Loading/</loc>
+         <lastmod>2022-06-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/Uniform_Excitation/</loc>
          <lastmod>2022-06-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
