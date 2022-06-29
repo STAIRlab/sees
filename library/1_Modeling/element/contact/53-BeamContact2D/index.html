@@ -14438,11 +14438,9 @@
 
 
 <h1 id="beamcontact2d">BeamContact2D</h1>
-<p>
-This command is used to construct a BeamContact2D element object.
-</p>
+<p>This command is used to construct a BeamContact2D element object.</p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>BeamContact2D<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$cNode</span><span class="w"> </span><span class="nv">$lNode</span>
-<span class="w">        </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$width</span><span class="w"> </span><span class="nv">$gTol</span><span class="w"> </span><span class="nv">$fTol</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$cFlag</span><span class="err">$</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$width</span><span class="w"> </span><span class="nv">$gTol</span><span class="w"> </span><span class="nv">$fTol</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$cFlag</span><span class="err">$</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 
 <table>
@@ -14567,56 +14565,47 @@ title="wikilink">Excavation Supported by Cantilevered Sheet Pile Wall</a> practi
 The BeamContact2D element has been written to work exclusively with the <a href="ContactMaterial2D" title="wikilink">ContactMaterial2D nDMaterial</a> object.
 </li>
 <li>
-The valid recorder queries for this element are:
-<ol>
-<li>
-<em>force</em> - returns the contact force acting on the constrained node in vector form.
-</li>
-<li>
-<em>frictionforce</em> - returns the frictional force acting on the constrained node in vector form.
-</li>
-<li>
-<em>forcescalar</em> - returns the scalar magnitudes of the normal and tangential contact forces.
-</li>
-<li>
-<em>masterforce</em> - returns the reactions (forces and moments) acting on the retained nodes.
+<p>The valid recorder queries for this element are:</p>
+<ul>
+<li><code>force</code> - returns the contact force acting on the constrained node in vector form.
+</li></li>
+<li><code>frictionforce</code> - returns the frictional force acting on the constrained node in vector form.</li>
+<li><code>forcescalar</code> - returns the scalar magnitudes of the normal and tangential contact forces.</li>
+<li><code>masterforce</code> - returns the reactions (forces and moments) acting on the retained nodes.</li>
+</ul>
 </li>
 <li>
 The BeamContact2D elements are set to consider frictional behavior as a default, but the frictional state of the BeamContact2D element can be changed from the input file using the <a href="setParameter"
-title="wikilink">setParameter</a> command. When updating, value of 0 corresponds to the frictionless condition, and a value of 1 signifies the inclusion of friction. An example command for this update procedure is provided below
+  title="wikilink">setParameter</a> command. When updating, value of 0 corresponds to the frictionless condition, and a value of 1 signifies the inclusion of friction. An example command for this update procedure is provided below
 </li>
-</ol>
 </li>
 <li>
 The BeamContact2D element works well in static and pseudo-static analysis situations.
 </li>
 <li>
 In transient analysis, the presence of the contact constraints can effect the stability of commonly-used time integration methods in the HHT or Newmark family (e.g., Laursen, 2002). For this reason, use of alternative time-integration methods which numerically damp spurious high frequency behavior may be required. The <a href="TRBDF2"
-title="wikilink">TRBDF2</a> integrator is an effective method for this purpose. The Newmark integrator can also be effective with proper selection of the gamma and beta coefficients. The trapezoidal rule, i.e., Newmark with gamma = 0.5 and beta = 0.25, is particularly prone to instability related to the contact constraints and is not recommended.
+  title="wikilink">TRBDF2</a> integrator is an effective method for this purpose. The Newmark integrator can also be effective with proper selection of the gamma and beta coefficients. The trapezoidal rule, i.e., Newmark with gamma = 0.5 and beta = 0.25, is particularly prone to instability related to the contact constraints and is not recommended.
 </li>
 </ol>
 <p>
 <strong>EXAMPLES:</strong>
 </p>
-<p>
-BeamContact2D element with tag 1, connectivity with nodes 1, 2, 3, and 4, material with tag 1, width 0.5, gap and force tolerances of 1.0e-10, and a contact flag set to assume initial contact.
-</p>
-<p>
-element BeamContact2D 1 1 2 3 4 1 0.5 1.0e-10 1.0e-10 0
-</p>
-<p>
-Update all of the BeamContact2D elements with tags between 10 and 20 to consider a frictionless interface
-</p>
-<p>
-setParameter -value 0 -eleRange 10 20 friction
-</p>
+<div class="highlight"><pre><span></span><span class="c"># BeamContact2D element with tag 1, connectivity with nodes 1, 2, 3,</span>
+<span class="c"># and 4, material with tag 1, width 0.5, gap and force tolerances of</span>
+<span class="c"># 1.0e-10, and a contact flag set to assume initial contact.</span>
+<span class="nv">element</span><span class="w"> </span>BeamContact2D<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mf">0.5</span><span class="w"> </span><span class="mf">1.0</span>e-10<span class="w"> </span><span class="mf">1.0</span>e-10<span class="w"> </span><span class="mi">0</span>
+<span class="c"># Update all of the BeamContact2D elements with tags between 10 and 20</span>
+<span class="c"># to consider a frictionless interface</span>
+<span class="nv">setParameter</span><span class="w"> </span><span class="o">-</span>value<span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">-</span>eleRange<span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span>friction
+</pre></div>
+
 <h2 id="references">References</h2>
 <p>
 Laursen, T. A. (2002). <em>Computational Contact and Impact Mechanics.</em> Springer-Verlag, Berlin.
 </p>
 <hr />
 <p>
-Code Developed by: <span style="color:blue"> Chris McGann, Pedro Arduino, &amp; Peter Mackenzie-Helnwein, at the University of Washington </span>
+Code developed by: <span style="color:blue"> Chris McGann, Pedro Arduino, &amp; Peter Mackenzie-Helnwein, at the University of Washington </span>
 </p>
 <hr />
 

@@ -15172,18 +15172,18 @@ alt="ReinfSteel2443.png" /> -->
 (3)
 </p>
 <p>Alternately this simple linear equation can be rewritten in a way that makes the strength degradation independent of the number of half cycles to failure. Keeping the failure and degradation terms independent is convenient for calibration. Equation 3 is rewritten below utilizing the strength degradation constant <span class="math inline">\(C_d\)</span>.</p>
-<p>
-<img src="/OpenSeesRT/contrib/static/ReinfSteel2444.png" title="ReinfSteel2444.png"
-alt="ReinfSteel2444.png" /> (4)
-</p>
-<p>
-The constants K<sub class="subscript">1</sub>, and <span class="math inline">\(C_d\)</span> can be related as shown in Equation 5.
-</p>
-<p>
-<img src="/OpenSeesRT/contrib/static/ReinfSteel2445.png" title="ReinfSteel2445.png"
-alt="ReinfSteel2445.png" /> (5)
-</p>
+<p><span class="math display">\[
+\phi_{S R}=\sum\left(\frac{\Delta \varepsilon_{p}}{C_{d}}\right)^{\frac{1}{\alpha}} \quad\quad\text{(4)}
+\]</span></p>
+<!-- <p><img src="/OpenSeesRT/contrib/static/ReinfSteel2444.png" title="ReinfSteel2444.png" /> (4)</p> -->
+<p>The constants <span class="math inline">\(K_1\)</span>, and <span class="math inline">\(C_d\)</span> can be related as shown in Equation 5.</p>
+<p><span class="math display">\[
+C_{d}=\frac{C_{f}}{K_{1}^{\alpha}} \quad\quad \text{(5)}
+\]</span></p>
+<!-- <p><img src="/OpenSeesRT/contrib/static/ReinfSteel2445.png" title="ReinfSteel2445.png"
+alt="ReinfSteel2445.png" /> (5)</p>  -->
 <p>Suggested starting values have been obtained from data reported by Brown and Kunnath (2000) for bars with a slenderness of <span class="math inline">\(6\)</span>. Keep in mind that this experimental data is limited and additional calibration may be necessary to capture realistic behavior in a reinforcing bar embedded in concrete and influenced by other factors such as confinement.</p>
+<center>
 <table>
 <tbody>
 <tr class="odd">
@@ -15200,6 +15200,7 @@ alt="ReinfSteel2445.png" /> (5)
 </tr>
 </tbody>
 </table>
+</center>
 <h4 id="sample-simulations-of-degradation-behavior">Sample Simulations of Degradation behavior</h4>
 <p><span class="math inline">\(a\)</span> is best obtained from calibration of test results. <span class="math inline">\(a\)</span> is used to relate damage from one strain range to an equivalent damage at another strain range. This is usually constant for a material type.</p>
 <p><span class="math inline">\(C_f\)</span> is the ductility constant used to adjust the number of cycles to failure. A higher value for <span class="math inline">\(C_f\)</span> will result in a lower damage for each cycle. A higher value <span class="math inline">\(C_f\)</span> translates to a larger number of cycles to failure.</p>
@@ -15210,7 +15211,7 @@ alt="ReinfSteel2445.png" /> (5)
 Figure 8: Fatigue and Degradation Parameter Examples
 </figcaption>
 </figure>
-<p>In Figure 8, the upper left response contains no strength degradation by setting the <span class="math inline">\(C_d\)</span> variable to 0.0. The upper right response shows strength degradation due to the suggested values of <span class="math inline">\(C_f\)</span>, <span class="math inline">\(a\)</span>, and <span class="math inline">\(C_d\)</span>. The response shown on the lower left demonstrates the change in the response when the suggested values of <span class="math inline">\(C_f\)</span> and <span class="math inline">\(a\)</span> are used with <span class="math inline">\(C_d=0.6\)</span>. Making the value of <span class="math inline">\(C_d\)</span> larger results in less strength reduction due to damage. The response on the lower right once again returns to the suggested values but <span class="math inline">\(C_f\)</span> is changed to 0.15. This results in a more rapid accumulation of damage causing the bar to fail sooner. Note however that the strength degradation is unaffected by the more rapid accumulation of damage. The strength reduction and failure are not interdependent making the model easier to calibrate.</p>
+<p>In Figure 8, the upper left response contains no strength degradation by setting the <span class="math inline">\(C_d\)</span> variable to <span class="math inline">\(0.0\)</span>. The upper right response shows strength degradation due to the suggested values of <span class="math inline">\(C_f\)</span>, <span class="math inline">\(a\)</span>, and <span class="math inline">\(C_d\)</span>. The response shown on the lower left demonstrates the change in the response when the suggested values of <span class="math inline">\(C_f\)</span> and <span class="math inline">\(a\)</span> are used with <span class="math inline">\(C_d=0.6\)</span>. Making the value of <span class="math inline">\(C_d\)</span> larger results in less strength reduction due to damage. The response on the lower right once again returns to the suggested values but <span class="math inline">\(C_f\)</span> is changed to <span class="math inline">\(0.15\)</span>. This results in a more rapid accumulation of damage causing the bar to fail sooner. Note however that the strength degradation is unaffected by the more rapid accumulation of damage. The strength reduction and failure are not interdependent making the model easier to calibrate.</p>
 <h2 id="references">References</h2>
 <ul>
 <li>
