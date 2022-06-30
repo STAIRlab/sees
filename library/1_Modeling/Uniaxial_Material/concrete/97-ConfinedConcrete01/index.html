@@ -13171,8 +13171,6 @@
         
           
         
-          
-        
       
       
         
@@ -13263,21 +13261,6 @@
     <li class="md-nav__item">
       <a href="../../../../5_Packages/optimization/modeling/242-Fiber%20Command%20for%20Sensitivity/" class="md-nav__link">
         Fiber Command for Sensitivity
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/modeling/244-Fiber%20Section%20for%20Sensitivity/" class="md-nav__link">
-        Fiber Section for Sensitivity
 
       </a>
     </li>
@@ -13429,7 +13412,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_7_4_17" type="checkbox" id="__nav_4_5_7_4_17" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_7_4_16" type="checkbox" id="__nav_4_5_7_4_16" >
       
       
       
@@ -13472,13 +13455,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_4_5_7_4_17">
+        <label class="md-nav__link" for="__nav_4_5_7_4_16">
           Material
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material" data-md-level="5">
-        <label class="md-nav__title" for="__nav_4_5_7_4_17">
+        <label class="md-nav__title" for="__nav_4_5_7_4_16">
           <span class="md-nav__icon md-icon"></span>
           Material
         </label>
@@ -14028,7 +14011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands%3A/" class="md-nav__link">
+      <a href="../../../../5_Packages/optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands/" class="md-nav__link">
         DDM-Based Response Sensitivity Computation Tcl Commands:
 
       </a>
@@ -14458,331 +14441,6 @@
 <p>
 This command is used to construct an uniaxial material object of confined concrete in according to the work of Braga, Gigliotti and Laterza (2006). The confined concrete model (BGLmodel) has not tensile strength and degraded linear unloading/reloading stiffness as proposed by Karsan and Jirsa (1969). The BGL model accounts for confinement effects due to different arrangements of transverse reinforcement and/or external strengthening such as steel jackets or FRP wraps. The confinement effect along the column is described as well. In order to obtain th ecompressive envelope curve a non linear approach is performed at each increment of column axial strain.The sougth curve is obtained crossing different stress‐strain relationships, each of which corresponding to a different level of confinement. Currently, the Attard and Setunge’s model is implemented in calculating each active curve of the confined concrete. IMPORTANT: the units to be used are MPa, mm.
 </p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">ConfinedConcrete01</span>(name,<br>   secType,<br>   fpc,<br>   elastic_modulus,<br>   eps_ult,<br>   poisson,<br>   L1,<br>   L2,<br>   L3,<br>   phis,<br>   S,<br>   fyh,<br>   Es0,<br>   haRatio,<br>   mu,<br>   phiLon,<br>   internals,<br>   wrap,<br>   gravel,<br>   silica,<br>   tol,<br>   maxNumIter,<br>   epscuLimit,<br>   stRatio,<br>   **kwds) </span></p>
-<div>
-<table>
-<colgroup>
-<col style="width: 10%" >
-<col style="width: 30%" >
-<col style="width: 60%" >
-</colgroup>
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-secType
-</td>
-<td>
-<code>str</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-fpc
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-E
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-Young’s modulus of elasticity
-</tr>
-<tr>
-<td>
-eps_ult
-</td>
-<td>
-<code>Alt</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-poisson
-</td>
-<td>
-<code>Alt</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-L1
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-length/diameter of square/circular core section measured respect to the hoop center line.
-</tr>
-<tr>
-<td>
-L2
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-additional dimensions when multiple hoops are being used.
-</tr>
-<tr>
-<td>
-L3
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-additional dimensions when multiple hoops are being used.
-</tr>
-<tr>
-<td>
-phis
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-hoop diameter. If section arrangement has multiple hoops it refers to the external hoop.
-</tr>
-<tr>
-<td>
-S
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-hoop spacing.
-</tr>
-<tr>
-<td>
-fyh
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-yielding strength of the hoop steel.
-</tr>
-<tr>
-<td>
-Es0
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-elastic modulus of the hoop steel.
-</tr>
-<tr>
-<td>
-haRatio
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-hardening ratio of the hoop steel.
-</tr>
-<tr>
-<td>
-mu
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-ductility factor of the hoop steel.
-</tr>
-<tr>
-<td>
-phiLon
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-diameter of longitudinal bars.
-</tr>
-<tr>
-<td colspan="2">
-internals
-</td>
-<td>
-<code>[phisi,Si,fyhi,Es0i,haRatioi,mui]</code>, optional parameters for defining the internal transverse reinforcement.If they are not specified they will be assumed equal to the external ones (for S2, S3, S4a, S4b and S5 typed).
-<table>
-<tr>
-<td>
-phisi
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-Si
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-fyhi
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-Es0i
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-haRatioi
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-mui
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td colspan="2">
-wrap
-</td>
-<td>
-<code>[cover,Am,Sw,ful,Es0w]</code>,<br />
-
-<table>
-<tr>
-<td>
-cover
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-cover thickness measured from the outer line of hoop.
-</tr>
-<tr>
-<td>
-Am
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-total area of FRP wraps (number of layers x wrap thickness x wrap width).
-</tr>
-<tr>
-<td>
-Sw
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-spacing of FRP wraps (if continuous wraps are used the spacing is equal to the wrap width).
-</tr>
-<tr>
-<td>
-ful
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-ultimate strength of FRP wraps.
-</tr>
-<tr>
-<td>
-Es0w
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-elastic modulus of FRP wraps.
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-</tr>
-<tr>
-</tr>
-<tr>
-<td>
-tol
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-maxNumIter
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-epscuLimit
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-stRatio
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ConfinedConcrete01<span class="w"> </span><span class="nv">$tag</span><span class="w"> </span><span class="nv">$secType</span><span class="w"> </span><span class="nv">$fpc</span><span class="w"> </span><span class="nv">$Ec</span><span class="w"> </span>
 <span class="w">  </span><span class="k">(</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-epscu</span><span class="w"> </span><span class="nv">$epscu</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span>OR<span class="w">  </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>gamma<span class="w"> </span><span class="nv">$gamma</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">)</span><span class="w"> </span>
 <span class="w">  </span><span class="k">(</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-nu</span><span class="w"> </span><span class="nv">$nu</span><span class="w"> </span><span class="o">&gt;</span><span class="w">  </span>OR<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>varub<span class="w"> </span><span class="o">&gt;</span><span class="w">  </span>OR<span class="w">  </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>varnoub<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="k">)</span><span class="w"> </span><span class="nv">$L1</span><span class="w"> </span><span class="k">(</span><span class="nv">$L2</span><span class="k">)</span><span class="w"> </span><span class="k">(</span><span class="nv">$L3</span><span class="k">)</span><span class="w"> </span><span class="nv">$phis</span><span class="w"> </span><span class="nv">$S</span><span class="w"> </span><span class="nv">$fyh</span><span class="w"> </span><span class="nv">$Es0</span>

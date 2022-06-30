@@ -13171,8 +13171,6 @@
         
           
         
-          
-        
       
       
         
@@ -13263,21 +13261,6 @@
     <li class="md-nav__item">
       <a href="../../../../5_Packages/optimization/modeling/242-Fiber%20Command%20for%20Sensitivity/" class="md-nav__link">
         Fiber Command for Sensitivity
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/modeling/244-Fiber%20Section%20for%20Sensitivity/" class="md-nav__link">
-        Fiber Section for Sensitivity
 
       </a>
     </li>
@@ -13429,7 +13412,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_7_4_17" type="checkbox" id="__nav_4_5_7_4_17" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_7_4_16" type="checkbox" id="__nav_4_5_7_4_16" >
       
       
       
@@ -13472,13 +13455,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_4_5_7_4_17">
+        <label class="md-nav__link" for="__nav_4_5_7_4_16">
           Material
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material" data-md-level="5">
-        <label class="md-nav__title" for="__nav_4_5_7_4_17">
+        <label class="md-nav__title" for="__nav_4_5_7_4_16">
           <span class="md-nav__icon md-icon"></span>
           Material
         </label>
@@ -14028,7 +14011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands%3A/" class="md-nav__link">
+      <a href="../../../../5_Packages/optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands/" class="md-nav__link">
         DDM-Based Response Sensitivity Computation Tcl Commands:
 
       </a>
@@ -14458,80 +14441,6 @@
 <p>
 This command is used to construct an elastic bilinear uniaxial material object. Unlike all other bilinear materials, the unloading curve follows the loading curve exactly.
 </p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">ElasticBilin</span>(name, elastic_modulus, E2, eps2, EN1, EN2, epsN2, **kwds) </span></p>
-<div>
-<table>
-<colgroup>
-<col style="width: 10%" >
-<col style="width: 30%" >
-<col style="width: 60%" >
-</colgroup>
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-E
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-tangent in tension for stains: 0 &lt;= strains <span class="math inline">\(\le\)</span> <code>epsP2</code>
-</tr>
-<tr>
-<td>
-E2
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-tangent when material in tension with strains &gt; <code>epsP2</code>
-</tr>
-<tr>
-<td>
-eps2
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-strain at which material changes tangent in tension.
-</tr>
-<tr>
-<td>
-EN1
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-optional, default = <code>EP1</code>. tangent in compression for stains: 0 &lt; strains <span class="math inline">\(\le\)</span> <code>epsN2</code>
-</tr>
-<tr>
-<td>
-EN2
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-optional, default = <code>EP2</code>. tangent in compression with strains &lt; <code>epsN2</code>
-</tr>
-<tr>
-<td>
-epsN2
-</td>
-<td>
-<code>float</code>
-</td>
-<td>
-optional, default = -epsP2. strain at which material changes tangent in compression.
-</tr>
-</tbody>
-</table>
-</div>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElasticPP.gif" title="ElasticPP.gif" alt="ElasticPP.gif" />
 <figcaption aria-hidden="true">

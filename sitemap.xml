@@ -2486,11 +2486,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/244-Fiber%20Section%20for%20Sensitivity/</loc>
-         <lastmod>2022-06-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/42-BbarBrickWithSensitivity/</loc>
          <lastmod>2022-06-30</lastmod>
          <changefreq>daily</changefreq>
@@ -2671,7 +2666,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands%3A/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands/</loc>
          <lastmod>2022-06-30</lastmod>
          <changefreq>daily</changefreq>
     </url>

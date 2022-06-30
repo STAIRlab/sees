@@ -13171,8 +13171,6 @@
         
           
         
-          
-        
       
       
         
@@ -13263,21 +13261,6 @@
     <li class="md-nav__item">
       <a href="../../../optimization/modeling/242-Fiber%20Command%20for%20Sensitivity/" class="md-nav__link">
         Fiber Command for Sensitivity
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../optimization/modeling/244-Fiber%20Section%20for%20Sensitivity/" class="md-nav__link">
-        Fiber Section for Sensitivity
 
       </a>
     </li>
@@ -13429,7 +13412,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_7_4_17" type="checkbox" id="__nav_4_5_7_4_17" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_7_4_16" type="checkbox" id="__nav_4_5_7_4_16" >
       
       
       
@@ -13472,13 +13455,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_4_5_7_4_17">
+        <label class="md-nav__link" for="__nav_4_5_7_4_16">
           Material
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material" data-md-level="5">
-        <label class="md-nav__title" for="__nav_4_5_7_4_17">
+        <label class="md-nav__title" for="__nav_4_5_7_4_16">
           <span class="md-nav__icon md-icon"></span>
           Material
         </label>
@@ -14028,7 +14011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands%3A/" class="md-nav__link">
+      <a href="../../../optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands/" class="md-nav__link">
         DDM-Based Response Sensitivity Computation Tcl Commands:
 
       </a>
@@ -14455,11 +14438,9 @@
 
 
 <h1 id="section-aggregator">Section Aggregator</h1>
-<p>
-This command is used to construct a SectionAggregator object which aggregates groups previously-defined UniaxialMaterial objects into a single section force-deformation model. Each UniaxialMaterial object represents the section force-deformation response for a particular section degree-of-freedom (dof). There is no interaction between responses in different dof directions. The aggregation can include one previously defined section.
-</p>
+<p>This command is used to construct a SectionAggregator object which aggregates groups previously-defined UniaxialMaterial objects into a single section force-deformation model. Each UniaxialMaterial object represents the section force-deformation response for a particular section degree-of-freedom (dof). There is no interaction between responses in different dof directions. The aggregation can include one previously defined section.</p>
 <div class="highlight"><pre><span></span><span class="nv">section</span><span class="w"> </span>Aggregator<span class="w"> </span><span class="nv">$secTag</span><span class="w"> </span><span class="nv">$matTag1</span><span class="w"> </span><span class="nv">$dof1</span><span class="w"> </span><span class="nv">$matTag2</span><span class="w"> </span><span class="nv">$dof2</span>
-<span class="w">        </span><span class="nv">.......</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">-section</span><span class="w"> </span><span class="nv">$sectionTag</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">...</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>section<span class="w"> </span><span class="nv">$sectionTag</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <hr />
@@ -14480,7 +14461,19 @@ unique section tag
 <tr class="even">
 <td>
 <p>
-<strong>$matTag1 <span class="math inline">\(matTag2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tag of previously-defined UniaxialMaterial objects&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dof1 $dof2 …</strong>
+<code>matTag1 matTag2 …</code>
+</p>
+</td>
+<td>
+<p>
+tag of previously-defined UniaxialMaterial objects
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code>dof1 dof2 …</code>
 </p>
 </td>
 <td>
@@ -14558,8 +14551,7 @@ tag of previously-defined Section object to which the UniaxialMaterial objects a
 </tbody>
 </table>
 <figure>
-<img src="SectionAggregator.gif" title="SectionAggregator.gif"
-alt="SectionAggregator.gif" />
+<img src="/OpenSeesRT/contrib/static/SectionAggregator.gif" title="SectionAggregator.gif" />
 <figcaption aria-hidden="true">
 SectionAggregator.gif
 </figcaption>
@@ -14572,16 +14564,10 @@ EXAMPLE
 section Aggregator 2 2 Vy -section 4; # create new section with IDtag 2, taking the existing material tag 2 to represent the shear and adding it to the existing section tag 4, which may be a fiber section where the interaction betweeen axial force and flexure is already considered.
 </p>
 <h2 id="theory">Theory</h2>
-<p>
-Read if you’re using moment-curvature in beamWithHinges element to represent moment-rotation, or vice versa
-</p>
-<p>
-<a
-href="http://earthquakespectra.org/doi/abs/10.1193/1.4000136">http://earthquakespectra.org/doi/abs/10.1193/1.4000136</a>
-</p>
+<p>Read if you’re using moment-curvature in <code>BeamWithHinges</code> element to represent moment-rotation, or vice versa: <a href="https://doi.org/10.1193%2F1.4000136">https://doi.org/10.1193%2F1.4000136</a></p>
 <hr />
 <p>
-Code Developed by: <span style="color:blue"> Micheal H. Scott, Oregon State </span>
+Code developed by: <span style="color:blue"> Micheal H. Scott, Oregon State </span>
 </p>
 
 
