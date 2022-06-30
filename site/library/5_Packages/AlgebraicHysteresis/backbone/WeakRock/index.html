@@ -13171,8 +13171,6 @@
         
           
         
-          
-        
       
       
         
@@ -13263,21 +13261,6 @@
     <li class="md-nav__item">
       <a href="../../../optimization/modeling/242-Fiber%20Command%20for%20Sensitivity/" class="md-nav__link">
         Fiber Command for Sensitivity
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../optimization/modeling/244-Fiber%20Section%20for%20Sensitivity/" class="md-nav__link">
-        Fiber Section for Sensitivity
 
       </a>
     </li>
@@ -13429,7 +13412,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_7_4_17" type="checkbox" id="__nav_4_5_7_4_17" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5_7_4_16" type="checkbox" id="__nav_4_5_7_4_16" >
       
       
       
@@ -13472,13 +13455,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_4_5_7_4_17">
+        <label class="md-nav__link" for="__nav_4_5_7_4_16">
           Material
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material" data-md-level="5">
-        <label class="md-nav__title" for="__nav_4_5_7_4_17">
+        <label class="md-nav__title" for="__nav_4_5_7_4_16">
           <span class="md-nav__icon md-icon"></span>
           Material
         </label>
@@ -14028,7 +14011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands%3A/" class="md-nav__link">
+      <a href="../../../optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands/" class="md-nav__link">
         DDM-Based Response Sensitivity Computation Tcl Commands:
 
       </a>
@@ -14455,7 +14438,19 @@
 
 
 <h1 id="weakrock">WeakRock</h1>
-<p>on page 56 of this manual https://www.dropbox.com/s/h3s9qvvz3pb4tlf/Weak%20Rock%20Reference%20Book.pdf?dl=0</p>
+<p>See page 56 of reference [1] (<a href="https://www.dropbox.com/s/h3s9qvvz3pb4tlf/Weak%20Rock%20Reference%20Book.pdf?dl=0">link</a>).</p>
+<p>For the initial linear portion of the curve</p>
+<p><span class="math display">\[p=K_{i r} y \quad \text{for} \quad y \leq y_{A}\]</span></p>
+<p>For the transitional, nonlinear portion</p>
+<p><span class="math display">\[
+\begin{aligned}
+p &amp;=\frac{p_{u r}}{2}\left(\frac{y}{y_{r m}}\right)^{0.25} \text { for } y \geq y_{A}, p \leq p_{\mathrm{ur}} \\
+y_{r m} &amp;=k_{r m} B
+\end{aligned}
+\]</span></p>
+<p>and when the ultimate resistance is reached <span class="math display">\[p=p_{u r}\]</span></p>
+<p>where</p>
+<p><span class="math inline">\(K_{i r}=\)</span> initial slope of the curve, <span class="math inline">\(p_{u r}=\)</span> the rock mass ultimate resistance, <span class="math inline">\(B=\)</span> shaft diameter, and <span class="math inline">\(k_{r m}\)</span> is a constant ranging from <span class="math inline">\(0.0005\)</span> to <span class="math inline">\(0.00005\)</span> that serves to establish the overall stiffness of the curve.</p>
 <div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">WeakRock</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">HystereticBackbone</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">  </span><span class="n">WeakRock</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">kir</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">pur</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">yrm</span><span class="p">);</span><span class="w"></span>
@@ -14483,6 +14478,11 @@
 <span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">yrm</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
+
+<h2 id="references">References</h2>
+<ol type="1">
+<li>National Academies of Sciences, Engineering, and Medicine 2006. <em>Rock-Socketed Shafts for Highway Structure Foundations.</em> Washington, DC: The National Academies Press. https://doi.org/10.17226/13975.</li>
+</ol>
 
 
               
