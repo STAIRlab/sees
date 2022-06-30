@@ -2,6 +2,7 @@
 from .ast import *
 from .obj import *
 from .obj import _LineElement
+from .model import Node
 
 Dof = Int
 
@@ -9,17 +10,13 @@ def Yng(about=None, **kwds):
     about = about or "Young's modulus of elasticity"
     return Num("E", field="elastic_modulus", about=about, **kwds)
 
+def Yld(nature, about=None, **kwds):
+    about = about or f"Yield {nature}."
+    return Num("fy", field=f"yield_{nature}", about=about, **kwds)
+
 def Area(**kwds):
     return Num("A", field="area", about="cross-sectional area", **kwds)
 
-
-Node = cmd("Node", "node", [
-    Tag(),
-    Grp("crd", type=Num, args=[Num("x"), Num("y"), Num("z")]),
-    Grp("mass", flag="-mass", reqd=False, default=[0.0]*6, args=[
-        Num("x"),Num("y"), Num("z"), Num("x"),Num("y"), Num("z")
-    ]),
-])
 
 class BeamInt(Arg):
     def as_tcl_list(self, value):
@@ -56,6 +53,35 @@ class uniaxial:
     A `UniaxialMaterial` object typically represents a pair of work conjugate
     scalars such as axial stress/strain, moment/cuvature, or force/deformation.
     """
+    class UniaxialWrapper:
+        def __init__(self, wrapped):
+            self._wrapped = wrapped
+            self._wrapping_several = isinstance(self._wrapped, (tuple, list))
+
+            
+        def __repr__(self):
+            return f"{self.__class__.__name__}<{self._wrapped.__class__.__name__}>"
+
+        def __enter__(self):
+            if self._wrapping_several:
+                self.wrapped = type(self._wrapped)(
+                    w.__enter__() for w in self._wrapped
+                )
+            else:
+                self.wrapped = self._wrapped.__enter__()
+
+            return self
+
+        def __exit__(self, *args, **kwds):
+            if self._wrapping_several:
+                for i,w in enumerate(self._wrapped):
+                    w.__exit__(*args, **kwds)
+                    del self.wrapped[i]
+            else:
+                self._wrapped.__exit__(*args, **kwds)
+            del self.wrapped
+
+
     Series = Uni("SeriesMaterial", "Series", args = [
             Tag(),
             Grp("materials", min=2, type=Ref(type="uniaxial", attr="name"))
@@ -84,11 +110,11 @@ class uniaxial:
 
     ElasticBilin = Uni("ElasticBilin", "ElasticBilin", args=[ 
         Tag(),
-        Yng(about="tangent in tension for stains: 0 <= strains <= $epsP2"),
-        Num("E2", about="tangent when material in tension with strains > $epsP2"),
+        Yng(about=r"tangent in tension for stains: 0 <= strains $\le$ `epsP2`"),
+        Num("E2", about="tangent when material in tension with strains > `epsP2`"),
         Num("eps2", about="strain at which material changes tangent in tension."),
-        Num("EN1", reqd=False, about="optional, default = $EP1. tangent in compression for stains: 0 < strains <= $epsN2"),
-        Num("EN2", reqd=False, about="optional, default = $EP2. tangent in compression with strains < $epsN2"),
+        Num("EN1", reqd=False, about="optional, default = `EP1`. tangent in compression for stains: 0 < strains $\le$ `epsN2`"),
+        Num("EN2", reqd=False, about="optional, default = `EP2`. tangent in compression with strains < `epsN2`"),
         Num("epsN2", reqd=False, about="optional, default = -epsP2. strain at which material changes tangent in compression.")
     ])
 
@@ -96,7 +122,7 @@ class uniaxial:
     Hardening = Uni("HardeningMaterial", "Hardening", args=[
         Tag(),
         Yng(),
-        Num("fy", about="yield stress or force"),
+        Yld("stress"),
         Num("H_iso", about="isotropic hardening Modulus"),
         Num("H_kin", about="kinematic hardening Modulus"),
         Num("eta",   reqd=False, about="visco-plastic coefficient (optional, default=0.0)"),
@@ -130,20 +156,21 @@ class uniaxial:
         ])
 
     RambergOsgoodSteel = Uni("RambergOsgoodSteel", "RambergOsgoodSteel", args=[
-        Tag(), Yng(), Num("fy", about="yield strength"), Num("a", about="yield offset parameter"),
-        Num("n", about="")
+        Tag(), Yng(), Yld("stress"), Num("a", about="yield offset parameter"),
+        Num("n", about="Parameter to control the transition from elastic to plastic branches. Additionally controls the hardening of the material: by increasing $n$, hardening ratio will be decreased.")
     ])
 
     DoddRestrepo = Uni("Dodd_Restrepo", "Dodd_Restrepo", args=[
         Tag(),
-        Num("Fy",  about="Yield strength"),
-        Num("Fsu", about="Ultimate tensile strength (UTS)"),
+        Yld("stress"),
+        Num("fu",  about="Ultimate tensile strength (UTS)"),
         Num("esh", about="Tensile strain at initiation of strain hardening"),
         Num("esu", about="Tensile strain at the UTS"),
         Yng(),
-        Num("eshI", about="Tensile strain for a point on strain hardening curve, recommended range of values for eshI: [ (ESU + 5esh)/6, (ESU + 3esh)/4]"),
+        Num("eshI", about="Tensile strain for a point on strain hardening curve, recommended range of values for eshI: " \
+                r"$[ (\texttt{esu} + 5 \texttt{esh})/6, (\texttt{esu} + 3 \texttt{esh)/4]$"),
         Num("fshI", about="Tensile stress at point on strain hardening curve corresponding to eshI"),
-        Num("OmegaFac", reqd=False, about="Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: [0.75, 1.15]. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0."),
+        Num("OmegaFac", default=1.0, reqd=False, about=r"Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: $\[0.75, 1.15\]$. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0."),
     ])
 
 
@@ -177,6 +204,68 @@ class uniaxial:
         # elastic to plastic branches. params=[R0,cR1,cR2].
         # Recommended values: R0=between 10 and 20, cR1=0.925, cR2=0.15"),
     )
+
+    ReinforcingSteel = Uni("ReinforcingSteel", "ReinforcingSteel", args=[
+        Num("matTag", about="unique material object integer tag"),
+        Yld("stress", about="Yield stress in tension (see Figure 1)"),
+        Num("fu",     about="Ultimate stress in tension"),
+        Yng(          about="Initial elastic tangent"),
+        Num("Esh",    about="Tangent at initial strain hardening"),
+        Num("esh",    about="Strain corresponding to initial strain hardening"),
+        Num("eult",   about="Strain at peak stress"),
+        Grp("-GABuck", about="Buckling Model Based on Gomes and Appleton (1997)", args=[
+            Num("lsr", about="Slenderness Ratio (see Figure 2)"),
+            Num("beta", about="Amplification factor for the buckled stress strain curve. (see Figure 3)"),
+            Num("r", about="""Buckling reduction factor
+                r can be a real number between [0.0 and 1.0]
+                r=1.0 full reduction (no buckling)
+                r=0.0 no reduction
+                0.0<r<1.0 linear interpolation between buckled and unbuckled curves
+                """)
+            ]
+          ),
+        Num("gamma", about="Buckling constant (see Figures 3 and 4)"),
+
+        Grp("-DMBuck", about="Buckling model based on Dhakal and Maekawa (2002)", args=[
+            Num("lsr", about="Slenderness Ratio (see Figure 2)"),
+            Num("alpha", about="Adjustment Constant usually between 0.75 and 1.0", default=1.0),
+          ]
+        ),
+
+        Grp("-CMFatigue", about="Coffin-Manson Fatigue and Strength Reduction", args=[
+            Num("Cf", about="Coffin-Manson constant C (see Figure 5)"),
+            Num("alpha", about="Coffin-Manson constant a (see Figure 5)"),
+            Num("Cd", about="Cyclic strength reduction constant (see Figure 6 and Equation 3)"),
+          ]
+        ),
+
+        Grp("-IsoHard", about="Isotropic Hardening / Diminishing Yield Plateau", args=[
+            Num("a1", about="Hardening constant", default=4.3),
+            Num("limit", about="Limit for the reduction of the yield plateau. % of original plateau length to remain (0.01 < limit < 1.0 ). If `limit` = 1.0, then no reduction takes place", default=0.01),
+          ]
+        ),
+
+        Grp("-MPCurveParams", about="Menegotto and Pinto Curve Parameters see Fig 6b", args=[
+            Num("R1", default = 0.333),
+            Num("R2", default = 18),
+            Num("R3", default = 4)
+          ]
+        )
+    ])
+
+    UVCuniaxial = UVC = Uni("UVCuniaxial", "UVCuniaxial", args = [
+        Tag(),
+        Yng(),
+        Yld("stress"),
+        Num("QInf",   about="Maximum increase in yield stress due to cyclic hardening (isotropic hardening)."),
+        Num("b",      about="Saturation rate of QInf, b > 0."),
+        Num("DInf",   about="Decrease in the initial yield stress, to neglect the model updates set DInf = 0."),
+        Num("a",      about="Saturation rate of DInf, $a > 0$. If $D_\infty == 0$, then a is arbitrary (but still a > 0)."),
+        Num("N",      about="Number of backstresses to define, N >= 1."),
+        Grp("backstress", type=Grp, args=[Grp(type=Num, args=[Num("C"), Num("gamma")])],
+            about="Backstress parameters, up to 9 pairs may be specified. If `C` is specified, then the corresponding `gamma` must also be specified. Note that only the first N backstresses will be read by the parser."
+        ),
+    ])
 
     ConfinedConcrete01  = Uni("ConfinedConcrete01", "ConfinedConcrete01", args=[
          Tag(),
@@ -270,7 +359,7 @@ class uniaxial:
         Num("ec"  ,  about="floating point values defining concrete strain at maximum strength*"),
         Num("ecu" ,  about="floating point values defining concrete strain at crushing strength*"),
         Num("Ec"  ,  about="floating point values defining initial stiffness**"),
-        Grp("tension", reqd=False, typ=Num, args=[
+        Grp("tension", reqd=False, type=Num, args=[
             Num("fct" ,  about="floating point value defining the maximum tensile strength of concrete"),
             Num("et"  ,  about="floating point value defining ultimate tensile strain of concrete"),
         ]),
@@ -279,28 +368,42 @@ class uniaxial:
 
     Concrete02IS = Uni("Concrete02IS", "Concrete02IS", [
          Tag(), 
-         Num("E0"), 
+         Yng(), 
          Num("fpc"), 
          Num("epsc0"), 
          Num("fpcu"), 
          Num("epscu"), 
-         Grp("tension", reqd=False, typ=Num, args=[
+         Grp("tension", reqd=False, type=Num, args=[
             Num("rat"), Num("ft"), Num("Ets")
          ])
     ])
 
+    Concrete06 = Uni("Concrete06", "Concrete06", args=[ 
+        Tag("matTag", about="integer tag identifying material"),
+        Num("fc", about="concrete compressive strength (compression is negative)*"),
+        Num("e0", about="strain at compressive strength*"),
+        Num("n", about="compressive shape factor"),
+        Num("k", about="post-peak compressive shape factor"),
+        Num("alpha1", about=r"$\alpha_1$ parameter for compressive plastic strain definition"),
+        Num("fcr", about="tensile strength"),
+        Num("ecr", about="tensile strain at peak stress (`fcr`)"),
+        Num("b", about="exponent of the tension stiffening curve"),
+        Num("alpha2", about=r"$\alpha_2$ parameter for tensile plastic strain definition"),
+    ])
+
+
     ConcreteCM = Uni("ConcreteCM", "ConcreteCM", args=[ 
         Tag(), #"mattag  Unique uniaxialMaterial tag"),
-        Num("fpcc" , about="Compressive strength (f'c)"),
-        Num("epcc" , about="Strain at compressive strength (<math>\epsilon</math>'c)"),
-        Num("Ec"   , about="Initial tangent modulus (Ec)"),
-        Num("rc"   , about="Shape parameter in Tsai’s equation defined for compression (rc)"),
-        Num("xcrn" , about="Non-dimensional critical strain on compression envelope (<math>\epsilon</math>-cr, where the envelope curve starts following a straight line)"),
-        Num("ft"   , about="Tensile strength (ft)"),
-        Num("et"   , about="Strain at tensile strength (<math>\epsilon</math>t)"),
-        Num("rt"   , about="Shape parameter in Tsai’s equation defined for tension (rt)"),
-        Num("xcrp" , about="Non-dimensional critical strain on tension envelope (<math>\epsilon</math>+cr, where the envelope curve starts following a straight line – large value [e.g., 10000] recommended when tension stiffening is considered)"),
-        Int("gap", reqd=False, flag="-GapClose",  about="gap = 0, less gradual gap closure (default); gap = 1, more gradual gap closure"),
+        Num("fpcc" , about=r"Compressive strength (f'c)"),
+        Num("epcc" , about=r"Strain at compressive strength ($\epsilon^\prime_c$)"),
+        Num("Ec"   , about=r"Initial tangent modulus ($E_c$)"),
+        Num("rc"   , about=r"Shape parameter in Tsai’s equation defined for compression ($r_c$)"),
+        Num("xcrn" , about=r"Non-dimensional critical strain on compression envelope ($\epsilon^-_{cr}$, where the envelope curve starts following a straight line)"),
+        Num("ft"   , about=r"Tensile strength ($f_t$)"),
+        Num("et"   , about=r"Strain at tensile strength ($\epsilon$t)"),
+        Num("rt"   , about=r"Shape parameter in Tsai’s equation defined for tension ($r_t$)"),
+        Num("xcrp" , about=r"Non-dimensional critical strain on tension envelope ($\epsilon^+_{cr}$, where the envelope curve starts following a straight line – large value [e.g., 10000] recommended when tension stiffening is considered)"),
+        Int("gap",   reqd=False, flag="-GapClose",  about="gap = 0, less gradual gap closure (default); gap = 1, more gradual gap closure"),
     ])
 
 
@@ -364,12 +467,12 @@ class element:
         _args = [
                 
             Tag(),
-            Grp("nodes", typ=Node, 
+            Grp("nodes", type=Node, 
                 args=[Ref("iNode", attr="name"), Ref("jNode", attr="name")], about="end nodes"),
             Num("A", about="cross-sectional area of element"),
-            Ref("material", attr="name", typ=Uni, about="tag associated with previously-defined UniaxialMaterial"),
-            #Ref("section", typ="Section", about="tag associated with previously-defined Section"),
-            Num("rho", reqd=False, about="mass per unit length, optional, default = 0.0"),
+            Ref("material", attr="name", type=Uni, about="tag associated with previously-defined UniaxialMaterial"),
+            #Ref("section", type="Section", about="tag associated with previously-defined Section"),
+            Num("rho",   reqd=False, about="mass per unit length, optional, default = 0.0"),
             Int("cFlag", reqd=False, about="consistent mass flag, optional, default = 0"+
                 "cFlag = 0 lumped mass matrix (default)"+
                 "cFlag = 1 consistent mass matrix"),
@@ -455,8 +558,7 @@ class element:
         inherit=[_LineElement],
     )
 
-LinearTransform = Trf("LinearTransform",
-  "Linear",
+LinearTransform = Trf("LinearTransform", "Linear",
   args = [
     Tag("name", about="Tag used to identify the transform object."),
     Grp("vecxz", type=Num, num=3),

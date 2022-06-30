@@ -521,7 +521,7 @@ class line(ReinforcingLayer):
                 for use in an `NDFiberSection`)"""),
       Int("divs", about="number of fibers along line"),
       Num("area", field="fiber_area", about="area of each fiber"),
-      Grp("vertices", typ=Grp, args=[
+      Grp("vertices", type=Grp, args=[
           Grp("start",args=[Num("x"), Num("y")], reverse=True,
               about="""$x$ and $y$-coordinates of first fiber
                        in line (local coordinate system)"""),
