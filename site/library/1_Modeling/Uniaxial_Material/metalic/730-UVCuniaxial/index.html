@@ -14450,6 +14450,129 @@ href="https://opensees.berkeley.edu/wiki/index.php/UVCplanestress_(Updated_Voce-
 Available in OpenSees version 3.1.0+.
 </p>
 <hr />
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">UVCuniaxial</span>(name,<br>   elastic_modulus,<br>   yield_stress,<br>   QInf,<br>   b,<br>   DInf,<br>   a,<br>   N,<br>   backstress,<br>   **kwds) </span></p>
+<div>
+<table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td>
+E
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Young’s modulus of elasticity
+</tr>
+<tr>
+<td>
+fy
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Yield stress.
+</tr>
+<tr>
+<td>
+QInf
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Maximum increase in yield stress due to cyclic hardening (isotropic hardening).
+</tr>
+<tr>
+<td>
+b
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Saturation rate of QInf, b &gt; 0.
+</tr>
+<tr>
+<td>
+DInf
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Decrease in the initial yield stress, to neglect the model updates set DInf = 0.
+</tr>
+<tr>
+<td>
+a
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Saturation rate of DInf, <span class="math inline">\(a &gt; 0\)</span>. If <span class="math inline">\(D_\infty == 0\)</span>, then a is arbitrary (but still a &gt; 0).
+</tr>
+<tr>
+<td>
+N
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Number of backstresses to define, N &gt;= 1.
+</tr>
+<tr>
+<td colspan="2">
+backstress
+</td>
+<td>
+<code>[[C,gamma]]</code>, Backstress parameters, up to 9 pairs may be specified. If <code>C</code> is specified, then the corresponding <code>gamma</code> must also be specified. Note that only the first N backstresses will be read by the parser.
+<table>
+<tr>
+<td colspan="2">
+<code>[C,gamma]</code>
+</td>
+<td>
+<code>Grp(Num)</code>,<br />
+
+<table>
+<tr>
+<td>
+C
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+gamma
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+</td>
+</table>
+</tr>
+</td>
+</table>
+</tr>
+</tbody>
+</table>
+</div>
 <hr />
 <p>
 <strong>Examples</strong>

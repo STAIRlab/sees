@@ -14442,6 +14442,137 @@
 <h1 id="steel02">Steel02</h1>
 This command is used to construct a uniaxial Giuffre-Menegotto-Pinto steel material object with isotropic strain hardening.
 </p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">Steel02</span>(name, Fy, E0, b, R0, cR1, cR2, a, **kwds) </span></p>
+<div>
+<table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td>
+Fy
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+yield strength
+</tr>
+<tr>
+<td>
+E0
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+initial elastic tangent
+</tr>
+<tr>
+<td>
+b
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent
+</tr>
+<tr>
+<td>
+R0
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+cR1 = 0.925
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+cR2 = 0.15
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+<tr>
+<td colspan="2">
+a
+</td>
+<td>
+<code>[a1,a2,a3,a4,sigInit]</code>, isotropic hardening parameters
+<table>
+<tr>
+<td>
+a1
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+increase of compression yield envelope as proportion of yield strength after a plastic strain of <code>a2∗(Fy/E0)</code>
+</tr>
+<tr>
+<td>
+a2 = 1.0
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+see explanation under <code>a1</code>.
+</tr>
+<tr>
+<td>
+a3
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+increase of tension yield envelope as proportion of yield strength after a plastic strain of <code>a4∗(Fy/E0)</code>
+</tr>
+<tr>
+<td>
+a4 = 1.0
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+see explanation under <code>a3</code>.
+</tr>
+<tr>
+<td>
+sigInit
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+initial stress
+</tr>
+</td>
+</table>
+</tr>
+</tbody>
+</table>
+</div>
 <p>more on <a href="OpenSees_uniaxialMaterial_Arguments_--_Steel02"
 title="wikilink">OpenSees uniaxialMaterial Arguments – Steel02</a></p>
 <p>

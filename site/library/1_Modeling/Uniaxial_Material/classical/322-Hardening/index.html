@@ -14441,6 +14441,70 @@
 <p>
 This command is used to construct a uniaxial material object with combined linear kinematic and isotropic hardening. The model includes optional visco-plasticity using a Perzyna formulation.
 </p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">HardeningMaterial</span>(name, elastic_modulus, yield_stress, H_iso, H_kin, eta, **kwds) </span></p>
+<div>
+<table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td>
+E
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Young’s modulus of elasticity
+</tr>
+<tr>
+<td>
+fy
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Yield stress.
+</tr>
+<tr>
+<td>
+H_iso
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+isotropic hardening Modulus
+</tr>
+<tr>
+<td>
+H_kin
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+kinematic hardening Modulus
+</tr>
+<tr>
+<td>
+eta
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+visco-plastic coefficient (optional, default=0.0)
+</tr>
+</tbody>
+</table>
+</div>
 <figure>
 <img src="/OpenSeesRT/contrib/static/HardeningMaterial.gif" title="HardeningMaterial.gif"
 alt="HardeningMaterial.gif" />
