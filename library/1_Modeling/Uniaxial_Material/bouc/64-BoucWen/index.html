@@ -14441,6 +14441,134 @@
 <p>
 This command is used to construct a uniaxial Bouc-Wen smooth hysteretic material object. This material model is an extension of the original Bouc-Wen model that includes stiffness and strength degradation (Baber and Noori (1985)).
 </p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">BoucWen</span>(name, alpha, ko, n, a, b, c, **kwds) </span></p>
+<div>
+<table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td>
+alpha
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+ratio of post-yield stiffness to the initial elastic stiffenss (0&lt; α &lt;1)
+</tr>
+<tr>
+<td>
+ko
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+initial elastic stiffness
+</tr>
+<tr>
+<td>
+n
+</td>
+<td>
+<code>int</code>
+</td>
+<td>
+parameter that controls transition from linear to nonlinear range (as n increases the transition becomes sharper; n is usually grater or equal to 1)
+</tr>
+<tr>
+<td colspan="2">
+a
+</td>
+<td>
+<code>[gamma,beta]</code>, parameters that control shape of hysteresis loop; depending on the values of γ and β softening, hardening or quasi-linearity can be simulated (look at the NOTES)
+<table>
+<tr>
+<td>
+gamma
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+beta
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+</td>
+</table>
+</tr>
+<tr>
+<td colspan="2">
+b
+</td>
+<td>
+<code>[Ao,deltaA]</code>, parameters that control tangent stiffness
+<table>
+<tr>
+<td>
+Ao
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+deltaA
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+</td>
+</table>
+</tr>
+<tr>
+<td colspan="2">
+c
+</td>
+<td>
+<code>[deltaNu,deltaEta]</code>, parameters that control material degradation
+<table>
+<tr>
+<td>
+deltaNu
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+deltaEta
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+</td>
+</table>
+</tr>
+</tbody>
+</table>
+</div>
 <p>
 NOTES:
 </p>

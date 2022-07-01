@@ -14441,6 +14441,60 @@
 <p>
 This command is used to construct an elastic perfectly-plastic uniaxial material object.
 </p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">ElasticPP</span>(name, elastic_modulus, epsyP, epsyN, eps0, **kwds) </span></p>
+<div>
+<table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td>
+E
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Young’s modulus of elasticity
+</tr>
+<tr>
+<td>
+epsyP
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+strain or deformation at which material reaches plastic state in tension
+</tr>
+<tr>
+<td>
+epsyN
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+strain or deformation at which material reaches plastic state in compression. (optional, default is tension value)
+</tr>
+<tr>
+<td>
+eps0
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+initial strain (optional, default: zero)
+</tr>
+</tbody>
+</table>
+</div>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElasticPP.gif" title="ElasticPP.gif" alt="ElasticPP.gif" />
 <figcaption aria-hidden="true">

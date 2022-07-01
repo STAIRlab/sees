@@ -14439,6 +14439,275 @@
 
 <h1 id="reinforcingsteel">ReinforcingSteel</h1>
 <p>This command is used to construct a <code>ReinforcingSteel</code> uniaxial material object. This object is intended to be used in a reinforced concrete fiber section as the steel reinforcing material.</p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">ReinforcingSteel</span>(matTag,<br>   yield_stress,<br>   fu,<br>   elastic_modulus,<br>   Esh,<br>   esh,<br>   eult,<br>   GABuck,<br>   gamma,<br>   DMBuck,<br>   CMFatigue,<br>   IsoHard,<br>   MPCurveParams,<br>   **kwds) </span></p>
+<div>
+<table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
+<tbody>
+<tr>
+<td>
+matTag
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+unique material object integer tag
+</tr>
+<tr>
+<td>
+fy
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Yield stress in tension (see Figure 1)
+</tr>
+<tr>
+<td>
+fu
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Ultimate stress in tension
+</tr>
+<tr>
+<td>
+E
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Initial elastic tangent
+</tr>
+<tr>
+<td>
+Esh
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Tangent at initial strain hardening
+</tr>
+<tr>
+<td>
+esh
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Strain corresponding to initial strain hardening
+</tr>
+<tr>
+<td>
+eult
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Strain at peak stress
+</tr>
+<tr>
+<td colspan="2">
+GABuck
+</td>
+<td>
+<code>[lsr,beta,r]</code>, Buckling Model Based on Gomes and Appleton (1997)
+<table>
+<tr>
+<td>
+lsr
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Slenderness Ratio (see Figure 2)
+</tr>
+<tr>
+<td>
+beta
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Amplification factor for the buckled stress strain curve. (see Figure 3)
+</tr>
+<tr>
+<td>
+r
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Buckling reduction factor r can be a real number between [0.0 and 1.0] r=1.0 full reduction (no buckling) r=0.0 no reduction 0.0&lt;r&lt;1.0 linear interpolation between buckled and unbuckled curves
+</tr>
+</td>
+</table>
+</tr>
+<tr>
+<td>
+gamma
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Buckling constant (see Figures 3 and 4)
+</tr>
+<tr>
+<td colspan="2">
+DMBuck
+</td>
+<td>
+<code>[lsr,alpha]</code>, Buckling model based on Dhakal and Maekawa (2002)
+<table>
+<tr>
+<td>
+lsr
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Slenderness Ratio (see Figure 2)
+</tr>
+<tr>
+<td>
+alpha = 1.0
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Adjustment Constant usually between 0.75 and 1.0
+</tr>
+</td>
+</table>
+</tr>
+<tr>
+<td colspan="2">
+CMFatigue
+</td>
+<td>
+<code>[Cf,alpha,Cd]</code>, Coffin-Manson Fatigue and Strength Reduction
+<table>
+<tr>
+<td>
+Cf
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Coffin-Manson constant C (see Figure 5)
+</tr>
+<tr>
+<td>
+alpha
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Coffin-Manson constant a (see Figure 5)
+</tr>
+<tr>
+<td>
+Cd
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Cyclic strength reduction constant (see Figure 6 and Equation 3)
+</tr>
+</td>
+</table>
+</tr>
+<tr>
+<td colspan="2">
+IsoHard
+</td>
+<td>
+<code>[a1,limit]</code>, Isotropic Hardening / Diminishing Yield Plateau
+<table>
+<tr>
+<td>
+a1 = 4.3
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Hardening constant
+</tr>
+<tr>
+<td>
+limit = 0.01
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+Limit for the reduction of the yield plateau. % of original plateau length to remain (0.01 &lt; limit &lt; 1.0 ). If <code>limit</code> = 1.0, then no reduction takes place
+</tr>
+</td>
+</table>
+</tr>
+<tr>
+<td colspan="2">
+MPCurveParams
+</td>
+<td>
+<code>[R1,R2,R3]</code>, Menegotto and Pinto Curve Parameters see Fig 6b
+<table>
+<tr>
+<td>
+R1 = 0.333
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+R2 = 18
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+R3 = 4
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+</tr>
+</td>
+</table>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ReinforcingSteel<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fy</span><span class="w"> </span><span class="nv">$fu</span><span class="w"> </span><span class="nv">$Es</span><span class="w"> </span><span class="nv">$Esh</span><span class="w"> </span><span class="nv">$esh</span><span class="w"> </span><span class="nv">$eult</span><span class="w"> </span>
 <span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>GABuck<span class="w"> </span><span class="nv">$lsr</span><span class="w"> </span><span class="nv">$beta</span><span class="w"> </span><span class="nv">$r</span><span class="w"> </span><span class="nv">$gama</span><span class="w"> </span><span class="o">&gt;</span>
 <span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-DMBuck</span><span class="w"> </span><span class="nv">$lsr</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>

@@ -14440,6 +14440,101 @@
 
 <h1 id="concrete04">Concrete04</h1>
 <p>This command is used to construct a uniaxial Popovics concrete material object with degraded linear unloading/reloading stiffness according to the work of Karsan-Jirsa and tensile strength with exponential decay.</p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">Concrete04</span>(name, fc, ec, ecu, Ec, tension, beta, **kwds) </span></p>
+<div>
+<table>
+<colgroup>
+<col style="width: 10%" >
+<col style="width: 30%" >
+<col style="width: 60%" >
+</colgroup>
+<tbody>
+<tr>
+</tr>
+<tr>
+<td>
+fc
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+floating point values defining concrete compressive strength at 28 days (compression is negative)*
+</tr>
+<tr>
+<td>
+ec
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+floating point values defining concrete strain at maximum strength*
+</tr>
+<tr>
+<td>
+ecu
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+floating point values defining concrete strain at crushing strength*
+</tr>
+<tr>
+<td>
+Ec
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+floating point values defining initial stiffness**
+</tr>
+<tr>
+<td colspan="2">
+tension
+</td>
+<td>
+<code>[fct,et]</code>,<br />
+
+<table>
+<tr>
+<td>
+fct
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+floating point value defining the maximum tensile strength of concrete
+</tr>
+<tr>
+<td>
+et
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+floating point value defining ultimate tensile strain of concrete
+</tr>
+</td>
+</table>
+</tr>
+<tr>
+<td>
+beta
+</td>
+<td>
+<code>float</code>
+</td>
+<td>
+floating point value defining the exponential curve parameter to define the residual stress (as a factor of $ft) at $etu
+</tr>
+</tbody>
+</table>
+</div>
 <p>
 NOTE:
 </p>
