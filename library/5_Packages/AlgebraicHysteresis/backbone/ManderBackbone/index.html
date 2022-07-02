@@ -14438,7 +14438,7 @@
 
 
 <h1 id="mander">Mander</h1>
-<p>This file contains the implementation of ManderBackbone, which the concrete backbone function given by Mander, Priestly, and Park (1988)</p>
+<p><code>ManderBackbone</code>, implements the concrete backbone function utilized by Mander, Priestly, and Park (1988) and presented by Popovic.</p>
 <p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">Mander</span>(name, fc, epsc, elastic_modulus, **kwds) </span></p>
 <div>
 <table>
@@ -14481,11 +14481,27 @@ Young’s modulus of elasticity
 </tbody>
 </table>
 </div>
-<p>Code developed by: <span style="color:blue">MHS</span> Created: Mar 2001</p>
 <div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">ManderBackbone</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">HystereticBackbone</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w"> </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">  </span><span class="n">ManderBackbone</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">fc</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">epsc</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">Ec</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="nf">getStress</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">strain</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strain</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.0</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="n">strain</span><span class="w"> </span><span class="o">*=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">oneOverepsc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="o">/</span><span class="n">epsc</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">strain</span><span class="o">*</span><span class="n">oneOverepsc</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">Esec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fpc</span><span class="o">*</span><span class="n">oneOverepsc</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ec</span><span class="o">/</span><span class="p">(</span><span class="n">Ec</span><span class="o">-</span><span class="n">Esec</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">fpc</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">r</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">r</span><span class="mf">-1.0</span><span class="o">+</span><span class="n">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">r</span><span class="p">));</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
 
 <span class="w"> </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
 <span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">fpc</span><span class="p">;</span><span class="w"></span>
@@ -14493,6 +14509,8 @@ Young’s modulus of elasticity
 <span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">Ec</span><span class="p">;</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
+
+<p>Code developed by: <span style="color:blue">MHS</span> Created: Mar 2001</p>
 
 
               
