@@ -14442,18 +14442,16 @@
 <p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">ReinforcingSteel</span>(matTag,<br>   yield_stress,<br>   fu,<br>   elastic_modulus,<br>   Esh,<br>   esh,<br>   eult,<br>   GABuck,<br>   gamma,<br>   DMBuck,<br>   CMFatigue,<br>   IsoHard,<br>   MPCurveParams,<br>   **kwds) </span></p>
 <div>
 <table>
-<colgroup>
-<col style="width: 10%" >
-<col style="width: 30%" >
-<col style="width: 60%" >
-</colgroup>
+<!-- <colgroup>
+  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
+</colgroup> -->
 <tbody>
 <tr>
 <td>
 matTag
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 unique material object integer tag
@@ -14463,7 +14461,7 @@ unique material object integer tag
 fy
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Yield stress in tension (see Figure 1)
@@ -14473,7 +14471,7 @@ Yield stress in tension (see Figure 1)
 fu
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Ultimate stress in tension
@@ -14483,7 +14481,7 @@ Ultimate stress in tension
 E
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Initial elastic tangent
@@ -14493,7 +14491,7 @@ Initial elastic tangent
 Esh
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Tangent at initial strain hardening
@@ -14503,7 +14501,7 @@ Tangent at initial strain hardening
 esh
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Strain corresponding to initial strain hardening
@@ -14513,7 +14511,7 @@ Strain corresponding to initial strain hardening
 eult
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Strain at peak stress
@@ -14530,7 +14528,7 @@ GABuck
 lsr
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Slenderness Ratio (see Figure 2)
@@ -14540,7 +14538,7 @@ Slenderness Ratio (see Figure 2)
 beta
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Amplification factor for the buckled stress strain curve. (see Figure 3)
@@ -14550,7 +14548,7 @@ Amplification factor for the buckled stress strain curve. (see Figure 3)
 r
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Buckling reduction factor r can be a real number between [0.0 and 1.0] r=1.0 full reduction (no buckling) r=0.0 no reduction 0.0&lt;r&lt;1.0 linear interpolation between buckled and unbuckled curves
@@ -14563,7 +14561,7 @@ Buckling reduction factor r can be a real number between [0.0 and 1.0] r=1.0 ful
 gamma
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Buckling constant (see Figures 3 and 4)
@@ -14580,7 +14578,7 @@ DMBuck
 lsr
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Slenderness Ratio (see Figure 2)
@@ -14590,7 +14588,7 @@ Slenderness Ratio (see Figure 2)
 alpha = 1.0
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Adjustment Constant usually between 0.75 and 1.0
@@ -14610,7 +14608,7 @@ CMFatigue
 Cf
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Coffin-Manson constant C (see Figure 5)
@@ -14620,7 +14618,7 @@ Coffin-Manson constant C (see Figure 5)
 alpha
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Coffin-Manson constant a (see Figure 5)
@@ -14630,7 +14628,7 @@ Coffin-Manson constant a (see Figure 5)
 Cd
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Cyclic strength reduction constant (see Figure 6 and Equation 3)
@@ -14650,7 +14648,7 @@ IsoHard
 a1 = 4.3
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Hardening constant
@@ -14660,7 +14658,7 @@ Hardening constant
 limit = 0.01
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Limit for the reduction of the yield plateau. % of original plateau length to remain (0.01 &lt; limit &lt; 1.0 ). If <code>limit</code> = 1.0, then no reduction takes place
@@ -14680,7 +14678,7 @@ MPCurveParams
 R1 = 0.333
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 </tr>
@@ -14689,7 +14687,7 @@ R1 = 0.333
 R2 = 18
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 </tr>
@@ -14698,7 +14696,7 @@ R2 = 18
 R3 = 4
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 </tr>
@@ -14708,6 +14706,10 @@ R3 = 4
 </tbody>
 </table>
 </div>
+<details>
+<summary>
+Tcl Command
+</summary>
 <div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>ReinforcingSteel<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$fy</span><span class="w"> </span><span class="nv">$fu</span><span class="w"> </span><span class="nv">$Es</span><span class="w"> </span><span class="nv">$Esh</span><span class="w"> </span><span class="nv">$esh</span><span class="w"> </span><span class="nv">$eult</span><span class="w"> </span>
 <span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>GABuck<span class="w"> </span><span class="nv">$lsr</span><span class="w"> </span><span class="nv">$beta</span><span class="w"> </span><span class="nv">$r</span><span class="w"> </span><span class="nv">$gama</span><span class="w"> </span><span class="o">&gt;</span>
 <span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-DMBuck</span><span class="w"> </span><span class="nv">$lsr</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
@@ -14715,7 +14717,6 @@ R3 = 4
 <span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>IsoHard<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$a1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$limit</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
-<hr />
 <table>
 <tbody>
 <tr class="even">
@@ -14766,12 +14767,6 @@ yield stress.
 </p>
 </td>
 <td>
-<!--
-</tr>
-</tbody>
-</table>
-<p>&lt;blockquote&gt;</p>
--->
 <table>
 <tbody>
 <tr class="odd">
@@ -14806,7 +14801,7 @@ Buckling reduction factor
 <dt>
 </dt>
 <dd>
-r can be a real number between [0.0 and 1.0]
+<span class="math inline">\(r\)</span> can be a real number between [0.0 and 1.0]
 </dd>
 </dl>
 <dl>
@@ -14846,11 +14841,6 @@ Buckling constant (see Figures 3 and 4)
 </table>
 </td>
 </tr>
-<!--
-<p>&lt;/blockquote&gt;</p>
-<table>
-<tbody>
--->
 <tr class="odd">
 <td>
 <p>
@@ -14861,13 +14851,6 @@ Buckling constant (see Figures 3 and 4)
 <p>
 Buckling model based on Dhakal and Maekawa (2002)
 </p>
-<!--
-</td>
-</tr>
-</tbody>
-</table>
-<p>&lt;blockquote&gt;</p>
--->
 <table>
 <tbody>
 <tr class="odd">
@@ -14900,11 +14883,6 @@ Default: alpha=1.0, this parameter is optional.
 </tbody>
 </table>
 </tr>
-<!--
-<p>&lt;/blockquote&gt;</p>
-<table>
-<tbody>
--->
 <tr class="odd">
 <td>
 <p>
@@ -14915,13 +14893,6 @@ Default: alpha=1.0, this parameter is optional.
 <p>
 Coffin-Manson Fatigue and Strength Reduction
 </p>
-<!--
-</td>
-</tr>
-</tbody>
-</table>
-<p>&lt;blockquote&gt;</p>
--->
 <table>
 <tbody>
 <tr class="odd">
@@ -14932,7 +14903,7 @@ Coffin-Manson Fatigue and Strength Reduction
 </td>
 <td>
 <p>
-Coffin-Manson constant C (see Figure 5)
+Coffin-Manson constant <span class="math inline">\(C\)</span> (see Figure 5)
 </p>
 </td>
 </tr>
@@ -14942,15 +14913,15 @@ Coffin-Manson constant C (see Figure 5)
 </td>
 <td>
 <p>
-Coffin-Manson constant a (see Figure 5)
+Coffin-Manson constant <span class="math inline">\(\alpha\)</span> (see Figure 5)
 </p>
 </td>
 </tr>
 <tr class="odd">
 <td>
 <p>
-<strong>$C<sub
-class="subscript">d</sub></strong>
+<strong>C<sub
+  class="subscript">d</sub></strong>
 </p>
 </td>
 <td>
@@ -14963,12 +14934,6 @@ Cyclic strength reduction constant (see Figure 6 and Equation 3)
 </table>
 </td>
 </tr>
-<!--
-<p>&lt;/blockquote&gt;</p>
-<table>
-<tbody>
-<tr class="odd">
--->
 <td>
 <p>
 <code class="parameter-table-flag">-IsoHard</code>
@@ -14978,13 +14943,6 @@ Cyclic strength reduction constant (see Figure 6 and Equation 3)
 <p>
 Isotropic Hardening / Diminishing Yield Plateau
 </p>
-<!--
-</td>
-</tr>
-</tbody>
-</table>
-<p>&lt;blockquote&gt;</p>
--->
 <table>
 <tbody>
 <tr class="odd">
@@ -15020,11 +14978,6 @@ Limit =1.0, then no reduction takes place (default =0.01)
 </table>
 </td>
 </tr>
-<!--
-<p>&lt;/blockquote&gt;</p>
-<table>
-<tbody>
--->
 <tr class="odd">
 <td>
 <p>
@@ -15035,13 +14988,6 @@ Limit =1.0, then no reduction takes place (default =0.01)
 <p>
 Menegotto and Pinto Curve Parameters see Fig 6b
 </p>
-<!--
-</td>
-</tr>
-</tbody>
-</table>
-<p>&lt;blockquote&gt;</p>
--->
 <table>
 <tbody>
 <tr class="odd">
@@ -15086,10 +15032,8 @@ Menegotto and Pinto Curve Parameters see Fig 6b
 </tr>
 </tbody>
 </table>
-<p>:::</p>
-<p>
-<strong>NOTE:</strong> This simulation is based on the Chang and Mander(1994) uniaxial steel model. The simulation has incorporated additional reversal memory locations to better control stress overshooting (default is 10 branches but this can be easily modified by changing the variable “<code>LastRule_RS</code>” within the header file “<code>ReinforcingSteel.h</code>”). The cycle counting method implemented in the routine achieves the same result as rainflow counting. Fatigue parameters are based on the Coffin-Manson equation for plastic strain amplitude as indicated in Figure 6a. The buckling simulations incorporated consist of a variation on Gomes and Appleton (1997) and Dhakal and Maekawa (2002). The buckling and fatigue portions of this simulation are still being further enhanced and refined. Additional buckling and fatigue options should be available in the near future.
-</p>
+</details>
+<p><strong>NOTE:</strong> This simulation is based on the Chang and Mander(1994) uniaxial steel model. The simulation has incorporated additional reversal memory locations to better control stress overshooting (default is 10 branches but this can be easily modified by changing the variable “<code>LastRule_RS</code>” within the header file “<code>ReinforcingSteel.h</code>”). The cycle counting method implemented in the routine achieves the same result as rainflow counting. Fatigue parameters are based on the Coffin-Manson equation for plastic strain amplitude as indicated in Figure 6a. The buckling simulations incorporated consist of a variation on Gomes and Appleton (1997) and Dhakal and Maekawa (2002). The buckling and fatigue portions of this simulation are still being further enhanced and refined. Additional buckling and fatigue options should be available in the near future.</p>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ReinfSteel2430.png" alt="ReinfSteel2430.png" />
 <figcaption>

@@ -14436,12 +14436,10 @@
 
 
 <h1 id="druckerprager">DruckerPrager</h1>
-<p>
-This command is used to construct an multi dimensional material object that has a Drucker-Prager yield criterium.
-</p>
+<p>This command is used to construct an multi dimensional material object that has a Drucker-Prager yield criterium.</p>
 <div class="highlight"><pre><span></span><span class="nv">nDMaterial</span><span class="w"> </span>DruckerPrager<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$k</span><span class="w"> </span><span class="nv">$G</span><span class="w"> </span><span class="nv">$sigmaY</span><span class="w"> </span><span class="nv">$rho</span>
 <span class="w">        </span><span class="nv">$rhoBar</span><span class="w"> </span><span class="nv">$Kinf</span><span class="w"> </span><span class="nv">$Ko</span><span class="w"> </span><span class="nv">$delta1</span><span class="w"> </span><span class="nv">$delta2</span><span class="w"> </span><span class="nv">$H</span><span class="w"> </span><span class="nv">$theta</span><span class="w"> </span><span class="nv">$density</span><span class="w"></span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$atmPressure</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$atmPressure</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 
 <table>
@@ -14595,56 +14593,53 @@ optional atmospheric pressure for update of elastic bulk and shear moduli (defau
 </tbody>
 </table>
 <p>
-The material formulations for the Drucker-Prager object are “ThreeDimensional” and “PlaneStrain”
+The material formulations for the Drucker-Prager object are <code>ThreeDimensional</code> and <code>PlaneStrain</code>
 </p>
 <hr />
 <h2 id="theory">
 Theory
 </h2>
-<p>
-The yield condition for the Drucker-Prager model can be expressed as
-</p>
+The Drucker-Prager model is formulated in terms of the following components:
 <dl>
 <dt>
 </dt>
 <dd>
 <dl>
 <dt>
+Yield Condition
 </dt>
 <dd>
 <p><span class="math display">\[f\left(\mathbf{\sigma}, q^{iso}, \mathbf{q}^{kin}\right) =
 \left\| \mathbf{s} + \mathbf{q}^{kin} \right\| + \rho I_1 +
 \sqrt{\frac{2}{3}} q^{iso} - \sqrt{\frac{2}{3}} \sigma_Y^{} \leq 0
 \]</span></p>
-<p>
-in which
-</p>
-<span class="math display">\[ \mathbf{s} = \mathrm{dev} (\mathbf{\sigma}) =
-\mathbf{\sigma} - \frac{1}{3} I_1 \mathbf{1}
-\]</span>
-<p>
-is the deviatoric stress tensor,
-</p>
-<span class="math display">\[ I_1 = \mathrm{tr}(\mathbf{\sigma})
-\]</span>
-<p>
+<p>in which</p>
+<p><span class="math display">\[ \mathbf{s} = \mathrm{dev} (\mathbf{\sigma}) =
+\mathbf{\sigma} - \frac{1}{3} I_1 \mathbf{1}\]</span></p>
+<p>is the deviatoric stress tensor,</p>
+<p><span class="math display">\[ I_1 = \mathrm{tr}(\mathbf{\sigma})\]</span></p>
 is the first invariant of the stress tensor, and the parameters <span class="math inline">\(\rho_{}^{}\)</span> and <span class="math inline">\(\sigma_Y^{}\)</span> are positive material constants.
-</p>
-<p>
-The isotropic hardening stress is defined as
-</p>
+</dd>
+<dt>
+Isotropic hardening stress
+</dt>
+<dd>
 <span class="math display">\[ q^{iso} = \theta H \alpha^{iso} + (K_{\infty} - K_o)
 \exp(-\delta_1 \alpha^{iso})
 \]</span>
-<p>
-The kinematic hardening stress (or back-stress) is defined as
-</p>
+</dd>
+<dt>
+Kinematic hardening stress (or back-stress)
+</dt>
+<dd>
 <span class="math display">\[ \mathbf{q}^{kin} = -(1 - \theta) \frac{2}{3} H
 \mathbb{I}^{dev} : \mathbf{\alpha}^{kin}
 \]</span>
-<p>
-The yield condition for the tension cutoff yield surface is defined as
-</p>
+</dd>
+<dt>
+Yield condition for tension cutoff yield surface
+</dt>
+<dd>
 <span class="math display">\[ f_2(\mathbf{\sigma}, q^{ten}) = I_1 + q^{ten} \leq 0
 \]</span>
 <p>
@@ -14655,36 +14650,41 @@ where
 <p>
 and
 </p>
-<span class="math display">\[ T_o = \sqrt{\frac{2}{3}} \frac{\sigma_Y}{\rho}
-\]</span>
-<p>
-Further, general, information on theory for the Drucker-Prager yield criterion can be found at wikipedia <a
-href="http://en.wikipedia.org/wiki/Drucker_Prager_yield_criterion">here</a>
-</p>
-<h2 id="notes">
-Notes
-</h2>
-<p>
-The valid queries to the Drucker-Prager material when creating an ElementRecorder are ‘strain’ and ‘stress’ (as with all nDmaterial) as well as ‘state’. The query ‘state’ records a vector of state variables during a particular analysis. The columns of this vector are as follows. (Note: If the option ‘-time’ is included in the creation of the recorder, the first column will be the time variable for each recorded point and the columns below are shifted accordingly.)
-</p>
+<span class="math display">\[ T_o = \sqrt{\frac{2}{3}} \frac{\sigma_Y}{\rho}\]</span>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Further, general, information on theory for the Drucker-Prager yield criterion can be found at wikipedia <a
+href="http://en.wikipedia.org/wiki/Drucker_Prager_yield_criterion">here</a></p>
+<h2 id="notes">Notes</h2>
+<p>The valid queries to the Drucker-Prager material when creating an ElementRecorder are <code>strain</code> and <code>stress</code> (as with all nDmaterial) as well as <code>state</code>. The query <code>state</code> records a vector of state variables during a particular analysis. The columns of this vector are as follows. (Note: If the option <code>-time</code> is included in the creation of the recorder, the first column will be the time variable for each recorded point and the columns below are shifted accordingly.)</p>
 <dl>
-<dt>
-</dt>
 <dd>
 <dl>
 <dt>
+Column 1
 </dt>
 <dd>
-Column 1 - First invariant of the stress tensor, <span class="math inline">\(I_1 = \mathrm{tr}(\mathbf{\sigma})\)</span>.
+First invariant of the stress tensor, <span class="math inline">\(I_1 = \mathrm{tr}(\mathbf{\sigma})\)</span>.
 </dd>
+<dt>
+Column 2
+</dt>
 <dd>
-Column 2 - The following tensor norm, <span class="math inline">\(\left\| \mathbf{s} + \mathbf{q}^{kin} \right\|\)</span>, where <span class="math inline">\(\mathbf{s}\)</span> is the deviatoric stress tensor and <span class="math inline">\(\mathbf{q}^{kin}\)</span> is the back-stress tensor.
+The following tensor norm, <span class="math inline">\(\left\| \mathbf{s} + \mathbf{q}^{kin} \right\|\)</span>, where <span class="math inline">\(\mathbf{s}\)</span> is the deviatoric stress tensor and <span class="math inline">\(\mathbf{q}^{kin}\)</span> is the back-stress tensor.
 </dd>
+<dt>
+Column 3
+</dt>
 <dd>
-Column 3 - First invariant of the plastic strain tensor, <span class="math inline">\(\mathrm{tr}(\mathbf{\varepsilon}^p)\)</span>.
+First invariant of the plastic strain tensor, <span class="math inline">\(\mathrm{tr}(\mathbf{\varepsilon}^p)\)</span>.
 </dd>
+<dt>
+Column 4
+</dt>
 <dd>
-Column 4 - Norm of the deviatoric plastic strain tensor, <span class="math inline">\(\left\| \mathbf{e}^p \right\|\)</span>
+Norm of the deviatoric plastic strain tensor, <span class="math inline">\(\left\| \mathbf{e}^p \right\|\)</span>
 </dd>
 </dl>
 </dd>

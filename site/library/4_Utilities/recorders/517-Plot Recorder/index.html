@@ -14436,9 +14436,7 @@
 
 
 <h1 id="plot-recorder">Plot Recorder</h1>
-<p>
-This recorder type opens a graphical window for the plotting of the contents of the prescribed file. The prescribed file can be the output of an other recorder.
-</p>
+<p>This recorder type opens a graphical window for the plotting of the contents of the prescribed file. The prescribed file can be the output of an other recorder.</p>
 <div class="highlight"><pre><span></span><span class="nv">recorder</span><span class="w"> </span>plot<span class="w"> </span><span class="nv">$fileName</span><span class="w"> </span><span class="nv">$windowTitle</span><span class="w"> </span><span class="nv">$xLoc</span><span class="w"> </span><span class="nv">$yLoc</span><span class="w"> </span><span class="nv">$xPixels</span>
 <span class="w">        </span><span class="nv">$yPixels</span><span class="w"> </span><span class="nv">-columns</span><span class="w"> </span><span class="nv">$xCol0</span><span class="w"> </span><span class="nv">$yCol0</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">-columns</span><span class="w"> </span><span class="nv">$xCol1</span><span class="w"> </span><span class="nv">$yCol1</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
 <span class="w">        </span><span class="nv">...</span>
@@ -14479,12 +14477,31 @@ title of window to be opened
 </td>
 <td>
 <p>
-$xLoc, <span class="math inline">\(yLoc specifies location on screen of top left corner of window&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;xPixels yPixels&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>xPixels, <span class="math inline">\(yPixels specifies width and height in pixels of window to open&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>xCol $yCol …</strong>
+<code>xLoc</code>, <code>yLoc</code> specifies location on screen of top left corner of window
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">xPixels yPixels</code>
 </p>
 </td>
 <td>
 <p>
-integers specifying which columns to plot for x and y axis.
+<code>xPixels</code>, <code>yPixels</code> specifies width and height in pixels of window to open
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<strong>xCol yCol …</strong>
+</p>
+</td>
+<td>
+<p>
+integers specifying which columns to plot for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> axis.
 </p>
 </td>
 </tr>
@@ -14502,13 +14519,10 @@ the only way to save the image is a screen capture.
 </li>
 </ul>
 <hr />
-<p>
-EXAMPLE
-</p>
 <h2 id="examples">Examples</h2>
-<p>
-recorder Plot node.out “Nodal Displacement” 10 10 400 400 -columns 1 2
-</p>
+<div class="highlight"><pre><span></span><span class="nv">recorder</span><span class="w"> </span>Plot<span class="w"> </span>node.out<span class="w"> </span><span class="s2">&quot;Nodal Displacement&quot;</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="mi">400</span><span class="w"> </span><span class="o">-</span>columns<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span>
+</pre></div>
+
 <hr />
 <p>
 Code Developed by: <span style="color:blue"> fmk </span>

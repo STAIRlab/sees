@@ -14436,15 +14436,104 @@
 
 
 <h1 id="drift-recorder">Drift Recorder</h1>
-<p>
-The Drift type records the displacement drift between two nodes. The drift is taken as the ratio between the prescribed relative displacement and the specified distance between the nodes. The command to create a drift recorder is:
-</p>
+<p>The Drift type records the displacement drift between two nodes. The drift is taken as the ratio between the prescribed relative displacement and the specified distance between the nodes. The command to create a drift recorder is:</p>
+<div class="highlight"><pre><span></span><span class="nv">recorder</span><span class="w"> </span>Drift<span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>file<span class="w"> </span><span class="nv">$fileName</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>xml<span class="w"> </span><span class="nv">$fileName</span><span class="w"> </span><span class="o">&gt;</span>
+<span class="w">  </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-binary</span><span class="w"> </span><span class="nv">$fileName</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>tcp<span class="w"> </span><span class="nv">$inetAddress</span><span class="w"> </span><span class="nv">$port</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>precision
+<span class="w">  </span><span class="nv">$nSD</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-time</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span>iNode<span class="w"> </span><span class="nv">$inode1</span><span class="w"> </span><span class="nv">$inode2</span><span class="w"> </span>...<span class="w"> </span><span class="o">-</span>jNode<span class="w"> </span><span class="nv">$jnode1</span><span class="w"> </span><span class="nv">$jnode2</span>
+<span class="w">  </span><span class="nv">...</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="nv">$dof1</span><span class="w"> </span><span class="nv">$dof2</span><span class="w"> </span>...<span class="w"> </span><span class="o">-</span>perpDirn<span class="w"> </span><span class="nv">$perpDirn1</span><span class="w"> </span><span class="nv">$perpDirn2...</span>
+</pre></div>
+
+<hr />
 <table>
 <tbody>
 <tr class="odd">
 <td>
 <p>
-<em>recorder Drift &lt;-file $fileName&gt; &lt;-xml $fileName&gt; &lt;-binary $fileName&gt; &lt;-tcp $inetAddress $port&gt; &lt;-precision $nSD&gt; &lt;-time&gt; -iNode $inode1 $inode2 … -jNode $jnode1 $jnode2 … -dof $dof1 $dof2 … -perpDirn $perpDirn1 <span class="math inline">\(perpDirn2 ...&lt;/em&gt;&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/tbody&gt; &lt;/table&gt; &lt;hr /&gt; &lt;table&gt; &lt;tbody&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;fileName&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;name of file to which output is sent. Each line of the file contains the result for a committed state of the domain file output is either in xml format (-xml option), textual (-file option) or binary (-binary option)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;inetAddr&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;ip address, &quot;xx.xx.xx.xx&quot;, of remote machine to which data is sent&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;port&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;port on remote machine awaiting tcp&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-variable&quot;&gt;nSD&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;number of significant digits (optional, default is 6)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;code class=&quot;parameter-table-flag&quot;&gt;-time&lt;/code&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;using this option places domain time in first entry of each data line (optional, default: omitted)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>inode1 <span class="math inline">\(inode2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags of set of i nodes for which drift is being recorded&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;odd&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>jnode1 <span class="math inline">\(jnode2 ...&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;tags of set of j nodes for which drift is being recorded&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;p&gt;&lt;strong&gt;\)</span>dof1 dof2 …</strong>
+<code class="parameter-table-variable">fileName</code>
+</p>
+</td>
+<td>
+<p>
+name of file to which output is sent. Each line of the file contains the result for a committed state of the domain file output is either in xml format (-xml option), textual (-file option) or binary (-binary option)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>inetAddr</strong>
+</p>
+</td>
+<td>
+<p>
+ip address, “xx.xx.xx.xx”, of remote machine to which data is sent
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-variable">port</code>
+</p>
+</td>
+<td>
+<p>
+port on remote machine awaiting tcp
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">nSD</code>
+</p>
+</td>
+<td>
+<p>
+number of significant digits (optional, default is 6)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-flag">-time</code>
+</p>
+</td>
+<td>
+<p>
+using this option places domain time in first entry of each data line (optional, default: omitted)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>inode1 inode2 …</code>
+</p>
+</td>
+<td>
+<p>
+tags of set of i nodes for which drift is being recorded
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code>jnode1 jnode2 …</code>
+</p>
+</td>
+<td>
+<p>
+tags of set of j nodes for which drift is being recorded
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code>dof1 dof2 …</code>
 </p>
 </td>
 <td>
@@ -14457,7 +14546,7 @@ title="wikilink">ndf</a> (the number of nodal degrees of freedom).
 <tr class="odd">
 <td>
 <p>
-<strong>$perpDirn1 $perpDirn2 …</strong>
+<code>perpDirn1 perpDirn2 …</code>
 </p>
 </td>
 <td>
@@ -14473,7 +14562,7 @@ NOTES
 </p>
 <ul>
 <li>
-Only one of -file, -xml, -binary, -tcp will be used. If multiple specified last option is used.
+Only one of <code>-file</code>, <code>-xml</code>, <code>-binary</code>, <code>-tcp</code> will be used. If multiple specified last option is used.
 </li>
 <li>
 -tcp option only available for version 2.2.1 and higher.
@@ -14482,12 +14571,10 @@ Only one of -file, -xml, -binary, -tcp will be used. If multiple specified last 
 Does not work in OpenSeesSP.
 </li>
 </ul>
-<p>
-EXAMPLE
-</p>
-<p>
-recorder Drift -file drift.out -time -iNode 1 2 -jNode 3 4 -dof 1 -perpDirn 2
-</p>
+<h2 id="examples">Examples</h2>
+<div class="highlight"><pre><span></span><span class="nv">recorder</span><span class="w"> </span>Drift<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>drift.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>iNode<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">-</span>jNode<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">-</span>dof<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span>perpDirn<span class="w"> </span><span class="mi">2</span>
+</pre></div>
+
 <hr />
 <p>
 Code Developed by: <span style="color:blue"> fmk </span>
