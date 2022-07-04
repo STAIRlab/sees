@@ -14444,11 +14444,9 @@ This command is used to construct a Dodd-Restrepo steel material
 <p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">Dodd_Restrepo</span>(name,<br>   yield_stress,<br>   fu,<br>   esh,<br>   esu,<br>   elastic_modulus,<br>   eshI,<br>   fshI,<br>   OmegaFac,<br>   **kwds) </span></p>
 <div>
 <table>
-<colgroup>
-<col style="width: 10%" >
-<col style="width: 30%" >
-<col style="width: 60%" >
-</colgroup>
+<!-- <colgroup>
+  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
+</colgroup> -->
 <tbody>
 <tr>
 </tr>
@@ -14457,7 +14455,7 @@ This command is used to construct a Dodd-Restrepo steel material
 fy
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Yield stress.
@@ -14467,7 +14465,7 @@ Yield stress.
 fu
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Ultimate tensile strength (UTS)
@@ -14477,7 +14475,7 @@ Ultimate tensile strength (UTS)
 esh
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Tensile strain at initiation of strain hardening
@@ -14487,7 +14485,7 @@ Tensile strain at initiation of strain hardening
 esu
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Tensile strain at the UTS
@@ -14497,7 +14495,7 @@ Tensile strain at the UTS
 E
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Young’s modulus of elasticity
@@ -14507,17 +14505,17 @@ Young’s modulus of elasticity
 eshI
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
-Tensile strain for a point on strain hardening curve, recommended range of values for eshI: <span class="math inline">\([ (\texttt{esu} 5 \texttt{esh})/6, (\texttt{esu} 3 \texttt{esh)/4]\)</span>
+Tensile strain for a point on strain hardening curve, recommended range of values for eshI: <span class="math inline">\(\left\[ (\texttt{esu} 5 \texttt{esh})/6, (\texttt{esu} 3 \texttt{esh})/4\right\]\)</span>
 </tr>
 <tr>
 <td>
 fshI
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
 Tensile stress at point on strain hardening curve corresponding to eshI
@@ -14527,10 +14525,10 @@ Tensile stress at point on strain hardening curve corresponding to eshI
 OmegaFac = 1.0
 </td>
 <td>
-<code>float</code>
+<code style="white-space: nowrap;">float</code>
 </td>
 <td>
-Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: <span class="math inline">\(\[0.75, 1.15\]\)</span>. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0.
+Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: <span class="math inline">\(\left[0.75, 1.15\right]\)</span>. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0.
 </tr>
 </tbody>
 </table>
