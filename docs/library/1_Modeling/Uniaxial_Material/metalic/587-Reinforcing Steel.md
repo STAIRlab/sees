@@ -7,6 +7,7 @@ concrete fiber section as the steel reinforcing material.
 ::: {apidoc="opensees.uniaxial.ReinforcingSteel"}
 :::
 
+<details><summary>Tcl Command</summary>
 ```tcl
 uniaxialMaterial ReinforcingSteel $matTag $fy $fu $Es $Esh $esh $eult 
         < -GABuck $lsr $beta $r $gama >
@@ -14,11 +15,8 @@ uniaxialMaterial ReinforcingSteel $matTag $fy $fu $Es $Esh $esh $eult
         < -CMFatigue $Cf $alpha $Cd > 
         < -IsoHard < $a1 < $limit > > >
 ```
-
-<hr />
 <table>
 <tbody>
-
 <tr class="even">
   <td><code class="parameter-table-variable">matTag</code></td>
   <td>Material tag.</td>
@@ -45,212 +43,138 @@ uniaxialMaterial ReinforcingSteel $matTag $fy $fu $Es $Esh $esh $eult
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-GABuck</code></p></td>
 <td>
-<!--
-</tr>
-</tbody>
-</table>
-<p>&lt;blockquote&gt;</p>
--->
 <table>
-<tbody>
-<tr class="odd">
-<td><code class="parameter-table-variable">lsr</code></td>
-<td><p>Slenderness Ratio (see Figure 2)</p></td>
-</tr>
-<tr class="even">
-<td><code class="parameter-table-variable">beta</code></td>
-<td><p>Amplification factor for the buckled stress strain curve. (see
-Figure 3)</p></td>
-</tr>
-<tr class="odd">
-<td><code class="parameter-table-variable">r</code></td>
-<td><p>Buckling reduction factor</p>
-<dl>
-<dt></dt>
-<dd>
-r can be a real number between [0.0 and 1.0]
-</dd>
-</dl>
-<dl>
-<dt></dt>
-<dd>
-`r=1.0` full reduction (no buckling)
-</dd>
-</dl>
-<dl>
-<dt></dt>
-<dd>
-r=0.0 no reduction
-</dd>
-</dl>
-<dl>
-<dt></dt>
-<dd>
-0.0&lt;r&lt;1.0 linear interpolation between buckled and unbuckled
-curves
-</dd>
-</dl></td>
-</tr>
-<tr class="even">
-<td><code class="parameter-table-variable">gamma</code></td>
-<td><p>Buckling constant (see Figures 3 and 4)</p></td>
-</tr>
-</tbody>
+  <tbody>
+  <tr class="odd">
+  <td><code class="parameter-table-variable">lsr</code></td>
+  <td><p>Slenderness Ratio (see Figure 2)</p></td>
+  </tr>
+  <tr class="even">
+  <td><code class="parameter-table-variable">beta</code></td>
+  <td><p>Amplification factor for the buckled stress strain curve. (see Figure 3)</p></td>
+  </tr>
+  <tr class="odd">
+  <td><code class="parameter-table-variable">r</code></td>
+  <td><p>Buckling reduction factor</p>
+  <dl>
+  <dt></dt>
+  <dd>$r$ can be a real number between [0.0 and 1.0]</dd>
+  </dl>
+  <dl>
+  <dt></dt>
+  <dd>`r=1.0` full reduction (no buckling)</dd>
+  </dl>
+  <dl>
+  <dt></dt>
+  <dd>r=0.0 no reduction</dd>
+  </dl>
+  <dl>
+  <dt></dt>
+  <dd>
+  0.0&lt;r&lt;1.0 linear interpolation between buckled and unbuckled
+  curves
+  </dd>
+  </dl></td>
+  </tr>
+  <tr class="even">
+  <td><code class="parameter-table-variable">gamma</code></td>
+  <td><p>Buckling constant (see Figures 3 and 4)</p></td>
+  </tr>
+  </tbody>
 </table>
 </td>
 </tr>
-
-<!--
-<p>&lt;/blockquote&gt;</p>
-<table>
-<tbody>
--->
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-DMBuck</code></p></td>
 <td><p>Buckling model based on Dhakal and Maekawa (2002)</p>
-<!--
-</td>
-</tr>
-</tbody>
-</table>
-<p>&lt;blockquote&gt;</p>
--->
 <table>
-<tbody>
-<tr class="odd">
-<td><code class="parameter-table-variable">lsr</code></td>
-<td><p>Slenderness Ratio (see Figure 2)</p></td>
-</tr>
-<tr class="even">
-<td><code class="parameter-table-variable">alpha</code></td>
-<td><p>Adjustment Constant usually between 0.75 and 1.0</p>
-<dl>
-<dt></dt>
-<dd>
-Default: alpha=1.0, this parameter is optional.
-</dd>
-</dl></td>
-</tr>
-</tbody>
+  <tbody>
+  <tr class="odd">
+  <td><code class="parameter-table-variable">lsr</code></td>
+  <td><p>Slenderness Ratio (see Figure 2)</p></td>
+  </tr>
+  <tr class="even">
+  <td><code class="parameter-table-variable">alpha</code></td>
+  <td><p>Adjustment Constant usually between 0.75 and 1.0</p>
+  <dl>
+  <dt></dt>
+  <dd>
+  Default: alpha=1.0, this parameter is optional.
+  </dd>
+  </dl></td>
+  </tr>
+  </tbody>
 </table>
 </tr>
-
-<!--
-<p>&lt;/blockquote&gt;</p>
-<table>
-<tbody>
--->
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-CMFatigue</code></p></td>
 <td><p>Coffin-Manson Fatigue and Strength Reduction</p>
-
-<!--
-</td>
-</tr>
-</tbody>
-</table>
-<p>&lt;blockquote&gt;</p>
--->
-
 <table>
-<tbody>
-<tr class="odd">
-<td><p><code>Cf</code></p></td>
-<td><p>Coffin-Manson constant C (see Figure 5)</p></td>
-</tr>
-<tr class="even">
-<td><code class="parameter-table-variable">alpha</code></td>
-<td><p>Coffin-Manson constant a (see Figure 5)</p>
-</td>
-</tr>
-<tr class="odd">
-<td><p><strong>$C<sub
-class="subscript">d</sub></strong></p></td>
-<td><p>Cyclic strength reduction constant (see Figure 6 and Equation
-3)</p></td>
-</tr>
-</tbody>
+  <tbody>
+  <tr class="odd">
+  <td><p><code>Cf</code></p></td>
+  <td><p>Coffin-Manson constant $C$ (see Figure 5)</p></td>
+  </tr>
+  <tr class="even">
+  <td><code class="parameter-table-variable">alpha</code></td>
+  <td><p>Coffin-Manson constant $\alpha$ (see Figure 5)</p>
+  </td>
+  </tr>
+  <tr class="odd">
+  <td><p><strong>C<sub
+  class="subscript">d</sub></strong></p></td>
+  <td><p>Cyclic strength reduction constant (see Figure 6 and Equation 3)</p></td>
+  </tr>
+  </tbody>
 </table>
 </td></tr>
-
-<!--
-<p>&lt;/blockquote&gt;</p>
-<table>
-<tbody>
-<tr class="odd">
--->
 <td><p><code class="parameter-table-flag">-IsoHard</code></p></td>
 <td><p>Isotropic Hardening / Diminishing Yield Plateau</p>
-<!--
-</td>
-</tr>
-</tbody>
-</table>
-<p>&lt;blockquote&gt;</p>
--->
-
 <table>
-<tbody>
-<tr class="odd">
-<td><p><code class="parameter-table-variable">a1</code></p></td>
-<td><p>Hardening constant (default = 4.3)</p></td>
-</tr>
-<tr class="even">
-<td><code class="parameter-table-variable">limit</code></td>
-<td><p>Limit for the reduction of the yield plateau. % of original
-plateau length to remain (0.01 &lt; limit &lt; 1.0 )</p>
-<dl>
-<dt></dt>
-<dd>
-Limit =1.0, then no reduction takes place (default =0.01)
-</dd>
-</dl></td>
-</tr>
-</tbody>
+  <tbody>
+  <tr class="odd">
+  <td><p><code class="parameter-table-variable">a1</code></p></td>
+  <td><p>Hardening constant (default = 4.3)</p></td>
+  </tr>
+  <tr class="even">
+  <td><code class="parameter-table-variable">limit</code></td>
+  <td><p>Limit for the reduction of the yield plateau. % of original plateau length to remain (0.01 &lt; limit &lt; 1.0 )</p>
+  <dl>
+  <dt></dt>
+  <dd>Limit =1.0, then no reduction takes place (default =0.01)</dd>
+  </dl></td>
+  </tr>
+  </tbody>
 </table>
 </td>
 </tr>
-
-<!--
-<p>&lt;/blockquote&gt;</p>
-<table>
-<tbody>
--->
 <tr class="odd">
 <td><p><code class="parameter-table-flag">-MPCurveParams</code></p></td>
 <td><p>Menegotto and Pinto Curve Parameters see Fig 6b</p>
-<!--
-</td>
-</tr>
-</tbody>
-</table>
-<p>&lt;blockquote&gt;</p>
--->
 <table>
-<tbody>
-<tr class="odd">
-<td><p><code class="parameter-table-variable">R1</code></p></td>
-<td><p>(default = 0.333)</p></td>
-</tr>
-<tr class="even">
-<td><p><code class="parameter-table-variable">R2</code></p></td>
-<td><p>(default = 18)</p></td>
-</tr>
-<tr class="odd">
-<td><p><code class="parameter-table-variable">R3</code></p></td>
-<td><p>(default = 4)</p></td>
-</tr>
-</tbody>
+  <tbody>
+  <tr class="odd">
+  <td><p><code class="parameter-table-variable">R1</code></p></td>
+  <td><p>(default = 0.333)</p></td>
+  </tr>
+  <tr class="even">
+  <td><p><code class="parameter-table-variable">R2</code></p></td>
+  <td><p>(default = 18)</p></td>
+  </tr>
+  <tr class="odd">
+  <td><p><code class="parameter-table-variable">R3</code></p></td>
+  <td><p>(default = 4)</p></td>
+  </tr>
+  </tbody>
 </table>
 </td>
 </tr>
 </tbody>
 </table>
+</details>
 
-:::
 
-
-<p><strong>NOTE:</strong> This simulation is based on the Chang and
+<strong>NOTE:</strong> This simulation is based on the Chang and
 Mander(1994) uniaxial steel model. The simulation has incorporated
 additional reversal memory locations to better control stress
 overshooting (default is 10 branches but this can be easily modified by
@@ -262,7 +186,7 @@ amplitude as indicated in Figure 6a. The buckling simulations
 incorporated consist of a variation on Gomes and Appleton (1997) and
 Dhakal and Maekawa (2002). The buckling and fatigue portions of this
 simulation are still being further enhanced and refined. Additional
-buckling and fatigue options should be available in the near future.</p>
+buckling and fatigue options should be available in the near future.
 
 <figure>
 <img src="/OpenSeesRT/contrib/static/ReinfSteel2430.png" alt="ReinfSteel2430.png" />

@@ -3,6 +3,7 @@
 This package provides an infrastructure for constructing
 algebraic univariate hysteretic models.
 
+
 ```tcl
 uniaxialMaterial OOHysteretic tag? 
      bkbn+? unlRul+? stfDeg+? strDeg+?
@@ -45,7 +46,22 @@ uniaxialMaterial OOHysteretic tag?
   unloadingRule type? tag? <specific unloadingRule args>
   ```
 
+  - Ductility (Takeda)
+
+  - `Energy`: models hysteretic strength
+    degradation with the deterioration parameter developed by
+    Rahnama and Krawinkler (1993).
+
+  - Constant
+  - Karsan
+
 - `StiffnessDegradation`
+  - Section, 
+  - Energy, 
+  - Constant, 
+  - Ductility, 
+  - ACI, 
+  - Petrangeli
 
 
 - `StrengthDegradation`

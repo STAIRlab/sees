@@ -1,12 +1,10 @@
 # Capped
 
 This file contains the implementation of 
-CappedBackbone, which overlays two backbone curves.
+`CappedBackbone`, which overlays two backbone curves.
 
-Code developed by: <span style="color:blue">MHS</span>
-Created: Aug 2000
 
-```
+```cpp
 class CappedBackbone : public HystereticBackbone
 {
  public:
@@ -23,3 +21,7 @@ class CappedBackbone : public HystereticBackbone
   double eCap;
 };
 ```
+
+Code developed by: <span style="color:blue">MHS</span>
+Created: Aug 2000
+

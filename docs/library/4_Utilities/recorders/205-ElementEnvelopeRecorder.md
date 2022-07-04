@@ -1,6 +1,6 @@
 # ElementEnvelopeRecorder
 
-<p>The Envelope Element recorder type records the response of a number
+The Envelope Element recorder type records the response of a number
 of elements at every converged step. The response recorded is
 element-dependent and also depends on the arguments which are passed to
 the setResponse() element method. When the object is terminated, through
@@ -8,18 +8,16 @@ the use of a <a href="wipe_Command" title="wikilink"> wipe</a>, <a
 href="exit_Command" title="wikilink"> exit</a>, or <a
 href="remove_Command" title="wikilink"> remove</a> the object will
 output the min, max and absolute max values on 3 seperate lines of the
-output file for each quantity.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>recorder EnvelopeElement &lt;-file $fileName&gt; &lt;-xml
-$fileName&gt; &lt;-binary $fileName&gt; &lt;-precision $nSD&gt;
-&lt;-time&gt; &lt;-closeOnWrite&gt; &lt;-ele ($ele1 $ele2 ...)&gt;
-&lt;-eleRange $startEle $endEle&gt; &lt;-region $regTag&gt; $arg1 $arg2
-...</strong></p></td>
-</tr>
-</tbody>
-</table>
+output file for each quantity.
+
+```tcl
+recorder EnvelopeElement < -file $fileName > < -xml $fileName > < -binary $fileName > 
+  < -precision $nSD > < -time > < -closeOnWrite > < -ele ($ele1 $ele2 ...) >
+  < -eleRange $startEle $endEle > < -region $regTag > $arg1 $arg2
+  ...
+```
+
+
 <hr />
 <table>
 <tbody>
@@ -47,12 +45,12 @@ Note, this greatly slows the execution time, but is useful if you need
 to monitor the data during the analysis.</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$ele1 $ele2 ..</strong></p></td>
+<td><p><code>ele1 ele2 ..</code></p></td>
 <td><p>tags of elements whose response is being recorded -- selected
 elements in domain (optional, default: omitted)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$startEle $endEle ..</strong></p></td>
+<td><p><code>startEle endEle ..</code></p></td>
 <td><p>tag for start and end elements whose response is being recorded
 -- range of selected elements in domain (optional, default:
 omitted)</p></td>
@@ -63,7 +61,7 @@ omitted)</p></td>
 being recorded -- region of elements in domain (optional)</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$arg1 $arg2 ...</strong></p></td>
+<td><p><code>arg1 arg2 ...</code></p></td>
 <td><p>arguments which are passed to the setResponse() element
 method</p></td>
 </tr>
@@ -83,8 +81,10 @@ title="wikilink">Element Command</a>.</p>
 
 ## Examples
 
-<p>recorder Element -file Element1.out -time -ele 1 3 section 1 fiber
-0.10 0.10 stressStrain</p>
+```tcl
+recorder Element -file Element1.out -time -ele 1 3 section 1 fiber 0.10 0.10 stressStrain
+```
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

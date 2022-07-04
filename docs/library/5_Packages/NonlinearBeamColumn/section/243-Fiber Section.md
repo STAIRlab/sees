@@ -1,11 +1,12 @@
 # Fiber Section
 
-<p>This commnand allows the user to construct a FiberSection object.
+This commnand allows the user to construct a FiberSection object.
 Each FiberSection object is composed of Fibers, with each fiber
-containing a UniaxialMaterial, an area and a location (y,z). The command
+containing a `UniaxialMaterial`, an area and a location ($y$,$z$). The command
 to generate FiberSection object contains in <strong>{ }</strong> the
 commands to generate all the fibers in the object. To construct a
-FiberSection and populate it, the following command is used:</p>
+FiberSection and populate it, the following command is used:
+
 <table>
 <tbody>
 <tr class="odd">
@@ -66,18 +67,20 @@ geometric-arc</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>NOTES:</p>
 <ol>
-<li>The command to generate a FiberSection contains in <strong>{
-}</strong> the commands to generate all the fibers in the section.</li>
+<li>The command to generate a FiberSection contains in <strong>{ }</strong> 
+  the commands to generate all the fibers in the section.</li>
 <li>The patch and layer commands can be used to generate multiple fibers
-in a single command.</li>
+  in a single command.</li>
 <li>In an element recorder you can ask a FiberSection for its
-'deformations', 'forces', 'forceAndDeformation', 'fiber $fiberNum
-$matArg1 ..', 'fiber $yLoc $zLoc $matTag $matArg1 '</li>
+  `deformations`, `forces`, `forceAndDeformation`, `fiber $fiberNum $matArg1 ..`, 
+  `fiber $yLoc $zLoc $matTag $matArg1 `</li>
 </ol>
 <hr />
 <p>&lt;uml&gt; FiberSection o- Fiber &lt;/uml&gt;</p>
 <hr />
-<p>Code Developed by: <span style="color:blue"> Michael H. Scott,
-Oregon State University </span></p>
+
+<p>Code developed by: <span style="color:blue"> Michael H. Scott, Oregon State University </span></p>
+

@@ -1,29 +1,34 @@
 # VuggyLimestone
 
-Response of Stiff Clay above the water surface
-(https://ntrl.ntis.gov/NTRL/dashboard/searchResults/titleDetail/PB94108305.xhtml)
+```tcl
+hystereticBackbone VuggyLimestone tag b su
+```
+
+|   |  |
+|----|----------------------------------|
+| `b`  | the pile diameter ($>0$)
+| `su` | the shear strength of the rock ($> 0$). |
+
+
+Response of Stiff Clay above the water surface [@wang1993com624p]
 page 348
+[source](https://ntrl.ntis.gov/NTRL/dashboard/searchResults/titleDetail/PB94108305.xhtml)
 
 ```cpp
 class VuggyLimestone : public HystereticBackbone {
+
  public:
   VuggyLimestone(int tag, double b, double su);
-  VuggyLimestone();
-  ~VuggyLimestone();
 
-
-  double getYieldStrain(void);
-
-  HystereticBackbone *getCopy(void);
-
-  void Print(OPS_Stream &s, int flag = 0);
-
-  int setVariable(char *argv);
-  int getVariable(int varID, double &theValue);
-
-  int sendSelf(int commitTag, Channel &theChannel);
-  int recvSelf(int commitTag, Channel &theChannel,
-               FEM_ObjectBroker &theBroker);
+  double getStress(double strain) {
+    if (strain <= 0.0004 * diameter) {
+      return 2000.0 * shearStrength * strain;
+    } else if (strain <= 0.0024 * diameter) {
+      return 0.8 * diameter * shearStrength +
+             100.0 * shearStrength * (strain - 0.0004 * diameter);
+    }
+    return 0.0;
+  }
 
  protected:
  private:
@@ -31,4 +36,8 @@ class VuggyLimestone : public HystereticBackbone {
   double shearStrength;
 };
 ```
+
+## References
+
+1. Wang, S. T.; Reese, L. C. (1993) *COM624P: Laterally Loaded Pile Analysis Program for the Microcomputer. Version 2.0.*
 

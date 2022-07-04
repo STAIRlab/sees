@@ -1,8 +1,8 @@
 # Plot Recorder
 
-<p>This recorder type opens a graphical window for the plotting of the
+This recorder type opens a graphical window for the plotting of the
 contents of the prescribed file. The prescribed file can be the output
-of an other recorder.</p>
+of an other recorder.
 
 ```tcl
 recorder plot $fileName $windowTitle $xLoc $yLoc $xPixels
@@ -23,34 +23,34 @@ recorder plot $fileName $windowTitle $xLoc $yLoc $xPixels
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">xLoc yLoc</code></p></td>
-<td><p>$xLoc, $yLoc specifies location on screen of top left corner of
+<td><p>`xLoc`, `yLoc` specifies location on screen of top left corner of
 window</p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">xPixels yPixels</code></p></td>
-<td><p>$xPixels, $yPixels specifies width and height in pixels of window
+<td><p>`xPixels`, `yPixels` specifies width and height in pixels of window
 to open</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$xCol $yCol ...</strong></p></td>
-<td><p>integers specifying which columns to plot for x and y
-axis.</p></td>
+<td><p><strong>xCol yCol ...</strong></p></td>
+<td><p>integers specifying which columns to plot for $x$ and $y$ axis.</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>NOTES</p>
 <ul>
 <li>At least one set of columns must be specified, additional ones may
 be specified.</li>
 <li>the only way to save the image is a screen capture.</li>
 </ul>
+
 <hr />
-<p>EXAMPLE</p>
 
 ## Examples
-
-<p>recorder Plot node.out "Nodal Displacement" 10 10 400 400 -columns 1
-2</p>
+```tcl
+recorder Plot node.out "Nodal Displacement" 10 10 400 400 -columns 1 2
+```
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

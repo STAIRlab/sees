@@ -103,11 +103,14 @@ the recorder for the <a href="Remove_Command" title="wikilink"> remove
 recorder</a> commmand.</p>
 <p><strong>-1</strong> recorder command failed if integer
 <strong>-1</strong> returned.</p>
-<p>EXAMPLE</p>
-<p>recorder EnvelopeNode -file nodesD.out -time -node 1 2 3 4 -dof 1 2
-disp</p>
-<p>recorder EnvelopeNode -file nodesA.out -time -timeSeries 1 -node 1 2
-3 4 -dof 1 accel</p>
+
+## Examples
+
+```tcl
+recorder EnvelopeNode -file nodesD.out -time -node 1 2 3 4 -dof 1 2 disp
+recorder EnvelopeNode -file nodesA.out -time -timeSeries 1 -node 1 2 3 4 -dof 1 accel
+```
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

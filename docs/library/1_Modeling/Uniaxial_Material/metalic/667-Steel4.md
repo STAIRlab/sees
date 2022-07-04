@@ -15,6 +15,7 @@ img:hover {
 with combined kinematic and isotropic hardening and optional
 non-symmetric behavior.</p>
 
+:::{apidoc="opensees.uniaxial.Steel04"}
 ```tcl
 uniaxialMaterial Steel4 $matTag $f_y $E_0 < -asym >
   < -kin $b_k $R_0 $r_1 $r_2 < $b_kc $R_0c $r_1c $r_2c > >
@@ -361,10 +362,14 @@ setting this value. The default value is `cycNum = 50`</p></td>
 </tbody>
 </table>
 </blockquote>
+:::
+
 
 <h2 id="examples">Examples</h2>
-<p>Coming soon...</p>
+
+> Under development...
 
 
 Code developed by: <span style="color:blue">Adam Zsarnóczay, zsarnoczay@vbt.bme.hu</span>
+
 

@@ -1,17 +1,18 @@
 # Section Aggregator
 
-<p>This command is used to construct a SectionAggregator object which
+This command is used to construct a SectionAggregator object which
 aggregates groups previously-defined UniaxialMaterial objects into a
 single section force-deformation model. Each UniaxialMaterial object
 represents the section force-deformation response for a particular
 section degree-of-freedom (dof). There is no interaction between
 responses in different dof directions. The aggregation can include one
-previously defined section.</p>
+previously defined section.
 
 ```tcl
 section Aggregator $secTag $matTag1 $dof1 $matTag2 $dof2
-        ....... &lt;-section $sectionTag&gt;
+        ... < -section $sectionTag >
 ```
+
 <hr />
 <table>
 <tbody>
@@ -20,11 +21,11 @@ section Aggregator $secTag $matTag1 $dof1 $matTag2 $dof2
 <td><p>unique section tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$matTag1 $matTag2 ...</strong></p></td>
+<td><p><code>matTag1 matTag2 ...</code></p></td>
 <td><p>tag of previously-defined UniaxialMaterial objects</p></td>
 </tr>
 <tr class="odd">
-<td><p><strong>$dof1 $dof2 ...</strong></p></td>
+<td><p><code>dof1 dof2 ...</code></p></td>
 <td><p>the force-deformation quantity to be modeled by this section
 object. One of the following section dof may be used:</p></td>
 </tr>
@@ -60,12 +61,13 @@ relationships</p></td>
 </tr>
 </tbody>
 </table>
+
 <figure>
-<img src="SectionAggregator.gif" title="SectionAggregator.gif"
-alt="SectionAggregator.gif" />
+<img src="/OpenSeesRT/contrib/static/SectionAggregator.gif" title="SectionAggregator.gif" />
 <figcaption aria-hidden="true">SectionAggregator.gif</figcaption>
 </figure>
 <hr />
+
 <p>EXAMPLE</p>
 <p>section Aggregator 2 2 Vy -section 4; # create new section with IDtag
 2, taking the existing material tag 2 to represent the shear and adding
@@ -74,10 +76,11 @@ interaction betweeen axial force and flexure is already considered.</p>
 
 ## Theory
 
-<p>Read if you're using moment-curvature in beamWithHinges element to
-represent moment-rotation, or vice versa</p>
-<p><a
-href="http://earthquakespectra.org/doi/abs/10.1193/1.4000136">http://earthquakespectra.org/doi/abs/10.1193/1.4000136</a></p>
+Read if you're using moment-curvature in `BeamWithHinges` element to
+represent moment-rotation, or vice versa:
+[https://doi.org/10.1193%2F1.4000136](https://doi.org/10.1193%2F1.4000136)
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> Micheal H. Scott,
-Oregon State </span></p>
+
+<p>Code developed by: <span style="color:blue"> Micheal H. Scott, Oregon State </span></p>
+

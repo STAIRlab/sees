@@ -1,12 +1,12 @@
 # DruckerPrager
 
-<p>This command is used to construct an multi dimensional material
-object that has a Drucker-Prager yield criterium.</p>
+This command is used to construct an multi dimensional material
+object that has a Drucker-Prager yield criterium.
 
 ```tcl
 nDMaterial DruckerPrager $matTag $k $G $sigmaY $rho
         $rhoBar $Kinf $Ko $delta1 $delta2 $H $theta $density
-        &lt;$atmPressure&gt;
+        < $atmPressure >
 ```
 
 <table>
@@ -74,49 +74,56 @@ shear moduli (default = 101 kPa)</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>The material formulations for the Drucker-Prager object are
-"ThreeDimensional" and "PlaneStrain"</p>
+`ThreeDimensional` and `PlaneStrain`</p>
+
 <hr />
 
 <h2 id="theory">Theory</h2>
-<p>The yield condition for the Drucker-Prager model can be expressed
-as</p>
+
+The Drucker-Prager model is formulated in terms of the following components:
 <dl>
 <dt></dt>
 <dd>
 <dl>
-<dt></dt>
+<dt>Yield Condition</dt>
 <dd>
 $$f\left(\mathbf{\sigma}, q^{iso}, \mathbf{q}^{kin}\right) =
 \left\| \mathbf{s} + \mathbf{q}^{kin} \right\| + \rho I_1 +
 \sqrt{\frac{2}{3}} q^{iso} - \sqrt{\frac{2}{3}} \sigma_Y^{} \leq 0
 $$
 
-<p>in which</p>
+in which
 
 $$ \mathbf{s} = \mathrm{dev} (\mathbf{\sigma}) =
-\mathbf{\sigma} - \frac{1}{3} I_1 \mathbf{1}
-$$
-<p>is the deviatoric stress tensor,</p>
+\mathbf{\sigma} - \frac{1}{3} I_1 \mathbf{1}$$
 
-$$ I_1 = \mathrm{tr}(\mathbf{\sigma})
-$$
-<p>is the first invariant of the stress tensor, and the parameters
-$\rho_{}^{}$ and
-$\sigma_Y^{}$ are positive material
-constants.</p>
-<p>The isotropic hardening stress is defined as</p>
+is the deviatoric stress tensor,
 
+$$ I_1 = \mathrm{tr}(\mathbf{\sigma})$$
+
+is the first invariant of the stress tensor, and the parameters $\rho_{}^{}$ and
+$\sigma_Y^{}$ are positive material constants.
+</dd>
+
+<dt>Isotropic hardening stress</dt>
+
+<dd>
 $$ q^{iso} = \theta H \alpha^{iso} + (K_{\infty} - K_o)
 \exp(-\delta_1 \alpha^{iso})
 $$
-<p>The kinematic hardening stress (or back-stress) is defined as</p>
+</dd>
+
+<dt>Kinematic hardening stress (or back-stress)</dt><dd>
 
 $$ \mathbf{q}^{kin} = -(1 - \theta) \frac{2}{3} H
 \mathbb{I}^{dev} : \mathbf{\alpha}^{kin}
 $$
-<p>The yield condition for the tension cutoff yield surface is defined
-as</p>
+</dd>
+
+<dt>Yield condition for tension cutoff yield surface</dt>
+<dd>
 
 $$ f_2(\mathbf{\sigma}, q^{ten}) = I_1 + q^{ten} \leq 0
 $$
@@ -126,41 +133,48 @@ $$ q^{ten} = T_o \exp(-\delta_2^{} \alpha^{ten})
 $$
 <p>and</p>
 
-$$ T_o = \sqrt{\frac{2}{3}} \frac{\sigma_Y}{\rho}
-$$
-<p>Further, general, information on theory for the Drucker-Prager yield
+$$ T_o = \sqrt{\frac{2}{3}} \frac{\sigma_Y}{\rho}$$
+</dd>
+</dl>
+</dd>
+</dl>
+
+Further, general, information on theory for the Drucker-Prager yield
 criterion can be found at wikipedia <a
-href="http://en.wikipedia.org/wiki/Drucker_Prager_yield_criterion">here</a></p>
-<h2 id="notes">Notes</h2>
-<p>The valid queries to the Drucker-Prager material when creating an
-ElementRecorder are 'strain' and 'stress' (as with all nDmaterial) as
-well as 'state'. The query 'state' records a vector of state variables
+href="http://en.wikipedia.org/wiki/Drucker_Prager_yield_criterion">here</a>
+
+## Notes
+The valid queries to the Drucker-Prager material when creating an
+ElementRecorder are `strain` and `stress` (as with all nDmaterial) as
+well as `state`. The query `state` records a vector of state variables
 during a particular analysis. The columns of this vector are as follows.
-(Note: If the option '-time' is included in the creation of the
+(Note: If the option `-time` is included in the creation of the
 recorder, the first column will be the time variable for each recorded
-point and the columns below are shifted accordingly.)</p>
+point and the columns below are shifted accordingly.)
+
 <dl>
-<dt></dt>
 <dd>
 <dl>
-<dt></dt>
-<dd>
-Column 1 - First invariant of the stress tensor, $I_1 = \mathrm{tr}(\mathbf{\sigma})$.
+<dt>Column 1</dt>
+<dd>First invariant of the stress tensor, $I_1 = \mathrm{tr}(\mathbf{\sigma})$.</dd>
+
+<dt>Column 2</dt><dd>
+  The following tensor norm, $\left\| \mathbf{s} + \mathbf{q}^{kin} \right\|$, where
+  $\mathbf{s}$ is the deviatoric stress tensor and
+  $\mathbf{q}^{kin}$ is the back-stress tensor.
 </dd>
-<dd>
-Column 2 - The following tensor norm, $\left\| \mathbf{s} + \mathbf{q}^{kin} \right\|$, where
-$\mathbf{s}$ is the deviatoric stress tensor and
-$\mathbf{q}^{kin}$ is the back-stress tensor.
+
+<dt>Column 3</dt><dd>
+  First invariant of the plastic strain tensor, $\mathrm{tr}(\mathbf{\varepsilon}^p)$.
 </dd>
-<dd>
-Column 3 - First invariant of the plastic strain tensor, $\mathrm{tr}(\mathbf{\varepsilon}^p)$.
-</dd>
-<dd>
-Column 4 - Norm of the deviatoric plastic strain tensor, $\left\| \mathbf{e}^p \right\|$
+
+<dt>Column 4</dt><dd>
+  Norm of the deviatoric plastic strain tensor, $\left\| \mathbf{e}^p \right\|$
 </dd>
 </dl>
 </dd>
 </dl>
+
 <p>The Drucker-Prager strength parameters $\rho$ and $\sigma_Y$ can be related to
 the Mohr-Coulomb friction angle, $\phi$, and
 cohesive intercept, $c$, by evaluating the

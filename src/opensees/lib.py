@@ -168,9 +168,9 @@ class uniaxial:
         Num("esu", about="Tensile strain at the UTS"),
         Yng(),
         Num("eshI", about="Tensile strain for a point on strain hardening curve, recommended range of values for eshI: " \
-                r"$[ (\texttt{esu} + 5 \texttt{esh})/6, (\texttt{esu} + 3 \texttt{esh)/4]$"),
+                r"$\left\[ (\texttt{esu} + 5 \texttt{esh})/6, (\texttt{esu} + 3 \texttt{esh})/4\right\]$"),
         Num("fshI", about="Tensile stress at point on strain hardening curve corresponding to eshI"),
-        Num("OmegaFac", default=1.0, reqd=False, about=r"Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: $\[0.75, 1.15\]$. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0."),
+        Num("OmegaFac", default=1.0, reqd=False, about=r"Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: $\left[0.75, 1.15\right]$. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0."),
     ])
 
 
@@ -251,6 +251,64 @@ class uniaxial:
             Num("R3", default = 4)
           ]
         )
+    ])
+    Steel04 = Uni("Steel04", "Steel04", args=[
+        
+        Tag(),
+        Yld("stress"),
+        Yng(),
+        Grp("-kin", type=Num, about="""apply kinematic hardening
+            Kinematic hardening is based on the Menegotto-Pinto model. The parameters and their use is identical to those of the Steel02 material.
+
+            Steel4 param kin.png
+
+            recommended values: $R_0 = 20 $r_1 = 0.90 $r_2 = 0.15""", args=[
+            Num("b_k", about="hardening ratio (E_k/E_0)"),
+            Num("R_0", about="control the exponential transition from linear elastic to hardening asymptote"),
+            Num("r_1"),
+            Num("r_2"),
+        ]),
+
+        Grp("-iso", about="""apply isotropic hardening
+            Isotropic hardening increases the yield strength of the material. The applied increase is calculated as a function of the accumulated plastic strain. The following parameters control that function.
+
+            Steel4 param iso.png""", args=[
+            Num("b_i", about="initial hardening ratio (E_i/E_0)"),
+            Num("b_l", about="saturated hardening ratio (E_is/E_0)"),
+            Num("rho_i", about="specifies the position of the intersection point between initial and saturated hardening asymptotes"),
+            Num("R_i", about="control the exponential transition from initial to saturated asymptote"),
+            Num("l_yp", about=r"length of the yield plateau in $\varepsilon_{y0} = f_y / E_0$ units"),
+        ]),
+
+        Grp("-ult", type=Num, about="""apply an ultimate strength limit
+            The ultimate strength limit serves as an upper limit of material resistance. After the limit is reached the material behaves in a perfectly plastic manner. Exponential transition is provided from the kinematic hardening to the perfectly plastic asymptote.
+            Note that isotropic hardening is also limited by the ultimate strength, but the transition from the isotropic hardening to the perfectly plastic asymptote is instantaneous.
+            Steel4 param ult.png
+            """, args=[
+                Num("f_u", about="ultimate strength"),
+                Num("R_u", about="control the exponential transition from kinematic hardening to perfectly plastic asymptote"),
+        ]),
+
+        Grp("-asym", reqd=False, type=Grp, about="""assume non-symmetric behavior
+                If non-symmetric behavior is assumed, material response under tension and compression will be controlled by two different parameter sets. The normal parameters control behavior under tension. Additional parameters shall be specified to describe behavior under compression. The following parameters are expected after the normal parameters when the options below are used.
+                Steel4 param asymi.png
+                Steel4 param asymk.png""", args=[
+                Grp("-kin", type=Num, num=4, args=[Num("b_kc"), Num("R_0c"), Num("r_1c"), Num("r_2c")]),
+                Grp("-iso", type=Num, num=4, args=[Num("b_ic"), Num("rho_ic"), Num("b_lc"), Num("R_ic")]),
+                Grp("-ult", type=Num, num=2, args=[Num("f_uc"), Num("R_uc")]),
+            ]
+        ),
+
+        Num("sig_init", flag="-init", about="""apply initial stress
+            Initial stress is assumed at 0 strain at the beginning of the loading process. The absolute value of the initial stress is assumed to be less than the yield strength of the material.
+            Steel4 param init.png"""
+        ),
+
+        Int("cycNum", flag="-mem", about="""expected number of half-cycles during the loading process
+            Efficiency of the material can be slightly increased by correctly setting this value. The default value is $cycNum = 50
+            Load history memory can be turned off by setting $cycNum = 0."""
+        ),
+
     ])
 
     UVCuniaxial = UVC = Uni("UVCuniaxial", "UVCuniaxial", args = [
@@ -583,9 +641,7 @@ Backbone = LibCmd("backbone")
 class backbone:
 
     Popovics = Mander = Backbone("Mander",
-        args = [
-          Tag(), Num("fc"), Num("epsc"), Num("Ec")
-        ]
+        args = [Tag(), Num("fc"), Num("epsc"), Yng()]
     )
 
     ReeseSoftClay = Backbone("ReeseSoftClay",
@@ -608,19 +664,24 @@ class backbone:
 
     Raynor = Backbone("Raynor", 
         args=[
-          Tag(), Num("Es"), Num("fy"), Num("fsu"), Num("Epsilonsh"), Num("Epsilonsm"), Num("C1"), Num("Ey")
+          Tag(), Yng(), Yld("stress"), Num("fsu"), Num("Epsilonsh"), Num("Epsilonsm"), Num("C1"), Num("Ey")
         ]
     )
 
     Backbone("Capped", 
-        args=[
-          Tag(), Ref("backbone"), Num("capTag")
-        ]
+        args=[Tag(), Ref("backbone"), Num("capTag")]
     )
 
     LinearCapped = Backbone("LinearCapped", 
         args=[
           Tag(), Ref("backbone",type=Backbone), Num("eCap"), Num("E"), Num("sRes")
+        ]
+    )
+
+    Multilinear = Backbone("Multilinear", "Multilinear", args=[
+            Grp("points", type=Grp, args=[Grp(type=Num, args=[Num("e"), Num("s")])],
+                about="Points defining multilinear backbone."
+            ),
         ]
     )
 

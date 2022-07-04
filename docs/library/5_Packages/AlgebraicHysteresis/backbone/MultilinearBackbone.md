@@ -1,6 +1,9 @@
 # Multilinear
 
-MultilinearBackbone is a backbone defined by many points.
+`MultilinearBackbone` is a backbone defined by many points.
+
+:::{apidoc="opensees.backbone.Multilinear"}
+:::
 
 ## C++ Interface
 
@@ -8,8 +11,7 @@ MultilinearBackbone is a backbone defined by many points.
 class MultilinearBackbone : public HystereticBackbone
 {
  public:
-  MultilinearBackbone(int tag, int numPoints,
-		      const Vector &e, const Vector &s);
+  MultilinearBackbone(int tag, int numPoints, const Vector &e, const Vector &s);
     
  private:
   double *E;
@@ -24,3 +26,4 @@ class MultilinearBackbone : public HystereticBackbone
 Code developed by: <span style="color:blue">MHS</span>
 
 Created: Aug 2000
+

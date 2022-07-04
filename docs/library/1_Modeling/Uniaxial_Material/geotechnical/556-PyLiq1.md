@@ -1,16 +1,16 @@
 # PyLiq1
 
-<p>This command constructs a uniaxial p-y material that incorporates
+This command constructs a uniaxial $p-y$ material that incorporates
 liquefaction effects. This p y material is used with a zeroLength
 element to connect a pile (beam-column element) to a 2 D plane-strain FE
-mesh or displacement boundary condition. The p-y material obtains the
+mesh or displacement boundary condition. The $p-y$ material obtains the
 average mean effective stress (which decreases with increasing excess
 pore pressure) either from two specified soil elements, or from a time
 series. Currently, the implementation requires that the specified soil
 elements consist of FluidSolidPorousMaterials in FourNodeQuad elements,
 or PressureDependMultiYield or PressureDependMultiYield02 materials in
 FourNodeQuadUP or NineFourQuadUP elements. There are two possible
-forms:</p>
+forms:
 
 ```tcl
 uniaxialMaterial PyLiq1 $matTag $soilType $pult $Y50 $Cd
@@ -31,14 +31,14 @@ uniaxialMaterial PyLiq1 $matTag $soilType $pult $Y50 $Cd
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">soilType</code></td>
-<td><p>soilType = 1 Backbone of p-y curve approximates Matlock (1970)
+<td><p>soilType = 1 Backbone of $p-y$ curve approximates Matlock (1970)
 soft clay relation.</p>
-<p>soilType = 2 Backbone of p-y curve approximates API (1993) sand
+<p>soilType = 2 Backbone of $p-y$ curve approximates API (1993) sand
 relation.</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">pult</code></td>
-<td><p>Ultimate capacity of the p-y material. Note that "p" or "pult"
+<td><p>Ultimate capacity of the $p-y$ material. Note that "p" or "pult"
 are distributed loads [force per length of pile] in common design
 equations, but are both loads for this uniaxialMaterial [i.e.,
 distributed load times the tributary length of the pile].</p></td>
@@ -115,7 +115,7 @@ other option must be used.</p>
 identically to the PySimple1 material if there is no excess pore water
 pressure (i.e., sNum = 0). The constitutive equations for the PySimple1
 material are given in separate documentation and not repeated here.</p>
-<p>The PyLiq1 material modifies the p-y behavior in response to the
+<p>The PyLiq1 material modifies the $p-y$ behavior in response to the
 average mean effective stress (p′), as affected by the excess pore water
 pressures, in two specified solid soil elements. The PyLiq1 material is
 used within a zeroLength element, and that zeroLength element generally
@@ -125,7 +125,7 @@ allows the PyLiq1 material to depend on pore pressures above and below
 its nodal position (essentially covering its full tributary length). The
 mean effective stress is affected by changes in mean total stress and
 excess pore pressure. For modeling purposes, an excess pore water
-pressure ratio is calculated as $ru = 1-\frac{p^\prime}/{p_c^\prime}$, 
+pressure ratio is calculated as $ru = 1-\frac{p^\prime}{p_c^\prime}$, 
 where $p_c^\prime$ is the mean effective
 consolidation stress prior to undrained loading. The average value of ru
 is obtained from the specified solid soil elements and used within
@@ -140,8 +140,8 @@ pRes). The second constraint applies to the situation where the mean
 effective stress in the adjacent solid soil elements is incrementally
 increasing [e.g., the pore pressures decrease as the soils are
 incrementally dilatant (phase transformation)]. In this “hardening”
-situation, the loading path from the p-y relation at time “i” to time
-“i+1” is bounded by the material’ elastic stiffness (i.e., the
+situation, the loading path from the $p-y$ relation at time $i$ to time
+$i+1$ is bounded by the material’ elastic stiffness (i.e., the
 unload/reloading stiffness); e.g., the incremental loading path cannot
 be steeper than the elastic stiffness. Note that the above approach only
 provides a first-order approximation for the softening effects of
@@ -169,7 +169,7 @@ for the $p-y$ element response. In the first case, `sNum = 0` such that the
 $p-y$ element is independent of changes in mean effective stress (or
 excess pore pressure) in the soil element. The resulting behavior is
 shown in the upper right-hand plot of the Figure. In the second case,
-sNum was set to 1 prior to cyclic loading, and thus the resulting
+`sNum` was set to 1 prior to cyclic loading, and thus the resulting
 behavior is dependent on the excess pore pressure in the soil element
 (lower right-hand plot of the Figure). The $p-y$ element exhibits the
 overall softening that is expected when the adjacent soil element
@@ -178,7 +178,7 @@ adjacent soil goes through phase transformation (with its associated
 drop in excess pore pressure). In these plots, the “p” is normalized by
 the $p_{ult}$ for drained monotonic loading.
 
-<p>In the second example (second Figure), the adjacent soil element is
+In the second example (second Figure), the adjacent soil element is
 subjected to a static shear load plus uniform cyclic loading such that
 triggering of liquefaction is accompanied by progressive lateral
 deformation in the direction of the static load bias (i.e., lateral

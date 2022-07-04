@@ -4,6 +4,16 @@ Response of Stiff Clay above the water surface
 (https://ntrl.ntis.gov/NTRL/dashboard/searchResults/titleDetail/PB94108305.xhtml)
 page 336
 
+```tcl
+ hystereticBackbone ReeseStiffClayAboveWS tag pu y50
+```
+
+| |
+|------|----|
+| pu   | the ultimate soil resistance per unit length of shaft
+| y50  | the deflection at one-half the ultimate soil resistance
+
+
 ## C++ Interface
 
 ```cpp
@@ -13,19 +23,18 @@ class ReeseStiffClayAboveWS : public HystereticBackbone {
   ReeseStiffClayAboveWS();
   ~ReeseStiffClayAboveWS();
 
+  double getStress(double strain) {
+    double yhl = hl * y50;
+    if (strain < yhl) {
+      return strain * getStress(yhl) / yhl;
+    }
 
-  double getYieldStrain(void);
+    if (strain > 16.0 * y50) {
+      return pu;
+    }
 
-  HystereticBackbone *getCopy(void);
-
-  void Print(OPS_Stream &s, int flag = 0);
-
-  int setVariable(char *argv);
-  int getVariable(int varID, double &theValue);
-
-  int sendSelf(int commitTag, Channel &theChannel);
-  int recvSelf(int commitTag, Channel &theChannel,
-               FEM_ObjectBroker &theBroker);
+    return 0.5 * pu * pow(strain / y50, 0.25);
+  }
 
  protected:
  private:

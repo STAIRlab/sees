@@ -60,7 +60,7 @@ class TclWriter(Emitter):
             for a,v in zip(self.args, value):
                 this.Arg(a, value=v)
         else:
-            assert "min" in self.kwds
+            # assert "min" in self.kwds
             assert len(self.args) == 1
             for v in value:
                 this.Arg(self.args[0], value=v)
