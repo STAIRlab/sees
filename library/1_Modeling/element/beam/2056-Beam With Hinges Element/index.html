@@ -12696,6 +12696,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_5_7_3">
@@ -12740,6 +12742,21 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Packages/optimization/developer/726-UML%20Reliability/" class="md-nav__link">
+        UML Reliability
+
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -12763,12 +12780,6 @@
         
           
             
-          
-        
-          
-        
-          
-        
           
         
           
@@ -12913,21 +12924,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/modeling/43-BbarBrickWithSensitivity%20Command/" class="md-nav__link">
-        BbarBrickWithSensitivity Command
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../5_Packages/optimization/modeling/44-BbarBrickWithSensitivity%20Element/" class="md-nav__link">
         BbarBrickWithSensitivity Element
 
@@ -12945,36 +12941,6 @@
     <li class="md-nav__item">
       <a href="../../../../5_Packages/optimization/modeling/559-QuadWithSensitivity/" class="md-nav__link">
         QuadWithSensitivity
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/modeling/560-QuadWithSensitivity%20Command/" class="md-nav__link">
-        QuadWithSensitivity Command
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/modeling/561-QuadWithSensitivity%20Element/" class="md-nav__link">
-        QuadWithSensitivity Element
 
       </a>
     </li>
@@ -13036,7 +13002,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_7_4_16" type="checkbox" id="__nav_3_5_7_4_16" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_7_4_13" type="checkbox" id="__nav_3_5_7_4_13" >
       
       
       
@@ -13079,13 +13045,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_5_7_4_16">
+        <label class="md-nav__link" for="__nav_3_5_7_4_13">
           Material
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material" data-md-level="5">
-        <label class="md-nav__title" for="__nav_3_5_7_4_16">
+        <label class="md-nav__title" for="__nav_3_5_7_4_13">
           <span class="md-nav__icon md-icon"></span>
           Material
         </label>
@@ -13481,10 +13447,6 @@
         
           
         
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_3_5_7_6">
@@ -13498,21 +13460,6 @@
           Reliability
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/reliability/130-Discovering%20OpenSees%20--%20Basic%20Reliability%20Analysis%20using%20OpenSees/" class="md-nav__link">
-        Discovering OpenSees -- Basic Reliability Analysis using OpenSees
-
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -13552,21 +13499,6 @@
     <li class="md-nav__item">
       <a href="../../../../5_Packages/optimization/reliability/595-Reliability%20Sensitivity%20and%20Optimization%20Modules/" class="md-nav__link">
         Reliability Sensitivity and Optimization Modules
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/reliability/726-UML%20Reliability/" class="md-nav__link">
-        UML Reliability
 
       </a>
     </li>
@@ -14335,7 +14267,6 @@
 
 
 <h1 id="beamwithhinges">BeamWithHinges</h1>
-<p>
 <p>This command is used to construct a forceBeamColumn element object, which is based on the non-iterative (or iterative) flexibility formulation. The locations and weights of the element integration points are based on so-called plastic hinge integration, which allows the user to specify plastic hinge lenghts at the element ends. Two-point Gauss integration is used on the element interior while two-point Gauss-Radau integration is applied over lengths of <span class="math inline">\(4\ell_{p,i}\)</span> and <span class="math inline">\(4\ell_{p,j}\)</span> at the element ends, viz. “modified Gauss-Radau plastic hinge integration”. A total of six integration points are used in the element state determination (two for each hinge and two for the interior).</p>
 <p>
 Users may be familiar with the <strong>beamWithHinges</strong> command format (see below); however, the format shown here allows for the simple but important case of using a material nonlinear section model on the element interior. The previous beamWithHinges command constrained the user to an elastic interior, which often led to unconservative estimates of the element resisting force when plasticity spread beyond the plastic hinge regions in to the element interior.
@@ -14464,10 +14395,10 @@ tolerance for satisfaction of element compatibility (optional, default=10-16)
 <p>NOTE: The keyword <strong>HingeRadau</strong> can be changed to one of the following in order to use a different hinge integration approach:</p>
 <ul>
 <li>
-<strong>HingeRadau</strong> – two-point Gauss-Radau applied to the hinge regions over 4LpI and 4LpJ (six element integration points)
+<strong>HingeRadau</strong> – two-point Gauss-Radau applied to the hinge regions over <span class="math inline">\(4\ell_{pI}\)</span> and <span class="math inline">\(4\ell_{pJ}\)</span> (six element integration points)
 </li>
 <li>
-<strong>HingeRadauTwo</strong> – two-point Gauss-Radau in the hinge regions applied over LpI and LpJ (six element integration points)
+<strong>HingeRadauTwo</strong> – two-point Gauss-Radau in the hinge regions applied over <span class="math inline">\(\ell_{pI}\)</span> and <span class="math inline">\(\ell_{pJ}\)</span> (six element integration points)
 </li>
 <li>
 <strong>HingeMidpoint</strong> – midpoint integration over the hinge regions (four element integration points)
@@ -14608,12 +14539,7 @@ Shear Modulus of elastic portion.
 <h2 id="c-interface-beamwithhinges2d">C++ Interface (BeamWithHinges2D)</h2>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;element/BeamWithHinges2D.h&gt;</span><span class="cp"></span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">BeamWithHinges2D</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">DomainComponent</span>\
-
-<span class="n">TaggedObject</span>\
-<span class="n">MovableObject</span>\
-<span class="n">DomainComponent</span>\
-<span class="n">Element</span>\
+<span class="k">class</span><span class="w"> </span><span class="nc">BeamWithHinges2D</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">DomainComponent</span><span class="w"></span>
 </pre></div>
 
 <p>BeamWithHinges2D is a beam-column element which uses the force based formulation for its state determination. This element has material non-linear hinges at both ends and exhibits linear elastic behavior through its interior region, including linear elastic shear effects.</p>
@@ -14623,18 +14549,15 @@ Shear Modulus of elastic portion.
 <p>Constructs a BeamWithHinges2D object with tag <code>tag</code>, unique among all elements in the domain. The end nodes of the element are set to be those with tags <code>nodeI</code> and <code>nodeJ</code>. The elastic properties of the interior beam region are set to be <code>E</code>, the modulus of elasticity; <code>I</code>, the second moment of area of the beam cross-section; <code>A</code>, the beam cross-sectional area; <code>G</code>, the shear modulus; and <code>alpha</code>, the cross-section shape factor for elastic shear effects. Element hinges are created by obtaining copies of <code>sectionI</code> and <code>sectionJ</code>. The hinge lengths are specified as ratios of the total element length, <code>ratioI</code> and <code>ratioJ</code>. The element mass density per unit length is <code>massDens</code>.</p>
 <p>Constructs a blank BeamWithHinges2D object.</p>
 <p>Invokes the section destructors.</p>
-<p>// Public Methods dealing with Nodes and dof<br />
-</p>
+<p>// Public Methods dealing with Nodes and dof</p>
 <p><br />
 </p>
 <p><br />
-// Public Methods dealing with State<br />
-</p>
+// Public Methods dealing with State</p>
 <p><br />
 </p>
 <p><br />
-// Public Methods for obtaining Linearized Stiffness, Mass and Damping Matrices<br />
-</p>
+// Public Methods for obtaining Linearized Stiffness, Mass and Damping Matrices</p>
 <p><br />
 </p>
 <p><br />
