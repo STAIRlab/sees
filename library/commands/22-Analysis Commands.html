@@ -1,21 +1,21 @@
 # Analysis Commands
 
-<p>In OpenSees, an analysis is an object which is composed by the
+In OpenSees, an analysis is an object which is composed by the
 aggregation of component objects. It is the component objects which
 define the type of analysis that is performed on the model. The
 component classes, as shown in the figure below, consist of the
-following:</p>
+following:
+
 <ol>
 <li>ConstraintHandler -- determines how the constraint equations are
-enforced in the analysis -- how it handles the boundary
-conditions/imposed displacements</li>
-<li>DOF_Numberer -- determines the mapping between equation numbers and
-degrees-of-freedom</li>
+    enforced in the analysis -- how it handles the boundary
+    conditions/imposed displacements</li>
+<li>DOF_Numberer -- determines the mapping between equation numbers and degrees-of-freedom</li>
 <li>Integrator -- determines the predictive step for time t+dt</li>
 <li>SolutionAlgorithm -- determines the sequence of steps taken to solve
-the non-linear equation at the current time step</li>
+    the non-linear equation at the current time step</li>
 <li>SystemOfEqn/Solver -- within the solution algorithm, it specifies
-how to store and solve the system of equations in the analysis</li>
+    how to store and solve the system of equations in the analysis</li>
 <li>Convergence Test -- determines when convergence has been
 achieved.</li>
 </ol>
