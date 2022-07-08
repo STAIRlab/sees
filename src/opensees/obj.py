@@ -115,6 +115,8 @@ class Component:
                 else:
                     yield val, _get_tagspace(val)
 
+
+
 def _get_tagspace(arg):
     if hasattr(arg, "tag_space"):
         return arg.tag_space

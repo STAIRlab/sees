@@ -35,8 +35,8 @@ class Emitter:
         self.idnt = self.idnt[:-1]
 
 class ScriptBuilder:
-    TAB = object()
-    RET = object()
+    # TAB = object()
+    # RET = object()
 
     def __init__(self, emitter):
         self.sent = set()
@@ -63,14 +63,22 @@ class ScriptBuilder:
     def send(self, obj, idnt=None):
         w = self.streams[0]
 
-        if not hasattr(obj,"_args"):
+        if isinstance(obj, (list,tuple)):
+            #import sys
+            for i in obj:
+                #print(i, file=sys.stderr)
+                self.send(i)
+            return self
+
+        elif not hasattr(obj,"_args"):
             raise ObjectSerializationError(f"object {obj}")
         
         if self.registry.registered(obj):
             return self
 
         for ref,tag_space in obj.get_refs():
-            try: self.send(ref)
+            try: 
+                self.send(ref)
 
             except ObjectSerializationError:
                 ident = self.registry.register(ref, tag_space=tag_space)

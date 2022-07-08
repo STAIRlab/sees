@@ -49,25 +49,23 @@ $\alpha_M=(1-\gamma_m)$ where
 $\alpha_f$ and $\alpha_m$
 are those used in the paper.</li>
 <li>Like Newmark and all the implicit schemes, the unconditional
-stability of this method applies to linear problems. There are no
-results showing stability of this method over the wide range of
-nonlinear problems that potentially exist. Experience indicates that the
-time step for implicit schemes in nonlinear situations can be much
-greater than those for explicit schemes.</li>
-<li>$\alpha_M = 1.0, \alpha_F = 1.0$ produces
-the Newmark Method.</li>
-<li>$\alpha_M = 1.0$ corresponds to the HHT
-method.</li>
-<li>The method is second-order accurate provided $\gamma =
-\tfrac{1}{2} + \alpha_M - \alpha_F$</li>
-<li>The method is unconditionally stable provided $\alpha_M
->= \alpha_F &gt;= \tfrac{1}{2}, \beta>=\tfrac{1}{4}
-+\tfrac{1}{2}(\gamma_M - \gamma_F)$
+  stability of this method applies to linear problems. There are no
+  results showing stability of this method over the wide range of
+  nonlinear problems that potentially exist. Experience indicates that the
+  time step for implicit schemes in nonlinear situations can be much
+  greater than those for explicit schemes.</li>
+
+<li>$\alpha_M = 1.0, \alpha_F = 1.0$ produces the Newmark Method.</li>
+<li>$\alpha_M = 1.0$ corresponds to the HHT method.</li>
+<li>The method is second-order accurate provided $\gamma = \tfrac{1}{2} + \alpha_M - \alpha_F$</li>
+
+<li>The method is unconditionally stable provided $\alpha_M \ge \alpha_F \ge \tfrac{1}{2}, \beta \ge \tfrac{1}{4}
+  +\tfrac{1}{2}(\gamma_M - \gamma_F)$
 </li>
 <li>$\gamma$ and $\beta$
-are optional. The default values ensure the method is unconditionally
-stable, second order accurate and high frequency dissipation is
-maximized.</li>
+  are optional. The default values ensure the method is unconditionally
+  stable, second order accurate and high frequency dissipation is
+  maximized.</li>
 </ol>
 <p>The defaults are:</p>
 <dl>
@@ -88,12 +86,6 @@ $$\beta = \tfrac{1}{4}(1 + \gamma_M -
 
 </dd>
 </dl>
-## References
-<p>J. Chung, G.M.Hubert. "A Time Integration Algorithm for Structural
-Dynamics with Improved Numerical Dissipation: The
-Generalized-$\alpha$ Method" ASME Journal of
-Applied Mechanics, 60, 371:375, 1993.</p>
-<hr />
 
 ## Theory
 
@@ -144,37 +136,21 @@ $$\ddot U_{t+\alpha_M \Delta t} = (1-\alpha_M) \ddot U_t +
 <p>Following the methods outlined for Newmarks method, linearization of
 the nonlinear momentum equation results in the following linear
 equations:</p>
-<dl>
-<dt></dt>
-<dd>
 
 $$K_{t+\Delta t}^{*i} d U_{t+\Delta t}^{i+1} = R_{t+\Delta
 t}^i$$
-
-</dd>
-</dl>
-<p>where</p>
-<dl>
-<dt></dt>
-<dd>
 
 $$K_{t+\Delta t}^{*i} = \alpha_F K_t + \frac{\alpha_F
 \gamma}{\beta \Delta t} C_t + \frac{\alpha_M}{\beta \Delta t^2}
 M$$
 
-</dd>
-</dl>
 <p>and</p>
-<dl>
-<dt></dt>
-<dd>
+
 
 $$R_{t+\Delta t}^i = F_{t + \Delta t}^{ext} - F(U_{t + \alpha
 F \Delta t}^{i-1})^{int} - C \dot U_{t+\alpha F \Delta t}^{i-1} - M
 \ddot U_{t+ \alpha M \Delta t}^{i-1}$$
 
-</dd>
-</dl>
 <p>The linear equations are used to solve for 
 
 $$U_{t+\alpha F
@@ -183,6 +159,13 @@ t}$$
 Once convergence has been achieved the displacements,
 velocities and accelerations at time $t + \Delta t$ can be computed.</p>
 
+## References
+<p>J. Chung, G.M.Hubert. "A Time Integration Algorithm for Structural
+Dynamics with Improved Numerical Dissipation: The
+Generalized-$\alpha$ Method" ASME Journal of
+Applied Mechanics, 60, 371:375, 1993.</p>
+
 <hr />
 
 <p>Code Developed by: <span style="color:blue">fmk</span></p>
+

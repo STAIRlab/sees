@@ -319,7 +319,7 @@ class uniaxial:
         Num("b",      about="Saturation rate of QInf, b > 0."),
         Num("DInf",   about="Decrease in the initial yield stress, to neglect the model updates set DInf = 0."),
         Num("a",      about="Saturation rate of DInf, $a > 0$. If $D_\infty == 0$, then a is arbitrary (but still a > 0)."),
-        Num("N",      about="Number of backstresses to define, N >= 1."),
+        Int("N",      about=r"Number of backstresses to define, $N \ge 1$."),
         Grp("backstress", type=Grp, args=[Grp(type=Num, args=[Num("C"), Num("gamma")])],
             about="Backstress parameters, up to 9 pairs may be specified. If `C` is specified, then the corresponding `gamma` must also be specified. Note that only the first N backstresses will be read by the parser."
         ),

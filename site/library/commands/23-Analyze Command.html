@@ -47,10 +47,19 @@ specified.</p></td>
 </span></p>
 <hr />
 <p>UML</p>
-<p>&lt;uml&gt; footbox off actor StaticAnalysis participant Integrator
-participant SolutionAlgorithm loop numIncr times StaticAnalysis -&gt;
-Integrator : newStep() Integrator -&gt; StaticAnalysis : Success/Failure
-StaticAnalysis -&gt; SolutionAlgorithm : solveCurrentStep()
-SolutionAlgorithm -&gt; StaticAnalysis : Success/Failure StaticAnalysis
--&gt; Integrator : commit() Integrator-&gt; StaticAnalysis :
-Sucess/Failure end &lt;/uml&gt;</p>
+
+```plantuml
+footbox off 
+actor StaticAnalysis 
+participant Integrator
+participant SolutionAlgorithm 
+loop numIncr times 
+StaticAnalysis -> Integrator : newStep() 
+Integrator -> StaticAnalysis : Success/Failure
+StaticAnalysis -> SolutionAlgorithm : solveCurrentStep()
+SolutionAlgorithm -> StaticAnalysis : Success/Failure 
+StaticAnalysis -> Integrator : commit() 
+Integrator-> StaticAnalysis : Sucess/Failure 
+end 
+```
+

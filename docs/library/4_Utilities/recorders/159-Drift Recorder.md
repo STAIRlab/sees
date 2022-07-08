@@ -6,10 +6,10 @@ and the specified distance between the nodes. The command to create a
 drift recorder is:
 
 ```tcl
-recorder Drift < -file $fileName > < -xml $fileName >
-  < -binary $fileName > < -tcp $inetAddress $port > < -precision
-  $nSD > < -time > -iNode $inode1 $inode2 ... -jNode $jnode1 $jnode2
-  ... -dof $dof1 $dof2 ... -perpDirn $perpDirn1 $perpDirn2...
+recorder Drift < -file $fileName > < -xml $fileName > < -binary $fileName > 
+  < -tcp $inetAddress $port > < -precision $nSD > < -time > 
+  -iNode $inode1 $inode2 ... -jNode $jnode1 $jnode2 ... 
+  -dof $dof1 $dof2 ... -perpDirn $perpDirn1 $perpDirn2...
 ```
 
 <hr />
@@ -57,19 +57,19 @@ freedom).</p></td>
 </tr>
 <tr class="odd">
 <td><p><code>perpDirn1 perpDirn2 ...</code></p></td>
-<td><p>set of perpendicular global directions (1=X, 2=Y, 3=Z). This
+<td><p>set of perpendicular global directions (`1`=$X$, `2`=$Y$, `3`=$Z$). This
 input is needed to calculate the length between the nodes whose drift is
 calculated.</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>NOTES</p>
-<ul>
-<li>Only one of `-file`, `-xml`, `-binary`, `-tcp` will be used. If multiple
-specified last option is used.</li>
-<li>-tcp option only available for version 2.2.1 and higher.</li>
-<li>Does not work in OpenSeesSP.</li>
-</ul>
+
+- Only one of `-file`, `-xml`, `-binary`, `-tcp` will be used. If multiple specified last option is used.
+- `-tcp` option only available for version 2.2.1 and higher.
+- Does not work in **OpenSeesSP**.
+
 
 ## Examples
 ```tcl

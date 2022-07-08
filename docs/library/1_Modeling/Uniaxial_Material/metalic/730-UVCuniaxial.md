@@ -179,11 +179,11 @@ href="https://pypi.org/project/RESSPyLab/">RESSPyLab</a> web page.</p>
 > Note that the parameters provided in the table below were calibrated
 > using the true stress-strain definition, i.e., 
 > 
-> $$\e_\text{true} = \ln(1+\frac{L-L_0}{L_0})$$ 
+> $$e_\text{true} = \ln\left(1+\frac{L-L_0}{L_0}\right)$$ 
 > 
 > and 
 > 
-> $$s_\text{true} = F/A_0 \left( 1 + \frac{L-L_0}{L_0}\right).$$
+> $$s_\text{true} = \frac{F}{A_0} \left( 1 + \frac{L-L_0}{L_0}\right).$$
 
 
 

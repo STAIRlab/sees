@@ -19,12 +19,22 @@ how to store and solve the system of equations in the analysis</li>
 <li>Convergence Test -- determines when convergence has been
 achieved.</li>
 </ol>
-<p>&lt;uml&gt; package "OpenSees Analysis" #DDDDDD</p>
-<p>abstract class Integrator abstract class Analysis abstract class
-SystemOfEqn abstract Class ConvergenceTest abstract class Algorithm
-Analysis o- ConstraintHandler Analysis o- Numberer Analysis o- Algorithm
-Analysis o- ConvergenceTest Analysis o- Integrator Analysis o-
-SystemOfEqn &lt;/uml&gt;</p>
+
+```plantuml
+package "OpenSees Analysis" #DDDDDD
+abstract class Integrator 
+abstract class Analysis 
+abstract class SystemOfEqn 
+abstract Class ConvergenceTest 
+abstract class Algorithm
+Analysis o- ConstraintHandler 
+Analysis o- Numberer 
+Analysis o- Algorithm
+Analysis o- ConvergenceTest 
+Analysis o- Integrator 
+Analysis o- SystemOfEqn 
+```
+
 <p>The following Analysis commands are added to the interpreter to
 create the Analysis and perform the analysis:</p>
 <ul>

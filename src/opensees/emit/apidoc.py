@@ -36,9 +36,9 @@ def write_obj(v, w):
     w.write(textwrap.dedent("""
     <div>
     <table>
-    <colgroup>
+    <!-- <colgroup>
       <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-    </colgroup>
+    </colgroup> -->
     <tbody>
     """))
 
@@ -56,7 +56,7 @@ class ApiEmitter(Emitter):
         default = " = "+str(a.default) if a.default else ""
         about = re.sub('[\s+]', ' ', a.about.replace('\n',' '))
         try:
-            typ = f"<code>{a.type.__name__}</code>"
+            typ = f'<code style="white-space: nowrap;">{a.type.__name__}</code>'
         except:
             typ = f"<code>{a.__class__.__name__}</code>"
         this.write(f"<td>{name+default}</td><td>{typ}</td><td>{about}")

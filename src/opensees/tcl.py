@@ -30,7 +30,7 @@ def eval(script: str):
 
 
 def dumps(model):
-    if not isinstance(model, Component):
+    if not isinstance(model, (Component,list,tuple)):
         from opensees.emit import OpenSeesWriter
         return OpenSeesWriter(model).dump()
     else:

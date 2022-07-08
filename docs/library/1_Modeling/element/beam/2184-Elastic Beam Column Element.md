@@ -3,18 +3,21 @@
 <p>This command is used to construct an elasticBeamColumn element
 object. The arguments for the construction of an elastic beam-column
 element depend on the dimension of the problem, ndm:</p>
+
+:::{apidoc="opensees.element.ElasticBeamColumn3D"}
+:::
+
 <p>For a two-dimensional problem:</p>
 
 ```tcl
 element elasticBeamColumn $eleTag $iNode $jNode $A $E $Iz
-        $transfTag &lt;-mass $massDens&gt; &lt;-cMass&gt;
+        $transfTag < -mass $massDens > < -cMass >
 ```
 <p>For a three-dimensional problem:</p>
 
 ```tcl
 element elasticBeamColumn $eleTag $iNode $jNode $A $E $G
-        $J $Iy $Iz $transfTag &lt;-mass $massDens&gt;
-        &lt;-cMass&gt;
+        $J $Iy $Iz $transfTag < -mass $massDens > < -cMass >
 ```
 
 <hr />
