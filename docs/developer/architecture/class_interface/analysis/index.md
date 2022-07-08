@@ -32,3 +32,20 @@ The **Analysis** object is an aggregation of objects of the following types:
     degrees-of-freedom in the **DOF_Group**s.
 
 
+
+
+```plantuml
+'package "OpenSees Analysis" #DDDDDD {
+abstract class Integrator 
+abstract class Analysis 
+abstract class SystemOfEqn 
+abstract Class ConvergenceTest 
+abstract class Algorithm
+Analysis o- ConstraintHandler 
+Analysis o- Numberer 
+Analysis o- Algorithm
+Analysis o- ConvergenceTest 
+Analysis o- Integrator 
+Analysis o- SystemOfEqn 
+'}
+```

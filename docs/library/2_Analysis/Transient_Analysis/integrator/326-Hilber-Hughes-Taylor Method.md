@@ -65,12 +65,6 @@ $\alpha = (\alpha_{HHT} - 1})$ where $\alpha_{HHT}$ is that used in the paper.
   $$\gamma = \frac{3}{2} - \alpha$$
 
 
-## References
-<p>Hilber, H.M, Hughes,T.J.R and Talor, R.L. "Improved Numerical
-Dissipation for Time Integration Algorithms in Structural Dynamics"
-Earthquake Engineering and Structural Dynamics, 5:282-292, 1977.</p>
-<hr />
-
 ## Theory
 
 The HHT method (sometimes called the $\alpha$
@@ -124,17 +118,20 @@ $$R_{t+\Delta t}^i = F_{t + \Delta t}^{ext} - F(U_{t + \alpha
 \Delta t}^{i-1})^{int} - C \dot U_{t+\alpha \Delta t}^{i-1} - M \ddot
 U_{t+ \Delta t}^{i-1}$$
 
-</dd>
-</dl>
 
-The linear equations are used to solve for $U_{t+\alpha
-\Delta t}, \dot U_{t + \alpha \Delta t} \ddot U_{t+\Delta
+The linear equations are used to solve for $U_{t+\alpha \Delta t}, \dot U_{t + \alpha \Delta t} \ddot U_{t+\Delta
 t}$. Once convergence has been achieved the displacements
 and velocities at time $t + \Delta t$ can be
 computed.
+
+## References
+
+- Hilber, H.M, Hughes,T.J.R and Talor, R.L. "Improved Numerical
+  Dissipation for Time Integration Algorithms in Structural Dynamics"
+  Earthquake Engineering and Structural Dynamics, 5:282-292, 1977.
+
 
 ----------------------------------------------------------------------
 
 <p>Code developed by: <span style="color:blue"> fmk
 </span></p>
-

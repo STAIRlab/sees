@@ -6,15 +6,25 @@ href="Time_Series_Command" title="wikilink"> TimeSeries</a> associated
 with it. In addition it may contain ElementLoads, NodalLoads and
 SinglePointConstraints. Some of these SinglePoint constraints may be
 associated with GroundMotions.</p>
-<p>&lt;uml&gt; abstract class ElementLoad abstract class TimeSeries
-LoadPattern o- "one" TimeSeries LoadPattern o- ElementLoad LoadPattern
-o- NodalLoad LoadPattern o- SP_Constraint &lt;/uml&gt;</p>
+
+```plantuml
+abstract class ElementLoad 
+abstract class TimeSeries
+LoadPattern o- "one" TimeSeries 
+LoadPattern o- ElementLoad 
+LoadPattern o- NodalLoad 
+LoadPattern o- SP_Constraint 
+```
+
+
 <p>The command has the following form:</p>
 
 ```tcl
 pattern patternType? arg1? ...
 ```
+
 <hr />
+
 <p>The type of pattern created and the additional arguments required
 depends on the <strong>patternType?</strong> provided in the command.
 The following contain information about patternType? and the additional

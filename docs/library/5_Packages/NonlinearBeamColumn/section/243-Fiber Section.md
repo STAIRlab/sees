@@ -79,7 +79,11 @@ geometric-arc</p></td>
   `fiber $yLoc $zLoc $matTag $matArg1 `</li>
 </ol>
 <hr />
-<p>&lt;uml&gt; FiberSection o- Fiber &lt;/uml&gt;</p>
+
+```plantuml
+FiberSection o- Fiber 
+```
+
 <hr />
 
 <p>Code developed by: <span style="color:blue"> Michael H. Scott, Oregon State University </span></p>

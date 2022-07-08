@@ -3,6 +3,9 @@
 <p>This command is used to construct a uniaxial multilinear material
 object.</p>
 
+:::{apidoc="opensees.uniaxial.Multilinear"}
+:::
+
 ```tcl
 uniaxialMaterial MultiLinear $matTag $u1 $f1 $u2 $f2 $u3
         $f3 $u4 $f4 ...
@@ -42,8 +45,8 @@ alt="MultiLinear_Material2.png" />
 <figcaption aria-hidden="true">MultiLinear_Material2.png</figcaption>
 </figure>
 <p>MultiLinear Material -- Hysteretic Behavior</p>
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> Frank Mckenna, UC
-Berkeley </span></p>
-<p>Images Developed by: <span style="color:blue"> Vesna Terzic
-</span></p>
+
+<p>Code Developed by: <span style="color:blue"> Frank Mckenna, UC Berkeley </span></p>
+<p>Images Developed by: <span style="color:blue"> Vesna Terzic</span></p>

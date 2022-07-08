@@ -3,6 +3,9 @@
 The Node recorder type records the response of a number of nodes at
 every converged step. The command to create a node recorder is:
 
+:::{apidoc="opensees.recorder.Node"}
+:::
+
 ```tcl
 recorder Node < -file $fileName > < -xml $fileName >
       < -binary $fileName > < -tcp $inetAddress $port > 

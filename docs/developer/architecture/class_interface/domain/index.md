@@ -17,3 +17,14 @@ objects created by the `ModelBuilder` object.
 - [Partitioner ](Partitioner)
 - [Pattern     ](Pattern)
 
+
+```plantuml
+package "OpenSees Model" #DDDDDD {
+abstract class Element 
+Domain o- Element 
+Domain o- Node 
+Domain o- SP_Constraint 
+Domain o- MP_Constraint 
+Domain o- LoadPattern
+}
+```

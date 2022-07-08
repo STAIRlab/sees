@@ -75,7 +75,7 @@ algorithm (default value 10^-10)</p></td>
 </tr>
 <tr class="even">
 <td><p>Assume a viscous damper with axial stiffness K=300.0kN/mm,
-damping coefficient Cd=280.3kN(s/mm)&lt;sup&gt;0.3&lt;/sup&gt;, and
+damping coefficient Cd=280.3kN(s/mm)<sup>0.3</sup>, and
 exponent a=0.30.</p></td>
 </tr>
 <tr class="odd">
@@ -83,13 +83,12 @@ exponent a=0.30.</p></td>
 follows:</p></td>
 </tr>
 <tr class="even">
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-</tr>
-<tr class="even">
-<td><p>uniaxialMaterial ViscousDamper 1 300 280.3 0.30</p></td>
+<td>
+
+```tcl
+uniaxialMaterial ViscousDamper 1 300 280.3 0.30
+```
+</td>
 </tr>
 <tr class="odd">
 <td></td>
@@ -110,8 +109,7 @@ parameters:</p></td>
 title=" Viscous Damper with various input parameter variations"
 width="1000"
 alt=" Viscous Damper with various input parameter variations" />
-<figcaption aria-hidden="true"> Viscous Damper with various input
-parameter variations</figcaption>
+<figcaption aria-hidden="true"> Viscous Damper with various input parameter variations</figcaption>
 </figure></td>
 </tr>
 <tr class="odd">
@@ -132,7 +130,8 @@ damper</a></em></strong></p></td>
 </tbody>
 </table>
 <hr />
-<p><strong>References</strong>:</p>
+
+## References
 <table>
 <tbody>
 <tr class="odd">
@@ -163,6 +162,7 @@ Symposium 2001, Yokohama, Japan (in Japanese).</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>Code developed by : <span style="color:blue">
 <strong><em><a
 href="http://dimitrios-lignos.research.mcgill.ca/PAkcelyan.html">Sarven

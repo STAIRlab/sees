@@ -10,8 +10,13 @@ link the application.</li>
 <li>Can share their modules with others without having to provide the
 source code.</li>
 </ol>
-<p>&lt;uml&gt; Material &lt;|-- UniaxialMaterial Material &lt;|--
-SectionForceDeformation Material &lt;|-- NDMaterial &lt;/uml&gt;</p>
+
+```plantuml
+Material <|-- UniaxialMaterial 
+Material <|-- SectionForceDeformation 
+Material <|-- NDMaterial
+```
+
 <p>The material modules can be written using either C++, C, or Fortran.
 Whatever the language the developer wishes to use, the material modules
 make use of the <a href="OpenSees_API" title="wikilink">OpenSees

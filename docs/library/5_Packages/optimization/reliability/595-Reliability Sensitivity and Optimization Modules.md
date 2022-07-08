@@ -54,8 +54,10 @@ structure.” ASCE Journal of Computing in Civil Engineering, 21(3), pp.
 <p>Based on Terje's original work, Kevin &amp; Michaels changes.</p>
 <p>One new change all agree on is use of a new FunctionEvaluator class
 and introduction of some other class to store results in.</p>
-<p>&lt;uml&gt; abstract class FunctionEvaluator FunctionEvaluator
-&lt;|-- TclFunctionEvaluator FunctionEvaluator : double eval(const char
-* =0) &lt;/uml&gt;</p>
-<p><a href="UML_Reliability" title="wikilink"> Class Diagrams for
-Reliability</a></p>
+
+```plantuml
+abstract class FunctionEvaluator 
+FunctionEvaluator <|-- TclFunctionEvaluator 
+FunctionEvaluator : double eval(const char * =0) 
+```
+

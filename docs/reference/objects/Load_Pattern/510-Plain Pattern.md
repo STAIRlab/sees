@@ -74,9 +74,16 @@ load</a>...</strong></p></td>
 </tbody>
 </table>
 <hr />
-<p>&lt;uml&gt; abstract class ElementLoad abstract class TimeSeries
-LoadPattern o- "one" TimeSeries LoadPattern o- ElementLoad LoadPattern
-o- NodalLoad LoadPattern o- SP_Constraint &lt;/uml&gt;</p>
+
+```plantuml
+abstract class ElementLoad 
+abstract class TimeSeries
+LoadPattern o- "one" TimeSeries 
+LoadPattern o- ElementLoad 
+LoadPattern o- NodalLoad 
+LoadPattern o- SP_Constraint 
+```
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

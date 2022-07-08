@@ -5,11 +5,18 @@ ground motions to be input at various supports in the structure. In
 OpenSees, the prescribed motion is applied using single-point
 constraints, the single-point constraints taking their constraint value
 from user created ground motions.</p>
-<p>&lt;uml&gt; abstract class TimeSeries LoadPattern &lt;|--
-MultipleSupportExcitation MultipleSupportExcitation o- GroundMotion
-MultipleSupportExcitation o- ImposedMotionSP ImposedMotionSP ---
-GroundMotion SP_Constraint &lt;|-- ImposedMotionSP GroundMotion o-
-TimeSeries &lt;/uml&gt;</p>
+
+```plantuml
+abstract class TimeSeries 
+LoadPattern <|-- MultipleSupportExcitation 
+MultipleSupportExcitation o- GroundMotion
+MultipleSupportExcitation o- ImposedMotionSP 
+ImposedMotionSP --- GroundMotion 
+SP_Constraint <|-- ImposedMotionSP 
+GroundMotion o- TimeSeries 
+```
+
+
 <p>The command to generate a multi-support excitation contains in
 <strong>{ }</strong> the commands to generate all the ground motions and
 the single-point constraints in the pattern. The command is as
@@ -35,6 +42,7 @@ imposedMotion</a>...</strong></p></td>
 </tr>
 </tbody>
 </table>
+
 <p>NOTES:</p>
 <ol>
 <li>The results for the responses at the nodes are the ABSOLUTE values,
@@ -61,6 +69,8 @@ imposedMotion</a> ...</strong></p></td>
 </tr>
 </tbody>
 </table>
+
 <hr />
+
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

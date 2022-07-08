@@ -174,17 +174,20 @@ alt="inline|Physical continuum model" /> <img
 src="/OpenSeesRT/contrib/static/ElastomericDiscreteSpring.png"
 title="inline|Discrete spring representation" height="300"
 alt="inline|Discrete spring representation" /></p>
+
 <p>The general form of element force vector, $$,
 and element stiffness matrix,&lt;math&gt;&lt;/math&gt; , for element
 representation considered above is given by equation below:</p>
-<p>&lt;math&gt;=\left[ \begin{matrix} Axial \\ Shear1 \\ Shear2 \\
+
+$$=\left[ \begin{matrix} Axial \\ Shear1 \\ Shear2 \\
 Torsion \\ Rotation1 \\ Rotation2 \\ \end{matrix} \right];\ \ \ \ \ \
-=\left[ \begin{matrix} Axial &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
-0 &amp; Shear1 &amp; Shear12 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; Shear21
-&amp; Shear2 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; Torsion
-&amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; Rotation1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; Rotation2 \\ \end{matrix}
-\right]&lt;/math&gt;</p>
+=\left[ \begin{matrix} Axial & 0 & 0 & 0 & 0 & 0 \\
+0 & Shear1 & Shear12 & 0 & 0 & 0 \\ 0 & Shear21
+& Shear2 & 0 & 0 & 0 \\ 0 & 0 & 0 & Torsion
+& 0 & 0 \\ 0 & 0 & 0 & 0 & Rotation1 & 0 \\
+0 & 0 & 0 & 0 & 0 & Rotation2 \\ \end{matrix}
+\right]$$
+
 <p>The coupling of the two shear springs is considered directly by using
 a coupled bidirectional model. All other springs are uncoupled. The
 coupling of vertical and horizontal directions are considered indirectly
@@ -284,59 +287,69 @@ element can also record instantaneous values of cavitation force (Fcn),
 buckling load capacity (Fcrn), vertical stiffness (Kv), horizontal
 stiffness (ke), temperature increase (dT), and yield strength (qYield)
 using the "Parameters" recorder in that order.</p>
-<p>Example: recorder Element &lt;-file $fileName&gt; -time &lt;-ele
-($ele1 $ele2 ...)&gt; Parameters recorder Element -file param.out -time
--ele 1 Parameters</p>
-<p>To check if bearing has buckled or cavitated, an user can obtain the
+
+Example: 
+```tcl
+# recorder Element < -file $fileName > -time < -ele ($ele1 $ele2 ...) > Parameters 
+recorder Element -file param.out -time -ele 1 Parameters
+```
+
+To check if bearing has buckled or cavitated, an user can obtain the
 histories of Fcn and Fcrn as described above and divide the axial force
 (obtained from basicForce recorder, qb(2)) by Fcn and Fcrn at each time
 step, which provides demand vs capacity (D/C) ratios at each time step.
-If Fcn/qb(0) &gt; 1.0 : Cavitation, or Fcrn/qb(0)&gt;1.0 : Buckling.</p>
+If Fcn/qb(0) &gt; 1.0 : Cavitation, or Fcrn/qb(0)&gt;1.0 : Buckling.
+
 <h2 id="examples">Examples</h2>
 <p>An example is presented here in which a lead rubber bearing (large
 size bearing in Kalpakidis et al. (2010)) is subjected to a shear
 harmonic loading in laboratory (SEESL at UB). The response obtained from
 LeadRubberX element in OpenSees is compared with the experimental
 results.</p>
+
 <p>Excitation files: <embed src="Excitation.zip"
 title="Excitation.zip" /> ‎</p>
 <p>Tcl files: <img src="LDRgravity.tcl‎" title="LDRgravity.tcl‎"
 alt="LDRgravity.tcl‎" /> <img src="LDRtest.tcl‎" title="LDRtest.tcl‎"
 alt="LDRtest.tcl‎" /></p>
+
 <figure>
 <img src="/OpenSeesRT/contrib/static/LDRcomparison.png"
-title="inline|Numerical and experimental response comparison"
-height="600"
-alt="inline|Numerical and experimental response comparison" />
-<figcaption aria-hidden="true">inline|Numerical and experimental
-response comparison</figcaption>
+  height="600"
+  alt="Numerical and experimental response comparison" />
+<figcaption aria-hidden="true">Numerical and experimental response comparison</figcaption>
 </figure>
+
+
 <h2 id="references">References</h2>
 <ol>
 <li>Kumar, M., Whittaker, A., and Constantinou, M. (2014). "An advanced
-numerical model of elastomeric seismic isolation bearings." Earthquake
-Engineering &amp; Structural Dynamics, 43(13), 1955-1974. <a
-href="http://onlinelibrary.wiley.com/doi/10.1002/eqe.2431/abstract">Link</a></li>
+  numerical model of elastomeric seismic isolation bearings." Earthquake
+  Engineering &amp; Structural Dynamics, 43(13), 1955-1974. 
+  <a href="http://onlinelibrary.wiley.com/doi/10.1002/eqe.2431/abstract">Link</a></li>
 <li>Kumar, M., Whittaker, A., and Constantinou, M. (2015). "Experimental
-investigation of cavitation in elastomeric seismic isolation bearings."
-Engineering Structures, 101, 290-305. <a
-href="http://www.sciencedirect.com/science/article/pii/S0141029615004575">Link</a></li>
+  investigation of cavitation in elastomeric seismic isolation bearings."
+  Engineering Structures, 101, 290-305. <a
+  href="http://www.sciencedirect.com/science/article/pii/S0141029615004575">Link</a></li>
 <li>Kumar, M., Whittaker, A., and Constantinou, M. (2015). "Response of
-base-isolated nuclear structures to extreme earthquake shaking." Nuclear
-Engineering and Design, 295, 860-874. <a
-href="http://www.sciencedirect.com/science/article/pii/S002954931500254X">Link</a></li>
+  base-isolated nuclear structures to extreme earthquake shaking." Nuclear
+  Engineering and Design, 295, 860-874. <a
+  href="http://www.sciencedirect.com/science/article/pii/S002954931500254X">Link</a></li>
 <li>Kumar, M., and Whittaker, A. (2018). "Cross-platform implementation,
-verification and validation of advanced mathematical models of
-elastomeric seismic isolation bearings." Engineering Structures, 175,
-926-943. <a
-href="https://www.sciencedirect.com/science/article/pii/S0141029617340324">Link</a></li>
+  verification and validation of advanced mathematical models of
+  elastomeric seismic isolation bearings." Engineering Structures, 175,
+  926-943. <a href="https://www.sciencedirect.com/science/article/pii/S0141029617340324">Link</a></li>
 <li>Kalpakidis, I. V., Constantinou, M. C., and Whittaker, A. S. (2010).
-"Modeling strength degradation in lead-rubber bearings under earthquake
-shaking." Earthquake Engineering and Structural Dynamics, 39(13),
-1533-1549.</li>
+  "Modeling strength degradation in lead-rubber bearings under earthquake
+  shaking." Earthquake Engineering and Structural Dynamics, 39(13),
+  1533-1549.</li>
 </ol>
+
 <hr />
+
 <p>Code Developed by: <span style="color:blue"> Manish Kumar,
 University at Buffalo, SUNY </span></p>
+
 <p>Any bugs in this element can be reported to mkumar2 AT buffalo dot
 edu</p>
+

@@ -12696,6 +12696,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_5_7_3">
@@ -12740,6 +12742,21 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../5_Packages/optimization/developer/726-UML%20Reliability/" class="md-nav__link">
+        UML Reliability
+
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -12763,12 +12780,6 @@
         
           
             
-          
-        
-          
-        
-          
-        
           
         
           
@@ -12913,21 +12924,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/modeling/43-BbarBrickWithSensitivity%20Command/" class="md-nav__link">
-        BbarBrickWithSensitivity Command
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../5_Packages/optimization/modeling/44-BbarBrickWithSensitivity%20Element/" class="md-nav__link">
         BbarBrickWithSensitivity Element
 
@@ -12945,36 +12941,6 @@
     <li class="md-nav__item">
       <a href="../../../../5_Packages/optimization/modeling/559-QuadWithSensitivity/" class="md-nav__link">
         QuadWithSensitivity
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/modeling/560-QuadWithSensitivity%20Command/" class="md-nav__link">
-        QuadWithSensitivity Command
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/modeling/561-QuadWithSensitivity%20Element/" class="md-nav__link">
-        QuadWithSensitivity Element
 
       </a>
     </li>
@@ -13036,7 +13002,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_7_4_16" type="checkbox" id="__nav_3_5_7_4_16" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_7_4_13" type="checkbox" id="__nav_3_5_7_4_13" >
       
       
       
@@ -13079,13 +13045,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_5_7_4_16">
+        <label class="md-nav__link" for="__nav_3_5_7_4_13">
           Material
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Material" data-md-level="5">
-        <label class="md-nav__title" for="__nav_3_5_7_4_16">
+        <label class="md-nav__title" for="__nav_3_5_7_4_13">
           <span class="md-nav__icon md-icon"></span>
           Material
         </label>
@@ -13481,10 +13447,6 @@
         
           
         
-          
-        
-          
-        
       
       
         <label class="md-nav__link" for="__nav_3_5_7_6">
@@ -13498,21 +13460,6 @@
           Reliability
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/reliability/130-Discovering%20OpenSees%20--%20Basic%20Reliability%20Analysis%20using%20OpenSees/" class="md-nav__link">
-        Discovering OpenSees -- Basic Reliability Analysis using OpenSees
-
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -13552,21 +13499,6 @@
     <li class="md-nav__item">
       <a href="../../../../5_Packages/optimization/reliability/595-Reliability%20Sensitivity%20and%20Optimization%20Modules/" class="md-nav__link">
         Reliability Sensitivity and Optimization Modules
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/reliability/726-UML%20Reliability/" class="md-nav__link">
-        UML Reliability
 
       </a>
     </li>
@@ -14339,103 +14271,83 @@
 This command is used to construct a forceBeamColumn element object, which is based on the iterative force-based formulation. A variety of numerical integration options can be used in the element state determination and encompass both distributed plasticity and plastic hinge integration. See <a href="image:IntegrationTypes.pdf"
 title="wikilink">image:IntegrationTypes.pdf</a> for more details on the available numerical integration options.
 </p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">forceBeamColumn</span>(name,<br>   nodes,<br>   transform,<br>   integration,<br>   consistent_mass,<br>   mass_density,<br>   **kwds) </span></p>
+<div>
 <table>
+<!-- <colgroup>
+  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
+</colgroup> -->
 <tbody>
-<tr class="odd">
-<td>
-<p>
-<strong>element forceBeamColumn $eleTag $iNode $jNode $transfTag “IntegrationType arg1 arg2 …” &lt;-mass $massDens&gt; &lt;-iter $maxIters $tol&gt;</strong>
-</p>
+<tr>
+</tr>
+<tr>
+<td colspan="2">
+nodes
 </td>
+<td>
+<code>[iNode,jNode]</code>,<br />
+
+<table>
+<tr>
+<td>
+iNode
+</td>
+<td>
+<code>Ref(Node)</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+jNode
+</td>
+<td>
+<code>Ref(Node)</code>
+</td>
+<td>
+</tr>
+</td>
+</table>
+</tr>
+<tr>
+<td>
+geom
+</td>
+<td>
+<code>Ref(geomTransf)</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+integration
+</td>
+<td>
+<code>BeamInt</code>
+</td>
+<td>
+</tr>
+<tr>
+</tr>
+<tr>
+<td>
+mass
+</td>
+<td>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
+element mass per unit length
 </tr>
 </tbody>
 </table>
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">eleTag</code>
-</td>
-<td>
-<p>
-unique element object tag
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<code class="parameter-table-variable">iNode jNode</code>
-</p>
-</td>
-<td>
-<p>
-end nodes
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">transfTag</code>
-</td>
-<td>
-<p>
-identifier for previously-defined coordinate-transformation (CrdTransf) object
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<strong>IntegrationType arg1 arg2 …</strong>
-</p>
-</td>
-<td>
-<p>
-specifies locations and weights of integration points and their associated section force-deformation models (see <a
-href="image:IntegrationTypes.pdf"
-title="wikilink">image:IntegrationTypes.pdf</a>)
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">massDens</code>
-</td>
-<td>
-<p>
-element mass density (per unit length), from which a lumped-mass matrix is formed (optional, default=0.0)
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<code class="parameter-table-variable">maxIters</code>
-</td>
-<td>
-<p>
-maximum number of iterations to undertake to satisfy element compatibility (optional, default=10)
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">tol</code>
-</td>
-<td>
-<p>
-tolerance for satisfaction of element compatibility (optional, default=10-12)
-</p>
-</td>
-</tr>
-</tbody>
-</table>
+</div>
 <p>
 Original command that assumes Gauss-Lobatto integration with a copy of the same section force-deformation model at each integration point:
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>forceBeamColumn<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span>
-<span class="w">        </span><span class="nv">$numIntgrPts</span><span class="w"> </span><span class="nv">$secTag</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-iter</span>
-<span class="w">        </span><span class="nv">$maxIters</span><span class="w"> </span><span class="nv">$tol</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-integration</span><span class="w"> </span><span class="nv">$intType</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$numIntgrPts</span><span class="w"> </span><span class="nv">$secTag</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>iter
+<span class="w">        </span><span class="nv">$maxIters</span><span class="w"> </span><span class="nv">$tol</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-integration</span><span class="w"> </span><span class="nv">$intType</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <table>
@@ -14476,8 +14388,8 @@ identifier for previously-defined section object
 Alternative command (kept for backward compatability):
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>nonlinearBeamColumn<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span>
-<span class="w">        </span><span class="nv">$numIntgrPts</span><span class="w"> </span><span class="nv">$secTag</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-iter</span>
-<span class="w">        </span><span class="nv">$maxIters</span><span class="w"> </span><span class="nv">$tol</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-integration</span><span class="w"> </span><span class="nv">$intType</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$numIntgrPts</span><span class="w"> </span><span class="nv">$secTag</span><span class="w"> </span><span class="nv">$transfTag</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-mass</span><span class="w"> </span><span class="nv">$massDens</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>iter<span class="w"> </span><span class="nv">$maxIters</span><span class="w"> </span><span class="nv">$tol</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>integration<span class="w"> </span><span class="nv">$intType</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <table>
@@ -14522,57 +14434,30 @@ element forceBeamColumn $eleTag $iNode $jNode $numIntgrPts $secTag $transfTag
 element nonlinearBeamColumn $eleTag $iNode $jNode $numIntgrPts $secTag $transfTag
 </li>
 </ol>
-<p>
-NOTE:
-</p>
-<ol>
-<li>
-The -iter switch enables the iterative form of the flexibility formulation. Note that the iterative form can improve the rate of global convergence at the expense of more local element computation.
-</li>
-<li>
-The valid response elements that an element of this type will respond to are:
-<ol>
-<li>
-force or globalForce
-</li>
-<li>
-localForce
-</li>
-<li>
-basicForce
-</li>
-<li>
-section $sectionNumber $arg1 $arg2 … (note: $sectionNumer is integer 1 through $numIntegrPts)
-</li>
-<li>
-basicDeformation
-</li>
-<li>
-plasticDeformation
-</li>
-<li>
-inflectionPoint
-</li>
-<li>
-tangentDrift
-</li>
-<li>
-integrationPoints
-</li>
-<li>
-integrationWeights
-</li>
-</ol>
-</li>
-<li>
-Here is a link to the source code to obtain information about the location and weight of the Gauss-Lobatto integration points <a
-href="http://opensees.berkeley.edu/WebSVN/filedetails.php?repname=OpenSees&amp;path=%2Ftrunk%2FSRC%2Felement%2FforceBeamColumn%2FLobattoBeamIntegration.cpp">1</a>
-</li>
-</ol>
+<h2 id="notes">Notes</h2>
+<ul>
+<li><p>The <code>-iter</code> switch enables the iterative form of the flexibility formulation. Note that the iterative form can improve the rate of global convergence at the expense of more local element computation.</p></li>
+<li><p>The valid response elements that an element of this type will respond to are:</p>
+<ul>
+<li><code>force</code> or <code>globalForce</code></li>
+<li><code>localForce</code></li>
+<li><code>basicForce</code></li>
+<li><code>section $sectionNumber $arg1 $arg2 ...</code> (note: <code>sectionNumer</code> is integer 1 through <code>numIntegrPts</code>)</li>
+<li><code>basicDeformation</code></li>
+<li><code>plasticDeformation</code></li>
+<li><code>inflectionPoint</code></li>
+<li><code>tangentDrift</code></li>
+<li><code>integrationPoints</code></li>
+<li><code>integrationWeights</code></li>
+</ul></li>
+<li><p>Here is a link to the source code to obtain information about the location and weight of the Gauss-Lobatto integration points <a
+href="http://opensees.berkeley.edu/WebSVN/filedetails.php?repname=OpenSees&path=%2Ftrunk%2FSRC%2Felement%2FforceBeamColumn%2FLobattoBeamIntegration.cpp">1</a></p></li>
+</ul>
 <h2 id="examples">Examples</h2>
-<p>
-element forceBeamColumn 1 2 4 9 Lobatto 8 5; # force beam column element added with tag 1 between nodes 2 and 4 that has Gauss-Lobatto 5 integration points, each using section 8, and the element uses geometric transformation 9
-</p>
+<p>force beam column element added with tag 1 between nodes 2 and 4 that has Gauss-Lobatto 5 integration points, each using section 8, and the element uses geometric transformation 9</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>forceBeamColumn<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span>Lobatto<span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="mi">5</span><span class="k">;</span><span class="w"> </span>
+</pre></div>
+
 <p>
 FURTHER DOCUMENTATION ON INTEGRATION OPTIONS:
 </p>

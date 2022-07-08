@@ -2406,6 +2406,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/developer/726-UML%20Reliability/</loc>
+         <lastmod>2022-07-08</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
@@ -2441,27 +2446,12 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/43-BbarBrickWithSensitivity%20Command/</loc>
-         <lastmod>2022-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/44-BbarBrickWithSensitivity%20Element/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/559-QuadWithSensitivity/</loc>
-         <lastmod>2022-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/560-QuadWithSensitivity%20Command/</loc>
-         <lastmod>2022-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/modeling/561-QuadWithSensitivity%20Element/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -2586,11 +2576,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/reliability/130-Discovering%20OpenSees%20--%20Basic%20Reliability%20Analysis%20using%20OpenSees/</loc>
-         <lastmod>2022-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/reliability/591-Reliability%20Analysis/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
@@ -2602,11 +2587,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/reliability/595-Reliability%20Sensitivity%20and%20Optimization%20Modules/</loc>
-         <lastmod>2022-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/library/5_Packages/optimization/reliability/726-UML%20Reliability/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
