@@ -7,6 +7,8 @@ constraints, the single-point constraints taking their constraint value
 from user created ground motions.</p>
 
 ```plantuml
+'!theme mars
+!theme lightgray
 abstract class TimeSeries 
 LoadPattern <|-- MultipleSupportExcitation 
 MultipleSupportExcitation o- GroundMotion

@@ -3,16 +3,11 @@
 
 ```cpp
 #include <element/ZeroLength.h>
+
+class ZeroLength: public Element
 ```
 
-class ZeroLength: public Element\
 
-TaggedObject\
-MovableObject\
-DomainComponent\
-Element\
-
-\
 The ZeroLength class represents an element defined by two nodes at the
 same geometric location, hence it has zero length. The nodes are
 connected by of uniaxial materials to represent the force-deformation

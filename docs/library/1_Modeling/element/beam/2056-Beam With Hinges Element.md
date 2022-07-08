@@ -1,6 +1,6 @@
 # BeamWithHinges
 
-<p>This command is used to construct a forceBeamColumn element object,
+This command is used to construct a forceBeamColumn element object,
 which is based on the non-iterative (or iterative) flexibility
 formulation. The locations and weights of the element integration points
 are based on so-called plastic hinge integration, which allows the user
@@ -46,8 +46,7 @@ element forceBeamColumn $eleTag $iNode $jNode $transfTag
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">secTagI</code></td>
-<td><p>identifier for previously-defined section object at end
-I</p></td>
+<td><p>identifier for previously-defined section object at end I</p></td>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">LpI</code></td>
@@ -55,8 +54,7 @@ I</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">secTagJ</code></td>
-<td><p>identifier for previously-defined section object at end
-J</p></td>
+<td><p>identifier for previously-defined section object at end J</p></td>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">LpJ</code></td>
@@ -91,8 +89,8 @@ of the following in order to use a different hinge integration
 approach:
 
 <ul>
-  <li><strong>HingeRadau</strong> -- two-point Gauss-Radau applied to the hinge regions over 4LpI and 4LpJ (six element integration points)</li>
-  <li><strong>HingeRadauTwo</strong> -- two-point Gauss-Radau in the hinge regions applied over LpI and LpJ (six element integration points)</li>
+  <li><strong>HingeRadau</strong> -- two-point Gauss-Radau applied to the hinge regions over $4\ell_{pI}$ and $4\ell_{pJ}$ (six element integration points)</li>
+  <li><strong>HingeRadauTwo</strong> -- two-point Gauss-Radau in the hinge regions applied over $\ell_{pI}$ and $\ell_{pJ}$ (six element integration points)</li>
   <li><strong>HingeMidpoint</strong> -- midpoint integration over the hinge regions (four element integration points)</li>
   <li><strong>HingeEndpoint</strong> -- endpoint integration over the hinge regions (four element integration points)</li>
 </ul>
@@ -184,12 +182,7 @@ portion</p></td>
 ```cpp
 #include <element/BeamWithHinges2D.h>
 
-class BeamWithHinges2D: public DomainComponent\
-
-TaggedObject\
-MovableObject\
-DomainComponent\
-Element\
+class BeamWithHinges2D: public DomainComponent
 ```
 
 
@@ -235,18 +228,17 @@ Constructs a blank BeamWithHinges2D object.
 Invokes the section destructors.
 
 
-// Public Methods dealing with Nodes and dof\
+// Public Methods dealing with Nodes and dof
 
 \
 
 \
-// Public Methods dealing with State\
+// Public Methods dealing with State
 
 \
 
 \
-// Public Methods for obtaining Linearized Stiffness, Mass and Damping
-Matrices\
+// Public Methods for obtaining Linearized Stiffness, Mass and Damping Matrices
 
 \
 

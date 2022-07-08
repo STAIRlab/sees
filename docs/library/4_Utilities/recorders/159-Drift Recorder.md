@@ -1,4 +1,4 @@
-# Drift Recorder
+# Drift
 
 The Drift type records the displacement drift between two nodes. The
 drift is taken as the ratio between the prescribed relative displacement

@@ -7,15 +7,14 @@ determination and encompass both distributed plasticity and plastic
 hinge integration. See <a href="image:IntegrationTypes.pdf"
 title="wikilink">image:IntegrationTypes.pdf</a> for more details on the
 available numerical integration options.</p>
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>element forceBeamColumn $eleTag $iNode $jNode $transfTag
-"IntegrationType arg1 arg2 ..." &lt;-mass $massDens&gt; &lt;-iter
-$maxIters $tol&gt;</strong></p></td>
-</tr>
-</tbody>
-</table>
+
+:::{apidoc="opensees.element.forceBeamColumn"}
+```tcl
+element forceBeamColumn $eleTag $iNode $jNode $transfTag
+  { IntegrationType arg1 arg2 ... }
+  < -mass $massDens > < -iter  $maxIters $tol >
+```
+
 <table>
 <tbody>
 <tr class="odd">
@@ -55,14 +54,16 @@ default=10-12)</p></td>
 </tr>
 </tbody>
 </table>
+:::
+
 <p>Original command that assumes Gauss-Lobatto integration with a copy
 of the same section force-deformation model at each integration
 point:</p>
 
 ```tcl
 element forceBeamColumn $eleTag $iNode $jNode
-        $numIntgrPts $secTag $transfTag &lt;-mass $massDens&gt; &lt;-iter
-        $maxIters $tol&gt; &lt;-integration $intType&gt;
+        $numIntgrPts $secTag $transfTag < -mass $massDens > < -iter
+        $maxIters $tol > < -integration $intType >
 ```
 
 <table>
@@ -86,8 +87,8 @@ element.</p></td>
 
 ```tcl
 element nonlinearBeamColumn $eleTag $iNode $jNode
-        $numIntgrPts $secTag $transfTag &lt;-mass $massDens&gt; &lt;-iter
-        $maxIters $tol&gt; &lt;-integration $intType&gt;
+        $numIntgrPts $secTag $transfTag < -mass $massDens > 
+        < -iter $maxIters $tol > < -integration $intType >
 ```
 
 <table>
@@ -104,6 +105,7 @@ NewtonCotes, Trapezoidal (optional, default= Lobatto)</p></td>
 </tbody>
 </table>
 <hr />
+
 <p>NOTE:</p>
 <p>The following three commands give the same element definition (with
 Gauss-Lobatto integration) despite some apparent permutations of the
@@ -116,37 +118,40 @@ $transfTag</li>
 <li>element nonlinearBeamColumn $eleTag $iNode $jNode $numIntgrPts
 $secTag $transfTag</li>
 </ol>
-<p>NOTE:</p>
-<ol>
-<li>The -iter switch enables the iterative form of the flexibility
-formulation. Note that the iterative form can improve the rate of global
-convergence at the expense of more local element computation.</li>
-<li>The valid response elements that an element of this type will
-respond to are:
-<ol>
-<li>force or globalForce</li>
-<li>localForce</li>
-<li>basicForce</li>
-<li>section $sectionNumber $arg1 $arg2 ... (note: $sectionNumer is
-integer 1 through $numIntegrPts)</li>
-<li>basicDeformation</li>
-<li>plasticDeformation</li>
-<li>inflectionPoint</li>
-<li>tangentDrift</li>
-<li>integrationPoints</li>
-<li>integrationWeights</li>
-</ol></li>
-<li>Here is a link to the source code to obtain information about the
-location and weight of the Gauss-Lobatto integration points <a
-href="http://opensees.berkeley.edu/WebSVN/filedetails.php?repname=OpenSees&amp;path=%2Ftrunk%2FSRC%2Felement%2FforceBeamColumn%2FLobattoBeamIntegration.cpp">1</a></li>
-</ol>
+
+## Notes
+- The `-iter` switch enables the iterative form of the flexibility
+  formulation. Note that the iterative form can improve the rate of global
+  convergence at the expense of more local element computation.
+- The valid response elements that an element of this type will
+  respond to are:
+
+  - `force` or `globalForce`
+  - `localForce`
+  - `basicForce`
+  - `section $sectionNumber $arg1 $arg2 ...` (note: `sectionNumer` is
+    integer 1 through `numIntegrPts`)
+  - `basicDeformation`
+  - `plasticDeformation`
+  - `inflectionPoint`
+  - `tangentDrift`
+  - `integrationPoints`
+  - `integrationWeights`
+
+- Here is a link to the source code to obtain information about the
+  location and weight of the Gauss-Lobatto integration points <a
+  href="http://opensees.berkeley.edu/WebSVN/filedetails.php?repname=OpenSees&path=%2Ftrunk%2FSRC%2Felement%2FforceBeamColumn%2FLobattoBeamIntegration.cpp">1</a>
+
 
 ## Examples
 
-<p>element forceBeamColumn 1 2 4 9 Lobatto 8 5; # force beam column
-element added with tag 1 between nodes 2 and 4 that has Gauss-Lobatto 5
+force beam column element added with tag 1 between nodes 2 and 4 that has Gauss-Lobatto 5
 integration points, each using section 8, and the element uses geometric
-transformation 9</p>
+transformation 9
+```tcl
+element forceBeamColumn 1 2 4 9 Lobatto 8 5; 
+```
+
 <p>FURTHER DOCUMENTATION ON INTEGRATION OPTIONS:</p>
 <p><a href="image:IntegrationTypes.pdf"
 title="wikilink">image:IntegrationTypes.pdf</a></p>

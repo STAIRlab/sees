@@ -1,4 +1,4 @@
-# Element Recorder
+# Element
 
 The Element recorder type records the response of a number of
 elements at every converged step. The response recorded is

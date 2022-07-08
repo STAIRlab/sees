@@ -1,5 +1,19 @@
 # Domain Classes
 
+```plantuml
+!theme lightgray
+package "OpenSees Model" #DDDDDD {
+abstract class Element [[./element/Element]]
+class Domain [[./Domain]]
+
+Domain o- Element 
+Domain o- Node 
+Domain o- SP_Constraint 
+Domain o- MP_Constraint 
+Domain o- LoadPattern
+}
+```
+
 These are the classes that are used to describe the finite element model
 and to store the results of an analysis on this model. The classes
 provide include `Domain`, `Element`, `Node`, `Load`, `Constraint` and their
@@ -18,13 +32,3 @@ objects created by the `ModelBuilder` object.
 - [Pattern     ](Pattern)
 
 
-```plantuml
-package "OpenSees Model" #DDDDDD {
-abstract class Element 
-Domain o- Element 
-Domain o- Node 
-Domain o- SP_Constraint 
-Domain o- MP_Constraint 
-Domain o- LoadPattern
-}
-```

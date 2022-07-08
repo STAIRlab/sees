@@ -121,13 +121,13 @@ alt="SI_Metric_Units.png" />
 ### Confined Concrete
 Confinement increases the strength and ductility of concrete. These
 effects are accounted in the above figure by replaceing the peak
-compressive strength and the corresponding strain with f' cc and e'cc,
-respectively. The value of r is also decreased. The recommended approach
+compressive strength and the corresponding strain with $f^\prime_{cc}$ and e'cc,
+respectively. The value of $r$ is also decreased. The recommended approach
 to define all critical parameters needed to model the confined concrete
 under compression are as follows:
 
 $$
-f_{c c}^{\prime}=f_{c 0}^{\prime} *\left(1+k_{1} * x^{\prime}\right)
+f_{c c}^{\prime}=f_{c 0}^{\prime} \left(1+k_{1} * x^{\prime}\right)
 $$
 
 <p>where:</p>
@@ -135,27 +135,28 @@ $$
 $$
 \begin{aligned}
 &f_{c 0}^{\prime}=\text { unconfined peak compressive strength } \\
-&k_{1}=A *\left[0.1+\frac{0.9}{1+B * x^{\prime}}\right] \\
+&k_{1}=A \left[0.1+\frac{0.9}{1+B  x^{\prime}}\right] \\
 &x^{\prime}=\frac{f_{l 1}+f_{l 2}}{2 f_{c 0}^{\prime}} \\
 &A=6.886-(0.6069+17.275 \mathrm{q}) e^{-4.989 \mathrm{q}} \\
 &B=\frac{4.5}{\frac{5}{A}\left[0.9849-0.6306 e^{-3.8939 \mathrm{q}}\right]-0.1}-5
 &q=\frac{f_{l 1}}{f_{l 2}} \quad f_{l 2} \geq f_{l 1} \\
-&\varepsilon_{c c}^{\prime}=\varepsilon_{c 0}\left(1+k_{2} * x^{\prime}\right) \\
+&\varepsilon_{c c}^{\prime}=\varepsilon_{c 0}\left(1+k_{2}  x^{\prime}\right) \\
 &k_{2}=5 \mathrm{k}_{1} \quad \text { for normal strength transverse reinforcement } \\
 &k_{2}=3 \mathrm{k}_{1} \quad \text { for high strength transverse reinforcement } \\
 &x_{n}=30 \text { (value is recommended in order to follow the descending branch to large strains) } \\
-&n=\frac{E_{c} * \varepsilon_{c c}}{f_{c c}^{\prime}} \\
+&n=\frac{E_{c}  \varepsilon_{c c}}{f_{c c}^{\prime}} \\
 &r=\frac{n}{n-1}
 \end{aligned}
 $$
 
 <figure>
 <img src="/OpenSeesRT/contrib/static/Confined_Concrete_Parameters.png"
-title="Confined_Concrete_Parameters.png"
-alt="Confined_Concrete_Parameters.png" />
+  title="Confined_Concrete_Parameters.png"
+  alt="Confined_Concrete_Parameters.png" />
 <figcaption
 aria-hidden="true">Confined_Concrete_Parameters.png</figcaption>
 </figure>
+
 <p>The monotonic envelope for the tension side of the confined concrete
 follows the same curve that is used for unconfined concrete.</p>
 <ul>
@@ -232,7 +233,7 @@ then be used instead of the default behavior described above.
 <hr />
 
 ## References
-<ol>
+
 - Chang, G.A., and Mander, J.B., (1994) "Seismic Energy Based Fatigue
   Damage Ananlysis of Bridge Columns:Part 1 - Evaluation of Seismic
   Capacity," NCEER Technical Report No. NCEER-94-0006 State University of
