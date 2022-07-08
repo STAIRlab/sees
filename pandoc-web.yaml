@@ -21,6 +21,7 @@ metadata:
 
 
 filters:
+  - pandoc-plantuml
   - tools/apidoc.lua
   - pygmentize
   - include.lua
