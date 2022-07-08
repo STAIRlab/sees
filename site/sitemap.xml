@@ -296,11 +296,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/domain/</loc>
-         <lastmod>2022-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/domain/component/DomainComponent/</loc>
          <lastmod>2022-07-08</lastmod>
          <changefreq>daily</changefreq>
