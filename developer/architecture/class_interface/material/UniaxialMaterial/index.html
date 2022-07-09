@@ -6208,6 +6208,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_1_2_8">
@@ -6335,6 +6337,21 @@
     <li class="md-nav__item">
       <a href="../../../../../library/1_Modeling/Uniaxial_Material/metalic/730-UVCuniaxial/" class="md-nav__link">
         UVCuniaxial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../library/1_Modeling/Uniaxial_Material/metalic/SteelBRB/" class="md-nav__link">
+        SteelBRB
 
       </a>
     </li>
@@ -10469,6 +10486,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -10482,10 +10503,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_4_2">
-          Recorders
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../library/4_Utilities/recorders/">Recorders</a>
+          
+            <label for="__nav_3_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Recorders" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_4_2">
@@ -10495,13 +10522,15 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+          
+            
               
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../library/4_Utilities/recorders/159-Drift%20Recorder/" class="md-nav__link">
-        Drift Recorder
+        Drift
 
       </a>
     </li>
@@ -10516,7 +10545,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../../library/4_Utilities/recorders/205-ElementEnvelopeRecorder/" class="md-nav__link">
-        ElementEnvelopeRecorder
+        ElementEnvelope
 
       </a>
     </li>
@@ -10531,7 +10560,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../../library/4_Utilities/recorders/208-Element%20Recorder/" class="md-nav__link">
-        Element Recorder
+        Element
 
       </a>
     </li>
@@ -14256,13 +14285,12 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">UniaxialMaterial</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Material</span><span class="w"></span>
 </pre></div>
 
-<p>TaggedObject MovableObject Material</p>
-<p><code>UniaxialMaterial</code> is an abstract class. The UniaxialMaterial class provides the interface that all UniaxialMaterial writers must provide when introducing new UniaxialMaterial subclasses. A UniaxialMaterial object is responsible for keeping track of stress, strain and the constitution for a particular point in the domain.</p>
+<p><code>UniaxialMaterial</code> is an abstract class. The <code>UniaxialMaterial</code> class provides the interface that all <code>UniaxialMaterial</code> writers must provide when introducing new <code>UniaxialMaterial</code> subclasses. A <code>UniaxialMaterial</code> object is responsible for keeping track of stress, strain and the constitution for a particular point in the domain.</p>
 <h3 id="constructor-and-destructor">Constructor and Destructor</h3>
-<div class="highlight"><pre><span></span><span class="n">UniaxialMaterial</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">classTag</span><span class="p">);</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="n">UniaxialMaterial</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">classTag</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>To construct a UniaxialMaterial whose unique integer among UniaxialMaterials in the domain is given by <em>tag</em>, and whose class identifier is given by <em>classTag</em>. These integers are passed to the Material class constructor.</p>
+<p>To construct a <code>UniaxialMaterial</code> whose unique integer among UniaxialMaterials in the domain is given by <em>tag</em>, and whose class identifier is given by <em>classTag</em>. These integers are passed to the <code>Material</code> class constructor.</p>
 <div class="highlight"><pre><span></span><span class="o">~</span><span class="n">UniaxialMaterial</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 
@@ -14272,18 +14300,19 @@
 <span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setTrialStrain</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">strainRate</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setTrialStrain</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">temperature</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">strainRate</span><span class="p">);</span><span class="w"></span>
 <span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setTrial</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stress</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tangent</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">strainRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span><span class="w"></span>
-<span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setTrial</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">temperature</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stress</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tangent</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">thermalElongation</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">strainRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span><span class="w"></span>
+<span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setTrial</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">temperature</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stress</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                     </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tangent</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">thermalElongation</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">strainRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
 <p>Sets the value of the trial strain, that value used by <code>getStress()</code> and <code>getTangent()</code>, to be <code>strain</code>. Return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getStress</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To return the current value of stress for the trial strain.</p>
+<p>To return the trial value of stress for the trial strain.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getTangent</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To return the current value of the tangent for the trial strain.</p>
+<p>To return the trial value of the tangent for the trial strain.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getInitialTangent</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 

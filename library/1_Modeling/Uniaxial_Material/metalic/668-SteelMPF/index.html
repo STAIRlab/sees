@@ -6202,6 +6202,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_1_2_8">
@@ -6337,6 +6339,21 @@
     <li class="md-nav__item">
       <a href="../730-UVCuniaxial/" class="md-nav__link">
         UVCuniaxial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SteelBRB/" class="md-nav__link">
+        SteelBRB
 
       </a>
     </li>
@@ -10471,6 +10488,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -10484,10 +10505,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_4_2">
-          Recorders
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../4_Utilities/recorders/">Recorders</a>
+          
+            <label for="__nav_3_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Recorders" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_4_2">
@@ -10497,13 +10524,15 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+          
+            
               
   
   
   
     <li class="md-nav__item">
       <a href="../../../../4_Utilities/recorders/159-Drift%20Recorder/" class="md-nav__link">
-        Drift Recorder
+        Drift
 
       </a>
     </li>
@@ -10518,7 +10547,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../4_Utilities/recorders/205-ElementEnvelopeRecorder/" class="md-nav__link">
-        ElementEnvelopeRecorder
+        ElementEnvelope
 
       </a>
     </li>
@@ -10533,7 +10562,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../4_Utilities/recorders/208-Element%20Recorder/" class="md-nav__link">
-        Element Recorder
+        Element
 
       </a>
     </li>
@@ -14253,158 +14282,148 @@
 
 
 <h1 id="steelmpf">SteelMPF</h1>
-<p>
 <p>This command is used to construct a uniaxialMaterial <strong>SteelMPF</strong> (Kolozvari et al., 2015), which represents the well-known uniaxial constitutive nonlinear hysteretic material model for steel proposed by Menegotto and Pinto (1973), and extended by Filippou et al. (1983) to include isotropic strain hardening effects.</p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>SteelMPF<span class="w"> </span><span class="nv">$mattag</span><span class="w"> </span><span class="nv">$fyp</span><span class="w"> </span><span class="nv">$fyn</span><span class="w"> </span><span class="nv">$E0</span><span class="w"> </span><span class="nv">$bp</span><span class="w"> </span><span class="nv">$bn</span>
-<span class="w">        </span><span class="nv">$R0</span><span class="w"> </span><span class="nv">$cR1</span><span class="w"> </span><span class="nv">$cR2</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$a1</span><span class="w"> </span><span class="nv">$a2</span><span class="w"> </span><span class="nv">$a3</span><span class="w"> </span><span class="nv">$a4</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
-</pre></div>
-
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">SteelMPF</span>(name, fyp, fyn, E, bp, bn, **kwds) </span></p>
+<div>
 <table>
+<!-- <colgroup>
+  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
+</colgroup> -->
 <tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">mattag</code>
-</td>
-<td>
-<p>
-Unique <em>uniaxialMaterial</em> tag
-</p>
-</td>
+<tr>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">fyp</code>
+fyp
 </td>
 <td>
-<p>
-Yield strength in tension (positive loading direction)
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+yield strength
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">fyn</code>
+fyn
 </td>
 <td>
-<p>
-Yield strength in compression (negative loading direction)
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+yield strength
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">E0</code>
+E
 </td>
 <td>
-<p>
-Initial tangent modulus
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+Young’s modulus of elasticity
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">bp</code>
+bp = 0.0
 </td>
 <td>
-<p>
-Strain hardening ratio in tension (positive loading direction)
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">bn</code>
+bn = 0.0
 </td>
 <td>
-<p>
-Strain hardening ratio in compression (negative loading direction)
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">R0</code>
+R0 = 18
 </td>
 <td>
-<p>
-Initial value of the curvature parameter R (R0 = 20 recommended)
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">cR1</code>
-</p>
+cR1 = 0.925
 </td>
 <td>
-<p>
-Curvature degradation parameter (a1 = 0.925 recommended)
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+Bauschinger evolution parameter
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">cR2</code>
-</p>
+cR2 = 0.15
 </td>
 <td>
-<p>
-Curvature degradation parameter (a2 = 0.15 or 0.0015 recommended)
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+Bauschinger evolution parameter
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">a1</code>
-</p>
+a1 = 0.0
 </td>
 <td>
-<p>
-Isotropic hardening in compression parameter (optional, default = 0.0). Shifts compression yield envelope by a proportion of compressive yield strength after a maximum plastic tensile strain of <span class="math inline">\(a2(\)</span>fyp/$E0)
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+increase of compression yield envelope as proportion of yield strength after a plastic strain of <code>a2∗(Fy/E0)</code>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">a2</code>
-</p>
+a2 = 1.0
 </td>
 <td>
-<p>
-Isotropic hardening in compression parameter (optional, default = 1.0). See explanation of a1.
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+see explanation under <code>a1</code>.
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">a3</code>
-</p>
+a3 = 0.0
 </td>
 <td>
-<p>
-Isotropic hardening in tension parameter (optional, default = 0.0). Shifts tension yield envelope by a proportion of tensile yield strength after a maximum plastic compressive strain of <span class="math inline">\(a3(\)</span>fyn/$E0).
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+increase of tension yield envelope as proportion of yield strength after a plastic strain of <code>a4∗(Fy/E0)</code>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">a4</code>
-</p>
+a4 = 1.0
 </td>
 <td>
-<p>
-Isotropic hardening in tension parameter (optional, default = 1.0). See explanation of a3.
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+see explanation under <code>a3</code>.
+</tr>
+<tr>
+<td>
+sigInit = 0.0
+</td>
+<td>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
+initial stress
 </tr>
 </tbody>
 </table>
+</div>
 The relationship is in the form of curved transitions (Figure 1), each from a straight-line asymptote with slope E<sub
 class="subscript">0</sub> (modulus of elasticity) to another straight-line asymptote with slope E<sub
 class="subscript">1</sub> = bE<sub

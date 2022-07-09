@@ -6202,6 +6202,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_1_2_8">
@@ -6337,6 +6339,21 @@
     <li class="md-nav__item">
       <a href="../730-UVCuniaxial/" class="md-nav__link">
         UVCuniaxial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SteelBRB/" class="md-nav__link">
+        SteelBRB
 
       </a>
     </li>
@@ -10471,6 +10488,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -10484,10 +10505,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_4_2">
-          Recorders
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../4_Utilities/recorders/">Recorders</a>
+          
+            <label for="__nav_3_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Recorders" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_4_2">
@@ -10497,13 +10524,15 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+          
+            
               
   
   
   
     <li class="md-nav__item">
       <a href="../../../../4_Utilities/recorders/159-Drift%20Recorder/" class="md-nav__link">
-        Drift Recorder
+        Drift
 
       </a>
     </li>
@@ -10518,7 +10547,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../4_Utilities/recorders/205-ElementEnvelopeRecorder/" class="md-nav__link">
-        ElementEnvelopeRecorder
+        ElementEnvelope
 
       </a>
     </li>
@@ -10533,7 +10562,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../4_Utilities/recorders/208-Element%20Recorder/" class="md-nav__link">
-        Element Recorder
+        Element
 
       </a>
     </li>
@@ -14255,7 +14284,7 @@
 <h1 id="steel02">Steel02</h1>
 This command is used to construct a uniaxial Giuffre-Menegotto-Pinto steel material object with isotropic strain hardening.
 </p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> <span style="color:#900">Steel02</span>(name, Fy, E0, b, R0, cR1, cR2, a, **kwds) </span></p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">Steel02</span>(name, fy, E, b, **kwds) </span></p>
 <div>
 <table>
 <!-- <colgroup>
@@ -14266,7 +14295,7 @@ This command is used to construct a uniaxial Giuffre-Menegotto-Pinto steel mater
 </tr>
 <tr>
 <td>
-Fy
+fy
 </td>
 <td>
 <code style="white-space: nowrap;">float</code>
@@ -14276,17 +14305,17 @@ yield strength
 </tr>
 <tr>
 <td>
-E0
+E
 </td>
 <td>
 <code style="white-space: nowrap;">float</code>
 </td>
 <td>
-initial elastic tangent
+Young’s modulus of elasticity
 </tr>
 <tr>
 <td>
-b
+b = 0.0
 </td>
 <td>
 <code style="white-space: nowrap;">float</code>
@@ -14296,7 +14325,7 @@ strain-hardening ratio (ratio between post-yield tangent and initial elastic tan
 </tr>
 <tr>
 <td>
-R0
+R0 = 18
 </td>
 <td>
 <code style="white-space: nowrap;">float</code>
@@ -14311,6 +14340,7 @@ cR1 = 0.925
 <code style="white-space: nowrap;">float</code>
 </td>
 <td>
+Bauschinger evolution parameter
 </tr>
 <tr>
 <td>
@@ -14320,17 +14350,11 @@ cR2 = 0.15
 <code style="white-space: nowrap;">float</code>
 </td>
 <td>
+Bauschinger evolution parameter
 </tr>
 <tr>
-<td colspan="2">
-a
-</td>
 <td>
-<code>[a1,a2,a3,a4,sigInit]</code>, isotropic hardening parameters
-<table>
-<tr>
-<td>
-a1
+a1 = 0.0
 </td>
 <td>
 <code style="white-space: nowrap;">float</code>
@@ -14350,7 +14374,7 @@ see explanation under <code>a1</code>.
 </tr>
 <tr>
 <td>
-a3
+a3 = 0.0
 </td>
 <td>
 <code style="white-space: nowrap;">float</code>
@@ -14370,16 +14394,13 @@ see explanation under <code>a3</code>.
 </tr>
 <tr>
 <td>
-sigInit
+sigInit = 0.0
 </td>
 <td>
 <code style="white-space: nowrap;">float</code>
 </td>
 <td>
 initial stress
-</tr>
-</td>
-</table>
 </tr>
 </tbody>
 </table>
