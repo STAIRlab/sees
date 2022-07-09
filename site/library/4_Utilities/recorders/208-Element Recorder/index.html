@@ -15,7 +15,7 @@
     
     
       
-        <title>Element Recorder - OpenSeesRT</title>
+        <title>Element - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Element Recorder
+              Element
 
             
           </span>
@@ -6194,6 +6194,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_1_2_8">
@@ -6321,6 +6323,21 @@
     <li class="md-nav__item">
       <a href="../../../1_Modeling/Uniaxial_Material/metalic/730-UVCuniaxial/" class="md-nav__link">
         UVCuniaxial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1_Modeling/Uniaxial_Material/metalic/SteelBRB/" class="md-nav__link">
+        SteelBRB
 
       </a>
     </li>
@@ -10459,6 +10476,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -10472,10 +10493,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_4_2">
-          Recorders
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Recorders</a>
+          
+            <label for="__nav_3_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Recorders" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_4_2">
@@ -10485,13 +10512,15 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+          
+            
               
   
   
   
     <li class="md-nav__item">
       <a href="../159-Drift%20Recorder/" class="md-nav__link">
-        Drift Recorder
+        Drift
 
       </a>
     </li>
@@ -10506,7 +10535,7 @@
   
     <li class="md-nav__item">
       <a href="../205-ElementEnvelopeRecorder/" class="md-nav__link">
-        ElementEnvelopeRecorder
+        ElementEnvelope
 
       </a>
     </li>
@@ -10528,7 +10557,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Element Recorder
+        Element
 
       </a>
       
@@ -14248,9 +14277,69 @@
 
 
 
-<h1 id="element-recorder">Element Recorder</h1>
+<h1 id="element">Element</h1>
 <p>The Element recorder type records the response of a number of elements at every converged step. The response recorded is element-dependent and also depends on the arguments which are passed to the <code>setResponse()</code> element method.</p>
 <p>The command to create an element recorder is:</p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.recorder.<span style="color:#900">Element</span>(destination, **kwds) </span></p>
+<div>
+<table>
+<!-- <colgroup>
+  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
+</colgroup> -->
+<tbody>
+<tr>
+<td>
+destination
+</td>
+<td>
+<code>Alt</code>
+</td>
+<td>
+name of file to which output is sent.file output is either in xml format (<code>-xml</code> option), textual (<code>-file</code> option) or binary (<code>-binary</code> option)
+</tr>
+<tr>
+<td>
+precision
+</td>
+<td>
+<code style="white-space: nowrap;">int</code>
+</td>
+<td>
+number of significant digits (optional, default is 6)(optional, default: records at every time step)
+</tr>
+<tr>
+<td>
+time = False
+</td>
+<td>
+<code>bool</code>
+</td>
+<td>
+optional, using this option places domain time in first entry of each data line, default is to have time omitted
+</tr>
+<tr>
+<td>
+closeOnWrite = False
+</td>
+<td>
+<code>bool</code>
+</td>
+<td>
+optional. using this option will instruct the recorder to invoke a close on the data handler after every timestep. If this is a file it will close the file on every step and then re-open it for the next step. Note, this greatly slows the execution time, but is useful if you need to monitor the data during the analysis.
+</tr>
+<tr>
+<td>
+time_step
+</td>
+<td>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
+time interval for recording. will record when next step is <code>deltaT</code> greater than last recorder step.
+</tr>
+</tbody>
+</table>
+</div>
 <div class="highlight"><pre><span></span><span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span>
 <span class="w">    </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>file<span class="w"> </span><span class="nv">$fileName</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>xml<span class="w"> </span><span class="nv">$fileName</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>binary<span class="w"> </span><span class="nv">$fileName</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>
 <span class="w">    </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>precision<span class="w"> </span><span class="nv">$nSD</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>closeOnWrite<span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">-</span>dT<span class="w"> </span><span class="nv">$deltaT</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span>

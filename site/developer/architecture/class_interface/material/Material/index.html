@@ -6208,6 +6208,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_1_2_8">
@@ -6335,6 +6337,21 @@
     <li class="md-nav__item">
       <a href="../../../../../library/1_Modeling/Uniaxial_Material/metalic/730-UVCuniaxial/" class="md-nav__link">
         UVCuniaxial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../library/1_Modeling/Uniaxial_Material/metalic/SteelBRB/" class="md-nav__link">
+        SteelBRB
 
       </a>
     </li>
@@ -10469,6 +10486,10 @@
       
         
           
+            
+          
+        
+          
         
           
         
@@ -10482,10 +10503,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_4_2">
-          Recorders
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../library/4_Utilities/recorders/">Recorders</a>
+          
+            <label for="__nav_3_4_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Recorders" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_4_2">
@@ -10495,13 +10522,15 @@
         <ul class="md-nav__list" data-md-scrollfix>
           
             
+          
+            
               
   
   
   
     <li class="md-nav__item">
       <a href="../../../../../library/4_Utilities/recorders/159-Drift%20Recorder/" class="md-nav__link">
-        Drift Recorder
+        Drift
 
       </a>
     </li>
@@ -10516,7 +10545,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../../library/4_Utilities/recorders/205-ElementEnvelopeRecorder/" class="md-nav__link">
-        ElementEnvelopeRecorder
+        ElementEnvelope
 
       </a>
     </li>
@@ -10531,7 +10560,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../../library/4_Utilities/recorders/208-Element%20Recorder/" class="md-nav__link">
-        Element Recorder
+        Element
 
       </a>
     </li>
@@ -14253,15 +14282,18 @@
 <p>PRESENTLY LITTLE IN THE INTERFACE .. THIS MAY CHANGE IF MAKE GENERAL i.e 1D, 2D and 3d PROBLEMS RETURN MATRICES AND VECTORS .. IF CHANGE, INTERFACE FOR UniaxialMaterial MAY THEN CHANGE.</p>
 <h1 id="material">Material</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;material/Material.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">Material</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">TaggedObject</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">MovableObject</span><span class="w"></span>
 </pre></div>
 
-<p>class Material: public TaggedObject, public MovableObject</p>
-<p>TaggedObject</p>
-<p>MovableObject</p>
-<p>Material is an abstract class. The Material class provides the interface that all Material writers must provide when introducing new Material subclasses. A Material object is responsible for keeping track of stress, strain and the constitution for a particular point in the domain.</p>
-<p>// Constructor</p>
-<p>// Destructor</p>
-<p>To construct a Material whose unique integer among Materials in the domain is given by <em>tag</em>, and whose class identifier is given by <em>classTag</em>. These integers are passed to the TaggedObject and MovableObject class constructors.</p>
+<p><code>Material</code> is an abstract class. The <code>Material</code> class provides the interface that all Material writers must provide when introducing new Material subclasses. A Material object is responsible for keeping track of stress, strain and the constitution for a particular point in the domain.</p>
+<h2 id="constructor-and-destructor">Constructor and Destructor</h2>
+<div class="highlight"><pre><span></span><span class="n">Material</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">classTag</span><span class="p">);</span><span class="w">    </span>
+</pre></div>
+
+<p>To construct a Material whose unique integer among Materials in the domain is given by <code>tag</code>, and whose class identifier is given by <code>classTag</code>. These integers are passed to the <code>TaggedObject</code> and <code>MovableObject</code> class constructors.</p>
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">Material::getResponse</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">responseID</span><span class="p">,</span><span class="w"> </span><span class="n">Information</span><span class="w"> </span><span class="o">&amp;</span><span class="n">info</span><span class="p">);</span><span class="w"></span>
+</pre></div>
 
 
               
