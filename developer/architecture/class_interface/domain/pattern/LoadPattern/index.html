@@ -14284,24 +14284,20 @@
 <h1 id="loadpattern">LoadPattern</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;domain/pattern/LoadPattern.h&gt;</span><span class="cp"></span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">LoadPattern</span><span class="o">:</span><span class="w"></span>
-<span class="k">public</span><span class="w"></span>
-<span class="w">  </span><span class="n">DomainComponent</span><span class="w"></span>
-<span class="w">  </span><span class="n">TaggedObject</span><span class="w"></span>
-<span class="w">  </span><span class="n">MovableObject</span><span class="w"></span>
-<span class="w">  </span><span class="n">DomainComponent</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LoadPattern</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">DomainComponent</span><span class="w"></span>
 </pre></div>
 
+<p><img src="/OpenSeesRT/static/c1be70298b054f3fcb0c68bf77136cfa7b3bd9e0.svg" /></p>
 <p>The <code>LoadPattern</code> class is a concrete base class. A <code>LoadPattern</code> is a container class for Load and <code>SP_Constraint</code> objects. Each <code>LoadPattern</code> object is associated with a <code>TimeSeries</code> object which, for a given pseudo time, will return the appropriate load factor to be applied to the load in the LoadPattern.</p>
 <p>// Constructors</p>
 <p>// Destructor</p>
 <p>// Public Methods</p>
-<p>The integer <code>tag</code> is passed to the DomainComponent classes constructor. Creates three ArrayOftaggedObjects objects to store pointers to the NodalLoad, ElementalLoad and SP_Constraints and three iters. If not enough memory is available for these objects an error message is printed and the program is terminated.</p>
+<p>The integer <code>tag</code> is passed to the <code>DomainComponent</code> classes constructor. Creates three <code>ArrayOftaggedObjects</code> objects to store pointers to the <code>NodalLoad</code>, <code>ElementalLoad</code> and <code>SP_Constraints</code> and three iters. If not enough memory is available for these objects an error message is printed and the program is terminated.</p>
 <p>This is the constructor provided for subclasses to use. The integers <code>tag</code> and <code>classTag</code> are passed to the DomainComponent classes constructor.</p>
-<p>Invokes the destructor on the TimeSeries object. Also invokes the destructor on any objects created in the constructor for storage of the pointers and for iters. It does not invoke the destructor on these objects, the Domain object is responsible for doing this.</p>
-<p>If a TimeSeries object is associated with the pattern, the destructor is invoked on that TimeSeries object. It then sets the TimeSeries object associated with the LoadPattern to <code>theSeries</code>.</p>
-<p>If any loads or constraint objects exist in the LoadPattern, the LoadPattern will invoke <code>setDomain()</code> on those objects. Finally invokes the DomainComponent classes <code>setDomain()</code> method.</p>
-<p>Adds the NodalLoad object pointed to by <code>theLoad</code> to the LoadPattern. If the LoadPattern could add the pointer to its storage object for nodal loads, it will invoke <code>setDomain()</code> and <code>setLoadPattern()</code> on the load object if a Domain has been set.</p>
+<p>Invokes the destructor on the <code>TimeSeries</code> object. Also invokes the destructor on any objects created in the constructor for storage of the pointers and for iters. It does not invoke the destructor on these objects, the Domain object is responsible for doing this.</p>
+<p>If a <code>TimeSeries</code> object is associated with the pattern, the destructor is invoked on that <code>TimeSeries</code> object. It then sets the <code>TimeSeries</code> object associated with the <code>LoadPattern</code> to <code>theSeries</code>.</p>
+<p>If any loads or constraint objects exist in the <code>LoadPattern</code>, the LoadPattern will invoke <code>setDomain()</code> on those objects. Finally invokes the DomainComponent classes <code>setDomain()</code> method.</p>
+<p>Adds the NodalLoad object pointed to by <code>theLoad</code> to the <code>LoadPattern</code>. If the <code>LoadPattern</code> could add the pointer to its storage object for nodal loads, it will invoke <code>setDomain()</code> and <code>setLoadPattern()</code> on the load object if a Domain has been set.</p>
 <p>Adds the ElementalLoad pointed to by <code>theLoad</code> to the LoadPattern. If the LoadPattern could add the pointer to its storage object for elemental loads, it will invoke <code>setDomain()</code> and <code>setLoadPattern()</code> on the load object if a Domain has been set.</p>
 <p>Adds the SP_Constraint pointed to by <code>theSp</code> to the LoadPattern. If the LoadPattern could add the pointer to its storage object for single-point constraints, it will invoke <code>setDomain()</code> and <code>setLoadPattern()</code> on the constraint object if a Domain has been set.</p>
 <p>Returns an iter to the nodal loads in the LoadPattern.</p>
