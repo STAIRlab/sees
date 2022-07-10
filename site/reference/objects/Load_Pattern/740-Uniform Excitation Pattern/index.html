@@ -9375,13 +9375,23 @@
       
         
           
+            
+          
+        
+          
         
       
       
-        <label class="md-nav__link" for="__nav_3_2_4">
-          Transient Analysis
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../library/2_Analysis/Transient_Analysis/">Transient Analysis</a>
+          
+            <label for="__nav_3_2_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Transient Analysis" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_2_4">
@@ -9389,6 +9399,8 @@
           Transient Analysis
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -9399,7 +9411,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4_1" type="checkbox" id="__nav_3_2_4_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_4_2" type="checkbox" id="__nav_3_2_4_2" >
       
       
       
@@ -9418,13 +9430,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_2_4_1">
+        <label class="md-nav__link" for="__nav_3_2_4_2">
           Integrator
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Integrator" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_2_4_1">
+        <label class="md-nav__title" for="__nav_3_2_4_2">
           <span class="md-nav__icon md-icon"></span>
           Integrator
         </label>
@@ -13934,6 +13946,8 @@
       
         
           
+            
+          
         
           
         
@@ -13951,10 +13965,16 @@
         
       
       
-        <label class="md-nav__link" for="__nav_4_8_4">
-          Load Pattern
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../">Load Pattern</a>
+          
+            <label for="__nav_4_8_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Load Pattern" data-md-level="3">
         <label class="md-nav__title" for="__nav_4_8_4">
@@ -13962,6 +13982,8 @@
           Load Pattern
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -14054,21 +14076,6 @@
     <li class="md-nav__item">
       <a href="../Plain_Loading/" class="md-nav__link">
         Plain Loading
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Uniform_Excitation/" class="md-nav__link">
-        Uniform Excitation
 
       </a>
     </li>
@@ -14281,129 +14288,106 @@
 <p>
 The UniformExcitation pattern allows the user to apply a uniform excitation to a model acting in a certain direction. The command is as follows:
 </p>
-<div class="highlight"><pre><span></span><span class="nv">pattern</span><span class="w"> </span>UniformExcitation<span class="w"> </span><span class="nv">$patternTag</span><span class="w"> </span><span class="nv">$dir</span><span class="w"> </span><span class="o">-</span>accel<span class="w"> </span><span class="nv">$tsTag</span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-vel0</span><span class="w"> </span><span class="nv">$vel0</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">-fact</span><span class="w"> </span><span class="nv">$cFactor</span><span class="o">&amp;</span>gt<span class="k">;</span><span class="w"></span>
-</pre></div>
-
-<hr />
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.pattern.<span style="color:#900">UniformExcitation</span>(name, dof, accel, **kwds) </span></p>
+<div>
 <table>
+<!-- <colgroup>
+  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
+</colgroup> -->
 <tbody>
-<tr class="odd">
+<tr>
+</tr>
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">patternTag</code>
-</p>
+dof
 </td>
 <td>
-<p>
-unique tag among load patterns
-</p>
+<code style="white-space: nowrap;">int</code>
+</td>
+<td>
+<table>
+<tr>
+<td>
+1
+</td>
+<td>
+corresponds to translation along the global 1 axis
 </td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">dir</code>
-</p>
+2
 </td>
 <td>
-<p>
-direction in which ground motion acts
-</p>
+corresponds to translation along the global 2 axis
 </td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
+3
 </td>
 <td>
-<p>
-1 - corresponds to translation along the global X axis
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-</td>
-<td>
-<p>
-2 - corresponds to translation along the global Y axis
-</p>
+corresponds to translation along the global 3 axis
 </td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
+4
 </td>
 <td>
-<p>
-3 - corresponds to translation along the global Z axis
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-</td>
-<td>
-<p>
-4 - corresponds to rotation about the global X axis
-</p>
+corresponds to rotation about the global 1 axis
 </td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
+5
 </td>
 <td>
-<p>
-5 - corresponds to rotation about the global Y axis
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-</td>
-<td>
-<p>
-6 - corresponds to rotation about the global Z axis
-</p>
+corresponds to rotation about the global 2 axis
 </td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">tsTag</code>
-</p>
+6
 </td>
 <td>
-<p>
-tag of the TimeSeries series defining the acceleration history.
-</p>
+corresponds to rotation about the global 3 axis
 </td>
 </tr>
-<tr class="even">
-<td>
-<p>
-<code class="parameter-table-variable">vel0</code>
-</p>
-</td>
-<td>
-<p>
-the initial velocity (optional, default=0.0)
-</p>
-</td>
+</table>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">cFactor</code>
-</p>
+accel
 </td>
 <td>
-<p>
-constant factor (optional, default=1.0)
-</p>
+<code>Ref(Path)</code>
 </td>
+<td>
+acceleration time series
+</tr>
+<tr>
+<td>
+v0
+</td>
+<td>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
+initial velocity.
+</tr>
+<tr>
+<td>
+scale
+</td>
+<td>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>
 NOTES:
 </p>
