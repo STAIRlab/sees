@@ -1691,6 +1691,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/2_Analysis/Transient_Analysis/</loc>
+         <lastmod>2022-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/2_Analysis/Transient_Analysis/integrator/231-Explicit%20Difference/</loc>
          <lastmod>2022-07-10</lastmod>
          <changefreq>daily</changefreq>
@@ -2671,6 +2676,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/</loc>
+         <lastmod>2022-07-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/403-Multi-Support%20Excitation%20Pattern/</loc>
          <lastmod>2022-07-10</lastmod>
          <changefreq>daily</changefreq>
@@ -2697,11 +2707,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/Plain_Loading/</loc>
-         <lastmod>2022-07-10</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/Uniform_Excitation/</loc>
          <lastmod>2022-07-10</lastmod>
          <changefreq>daily</changefreq>
     </url>
