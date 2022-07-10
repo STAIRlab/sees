@@ -14283,7 +14283,7 @@
 <p>
 This command is used to construct a Dodd-Restrepo steel material
 </p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">Dodd_Restrepo</span>(name,<br>   fy,<br>   fu,<br>   esh,<br>   esu,<br>   E,<br>   eshI,<br>   fshI,<br>   **kwds) </span></p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">Dodd_Restrepo</span>(name,<br>   fy,<br>   fu,<br>   esh,<br>   esu,<br>   E,<br>   eshi,<br>   fshi,<br>   **kwds) </span></p>
 <div>
 <table>
 <!-- <colgroup>
@@ -14344,17 +14344,17 @@ Young’s modulus of elasticity
 </tr>
 <tr>
 <td>
-eshI
+eshi
 </td>
 <td>
 <code style="white-space: nowrap;">float</code>
 </td>
 <td>
-Tensile strain for a point on strain hardening curve, recommended range of values for eshI: <span class="math inline">\(\left\[ (\texttt{esu} 5 \texttt{esh})/6, (\texttt{esu} 3 \texttt{esh})/4\right\]\)</span>
+Tensile strain for a point on strain hardening curve, recommended range of values for eshI: <span class="math inline">\(\left[ \frac{\texttt{esu} 5 \texttt{esh}}{6}, \frac{\texttt{esu} 3 \texttt{esh}}{4}\right]\)</span>
 </tr>
 <tr>
 <td>
-fshI
+fshi
 </td>
 <td>
 <code style="white-space: nowrap;">float</code>
