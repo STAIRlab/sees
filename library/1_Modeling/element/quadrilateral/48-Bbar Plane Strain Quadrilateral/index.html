@@ -13969,12 +13969,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         
@@ -14018,51 +14012,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/496-Pattern%20Command/" class="md-nav__link">
-        Pattern Command
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/510-Plain%20Pattern/" class="md-nav__link">
-        Plain Pattern
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/658-Sp/" class="md-nav__link">
-        Sp (Single-point)
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../../reference/objects/Load_Pattern/740-Uniform%20Excitation%20Pattern/" class="md-nav__link">
         Uniform Excitation Pattern
 
@@ -14093,8 +14042,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/Plain_Loading/" class="md-nav__link">
-        Plain Loading
+      <a href="../../../../../reference/objects/Load_Pattern/TimeSeries/" class="md-nav__link">
+        Time Series Command
 
       </a>
     </li>
@@ -14111,52 +14060,38 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_8_4_9" type="checkbox" id="__nav_4_8_4_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_8_4_6" type="checkbox" id="__nav_4_8_4_6" >
       
       
       
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
+            
           
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_4_8_4_9">
-          timeSeries
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../reference/objects/Load_Pattern/plain/">Plain</a>
+          
+            <label for="__nav_4_8_4_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Plain" data-md-level="4">
+        <label class="md-nav__title" for="__nav_4_8_4_6">
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="timeSeries" data-md-level="4">
-        <label class="md-nav__title" for="__nav_4_8_4_9">
-          <span class="md-nav__icon md-icon"></span>
-          timeSeries
+          Plain
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/369-Linear%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -14164,78 +14099,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/495-Path%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
+      <a href="../../../../../reference/objects/Load_Pattern/plain/658-Sp/" class="md-nav__link">
+        Sp (Single-point)
 
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/547-Pulse%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/580-Rectangular%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/711-Triangular%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/712-Trigonometric%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/98-Constant%20TimeSeries/" class="md-nav__link">
-        
       </a>
     </li>
   
@@ -14304,9 +14170,10 @@
 
 
 <h1 id="bbar-plane-strain-quadrilateral">Bbar Plane Strain Quadrilateral</h1>
-<p>
-This command is used to construct a four-node quadrilateral element object, which uses a bilinear isoparametric formulation along with a mixed volume/pressure B-bar assumption. This element is for plane strain problems only.
-</p>
+<p>This command is used to construct a four-node quadrilateral element object, which uses a bilinear isoparametric formulation along with a mixed volume/pressure B-bar assumption.</p>
+<blockquote>
+<p>The only material formulation available for this element is <code>PlaneStrain</code></p>
+</blockquote>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>bbarQuad<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$kNode</span><span class="w"> </span><span class="nv">$lNode</span>
 <span class="w">        </span><span class="nv">$thick</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"></span>
 </pre></div>
@@ -14366,7 +14233,7 @@ NOTE:
 PlainStrain only.
 </li>
 <li>
-The valid queries to a Quad element when creating an ElementRecorder object are ‘forces’, ‘stresses,’ and ‘material $matNum matArg1 matArg2 …’ Where $matNum refers to the material object at the integration point corresponding to the node numbers in the isoparametric domain.
+The valid queries to a Quad element when creating an <code>ElementRecorder</code> object are <code>forces</code>, <code>stresses</code>, and <code>material $matNum matArg1 matArg2 ...</code> Where <code>matNum</code> refers to the material object at the integration point corresponding to the node numbers in the isoparametric domain.
 </li>
 </ol>
 <h2 id="examples">Examples</h2>

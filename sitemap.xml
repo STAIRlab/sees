@@ -2676,21 +2676,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/496-Pattern%20Command/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/510-Plain%20Pattern/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/658-Sp/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/740-Uniform%20Excitation%20Pattern/</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
@@ -2701,42 +2686,17 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/Plain_Loading/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/TimeSeries/</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/timeSeries/369-Linear%20TimeSeries/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/plain/</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/timeSeries/495-Path%20TimeSeries/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/timeSeries/547-Pulse%20TimeSeries/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/timeSeries/580-Rectangular%20TimeSeries/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/timeSeries/711-Triangular%20TimeSeries/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/timeSeries/712-Trigonometric%20TimeSeries/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/timeSeries/98-Constant%20TimeSeries/</loc>
+         <loc>https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/plain/658-Sp/</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/Plain_Loading/">
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/reference/objects/Load_Pattern/TimeSeries/">
       
       <link rel="icon" href="../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-, mkdocs-material-8.2.13">
     
     
       
-        <title>Plain Loading - OpenSeesRT</title>
+        <title>Time Series Command - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Plain Loading
+              Time Series Command
 
             
           </span>
@@ -13959,12 +13959,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         
@@ -13995,51 +13989,6 @@
     <li class="md-nav__item">
       <a href="../403-Multi-Support%20Excitation%20Pattern/" class="md-nav__link">
         Multi-Support Excitation Pattern
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../496-Pattern%20Command/" class="md-nav__link">
-        Pattern Command
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../510-Plain%20Pattern/" class="md-nav__link">
-        Plain Pattern
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../658-Sp/" class="md-nav__link">
-        Sp (Single-point)
 
       </a>
     </li>
@@ -14091,7 +14040,7 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Plain Loading
+        Time Series Command
 
       </a>
       
@@ -14109,52 +14058,38 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_8_4_9" type="checkbox" id="__nav_4_8_4_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_8_4_6" type="checkbox" id="__nav_4_8_4_6" >
       
       
       
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
+            
           
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_4_8_4_9">
-          timeSeries
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../plain/">Plain</a>
+          
+            <label for="__nav_4_8_4_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Plain" data-md-level="4">
+        <label class="md-nav__title" for="__nav_4_8_4_6">
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="timeSeries" data-md-level="4">
-        <label class="md-nav__title" for="__nav_4_8_4_9">
-          <span class="md-nav__icon md-icon"></span>
-          timeSeries
+          Plain
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../timeSeries/369-Linear%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -14162,78 +14097,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../timeSeries/495-Path%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
+      <a href="../plain/658-Sp/" class="md-nav__link">
+        Sp (Single-point)
 
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../timeSeries/547-Pulse%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../timeSeries/580-Rectangular%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../timeSeries/711-Triangular%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../timeSeries/712-Trigonometric%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../timeSeries/98-Constant%20TimeSeries/" class="md-nav__link">
-        
       </a>
     </li>
   
@@ -14295,52 +14161,56 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/reference/objects/Load_Pattern/Plain_Loading.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/claudioperez/opensees-python/edit/master/docs/reference/objects/Load_Pattern/TimeSeries.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-<h1 id="plain-loading">Plain Loading</h1>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.pattern.<span style="color:#900">Plain</span>(name, series, loads, **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-series
-</td>
-<td>
-<code>Ref(Path)</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-loads
-</td>
-<td>
-<code>Blk</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-scale
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-</tbody>
-</table>
-</div>
+<h1 id="time-series-command">Time Series Command</h1>
+<p>This command is used to construct a TimeSeries object which represents the relationship between the time in the domain, $t $ , and the load factor applied to the loads, $t $ , a <span class="math inline">\(\lambda\)</span>, in the load pattern with which the <code>TimeSeries</code> object is associated, i.e. <span class="math inline">\(\lambda = F(t)\)</span></p>
+<div class="highlight"><pre><span></span><span class="nv">timeSeries</span><span class="w"> </span>seriesType<span class="o">?</span><span class="w"> </span>arg1<span class="o">?</span><span class="w"> </span>...
+</pre></div>
+
+<hr />
+<p>
+The type of time series created and the additional arguments required depends on the <strong>seriesType?</strong> provided in the command.
+</p>
+<p>
+The following contain information about seriesType? and the args required for each of the available time series types:
+</p>
+<p>
+&lt;/noinclude&gt;
+</p>
+<ul>
+<li>
+<a href="Constant_TimeSeries" title="wikilink">Constant TimeSeries</a>
+</li>
+<li>
+<a href="Linear_TimeSeries" title="wikilink">Linear TimeSeries</a>
+</li>
+<li>
+<a href="Trigonometric_TimeSeries" title="wikilink">Trigonometric TimeSeries</a>
+</li>
+<li>
+<a href="Triangular_TimeSeries" title="wikilink">Triangular TimeSeries</a>
+</li>
+<li>
+<a href="Rectangular_TimeSeries" title="wikilink">Rectangular TimeSeries</a>
+</li>
+<li>
+<a href="Pulse_TimeSeries" title="wikilink">Pulse TimeSeries</a>
+</li>
+<li>
+<a href="Path_TimeSeries" title="wikilink">Path TimeSeries</a>
+</li>
+<li>
+<a href="PeerMotion" title="wikilink">PeerMotion</a>
+</li>
+<li>
+<a href="PeerNGAMotion" title="wikilink">PeerNGAMotion</a>
+</li>
+</ul>
 
 
               
