@@ -3026,8 +3026,6 @@
         
           
         
-          
-        
       
       
         
@@ -3130,25 +3128,11 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../../architecture/class_interface/material/mdMaterial/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_8_8" type="checkbox" id="__nav_2_2_5_8_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_8_7" type="checkbox" id="__nav_2_2_5_8_7" >
       
       
       
@@ -3157,13 +3141,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_8_8">
+        <label class="md-nav__link" for="__nav_2_2_5_8_7">
           Section
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Section" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_8_8">
+        <label class="md-nav__title" for="__nav_2_2_5_8_7">
           <span class="md-nav__icon md-icon"></span>
           Section
         </label>
@@ -14361,19 +14345,10 @@ UniaxialMaterial Class
 <span class="w">                 </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theBroker</span><span class="p">);</span><span class="w"></span>
 
 <span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">Print</span><span class="p">(</span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
-
-<span class="w">  </span><span class="k">protected</span><span class="o">:</span><span class="w"></span>
-
-<span class="w">  </span><span class="k">private</span><span class="o">:</span><span class="w"></span>
 <span class="p">};</span><span class="w"></span>
 </pre></div>
 
 <p>The methods with <code>=0;</code> are methods that you must implement for the class to link successfully with OpenSees. The other classes are optional.</p>
-<p>The <code>setTrialStrain()</code> is the method called by an element when a new strain in the material is to be set. Subsequent calls to <code>getTangent()</code> and <code>getStress()</code> are to return thecorresponding tangent and stress values for that stress. <code>setTrialStrain()</code> is invoked as the solution algorithm tries a number of trial solution steps as it goes from one commited solution to the next on the solution path.</p>
-<p>The <code>commitState()</code> method is invoked when a trial solution has been determined to be on the solution path. It is the responsibility of the material to be able to back track to that solution if a <code>revertToLastCOmmit()</code> is invoked. This will happen if the algorithm fails to find a solution on the solution path.</p>
-<p>The <code>getCopy()</code> method is invoked by an element in the elements constructor. The material is to return a unique copy of itself to the element. This way different elements can use the same material type with the same properties, with each element having it’s own unique copy.</p>
-<p>The <code>setResponse()</code>/<code>getResponse()</code> typically do not have to be provided. These are the methods called by a recorder after a commit(). If you are appy with the existing responses fro a UniaxialMaterial which responds to <code>"stress"</code>, <code>"strain"</code>, <code>"tangent"</code>, <code>"stressANDstrain"</code> you do not have to implement these methods. The example below shows them just for those ew who want additional info out of their materials.</p>
-<p>The <code>sendSelf()</code>/<code>recvSelf()</code> methods are used in parallel processing with OpenSeesSP and when using the <code>database</code> command. If you don’t envision using the material in these situations you can again ignore these methods. Again I am only showing them in the code for those even fewer who would do this.</p>
 <h3 id="example___elasticppecpp">
 Example - ElasticPPecpp
 </h3>

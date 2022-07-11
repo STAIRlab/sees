@@ -446,11 +446,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/mdMaterial/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/section/ElasticSection3D/</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
