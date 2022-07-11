@@ -3056,21 +3056,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../architecture/class_interface/material/ElasticIsotropicMaterial/" class="md-nav__link">
-        ElasticIsotropicMaterial
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../architecture/class_interface/material/HystereticBackbone/" class="md-nav__link">
         HystereticBackbone
 
@@ -3103,6 +3088,21 @@
     <li class="md-nav__item">
       <a href="../../../architecture/class_interface/material/NDMaterial/" class="md-nav__link">
         NDMaterial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../architecture/class_interface/material/SectionForceDeformation/" class="md-nav__link">
+        SectionForceDeformation
 
       </a>
     </li>
@@ -3155,8 +3155,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2_5_8_8">
@@ -3179,21 +3177,6 @@
     <li class="md-nav__item">
       <a href="../../../architecture/class_interface/material/section/ElasticSection3D/" class="md-nav__link">
         ElasticSection3D
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../architecture/class_interface/material/section/SectionForceDeformation/" class="md-nav__link">
-        SectionForceDeformation
 
       </a>
     </li>
@@ -14349,19 +14332,7 @@ UniaxialMaterial Class
 </h3>
 <p>
 <p>The Uniaxial class itself is an abstract base class. It inherits from both the <code>Material</code> class, which is itself a subclass of <code>TaggedObject</code> class and the MovableObject class. The class has a large number of methods defined in the interface, not all these methods need to be included in a new UniaxialMaterial class. The following is the minimal interface that should be considered:</p>
-<div class="highlight"><pre><span></span><span class="cp">#ifndef ElasticPPcpp_h</span>
-<span class="cp">#define ElasticPPcpp_h</span>
-
-<span class="c1">// Written: fmk</span>
-<span class="c1">//</span>
-<span class="c1">// Description: This file contains the class definition for</span>
-<span class="c1">// ElasticPPcpp. ElasticPPcpp provides the abstraction</span>
-<span class="c1">// of an elastic perfectly plastic uniaxial material,</span>
-<span class="c1">//</span>
-<span class="c1">// What: &quot;@(#) ElasticPPcpp.h, revA&quot;</span>
-
-<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;UniaxialMaterial.h&gt;</span><span class="cp"></span>
-<span class="k">class</span><span class="w"> </span><span class="nc">UniaxialMaterial</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Material</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">UniaxialMaterial</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Material</span><span class="w"></span>
 <span class="p">{</span><span class="w"></span>
 <span class="w">  </span><span class="k">public</span><span class="o">:</span><span class="w"></span>
 <span class="w">    </span><span class="n">UniaxialMaterial</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">classTag</span><span class="p">);</span><span class="w"></span>
@@ -14398,36 +14369,19 @@ UniaxialMaterial Class
 </pre></div>
 
 <p>The methods with <code>=0;</code> are methods that you must implement for the class to link successfully with OpenSees. The other classes are optional.</p>
-<p>
-The setTrialStrain() is the method called by an element when a new strain in the material is to be set. Subsequent calls to <code>getTangent()</code> and <code>getStress()</code> are to return thecorresponding tangent and stress values for that stress. setTrialStrain() is invoked as the solution algorithm tries a number of trial solution steps as it goes from one commited solution to the next on the solution path.
-</p>
-<p>
-The <code>commitState()</code> method is invoked when a trial solution has been determined to be on the solution path. It is the responsibility of the material to be able to back track to that solution if a revertToLastCOmmit() is invoked. This will happen if the algorithm fails to find a solution on the solution path.
-</p>
-<p>
-The getCopy() method is invoked by an element in the elements constructor. The material is to return a unique copy of itself to the element. This way different elements can use the same material type with the same properties, with each element having it’s own unique copy.
-</p>
-<p>
-The <code>setResponse()</code>/<code>getResponse()</code> typically do not have to be provided. These are the methods called by a recorder after a commit(). If you are appy with the existing responses fro a UniaxialMaterial which responds to “stress”, “strain”, “tangent”, “stressANDstrain” you do not have to implement these methods. The example below shows them just for those ew who want additional info out of their materials.
-</p>
-<p>
-The sendSelf()/recvSelf() methods are used in parallel processing with OpenSeesSP and when using the database command. If you don’t envision using the material in these situations you can again ignore these methods. Again I am only showing them in the code for those even fewer who would do this.
-</p>
-<p>
-The commit() method is what is called
-</p>
+<p>The <code>setTrialStrain()</code> is the method called by an element when a new strain in the material is to be set. Subsequent calls to <code>getTangent()</code> and <code>getStress()</code> are to return thecorresponding tangent and stress values for that stress. <code>setTrialStrain()</code> is invoked as the solution algorithm tries a number of trial solution steps as it goes from one commited solution to the next on the solution path.</p>
+<p>The <code>commitState()</code> method is invoked when a trial solution has been determined to be on the solution path. It is the responsibility of the material to be able to back track to that solution if a <code>revertToLastCOmmit()</code> is invoked. This will happen if the algorithm fails to find a solution on the solution path.</p>
+<p>The <code>getCopy()</code> method is invoked by an element in the elements constructor. The material is to return a unique copy of itself to the element. This way different elements can use the same material type with the same properties, with each element having it’s own unique copy.</p>
+<p>The <code>setResponse()</code>/<code>getResponse()</code> typically do not have to be provided. These are the methods called by a recorder after a commit(). If you are appy with the existing responses fro a UniaxialMaterial which responds to <code>"stress"</code>, <code>"strain"</code>, <code>"tangent"</code>, <code>"stressANDstrain"</code> you do not have to implement these methods. The example below shows them just for those ew who want additional info out of their materials.</p>
+<p>The <code>sendSelf()</code>/<code>recvSelf()</code> methods are used in parallel processing with OpenSeesSP and when using the <code>database</code> command. If you don’t envision using the material in these situations you can again ignore these methods. Again I am only showing them in the code for those even fewer who would do this.</p>
 <h3 id="example___elasticppecpp">
 Example - ElasticPPecpp
 </h3>
-<p>
-In the following section we will provide all necessary code to add a new elastic perfectly plastic material into an OpenSees interpreter.
-</p>
+<p>In the following section we will provide all necessary code to add a new elastic perfectly plastic material into an OpenSees interpreter.</p>
 <h4 id="header">
 Header
 </h4>
-<p>
-The header for thew new class, which we will call Truss2D is as follows:
-</p>
+<p>The header for the new class, which we will call <code>ElasticPPcpp</code> is as follows:</p>
 <div class="highlight"><pre><span></span><span class="cp">#ifndef ElasticPPcpp_h</span>
 <span class="cp">#define ElasticPPcpp_h</span>
 
@@ -14478,17 +14432,15 @@ The header for thew new class, which we will call Truss2D is as follows:
 <span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">commitTangent</span><span class="p">;</span><span class="w">    </span><span class="c1">// last committed  tangent</span>
 </pre></div>
 
-<p>The header file defines the interface and variables for the class ElasticPPcpp. It defines the new class to be a sublass of the UniaxialMaterial class. In the public interface, are two constructors and a destructor in addition to minimal set of methods we showed for the UniaxialMaterial class. There are no protected data or methods as we do not expect this class to be subclassed. In the private section we define a number of private variables and a number of variables. Some of these are parameter variable which do not change with each commit, e.g. E, and some state variable which do change, e.g. ep, fyp, and fyn.</p>
+<p>The header file defines the interface and variables for the class <code>ElasticPPcpp</code>. It defines the new class to be a sublass of the UniaxialMaterial class. In the public interface, are two constructors and a destructor in addition to minimal set of methods we showed for the UniaxialMaterial class. There are no protected data or methods as we do not expect this class to be subclassed. In the private section we define a number of private variables and a number of variables. Some of these are parameter variable which do not change with each commit, e.g. E, and some state variable which do change, e.g. ep, fyp, and fyn.</p>
 <h4 id="implementation">
 Implementation
 </h4>
-<p>
-It another file, <code>ElasticPPcpp.cpp</code>, we place the code that details what the constructors, destructor and methods do. In addition we provide one additional procedure <code>OPS_ElasticPPcpp()</code> (NOTE it has the same name as the class with an OPS_ prefix). We will go through each part of the file.
-</p>
+<p>It another file, <code>ElasticPPcpp.cpp</code>, we place the code that details what the constructors, destructor and methods do. In addition we provide one additional procedure <code>OPS_ElasticPPcpp()</code> (NOTE it has the same name as the class with an <code>OPS_</code> prefix). We will go through each part of the file.</p>
 <h5 id="include_directives">
 Include Directives
 </h5>
-<p>The first part of the file contains the list of includes. It is necessary to have an <code>#include</code> directive for each class and api file that is used within the .cpp file and is not included in the header.</p>
+<p>The first part of the file contains the list of includes. It is necessary to have an <code>#include</code> directive for each class and api file that is used within the <code>.cpp</code> file and is not included in the header.</p>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ElasticPPcpp.h&quot;</span><span class="cp"></span>
 
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;elementAPI.h&gt;</span><span class="cp"></span>

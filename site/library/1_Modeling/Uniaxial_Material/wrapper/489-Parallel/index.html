@@ -3054,21 +3054,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../developer/architecture/class_interface/material/ElasticIsotropicMaterial/" class="md-nav__link">
-        ElasticIsotropicMaterial
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../../developer/architecture/class_interface/material/HystereticBackbone/" class="md-nav__link">
         HystereticBackbone
 
@@ -3101,6 +3086,21 @@
     <li class="md-nav__item">
       <a href="../../../../../developer/architecture/class_interface/material/NDMaterial/" class="md-nav__link">
         NDMaterial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/architecture/class_interface/material/SectionForceDeformation/" class="md-nav__link">
+        SectionForceDeformation
 
       </a>
     </li>
@@ -3153,8 +3153,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2_5_8_8">
@@ -3177,21 +3175,6 @@
     <li class="md-nav__item">
       <a href="../../../../../developer/architecture/class_interface/material/section/ElasticSection3D/" class="md-nav__link">
         ElasticSection3D
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../developer/architecture/class_interface/material/section/SectionForceDeformation/" class="md-nav__link">
-        SectionForceDeformation
 
       </a>
     </li>
@@ -14337,51 +14320,49 @@
 
 
 <h1 id="parallel">Parallel</h1>
-<p>
-This command is used to construct a parallel material object made up of an arbitrary number of previously-constructed UniaxialMaterial objects.
-</p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>Parallel<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$tag1</span><span class="w"> </span><span class="nv">$tag2</span><span class="w"> </span>...
-<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">-factors</span><span class="w"> </span><span class="nv">$fact1</span><span class="w"> </span><span class="nv">$fact2</span><span class="w"> </span>...<span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
-<hr />
+<p>This command is used to construct a parallel material object made up of an arbitrary number of previously-constructed UniaxialMaterial objects.</p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">ParallelMaterial</span>(name, materials, **kwds) </span></p>
+<div>
 <table>
+<!-- <colgroup>
+  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
+</colgroup> -->
 <tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">matTag</code>
-</td>
-<td>
-<p>
-integer tag identifying material
-</p>
-</td>
+<tr>
 </tr>
-<tr class="even">
-<td>
-<code>tag1 tag2 …</code>
+<tr>
+<td colspan="2">
+materials
 </td>
 <td>
-<p>
-identification tags of materials making up the material model
-</p>
+<code>[materials1,materials2]</code>,<br />
+
+<table>
+<tr>
+<td>
+materials1
 </td>
+<td>
+<code>Ref(uniaxial)</code>
+</td>
+<td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<p>
-<code>fact1 fact2 …</code>
-</p>
+materials2
 </td>
 <td>
-<p>
-factors to create a linear combination of the specified materials. Factors can be negative to subtract one material from an other. (optional, default = 1.0)
-</p>
+<code>Ref(uniaxial)</code>
 </td>
+<td>
+</tr>
+</td>
+</table>
 </tr>
 </tbody>
 </table>
-<p>The parallel material is represented graphically:</p>
+</div>
+<p>The parallel material is represented graphically as follows:</p>
 <p><img
 src="/OpenSeesRT/contrib/static/ParallelMaterial.gif" title="ParallelMaterial.gif"
 alt="ParallelMaterial.gif" /></p>

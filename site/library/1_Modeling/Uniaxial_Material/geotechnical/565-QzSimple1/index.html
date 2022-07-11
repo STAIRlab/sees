@@ -3054,21 +3054,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../developer/architecture/class_interface/material/ElasticIsotropicMaterial/" class="md-nav__link">
-        ElasticIsotropicMaterial
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../../developer/architecture/class_interface/material/HystereticBackbone/" class="md-nav__link">
         HystereticBackbone
 
@@ -3101,6 +3086,21 @@
     <li class="md-nav__item">
       <a href="../../../../../developer/architecture/class_interface/material/NDMaterial/" class="md-nav__link">
         NDMaterial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/architecture/class_interface/material/SectionForceDeformation/" class="md-nav__link">
+        SectionForceDeformation
 
       </a>
     </li>
@@ -3153,8 +3153,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2_5_8_8">
@@ -3177,21 +3175,6 @@
     <li class="md-nav__item">
       <a href="../../../../../developer/architecture/class_interface/material/section/ElasticSection3D/" class="md-nav__link">
         ElasticSection3D
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../developer/architecture/class_interface/material/section/SectionForceDeformation/" class="md-nav__link">
-        SectionForceDeformation
 
       </a>
     </li>
@@ -14337,80 +14320,77 @@
 
 
 <h1 id="qzsimple1">QzSimple1</h1>
-<p>This command is used to construct a QzSimple1 uniaxial material.</p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>QzSimple1<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$qzType</span><span class="w"> </span><span class="nv">$qult</span><span class="w"> </span><span class="nv">$Z50</span><span class="w"> </span><span class="o">&lt;</span><span class="nv">$suction</span><span class="w"> </span><span class="nv">$c</span><span class="o">&gt;</span>
-</pre></div>
-
-<hr />
+<p>This command is used to construct a <code>QzSimple1</code> uniaxial material.</p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">QzSimple1</span>(matTag, qzType, qult, Z50, **kwds) </span></p>
+<div>
 <table>
+<!-- <colgroup>
+  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
+</colgroup> -->
 <tbody>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">matTag</code>
+matTag
 </td>
 <td>
-<p>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
 integer tag identifying material
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">qzType</code>
+qzType
 </td>
 <td>
-<p>
-qzType = 1 Backbone of q-z curve approximates Reese and O’Neill’s (1987) relation for drilled shafts in clay.
-</p>
-<p>
-qzType = 2 Backbone of q-z curve approximates Vijayvergiya’s (1977) relation for piles in sand.
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+qzType = 1 Backbone of q-z curve approximates Reese and O’Neill’s (1987) relation for drilled shafts in clay. qzType = 2 Backbone of q-z curve approximates Vijayvergiya’s (1977) relation for piles in sand.
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">qult</code>
+qult
 </td>
 <td>
-<p>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
 Ultimate capacity of the q-z material. SEE NOTE 1.
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">Z50</code>
-</p>
+Z50
 </td>
 <td>
-<p>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
 Displacement at which 50% of qult is mobilized in monotonic loading. SEE NOTE 2.
-</p>
-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">suction</code>
+suction
 </td>
 <td>
-<p>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
 Uplift resistance is equal to suction<em>qult. Default = 0.0. The value of suction must be 0.0 to 0.1.</em>
-</p>
-</td>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">c</code>
+c
 </td>
 <td>
-<p>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
 The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). Default = 0.0. Nonzero c values are used to represent radiation damping effects.*
-</p>
-</td>
 </tr>
 </tbody>
 </table>
+</div>
 <p>
 NOTES:
 </p>

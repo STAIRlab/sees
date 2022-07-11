@@ -421,11 +421,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/ElasticIsotropicMaterial/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/HystereticBackbone/</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
@@ -441,6 +436,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/SectionForceDeformation/</loc>
+         <lastmod>2022-07-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/UniaxialMaterial/</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
@@ -452,11 +452,6 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/section/ElasticSection3D/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/material/section/SectionForceDeformation/</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
