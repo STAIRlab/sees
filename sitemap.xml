@@ -181,11 +181,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/analysis/StaticAnalysis/</loc>
-         <lastmod>2022-07-11</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://brace2.github.io/OpenSeesRT/developer/architecture/class_interface/analysis/analysis/SubstructuringAnalysis/</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
@@ -1627,6 +1622,11 @@
     </url>
     <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/2_Analysis/Eigen_Analysis/StandardEigenAlgo/</loc>
+         <lastmod>2022-07-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/2_Analysis/Static_Analysis/</loc>
          <lastmod>2022-07-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
