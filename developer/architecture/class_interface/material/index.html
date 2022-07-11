@@ -4402,8 +4402,6 @@
         
           
         
-          
-        
       
       
         
@@ -4424,35 +4422,6 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extending/1000-NewMaterial/" class="md-nav__link">
-        New Material Models
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../extending/1014-Add%20a%20New%20UniaxialMaterial%20C%2B%2B/" class="md-nav__link">
-        Add a New UniaxialMaterial C++
-
-      </a>
-    </li>
-  
-
             
           
             
@@ -4524,6 +4493,87 @@
         Recorder
 
       </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_7" type="checkbox" id="__nav_2_5_7" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../extending/uniaxial/">Uniaxial</a>
+          
+            <label for="__nav_2_5_7">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Uniaxial" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          Uniaxial
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../extending/uniaxial/1014-Add%20a%20New%20UniaxialMaterial%20C%2B%2B/" class="md-nav__link">
+        Add a New UniaxialMaterial C++
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../extending/uniaxial/fortran/" class="md-nav__link">
+        A FORTRAN Interface for UniaxialMaterial Models
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -6938,8 +6988,6 @@
         
           
         
-          
-        
       
       
         
@@ -7000,21 +7048,6 @@
     <li class="md-nav__item">
       <a href="../../../../library/1_Modeling/constraints/602-RigidLink/" class="md-nav__link">
         RigidLink
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../library/1_Modeling/constraints/658-Sp/" class="md-nav__link">
-        Sp (Single-point)
 
       </a>
     </li>
@@ -13965,6 +13998,8 @@
         
           
         
+          
+        
       
       
         
@@ -14038,6 +14073,21 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../reference/objects/Load_Pattern/658-Sp/" class="md-nav__link">
+        Sp (Single-point)
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../reference/objects/Load_Pattern/740-Uniform%20Excitation%20Pattern/" class="md-nav__link">
         Uniform Excitation Pattern
 
@@ -14086,7 +14136,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_8_4_8" type="checkbox" id="__nav_4_8_4_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_8_4_9" type="checkbox" id="__nav_4_8_4_9" >
       
       
       
@@ -14107,13 +14157,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_4_8_4_8">
+        <label class="md-nav__link" for="__nav_4_8_4_9">
           timeSeries
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="timeSeries" data-md-level="4">
-        <label class="md-nav__title" for="__nav_4_8_4_8">
+        <label class="md-nav__title" for="__nav_4_8_4_9">
           <span class="md-nav__icon md-icon"></span>
           timeSeries
         </label>
@@ -14280,6 +14330,17 @@
 
 <h1 id="material-classes">Material Classes</h1>
 <p>Material classes are used to provide information to the Elements about the material. There is one main class MaterialModel. The Element objects query the MaterialModel objects to obtain the current value of stress and the tangent defining the stress-strain relationship for the current value of strain at the point in the domain represented by the MaterialModel object.</p>
+<h2 id="material-abstractions">Material Abstractions</h2>
+<p>Currently, there are three Material abstractions in OpenSees, each of which can be used across a wide range of element implementations:</p>
+<ol type="1">
+<li><p><strong>UniaxialMaterial</strong> - Provides the interface for all one-dimensional material models, either stress-strain or force-deformation. UniaxialMaterial models define the stress-strain response of a truss element, uniaxial fiber behavior in a beam-column section, or the force-deformation response of a beam section or zero-length element.</p></li>
+<li><p><strong>NDMaterial</strong> - The multi-dimensional generalization of UniaxialMaterial; provides the stress-strain response at a point in a solid element, or multi-dimensional fiber behavior in a plate or beam-column section.</p></li>
+<li><p><strong>SectionForceDeformation</strong> - Defines the interface for stress resultant models which are used to describe both plate and beam-column force-deformation response as well as the constitutive response of more general zero-length elements, e.g., for isolator bearings.</p></li>
+</ol>
+<p>Each interface listed above is essentially the same with minor differences. The NDMaterial and SectionForceDeformation abstractions both represent multi-dimensional constitutive response. However, a distinction is made between stress and stress <em>resultant</em> response to allow for safer element implementations. Furthermore, the stress-strain equations for continuum material models can be written in terms of tensors. This is not the case for stress resultant models. Lastly, to avoid returning matrices and vectors or tensors of size one, the UniaxialMaterial abstraction is made distinct for reasons of efficiency, as scalar values describe the behavior of a one-dimensional model.</p>
+<p>::: {.center}  <img src="./Material.svg" alt="Material class hierarchy." /> {#fig:Material} :::</p>
+<p>As indicated in figure <a href="#fig:Material" data-reference-type="ref" data-reference="fig:Material">fig:Material</a>, each material abstraction is a subclass of Material. The Material class is a subclass of both the TaggedObject and MovableObject classes, and therefore inherits the functionality of these two classes. As a result, it can be said that a Material “is a” TaggedObject as well as a MovableObject. Furthermore, since each of UniaxialMaterial, NDMaterial, and SectionForceDeformation “is a” Material, each is also a TaggedObject and a MovableObject. The TaggedObject class provides functionality for identifying materials, through a tag, during model building; and the MovableObject class provides functionality for parallel processing and database programming.</p>
+<p>Rather than show examples of implementing a material model under each interface, only the UniaxialMaterial interface is covered herein. The basic concepts of adding a material model to OpenSees carry directly over from UniaxialMaterial to NDMaterial and SectionForceDeformation.</p>
 
 
               
