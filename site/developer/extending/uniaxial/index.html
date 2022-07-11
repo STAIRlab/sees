@@ -3025,8 +3025,6 @@
         
           
         
-          
-        
       
       
         
@@ -3129,25 +3127,11 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../../architecture/class_interface/material/mdMaterial/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_8_8" type="checkbox" id="__nav_2_2_5_8_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_8_7" type="checkbox" id="__nav_2_2_5_8_7" >
       
       
       
@@ -3156,13 +3140,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_8_8">
+        <label class="md-nav__link" for="__nav_2_2_5_8_7">
           Section
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Section" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_8_8">
+        <label class="md-nav__title" for="__nav_2_2_5_8_7">
           <span class="md-nav__icon md-icon"></span>
           Section
         </label>
@@ -14310,7 +14294,7 @@
 
 <h1 id="material-models">Material Models</h1>
 <h2 id="introduction">Introduction</h2>
-<p>This document shows how to add a new material implementation to OpenSees. The hierarchical nature of the OpenSees software architecture allows new material models to be seamlessly added to the framework. By keeping element and material implementations separate, a new material model can be used in an existing element without modifying the element implementation, and vice versa. The programming language C++ directly supports the data encapsulation and run-time binding necessary to achieve this complete separation of material from element.</p>
+<p>This document shows how to add a new material implementation to OpenSees. The hierarchical nature of the OpenSees software architecture allows new material models to be seamlessly added to the framework. By keeping element and material implementations separate, a new material model can be used in an existing element without modifying the element implementation, and vice versa.</p>
 <p>The remainder of this document is laid out as follows. First, the UniaxialMaterial interface is listed and explained. Then, an example UniaxialMaterial implementation, HardeningMaterial, is presented. Along with the C++ implementation, it is shown how to 1) add the new model to the OpenSees Tcl model builder, and 2) make the new model “movable” for parallel processing and database programming. Finally, a FORTRAN interface for programming UniaxialMaterial models in OpenSees is described.</p>
 <h2 id="uniaxialmaterial-interface">UniaxialMaterial Interface</h2>
 <p>Implementations of the UniaxialMaterial interface are used in several contexts within the OpenSees modeling framework. Due to their simplicity, these models can define both stress-strain and force-deformation relationships. It is up to the calling object, be it an element object or another material object, to interpret the meaning appropriately.</p>
@@ -14351,7 +14335,8 @@
 
 <p>A note about the C++ syntax seen in the UniaxialMaterial interface. The keyword “virtual” at the start of a method declaration indicates this method may be overridden by a subclass of UniaxialMaterial. The UniaxialMaterial base class provides default implementations for its virtual methods. The notation “= 0” at the end of the method declaration indicates the method is <em>pure</em> virtual, meaning it <em>must</em> be defined by subclasses because the UniaxialMaterial base class does not provide a default implementation.</p>
 <p>The UniaxialMaterial base class constructor takes a tag and classTag as its arguments. The tag passed to the constructor identifies this UniaxialMaterial as unique among all other UniaxialMaterial objects, and the classTag is used primarily for parallel processing and database programming. Class tags are defined in the file classTags.h. The tag and classTag arguments are passed to the Material class constructor, where they are in turn passed to the TaggedObject and MovableObject class constructors, respectively. The UniaxialMaterial destructor is declared, but does not do anything as the UniaxialMaterial base class contains no data.</p>
-<p>The method <code>setTrialStrain()</code> takes one or two arguments, an updated strain and strain rate. The strain rate is an optional argument, with default value <span class="math inline">\(0.0\)</span>. This method is pure virtual, so it must be implemented in all subclasses of UniaxialMaterial. The next two methods, <code>getStrain()</code> and <code>getStrainRate()</code>, are to return the current strain and strain rate of this UniaxialMaterial. The method <code>getStrain()</code> is pure virtual, while <code>getStrainRate()</code> is only virtual; by default it returns <span class="math inline">\(0.0\)</span>, but may be overridden in subclasses if needed.</p>
+<p>The method <code>setTrialStrain()</code> takes one or two arguments, an updated strain and strain rate. The strain rate is an optional argument, with default value <span class="math inline">\(0.0\)</span>. This method is pure virtual, so it must be implemented in all subclasses of UniaxialMaterial.</p>
+<p>The next two methods, <code>getStrain()</code> and <code>getStrainRate()</code>, are to return the current strain and strain rate of this UniaxialMaterial. The method <code>getStrain()</code> is pure virtual, while <code>getStrainRate()</code> is only virtual; by default it returns <span class="math inline">\(0.0\)</span>, but may be overridden in subclasses if needed.</p>
 <div class="highlight"><pre><span></span><span class="w">    </span><span class="kt">double</span><span class="w"></span>
 <span class="w">    </span><span class="nf">UniaxialMaterial::getStrainRate</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
 <span class="w">    </span><span class="p">{</span><span class="w"></span>
@@ -14359,12 +14344,6 @@
 <span class="w">    </span><span class="p">}</span><span class="w"></span>
 </pre></div>
 
-<p>The next method is <code>getStress()</code>, which is to return the current stress of this UniaxialMaterial. The current stress is a function of the current strain, <span class="math inline">\(\varepsilon\)</span>, and the current strain rate, <span class="math inline">\(\dot{\varepsilon}\)</span>,</p>
-<p><span class="math display">\[\sigma = \sigma(\varepsilon,\dot{\varepsilon}) \: .\]</span></p>
-<p>The <code>getStress()</code> method is pure virtual and must be implemented by subclasses of UniaxialMaterial.</p>
-<p>The current material tangent is returned by the next method, <code>getTangent()</code>. The material tangent is the partial derivative of the material stress with respect to the current strain,</p>
-<p><span class="math display">\[D_t = \frac{\partial{\sigma}}{\partial{\varepsilon}} \: .\]</span></p>
-<p>The <code>getTangent()</code> is also pure virtual and must be implemented in all UniaxialMaterial subclasses.</p>
 <p>The <code>getDampTangent()</code> method is next, and is to return the current damping tangent, which is the partial derivative of the current stress with respect to the current strain rate,</p>
 <p><span class="math display">\[\eta = \frac{\partial{\sigma}}{\partial{\dot{\varepsilon}}} \: .\]</span></p>
 <p>By default, this method returns <span class="math inline">\(0.0\)</span>, and it may be overridden in subclasses of UniaxialMaterial where there is strain rate dependence.</p>
@@ -14392,8 +14371,6 @@
 </pre></div>
 
 <p>The next set of methods deal with possible path dependent behavior of UniaxialMaterial models. All Material objects in OpenSees are responsible for keeping track of and updating their own history variables. First, the method <code>commitState()</code> is invoked to inform a <code>UniaxialMaterial</code> object that its current state is on the converged solution path and its internal history variables should be updated accordingly. Next, the method <code>revertToLastCommit()</code> is provided to let a UniaxialMaterial object know that it should return to its last committed state at. Finally, <code>revertToStart()</code> informs the UniaxialMaterial object to revert to its initial state, i.e., at the start of the analysis. All three of these methods are pure virtual, and thus must be implemented in all subclasses of UniaxialMaterial.</p>
-<p>The <code>getCopy()</code> method is declared so a calling object, be it an Element, Fiber, or another Material object, can obtain an exact copy of this UniaxialMaterial object. A pointer to the new object is returned by this function, and the calling object is responsible for deleting this dynamically allocated memory. This method is pure virtual because only a subclass of UniaxialMaterial knows the internal representation of its data.</p>
-<p>The final two methods, <code>setResponse()</code> and <code>getResponse()</code>, are declared for recording UniaxialMaterial state information. These methods have default implementations to record the material stress, strain, and tangent. These methods may be overridden, but their implementations are not shown in this document.</p>
 <h2 id="example-hardeningmaterial">Example – HardeningMaterial</h2>
 <p>In this section, it is shown how the rate-independent uniaxial hardening material model given in Simo &amp; Hughes, <em>Computational Inelasticity</em> (1998) is implemented in OpenSees. First, the class implementation is shown, followed by its inclusion in the Tcl model builder.</p>
 <h3 id="class-implementation">Class Implementation</h3>

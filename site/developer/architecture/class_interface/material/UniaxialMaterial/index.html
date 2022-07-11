@@ -3032,8 +3032,6 @@
         
           
         
-          
-        
       
       
         
@@ -3144,25 +3142,11 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../mdMaterial/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
     
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_8_8" type="checkbox" id="__nav_2_2_5_8_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2_5_8_7" type="checkbox" id="__nav_2_2_5_8_7" >
       
       
       
@@ -3171,13 +3155,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_2_2_5_8_8">
+        <label class="md-nav__link" for="__nav_2_2_5_8_7">
           Section
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Section" data-md-level="5">
-        <label class="md-nav__title" for="__nav_2_2_5_8_8">
+        <label class="md-nav__title" for="__nav_2_2_5_8_7">
           <span class="md-nav__icon md-icon"></span>
           Section
         </label>
@@ -14326,16 +14310,22 @@
 </pre></div>
 
 <p><code>UniaxialMaterial</code> is an abstract class. The <code>UniaxialMaterial</code> class provides the interface that all <code>UniaxialMaterial</code> writers must provide when introducing new <code>UniaxialMaterial</code> subclasses. A <code>UniaxialMaterial</code> object is responsible for keeping track of stress, strain and the constitution for a particular point in the domain.</p>
+<p>Implementations of the <code>UniaxialMaterial</code> interface are used in several contexts within the OpenSees modeling framework. Due to their simplicity, these models can define both stress-strain and force-deformation relationships. It is up to the calling object, be it an element object or another material object, to interpret the meaning appropriately.</p>
 <h3 id="constructor-and-destructor">Constructor and Destructor</h3>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="n">UniaxialMaterial</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">tag</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">classTag</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>To construct a <code>UniaxialMaterial</code> whose unique integer among UniaxialMaterials in the domain is given by <em>tag</em>, and whose class identifier is given by <em>classTag</em>. These integers are passed to the <code>Material</code> class constructor.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="o">~</span><span class="n">UniaxialMaterial</span><span class="p">()</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>Does nothing.</p>
 <h3 id="public-methods">Public Methods</h3>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setTrialStrain</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">strain</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setTrialStrain</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">strainRate</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 <span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">setTrialStrain</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">strain</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">temperature</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">strainRate</span><span class="p">);</span><span class="w"></span>
@@ -14344,35 +14334,83 @@
 <span class="w">                     </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tangent</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">&amp;</span><span class="n">thermalElongation</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">strainRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>Sets the value of the trial strain, that value used by <code>getStress()</code> and <code>getTangent()</code>, to be <code>strain</code>. Return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
+</div>
+<p>Sets the value of the trial strain, that value used by <code>getStress()</code> and <code>getTangent()</code>, to be <code>strain</code>. Return <span class="math inline">\(0\)</span> if successful, a negative number if not. The <code>setTrialStrain()</code> is the method called by an element when a new strain in the material is to be set. Subsequent calls to <code>getTangent()</code> and <code>getStress()</code> are to return the corresponding tangent and stress values for that strain. <code>setTrialStrain()</code> is invoked as the solution algorithm tries a number of trial solution steps as it goes from one commited solution to the next on the solution path.</p>
+<div class="admonition">
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getStrain</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getStrainRate</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+</div>
+<p><code>getStrain()</code> and <code>getStrainRate()</code> are to return the current strain and strain rate of the material. The method <code>getStrain()</code> is pure virtual, while <code>getStrainRate()</code> is only virtual; by default it returns <span class="math inline">\(0.0\)</span>, but may be overridden in subclasses if needed.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getStress</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To return the trial value of stress for the trial strain.</p>
+</div>
+<p>Return the trial value of stress for the trial strain. The current stress is typically a function of the current strain, <span class="math inline">\(\varepsilon\)</span>, and the current strain rate, <span class="math inline">\(\dot{\varepsilon}\)</span>,</p>
+<p><span class="math display">\[\sigma = \sigma(\varepsilon,\dot{\varepsilon}) \: .\]</span></p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getTangent</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To return the trial value of the tangent for the trial strain.</p>
+</div>
+<p>Return the trial value of the tangent for the trial strain. The material tangent is the partial derivative of the material stress with respect to the current strain,</p>
+<p><span class="math display">\[E_t = \frac{\partial{\sigma}}{\partial{\varepsilon}} \: .\]</span></p>
+<div class="admonition">
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getDampTangent</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+</div>
+<p>damping tangent, which is the partial derivative of the current stress with respect to the current strain rate,</p>
+<p><span class="math display">\[\eta = \frac{\partial{\sigma}}{\partial{\dot{\varepsilon}}} \: .\]</span></p>
+<p>By default, this method returns <span class="math inline">\(0.0\)</span>, and it may be overridden in subclasses of UniaxialMaterial where there is strain rate dependence.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="nf">getInitialTangent</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>Return the initial tangent.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">commitState</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To accept the current value of the trial strain as being on the solution path. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
+</div>
+<p>Accept the current value of the trial strain as being on the solution path. Return <span class="math inline">\(0\)</span> if successful, a negative number if not. The <code>commitState()</code> method is invoked when a trial solution has been determined to be on the solution path. It is the responsibility of the material to be able to back track to that solution if a <code>revertToLastCommit()</code> is invoked. This will happen if the algorithm fails to find a solution on the solution path.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">revertToLastCommit</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>To cause the material to revert to the state at the last commit. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">revertToStart</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>Invoked to cause the material to revert to its original state in its undeformed configuration. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">UniaxialMaterial</span><span class="w"> </span><span class="o">*</span><span class="nf">getCopy</span><span class="w"> </span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>To return an exact copy of the material.</p>
+</div>
+<p>Return an exact copy of the material. The <code>getCopy()</code> method is typically invoked by a calling object (e.g. an <code>Element</code>, <code>Fiber</code>, or another <code>Material</code> object) in its constructor. The material is to return a unique copy of itself to the element. This way, different elements can use the same material type with the same properties, with each element having it’s own unique copy. A pointer to the new object is returned by this function, and the calling object is responsible for deleting this dynamically allocated memory.</p>
+<div class="admonition">
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Response</span><span class="w"> </span><span class="o">*</span><span class="nf">setResponse</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"></span>
+<span class="w">                               </span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theOutputStream</span><span class="p">);</span><span class="w"></span>
+<span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getResponse</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">responseID</span><span class="p">,</span><span class="w"> </span><span class="n">Information</span><span class="w"> </span><span class="o">&amp;</span><span class="n">matInformation</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+</div>
+<p>The <code>setResponse()</code>/<code>getResponse()</code> typically do not have to be provided. These are the methods called by a recorder after a <code>commit()</code>. If you are happy with the existing responses for a <code>UniaxialMaterial</code> which responds to <code>"stress"</code>, <code>"strain"</code>, <code>"tangent"</code>, <code>"stressANDstrain"</code> you do not have to implement these methods.</p>
+<div class="admonition">
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sendSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">);</span><span class="w"></span>
+<span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">recvSelf</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">commitTag</span><span class="p">,</span><span class="w"> </span><span class="n">Channel</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theChannel</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="n">FEM_ObjectBroker</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theBroker</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+</div>
+<p>The <code>sendSelf()</code>/<code>recvSelf()</code> methods are used in parallel processing with OpenSeesSP and when using the <code>database</code> command.</p>
 
 
               
