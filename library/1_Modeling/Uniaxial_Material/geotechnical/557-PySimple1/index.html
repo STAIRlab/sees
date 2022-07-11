@@ -3054,21 +3054,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../developer/architecture/class_interface/material/ElasticIsotropicMaterial/" class="md-nav__link">
-        ElasticIsotropicMaterial
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../../developer/architecture/class_interface/material/HystereticBackbone/" class="md-nav__link">
         HystereticBackbone
 
@@ -3101,6 +3086,21 @@
     <li class="md-nav__item">
       <a href="../../../../../developer/architecture/class_interface/material/NDMaterial/" class="md-nav__link">
         NDMaterial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/architecture/class_interface/material/SectionForceDeformation/" class="md-nav__link">
+        SectionForceDeformation
 
       </a>
     </li>
@@ -3153,8 +3153,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2_5_8_8">
@@ -3177,21 +3175,6 @@
     <li class="md-nav__item">
       <a href="../../../../../developer/architecture/class_interface/material/section/ElasticSection3D/" class="md-nav__link">
         ElasticSection3D
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../developer/architecture/class_interface/material/section/SectionForceDeformation/" class="md-nav__link">
-        SectionForceDeformation
 
       </a>
     </li>
@@ -14338,79 +14321,68 @@
 
 <h1 id="pysimple1">PySimple1</h1>
 <p>This command is used to construct a PySimple1 uniaxial material object:</p>
-<div class="highlight"><pre><span></span><span class="nv">uniaxialMaterial</span><span class="w"> </span>PySimple1<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$soilType</span><span class="w"> </span><span class="nv">$pult</span><span class="w"> </span><span class="nv">$y50</span><span class="w"> </span><span class="nv">$Cd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$c</span><span class="w"> </span><span class="o">&gt;</span>
-</pre></div>
-
-<hr />
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">PySimple1</span>(name, soilType, pult, Y50, Cd, **kwds) </span></p>
+<div>
 <table>
+<!-- <colgroup>
+  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
+</colgroup> -->
 <tbody>
-<tr class="odd">
-<td>
-<code class="parameter-table-variable">matTag</code>
-</td>
-<td>
-<p>
-integer tag identifying material
-</p>
-</td>
+<tr>
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">soilType</code>
+soilType
 </td>
 <td>
-<p>
-soilType = 1 Backbone of <span class="math inline">\(p\)</span>-<span class="math inline">\(y\)</span> curve approximates Matlock (1970) soft clay relation.
-</p>
-<p>
-soilType = 2 Backbone of <span class="math inline">\(p\)</span>-<span class="math inline">\(y\)</span> curve approximates API (1993) sand relation.
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+soilType = 1 Backbone of p-y curve approximates Matlock (1970) soft clay relation. soilType = 2 Backbone of p-y curve approximates API (1993) sand relation.
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">pult</code>
+pult
 </td>
 <td>
-<p>
-Ultimate capacity of the <span class="math inline">\(p\)</span>-<span class="math inline">\(y\)</span> material, <span class="math inline">\(p_{ult}\)</span>. Note that “p” or “<span class="math inline">\(p_{ult}\)</span>” are distributed loads [force per length of pile] in common design equations, but are both loads for this uniaxialMaterial [i.e., distributed load times the tributary length of the pile].
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+Ultimate capacity of the p-y material. Note that <span class="math inline">\(p\)</span> or <span class="math inline">\(p_{ult}\)</span> are distributed loads [force per length of pile] in common design equations, but are both loads for this uniaxialMaterial [i.e., distributed load times the tributary length of the pile].
 </tr>
-<tr class="even">
+<tr>
 <td>
-<p>
-<code class="parameter-table-variable">Y50</code>
-</p>
+Y50
 </td>
 <td>
-<p>
-Displacement at which 50% of <span class="math inline">\(p_{ult}\)</span> is mobilized in monotonic loading.
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+Displacement at which 50% of pult is mobilized in monotonic loading.
 </tr>
-<tr class="odd">
+<tr>
 <td>
-<code class="parameter-table-variable">Cd</code>
+Cd
 </td>
 <td>
-<p>
-Variable that sets the drag resistance within a fully-mobilized gap as <span class="math inline">\(C_d p_\text{ult}\)</span>.
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+Variable that sets the drag resistance within a fully-mobilized gap as <span class="math inline">\(C_d p_{ult}\)</span>.
 </tr>
-<tr class="even">
+<tr>
 <td>
-<code class="parameter-table-variable">c</code>
+c
 </td>
 <td>
-<p>
-The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). (optional Default = 0.0). Nonzero <span class="math inline">\(c\)</span> values are used to represent radiation damping effects
-</p>
+<code style="white-space: nowrap;">float</code>
 </td>
+<td>
+The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). (optional Default = 0.0). Nonzero c values are used to represent radiation damping effects
 </tr>
 </tbody>
 </table>
+</div>
 <p>
 NOTES:
 </p>
