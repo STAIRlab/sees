@@ -1347,8 +1347,6 @@
         
           
         
-          
-        
       
       
         <label class="md-nav__link" for="__nav_2_2_5_3_6">
@@ -1402,20 +1400,6 @@
       <a href="../../../../developer/architecture/class_interface/analysis/analysis/DomainUser/" class="md-nav__link">
         DomainUser
 
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../developer/architecture/class_interface/analysis/analysis/StaticAnalysis/" class="md-nav__link">
-        StaticAnalysis
       </a>
     </li>
   
@@ -9137,13 +9121,23 @@
       
         
           
+            
+          
+        
+          
         
       
       
-        <label class="md-nav__link" for="__nav_3_2_3">
-          Static Analysis
-          <span class="md-nav__icon md-icon"></span>
-        </label>
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../Static_Analysis/">Static Analysis</a>
+          
+            <label for="__nav_3_2_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
       
       <nav class="md-nav" aria-label="Static Analysis" data-md-level="3">
         <label class="md-nav__title" for="__nav_3_2_3">
@@ -9151,6 +9145,8 @@
           Static Analysis
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
           
             
               
@@ -9161,7 +9157,7 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3_1" type="checkbox" id="__nav_3_2_3_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2_3_2" type="checkbox" id="__nav_3_2_3_2" >
       
       
       
@@ -9186,13 +9182,13 @@
         
       
       
-        <label class="md-nav__link" for="__nav_3_2_3_1">
+        <label class="md-nav__link" for="__nav_3_2_3_2">
           Integrator
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <nav class="md-nav" aria-label="Integrator" data-md-level="4">
-        <label class="md-nav__title" for="__nav_3_2_3_1">
+        <label class="md-nav__title" for="__nav_3_2_3_2">
           <span class="md-nav__icon md-icon"></span>
           Integrator
         </label>
@@ -14168,23 +14164,21 @@
 
 
 <h1 id="directintegrationanalysis">DirectIntegrationAnalysis</h1>
+<p><code>DirectIntegrationAnalysis</code> is used to perform a transient analysis using an incremental approach on the <code>Domain</code>. The following are the aggregates of such an analysis type:</p>
+<ul>
+<li><p><code>model</code> (<strong>AnalysisModel</strong>) - a container class holding the <code>FE_Element</code> and <code>DOF_Group</code> objects created by the ConstraintHandler object.</p></li>
+<li><p><code>integrator</code> (<strong>TransientIntegrator</strong>) - an algorithmic class which provides methods which are invoked by the <code>FE_Element</code> to determine their current tangent and residual matrices; that is this is the class that sets up the system of equations. It also provides the <code>update()</code> method which is invoked to set up the appropriate dof response values once the solution algorithm has formed and solved the system of equations.</p></li>
+<li><p><code>constraints</code> (<strong>ConstraintHandler</strong>) - a class which creates the <code>DOF_Group</code> and <code>FE_Element</code> objects, the type of objects created depending on how the specified constraints in the domain are to be handled.</p></li>
+<li><p><code>numberer</code> (<strong>DOF_Numberer</strong>) - a class responsible for providing equation numbers to the individual degrees of freedom in each <code>DOF_Group</code> object.</p></li>
+<li><p><code>system</code> (<strong>LinearSOE</strong>) - a numeric class responsible for the creation and subsequent solution of large systems of linear equations of the form <span class="math inline">\(Ax = b\)</span>, where <span class="math inline">\(A\)</span> is a matrix and <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> are vectors.</p></li>
+<li><p><code>algorithm</code> (<strong>EquiSolnAlgo</strong>) - an algorithmic class specifying the sequence of operations to be performed in setting up and solving the finite element equation which can be represented by the equation <span class="math inline">\(K(U) U = P(U)\)</span>.</p></li>
+</ul>
+<h2 id="implementation">Implementation</h2>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/analysis/DirectIntegrationAnalysis.h&gt;</span><span class="cp"></span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">DirectIntegrationAnalysis</span><span class="o">:</span><span class="w"> </span>
-<span class="k">public</span><span class="w"> </span><span class="n">TransientAnalysis</span><span class="p">;</span><span class="w"></span>
-<span class="w">       </span><span class="n">Analysis</span><span class="w"></span>
-<span class="w">       </span><span class="n">TransientAnalysis</span><span class="w"></span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DirectIntegrationAnalysis</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">TransientAnalysis</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<p>DirectIntegrationAnalysis is a subclass of TransientAnalysis. It is used to perform a transient analysis using an incremental approach on the Domain. The following are the aggregates of such an analysis type:</p>
-<ul>
-<li><p><strong>AnalysisModel</strong> - a container class holding the <code>FE_Element</code> and <code>DOF_Group</code> objects created by the ConstraintHandler object.</p></li>
-<li><p><strong>ConstraintHandler</strong> - a class which creates the <code>DOF_Group</code> and <code>FE_Element</code> objects, the type of objects created depending on how the specified constraints in the domain are to be handled.</p></li>
-<li><p><strong>DOF_Numberer</strong> - a class responsible for providing equation numbers to the individual degrees of freedom in each DOF_Group object.</p></li>
-<li><p><strong>LinearSOE</strong> - a numeric class responsible for the creation and subsequent solution of large systems of linear equations of the form <span class="math inline">\(Ax = b\)</span>, where <span class="math inline">\(A\)</span> is a matrix and <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> are vectors.</p></li>
-<li><p><strong>TransientIntegrator</strong> - an algorithmic class which provides methods which are invoked by the <code>FE_Element</code> to determine their current tangent and residual matrices; that is this is the class that sets up the system of equations. It also provides the <code>update()</code> method which is invoked to set up the appropriate dof response values once the solution algorithm has formed and solved the system of equations.</p></li>
-<li><p><strong>EquiSolnAlgo</strong> - an algorithmic class specifying the sequence of operations to be performed in setting up and solving the finite element equation which can be represented by the equation K(U) U = P(U).</p></li>
-</ul>
 <h3 id="constructor-and-destructor">Constructor and Destructor</h3>
 <div class="highlight"><pre><span></span><span class="n">DirectIntegrationAnalysis</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">tStart</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">tFinal</span><span class="p">,</span><span class="w"></span>
 <span class="w">     </span><span class="kt">double</span><span class="w">              </span><span class="n">delta_t</span><span class="p">,</span><span class="w"> </span>
@@ -14197,7 +14191,7 @@
 <span class="w">     </span><span class="n">TransientIntegrator</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theIntegrator</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p><code>tStart</code>, <code>tFinish</code> and <code>thDomain</code> are passed to the TransientAnalysis class constructor. The constructor is responsible for setting up all links needed by the objects in the aggregation. It invokes <code>setLinks(theDomain)</code> on <code>theModel</code>, <code>setLinks(theDomain,theModel,theIntegrator)</code> on <code>theHandler</code>, <code>setLinks(theModel)</code> on <code>theNumberer</code>, <code class="sourceCode cpp">setLinks<span class="op">(</span>theModel<span class="op">,</span> theSOE<span class="op">)</span></code> on <code>theIntegrator</code> and <code>setLinks(theModel,theAnalysis, theIntegrator, theSOE)</code> on <code>theSolnAlgo</code>.</p>
+<p><code>tStart</code>, <code>tFinish</code> and <code>thDomain</code> are passed to the <code>TransientAnalysis</code> class constructor. The constructor is responsible for setting up all links needed by the objects in the aggregation. It invokes <code>setLinks(theDomain)</code> on <code>theModel</code>, <code>setLinks(theDomain,theModel,theIntegrator)</code> on <code>theHandler</code>, <code>setLinks(theModel)</code> on <code>theNumberer</code>, <code class="sourceCode cpp">setLinks<span class="op">(</span>theModel<span class="op">,</span> theSOE<span class="op">)</span></code> on <code>theIntegrator</code> and <code>setLinks(theModel,theAnalysis, theIntegrator, theSOE)</code> on <code>theSolnAlgo</code>.</p>
 <div class="highlight"><pre><span></span><span class="o">~</span><span class="n">DirectIntegrationAnalysis</span><span class="w"></span>
 </pre></div>
 
@@ -14206,13 +14200,13 @@
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">analyzeStep</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">dT</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>Invoked to perform a transient analysis on the FE_Model. The method checks to see if the domain has changed before it performs the analysis. The DirectIntegrationAnalysis object performs the following:</p>
+<p>Invoked to perform a transient analysis on the <code>FE_Model</code>. The method checks to see if the domain has changed before it performs the analysis. The <code>DirectIntegrationAnalysis</code> object performs the following:</p>
 <div class="highlight"><pre><span></span><span class="n">theAnalysisModel</span><span class="o">-&gt;</span><span class="n">analysisStep</span><span class="p">(</span><span class="n">dT</span><span class="p">);</span><span class="w"></span>
 
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">theDomain</span><span class="o">-&gt;</span><span class="n">hasDomainChanged</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">domainStamp</span><span class="p">)</span><span class="w"></span>
 <span class="w">  </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">domainChanged</span><span class="p">();</span><span class="w"></span>
 
-<span class="n">theIntegrator</span><span class="o">-&gt;</span><span class="n">newStep</span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="n">t</span><span class="p">);</span><span class="w"></span>
+<span class="n">theIntegrator</span><span class="o">-&gt;</span><span class="n">newStep</span><span class="p">(</span><span class="n">delta_t</span><span class="p">);</span><span class="w"></span>
 <span class="n">theAlgorithm</span><span class="o">-&gt;</span><span class="n">solveCurrentStep</span><span class="p">();</span><span class="w"></span>
 <span class="n">theIntegrator</span><span class="o">-&gt;</span><span class="n">commit</span><span class="p">();</span><span class="w"></span>
 </pre></div>
@@ -14227,20 +14221,22 @@
 
 <p>This is a method invoked by a domain which indicates to the analysis that the domain has changed. The method invokes the following:</p>
 <ol type="1">
-<li><p>It invokes <code>clearAll()</code> on <em>theModel</em> which causes the AnalysisModel to clear out its list of FE_Elements and DOF_Groups, and <code>clearAll()</code> on <em>theHandler</em>.</p></li>
-<li><p>It then invokes <code>handle()</code> on <em>theHandler</em>. This causes the constraint handler to recreate the appropriate <code>FE_Element</code> and DOF_Groups to perform the analysis subject to the boundary conditions in the modified domain.</p></li>
-<li><p>It then invokes <code>number()</code> on <em>theNumberer</em>. This causes the DOF numberer to assign equation numbers to the individual dof’s. Once the equation numbers have been set the numberer then invokes <code>setID()</code> on all the FE_Elements in the model. Finally the numberer invokes <code>setNumEqn()</code> on the model.</p></li>
-<li><p>It then invokes <code>domainChanged()</code> on <em>theIntegrator</em> and <em>theAlgorithm</em> to inform these objects that changes have occurred in the model.</p></li>
+<li><p>It invokes <code>clearAll()</code> on <code>theModel</code> which causes the AnalysisModel to clear out its list of FE_Elements and DOF_Groups, and <code>clearAll()</code> on <code>theHandler</code>.</p></li>
+<li><p>It then invokes <code>handle()</code> on <code>theHandler</code>. This causes the constraint handler to recreate the appropriate <code>FE_Element</code> and DOF_Groups to perform the analysis subject to the boundary conditions in the modified domain.</p></li>
+<li><p>It then invokes <code>number()</code> on <code>theNumberer</code>. This causes the DOF numberer to assign equation numbers to the individual dof’s. Once the equation numbers have been set the numberer then invokes <code>setID()</code> on all the FE_Elements in the model. Finally the numberer invokes <code>setNumEqn()</code> on the model.</p></li>
+<li><p>It then invokes <code>domainChanged()</code> on <code>theIntegrator</code> and <code>theAlgorithm</code> to inform these objects that changes have occurred in the model.</p></li>
 <li><p>It invokes <code class="sourceCode cpp">setSize<span class="op">(</span>theModel<span class="op">.</span>getDOFGraph<span class="op">())</span></code> on <em>theSOE</em> which causes the system of equation to determine its size based on the connectivity of the dofs in the analysis model.</p></li>
 <li><p>Finally it invokes <code>domainChanged()</code> on <em>theIntegrator</em> and <em>theAlgorithm</em>. Returns <span class="math inline">\(0\)</span> if successful. At any stage above, if an error occurs the method is stopped, a warning message is printed and a negative number is returned.</p></li>
 </ol>
 <h3 id="public-methods-to-vary-the-type-of-analysis">Public Methods to vary the type of Analysis</h3>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">setDeltaT</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">$</span><span class="err">\</span><span class="n">delta</span><span class="w"> </span><span class="n">t$</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>Sets the time increment used in the <code>analyze()</code> method to <span class="math inline">\(\delta t\)</span>. Returns <span class="math inline">\(0\)</span>.</p>
-<p>To change the algorithm between analysis. It first invokes the destructor on the old SolutionAlgorithm object associated with the analysis. It then sets the SolutionAlgorithm associated with the analysis to be <em>newAlgorithm</em> and sets the links for this object by invoking <code>setLinks()</code>. Checks then to see if the domain has changed, if true it invokes <code>domainChanged()</code>, otherwise it invokes <code>domainChanged()</code> on the new SolutionAlgorithm. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not.</p>
-<p>To change the integration scheme between analysis. It first invokes the destructor on the old Integrator object associated with the analysis. It then sets the SolutionAlgorithm associated with the analysis to be <em>newAlgorithm</em> and sets the links for this object by invoking <code>setLinks()</code>. It also invokes <code>setLinks()</code> on the ConstraintHandler and SolutionAlgorithm objects. Checks then to see if the domain has changed, if true it invokes <code>domainChanged()</code>, otherwise it invokes <code>domainChanged()</code> on the new Integrator. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not.</p>
+<p>To change the algorithm between analysis. It first invokes the destructor on the old SolutionAlgorithm object associated with the analysis. It then sets the SolutionAlgorithm associated with the analysis to be <code>newAlgorithm</code> and sets the links for this object by invoking <code>setLinks()</code>. Checks then to see if the domain has changed, if true it invokes <code>domainChanged()</code>, otherwise it invokes <code>domainChanged()</code> on the new SolutionAlgorithm. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not.</p>
+<p>To change the integration scheme between analysis. It first invokes the destructor on the old Integrator object associated with the analysis. It then sets the SolutionAlgorithm associated with the analysis to be <code>newAlgorithm</code> and sets the links for this object by invoking <code>setLinks()</code>. It also invokes <code>setLinks()</code> on the ConstraintHandler and SolutionAlgorithm objects. Checks then to see if the domain has changed, if true it invokes <code>domainChanged()</code>, otherwise it invokes <code>domainChanged()</code> on the new Integrator. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not.</p>
 <p>To change the linear system of equation object between analysis. It first invokes the destructor on the old LinearSOE object associated with the analysis. It then sets the SolutionAlgorithm associated with the analysis to be <em>newSOE</em>. links for this object by invoking <code>setLinks()</code>. It then invokes <code>setLinks()</code> on the ConstraintHandler and SolutionAlgorithm objects. Checks then to see if the domain has changed, if true it invokes <code>domainChanged()</code>, otherwise it invokes <code>setSize()</code> on the new LinearSOE. Returns <span class="math inline">\(0\)</span> if successful, a warning message and a negative number if not.</p>
 
 
