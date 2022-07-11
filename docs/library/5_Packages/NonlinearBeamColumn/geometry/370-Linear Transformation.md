@@ -1,15 +1,21 @@
 # Linear
 
-<p>This command is used to construct a linear coordinate transformation
-(LinearCrdTransf) object, which performs a linear geometric
+This command is used to construct a linear coordinate transformation
+(`LinearCrdTransf`) object, which performs a linear geometric
 transformation of beam stiffness and resisting force from the basic
-system to the global-coordinate system.</p>
-<p>For a two-dimensional problem:</p>
+system to the global-coordinate system.
+
+:::{apidoc="opensees.LinearTransform"}
+:::
+
+
+For a two-dimensional problem:
 
 ```tcl
 geomTransf Linear $transfTag < -jntOffset $dXi $dYi $dXj $dYj >
 ```
-<p>For a three-dimensional problem:</p>
+
+For a three-dimensional problem:
 
 ```tcl
 geomTransf Linear $transfTag $vecxzX $vecxzY $vecxzZ

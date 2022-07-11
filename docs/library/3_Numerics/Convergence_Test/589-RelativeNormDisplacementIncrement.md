@@ -67,11 +67,11 @@ error message BUT RETURN A SUCCESSFUL test</p></td>
   convergence using this test usually impossible (even though solution
   might have converged).
 
-<li>$\parallel \DeltaU^0 \parallel \!$ is the
+<li>$\parallel \Delta U^0 \parallel \!$ is the
   initial solution when solveCurrentStep() is invoked on the
   algorithm.</li>
 <li>Sometimes there may be problems converging if $\parallel
-   \DeltaU^0 \parallel \!$ is very small to being with.</li>
+   \Delta U^0 \parallel \!$ is very small to being with.</li>
 </ol>
 <hr />
 
@@ -84,7 +84,7 @@ $$K \Delta U^i = R(U^i)\,\!$$
 
 <p>This integrator is testing:</p>
 
-$$\frac{\parallel \DeltaU^i \parallel}{\parallel \DeltaU^0
+$$\frac{\parallel \Delta U^i \parallel}{\parallel \Delta U^0
 \parallel} < \text{tol} \!$$
 
 

@@ -4,12 +4,13 @@ description: Menegotto and Pinto (1973) Model Extended by Filippou et al. (1983)
 
 # SteelMPF
 
-<p>This command is used to construct a uniaxialMaterial
+This command is used to construct a uniaxialMaterial
 <strong>SteelMPF</strong> (Kolozvari et al., 2015), which represents the
 well-known uniaxial constitutive nonlinear hysteretic material model for
 steel proposed by Menegotto and Pinto (1973), and extended by Filippou
-et al. (1983) to include isotropic strain hardening effects. 
+et al. (1983) to include isotropic strain hardening effects.
 
+:::{apidoc="opensees.uniaxial.SteelMPF"}
 ```tcl
 uniaxialMaterial SteelMPF $mattag $fyp $fyn $E0 $bp $bn
         $R0 $cR1 $cR2 < $a1 $a2 $a3 $a4 >
@@ -84,6 +85,7 @@ $a3($fyn/$E0).</p></td>
 </tr>
 </tbody>
 </table>
+:::
 
 The relationship is in the form of curved transitions (Figure 1), each from
 a straight-line asymptote with slope E<sub

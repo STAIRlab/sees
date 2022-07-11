@@ -7,6 +7,8 @@ the `setResponse()` element method.
 
 The command to create an element recorder is:
 
+:::{apidoc="opensees.recorder.Element"}
+:::
 ```tcl
 recorder Element 
     < -file $fileName > < -xml $fileName > < -binary $fileName > 
