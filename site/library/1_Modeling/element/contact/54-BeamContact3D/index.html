@@ -13969,12 +13969,6 @@
         
           
         
-          
-        
-          
-        
-          
-        
       
       
         
@@ -14018,51 +14012,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/496-Pattern%20Command/" class="md-nav__link">
-        Pattern Command
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/510-Plain%20Pattern/" class="md-nav__link">
-        Plain Pattern
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/658-Sp/" class="md-nav__link">
-        Sp (Single-point)
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../../../../reference/objects/Load_Pattern/740-Uniform%20Excitation%20Pattern/" class="md-nav__link">
         Uniform Excitation Pattern
 
@@ -14093,8 +14042,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/Plain_Loading/" class="md-nav__link">
-        Plain Loading
+      <a href="../../../../../reference/objects/Load_Pattern/TimeSeries/" class="md-nav__link">
+        Time Series Command
 
       </a>
     </li>
@@ -14111,52 +14060,38 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_8_4_9" type="checkbox" id="__nav_4_8_4_9" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_8_4_6" type="checkbox" id="__nav_4_8_4_6" >
       
       
       
         
           
-        
-          
-        
-          
-        
-          
-        
-          
-        
+            
           
         
           
         
       
       
-        <label class="md-nav__link" for="__nav_4_8_4_9">
-          timeSeries
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../../reference/objects/Load_Pattern/plain/">Plain</a>
+          
+            <label for="__nav_4_8_4_6">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Plain" data-md-level="4">
+        <label class="md-nav__title" for="__nav_4_8_4_6">
           <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="timeSeries" data-md-level="4">
-        <label class="md-nav__title" for="__nav_4_8_4_9">
-          <span class="md-nav__icon md-icon"></span>
-          timeSeries
+          Plain
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/369-Linear%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
           
             
               
@@ -14164,78 +14099,9 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/495-Path%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
+      <a href="../../../../../reference/objects/Load_Pattern/plain/658-Sp/" class="md-nav__link">
+        Sp (Single-point)
 
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/547-Pulse%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/580-Rectangular%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/711-Triangular%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/712-Trigonometric%20TimeSeries/" class="md-nav__link">
-        
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../../reference/objects/Load_Pattern/timeSeries/98-Constant%20TimeSeries/" class="md-nav__link">
-        
       </a>
     </li>
   
@@ -14308,7 +14174,7 @@
 This command is used to construct a BeamContact3D element object.
 </p>
 <div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>BeamContact3D<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$cNode</span><span class="w"> </span><span class="nv">$lNode</span>
-<span class="w">        </span><span class="nv">$radius</span><span class="w"> </span><span class="nv">$crdTransf</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$gTol</span><span class="w"> </span><span class="nv">$fTol</span><span class="w"> </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$cFlag</span><span class="err">$</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<span class="w">        </span><span class="nv">$radius</span><span class="w"> </span><span class="nv">$crdTransf</span><span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$gTol</span><span class="w"> </span><span class="nv">$fTol</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$cFlag</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
 </pre></div>
 
 <table>
@@ -14421,7 +14287,16 @@ optional initial contact flag
 </td>
 <td>
 <p>
-<span class="math inline">\(cFlag = 0 &amp;gt;&amp;gt; contact between bodies is initially assumed (DEFAULT)&lt;/p&gt;&lt;/td&gt; &lt;/tr&gt; &lt;tr class=&quot;even&quot;&gt; &lt;td&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;\)</span>cFlag = 1 &gt;&gt; no contact between bodies is initially assumed
+<code>cFlag = 0</code> : contact between bodies is initially assumed (DEFAULT)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+</td>
+<td>
+<p>
+<code>cFlag = 1</code> : no contact between bodies is initially assumed
 </p>
 </td>
 </tr>
@@ -14442,28 +14317,28 @@ The BeamContact3D element has been written to work exclusively with the <a href=
 The valid recorder queries for this element are:
 <ol>
 <li>
-<em>force</em> - returns the contact force acting on the constrained node in vector form.
+<code>force</code> - returns the contact force acting on the constrained node in vector form.
 </li>
 <li>
-<em>frictionforce</em> - returns the frictional force acting on the constrained node in vector form.
+<code>frictionforce</code> - returns the frictional force acting on the constrained node in vector form.
 </li>
 <li>
-<em>forcescalar</em> - returns the scalar magnitudes of the single normal and two tangential contact forces.
+<code>forcescalar</code> - returns the scalar magnitudes of the single normal and two tangential contact forces.
 </li>
 <li>
-<em>masterforce</em> - returns the reactions (forces only) acting on the retained nodes.
+<code>masterforce</code> - returns the reactions (forces only) acting on the retained nodes.
 </li>
 <li>
-<em>mastermoment</em> - returns the reactions (moments only) acting on the retained nodes.
+<code>mastermoment</code> - returns the reactions (moments only) acting on the retained nodes.
 </li>
 <li>
-<em>masterreaction</em> - returns the full reactions (forces and moments) acting on the retained nodes.
+<code>masterreaction</code> - returns the full reactions (forces and moments) acting on the retained nodes.
+</li>
+</ol>
 </li>
 <li>
 The BeamContact3D elements are set to consider frictional behavior as a default, but the frictional state of the BeamContact3D element can be changed from the input file using the <a href="setParameter"
 title="wikilink">setParameter</a> command. When updating, value of 0 corresponds to the frictionless condition, and a value of 1 signifies the inclusion of friction. An example command for this update procedure is provided below
-</li>
-</ol>
 </li>
 <li>
 The BeamContact3D element works well in static and pseudo-static analysis situations.
