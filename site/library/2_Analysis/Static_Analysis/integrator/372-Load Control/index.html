@@ -14166,11 +14166,8 @@
 
 
 <h1 id="load-control">Load Control</h1>
-<p>
-This command is used to construct a LoadControl integrator object.
-</p>
-<div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>LoadControl<span class="w"> </span><span class="nv">$lambda</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">$numIter</span><span class="w"> </span><span class="nv">$minLambda</span><span class="w"></span>
-<span class="w">        </span><span class="nv">$maxLambda</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<p>This command is used to construct a LoadControl integrator object.</p>
+<div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>LoadControl<span class="w"> </span><span class="nv">$lambda</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$numIter</span><span class="w"> </span><span class="nv">$minLambda</span><span class="w"> </span><span class="nv">$maxLambda</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <hr />
@@ -14240,9 +14237,12 @@ The optional arguments are supplied to speed up the step size in cases where con
 </ol>
 <hr />
 <h2 id="examples">Examples</h2>
-<p>
-integrator LoadControl 0.1;
-</p>
+<div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>LoadControl<span class="w"> </span><span class="mf">0.1</span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;integrator&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;LoadControl&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]};</span>
+</pre></div>
+
 <hr />
 <h2 id="theory">Theory</h2>
 <p>

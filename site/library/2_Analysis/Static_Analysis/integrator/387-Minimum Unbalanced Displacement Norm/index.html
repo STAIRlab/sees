@@ -14166,11 +14166,8 @@
 
 
 <h1 id="minimum-unbalanced-displacement-norm">Minimum Unbalanced Displacement Norm</h1>
-<p>
-This command is used to construct a StaticIntegrator object of type MinUnbalDispNorm.
-</p>
-<div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>MinUnbalDispNorm<span class="w"> </span><span class="nv">$dlambda1</span><span class="w"> </span><span class="o">&amp;</span>lt<span class="k">;</span><span class="nv">$Jd</span><span class="w"> </span><span class="nv">$minLambda</span><span class="w"></span>
-<span class="w">        </span><span class="nv">$maxLambda</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<p>This command is used to construct a <code>StaticIntegrator</code> object of type <code>MinUnbalDispNorm</code>.</p>
+<div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>MinUnbalDispNorm<span class="w"> </span><span class="nv">$dlambda1</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$Jd</span><span class="w"> </span><span class="nv">$minLambda</span><span class="w"> </span><span class="nv">$maxLambda</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <hr />
@@ -14217,20 +14214,20 @@ arguments used to bound the load increment (optional, default: $dLambda1 for bot
 </table>
 <hr />
 <h2 id="examples">Examples</h2>
-<p>
-integrator MinUnbalDispNorm 0.1;
-</p>
+<div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>MinUnbalDispNorm<span class="w"> </span><span class="mf">0.1</span><span class="k">;</span><span class="w"></span>
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;integrator&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;MinUnbalDispNorm&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]};</span>
+</pre></div>
+
 <hr />
 <h2 id="theory">Theory</h2>
-<p>
-The load increment at iteration i, <span class="math inline">\(d\lambda_{1,i}\)</span> , is related to the load increment at (i-1), <span class="math inline">\(d\lambda_{1,i-1}\)</span>, and the number of iterations at (i-1), <span class="math inline">\(J_{i-1}\)</span>, by the following:
-</p>
+The load increment at iteration <span class="math inline">\(i\)</span>, <span class="math inline">\(d\lambda_{1,i}\)</span> , is related to the load increment at <span class="math inline">\((i-1)\)</span>, <span class="math inline">\(d\lambda_{1,i-1}\)</span>, and the number of iterations at <span class="math inline">\((i-1)\)</span>, <span class="math inline">\(J_{i-1}\)</span>, by the following:
 <dl>
 <dt>
 </dt>
 <dd>
-<p><span class="math display">\[d\lambda_{1,i} =
-d\lambda_{1,i-1}\frac{J_d}{J_{i-1}}\]</span></p>
+<p><span class="math display">\[d\lambda_{1,i} = d\lambda_{1,i-1}\frac{J_d}{J_{i-1}}\]</span></p>
 </dd>
 </dl>
 <hr />
