@@ -14152,7 +14152,7 @@
 
 <h1 id="qzsimple1">QzSimple1</h1>
 <p>This command is used to construct a <code>QzSimple1</code> uniaxial material.</p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">QzSimple1</span>(matTag, qzType, qult, Z50, **kwds) </span></p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">QzSimple1</span>(name, qzType, qult, Z50, **kwds) </span></p>
 <div>
 <table>
 <!-- <colgroup>
@@ -14160,24 +14160,34 @@
 </colgroup> -->
 <tbody>
 <tr>
-<td>
-matTag
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-integer tag identifying material
 </tr>
 <tr>
 <td>
 qzType
 </td>
 <td>
-<code style="white-space: nowrap;">float</code>
+<code style="white-space: nowrap;">str</code>
 </td>
 <td>
-qzType = 1 Backbone of q-z curve approximates Reese and O’Neill’s (1987) relation for drilled shafts in clay. qzType = 2 Backbone of q-z curve approximates Vijayvergiya’s (1977) relation for piles in sand.
+qzType = 1 Backbone of <span class="math inline">\(q-z\)</span> curve approximates Reese and O’Neill’s (1987) relation for drilled shafts in clay. qzType = 2 Backbone of <span class="math inline">\(q-z\)</span> curve approximates Vijayvergiya’s (1977) relation for piles in sand.
+<table>
+<tr>
+<td>
+1
+</td>
+<td>
+Backbone of <span class="math inline">\(q-z\)</span> curve approximates Reese and O’Neill’s (1987) relation for drilled shafts in clay.
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Backbone of <span class="math inline">\(q-z\)</span> curve approximates Vijayvergiya’s (1977) relation for piles in sand.
+</td>
+</tr>
+</table>
 </tr>
 <tr>
 <td>
@@ -14187,7 +14197,7 @@ qult
 <code style="white-space: nowrap;">float</code>
 </td>
 <td>
-Ultimate capacity of the q-z material. SEE NOTE 1.
+Ultimate capacity of the <span class="math inline">\(q-z\)</span> material. SEE NOTE 1.
 </tr>
 <tr>
 <td>
