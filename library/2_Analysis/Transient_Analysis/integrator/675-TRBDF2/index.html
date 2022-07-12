@@ -176,7 +176,8 @@
 
   <li class="md-tabs__item">
     <a href="../../../../.." class="md-tabs__link">
-      
+      UniaxialMaterial
+
     </a>
   </li>
 
@@ -298,7 +299,8 @@
   
     <li class="md-nav__item">
       <a href="../../../../.." class="md-nav__link">
-        
+        UniaxialMaterial
+
       </a>
     </li>
   
@@ -13558,8 +13560,6 @@
         
           
         
-          
-        
       
       
         
@@ -13590,21 +13590,6 @@
     <li class="md-nav__item">
       <a href="../../../../5_Packages/optimization/sensitivity/118-DDM-Based%20Response%20Sensitivity%20Computation%20Tcl%20Commands/" class="md-nav__link">
         DDM-Based Response Sensitivity Computation Tcl Commands:
-
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../../5_Packages/optimization/sensitivity/599-Response%20Sensitivity%20Analysis/" class="md-nav__link">
-        Response Sensitivity Analysis
 
       </a>
     </li>
@@ -14166,9 +14151,7 @@
 
 
 <h1 id="trbdf2">TRBDF2</h1>
-<p>
-This command is used to construct a TRBDF2 integrator object. The TRBDF2 integrator is a composite scheme that alternates between the Trapezoidal scheme and a 3 point backward Euler scheme. It does this in an attempt to conserve energy and momentum, something newmark does not always do.
-</p>
+<p>This command is used to construct a TRBDF2 integrator object. The TRBDF2 integrator is a composite scheme that alternates between the Trapezoidal scheme and a 3 point backward Euler scheme. It does this in an attempt to conserve energy and momentum, something newmark does not always do.</p>
 <div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>TRBDF2
 </pre></div>
 
@@ -14183,8 +14166,15 @@ As opposed to dividing the time-step in 2 as outlined in the papers, we just swi
 </ol>
 <hr />
 <h2 id="examples">Examples</h2>
+<div class="highlight"><pre><span></span><span class="nv">integrator</span><span class="w"> </span>TRBDF2
+</pre></div>
+
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;integrator&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;TRBDF2&quot;</span><span class="p">]}</span>
+</pre></div>
+
+<h2 id="theory">Theory</h2>
 <p>
-integrator TRBDF2
+COMING SOON. LOOK AT BATHE’S PAPER FOR NOW.
 </p>
 <hr />
 <h2 id="references">References</h2>
@@ -14193,13 +14183,9 @@ Bank, R.E., Coughran W.M., Fichter W., Grosse E.H., Rose, D.J., and Smith R.K. �
 </p>
 <p>
 Bathe, K.J. “Conserving Energy and Momentum in Nonlinear Dynamics: A Simple Impicit Time Integration Scheme”, Computers and Structures, Vol(85), 437-445, 2007. <a
-href="doi:10.1016/j.compstruc.2006.09.004">doi:10.1016/j.compstruc.2006.09.004</a>
+  href="doi:10.1016/j.compstruc.2006.09.004">doi:10.1016/j.compstruc.2006.09.004</a>
 </p>
 <hr />
-<h2 id="theory">Theory</h2>
-<p>
-COMING SOON. LOOK AT BATHE’S PAPER FOR NOW.
-</p>
 <hr />
 <p>
 Code Developed by: <span style="color:blue"> fmk </span>
