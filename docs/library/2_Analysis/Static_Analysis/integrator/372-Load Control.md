@@ -1,11 +1,10 @@
 # Load Control
 
-<p>This command is used to construct a LoadControl integrator
-object.</p>
+This command is used to construct a LoadControl integrator
+object.
 
 ```tcl
-integrator LoadControl $lambda &lt;$numIter $minLambda
-        $maxLambda&gt;
+integrator LoadControl $lambda < $numIter $minLambda $maxLambda >
 ```
 <hr />
 <table>
@@ -36,19 +35,25 @@ $\lambda_{max} = \lambda$</p></td>
 <p>NOTES:</p>
 <ol>
 <li>The change in applied loads that this causes depends on the active
-load patterns (those load patterns not set constant) and the loads in
-the load patterns. If the only active loads acting on the domain are in
-load patterns with a Linear time series with a factor of 1.0, this
-integrator is the same as the classical load control method.</li>
+  load patterns (those load patterns not set constant) and the loads in
+  the load patterns. If the only active loads acting on the domain are in
+  load patterns with a Linear time series with a factor of 1.0, this
+  integrator is the same as the classical load control method.</li>
 <li>The optional arguments are supplied to speed up the step size in
-cases where convergence is too fast and slow down the step size in cases
-where convergence is too slow.</li>
+  cases where convergence is too fast and slow down the step size in cases
+  where convergence is too slow.</li>
 </ol>
 <hr />
 
 ## Examples
 
-<p>integrator LoadControl 0.1;</p>
+```tcl
+integrator LoadControl 0.1;
+```
+```python
+{"integrator": ["LoadControl", 0.1]};
+```
+
 <hr />
 
 ## Theory

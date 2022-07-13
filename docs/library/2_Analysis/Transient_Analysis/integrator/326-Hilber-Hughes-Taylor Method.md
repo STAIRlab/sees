@@ -34,6 +34,9 @@ integrator HHT $alpha < $gamma $beta >
 ```tcl
 integrator HHT 0.9
 ```
+```python
+{"integrator": ["HHT", 0.9]}
+```
 
 <p>NOTES: </p>
 

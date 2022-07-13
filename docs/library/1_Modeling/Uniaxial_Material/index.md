@@ -1,8 +1,10 @@
 # UniaxialMaterial Library
 
-This command is used to construct a `UniaxialMaterial`
-object which represents a single-variable work-conjugate relationship
-(e.g., uniaxial stress-strain, force-deformation, etc.).
+The `opensees.uniaxial` module (or `uniaxialMaterial` Tcl command)
+provide access to the library of models implementing the [`UniaxialMaterial`](/OpenSeesRT/developer/architecture/class_interface/material/UniaxialMaterial/)
+interface. This interface represents a scalar-valued work-conjugate relationship
+(e.g., uniaxial stress-strain, force-deformation, etc.) that is generally
+path-dependent.
 
 The valid queries to any uniaxial material when creating an
 [`ElementRecorder`] are `strain`, `stress`, and `tangent`. Some materials

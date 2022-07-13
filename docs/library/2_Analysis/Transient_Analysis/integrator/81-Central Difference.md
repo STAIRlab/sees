@@ -10,7 +10,14 @@ integrator CentralDifference
 
 ## Examples
 
-<p>integrator CentralDifference</p>
+```tcl
+integrator CentralDifference
+```
+
+```python
+{"integrator": ["CentralDifference"]}
+```
+
 <hr />
 <p>NOTES:</p>
 <ol>

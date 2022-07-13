@@ -91,8 +91,10 @@ space)</p></td>
 </tr>
 </tbody>
 </table>
-<p>The material formulations for the Manzari-Dafalias object are
-"ThreeDimensional" and "PlaneStrain"</p>
+
+> The material formulations for the Manzari-Dafalias object are
+> `ThreeDimensional` and `PlaneStrain`
+
 
 <hr />
 

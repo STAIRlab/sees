@@ -28,7 +28,13 @@ loads.</p></td>
 
 ## Examples
 
-<p>integrator ArcLength 1.0 0.1;</p>
+```{.tcl .example
+integrator ArcLength 1.0 0.1;
+```
+
+```{.py .example
+{"integrator": ["ArcLength", 1.0, 0.1]}
+```
 <hr />
 
 ## Theory

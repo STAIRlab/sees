@@ -4,7 +4,7 @@ This command is used to construct a BeamContact2D element object.
 
 ```tcl
 element BeamContact2D $eleTag $iNode $jNode $cNode $lNode
-        $matTag $width $gTol $fTol < $cFlag$ >
+        $matTag $width $gTol $fTol < $cFlag >
 ```
 
 <table>
@@ -49,12 +49,12 @@ strain</p></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><p>$cFlag = 0 &gt;&gt; contact between bodies is initially assumed
+<td><p>`cFlag = 0` &gt;&gt; contact between bodies is initially assumed
 (DEFAULT)</p></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><p>$cFlag = 1 &gt;&gt; no contact between bodies is initially
+<td><p>`cFlag = 1` &gt;&gt; no contact between bodies is initially
 assumed</p></td>
 </tr>
 </tbody>

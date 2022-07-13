@@ -16,10 +16,10 @@ element stdBrick $eleTag $node1 $node2 $node3 $node4
 <td><p>unique element object tag</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>$node1 $node2</strong></p>
-<p><strong>$node3 $node4</strong></p>
-<p><strong>$node5 $node6</strong></p>
-<p><strong>$node7 $node8</strong></p></td>
+<td><p><code>node1 node2</code></p>
+<p><code>node3 node4</code></p>
+<p><code>node5 node6</code></p>
+<p><code>node7 node8</code></p></td>
 <td><p>eight nodes defining element boundaries, input order is shown in
 the figure.</p></td>
 </tr>
@@ -28,8 +28,8 @@ the figure.</p></td>
 <td><p>tag of nDMaterial</p></td>
 </tr>
 <tr class="even">
-<td><p><strong>'$b1 $b2 $b3</strong></p></td>
-<td><p>body forces in global x,y,z directions</p></td>
+<td><p><code>b1 b2 b3</code></p></td>
+<td><p>body forces in global $x$,$y$,$z$ directions</p></td>
 </tr>
 </tbody>
 </table>
@@ -40,11 +40,11 @@ the figure.</p></td>
 <p>NOTE:</p>
 <ol>
 <li>The valid queries to a Brick element when creating an
-ElementRecorder object are 'forces', 'stresses,' ('strains' version &gt;
-2.2.0) and 'material $matNum matArg1 matArg2 ...' Where $matNum refers
-to the material object at the integration point corresponding to the
-node numbers in the isoparametric domain.</li>
-<li>This element can only be defined in -ndm 3 -ndf 3</li>
+  `ElementRecorder` are `forces`, `stresses`, (`strains` version &gt;
+  2.2.0) and `material $matNum matArg1 matArg2 ...` Where $matNum refers
+  to the material object at the integration point corresponding to the
+  node numbers in the isoparametric domain.</li>
+<li>This element can only be defined in `-ndm 3 -ndf 3`</li>
 </ol>
 
 ## Examples

@@ -1,9 +1,10 @@
 # Parallel
 
-<p>This command is used to construct a parallel material object made up
+This command is used to construct a parallel material object made up
 of an arbitrary number of previously-constructed UniaxialMaterial
-objects.</p>
+objects.
 
+:::{apidoc="opensees.uniaxial.Parallel"}
 ```tcl
 uniaxialMaterial Parallel $matTag $tag1 $tag2 ...
         < -factors $fact1 $fact2 ... >
@@ -29,8 +30,9 @@ other. (optional, default = 1.0)</p></td>
 </tr>
 </tbody>
 </table>
+:::
 
-The parallel material is represented graphically: 
+The parallel material is represented graphically as follows:
 
 <img
 src="/OpenSeesRT/contrib/static/ParallelMaterial.gif" title="ParallelMaterial.gif"

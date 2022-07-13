@@ -45,14 +45,6 @@ imposedMotion</a>...</strong></p></td>
 </tbody>
 </table>
 
-<p>NOTES:</p>
-<ol>
-<li>The results for the responses at the nodes are the ABSOLUTE values,
-and not relative values as in the case of a UniformExciatation.</li>
-<li>The non-homogeneous single point constraints require an appropriate
-choice of constraint handler.</li>
-</ol>
-<hr />
 <table>
 <tbody>
 <tr class="odd">
@@ -71,6 +63,15 @@ imposedMotion</a> ...</strong></p></td>
 </tr>
 </tbody>
 </table>
+
+<p>NOTES:</p>
+<ol>
+<li>The results for the responses at the nodes are the ABSOLUTE values,
+and not relative values as in the case of a UniformExciatation.</li>
+<li>The non-homogeneous single point constraints require an appropriate
+choice of constraint handler.</li>
+</ol>
+<hr />
 
 <hr />
 

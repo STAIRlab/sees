@@ -57,6 +57,10 @@ displacement control algorithm seking constant increment of 0.1 at node 1 at 2'n
 integrator DisplacementControl 1 2 0.1; 
 ```
 
+```python
+{"integrator": ["DisplacementControl", 1, 2, 0.1]}
+```
+
 <hr />
 
 ## Theory

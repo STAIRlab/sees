@@ -39,6 +39,9 @@ integrator GeneralizedAlpha $alphaM $alphaF < $gamma $beta >
 ```tcl
 integrator GeneralizedAlpha 1.0 0.8
 ```
+```python
+{"integrator": ["GeneralizedAlpha", 1.0, 0.8]}
+```
 
 <p>NOTES:</p>
 <ol>

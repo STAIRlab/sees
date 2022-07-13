@@ -13,6 +13,9 @@ integrator Explicitdifference
 ```tcl
 integrator Explicitdifference
 ```
+```python
+{"integrator": ["Explicitdifference"]}
+```
 
 <hr />
 

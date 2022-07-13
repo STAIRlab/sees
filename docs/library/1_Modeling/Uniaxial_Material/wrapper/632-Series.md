@@ -1,9 +1,10 @@
 # Series
 
-<p>This command is used to construct a series material object made up of
+This command is used to construct a series material object made up of
 an arbitrary number of previously-constructed UniaxialMaterial
-objects.</p>
+objects.
 
+:::{apidoc="opensees.uniaxial.Series"}
 ```tcl
 uniaxialMaterial Series $matTag $tag1 $tag2...
 ```
@@ -22,6 +23,7 @@ model</p></td>
 </tr>
 </tbody>
 </table>
+:::
 
 <p>The series material is represented graphically: <img
 src="/OpenSeesRT/contrib/static/SeriesMaterial.gif" title="SeriesMaterial.gif"

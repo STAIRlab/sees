@@ -2,6 +2,7 @@
 
 <div style="font-family:monospace">
 
+```cpp
 int DirectIntegrationAnalysis::analyzeStep(double dT)
 {
   int result = 0;
@@ -23,7 +24,7 @@ int DirectIntegrationAnalysis::analyzeStep(double dT)
 
   result = theIncrIntegrator->newStep(dT) {
 
-<div class="function">
+// <div class="function">
       theModel->setDisp(...);
       theModel->setVel(...);
       theModel->setAccel(...);
@@ -112,7 +113,7 @@ int DirectIntegrationAnalysis::analyzeStep(double dT)
       };
   };
 
-</div>
+// </div>
 
   if (result < 0) {
     the_Domain->revertToLastCommit();
@@ -180,7 +181,7 @@ int DirectIntegrationAnalysis::analyzeStep(double dT)
   }     
   result = theIncrIntegrator->(GeneralizedAlpha::)commit() {
 
-<div class="function">
+// <div class="function">
     theModel->setResponse(*U,*Udot,*Udotdot);
     double time = theModel->getCurrentDomainTime();
     time += (1.0-alphaF)*deltaT;
@@ -204,7 +205,7 @@ int DirectIntegrationAnalysis::analyzeStep(double dT)
        };
     };
   };
-</div>
+// </div>
 
   if (result < 0) {
     the_Domain->revertToLastCommit();            
@@ -215,5 +216,5 @@ int DirectIntegrationAnalysis::analyzeStep(double dT)
   return result;
 }
 
-</div>
 
+```

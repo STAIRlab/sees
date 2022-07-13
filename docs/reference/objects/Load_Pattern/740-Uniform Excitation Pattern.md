@@ -1,12 +1,20 @@
 # Uniform Excitation Pattern
 
-<p>The UniformExcitation pattern allows the user to apply a uniform
-excitation to a model acting in a certain direction. The command is as
-follows:</p>
+The `UniformExcitation` pattern allows the user to apply a uniform
+excitation to a model acting in a certain direction. The resulting
+load pattern is applied as 
 
+$$
+P(t) = \ddot{u}_g \mathbf{m} \iota
+$$
+
+The command is as
+follows:
+
+:::{apidoc="opensees.pattern.UniformExcitation"}
 ```tcl
 pattern UniformExcitation $patternTag $dir -accel $tsTag
-        &lt;-vel0 $vel0&gt; &lt;-fact $cFactor&gt;
+        < -vel0 $vel0 > < -fact $cFactor >
 ```
 <hr />
 <table>
@@ -58,6 +66,8 @@ history.</p></td>
 </tr>
 </tbody>
 </table>
+:::
+
 <p>NOTES:</p>
 <ol>
 <li>The responses obtained from the nodes for this type of excitation

@@ -6,17 +6,15 @@ two ways to construct a truss element object:
 <p>One way is to specify an area and a `UniaxialMaterial` identifier:</p>
 
 ```tcl
-element truss $eleTag $iNode $jNode $A $matTag &lt;-rho
-        $rho&gt; &lt;-cMass $cFlag&gt; &lt;-doRayleigh
-        $rFlag&gt;
+element truss $eleTag $iNode $jNode $A $matTag 
+        < -rho $rho > < -cMass $cFlag > < -doRayleigh $rFlag >
 ```
 
-<p>the other is to specify a Section identifier:</p>
+the other is to specify a Section identifier:
 
 ```tcl
 element trussSection $eleTag $iNode $jNode $secTag
-        &lt;-rho $rho&gt; &lt;-cMass $cFlag&gt; &lt;-doRayleigh
-        $rFlag&gt;
+        < -rho $rho > < -cMass $cFlag > < -doRayleigh $rFlag >
 ```
 
 <hr />

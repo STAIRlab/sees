@@ -1,11 +1,10 @@
 # Minimum Unbalanced Displacement Norm
 
-<p>This command is used to construct a StaticIntegrator object of type
-MinUnbalDispNorm.</p>
+This command is used to construct a `StaticIntegrator` object of type
+`MinUnbalDispNorm`.
 
 ```tcl
-integrator MinUnbalDispNorm $dlambda1 &lt;$Jd $minLambda
-        $maxLambda&gt;
+integrator MinUnbalDispNorm $dlambda1 < $Jd $minLambda $maxLambda >
 ```
 <hr />
 <table>
@@ -32,22 +31,27 @@ $dLambda1 for both)</p></td>
 
 ## Examples
 
-<p>integrator MinUnbalDispNorm 0.1;</p>
+```tcl
+integrator MinUnbalDispNorm 0.1;
+```
+
+```python
+{"integrator": ["MinUnbalDispNorm", 0.1]};
+```
+
+
 <hr />
 
 ## Theory
 
-<p>The load increment at iteration i,
- $d\lambda_{1,i}$ , is related to the load
-increment at (i-1), $d\lambda_{1,i-1}$, and the
-number of iterations at (i-1), $J_{i-1}$, by the
-following:</p>
+The load increment at iteration $i$, $d\lambda_{1,i}$ , is related to the load
+increment at $(i-1)$, $d\lambda_{1,i-1}$, and the number of iterations at
+$(i-1)$, $J_{i-1}$, by the following:
 <dl>
 <dt></dt>
 <dd>
 
-$$d\lambda_{1,i} =
-d\lambda_{1,i-1}\frac{J_d}{J_{i-1}}$$
+$$d\lambda_{1,i} = d\lambda_{1,i-1}\frac{J_d}{J_{i-1}}$$
 
 </dd>
 </dl>

@@ -36,6 +36,8 @@ Strains to In-Plane Smeared Stresses on a RC Panel Element</figcaption>
 <hr />
 <p><strong>Input Format:</strong></p>
 
+> The material formulations for the `FSAM` model are **`PlaneStress`**.
+
 ```tcl
 nDMaterial FSAM $mattag $rho $sX $sY $conc $rouX $rouY
         $nu $alfadow

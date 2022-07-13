@@ -4,7 +4,7 @@
 
 ```tcl
 element BeamContact3D $eleTag $iNode $jNode $cNode $lNode
-        $radius $crdTransf $matTag $gTol $fTol &lt;$cFlag$&gt;
+        $radius $crdTransf $matTag $gTol $fTol < $cFlag >
 ```
 
 <table>
@@ -55,13 +55,13 @@ object</p></td>
 </tr>
 <tr class="odd">
 <td></td>
-<td><p>$cFlag = 0 &gt;&gt; contact between bodies is initially assumed
-(DEFAULT)</p></td>
+<td><p>`cFlag = 0` : contact between bodies is initially assumed (DEFAULT)
+</p></td>
 </tr>
 <tr class="even">
 <td></td>
-<td><p>$cFlag = 1 &gt;&gt; no contact between bodies is initially
-assumed</p></td>
+<td><p>`cFlag = 1` : no contact between bodies is initially assumed
+</p></td>
 </tr>
 </tbody>
 </table>
@@ -81,18 +81,19 @@ the <a href="ContactMaterial3D" title="wikilink">ContactMaterial3D
 nDMaterial</a> object.</li>
 <li>The valid recorder queries for this element are:
 <ol>
-<li><em>force</em> - returns the contact force acting on the constrained
-node in vector form.</li>
-<li><em>frictionforce</em> - returns the frictional force acting on the
-constrained node in vector form.</li>
-<li><em>forcescalar</em> - returns the scalar magnitudes of the single
-normal and two tangential contact forces.</li>
-<li><em>masterforce</em> - returns the reactions (forces only) acting on
-the retained nodes.</li>
-<li><em>mastermoment</em> - returns the reactions (moments only) acting
-on the retained nodes.</li>
-<li><em>masterreaction</em> - returns the full reactions (forces and
-moments) acting on the retained nodes.</li>
+<li>`force` - returns the contact force acting on the constrained
+  node in vector form.</li>
+<li>`frictionforce` - returns the frictional force acting on the
+  constrained node in vector form.</li>
+<li>`forcescalar` - returns the scalar magnitudes of the single
+  normal and two tangential contact forces.</li>
+<li>`masterforce` - returns the reactions (forces only) acting on
+  the retained nodes.</li>
+<li>`mastermoment` - returns the reactions (moments only) acting
+  on the retained nodes.</li>
+<li>`masterreaction` - returns the full reactions (forces and
+  moments) acting on the retained nodes.</li>
+</ol></li>
 <li>The BeamContact3D elements are set to consider frictional behavior
 as a default, but the frictional state of the BeamContact3D element can
 be changed from the input file using the <a href="setParameter"
@@ -100,7 +101,6 @@ title="wikilink">setParameter</a> command. When updating, value of 0
 corresponds to the frictionless condition, and a value of 1 signifies
 the inclusion of friction. An example command for this update procedure
 is provided below</li>
-</ol></li>
 <li>The BeamContact3D element works well in static and pseudo-static
 analysis situations.</li>
 <li>In transient analysis, the presence of the contact constraints can

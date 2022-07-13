@@ -1,7 +1,8 @@
 # QzSimple1
 
-This command is used to construct a QzSimple1 uniaxial material.
+This command is used to construct a `QzSimple1` uniaxial material.
 
+:::{apidoc="opensees.uniaxial.QzSimple1"}
 ```tcl
 uniaxialMaterial QzSimple1 $matTag $qzType $qult $Z50 <$suction $c>
 ```
@@ -30,17 +31,18 @@ loading. SEE NOTE 2.</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">suction</code></td>
-<td><p>Uplift resistance is equal to suction*qult. Default = 0.0. The
-value of suction must be 0.0 to 0.1.*</p></td>
+<td><p>Uplift resistance is equal to `suction*qult`. Default = 0.0. The
+value of suction must be 0.0 to 0.1.\*</p></td>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">c</code></td>
-<td><p>The viscous damping term (dashpot) on the far-field (elastic)
-component of the displacement rate (velocity). Default = 0.0. Nonzero c
-values are used to represent radiation damping effects.*</p></td>
+  <td><p>The viscous damping term (dashpot) on the far-field (elastic)
+  component of the displacement rate (velocity). Default = 0.0. Nonzero c
+  values are used to represent radiation damping effects.\*</p></td>
 </tr>
 </tbody>
 </table>
+:::
 
 <p>NOTES:</p>
 <ol>

@@ -3,10 +3,10 @@
 This command is used to construct a PySimple1 uniaxial material
 object:
 
+:::{apidoc="opensees.uniaxial.PySimple1"}
 ```tcl
 uniaxialMaterial PySimple1 $matTag $soilType $pult $y50 $Cd < $c >
 ```
-
 <hr />
 
 <table>
@@ -47,6 +47,7 @@ Nonzero $c$ values are used to represent radiation damping effects</p></td>
 </tr>
 </tbody>
 </table>
+:::
 
 <p>NOTES:</p>
 In general the `HHT` algorithm is preferred over a Newmark algorithm

@@ -22,7 +22,14 @@ integrator Newmark $gamma $beta
 
 ## Examples
 
-<p>integrator Newmark 0.5 0.25</p>
+```tcl
+integrator Newmark 0.5 0.25
+```
+
+```python
+{"integrator": ["Newmark", 0.5, 0.25]}
+```
+
 <hr />
 <p>NOTES:</p>
 <ol>

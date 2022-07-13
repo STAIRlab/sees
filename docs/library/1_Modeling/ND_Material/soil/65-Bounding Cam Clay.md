@@ -1,7 +1,11 @@
 # Bounding Cam Clay
 
-<p>This command is used to construct a multi-dimensional bounding
-surface Cam Clay material object after Borja et al. (2001).</p>
+This command is used to construct a multi-dimensional bounding
+surface Cam Clay material object after Borja et al. (2001).
+
+> The material formulations for the `BoundingCamClay` object are
+> `ThreeDimensional` and `PlaneStrain`
+
 
 ```tcl
 nDMaterial BoundingCamClay $matTag $massDensity $C
@@ -56,8 +60,7 @@ bounding surface (if m = 0, only linear hardening)</p></td>
 </tr>
 </tbody>
 </table>
-<p>The material formulations for the BoundingCamClay object are
-"ThreeDimensional" and "PlaneStrain"</p>
+
 <hr />
 
 <h2 id="general_information">General Information</h2>
