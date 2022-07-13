@@ -176,8 +176,7 @@
 
   <li class="md-tabs__item">
     <a href="../../../../.." class="md-tabs__link">
-      UniaxialMaterial
-
+      
     </a>
   </li>
 
@@ -299,8 +298,7 @@
   
     <li class="md-nav__item">
       <a href="../../../../.." class="md-nav__link">
-        UniaxialMaterial
-
+        
       </a>
     </li>
   
@@ -14152,7 +14150,7 @@
 
 <h1 id="pysimple1">PySimple1</h1>
 <p>This command is used to construct a PySimple1 uniaxial material object:</p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">PySimple1</span>(name, soilType, pult, Y50, Cd, **kwds) </span></p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">PySimple1</span>(name, soilType, pult, y50, Cd, **kwds) </span></p>
 <div>
 <table>
 <!-- <colgroup>
@@ -14166,10 +14164,27 @@
 soilType
 </td>
 <td>
-<code style="white-space: nowrap;">float</code>
+<code style="white-space: nowrap;">int</code>
 </td>
 <td>
-soilType = 1 Backbone of p-y curve approximates Matlock (1970) soft clay relation. soilType = 2 Backbone of p-y curve approximates API (1993) sand relation.
+<table>
+<tr>
+<td>
+1
+</td>
+<td>
+Backbone of <span class="math inline">\(p-y\)</span> curve approximates Matlock (1970) soft clay relation.
+</td>
+</tr>
+<tr>
+<td>
+2
+</td>
+<td>
+Backbone of <span class="math inline">\(p-y\)</span> curve approximates API (1993) sand relation.
+</td>
+</tr>
+</table>
 </tr>
 <tr>
 <td>
@@ -14183,7 +14198,7 @@ Ultimate capacity of the p-y material. Note that <span class="math inline">\(p\)
 </tr>
 <tr>
 <td>
-Y50
+y50
 </td>
 <td>
 <code style="white-space: nowrap;">float</code>
