@@ -176,8 +176,7 @@
 
   <li class="md-tabs__item">
     <a href="../../../.." class="md-tabs__link">
-      UniaxialMaterial
-
+      
     </a>
   </li>
 
@@ -299,8 +298,7 @@
   
     <li class="md-nav__item">
       <a href="../../../.." class="md-nav__link">
-        UniaxialMaterial
-
+        
       </a>
     </li>
   
@@ -14149,29 +14147,15 @@
 
 
 <h1 id="profilespddirectblocksolver">ProfileSPDDirectBlockSolver</h1>
+<blockquote>
 <p>UNDER CONSTRUCTION</p>
+</blockquote>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;system_of_eqn/linearSOE/profileSPD/ProfileSPDLinDirectBlockSolver.h&gt;</span><span class="cp"></span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">ProfileSPDLinDirectBlockSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOESolver</span>\
+<span class="k">class</span><span class="w"> </span><span class="nc">ProfileSPDLinDirectBlockSolver</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">LinearSOESolver</span><span class="w"></span>
 </pre></div>
 
-<p>A ProfileSPDLinDirectBlockSolver object can be constructed to solve a ProfileSPDLinSOE object. It does this by direct means, using the <span class="math inline">\(LDL^t\)</span> variation of the Cholesky factorization. The matrx <span class="math inline">\(A\)</span> is factored one block row at a time using a right-looking approach. No BLAS or LAPACK routines are called for the factorization or subsequent substitution.</p>
-<p>Constructor<br />
-</p>
-<p><br />
-Destructor<br />
-</p>
-<p><br />
-Public Methods<br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-A unique class tag (defined in <code>&lt;classTags.h&gt;</code>) is passed to the ProfileSPDLinSolver constructor.</p>
-<p><br />
-The solver first copies the <span class="math inline">\(B\)</span> vector into <span class="math inline">\(X\)</span>. The solve process changes <span class="math inline">\(A\)</span> and <span class="math inline">\(X\)</span>.</p>
+<p>A <code>ProfileSPDLinDirectBlockSolver</code> object can be constructed to solve a ProfileSPDLinSOE object. It does this by direct means, using the <span class="math inline">\(LDL^t\)</span> variation of the Cholesky factorization. The matrx <span class="math inline">\(A\)</span> is factored one block row at a time using a right-looking approach. No BLAS or LAPACK routines are called for the factorization or subsequent substitution.</p>
 
 
               

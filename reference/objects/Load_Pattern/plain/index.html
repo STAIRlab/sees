@@ -15,7 +15,7 @@
     
     
       
-        <title>Plain Pattern - OpenSeesRT</title>
+        <title>Plain Loading - OpenSeesRT</title>
       
     
     
@@ -99,7 +99,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Plain Pattern
+              Plain Loading
 
             
           </span>
@@ -176,8 +176,7 @@
 
   <li class="md-tabs__item">
     <a href="../../../.." class="md-tabs__link">
-      UniaxialMaterial
-
+      
     </a>
   </li>
 
@@ -299,8 +298,7 @@
   
     <li class="md-nav__item">
       <a href="../../../.." class="md-nav__link">
-        UniaxialMaterial
-
+        
       </a>
     </li>
   
@@ -14142,11 +14140,48 @@
 
 
 
-<h1 id="plain-pattern">Plain Pattern</h1>
-<p>
-This commnand allows the user to construct a LoadPattern object. Each plain load pattern is associated with a <a href="Time_Series_Command"
-title="wikilink"> TimeSeries</a> object and can contain multiple NodalLoads, ElementalLoads and SP_Constraint objects. The command to generate LoadPattern object contains in <strong>{ }</strong> the commands to generate all the loads and the single-point constraints in the pattern. To construct a load pattern and populate it, the following command is used:
-</p>
+<h1 id="plain-loading">Plain Loading</h1>
+<p>This commnand allows the user to construct a LoadPattern object. Each plain load pattern is associated with a <a href="Time_Series_Command"
+title="wikilink"> TimeSeries</a> object and can contain multiple NodalLoads, ElementalLoads and SP_Constraint objects. The command to generate LoadPattern object contains in <strong>{ }</strong> the commands to generate all the loads and the single-point constraints in the pattern. To construct a load pattern and populate it, the following command is used:</p>
+<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.pattern.<span style="color:#900">Plain</span>(name, series, loads, **kwds) </span></p>
+<div>
+<table>
+<!-- <colgroup>
+  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
+</colgroup> -->
+<tbody>
+<tr>
+</tr>
+<tr>
+<td>
+series
+</td>
+<td>
+<code>Ref(Path)</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+loads
+</td>
+<td>
+<code>Blk</code>
+</td>
+<td>
+</tr>
+<tr>
+<td>
+scale
+</td>
+<td>
+<code style="white-space: nowrap;">float</code>
+</td>
+<td>
+</tr>
+</tbody>
+</table>
+</div>
 <table>
 <tbody>
 <tr class="odd">
@@ -14279,51 +14314,9 @@ The command to generate a <code>LoadPattern</code> contains in <strong>{ }</stro
 </li>
 </ol>
 <hr />
-<p><img src="/OpenSeesRT/static/c1be70298b054f3fcb0c68bf77136cfa7b3bd9e0.svg" /></p>
-<hr />
 <p>
 Code Developed by: <span style="color:blue"> fmk </span>
 </p>
-<h1 id="plain-loading">Plain Loading</h1>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.pattern.<span style="color:#900">Plain</span>(name, series, loads, **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-series
-</td>
-<td>
-<code>Ref(Path)</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-loads
-</td>
-<td>
-<code>Blk</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-scale
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-</tbody>
-</table>
-</div>
 
 
               
