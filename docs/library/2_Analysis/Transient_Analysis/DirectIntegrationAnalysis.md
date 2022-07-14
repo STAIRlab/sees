@@ -38,6 +38,17 @@ analysis type:
     operations to be performed in setting up and solving the finite
     element equation which can be represented by the equation $K(U) U = P(U)$.
 
+
+### Transient Integrators
+Determing the next time step for an analysis including inertial effects is done by the following schemes
+
+- [Newmark](TransientIntegrator/Newmark) -- The two parameter time-stepping method developed by Newmark
+- [HHT](TransientIntegrator/HHT) -- The three parameter Hilbert-Hughes-Taylor time-stepping method
+- [Generalized Alpha](TransientIntegrator/GeneralizedAlpha) -- Generalization of the HHT algorithm with improved numerical damping
+- [Central Difference]() -- Approximates velocity and acceleration by centered finite differences of displacement
+
+
+
 ## Implementation
 
 ```cpp

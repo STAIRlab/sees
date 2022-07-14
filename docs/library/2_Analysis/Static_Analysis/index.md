@@ -34,6 +34,14 @@ analysis type:
    the solution algorithm has formed and solved the system of
    equations.
 
+   Determing the next time step for an analysis is done by the following schemes
+
+   - [Load Control]() -- Specifies the incremental load factor to be applied to the loads in the domain
+   - [Displacement Control]() -- Specifies the incremental displacement at a specified DOF in the domain
+   - [Minimum Unbalanced Displacement Norm](StaticIntegrator/) -- Specifies the incremental load factor such that the residual displacement norm in minimized
+   - [Arc Length](StaticIntegrator/ArcLength1) -- Specifies the incremental arc-length of the load-displacement path
+
+
 -  **EquiSolnAlgo** - an algorithmic class specifying the sequence of
    operations to be performed in setting up and solving the finite
    element equation which can be represented by the equation K(U) U =

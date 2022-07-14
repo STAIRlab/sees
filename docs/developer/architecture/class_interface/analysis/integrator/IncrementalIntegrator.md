@@ -1,17 +1,14 @@
-
 # IncrementalIntegrator 
 
 ```cpp
 #include <analysis/integrator/IncrementalIntegrator.h>
+
+class IncrementalIntegrator: public Integrator
 ```
 
-class IncrementalIntegrator: public Integrator\
 
-MovableObject\
-Integrator\
 
-\
-IncrementalIntegrator is an abstract class. A subclass of it is used
+`IncrementalIntegrator` is an abstract class. A subclass of it is used
 when performing a static or transient analysis using an incremental
 displacement approach. Subclasses of IncrementalIntegrators provide
 methods informing the `FE_Element` and `DOF_Group` objects how to build the
@@ -20,44 +17,30 @@ for updating the response quantities at the DOFs with appropriate
 values; these values being some function of the solution to the linear
 system of equations.
 
-### Constructor
+### Constructor / Destructor
 
-\
-### Destructor
+The integer *classTag* is passed to the Integrator classes constructor.
+Pointers to the AnalysisModel and LinearSOE are set to $0$.
 
-\
-// Public Methods\
 
-\
+Does nothing.
 
-\
 
-\
 
-\
+### Public Methods
 
-\
-// Public Method added for Domain Decomposition\
+
+### Public Method added for Domain Decomposition\
 
 \
 // Protected Methods\
 
-\
 
-\
 
-\
-The integer *classTag* is passed to the Integrator classes constructor.
-Pointers to the AnalysisModel and LinearSOE are set to $0$.
-
-\
-Does nothing.
-
-\
 Invoked by the Analysis object to set up the links the
 IncrementalIntegrator objects needs to perform its operations. Sets the
 pointers to the AnalysisModel and LinearSOE objects to point to
-*theAnalaysisModel* and *theSOE*.
+`theAnalaysisModel` and `theSOE`.
 
 ```{.cpp}
 virtual int formTangent(void);
@@ -89,13 +72,12 @@ virtual int formUnbalance(void);
 
 Invoked to form the unbalance. The method fist zeros out the $B$ vector
 of the LinearSOE object and then invokes formElementResidual() and
-formNodalUnbalance() on itself.
-
-::: {.tabbing}
-while ̄ while w̄hile ̄ theSOE.zeroB();\
-this-$>$fromElementResidual();\
-this-$>$formNodalUnbalance()\
-:::
+`formNodalUnbalance()` on itself.
+```cpp
+  theSOE.zeroB();
+  this->fromElementResidual();
+  this->formNodalUnbalance()
+```
 
 If an error occurs in either of these two methods or if `setLinks()` has
 not been called, an error message is printed and a negative number is
@@ -179,11 +161,10 @@ form their unbalance and then adds this Vector to the $b$ vector of the
 LinearSOE object, i.e. it performs the following:\
 
 ::: {.tabbing}
-while ̄ while w̄hile ̄ DOF_EleIter &theDofs =
-theAnalysisModel.getDOFs();\
-theSOE.zeroB();\
-while((dofPtr = theDofs()) $\neq$ 0)\
-theSOE.addB(dofPtr-$>$getUnbalance(theIntegrator), dofPtr-$>$getID())\
+DOF_EleIter &theDofs = theAnalysisModel.getDOFs();
+theSOE.zeroB();
+while((dofPtr = theDofs()) $\neq$ 0)
+  theSOE.addB(dofPtr-$>$getUnbalance(theIntegrator), dofPtr-$>$getID())
 :::
 
 Returns $0$ if successful, otherwise a negative number is returned and a
@@ -201,11 +182,12 @@ add this residual to the LinearSOE objects $b$ vector, i.e. it performs
 the following:
 
 ::: {.tabbing}
-while ̄ while w̄hile ̄ FE_EleIter &theEles = theAnalysisModel.getFEs();\
-while((elePtr = theEles()) $\neq$ 0) {\
-theSOE.addA(elePtr-$>$getResidual(this), elePtr-$>$getID())\
+FE_EleIter &theEles = theAnalysisModel.getFEs();
+while((elePtr = theEles()) $\neq$ 0) {
+  theSOE.addA(elePtr-$>$getResidual(this), elePtr-$>$getID())\
 :::
 
 Returns $0$ if successful, otherwise a warning message is printed and a
 negative number is returned if an error occurs. Note, no test is made to
 ensure `setLinks()` has been invoked.
+

@@ -5,9 +5,6 @@
 
 class TransientIntegrator: public Integrator;
 ```
-          MovableObject
-          Integrator
-          IncrementalIntegrator
 
 - [Newmark](Newmark)
 - [HHT](HHT)
@@ -22,8 +19,7 @@ class and it defines a new method `newStep()` which is invoked by the
 `DirectIntegrationAnalysis` class at each new time step.
 In nonlinear transient finite element problems we seek a solution ($\U$, $\dot \U$, $\ddot \U$) to the nonlinear vector function
 
-$${\bf R}({\bf U},\Ud, \Udd) = {\bf P}(t) - {\bf F}_I(\Udd) - {\bf F}_R(\U, \Ud) = \zero
-$$
+$${\bf R}({\bf U},\Ud, \Udd) = {\bf P}(t) - {\bf F}_I(\Udd) - {\bf F}_R(\U, \Ud) = \zero$$
 {#femGenForm}
 
 The most widely used technique for solving the transient non-linear
@@ -96,17 +92,7 @@ matrices and vectors. They also provide the method for updating the
 response quantities at the DOFs with appropriate values; these values
 being some function of the solution to the linear system of equations.
 
-### Constructor
-
-
-### Destructor
-
-
-// Public Methods\
-
-\
-
-\
+### Constructor / Destructor
 
 
 The integer `classTag` is passed to the `IncrementalIntegrator` classes
@@ -116,8 +102,11 @@ constructor.
 ```
 Does nothing.
 
+### Public Methods
+
 ```cpp
 ```
+
 
 Invoked to form the structure tangent matrix. The method is rewritten
 for this class to include inertia effects from the nodes. The method

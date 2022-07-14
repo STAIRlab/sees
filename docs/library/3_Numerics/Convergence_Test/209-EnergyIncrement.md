@@ -26,35 +26,35 @@ condition</p></td>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">pFlag</code></p></td>
 <td><p>optional print flag, default is 0. valid options:</p></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>0 print nothing</p></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>1 print information on norms each time test() is invoked</p></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>2 print information on norms and number of iterations at end of
-successful test</p></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><p>4 at each step it will print the norms and also the
-$\Delta U$ and $R(U)$
-vectors.</p></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><p>5 if it fails to converge at end of $numIter it will print an
-error message BUT RETURN A SUCCESSFUL test</p></td>
-</tr>
+<!-- </tr> --><table>
+  <tr class="even">
+  <td>0</td>
+  <td><p>0 print nothing</p></td>
+  </tr>
+  <tr class="odd">
+  <td>1</td>
+  <td><p>1 print information on norms each time `test()` is invoked</p></td>
+  </tr>
+  <tr class="even">
+  <td>2</td>
+  <td><p>2 print information on norms and number of iterations at end of
+  successful test</p></td>
+  </tr>
+  <tr class="odd">
+  <td>4</td>
+  <td><p>4 at each step it will print the norms and also the
+  $\Delta U$ and $R(U)$ vectors.</p></td>
+  </tr>
+  <tr class="even">
+  <td>5</td>
+  <td><p>5 if it fails to converge at end of $numIter it will print an
+  error message <strong>BUT RETURN A SUCCESSFUL test</strong></p></td>
+  </tr>
+</table>
+
 <tr class="odd">
 <td><p><code class="parameter-table-variable">nType</code></p></td>
-<td><p>optional type of norm, default is 2. (0 = max-norm, 1 = 1-norm, 2
-= 2-norm, ...)</p></td>
+<td><p>optional type of norm, default is `2`. (`0` = max-norm, `1` = 1-norm, `2` = 2-norm, ...)</p></td>
 </tr>
 </tbody>
 </table>
