@@ -14169,63 +14169,99 @@
 <p>To return the number of external nodes associated with the element.</p>
 <p>To return an ID containing the tags of the external nodes for the element.</p>
 <p>To return the number of dof associated with the element. This should equal the sum of the dofs at each of the external nodes. To ensure this, each subclass can overwrite the DomainComponent classes <code>setDomain()</code> method.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">commitState</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>The element is to commit its current state. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">revertToLastCommit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>The element is to set it’s current state to the last committed state. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">revertToStart</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>The element is to set it’s current state to the state it was at before the analysis started. To return <span class="math inline">\(0\)</span> if successful, a negative number if not.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>This method is invoked after the response quantities have been updated in the Domain, but not necessarily committed, e.g. during a non-linear Newton-Raphson solution algorithm. To return <span class="math inline">\(0\)</span> if successful, a negative number if not. This base class implementation returns <span class="math inline">\(0\)</span>.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">isSubdomain</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>The element is to return true if the element is of type (or subtype) Subdomain, else the element should return false. This base class implementation returns <span class="math inline">\(false\)</span>.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getTangentStiff</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>To return the tangent stiffness matrix. The element is to compute its stiffness matrix based on the original location of the nodes and the current trial displacement at the nodes.</p>
 <p><span class="math display">\[{\bf K}_e = {\frac{\partial {\bf F}_{R_i}}{\partial \U}
 \vert}_{{\bf U}_{trial}}\]</span></p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getSecantStiff</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>To return the elements secant stiffness matrix. The element is to compute its stiffness matrix based on the original location of the nodes and the current trial displacement at the nodes. THIS SECANT MAY BE REMOVED.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getDamp</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>To return the damping matrix. The element is to compute its damping matrix based on the original location of the nodes and the current trial response quantities at the nodes. <span class="math display">\[{\bf C}_e = {\frac{\partial {\bf F}_{R_i}}{\partial \dot \U}
 \vert}_{{\bf U}_{trial}}\]</span></p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Matrix</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getMass</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>To return the mass matrix. The element is to compute its mass matrix based on the original location of the nodes and the current trial response quantities at the nodes. <span class="math display">\[{\bf M}_e  = {\frac{\partial {\bf F}_{I_i}}{\partial \ddot \U}
 \vert}_{{\bf U}_{trial}}\]</span></p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">zeroLoad</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>This is a method invoked to zero the element load contributions to the residual, i.e. <span class="math inline">\({\bf P}_e = \zero\)</span></p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getResistingForce</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>Returns the resisting force vector for the element. This is equal to the applied load due to element loads minus the loads at the nodes due to internal stresses in the element due to the current trial displacement, i.e. </p>
 <p><span class="math display">\[{\bf R}_e = {\bf P}_{e} - {\bf F}_{R_e}({\bf U}_{trial})\]</span></p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Vector</span><span class="w"> </span><span class="o">&amp;</span><span class="nf">getResistingForceIncInertia</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
+</div>
 <p>Returns the resisting force vector for the element with inertia forces included. This is equal to the applied load due to element loads (loads set using <code>addLoad()</code>, minus the loads at the nodes due to internal stresses in the element due to the current trial response quantities, i.e. <span class="math display">\[{\bf R}_e = 
 {\bf P}_e -  {\bf F}_{I_e} (\ddot {\bf U}_{trial}) - {\bf F}_{R_e}(\dot
 {\bf U}_{trial}, {\bf U}_{trial})\]</span></p>
-<p><code>setResponse()</code> is a method invoked to determine if the element will respond to a request for a certain of information. The information requested of the element is passed in the array of char pointers <em>argv</em> of length em argc. If the element does not respond to the request a <span class="math inline">\(-1\)</span> is returned. If it does respond, an integer value greater than or equal to <span class="math inline">\(0\)</span> is returned. This is the <em>responseID</em> passed in the <code>getResponse()</code> method. In addition the Element object is responsible for setting the Information object <em>eleInformation</em> with the type of the return, i.e. <em>IntType, DoubleType, MatrixType, VectorType, IDType</em>, and for creating a Matrix, Vector or ID object for the Information object, if the information to be returned is of any of these types. The information object is responsible for invoking the destructor on these objects. The base class responds to no requests and will always return <span class="math inline">\(-1\)</span>.</p>
-<p>getResponse is a method invoked to obtain information from an analysis. The method is invoked with the integer argument returned and the Information object that was prepared in a successful <code>setResponse()</code> method invocation. To return <span class="math inline">\(0\)</span> if successful, a negative number if not. The base class implementation will always return <span class="math inline">\(-1\)</span>.</p>
+<div class="admonition">
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="n">Response</span><span class="w"> </span><span class="o">*</span><span class="nf">setResponse</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">OPS_Stream</span><span class="w"> </span><span class="o">&amp;</span><span class="n">theHandler</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+</div>
+<p><code>setResponse()</code> is a method invoked to determine if the element will respond to a request for a certain type of information. The information requested of the element is passed in the array of <code>char</code> pointers <code>argv</code> of length <code>argc</code>. If the element does not respond to the request a <span class="math inline">\(-1\)</span> is returned. If it does respond, an integer value greater than or equal to <span class="math inline">\(0\)</span> is returned. This is the <code>responseID</code> passed in the <code>getResponse()</code> method. In addition the Element object is responsible for setting the Information object <code>eleInformation</code> with the type of the return, i.e. <code>IntType</code>, DoubleType<code>,</code>MatrixType<code>,</code>VectorType<code>,</code>IDType<code>, and for creating a</code>Matrix<code>,</code>Vector<code>or</code>ID<code>object for the</code>Information` object, if the information to be returned is of any of these types. The information object is responsible for invoking the destructor on these objects. The base class responds to no requests and will always return <span class="math inline">\(-1\)</span>.</p>
+<div class="admonition">
+<div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getResponse</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">responseID</span><span class="p">,</span><span class="w"> </span><span class="n">Information</span><span class="w"> </span><span class="o">&amp;</span><span class="n">eleInformation</span><span class="p">);</span><span class="w"></span>
+<span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">getResponseSensitivity</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">responseID</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">gradIndex</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="n">Information</span><span class="w"> </span><span class="o">&amp;</span><span class="n">eleInformation</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+
+</div>
+<p><code>getResponse</code> is a method invoked to obtain information from an analysis. The method is invoked with the integer argument returned and the Information object that was prepared in a successful <code>setResponse()</code> method invocation. To return <span class="math inline">\(0\)</span> if successful, a negative number if not. The base class implementation will always return <span class="math inline">\(-1\)</span>.</p>
 
 
               
