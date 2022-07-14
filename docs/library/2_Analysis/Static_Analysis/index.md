@@ -48,6 +48,7 @@ class StaticAnalysis: public Analysis;
 
 ### Constructors
 
+:::{.admonition}
 ```cpp
 StaticAnalysis(Domain &theDomain, 
          ConstraintHandler &theHandler, 
@@ -58,6 +59,7 @@ StaticAnalysis(Domain &theDomain,
          StaticIntegrator &theIntegrator,
          int numIncrements = 1);
 ```
+:::
 
 The constructor is responsible for setting the links between the objects
 in the aggregation. To do this it invokes 
@@ -79,13 +81,16 @@ objects in the aggregation need to be invoked.
 
 ### Public Methods
 
+:::{.admonition}
 ```cpp
 int analyze(int numSteps);
 ```
+:::
 
 Invoked to perform a static analysis on the FE_Model. The analysis The
 `StaticAnalysis` object performs the following:
 
+:::{.admonition}
 ```cpp
 for (int i=0; i < numSteps; i++) {
   if (theDomain->hasDomainChanged() == true)
@@ -95,6 +100,7 @@ for (int i=0; i < numSteps; i++) {
   theIntegrator.commit();
 }
 ```
+:::
 
 The type of analysis performed, depends on the type of the objects in
 the analysis aggregation. If any of the methods invoked returns a
@@ -103,17 +109,21 @@ invoked on the Domain, and a negative number is immediately returned.
 Returns a $0$ if the algorithm is successful.
 
 
-```{.cpp}
+:::{.admonition}
+```cpp
 void clearAll(void);
 ```
+:::
 
 Will invoke the destructor on all the objects in the aggregation. NOTE
 this means they must have been constructed using `new()`, otherwise a
 segmentation fault can occur.
 
+:::{.admonition}
 ```cpp
 int domainChange(void);
 ```
+:::
 
 This is a method invoked by the analysis during the analysis method if
 the Domain has changed. The method invokes the following:
@@ -146,16 +156,20 @@ the Domain has changed. The method invokes the following:
 
 #### Public Methods to vary the type of Analysis
 
+:::{.admonition}
 ```cpp
 int setNumIncrements(int numIncrements);
 ```
+:::
 
 To set the number of incremental steps in the analysis to be
 *numIncrements*. Returns $0$.
 
+:::{.admonition}
 ```cpp
 int setAlgorithm(EquiSolnAlgo &theAlgorithm);
 ```
+:::
 
 To change the algorithm between analysis. It first invokes the
 destructor on the old SolutionAlgorithm object associated with the
@@ -166,9 +180,11 @@ true it invokes `domainChanged()`, otherwise it invokes
 `domainChanged()` on the new SolutionAlgorithm. Returns $0$ if
 successful, a warning message and a negative number if not.
 
+:::{.admonition}
 ```cpp
 int setIntegrator(StaticIntegrator &theIntegrator);
 ```
+:::
 
 To change the integration scheme between analysis. It first invokes the
 destructor on the old Integrator object associated with the analysis. It
@@ -181,17 +197,19 @@ if true it invokes `domainChanged()`, otherwise it invokes
 warning message and a negative number if not.
 
 
+:::{.admonition}
 ```cpp
 int setLinearSOE(LinearSOE &theSOE);
 ```
+:::
 
 To change the linear system of equation object between analysis. It
 first invokes the destructor on the old LinearSOE object associated with
 the analysis. It then sets the SolutionAlgorithm associated with the
-analysis to be *newSOE*. links for this object by invoking `setLinks()`.
+analysis to be `newSOE`. links for this object by invoking `setLinks()`.
 It then invokes `setLinks()` on the ConstraintHandler and
 SolutionAlgorithm objects. Checks then to see if the domain has changed,
 if true it invokes `domainChanged()`, otherwise it invokes `setSize()`
-on the new LinearSOE. Returns $0$ if successful, a warning message and a
+on the new `LinearSOE`. Returns $0$ if successful, a warning message and a
 negative number if not.
 

@@ -22,16 +22,13 @@ integrator CentralDifference
 <p>NOTES:</p>
 <ol>
 <li>The calculation of $U_{t+\Delta t}$, as shown
-below, is based on using the equilibrium equation at time t. For this
-reason the method is called an <strong>explicit integration
-method</strong>.</li>
-<li>If there is no rayleigh damping and the C matrix is 0, for a
-diagonal mass matrix a diagonal solver may and should be used.</li>
-<li>For stability, &lt;math&gt;\frac{\Delta t}{T_n} &lt;
-\frac{1}{\pi}&lt;/math&gt;</li>
+  below, is based on using the equilibrium equation at time t. For this
+  reason the method is called an <strong>explicit integration
+  method</strong>.</li>
+<li>If there is no rayleigh damping and the $C$ matrix is 0, for a
+  diagonal mass matrix a diagonal solver may and should be used.</li>
+<li>For stability, $\frac{\Delta t}{T_n} < \frac{1}{\pi}$</li>
 </ol>
-<hr />
-## References
 <hr />
 
 ## Theory
@@ -79,6 +76,10 @@ U_{t-\Delta t} $$
 
 </dd>
 </dl>
+
+## References
+
 <hr />
+
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

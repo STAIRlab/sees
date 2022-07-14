@@ -41,7 +41,7 @@ integrator HHT 0.9
 <p>NOTES: </p>
 
 $\alpha$ is defined differently that in the paper, we use 
-$\alpha = (\alpha_{HHT} - 1})$ where $\alpha_{HHT}$ is that used in the paper.
+$\alpha = \alpha_{HHT} - 1$ where $\alpha_{HHT}$ is that used in the paper.
 
 
 - Like Newmark and all the implicit schemes, the unconditional

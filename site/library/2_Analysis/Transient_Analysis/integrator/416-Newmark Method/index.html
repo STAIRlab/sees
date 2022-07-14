@@ -14198,7 +14198,7 @@ NOTES:
 </p>
 <ol>
 <li>
-If the accelerations are chosen as the unknowns and <span class="math inline">\(\beta\)</span> is chosen as 0, the formulation results in the fast but conditionally stable explicit Central Difference method. Otherwise the method is implicit and requires an iterative solution process.
+If the accelerations are chosen as the unknowns and <span class="math inline">\(\beta\)</span> is chosen as <span class="math inline">\(0\)</span>, the formulation results in the fast but conditionally stable explicit Central Difference method. Otherwise the method is implicit and requires an iterative solution process.
 </li>
 <li>
 Two common sets of choices are
@@ -14212,25 +14212,18 @@ Linear Acceleration Method (<span class="math inline">\(\gamma=\tfrac{1}{2}, \be
 </ol>
 </li>
 <li>
-<span class="math inline">\(\gamma &amp;gt; \tfrac{1}{2}\)</span> results in numerical damping proportional to &lt;math&gt; - &lt;/math&gt;
+<span class="math inline">\(\gamma &gt; \tfrac{1}{2}\)</span> results in numerical damping proportional to <span class="math inline">\(\gamma - \tfrac{1}{2}\)</span>
 </li>
 <li>
-The method is second order accurate if and only if &lt;math&gt;=&lt;/math&gt;
+The method is second order accurate if and only if <span class="math inline">\(\gamma=\tfrac{1}{2}\)</span>
 </li>
 <li>
-The method is conditionally stable for &lt;math&gt; &gt;=  &gt;= &lt;/math&gt;
+The method is conditionally stable for <span class="math inline">\(\beta \ge \frac{\gamma}{2} \ge \tfrac{1}{4}\)</span>
 </li>
 </ol>
 <hr />
-<h2 id="references">References</h2>
-<p>
-Newmark, N.M. “A Method of Computation for Structural Dynamics” ASCE Journal of Engineering Mechanics Division, Vol 85. No EM3, 1959.
-</p>
-<hr />
 <h2 id="theory">Theory</h2>
-<p>
-The Newmark method is a one step implicit method for solving the transient problem, represented by the residual for the momentum equation:
-</p>
+<p>The Newmark method is a one step implicit method for solving the transient problem, represented by the residual for the momentum equation:</p>
 <dl>
 <dt>
 </dt>
@@ -14241,7 +14234,7 @@ t})^{int}\]</span></p>
 </dd>
 </dl>
 <p>
-Using the Taylor series approximation of &lt;math&gt;U_{t+ t}&lt;/math&gt; and <span class="math inline">\(\dot U_{t+\Delta t}\)</span>:
+Using the Taylor series approximation of <span class="math inline">\(U_{t+\Delta t}\)</span> and <span class="math inline">\(\dot U_{t+\Delta t}\)</span>:
 </p>
 <dl>
 <dt>
@@ -14267,8 +14260,7 @@ Newton truncated these using the following:
 <dt>
 </dt>
 <dd>
-<p><span class="math display">\[U_{t+\Delta t} = u_t + \Delta t \dot U_t + \tfrac{\Delta
-t^2}{2} \ddot U + \beta {\Delta t^3} \dot \ddot U \]</span></p>
+<p><span class="math display">\[U_{t+\Delta t} = u_t + \Delta t \dot U_t + \tfrac{\Delta t^2}{2} \ddot U + \beta {\Delta t^3} \dot \ddot U \]</span></p>
 </dd>
 </dl>
 <dl>
@@ -14276,7 +14268,7 @@ t^2}{2} \ddot U + \beta {\Delta t^3} \dot \ddot U \]</span></p>
 </dt>
 <dd>
 <p><span class="math display">\[\dot U_{t + \Delta t} = \dot U_t + \Delta t \ddot U_t +
-\gamma \Delta t^2 \dot \ddot U \]</span></p>
+\gamma \Delta t^2 \dot \ddot U\]</span></p>
 </dd>
 </dl>
 <p>
@@ -14286,8 +14278,7 @@ in which he assumed linear acceleration within a time step, i.e.
 <dt>
 </dt>
 <dd>
-<p><span class="math display">\[\dot \ddot U = \frac{{\ddot U_{t+\Delta t}} - \ddot
-U_t}{\Delta t} \]</span></p>
+<p><span class="math display">\[\dot \ddot U = \frac{{\ddot U_{t+\Delta t}} - \ddot U_t}{\Delta t} \]</span></p>
 </dd>
 </dl>
 <p>
@@ -14298,8 +14289,7 @@ which results in the following expressions:
 </dt>
 <dd>
 <p><span class="math display">\[U_{t+\Delta t} = U_t + \Delta t \dot U_t + [(0.5 - \beta)
-\Delta t^2] \ddot U_t + [\beta \Delta t^2] \ddot U_{t+\Delta
-t}\]</span></p>
+\Delta t^2] \ddot U_t + [\beta \Delta t^2] \ddot U_{t+\Delta t}\]</span></p>
 </dd>
 </dl>
 <dl>
@@ -14311,7 +14301,7 @@ U_t + [\gamma \Delta t ] \ddot U_{t+\Delta t} \]</span></p>
 </dd>
 </dl>
 <p>
-The variables <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> are numerical parameters that control both the stability of the method and the amount of numerical damping introduced into the system by the method. For <span class="math inline">\(\gamma=\tfrac{1}{2}\)</span> there is no numerical damping; for <span class="math inline">\(\gamma&amp;gt;=\tfrac{1}{2}\)</span> numerical damping is introduced. Two well known and commonly used cases are:
+The variables <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span> are numerical parameters that control both the stability of the method and the amount of numerical damping introduced into the system by the method. For <span class="math inline">\(\gamma=\tfrac{1}{2}\)</span> there is no numerical damping; for <span class="math inline">\(\gamma \ge \tfrac{1}{2}\)</span> numerical damping is introduced. Two well known and commonly used cases are:
 </p>
 <ol>
 <li>
@@ -14328,16 +14318,14 @@ The linearization of the Newmark equations gives:
 <dt>
 </dt>
 <dd>
-<p><span class="math display">\[dU_{t+\Delta t}^{i+1} = \beta \Delta t^2 d \ddot U_{t+\Delta
-t}^{i+1}\]</span></p>
+<p><span class="math display">\[dU_{t+\Delta t}^{i+1} = \beta \Delta t^2 d \ddot U_{t+\Delta t}^{i+1}\]</span></p>
 </dd>
 </dl>
 <dl>
 <dt>
 </dt>
 <dd>
-<p><span class="math display">\[d \dot U_{t+\Delta t}^{i+1} = \gamma \Delta t \ddot
-U_{t+\Delta t}^{i+1}\]</span></p>
+<p><span class="math display">\[d \dot U_{t+\Delta t}^{i+1} = \gamma \Delta t \ddot{U}_{t+\Delta t}^{i+1}\]</span></p>
 </dd>
 </dl>
 <p>
@@ -14347,24 +14335,21 @@ which gives the update formula when displacement increment is used as unknown in
 <dt>
 </dt>
 <dd>
-<p><span class="math display">\[U_{t+\Delta t}^{i+1} = U_{t+\Delta t}^i + dU_{t+\Delta
-t}^{i+1}\]</span></p>
+<p><span class="math display">\[U_{t+\Delta t}^{i+1} = U_{t+\Delta t}^i + dU_{t+\Delta t}^{i+1}\]</span></p>
 </dd>
 </dl>
 <dl>
 <dt>
 </dt>
 <dd>
-<p><span class="math display">\[\dot U_{t+\Delta t}^{i+1} = \dot U_{t+\Delta t}^i +
-\frac{\gamma}{\beta \Delta t}dU_{t+\Delta t}^{i+1}\]</span></p>
+<p><span class="math display">\[\dot U_{t+\Delta t}^{i+1} = \dot U_{t+\Delta t}^i + \frac{\gamma}{\beta \Delta t} dU_{t+\Delta t}^{i+1}\]</span></p>
 </dd>
 </dl>
 <dl>
 <dt>
 </dt>
 <dd>
-<p><span class="math display">\[\ddot U_{t+\Delta t}^{i+1} = \ddot U_{t+\Delta t}^i +
-\frac{1}{\beta \Delta t^2}dU_{t+\Delta t}^{i+1}\]</span></p>
+<p><span class="math display">\[\ddot U_{t+\Delta t}^{i+1} = \ddot U_{t+\Delta t}^i + \frac{1}{\beta \Delta t^2}dU_{t+\Delta t}^{i+1}\]</span></p>
 </dd>
 </dl>
 <p>
@@ -14374,8 +14359,7 @@ The linearization of the momentum equation using the displacements as the unknow
 <dt>
 </dt>
 <dd>
-<p><span class="math display">\[K_{t+\Delta t}^{*i} \Delta U_{t+\Delta t}^{i+1} =
-R_{t+\Delta t}^i\]</span></p>
+<p><span class="math display">\[K_{t+\Delta t}^{*i} \Delta U_{t+\Delta t}^{i+1} = R_{t+\Delta t}^i\]</span></p>
 </dd>
 </dl>
 <p>
@@ -14401,6 +14385,10 @@ t}^{i-1})^{int} - C \dot U_{t+\Delta t}^{i-1} - M \ddot U_{t+ \Delta
 t}^{i-1}\]</span></p>
 </dd>
 </dl>
+<h2 id="references">References</h2>
+<p>
+Newmark, N.M. “A Method of Computation for Structural Dynamics” ASCE Journal of Engineering Mechanics Division, Vol 85. No EM3, 1959.
+</p>
 <hr />
 <p>
 Code Developed by: <span style="color:blue"> fmk </span>

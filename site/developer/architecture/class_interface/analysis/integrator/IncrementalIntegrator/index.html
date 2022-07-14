@@ -14152,45 +14152,21 @@
 
 <h1 id="incrementalintegrator">IncrementalIntegrator</h1>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/integrator/IncrementalIntegrator.h&gt;</span><span class="cp"></span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">IncrementalIntegrator</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Integrator</span><span class="w"></span>
 </pre></div>
 
-<p>class IncrementalIntegrator: public Integrator<br />
-</p>
-<p>MovableObject<br />
-Integrator<br />
-</p>
-<p><br />
-IncrementalIntegrator is an abstract class. A subclass of it is used when performing a static or transient analysis using an incremental displacement approach. Subclasses of IncrementalIntegrators provide methods informing the <code>FE_Element</code> and <code>DOF_Group</code> objects how to build the tangent and residual matrices and vectors. They also provide the method for updating the response quantities at the DOFs with appropriate values; these values being some function of the solution to the linear system of equations.</p>
-<h3 id="constructor">Constructor</h3>
-<p><br />
-### Destructor</p>
-<p><br />
-// Public Methods<br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-// Public Method added for Domain Decomposition<br />
-</p>
+<p><code>IncrementalIntegrator</code> is an abstract class. A subclass of it is used when performing a static or transient analysis using an incremental displacement approach. Subclasses of IncrementalIntegrators provide methods informing the <code>FE_Element</code> and <code>DOF_Group</code> objects how to build the tangent and residual matrices and vectors. They also provide the method for updating the response quantities at the DOFs with appropriate values; these values being some function of the solution to the linear system of equations.</p>
+<h3 id="constructor-destructor">Constructor / Destructor</h3>
+<p>The integer <em>classTag</em> is passed to the Integrator classes constructor. Pointers to the AnalysisModel and LinearSOE are set to <span class="math inline">\(0\)</span>.</p>
+<p>Does nothing.</p>
+<h3 id="public-methods">Public Methods</h3>
+<h3 id="public-method-added-for-domain-decomposition">Public Method added for Domain Decomposition<br />
+</h3>
 <p><br />
 // Protected Methods<br />
 </p>
-<p><br />
-</p>
-<p><br />
-</p>
-<p><br />
-The integer <em>classTag</em> is passed to the Integrator classes constructor. Pointers to the AnalysisModel and LinearSOE are set to <span class="math inline">\(0\)</span>.</p>
-<p><br />
-Does nothing.</p>
-<p><br />
-Invoked by the Analysis object to set up the links the IncrementalIntegrator objects needs to perform its operations. Sets the pointers to the AnalysisModel and LinearSOE objects to point to <em>theAnalaysisModel</em> and <em>theSOE</em>.</p>
+<p>Invoked by the Analysis object to set up the links the IncrementalIntegrator objects needs to perform its operations. Sets the pointers to the AnalysisModel and LinearSOE objects to point to <code>theAnalaysisModel</code> and <code>theSOE</code>.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formTangent</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
@@ -14206,13 +14182,12 @@ return <span class="math inline">\(-1\)</span>;</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formUnbalance</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>Invoked to form the unbalance. The method fist zeros out the <span class="math inline">\(B\)</span> vector of the LinearSOE object and then invokes formElementResidual() and formNodalUnbalance() on itself.</p>
-<div class="tabbing">
-<p>while ̄ while w̄hile ̄ theSOE.zeroB();<br />
-this-<span class="math inline">\(&gt;\)</span>fromElementResidual();<br />
-this-<span class="math inline">\(&gt;\)</span>formNodalUnbalance()<br />
-</p>
-</div>
+<p>Invoked to form the unbalance. The method fist zeros out the <span class="math inline">\(B\)</span> vector of the LinearSOE object and then invokes formElementResidual() and <code>formNodalUnbalance()</code> on itself.</p>
+<div class="highlight"><pre><span></span><span class="w">  </span><span class="n">theSOE</span><span class="p">.</span><span class="n">zeroB</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">fromElementResidual</span><span class="p">();</span><span class="w"></span>
+<span class="w">  </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">formNodalUnbalance</span><span class="p">()</span><span class="w"></span>
+</pre></div>
+
 <p>If an error occurs in either of these two methods or if <code>setLinks()</code> has not been called, an error message is printed and a negative number is returned. Returns <span class="math inline">\(0\)</span> if successful.</p>
 <p>To inform the <code>FE_Element</code> how to build its tangent matrix for addition to the system of equations. The subclasses must provide the implementation of this method.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formEleResidual</span><span class="p">(</span><span class="n">FE_Element</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="n">theEle</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
@@ -14249,11 +14224,7 @@ A const member function which returns a pointer to the LinearSOE associated with
 <p>The method first loops over all the <code>DOF_Group</code> objects telling them to form their unbalance and then adds this Vector to the <span class="math inline">\(b\)</span> vector of the LinearSOE object, i.e. it performs the following:<br />
 </p>
 <div class="tabbing">
-<p>while ̄ while w̄hile ̄ DOF_EleIter &amp;theDofs = theAnalysisModel.getDOFs();<br />
-theSOE.zeroB();<br />
-while((dofPtr = theDofs()) <span class="math inline">\(\neq\)</span> 0)<br />
-theSOE.addB(dofPtr-<span class="math inline">\(&gt;\)</span>getUnbalance(theIntegrator), dofPtr-<span class="math inline">\(&gt;\)</span>getID())<br />
-</p>
+<p>DOF_EleIter &amp;theDofs = theAnalysisModel.getDOFs(); theSOE.zeroB(); while((dofPtr = theDofs()) <span class="math inline">\(\neq\)</span> 0) theSOE.addB(dofPtr-<span class="math inline">\(&gt;\)</span>getUnbalance(theIntegrator), dofPtr-<span class="math inline">\(&gt;\)</span>getID())</p>
 </div>
 <p>Returns <span class="math inline">\(0\)</span> if successful, otherwise a negative number is returned and a warning message is printed if an error occurred. Note, no test is made to ensure <code>setLinks()</code> has been invoked.</p>
 <div class="highlight"><pre><span></span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">formElementResidual</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
@@ -14261,9 +14232,7 @@ theSOE.addB(dofPtr-<span class="math inline">\(&gt;\)</span>getUnbalance(theInte
 
 <p>Invoked to form residual vector (the C vector in theSOE). The method iterates twice over the FE_elements in the AnalysisModel, the first time telling the FE_Elements top form their residual and the second time to add this residual to the LinearSOE objects <span class="math inline">\(b\)</span> vector, i.e. it performs the following:</p>
 <div class="tabbing">
-<p>while ̄ while w̄hile ̄ FE_EleIter &amp;theEles = theAnalysisModel.getFEs();<br />
-while((elePtr = theEles()) <span class="math inline">\(\neq\)</span> 0) {<br />
-theSOE.addA(elePtr-<span class="math inline">\(&gt;\)</span>getResidual(this), elePtr-<span class="math inline">\(&gt;\)</span>getID())<br />
+<p>FE_EleIter &amp;theEles = theAnalysisModel.getFEs(); while((elePtr = theEles()) <span class="math inline">\(\neq\)</span> 0) { theSOE.addA(elePtr-<span class="math inline">\(&gt;\)</span>getResidual(this), elePtr-<span class="math inline">\(&gt;\)</span>getID())<br />
 </p>
 </div>
 <p>Returns <span class="math inline">\(0\)</span> if successful, otherwise a warning message is printed and a negative number is returned if an error occurs. Note, no test is made to ensure <code>setLinks()</code> has been invoked.</p>
