@@ -14137,23 +14137,7 @@
 
 
 <h1 id="analysis-capabilities">Analysis Capabilities</h1>
-<p>Linear equation solvers, time integration schemes, and solution algorithms are the core of the OpenSees computational framework. The components of a solution strategy are interchangeable, allowing analysts to find sets suited to their particular problem. Outlined here are the available solution strategies. New parts of the solution strategy may be seamlessly plugged in to the existing framework.</p>
-<h3 id="static-integrators">Static Integrators</h3>
-<p>Determing the next time step for an analysis is done by the following schemes</p>
-<ul>
-<li><a href="">Load Control</a> – Specifies the incremental load factor to be applied to the loads in the domain</li>
-<li><a href="">Displacement Control</a> – Specifies the incremental displacement at a specified DOF in the domain</li>
-<li><a href="StaticIntegrator/">Minimum Unbalanced Displacement Norm</a> – Specifies the incremental load factor such that the residual displacement norm in minimized</li>
-<li><a href="StaticIntegrator/ArcLength1">Arc Length</a> – Specifies the incremental arc-length of the load-displacement path</li>
-</ul>
-<h3 id="transient-integrators">Transient Integrators</h3>
-<p>Determing the next time step for an analysis including inertial effects is done by the following schemes</p>
-<ul>
-<li><a href="TransientIntegrator/Newmark">Newmark</a> – The two parameter time-stepping method developed by Newmark</li>
-<li><a href="TransientIntegrator/HHT">HHT</a> – The three parameter Hilbert-Hughes-Taylor time-stepping method</li>
-<li><a href="TransientIntegrator/GeneralizedAlpha">Generalized Alpha</a> – Generalization of the HHT algorithm with improved numerical damping</li>
-<li><a href="">Central Difference</a> – Approximates velocity and acceleration by centered finite differences of displacement</li>
-</ul>
+<p>Linear equation solvers, time integration schemes, and solution algorithms are the core of the OpenSees computational framework. The components of a solution strategy are interchangeable, allowing analysts to find sets suited to their particular problem.</p>
 <h3 id="eigenvalue-solvers">Eigenvalue Solvers</h3>
 <p>The following methods provide the solution of the generalized eigenvalue problem <span class="math inline">\(Kv = MvL\)</span></p>
 <ul>

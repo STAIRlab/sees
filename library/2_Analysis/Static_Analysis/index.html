@@ -14148,7 +14148,14 @@ to perform a static analysis on the Domain.
 <li><p><strong>ConstraintHandler</strong> - a class which creates the <code>DOF_Group</code> and <code>FE_Element</code> objects, the type of objects created depending on how the specified constraints in the domain are to be handled.</p></li>
 <li><p><strong>DOF_Numberer</strong> - a class responsible for providing equation numbers to the individual degrees of freedom in each DOF_Group object.</p></li>
 <li><p><strong>LinearSOE</strong> - a numeric class responsible for the creation and subsequent solution of large systems of linear equations of the form <span class="math inline">\(Ax = b\)</span>, where <span class="math inline">\(A\)</span> is a matrix and <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> are vectors.</p></li>
-<li><p><strong>StaticIntegrator</strong> - an algorithmic class which provides methods which are invoked by the <code>FE_Element</code> to determine their current tangent and residual matrices; that is this is the class that sets up the system of equations. It also provides the <code>update()</code> method which is invoked to set up the appropriate dof response values once the solution algorithm has formed and solved the system of equations.</p></li>
+<li><p><strong>StaticIntegrator</strong> - an algorithmic class which provides methods which are invoked by the <code>FE_Element</code> to determine their current tangent and residual matrices; that is this is the class that sets up the system of equations. It also provides the <code>update()</code> method which is invoked to set up the appropriate dof response values once the solution algorithm has formed and solved the system of equations.</p>
+<p>Determing the next time step for an analysis is done by the following schemes</p>
+<ul>
+<li><a href="">Load Control</a> – Specifies the incremental load factor to be applied to the loads in the domain</li>
+<li><a href="">Displacement Control</a> – Specifies the incremental displacement at a specified DOF in the domain</li>
+<li><a href="StaticIntegrator/">Minimum Unbalanced Displacement Norm</a> – Specifies the incremental load factor such that the residual displacement norm in minimized</li>
+<li><a href="StaticIntegrator/ArcLength1">Arc Length</a> – Specifies the incremental arc-length of the load-displacement path</li>
+</ul></li>
 <li><p><strong>EquiSolnAlgo</strong> - an algorithmic class specifying the sequence of operations to be performed in setting up and solving the finite element equation which can be represented by the equation K(U) U = P(U).</p></li>
 </ul>
 <h2 id="class-interface">Class Interface</h2>
@@ -14200,10 +14207,11 @@ to perform a static analysis on the Domain.
 
 </div>
 <p>The type of analysis performed, depends on the type of the objects in the analysis aggregation. If any of the methods invoked returns a negative number, an error message is printed, <code>revertToLastCommit()</code> is invoked on the Domain, and a negative number is immediately returned. Returns a <span class="math inline">\(0\)</span> if the algorithm is successful.</p>
+<div class="admonition">
 <div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">clearAll</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
 </pre></div>
 
-<p>:::</p>
+</div>
 <p>Will invoke the destructor on all the objects in the aggregation. NOTE this means they must have been constructed using <code>new()</code>, otherwise a segmentation fault can occur.</p>
 <div class="admonition">
 <div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">domainChange</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>

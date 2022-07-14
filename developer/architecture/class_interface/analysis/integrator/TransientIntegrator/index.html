@@ -14156,11 +14156,6 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">TransientIntegrator</span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Integrator</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
-<div class="highlight"><pre><span></span>      MovableObject
-      Integrator
-      IncrementalIntegrator
-</pre></div>
-
 <ul>
 <li><a href="Newmark">Newmark</a></li>
 <li><a href="HHT">HHT</a></li>
@@ -14168,8 +14163,7 @@
 <li><a href="GeneralizedAlpha">Generalized Alpha</a></li>
 </ul>
 <p><code>TransientIntegrator</code> is an abstract subclass of <code>IncrementalIntegrator</code>. A subclass of it is used when performing a nonlinear transient analysis of the problem using a direct integration method. The <code>TransientIntegrator</code> class redefines the <code>formTangent()</code> method of the <code>IncrementalIntegrator</code> class and it defines a new method <code>newStep()</code> which is invoked by the <code>DirectIntegrationAnalysis</code> class at each new time step. In nonlinear transient finite element problems we seek a solution (<span class="math inline">\(\U\)</span>, <span class="math inline">\(\dot \U\)</span>, <span class="math inline">\(\ddot \U\)</span>) to the nonlinear vector function</p>
-<p><span class="math display">\[{\bf R}({\bf U},\Ud, \Udd) = {\bf P}(t) - {\bf F}_I(\Udd) - {\bf F}_R(\U, \Ud) = \zero
-\]</span> {#femGenForm}</p>
+<p><span class="math display">\[{\bf R}({\bf U},\Ud, \Udd) = {\bf P}(t) - {\bf F}_I(\Udd) - {\bf F}_R(\U, \Ud) = \zero\]</span> {#femGenForm}</p>
 <p>The most widely used technique for solving the transient non-linear finite element equation, equation <a href="#femGenForm" data-reference-type="ref" data-reference="femGenForm">[femGenForm$$</a>, is to use an incremental direct integration scheme. In the incremental formulation, a solution to the equation is sought at successive time steps <span class="math inline">\(\Delta t\)</span> apart.</p>
 <p><span class="math display">\[\R({\bf U}_{n \Delta t},\dot{\bf U}_{n \Delta t}, \ddot{\bf U}_{n \Delta t}) = {\bf P}(n \Delta t) -
 {\bf F}_I(\ddot{\bf U}_{n \Delta t}) - {\bf F}_R({\bf U}_{n \Delta t}, \dot{\bf U}_{n \Delta t})
@@ -14197,19 +14191,13 @@
  \left( {\bf U}_{t} - {\bf U}_{t}^{(i)} \right)
 \label{femGenFormTaylor}\]</span></p>
 <p>To start the iteration scheme, trial values for <span class="math inline">\({\bf U}_{t}\)</span>, <span class="math inline">\(\dot {\bf U}_{t}\)</span> and <span class="math inline">\(\ddot {\bf U}_{t}\)</span> are required. These are obtained by assuming <span class="math inline">\({\bf U}_{t}^{(0)} = {\bf U}_{t-\Delta t}\)</span>. The <span class="math inline">\(\dot {\bf U}_{t}^{(0)}\)</span> and <span class="math inline">\(\ddot {\bf U}_{t}^{(0)}\)</span> can then be obtained from the operators for the integration scheme. Subclasses of TransientIntegrators provide methods informing the FE_Element and <code>DOF_Group</code> objects how to build the tangent and residual matrices and vectors. They also provide the method for updating the response quantities at the DOFs with appropriate values; these values being some function of the solution to the linear system of equations.</p>
-<h3 id="constructor">Constructor</h3>
-<h3 id="destructor">Destructor</h3>
-<p>// Public Methods<br />
-</p>
-<p><br />
-</p>
-<p><br />
-</p>
+<h3 id="constructor-destructor">Constructor / Destructor</h3>
 <p>The integer <code>classTag</code> is passed to the <code>IncrementalIntegrator</code> classes constructor.</p>
 <div class="highlight"><pre><span></span>
 </pre></div>
 
 <p>Does nothing.</p>
+<h3 id="public-methods">Public Methods</h3>
 <div class="highlight"><pre><span></span>
 </pre></div>
 

@@ -14161,6 +14161,14 @@
 <li><p><code>system</code> (<strong>LinearSOE</strong>) - a numeric class responsible for the creation and subsequent solution of large systems of linear equations of the form <span class="math inline">\(Ax = b\)</span>, where <span class="math inline">\(A\)</span> is a matrix and <span class="math inline">\(x\)</span> and <span class="math inline">\(b\)</span> are vectors.</p></li>
 <li><p><code>algorithm</code> (<strong>EquiSolnAlgo</strong>) - an algorithmic class specifying the sequence of operations to be performed in setting up and solving the finite element equation which can be represented by the equation <span class="math inline">\(K(U) U = P(U)\)</span>.</p></li>
 </ul>
+<h3 id="transient-integrators">Transient Integrators</h3>
+<p>Determing the next time step for an analysis including inertial effects is done by the following schemes</p>
+<ul>
+<li><a href="TransientIntegrator/Newmark">Newmark</a> – The two parameter time-stepping method developed by Newmark</li>
+<li><a href="TransientIntegrator/HHT">HHT</a> – The three parameter Hilbert-Hughes-Taylor time-stepping method</li>
+<li><a href="TransientIntegrator/GeneralizedAlpha">Generalized Alpha</a> – Generalization of the HHT algorithm with improved numerical damping</li>
+<li><a href="">Central Difference</a> – Approximates velocity and acceleration by centered finite differences of displacement</li>
+</ul>
 <h2 id="implementation">Implementation</h2>
 <div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;analysis/analysis/DirectIntegrationAnalysis.h&gt;</span><span class="cp"></span>
 

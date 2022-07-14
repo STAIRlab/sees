@@ -14172,14 +14172,12 @@ NOTES:
 The calculation of <span class="math inline">\(U_{t+\Delta t}\)</span>, as shown below, is based on using the equilibrium equation at time t. For this reason the method is called an <strong>explicit integration method</strong>.
 </li>
 <li>
-If there is no rayleigh damping and the C matrix is 0, for a diagonal mass matrix a diagonal solver may and should be used.
+If there is no rayleigh damping and the <span class="math inline">\(C\)</span> matrix is 0, for a diagonal mass matrix a diagonal solver may and should be used.
 </li>
 <li>
-For stability, &lt;math&gt; &lt; &lt;/math&gt;
+For stability, <span class="math inline">\(\frac{\Delta t}{T_n} &lt; \frac{1}{\pi}\)</span>
 </li>
 </ol>
-<hr />
-<h2 id="references">References</h2>
 <hr />
 <h2 id="theory">Theory</h2>
 <p>
@@ -14223,6 +14221,7 @@ which when using the above two expressions of becomes:
 U_{t-\Delta t} \]</span></p>
 </dd>
 </dl>
+<h2 id="references">References</h2>
 <hr />
 <p>
 Code Developed by: <span style="color:blue"> fmk </span>
