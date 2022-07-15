@@ -1196,6 +1196,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/damping/RayleighElement/</loc>
+         <lastmod>2022-07-15</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://brace2.github.io/OpenSeesRT/library/1_Modeling/element/</loc>
          <lastmod>2022-07-15</lastmod>
          <changefreq>daily</changefreq>

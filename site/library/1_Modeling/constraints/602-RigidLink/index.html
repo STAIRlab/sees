@@ -7035,6 +7035,8 @@
         
           
         
+          
+        
       
       
         <label class="md-nav__link" for="__nav_3_1_4">
@@ -7056,6 +7058,21 @@
   
     <li class="md-nav__item">
       <a href="../../damping/570-Rayleigh%20Damping%20Command/" class="md-nav__link">
+        Rayleigh Damping
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../damping/RayleighElement/" class="md-nav__link">
         Rayleigh Damping
 
       </a>
@@ -14201,74 +14218,8 @@
 
 
 <h1 id="rigidlink">RigidLink</h1>
-<p>
-This command is used to construct a single MP_Constraint object.
-</p>
-<div class="highlight"><pre><span></span><span class="nv">rigidLink</span><span class="w"> </span><span class="nv">$type</span><span class="w"> </span><span class="nv">$rNodeTag</span><span class="w"> </span><span class="nv">$cNodeTag</span>
-</pre></div>
-
-<hr />
-<table>
-<tbody>
-<tr class="odd">
-<td>
-<p>
-<code class="parameter-table-variable">type</code>
-</p>
-</td>
-<td>
-<p>
-string-based argument for rigid-link type:
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-</td>
-<td>
-<p>
-<strong>bar</strong> only the translational degree-of-freedom will be constrained to be exactly the same as those at the retained node
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-</td>
-<td>
-<p>
-<strong>beam</strong> both the translational and rotational degrees of freedom are constrained.
-</p>
-</td>
-</tr>
-<tr class="even">
-<td>
-<p>
-<code class="parameter-table-variable">rNodeTag</code>
-</p>
-</td>
-<td>
-<p>
-integer tag identifying the retained node
-</p>
-</td>
-</tr>
-<tr class="odd">
-<td>
-<p>
-<code class="parameter-table-variable">cNodeTag</code>
-</p>
-</td>
-<td>
-<p>
-integer tag identifying the constrained node
-</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p>
-NOTE: The constraint object constructed for the beam option assumes small rotations
-</p>
+<p>This command is used to construct a single MP_Constraint object.</p>
+<p>NOTE: The constraint object constructed for the beam option assumes small rotations</p>
 <h2 id="examples">Examples</h2>
 <p>connect node 3 to node 2 via a rigid link-beam.</p>
 <div class="highlight"><pre><span></span><span class="nv">rigidLink</span><span class="w"> </span>beam<span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="k">;</span><span class="w"> </span>
