@@ -1,6 +1,5 @@
-```{=mediawiki}
-{{CommandManualMenu}}
-```
+# Path TimeSeries
+
 This command is used to construct a Path TimeSeries object. The
 relationship between load factor and time is input by the user as a
 series of discrete points in the 2d space (load factor, time). The input
