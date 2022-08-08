@@ -1,12 +1,4 @@
 
-# def _to_list(val, fmt):
-#     if isinstance(val, (int,float)):
-#         return val
-#     elif isinstance(val, (Int,Num)):
-#         return val.to_str(fmt)
-#     elif isinstance(val,list) or hasattr(val,"__array__"):
-#         return None
-
 class Parameter:
     def __init__(self, name, typ):
         self.name = name
@@ -15,7 +7,7 @@ class Parameter:
         return f"${self.name}"
 
 class Arg:
-    __slots__ = ["name", "flag", "value", "field", "default", "type", "reqd", "namespace"]
+    __slots__ = ["name", "flag", "value", "field", "default", "type", "reqd", "namespace"]#, "group"]
     def __init__(self,
         name = None,
         #help = None,
@@ -25,6 +17,7 @@ class Arg:
         field= None,
         about= "",
         default = None,
+        # group = None,
         **kwds
     ):
         if name and name[0] == "-":
@@ -39,10 +32,11 @@ class Arg:
         self.default = default
         self.kwds = kwds
         self.about = about
+        # self.group = group
         self.init()
 
     def __repr__(self):
-        return self.__class__.__name__ + f"<{self.value}>"
+        return self.__class__.__name__ + f"<{self.name}>"
 
     def init(self): pass
 
@@ -177,15 +171,26 @@ class Map(Arg):
 class Grp(Arg):
     """Argument grouping"""
     def init(self):
+
         num = self.kwds.get("num", self.kwds.get("min", None))
-        if num:
+        if isinstance(num, int):
             self.args = [
                 self.type(f"{self.name}{i+1}") for i in range(num)
             ]
-        else:
-            assert isinstance(self.kwds["args"],list), self.name
+            self.num = len(self.args)
+
+        elif num=="*":
+            self.args = [self.type(self.name)]
+            self.num = 1
+
+        elif isinstance(self.kwds["args"],list):
             self.args = self.kwds["args"]
-        self.num = len(self.args)
+            self.num = len(self.args)
+
+        else:
+            raise ValueError()
+
+
 
     def as_tcl_list(self, value=None):
         value = self._get_value(None,value)

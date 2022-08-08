@@ -1,0 +1,8 @@
+recursive-include src/opensees/units/json *
+recursive-include src/libg3 *.cpp *.txt *.c *.f *.h *.cmake *.f90 *.C *.cc *.hh *.hpp
+prune src/libg3/DEVELOPER/*
+prune src/libg3/EXAMPLES/*
+prune src/libg3/MAKES/*
+prune docs/*
+prune site/*
+prune tests/*

@@ -12,17 +12,20 @@ from opensees import ast
 def write_grp(a):
     args = (write_grp(i) if isinstance(i, ast.Grp) else (i.name if i.name else "") for i in a.args)
     return "["+",".join(args)+"]"
-    #write(f"<td>`{name}`</td><td>`typ`</td><td>{about}", end="")
 
-
-def write_obj(v, w):
+def write_obj(v, w, qual=None):
     name = v.__name__
-    s = str(inspect.signature(v)).replace('=None','')
-    if len(s) > 65:
+    if qual is not None: 
+        qual = qual + "."
+    else:
+        qual = ""
+    s = "(" + ", ".join(arg.name for arg in v._args if arg.reqd) + ", **kwds)"
+    #s = str(inspect.signature(v)).replace('=None','')
+    if len(s) > 45:
         s = s.replace(", ", ",<br>&emsp;&emsp;&emsp;")
     w.write(textwrap.dedent(f"""
     <span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);">
-        <span style="color:#900">{name}</span>{s}
+        {qual}<span style="color:#900">{name}</span>{s}
     </span>
     """))
     try:
@@ -42,10 +45,6 @@ def write_obj(v, w):
     <tbody>
     """))
 
-    # for a in v._args:
-    #     # print(a, file=sys.stderr)
-    #     write_arg(a)
-
 class ApiEmitter(Emitter):
     def Arg(this, a, value=None)->list:
 
@@ -53,29 +52,36 @@ class ApiEmitter(Emitter):
             getattr(this, a.__class__.__name__)(a)
             return
         name = a.name or ""
-        default = " = "+str(a.default) if a.default else ""
+        default = " = "+str(a.default) if a.default is not None else ""
         about = re.sub('[\s+]', ' ', a.about.replace('\n',' '))
         try:
             typ = f'<code style="white-space: nowrap;">{a.type.__name__}</code>'
         except:
             typ = f"<code>{a.__class__.__name__}</code>"
+        if "enum" in a.kwds:
+            about += "<table>" + "".join(f"<tr><td>{k}</td><td>{v}</td></tr>" for k,v in a.kwds["enum"].items()) + "</table>"
         this.write(f"<td>{name+default}</td><td>{typ}</td><td>{about}")
 
 
     def Lst(self, arg, value=None):
-        self.write(f"Array[{arg.type.__name__}]")
+        name = arg.name or ""
+        about = re.sub('[\s+]', ' ', arg.about.replace('\n',' '))
+        self.write(f"<td>{name}</td><td><code>Array[{arg.type.__name__}]</td></code><td>{about}</td>")
 
     def Tag(this, self, value=None):
         pass
 
 
-    def Flg(this, self, value=None): 
-        value = self.value if value is None else value
-        if value: this.write(self.flag)
+    def Flg(this, a, value=None): 
+        name = a.name or ""
+        default = " = "+str(a.default) if a.default is not None else ""
+        about = re.sub('[\s+]', ' ', a.about.replace('\n',' '))
+        typ = f"<code>bool</code>"
+        this.write(f"<td>{name+default}</td><td>{typ}</td><td>{about}")
 
     def Grp(this, a, value=None):
         name = (a and a.name) or ""
-        default = " = "+str(a.default) if a.default else ""
+        default = " = "+str(a.default) if a.default is not None else ""
         about = re.sub('[\s+]', ' ', a.about.replace('\n',' '))
         try:
             typ = f"<code>{a.__class__.__name__}({a.type.__name__})</code>"
@@ -103,7 +109,10 @@ class ApiEmitter(Emitter):
         name = a.name or ""
         default = " = "+str(a.default) if a.default else ""
         about = re.sub('[\s+]', ' ', a.about.replace('\n',' '))
-        typ = f"<code>{a.__class__.__name__}({a.type.__name__})</code>"
+        if isinstance(a.type, str):
+            typ = f"<code>{a.__class__.__name__}({a.type})</code>"
+        else:
+            typ = f"<code>{a.__class__.__name__}({a.type.__name__})</code>"
         this.write(f"<td>{name+default}</td><td>{typ}</td><td>{about}")
 
     # def Blk(this, self, value=None):
@@ -136,24 +145,17 @@ class ApiDocWriter(ScriptBuilder):
     def __init__(self):
         ScriptBuilder.__init__(self, ApiEmitter)
 
-    def send(self, obj, idnt=None):
+    def send(self, obj, idnt=None, qual=None):
         w = self.streams[0]        
 
-        write_obj(obj, w)
+        write_obj(obj, w, qual=qual)
         w.endln();
 
         for arg in obj._args:
             w.write("<tr>")
             typ = arg.__class__.__name__
             
-           # try:
-           #     getattr(w, typ)(arg)
-           # except AttributeError:
             w.Arg(arg)
-            # try:
-            #     w.Arg(arg)
-            # except Exception as e:
-            #     print(e, file=sys.stderr)
 
             w.write("</tr>")
             w.endln();
@@ -175,8 +177,8 @@ if __name__ == "__main__":
     _, module, obj = sys.argv[1].split(".")
 
     print(ApiDocWriter().send(
-        getattr(getattr(opensees, module), obj)
-        ))
+        getattr(getattr(opensees, module), obj), qual="opensees."+module
+    ))
 
 
 

@@ -48,17 +48,16 @@ virtual int formTangent(void);
 
 Invoked to form the structure tangent matrix. The method first loops
 over all the FE_Elements in the AnalysisModel telling them to form their
-tangent and then it loops over the FE_Elements again adding the tangent
-to the LinearSOE objects A matrix. It performs the following:
+tangent and then it loops over the `FE_Elements` again adding the tangent
+to the LinearSOE objects $A$ matrix. It performs the following:
 
-::: {.tabbing}
-while ̄ while w̄hile ̄ FE_EleIter &theEles = theAnalysisModel.getFEs();\
-theSOE.zeroA();\
-while((elePtr = theEles1()) $\neq$ 0)\
-if (theSOE.addA(elePtr-$>$getTangent(this), elePtr-$>$getID(), $1.0$)
-$<$ 0)\
-return $-1$;
-:::
+```
+FE_EleIter &theEles = theAnalysisModel.getFEs();
+theSOE.zeroA();
+while((elePtr = theEles1()) != 0)
+  if (theSOE.addA(elePtr->getTangent(this), elePtr->getID(), 1.0) < 0)
+    return -1;
+```
 
 Returns $0$ if successful, otherwise an error message is printed an a
 $-1$ is returned if `setLinks()` has not been called, or $-2$ if failure

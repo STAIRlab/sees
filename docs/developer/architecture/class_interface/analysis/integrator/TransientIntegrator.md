@@ -24,12 +24,10 @@ $${\bf R}({\bf U},\Ud, \Udd) = {\bf P}(t) - {\bf F}_I(\Udd) - {\bf F}_R(\U, \Ud)
 
 The most widely used technique for solving the transient non-linear
 finite element equation,
-equation [\[femGenForm$$
-](#femGenForm){reference-type="ref"
+equation [\[femGenForm](#femGenForm){reference-type="ref"
 reference="femGenForm"}, is to use an incremental direct integration
 scheme. In the incremental formulation, a solution to the equation is
-sought at successive time steps $\Delta
-t$ apart.
+sought at successive time steps $\Delta t$ apart.
 
 $$\R({\bf U}_{n \Delta t},\dot{\bf U}_{n \Delta t}, \ddot{\bf U}_{n \Delta t}) = {\bf P}(n \Delta t) -
 {\bf F}_I(\ddot{\bf U}_{n \Delta t}) - {\bf F}_R({\bf U}_{n \Delta t}, \dot{\bf U}_{n \Delta t})
@@ -50,8 +48,7 @@ $$\ddot {\bf U}_{t} = {\I}_2 ({\bf U}_t, {\bf U}_{t-\Delta t}, \dot {\bf U}_{t-\
 \label{I2}$$
 
 These allow us to rewrite
-equation [\[fullTimeForm$$
-](#fullTimeForm){reference-type="ref"
+equation [\[fullTimeForm](#fullTimeForm){reference-type="ref"
 reference="fullTimeForm"}, in terms of a single response quantity,
 typically the displacement:
 
@@ -64,8 +61,7 @@ ${\bf U}_{t}^{(0)}$ a sequence of approximations ${\bf U}_{t}^{(i)}$, $i=1,2, ..
 is obtained which converges (we hope) to the solution ${\bf U}_{t}$. The most
 frequently used iterative schemes, such as Newton-Raphson, modified
 Newton, and quasi Newton schemes, are based on a Taylor expansion of
-equation [\[genForm$$
-](#genForm){reference-type="ref"
+equation [\[genForm](#genForm){reference-type="ref"
 reference="genForm"} about ${\bf U}_{t}$:
 
 $$\R({\bf U}_{t}) = 
@@ -86,8 +82,8 @@ To start the iteration scheme, trial values for ${\bf U}_{t}$, $\dot
 ${\bf U}_{t}^{(0)} = {\bf U}_{t-\Delta t}$. The $\dot {\bf U}_{t}^{(0)}$ and
 $\ddot {\bf U}_{t}^{(0)}$ can then be obtained from the operators for the
 integration scheme.
-Subclasses of TransientIntegrators provide methods informing the
-FE_Element and `DOF_Group` objects how to build the tangent and residual
+Subclasses of `TransientIntegrator` provide methods informing the
+`FE_Element` and `DOF_Group` objects how to build the tangent and residual
 matrices and vectors. They also provide the method for updating the
 response quantities at the DOFs with appropriate values; these values
 being some function of the solution to the linear system of equations.
@@ -104,9 +100,9 @@ Does nothing.
 
 ### Public Methods
 
+
 ```cpp
 ```
-
 
 Invoked to form the structure tangent matrix. The method is rewritten
 for this class to include inertia effects from the nodes. The method
@@ -128,27 +124,29 @@ while((elePtr = theEles()) != 0)
 
 Returns $0$ if successful, otherwise a $-1$ if an error occurred while
 trying to add the stiffness. The two loops are introduced for the
-FE_Elements, to allow for efficient parallel programming when the
-FE_Elements are associated with a ShadowSubdomain.
+`FE_Element`s, to allow for efficient parallel programming when the
+`FE_Element`s are associated with a `ShadowSubdomain`.
 
+:::{.admonition}
 ```{.cpp}
 virtual int formEleResidual(FE_Element *theEle);
 ```
-
+:::
 Called upon by the `FE_Element` *theEle* to determine it's contribution to
-the rhs of the equation. The following are invoked before $0$ is
+the RHS of the equation. The following are invoked before $0$ is
 returned.
 
 ```cpp
-theEle-$>$zeroResidual()
-theEle-$>$addRIncInertiaToResid()
+theEle->zeroResidual()
+theEle->addRIncInertiaToResid()
 ```
 
 
+:::{.admonition}
 ```{.cpp}
 virtual int formNodUnbalance(DOF_Group *theDof);
 ```
-
+:::
 Called upon by the `DOF_Group` `theDof` to determine it's contribution to
 the rhs of the equation. The following are invoked before $0$ is
 returned.
@@ -159,10 +157,11 @@ theDof->addPIncInertiaToUnbalance()
 ```
 
 
+:::{.admonition}
 ```{.cpp}
 virtual int newStep(double deltaT) =0;
 ```
-
+:::
 Invoked to inform the integrator that the transient analysis is
 proceeding to the next time step. To return $0$ if successful, a
 negative number if not.

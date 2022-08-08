@@ -1,5 +1,6 @@
 from .ast import Num, Tag, Ref, Blk, Int, Lst, Grp, Str
 from .obj import LibCmd, cmd
+from .lib import Dof
 
 _pattern = LibCmd("pattern")
 _series  = LibCmd("timeSeries")
@@ -13,7 +14,7 @@ class TimeSeries:
         Tag(),
         Lst("time",   flag="-time",   type=float),
         Lst("values", flag="-values", type=float),
-        Num("scale",  reqd=False)
+        Num("scale",  flat="-fact",   reqd=False)
     ]
 
     def init(self, series=None, step=None, time=None):
@@ -21,8 +22,10 @@ class TimeSeries:
             self.time = self.values.time
             self.values = self.values.data
         if "step" in self.kwds:
-            dt = self.kwds["step"]
+            dt = self.time_step = self.kwds["step"]
             self.time = [0.0 + i*dt for i in range(len(self.values))]
+        else:
+            self.time_step = None
 
 @cmd
 class GroundMotion:
@@ -55,7 +58,7 @@ class GroundMotion:
 class ImposedMotion:
     _args = [ 
         Ref("node", type="node"),
-        Int("dof"),
+        Dof(),
         Ref("motion", type=GroundMotion)
     ]
     _refs = ["node"]
@@ -69,9 +72,9 @@ load = cmd("load", "load", args=[Ref("node"), Grp("load", min=1, type=Num)])
 class Plain:
     _args = [
         Tag(),
-        Ref("series", type=TimeSeries),
+        Ref("series", type=TimeSeries, about="Reference to the time series to be used in the load pattern"),
         Blk("loads"),
-        Num("scale", reqd=False),
+        Num("scale", reqd=False, about="constant scale factor"),
     ]
     _refs = ["series"]
 
@@ -89,12 +92,15 @@ class Plain:
 class UniformExcitation:
     _args = [
         Tag(),
-        Int("dof"),
+        Dof(),
         Ref("accel", flag="-accel", type=TimeSeries, attr="name", about="acceleration time series"),
         Num("v0",    reqd=False, about="initial velocity."),
-        Num("scale", reqd=False)
+        Num("scale", flag="-fact", reqd=False)
     ]
     _refs = ["accel"]
+
+    @property
+    def series(self): return self.accel
 
     def init(self):
         if not isinstance(self.accel, int):

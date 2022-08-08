@@ -1,11 +1,11 @@
 from . import tcl
 
 class Analysis:
-    def __init__(self, model, strategy, patterns):
+    def __init__(self, model, strategy, patterns, recorders=None):
         if not hasattr(model, "_rt") or model._rt is None:
             from . import tcl
             self.rt = tcl.TclRuntime()
-            self.rt.model(model)
+            self.rt.send(model)
         else:
             self.rt = model
 
@@ -21,6 +21,13 @@ class Analysis:
         if patterns is not None:
             for pattern in patterns.values():
                 self.rt.eval(tcl.dumps(pattern))
+
+        if recorders is not None:
+            self.recorders = {
+                    self.rt.eval(tcl.dumps(recorder)): recorder
+                    # recorder.link(runtime=self.rt): recorder
+                for recorder in recorders
+            }
 
     def system(self, *args): pass
 
@@ -72,16 +79,48 @@ class DirectIntegrationAnalysis(Analysis):
 
     def __init__(self,
         model,
-        strategy:  dict,
         patterns:  dict = None,
+        strategy:  dict = None,
         recorders: list = None,
         inherit:   str  = None,
-        gravity:   dict = None
+        gravity:   dict = None,
+        time_step: float= None,
+        steps:     int  = 1
     ):
-        super().__init__(model, strategy=strategy, patterns=patterns)
+        if strategy is None:
+            strategy = {
+                # "algorithm": ["Newton"],
+                # "integrator": ["Newmark"]
+            }
+        super().__init__(model, strategy=strategy, patterns=patterns, recorders=recorders)
         # Import C++ bindings and create an instance of the analysis
         from . import OpenSeesPyRT as libOpenSeesRT
         self._analysis = libOpenSeesRT._DirectIntegrationAnalysis(self.rt._rt, self._strategy)
+
+
+        # self.steps, self.time_step = min((
+        #     (len(pat.series.values), pat.series.time_step)
+        #         for pat in self.patterns.values() 
+        #             if pat.series.time_step is not None
+        #     ),
+        #     key = lambda i: i[1]
+        # ) if time_step is None else (steps, time_step)
+
+
+    def analyze(self, steps=None, time_step=None, **kwds):
+        time_step = time_step or kwds.get("dt", None) or self.time_step
+        if time_step is None:
+            raise ValueError("Unable to deduce time step size")
+
+        steps = steps or self.steps
+        if steps is None:
+            raise ValueError("Unable to deduce time step size")
+            while True:
+                self._analysis.analyze(1, time_step)
+        else:
+            return self._analysis.analyze(steps, time_step)
+
+
 
 
 def eigen(model, num):

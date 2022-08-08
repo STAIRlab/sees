@@ -4,18 +4,30 @@ from .obj import *
 from .obj import _LineElement
 from .model import Node
 
-Dof = Int
+def Dof(about=""):
+    return Int("dof", about=about, enum={	
+        "1": "corresponds to translation along the global 1 axis",
+        "2": "corresponds to translation along the global 2 axis",
+        "3": "corresponds to translation along the global 3 axis",
+        "4": "corresponds to rotation about the global 1 axis",
+        "5": "corresponds to rotation about the global 2 axis",
+        "6": "corresponds to rotation about the global 3 axis",
+    })
 
 def Yng(about=None, **kwds):
     about = about or "Young's modulus of elasticity"
     return Num("E", field="elastic_modulus", about=about, **kwds)
 
-def Yld(nature, about=None, **kwds):
+def Yld(nature="strength", about=None, **kwds):
     about = about or f"Yield {nature}."
     return Num("fy", field=f"yield_{nature}", about=about, **kwds)
 
 def Area(**kwds):
     return Num("A", field="area", about="cross-sectional area", **kwds)
+
+Rho = lambda: None
+class ConstitutiveData:
+    _args = [Yng(), Yld(), Rho()]
 
 
 class BeamInt(Arg):
@@ -45,6 +57,8 @@ redirect = Cmd("redirect",[
       ])
     ])
 
+class nd:
+    pass
 
 class uniaxial:
     """
@@ -97,8 +111,7 @@ class uniaxial:
     )
 
 
-    Elastic = ElasticSpring = Uni("ElasticUniaxialMaterial",
-        "Elastic",
+    Elastic = ElasticSpring = Uni("ElasticUniaxialMaterial", "Elastic",
         args = [
             Tag(),
             Yng(),
@@ -117,6 +130,14 @@ class uniaxial:
         Num("EN2", reqd=False, about="optional, default = `EP2`. tangent in compression with strains < `epsN2`"),
         Num("epsN2", reqd=False, about="optional, default = -epsP2. strain at which material changes tangent in compression.")
     ])
+
+    ElasticMultilinear = Uni("ElasticMultilinear", "ElasticMultilinear", args=[
+            Tag(),
+            Grp("points", type=Grp, args=[Grp(type=Num, args=[Num("-strain"), Num("-stress")])],
+                about="Points defining multilinear backbone."
+            ),
+        ]
+    )
 
 
     Hardening = Uni("HardeningMaterial", "Hardening", args=[
@@ -167,9 +188,9 @@ class uniaxial:
         Num("esh", about="Tensile strain at initiation of strain hardening"),
         Num("esu", about="Tensile strain at the UTS"),
         Yng(),
-        Num("eshI", about="Tensile strain for a point on strain hardening curve, recommended range of values for eshI: " \
-                r"$\left\[ (\texttt{esu} + 5 \texttt{esh})/6, (\texttt{esu} + 3 \texttt{esh})/4\right\]$"),
-        Num("fshI", about="Tensile stress at point on strain hardening curve corresponding to eshI"),
+        Num("eshi", about="Tensile strain for a point on strain hardening curve, recommended range of values for eshI: " \
+                r"$\left[ \frac{\texttt{esu} + 5 \texttt{esh}}{6}, \frac{\texttt{esu} + 3 \texttt{esh}}{4}\right]$"),
+        Num("fshi", about="Tensile stress at point on strain hardening curve corresponding to eshI"),
         Num("OmegaFac", default=1.0, reqd=False, about=r"Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: $\left[0.75, 1.15\right]$. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0."),
     ])
 
@@ -182,23 +203,63 @@ class uniaxial:
         with isotropic strain hardening.""",
         args = [
           Tag(),
-          Num("Fy", about="yield strength"),
-          Num("E0", about="initial elastic tangent"),
-          Num("b", about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"), 
-          Num("R0"), Num("cR1", default=0.925), Num("cR2", default=0.15),
-          Grp("a", reqd = False, about="isotropic hardening parameters", args=[
-            Num("a1", reqd = False, about="""
-                      increase of compression yield envelope as proportion
-                      of yield strength after a plastic strain of `a2∗(Fy/E0)`"""
-            ),
-            Num("a2", about="see explanation under `a1`.", default=1.0),
-            Num("a3", default = 0.0, about="""
-                      increase of tension yield envelope as proportion
-                      of yield strength after a plastic strain of `a4∗(Fy/E0)`"""
-            ),
-            Num("a4", default = 1.0, about="see explanation under `a3`."),
-            Num("sigInit", reqd=False, default=0.0, about="initial stress")
-          ]),
+          Num("fy", about="yield strength"),
+          Yng(),
+          Num("b", default=0.0, about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"),
+
+          Num("R0", reqd=False, default=18), 
+          Num("cR1", reqd=False, default=0.925, about="Bauschinger evolution parameter"), 
+          Num("cR2", reqd=False, default=0.150, about="Bauschinger evolution parameter"),
+
+          # Grp("a", reqd = False, about="isotropic hardening parameters", args=[
+          Num("a1", reqd=False, default=0.0, about="""
+                    increase of compression yield envelope as proportion
+                    of yield strength after a plastic strain of `a2∗(Fy/E0)`"""
+          ),
+          Num("a2", reqd=False, default=1.0, about="see explanation under `a1`."),
+          Num("a3", reqd=False, default=0.0, about="""
+                    increase of tension yield envelope as proportion
+                    of yield strength after a plastic strain of `a4∗(Fy/E0)`"""
+          ),
+          Num("a4", reqd=False, default=1.0, about="see explanation under `a3`."),
+
+          Num("sigInit", reqd=False, default=0.0, about="initial stress")
+          #]),
+        ],
+        # params (list (float)) parameters to control the transition from 
+        # elastic to plastic branches. params=[R0,cR1,cR2].
+    )
+    SteelMPF = Uni("SteelMPF",
+        "SteelMPF",
+        about="""
+        This command is used to construct a uniaxial 
+        Giuffre-Menegotto-Pinto steel material object 
+        with isotropic strain hardening.""",
+        args = [
+          Tag(),
+          Num("fyp", about="yield strength"),
+          Num("fyn", about="yield strength"),
+          Yng(),
+          Num("bp", default=0.0, about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"),
+          Num("bn", default=0.0, about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"),
+
+          Num("R0", reqd=False, default=18), 
+          Num("cR1", reqd=False, default=0.925, about="Bauschinger evolution parameter"), 
+          Num("cR2", reqd=False, default=0.150, about="Bauschinger evolution parameter"),
+          # Grp("a", reqd = False, about="isotropic hardening parameters", args=[
+          Num("a1", reqd=False, default=0.0, about="""
+                    increase of compression yield envelope as proportion
+                    of yield strength after a plastic strain of `a2∗(Fy/E0)`"""
+          ),
+          Num("a2", reqd=False, default=1.0, about="see explanation under `a1`."),
+          Num("a3", reqd=False, default=0.0, about="""
+                    increase of tension yield envelope as proportion
+                    of yield strength after a plastic strain of `a4∗(Fy/E0)`"""
+          ),
+          Num("a4", reqd=False, default=1.0, about="see explanation under `a3`."),
+
+          Num("sigInit", reqd=False, default=0.0, about="initial stress")
+          #]),
         ],
         # params (list (float)) parameters to control the transition from 
         # elastic to plastic branches. params=[R0,cR1,cR2].
@@ -252,27 +313,32 @@ class uniaxial:
           ]
         )
     ])
-    Steel04 = Uni("Steel04", "Steel04", args=[
+
+    Steel04 = Uni("Steel04", "Steel4", args=[
         
         Tag(),
         Yld("stress"),
         Yng(),
-        Grp("-kin", type=Num, about="""apply kinematic hardening
+        Grp("-kin", reqd=False, type=Num, about="""apply kinematic hardening
             Kinematic hardening is based on the Menegotto-Pinto model. The parameters and their use is identical to those of the Steel02 material.
 
             Steel4 param kin.png
 
-            recommended values: $R_0 = 20 $r_1 = 0.90 $r_2 = 0.15""", args=[
+            recommended values: `R_0 = 20`, `r_1 = 0.90`, `r_2 = 0.15`""", args=[
+
             Num("b_k", about="hardening ratio (E_k/E_0)"),
             Num("R_0", about="control the exponential transition from linear elastic to hardening asymptote"),
             Num("r_1"),
             Num("r_2"),
         ]),
 
-        Grp("-iso", about="""apply isotropic hardening
-            Isotropic hardening increases the yield strength of the material. The applied increase is calculated as a function of the accumulated plastic strain. The following parameters control that function.
+        Grp("-iso", reqd=False, about="""apply isotropic hardening
+            Isotropic hardening increases the yield strength of the material.
+            The applied increase is calculated as a function of the accumulated
+            plastic strain. The following parameters control that function.
 
             Steel4 param iso.png""", args=[
+
             Num("b_i", about="initial hardening ratio (E_i/E_0)"),
             Num("b_l", about="saturated hardening ratio (E_is/E_0)"),
             Num("rho_i", about="specifies the position of the intersection point between initial and saturated hardening asymptotes"),
@@ -280,9 +346,15 @@ class uniaxial:
             Num("l_yp", about=r"length of the yield plateau in $\varepsilon_{y0} = f_y / E_0$ units"),
         ]),
 
-        Grp("-ult", type=Num, about="""apply an ultimate strength limit
-            The ultimate strength limit serves as an upper limit of material resistance. After the limit is reached the material behaves in a perfectly plastic manner. Exponential transition is provided from the kinematic hardening to the perfectly plastic asymptote.
-            Note that isotropic hardening is also limited by the ultimate strength, but the transition from the isotropic hardening to the perfectly plastic asymptote is instantaneous.
+        Grp("-ult", type=Num, reqd=False, about="""apply an ultimate strength limit
+            The ultimate strength limit serves as an upper limit of material
+            resistance. After the limit is reached the material behaves in a
+            perfectly plastic manner. Exponential transition is provided from
+            the kinematic hardening to the perfectly plastic asymptote. Note
+            that isotropic hardening is also limited by the ultimate strength,
+            but the transition from the isotropic hardening to the perfectly
+            plastic asymptote is instantaneous.
+
             Steel4 param ult.png
             """, args=[
                 Num("f_u", about="ultimate strength"),
@@ -299,14 +371,17 @@ class uniaxial:
             ]
         ),
 
-        Num("sig_init", flag="-init", about="""apply initial stress
-            Initial stress is assumed at 0 strain at the beginning of the loading process. The absolute value of the initial stress is assumed to be less than the yield strength of the material.
+        Num("sig_init", flag="-init", reqd=False, about="""apply initial stress
+            Initial stress is assumed at 0 strain at the beginning of the
+            loading process. The absolute value of the initial stress is
+            assumed to be less than the yield strength of the material.
+
             Steel4 param init.png"""
         ),
 
-        Int("cycNum", flag="-mem", about="""expected number of half-cycles during the loading process
-            Efficiency of the material can be slightly increased by correctly setting this value. The default value is $cycNum = 50
-            Load history memory can be turned off by setting $cycNum = 0."""
+        Int("cycNum", flag="-mem", reqd=False, about="""expected number of half-cycles during the loading process
+            Efficiency of the material can be slightly increased by correctly setting this value. The default value is `cycNum = 50`
+            Load history memory can be turned off by setting `cycNum = 0`."""
         ),
 
     ])
@@ -327,7 +402,7 @@ class uniaxial:
 
     ConfinedConcrete01  = Uni("ConfinedConcrete01", "ConfinedConcrete01", args=[
          Tag(),
-         Str("secType", enum={
+         Str("secType", about="label for the transverse reinforcement configuration.", enum={
              'S1' : "square section with S1 type of transverse reinforcement with or without external FRP wrapping",
              'S2' : "square section with S2 type of transverse reinforcement with or without external FRP wrapping",
              'S3' : "square section with S3 type of transverse reinforcement with or without external FRP wrapping",
@@ -427,12 +502,12 @@ class uniaxial:
     Concrete02IS = Uni("Concrete02IS", "Concrete02IS", [
          Tag(), 
          Yng(), 
-         Num("fpc"), 
+         Num("fpc", about="peak compressive stress"), 
          Num("epsc0"), 
          Num("fpcu"), 
          Num("epscu"), 
          Grp("tension", reqd=False, type=Num, args=[
-            Num("rat"), Num("ft"), Num("Ets")
+            Num("rat"), Num("ft"), Num("Ets", about="Tensile initial modulus")
          ])
     ])
 
@@ -471,13 +546,42 @@ class uniaxial:
 
     BoucWen = Uni("BoucWen", "BoucWen", args=[
         Tag(),
-        Num("alpha", about="ratio of post-yield stiffness to the initial elastic stiffenss (0< α <1)"),
-        Num("ko", about="initial elastic stiffness"),
-        Int("n", about="parameter that controls transition from linear to nonlinear range (as n increases the transition becomes sharper; n is usually grater or equal to 1)"),
-        Grp("a", args=[Num("gamma"), Num("beta")], about="parameters that control shape of hysteresis loop; depending on the values of γ and β softening, hardening or quasi-linearity can be simulated (look at the NOTES)"),
-        Grp("b", args=[Num("Ao"), Num("deltaA")], about="parameters that control tangent stiffness"),
-        Grp("c", args=[Num("deltaNu"), Num("deltaEta")], about="parameters that control material degradation"),
+        Num("alpha", about=r"ratio of post-yield stiffness to the initial elastic stiffenss ($0< \alpha < 1$)"),
+        Num("ko",    about="initial elastic stiffness"),
+        Int("n",     about="parameter that controls transition from linear to nonlinear range (as n increases the transition becomes sharper; n is usually grater or equal to 1)"),
+        Grp("a",     args=[Num("gamma"), Num("beta")], about="parameters that control shape of hysteresis loop; depending on the values of γ and β softening, hardening or quasi-linearity can be simulated (look at the NOTES)"),
+        Grp("b",     args=[Num("Ao"), Num("deltaA")], about="parameters that control tangent stiffness"),
+        Grp("c",     args=[Num("deltaNu"), Num("deltaEta")], about="parameters that control material degradation"),
     ])
+
+    PySimple1 = Uni("PySimple1", "PySimple1", args=[
+        Tag(),
+        Int("soilType", enum={
+             "1": "Backbone of $p-y$ curve approximates Matlock (1970) soft clay relation.",
+             "2": "Backbone of $p-y$ curve approximates API (1993) sand relation."
+            }
+        ),
+        Num("pult", about="Ultimate capacity of the p-y material. Note that $p$ or $p_{ult}$ are distributed loads [force per length of pile] in common design equations, but are both loads for this uniaxialMaterial [i.e., distributed load times the tributary length of the pile]."),
+        Num("y50", about="Displacement at which 50% of pult is mobilized in monotonic loading."),
+        Num("Cd", about="Variable that sets the drag resistance within a fully-mobilized gap as $C_d p_{ult}$."),
+        Num("c", reqd=False, about="The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). (optional Default = 0.0). Nonzero c values are used to represent radiation damping effects"),
+    ])
+
+    QzSimple1 = Uni("QzSimple1", "QzSimple1", args=[
+        Tag(),
+        Str("qzType", enum={
+                  "1": "Backbone of $q-z$ curve approximates Reese and O'Neill's (1987) relation for drilled shafts in clay.",
+                  "2": "Backbone of $q-z$ curve approximates Vijayvergiya's (1977) relation for piles in sand."
+                }
+        ),
+
+        Num("qult", about="Ultimate capacity of the $q-z$ material. SEE NOTE 1."),
+        Num("Z50", about="Displacement at which 50% of qult is mobilized in monotonic loading. SEE NOTE 2."),
+        Num("suction", reqd=False, about="Uplift resistance is equal to suction*qult. Default = 0.0. The value of suction must be 0.0 to 0.1.*"),
+        Num("c", reqd=False, about="The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). Default = 0.0. Nonzero c values are used to represent radiation damping effects.*"),
+    ])
+
+
     # Clough = Uni("Clough", "SNAP::Clough", args=[
     #     Tag(),
     #     #Num("elstk",     about="initial elastic stiffness"),
@@ -522,8 +626,7 @@ class element:
 
     @Ele
     class Truss:
-        _args = [
-                
+        _args = [ 
             Tag(),
             Grp("nodes", type=Node, 
                 args=[Ref("iNode", attr="name"), Ref("jNode", attr="name")], about="end nodes"),
@@ -532,17 +635,44 @@ class element:
             #Ref("section", type="Section", about="tag associated with previously-defined Section"),
             Num("rho",   reqd=False, about="mass per unit length, optional, default = 0.0"),
             Int("cFlag", reqd=False, about="consistent mass flag, optional, default = 0"+
-                "cFlag = 0 lumped mass matrix (default)"+
-                "cFlag = 1 consistent mass matrix"),
-            Int("rFlag", reqd=False, about="Rayleigh damping flag, optional, default = 0"),
-            #rFlag = 0 NO RAYLEIGH DAMPING (default)
-            #rFlag = 1 include Rayleigh damping
+                "0: lumped mass matrix (default)"+
+                "1: consistent mass matrix"),
+            Int("rFlag", reqd=False, about="Rayleigh damping flag, optional, default = 0", enum={
+                    "0": "NO RAYLEIGH DAMPING (default)",
+                    "1": "include Rayleigh damping",
+                }
+            )
         ]
         _refs=["material"]
 
     @Ele
     class forceBeamColumn:
         "Create a forceBeamColumn element."
+        _call = "material, geometry, section"
+        _args=[
+            Tag(),
+            Grp("nodes", args=[
+              Ref("iNode", type=Node,  attr="name", about=""),
+              Ref("jNode", type=Node,  attr="name", about=""),
+            ]),
+            Ref("geom",  field="transform", type=Trf, attr="name"),
+            BeamInt("integration"),
+            Flg("-cMass", field="consistent_mass",
+                about="Flag indicating whether to use consistent mass matrix."),
+            Num("mass",field="mass_density", flag="-mass", default=0.0, reqd=False, 
+                about="element mass per unit length"),
+        ]
+        _refs=["transform", "section"]
+
+        @property
+        def section(self):
+            return self.integration["section"]
+
+
+    @Ele
+    class forceBeamColumn:
+        "Create a forceBeamColumn element."
+        _call = "material, geometry, section"
         _args=[
             Tag(),
             Grp("nodes", args=[
@@ -633,6 +763,12 @@ class constraint:
     RigidBeamLink = Lnk("RigidBeamLink",
         "beam", [Tag(), Grp("nodes", type=Ref(type=uniaxial), num=2)]
     )
+
+    RigidDiaphragm = cmd("rigidDiaphragm", args=[
+        Int("perpDirn", about="direction perpendicular to the rigid plane (i.e. direction 3 corresponds to the 1-2 plane)"),
+        Ref("rNodeTag", about="integer tag identifying the retained node"),
+        Grp("nodes", type=Ref(type="node"), min=2, about="integer tags identifying the constrained nodes"),
+    ])
 
 
 

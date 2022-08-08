@@ -20,18 +20,18 @@ class Component:
         from . import OpenSeesPyRT as libOpenSeesRT
 
         if self.tag_space == "uniaxialMaterial":
-            rt.model(self)
+            rt.send(self, ndm=1, ndf=1)
             tag = self.name if self.name is not None else "1"
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
             handle = self._builder.getUniaxialMaterial(tag)
 
         elif self.tag_space == "section":
-            rt.model(self)
+            rt.send(self, ndm=2, ndf=3)
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
             handle = self._builder.getSection(str(self.name))
 
         elif self._cmd[0] == "backbone":
-            rt.model(self)
+            rt.send(self)
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
             handle = self._builder.getHystereticBackbone(str(self.name))
 
@@ -114,7 +114,6 @@ class Component:
                     yield from val.get_refs()
                 else:
                     yield val, _get_tagspace(val)
-
 
 
 def _get_tagspace(arg):
@@ -236,19 +235,12 @@ def struct(name, fields, args = None, alts=None, refs=None, cmd=None, parents=No
         fields_none=','.join(f"{f}=None" for f in fields),
         self_fields=','.join('self.' + f for f in fields)
     )
-    d = {'fields': fields, "Arg": Arg, "Component": Component}
-    d.update({c.__name__: c for c in parents})
-    exec(template, d)
-    d[name]._args = args
-    return d[name]
 
-def walk_refs(parent):
-    P, R = "", ""
-    for ref, ts in parent.get_refs():
-        p, r = walk_refs(ref[0])
-        P = p + P
-        R = r + R
-    return P, R
+    namespace = {'fields': fields, "Arg": Arg, "Component": Component}
+    namespace.update({c.__name__: c for c in parents})
+    exec(template, namespace)
+    namespace[name]._args = args
+    return namespace[name]
 
 class _LineElement:
     @property

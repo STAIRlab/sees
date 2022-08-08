@@ -29,18 +29,22 @@ def eval(script: str):
     return interp
 
 
-def dumps(model):
-    if not isinstance(model, (Component,list,tuple)):
+def dumps(obj):
+    if not isinstance(obj, (Component,list,tuple)):
         from opensees.emit import OpenSeesWriter
-        return OpenSeesWriter(model).dump()
+        return OpenSeesWriter(obj).dump()
     else:
         from opensees.emit.opensees import TclScriptBuilder
         writer = TclScriptBuilder()
-        writer.send(model)
-        if not writer.python_objects:
-            return writer.getScript(indexed=True)
-        else:
-            return writer
+        try:
+            writer.send(obj)
+            if not writer.python_objects:
+                return writer.getScript(indexed=True)
+            else:
+                return writer
+        except Exception as e:
+            print(writer.getScript(indexed=True), file=sys.stderr)
+            raise e
             #raise ValueError("Cannot dump model with binary objects")
 
 
@@ -52,34 +56,36 @@ class TclRuntime:
         self._c_rt = None
         self._interp = TclInterpreter(verbose=verbose)
         if model is not None:
-            self.model(model)
+            self.send(model)
     
-    def model(self, *args, **kwds):
+    def model(self, ndm, ndf, **kwds):
         # TODO: refactor this function
         """
         model(model: opensees.model)
         model(ndm:int, ndf:int)
         """
-        for arg in args:
-            if isinstance(arg, int):
-                pass
-            else:
-                self.eval("model basic 2 3")
-                m = dumps(arg)
-                if isinstance(m, str):
-                    self.eval(m)
-                else:
-                    self.eval(m.getIndex())
-                    from . import OpenSeesPyRT as libOpenSeesRT
-                    _builder = libOpenSeesRT.get_builder(self._interp.interpaddr())
-                    for ident,obj in m.python_objects.items():
-                        tag = self.eval(f"set {ident.tclstr()}")
-                        _builder.addPythonObject(tag, obj)
-                    self.eval(m.getScript())
+        self.eval(f"model basic -ndm {ndm} -ndf {ndf}")
 
 
-    def send(self, obj):
-        pass
+    def send(self, obj, ndm=2, ndf=3, **kwds):
+        self.model(ndm=ndm, ndf=ndf)
+
+        m = dumps(obj)
+
+        if isinstance(m, str):
+            try:
+                self.eval(m)
+            except Exception as e:
+                print(e, file=sys.stderr)
+        else:
+            self.eval(m.getIndex())
+            from . import OpenSeesPyRT as libOpenSeesRT
+            _builder = libOpenSeesRT.get_builder(self._interp.interpaddr())
+            for ident,obj in m.python_objects.items():
+                tag = self.eval(f"set {ident.tclstr()}")
+                _builder.addPythonObject(tag, obj)
+
+            self.eval(m.getScript())
 
     @property
     def _rt(self):
@@ -131,7 +137,9 @@ class TclRuntime:
         try:
             return self._interp.tk.eval(string)
         except tkinter._tkinter.TclError as e:
-            print("ERROR:", e, file=sys.stderr)
+            print(string, file=sys.stderr)
+            raise e
+        # return self._interp.tk.eval(string)
 
     def __getattr__(self, attr):
         return self._partial(self._tcl_call, attr)
