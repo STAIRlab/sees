@@ -313,6 +313,13 @@ class circ:
 
     @property
     def fibers(self):
+        """
+        - https://stackoverflow.com/questions/33510979/generator-of-evenly-spaced-points-in-a-circle-in-python
+        - https://mathworld.wolfram.com/CircleLatticePoints.html
+        - Sunflower algorithm: https://stackoverflow.com/questions/9600801/evenly-distributing-n-points-on-a-sphere
+        - Sunflower alpha algorithm : https://stackoverflow.com/questions/28567166/uniformly-distribute-x-points-inside-a-circle
+        - Partition of the circle in cells of equal area and shape: https://orbi.uliege.be/bitstream/2268/91953/1/masset_isocell_orbi.pdf
+        """
         if self._fibers is None:
             if self.divs is None:
                 self._fibers = []

@@ -1,4 +1,4 @@
-__version__  = "0.0.20"
+__version__  = "0.0.23"
 
 from .patch import layer
 
@@ -26,7 +26,7 @@ def instance(model):
 
 import importlib
 
-_libs = ["uniaxial", "element", "backbone"]
+_libs = ["uniaxial", "element", "backbone", "constraint"]
 
 def __getattr__(name):
     # For reference:

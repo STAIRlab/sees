@@ -66,48 +66,60 @@ equal the sum of the dofs at each of the external nodes. To ensure this,
 each subclass can overwrite the DomainComponent classes `setDomain()`
 method.
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual int commitState(void) =0;
 ```
+:::
 
 The element is to commit its current state. To return $0$ if successful,
 a negative number if not.
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual int revertToLastCommit(void) =0;
 ```
+:::
 
 The element is to set it's current state to the last committed state. To
 return $0$ if successful, a negative number if not.
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual int revertToStart(void) =0;
 ```
+:::
 
 The element is to set it's current state to the state it was at before
 the analysis started. To return $0$ if successful, a negative number if
 not.
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual int update(void);
 ```
+:::
 
 This method is invoked after the response quantities have been updated
 in the Domain, but not necessarily committed, e.g. during a non-linear
 Newton-Raphson solution algorithm. To return $0$ if successful, a
 negative number if not. This base class implementation returns $0$.
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual bool isSubdomain(void);
 ```
+:::
 
 The element is to return true if the element is of type (or subtype)
 Subdomain, else the element should return false. This base class
 implementation returns $false$.
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual Matrix &getTangentStiff(void) =0;
 ```
+:::
 
 To return the tangent stiffness matrix. The element is to compute its
 stiffness matrix based on the original location of the nodes and the
@@ -117,18 +129,22 @@ $${\bf K}_e = {\frac{\partial {\bf F}_{R_i}}{\partial \U}
 \vert}_{{\bf U}_{trial}}$$
 
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual Matrix &getSecantStiff(void) =0;
 ```
+:::
 
 To return the elements secant stiffness matrix. The element is to
 compute its stiffness matrix based on the original location of the nodes
 and the current trial displacement at the nodes. THIS SECANT MAY BE
 REMOVED.
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual Matrix &getDamp(void) =0;
 ```
+:::
 
 To return the damping matrix. The element is to compute its damping
 matrix based on the original location of the nodes and the current trial
@@ -137,9 +153,11 @@ $${\bf C}_e = {\frac{\partial {\bf F}_{R_i}}{\partial \dot \U}
 \vert}_{{\bf U}_{trial}}$$
 
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual Matrix &getMass(void) =0;
 ```
+:::
 
 To return the mass matrix. The element is to compute its mass matrix
 based on the original location of the nodes and the current trial
@@ -148,18 +166,22 @@ $${\bf M}_e  = {\frac{\partial {\bf F}_{I_i}}{\partial \ddot \U}
 \vert}_{{\bf U}_{trial}}$$
 
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual void zeroLoad(void) =0;
 ```
+:::
 
 This is a method invoked to zero the element load contributions to the
 residual, i.e. ${\bf P}_e = \zero$
 
 
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual Vector &getResistingForce(void) =0;
 ```
+:::
 
 Returns the resisting force vector for the element. This is equal to the
 applied load due to element loads minus the loads at the nodes due to
@@ -168,9 +190,11 @@ internal stresses in the element due to the current trial displacement, i.e.
 $${\bf R}_e = {\bf P}_{e} - {\bf F}_{R_e}({\bf U}_{trial})$$
 
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual Vector &getResistingForceIncInertia(void) =0;
 ```
+:::
 
 Returns the resisting force vector for the element with inertia forces
 included. This is equal to the applied load due to element loads (loads
@@ -180,24 +204,38 @@ i.e. $${\bf R}_e =
 {\bf P}_e -  {\bf F}_{I_e} (\ddot {\bf U}_{trial}) - {\bf F}_{R_e}(\dot
 {\bf U}_{trial}, {\bf U}_{trial})$$
 
+:::{.admonition}
+```cpp
+virtual Response *setResponse(const char **argv, int argc, OPS_Stream &theHandler);
+```
+:::
 
 `setResponse()` is a method invoked to determine if the element will
-respond to a request for a certain of information. The information
-requested of the element is passed in the array of char pointers *argv*
-of length em argc. If the element does not respond to the request a $-1$
+respond to a request for a certain type of information. The information
+requested of the element is passed in the array of `char` pointers `argv`
+of length `argc`. If the element does not respond to the request a $-1$
 is returned. If it does respond, an integer value greater than or equal
-to $0$ is returned. This is the *responseID* passed in the
+to $0$ is returned. This is the `responseID` passed in the
 `getResponse()` method. In addition the Element object is responsible
-for setting the Information object *eleInformation* with the type of the
-return, i.e. *IntType, DoubleType, MatrixType, VectorType, IDType*, and
-for creating a Matrix, Vector or ID object for the Information object,
+for setting the Information object `eleInformation` with the type of the
+return, i.e. `IntType`, DoubleType`, `MatrixType`, `VectorType`, `IDType`, and
+for creating a `Matrix`, `Vector` or `ID` object for the `Information` object,
 if the information to be returned is of any of these types. The
 information object is responsible for invoking the destructor on these
 objects. The base class responds to no requests and will always return
 $-1$.
 
-getResponse is a method invoked to obtain information from an analysis.
+:::{.admonition}
+```cpp
+virtual int getResponse(int responseID, Information &eleInformation);
+virtual int getResponseSensitivity(int responseID, int gradIndex,
+           Information &eleInformation);
+```
+:::
+
+`getResponse` is a method invoked to obtain information from an analysis.
 The method is invoked with the integer argument returned and the
 Information object that was prepared in a successful `setResponse()`
 method invocation. To return $0$ if successful, a negative number if
 not. The base class implementation will always return $-1$.
+

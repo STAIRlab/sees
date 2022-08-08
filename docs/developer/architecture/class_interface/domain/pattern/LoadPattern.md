@@ -3,12 +3,16 @@
 ```cpp
 #include <domain/pattern/LoadPattern.h>
 
-class LoadPattern:
-public
-  DomainComponent
-  TaggedObject
-  MovableObject
-  DomainComponent
+class LoadPattern: public DomainComponent
+```
+
+```plantuml
+abstract class ElementLoad 
+abstract class TimeSeries
+LoadPattern o- "one" TimeSeries 
+LoadPattern o- ElementLoad 
+LoadPattern o- NodalLoad 
+LoadPattern o- SP_Constraint 
 ```
 
 The `LoadPattern` class is a concrete base class. A `LoadPattern` is a
@@ -28,9 +32,9 @@ in the LoadPattern.
 
 
 
-The integer `tag` is passed to the DomainComponent classes constructor.
-Creates three ArrayOftaggedObjects objects to store pointers to the
-NodalLoad, ElementalLoad and SP_Constraints and three iters. If not
+The integer `tag` is passed to the `DomainComponent` classes constructor.
+Creates three `ArrayOftaggedObjects` objects to store pointers to the
+`NodalLoad`, `ElementalLoad` and `SP_Constraints` and three iters. If not
 enough memory is available for these objects an error message is printed
 and the program is terminated.
 
@@ -38,22 +42,22 @@ This is the constructor provided for subclasses to use. The integers
 `tag` and `classTag` are passed to the DomainComponent classes
 constructor.
 
-Invokes the destructor on the TimeSeries object. Also invokes the
+Invokes the destructor on the `TimeSeries` object. Also invokes the
 destructor on any objects created in the constructor for storage of the
 pointers and for iters. It does not invoke the destructor on these
 objects, the Domain object is responsible for doing this.
 
 
-If a TimeSeries object is associated with the pattern, the destructor is
-invoked on that TimeSeries object. It then sets the TimeSeries object
-associated with the LoadPattern to `theSeries`.
+If a `TimeSeries` object is associated with the pattern, the destructor is
+invoked on that `TimeSeries` object. It then sets the `TimeSeries` object
+associated with the `LoadPattern` to `theSeries`.
 
-If any loads or constraint objects exist in the LoadPattern, the
+If any loads or constraint objects exist in the `LoadPattern`, the
 LoadPattern will invoke `setDomain()` on those objects. Finally invokes
 the DomainComponent classes `setDomain()` method.
 
-Adds the NodalLoad object pointed to by `theLoad` to the LoadPattern. If
-the LoadPattern could add the pointer to its storage object for nodal
+Adds the NodalLoad object pointed to by `theLoad` to the `LoadPattern`. If
+the `LoadPattern` could add the pointer to its storage object for nodal
 loads, it will invoke `setDomain()` and `setLoadPattern()` on the load
 object if a Domain has been set.
 

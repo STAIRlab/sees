@@ -15,10 +15,30 @@
 --------------------------------------------------------------------
 
 
+## Installing / Compiling
+
+### Simple install
+
+1. Install `mambaforge`
+2. `mamba install -c opensees opensees`
+
+### Editable install
+
+1. Install `mambaforge`
+2. `conda develop .` # pip install -e .
+3. To recompile : `python -m build`
+
+### Distributing
+
+1. Install `conda-build`
+2. `conda-build -c conda-forge etc/conda/`
+3. `anaconda upload <path>`
+
 ## Build Environment
 
 ```shell
   conda create -c conda-forge -n skbuild python==3.8 cmake'>=3.18'  \
     scikit-build pybind11 setuptools
 ```
+
 

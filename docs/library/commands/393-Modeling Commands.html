@@ -5,13 +5,21 @@ object-oriented terms) of elements, nodes, single- and multi-point
 constraints and load patterns. It is the aggregation of these components
 which define the type of model that is being analyzed. The component
 classes, are as shown in the figure below:</p>
-<p>&lt;uml&gt; package "OpenSees Model" #DDDDDD</p>
-<p>abstract class Element Domain o- Element Domain o- Node Domain o-
-SP_Constraint Domain o- MP_Constraint Domain o- LoadPattern
-&lt;/uml&gt;</p>
-<p>The following are the modeling commands that have been added to
+
+```plantuml
+package "OpenSees Model" #DDDDDD
+abstract class Element 
+Domain o- Element 
+Domain o- Node 
+Domain o- SP_Constraint 
+Domain o- MP_Constraint 
+Domain o- LoadPattern
+```
+
+The following are the modeling commands that have been added to
 OpenSees interpreter to create these components of the finite element
-model:</p>
+model:
+
 <ul>
 <li><a href="model_command" title="wikilink"> model</a></li>
 <li><a href="element_Command" title="wikilink">element</a></li>
@@ -56,18 +64,29 @@ title="wikilink">rayleigh</a></li>
 title="wikilink">ShallowFoundationGen</a></li>
 </ul>
 <hr />
-<hr />
+
 <p>The typical element in OpenSees has the material nonlinearity and
 sometimes geometric nonlinearities contained in other objects, materials
 and geometric transformations. Commands have been added to the
 interpreter to create these objects as well:</p>
-<p>&lt;uml&gt; package "Element Classes" #DDDDDD abstract class Element
-abstract class Material abstract class UniaxialMaterial abstract class
-NDMaterial abstract class SectionForceDeformation abstract class
-GeometricTransformation</p>
-<p>Element o- Material Element o- GeometricTransformation</p>
-<p>Material &lt;|-- UniaxialMaterial Material &lt;|--
-SectionForceDeformation Material &lt;|-- NDMaterial &lt;/uml&gt;</p>
+
+```plantuml
+package "Element Classes" #DDDDDD 
+abstract class Element
+abstract class Material
+abstract class UniaxialMaterial
+abstract class NDMaterial
+abstract class SectionForceDeformation
+abstract class GeometricTransformation
+
+Element o- Material 
+Element o- GeometricTransformation
+
+Material <|-- UniaxialMaterial 
+Material <|-- SectionForceDeformation 
+Material <|-- NDMaterial 
+```
+
 <ol>
 <li><a href="uniaxialMaterial_Command" title="wikilink"> uniaxial
 Material</a></li>

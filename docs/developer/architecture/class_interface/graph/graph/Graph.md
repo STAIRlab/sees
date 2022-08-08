@@ -2,11 +2,8 @@
 
 ```cpp
 #include <graph/graph/Graph.h>
+class Graph;
 ```
-
-class Graph:\
-
-\
 
 Graph is a base class. A Graph is a container class responsible for
 holding the vertex set and edge set. The class is responsible for:
@@ -18,32 +15,17 @@ holding the vertex set and edge set. The class is responsible for:
 All the methods for the class are declared as virtual to allow
 subclasses to be introduced.
 
-### Constructors
+### Constructors and Destructor
 
-\
 
-\
-### Destructor
-
-\
-// Public Methods\
-
-\
-
-\
-
-\
-
-\
-
-\
+### Public Methods
 
 To create an empty Graph. Creates an ArrayOfTagged object of initial
 size $32$ in which to store the Vertices. The ArrayOfTagged object is
 used to store the Vertices.
 
-To create an empty Graph. Creates an ArrayOfTagged object of initial
-size *numVertices* in which to store the Vertices. The ArrayOfTagged
+To create an empty `Graph`. Creates an `ArrayOfTagged` object of initial
+size `numVertices` in which to store the Vertices. The `ArrayOfTagged`
 object is used to store the Vertices.
 
 To create an empty Graph. The *theVerticesStorage* object is used to
@@ -63,7 +45,12 @@ in the Graph the vertex is not added, a warning message is printed and
 *false* is returned. If successful, returns the result of invoking
 `addComponent()` on the TaggedStorage object used to store the
 Vertices.
-*virtual int addEdge(int vertexTag, int otherVertexTag);* \
+
+:::{.admonition}
+```cpp
+virtual int addEdge(int vertexTag, int otherVertexTag);
+```
+:::
 Causes the Graph to add an edge `(vertexTag,otherVertexTag)`{.cpp} to the
 Graph. A check is first made to see if vertices with tags given by
 *vertexTag* and *otherVertexTag* exist in the graph. If they do not
@@ -95,24 +82,29 @@ virtual int getNumVertex(void) const;
 A method to return the number of vertices in the graph. Invokes
 `getNumComponents()` on the Vertex storage object.
 
+:::{.admonition}
 ```{.cpp}
 virtual int getNumEdge(void) const;
 ```
+:::
 
-A method to return the number of edges in the graph, returns *numEdge*.
+A method to return the number of edges in the graph, returns `numEdge`.
 
-To remove the Vertex from the Graph whose tag is equal to *vertexTag*.
-If *removeEdgeFlag* is *true* will also remove the Vertex from the
+To remove the Vertex from the Graph whose tag is equal to `vertexTag`.
+If `removeEdgeFlag` is `true` will also remove the Vertex from the
 remaining Vertices adjacency lists. returns a pointer to the removed
 Vertex if successful, $0$ if the Vertex was not in the Graph. Invokes
 `removeComponent(vertexTag)` on the vertex storage object and casts this
-to a Vertex \* if not null. DOES NOT YET DEAL WITH *removeEdgeFlag*.
+to a Vertex \` if not null. DOES NOT YET DEAL WITH `removeEdgeFlag`.
 
-```{.cpp}
+:::{.admonition}
+```cpp
 virtual void Print(OPS_Stream &s, int flag =0);
 ```
+:::
 
 A method to print the graph. Invokes `Print(s, flag)`{.cpp} on the vertex
 storage object.
 
 Invokes `Print()` on the Graph *G*.
+

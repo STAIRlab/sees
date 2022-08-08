@@ -1,20 +1,6 @@
 
 # The OpenSees Command Language Manual
 
-<b><center>
-**The OpenSees Command Language Manual**
-
-**Version 1.2**
-
-**August 20, 2001**
-
-**Frank McKenna and Gregory L. Fenves**
-
-**Pacific Earthquake Engineering Research Center**
-
-**University of California, Berkeley**
-</b></center>
-
 ## Introduction
 
 This document is intended to outline the rudimentary commands currently
@@ -2099,3 +2085,18 @@ BasicBuilder object, but will on other types of ModelBuilder objects.
 To construct a TclVideoPlayer object for displaying the images in a file
 created by the recorder display command. The images are displayed by
 invoking the command *play*.
+
+<b><center>
+The OpenSees Command Language Manual
+
+Version 1.2
+
+August 20, 2001
+
+Frank McKenna and Gregory L. Fenves
+
+Pacific Earthquake Engineering Research Center
+
+University of California, Berkeley
+</b></center>
+

@@ -1,0 +1,2615 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/library/modeling/element/bearing/3196-ElastomericX/">
+      
+      <link rel="icon" href="../../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-, mkdocs-material-8.2.13">
+    
+    
+      
+        <title>ElastomericX - OpenSeesRT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.e411adfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=serif:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"serif";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../math.css">
+    
+      <link rel="stylesheet" href="../../../../../particle.css">
+    
+      <link rel="stylesheet" href="../../../../../grid.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="OpenSeesRT" class="md-header__button md-logo" aria-label="OpenSeesRT" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenSeesRT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ElastomericX
+
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../analysis/DirectIntegration/" class="md-tabs__link">
+        Library
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="OpenSeesRT" class="md-nav__button md-logo" aria-label="OpenSeesRT" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    OpenSeesRT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Library
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Library" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Library
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Analysis" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Analysis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../analysis/DirectIntegration/">DirectIntegrationAnalysis</a>
+          
+            <label for="__nav_1_1_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="DirectIntegrationAnalysis" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          DirectIntegrationAnalysis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/231-Explicit%20Difference/" class="md-nav__link">
+        Explicit Difference
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/277-Generalized%20Alpha%20Method/" class="md-nav__link">
+        Generalized Alpha Method
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/326-Hilber-Hughes-Taylor%20Method/" class="md-nav__link">
+        Hilber-Hughes-Taylor
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/416-Newmark%20Method/" class="md-nav__link">
+        Newmark Method
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/675-TRBDF2/" class="md-nav__link">
+        TRBDF2
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/81-Central%20Difference/" class="md-nav__link">
+        Central Difference
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/_implementation/" class="md-nav__link">
+        
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          EigenAnalysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="EigenAnalysis" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          EigenAnalysis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/Eigen_Analysis/ArpackSolver/" class="md-nav__link">
+        ArpackSolver
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/Eigen_Analysis/EigenAlgorithm/" class="md-nav__link">
+        
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/Eigen_Analysis/FrequencyAlgo/" class="md-nav__link">
+        FrequencyAlgo
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/Eigen_Analysis/StandardEigenAlgo/" class="md-nav__link">
+        StandardEigenAlgo
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_3" type="checkbox" id="__nav_1_1_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../analysis/">StaticAnalysis</a>
+          
+            <label for="__nav_1_1_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="StaticAnalysis" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          StaticAnalysis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/154-Displacement%20Control/" class="md-nav__link">
+        Displacement Control
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/24-Arc-Length%20Control/" class="md-nav__link">
+        Arc-Length Control
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/372-Load%20Control/" class="md-nav__link">
+        Load Control
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/387-Minimum%20Unbalanced%20Displacement%20Norm/" class="md-nav__link">
+        Minimum Unbalanced Displacement Norm
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/EQPath/" class="md-nav__link">
+        EQPath
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/HSConstraint/" class="md-nav__link">
+        HSConstraint
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/" class="md-nav__link">
+        StaticAnalysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/LoadPath/" class="md-nav__link">
+        LoadPath
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/ParkLMS3/" class="md-nav__link">
+        ParkLMS3
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/StagedLoadControl/" class="md-nav__link">
+        StagedLoadControl
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Modeling" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1" type="checkbox" id="__nav_1_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1">
+          Uniaxial Material
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uniaxial Material" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uniaxial Material
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_1" type="checkbox" id="__nav_1_2_1_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_1">
+          Elastic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Elastic" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Elastic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/elastic/181-ElasticMultiLinear/" class="md-nav__link">
+        ElasticMultiLinear
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/elastic/195-Elastic%20Uniaxial/" class="md-nav__link">
+        Elastic
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/elastic/180-ElasticBilin/" class="md-nav__link">
+        ElasticBilin
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_2" type="checkbox" id="__nav_1_2_1_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_2">
+          Generic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Generic" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Generic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/bouc/64-BoucWen/" class="md-nav__link">
+        BoucWen
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/generic/322-Hardening/" class="md-nav__link">
+        Hardening
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/generic/179-Elastic-Perfectly%20Plastic/" class="md-nav__link">
+        Elastic-Perfectly Plastic
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/generic/404-MultiLinear/" class="md-nav__link">
+        MultiLinear
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_3" type="checkbox" id="__nav_1_2_1_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_3">
+          Metallic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Metallic" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Metallic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/666-Steel02/" class="md-nav__link">
+        Steel02
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/668-SteelMPF/" class="md-nav__link">
+        SteelMPF
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/587-Reinforcing%20Steel/" class="md-nav__link">
+        ReinforcingSteel
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/667-Steel4/" class="md-nav__link">
+        Steel4
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/158-DoddRestrepo/" class="md-nav__link">
+        DoddRestrepo
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/730-UVCuniaxial/" class="md-nav__link">
+        UVCuniaxial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/569-RambergOsgoodSteel/" class="md-nav__link">
+        RambergOsgoodSteel
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_4" type="checkbox" id="__nav_1_2_1_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_4">
+          Concrete
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Concrete" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Concrete
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/97-ConfinedConcrete01/" class="md-nav__link">
+        ConfinedConcrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/94-ConcreteCM/" class="md-nav__link">
+        ConcreteCM
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/91-Concrete04/" class="md-nav__link">
+        Concrete04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/90-Concrete02/" class="md-nav__link">
+        Concrete02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/92-Concrete06/" class="md-nav__link">
+        Concrete06
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/Concrete02IS/" class="md-nav__link">
+        Concrete02IS
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_5" type="checkbox" id="__nav_1_2_1_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_5">
+          Geotechnical
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Geotechnical" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Geotechnical
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/geotechnical/557-PySimple1/" class="md-nav__link">
+        PySimple1
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/geotechnical/565-QzSimple1/" class="md-nav__link">
+        QzSimple1
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_6" type="checkbox" id="__nav_1_2_1_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_6">
+          Wrappers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wrappers" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          Wrappers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/wrapper/489-Parallel/" class="md-nav__link">
+        Parallel
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/wrapper/632-Series/" class="md-nav__link">
+        Series
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2" type="checkbox" id="__nav_1_2_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_2">
+          Element
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Element" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Element
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2_1" type="checkbox" id="__nav_1_2_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_2_1">
+          Beam
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Beam" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Beam
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beam/2057-Force-Based%20Beam-Column%20Element/" class="md-nav__link">
+        Force-Based Beam-Column Element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beam/2184-Elastic%20Beam%20Column%20Element/" class="md-nav__link">
+        ElasticBeamColumn
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_3" type="checkbox" id="__nav_1_2_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_3">
+          Constraint
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Constraint" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Constraint
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../constraints/602-RigidLink/" class="md-nav__link">
+        RigidLink
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_4" type="checkbox" id="__nav_1_2_4" >
+      
+      
+      
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../pattern/plain/">Pattern</a>
+          
+            <label for="__nav_1_2_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Pattern" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pattern
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern/Multisupport_Excitation/" class="md-nav__link">
+        Multisupport Excitation
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern/740-Uniform%20Excitation%20Pattern/" class="md-nav__link">
+        Uniform Excitation Pattern
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern/" class="md-nav__link">
+        Load Patterns
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Utilities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Utilities" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Utilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../utilities/units/" class="md-nav__link">
+        Units
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3_2" type="checkbox" id="__nav_1_3_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_3_2">
+          Recorders
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Recorders" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Recorders
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../utilities/recorders/208-Element%20Recorder/" class="md-nav__link">
+        Element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../utilities/recorders/431-Node%20Recorder/" class="md-nav__link">
+        Node
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          Modules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Modules" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Algebraic Hysteresis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Algebraic Hysteresis" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Algebraic Hysteresis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/AlgebraicHysteresis/backbone/RaynorBackbone/" class="md-nav__link">
+        Raynor
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/AlgebraicHysteresis/backbone/LinearCappedBackbone/" class="md-nav__link">
+        LinearCapped
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/AlgebraicHysteresis/backbone/MultilinearBackbone/" class="md-nav__link">
+        Multilinear
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/AlgebraicHysteresis/backbone/ArctangentBackbone/" class="md-nav__link">
+        Arctangent
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/AlgebraicHysteresis/backbone/ManderBackbone/" class="md-nav__link">
+        Mander
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Nonlinear Beam-Column
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nonlinear Beam-Column" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Nonlinear Beam-Column
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/NonlinearBeamColumn/geometry/370-Linear%20Transformation/" class="md-nav__link">
+        Linear
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="elastomericx">ElastomericX</h1>
+<p>
+This command is used to construct an ElastomericX bearing element object in three-dimension. The 3D continuum geometry of an elastomeric bearing is modeled as a 2-node, 12 DOF discrete element. This elements extends the formulation of <a
+href="Elastomeric_Bearing_(Bouc-Wen)_Element"
+title="wikilink">Elastomeric_Bearing_(Bouc-Wen)_Element</a> element. However, instead of the user providing material models as input arguments, it only requires geometric and material properties of an elastomeric bearing as arguments. The material models in six direction are formulated within the element from input arguments. The time-dependent values of mechanical properties (e.g., shear stiffness, buckling load capacity) can also be recorded using the “parameters” <a
+href="#Recorders" title="wikilink">recorder</a>.
+</p>
+<p>
+For a 3D problem:
+</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>ElastomericX<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$Nd1</span><span class="w"> </span><span class="nv">$Nd2</span><span class="w"> </span><span class="nv">$Fy</span><span class="w"> </span><span class="nv">$alpha</span><span class="w"> </span><span class="nv">$Gr</span>
+<span class="w">        </span><span class="nv">$Kbulk</span><span class="w"> </span><span class="nv">$D1</span><span class="w"> </span><span class="nv">$D2</span><span class="w"> </span><span class="nv">$ts</span><span class="w"> </span><span class="nv">$tr</span><span class="w"> </span><span class="nv">$n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$x1</span><span class="w"> </span><span class="nv">$x2</span><span class="w"> </span><span class="nv">$x3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nv">$y1</span><span class="w"> </span><span class="nv">$y2</span><span class="w"> </span><span class="nv">$y3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$kc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$PhiM</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$ac</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$sDratio</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$cd</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tag1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tag2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tag3</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$tag4</span><span class="w"> </span><span class="o">&gt;</span><span class="w"></span>
+</pre></div>
+
+<hr />
+<table>
+<tbody>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">eleTag</code>
+</td>
+<td>
+<p>
+unique element object tag
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">Nd1 Nd2</code>
+</p>
+</td>
+<td>
+<p>
+end nodes
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">Fy</code>
+</td>
+<td>
+<p>
+yield strength
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">alpha</code>
+</td>
+<td>
+<p>
+post-yield stiffness ratio
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">Gr</code>
+</td>
+<td>
+<p>
+shear modulus of elastomeric bearing
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">Kbulk</code>
+</td>
+<td>
+<p>
+bulk modulus of rubber
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-variable">D1</code>
+</p>
+</td>
+<td>
+<p>
+internal diameter
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">D2</code>
+</p>
+</td>
+<td>
+<p>
+outer diameter (excluding cover thickness)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">ts</code>
+</td>
+<td>
+<p>
+single steel shim layer thickness
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">tr</code>
+</td>
+<td>
+<p>
+single rubber layer thickness
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">n</code>
+</td>
+<td>
+<p>
+number of rubber layers
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">x1 x2 x3</code>
+</p>
+</td>
+<td>
+<p>
+vector components in global coordinates defining local x-axis (optional)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-variable">y1 y2 y3</code>
+</p>
+</td>
+<td>
+<p>
+vector components in global coordinates defining local y-axis (optional)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">kc</code>
+</td>
+<td>
+<p>
+cavitation parameter (optional, default = 10.0)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">PhiM</code>
+</td>
+<td>
+<p>
+damage parameter (optional, default = 0.5)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">ac</code>
+</td>
+<td>
+<p>
+strength reduction parameter (optional, default = 1.0)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">sDratio</code>
+</td>
+<td>
+<p>
+shear distance from iNode as a fraction of the element length (optional, default = 0.5)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">m</code>
+</td>
+<td>
+<p>
+element mass (optional, default = 0.0)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">cd</code>
+</td>
+<td>
+<p>
+viscous damping parameter (optional, default = 0.0)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">tc</code>
+</td>
+<td>
+<p>
+cover thickness (optional, default = 0.0)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-variable">tag1</code>
+</p>
+</td>
+<td>
+<p>
+Tag to include cavitation and post-cavitation (optional, default = 0)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">tag2</code>
+</p>
+</td>
+<td>
+<p>
+Tag to include buckling load variation (optional, default = 0)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<code class="parameter-table-variable">tag3</code>
+</p>
+</td>
+<td>
+<p>
+Tag to include horizontal stiffness variation (optional, default = 0)
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">tag4</code>
+</p>
+</td>
+<td>
+<p>
+Tag to include vertical stiffness variation (optional, default = 0)
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+<strong>Important note:</strong>
+</p>
+<p>
+Because default values of heating parameters are in SI units, user must override the default heating parameters values if using Imperial units &lt;br /&gt; User should distinguish between yield strength of elastomeric bearing (Fy) and characteristic strength (Qd): Qd=Fy*(1-alpha)
+</p>
+<h2 id="physical_model_and_mechanical_properties">
+Physical Model and Mechanical Properties
+</h2>
+<p>
+The physical model of an elastomeric bearing is considered as a two-node, twelve degrees-of-freedom discrete element. The two nodes are connected by six springs that represent the mechanical behavior in the six basic directions of a bearing. The degrees of freedom and discrete spring representation of an elastomeric bearing is shown in the below figures.
+</p>
+<p>
+<img src="/OpenSeesRT/contrib/static/Elastomeric3DModel.png"
+title="inline|Physical continuum model" height="300"
+alt="inline|Physical continuum model" /> <img
+src="/OpenSeesRT/contrib/static/ElastomericDiscreteSpring.png"
+title="inline|Discrete spring representation" height="300"
+alt="inline|Discrete spring representation" />
+</p>
+<p>
+The general form of element force vector, $$, and element stiffness matrix,&lt;math&gt;&lt;/math&gt; , for element representation considered above is given by equation below:
+</p>
+<p>
+&lt;math&gt;=;     <br />
+=&lt;/math&gt;
+</p>
+<p>
+The coupling of the two shear springs is considered directly by using a coupled bidirectional model. All other springs are uncoupled. The coupling of vertical and horizontal directions are considered indirectly by using expressions for mechanical properties in one direction that are dependent on the response parameters in the other direction. Linear uncoupled springs are considered in the torsion and the two rotational springs as they are not expected to significantly affect the response of an elastomeric bearing. The off-diagonal terms due to coupling between axial and shear, and axial and rotation, are not considered in the two-spring model (Koh and Kelly, 1987) used here. An exact model would have non-zero values of these off-diagonal terms. A discussion on the formulation of the two-spring model and the exact model is presented in Ryan et al.(1991). The subscript b refers to the element’s basic coordinate system. The response quantities are transformed between the basic, local and global coordinates to perform computations.
+</p>
+<p>
+The discrete spring model presented here has the advantages of easy implementation and being computationally efficient. The mechanical properties of the six springs (also referred to as material models in OpenSees) are defined using analytical solutions available from the analysis of elastomeric bearings. The expression for mechanical properties, including stiffness and buckling load capacity, are derived using explicit consideration for geometric nonlinearity due to large displacement effects. The material models in six directions are:
+</p>
+<ul>
+<li>
+Axial direction: a new mathematical model that captures the behavior under cyclic tension <a
+href="http://onlinelibrary.wiley.com/doi/10.1002/eqe.2431/abstract">Link</a>
+</li>
+<li>
+Two shear directions: a special case of the Bouc-Wen model extended by Nagarajaiah et al.(1991) for seismic isolation bearings
+</li>
+<li>
+Torsion: a linear elastic model
+</li>
+<li>
+Two rotational directions: linear elastic models
+</li>
+</ul>
+<p>
+In addition to the behavior captured by existing bearing elements, this element can capture following characteristics:
+</p>
+<ol>
+<li>
+Cavitation and post-cavitation behavior in tension (tag1)
+</li>
+<li>
+Variation in critical buckling load capacity due to lateral displacement (tag2)
+</li>
+<li>
+Variation in horizontal shear stiffness with axial load on the bearing (tag3)
+</li>
+<li>
+Variation in vertical axial stiffness with horizontal displacement (tag4)
+</li>
+</ol>
+<p>
+User may choose to include an individual or a combination of these behaviors through user tags (include:1, exclude:0) in their analysis.
+</p>
+<p>
+For the full capabilities of this element, users are referred to: <a
+href="http://onlinelibrary.wiley.com/doi/10.1002/eqe.2431/abstract">EESD Article</a>
+</p>
+<h2 id="consideration_of_characteristics_to_include_under_extreme_loading">
+Consideration of characteristics to include under extreme loading
+</h2>
+<p>
+A recent paper by <a
+href="http://www.sciencedirect.com/science/article/pii/S002954931500254X">Kumar et. al (2015)</a> explains which of the four tags should be included in the analysis. Although the analysis presented in the paper is for the base-isolated NPP, the conclusions are valid for design earthquake and maximum considered earthquake for regular building structures as well. Following are few thumb rules that can be followed: tag 1: Unless you are investigating the tensile behavior, the effect of the tensile model on shear response is insignificant. tag 2: It is recommended to use tag to include variable buckling load capacity. It affects the compression capacity and shear stiffness. The apparent softening in shear force-deformation behavior at high axial load is due to this. A constant buckling load will show less softening. tag 3: Recommended if axial load expected during the loading is more than 10% of the buckling load capacity. tag2+tag3 provide greater softening. tag 4: Unless you are investigating the axial behavior, the effect of the tensile model on shear response is insignificant.
+</p>
+<h2 id="verification_and_validation">
+Verification and validation
+</h2>
+<p>
+This is element has been verified per ASME guidelines. Users are referred to the <a
+href="https://www.researchgate.net/publication/280841152_Verification_and_validation_of_models_of_elastomeric_seismic_isolation_bearings">SMiRT23 Paper</a> and chapter 4 of the Manish Kumar’s <a
+href="http://www.manishkumar.org/manishkumar/research/Dissertation_Manish_Kumar.pdf">Dissertation</a> for complete details.
+</p>
+<h2 id="recorders">
+Recorders
+</h2>
+<p>
+In addition to regular recorders provided by the bearing elements (<a
+href="Element_Recorder" title="wikilink"> Element Recorder</a>), this element can also record instantaneous values of cavitation force (Fcn), buckling load capacity (Fcrn), vertical stiffness (Kv) and horizontal stiffness (ke) using the “Parameters” recorder in that order.
+</p>
+<p>
+Example: recorder Element &lt;-file <span class="math inline">\(fileName&amp;gt; -time &amp;lt;-ele (\)</span>ele1 $ele2 …)&gt; Parameters recorder Element -file param.out -time -ele 1 Parameters
+</p>
+<p>
+To check if bearing has buckled or cavitated, an user can obtain the histories of Fcn and Fcrn as described above and divide the axial force (obtained from basicForce recorder, qb(2)) by Fcn and Fcrn at each time step, which provides demand vs capacity (D/C) ratios at each time step. If Fcn/qb(0) &gt; 1.0 : Cavitation, or Fcrn/qb(0)&gt;1.0 : Buckling.
+</p>
+<h2 id="examples">
+Examples
+</h2>
+<p>
+An example is presented here in which a low damping rubber bearing (LDR 5 in Warn(2006)) is subjected to a tensile harmonic loading in laboratory (SEESL at UB). The response obtained from ElastomericX element in OpenSees is compared with the experimental results. The behavior of elastomeric bearing in shear and compression is well established, and is not explored here.
+</p>
+<p>
+element ElastomericX 1 1 2 $Fy_h $alpha $G $K $D1 $D2 $ts $tr $n 0 1 0 1 0 0 $kc $PhiM $ac 0.5 0.0 $cd $tc 1 0 0 0
+</p>
+<p>
+Excitation files: <embed src="Excitation_Warn.zip"
+title="Excitation_Warn.zip" /> ‎
+</p>
+<p>
+Tcl files: <img src="EBgravity.tcl‎" title="EBgravity.tcl‎"
+alt="EBgravity.tcl‎" /> <img src="EBtest.tcl‎" title="EBtest.tcl‎"
+alt="EBtest.tcl‎" />
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/EBWarnComparison.jpg"
+title="inline|Numerical and experimental response comparison"
+height="400"
+alt="inline|Numerical and experimental response comparison" />
+<figcaption aria-hidden="true">
+inline|Numerical and experimental response comparison
+</figcaption>
+</figure>
+<p>
+More examples of this element would be uploaded soon!
+</p>
+<h2 id="references">
+References
+</h2>
+<ol>
+<li>
+Kumar, M., Whittaker, A., and Constantinou, M. (2014). “An advanced numerical model of elastomeric seismic isolation bearings.” Earthquake Engineering &amp; Structural Dynamics, 43(13), 1955-1974. <a
+href="http://onlinelibrary.wiley.com/doi/10.1002/eqe.2431/abstract">Link</a>
+</li>
+<li>
+Kumar, M., Whittaker, A., and Constantinou, M. (2015). “Experimental investigation of cavitation in elastomeric seismic isolation bearings.” Engineering Structures, 101, 290-305. <a
+href="http://www.sciencedirect.com/science/article/pii/S0141029615004575">Link</a>
+</li>
+<li>
+Kumar, M., Whittaker, A., and Constantinou, M. (2015). “Response of base-isolated nuclear structures to extreme earthquake shaking.” Nuclear Engineering and Design (In press). <a
+href="http://www.sciencedirect.com/science/article/pii/S002954931500254X">Link</a>
+</li>
+<li>
+Warn, G. P. (2006). “The coupled horizontal-vertical response of elastomeric and lead-rubber seismic isolation bearings.” PhD Dissertation, Civil, Structural and Environmental Engineering, University at Buffalo.
+</li>
+<li>
+Koh, C. G., and Kelly, J. M. (1987). “Effects of axial load on elastomeric isolation bearings.” EERC/UBC 86/12, Earthquake Engineering Research Center, University of California, Berkeley, United States, 108p.
+</li>
+<li>
+Nagarajaiah, S., Reinhorn, A. M., and Constantinou, M. C. (1991). “Nonlinear dynamic analysis of 3-d-base-isolated structures.” Journal of structural engineering New York, N.Y., 117(7), 2035-2054.
+</li>
+<li>
+Ryan, K. L., Kelly, J. M., and Chopra, A. K. (2005). “Nonlinear model for lead-rubber bearings including axial-load effects.” Journal of Engineering Mechanics, 131(12), 1270-1278.
+</li>
+</ol>
+<hr />
+<p>
+Code Developed by: <span style="color:blue"> Manish Kumar, University at Buffalo, SUNY. </span>
+</p>
+<p>
+Any bugs in this element can be reported to mkumar2 AT buffalo dot edu
+</p>
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Berkeley, CA
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../../assets/javascripts/workers/search.2a1c317c.min.js"}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

@@ -10,17 +10,20 @@ class TclWriter(Emitter):
             return
 
         value = self._get_value(None, value)
+
         if isinstance(value, (type(None), )):
             if not self.reqd:
-                return []
+                return
             else:
                 value = f"${self.name}"
         elif isinstance(value, (Arg,)):
             if not self.reqd:
-                return []
+                return
             else:
                 value = f"${value.name}"
+
         this.write(self.flag, str(value))
+
 
     def Lst(this, self, value=None):
         this.write(self.flag)
@@ -75,14 +78,18 @@ class TclWriter(Emitter):
         val = self._get_value(None, value=value)
         #value = value.name if val is None else val
         #if val is None:
-        if not isinstance(val,int):
+        #if not isinstance(val,int):
+        if not isinstance(val,int) and not isinstance(value, int):
             try:
                 value = "$"+this.registry.ident(value).tclstr()
             except KeyError:
-                raise KeyError(f"Unable to resolve reference to {value} when writing {this.current_obj}")
+                if self.reqd:
+                    raise KeyError(f"Unable to resolve reference to {value} when writing {this.current_obj}")
+                else:
+                    return
         
         else:
-            value = val
+            value = val or value # the one thats an int, not (presumably) None
         return this.write(self.flag,value)
 
     def Blk(this, self, value=None):

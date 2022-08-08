@@ -2,13 +2,11 @@
 
 ```cpp
 #include  <domain/domain/Domain.h>
-```
 
 class Domain
+```
 
-
-
-Domain is container class for storing and providing access to the
+`Domain` is container class for storing and providing access to the
 components of a domain, i.e. nodes, elements, boundary conditions, and
 load patterns. A Domain is a container class which contains the all
 elements, nodes, load cases, single point constraints and multiple point
@@ -32,87 +30,17 @@ structure. It provides operations for the following:
 
 -   Output: Methods added for outputting information.
 
-The Domain class stores each type of object, i.e. Nodes, Elements,
-SP_Constraints, MP_Constraints, NodalLoads and ElementalLoads, in a
+The Domain class stores each type of object, i.e. `Nodes`, `Elements`,
+`SP_Constraints`, `MP_Constraints`, `NodalLoads` and `ElementalLoads`, in a
 container object. Currently these container objects are a subtype of
 TaggedObjectStorage (templates are not used as yet due to present
 difficulties in porting code which uses templates).
 
-### Constructors
-
-\
-
-\
-
 ### Destructor
 
-\
-// Public Methods to Populate the Domain\
+### Constructors
 
-\
 
-\
-
-\
-// Public Methods to Populate the LoadPatterns\
-
-\
-
-\
-// Public Methods to Depopulate the Domain\
-
-\
-
-\
-
-\
-
-// Public Methods to Access the Components of the Domain\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-// Public Methods to Query the State of the Domain\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-// Public Methods to Update the Domain\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-// Public Methods for Output\
-
-\
-
-\
-// Protected Member Functions\
-
-\
-
-\
 
 Constructs an empty domain. The storage for the DomainComponents uses
 ArrayOfTaggedObjects objects for each type of object to be stored. The
@@ -152,9 +80,15 @@ objects in the Domain, i.e. the DomainComponents, are not destroyed. To
 clean up these objects `clearAll()` should be invoked before the
 destructor is called.
 
-\
+
+###  Public Methods to Populate the Domain
+
+```cpp
+virtual bool addElement(Element *theElementPtr);
+```
+
 To add the element pointed to by theElementPtr to the domain. If
-*\_DEBUG* is defined the domain checks to see that: 1) that all external
+`_DEBUG` is defined the domain checks to see that: 1) that all external
 nodes for the element exists in the domain. and 2) that the sum of the
 dof at all the nodes equals the num of dof at the element. In addition
 the domain always checks to ensure that no other element with a similar
@@ -164,24 +98,26 @@ the container for the elements. The domain then invokes
 `setDomain(this)` on the element and `domainChange()` on itself if the
 element is successfully added. The call returns *true* if the element is
 added, otherwise the `warning()` method of the global ErrorHandler is
-invoked and *false* is returned.
+invoked and `false` is returned.
 
 ```{.cpp}
-virtual bool addNode(Node \*theNodePtr = false);
+virtual bool addNode(Node *theNodePtr = false);
 ```
 
-To add the node pointed to by *theNodePtr* to the domain. The domain
+To add the node pointed to by `theNodePtr` to the domain. The domain
 first checks that no other node with a similar tag, node number, has
 been previously added to the domain. The domain will then add the node
 to it's node container object, by invoking `addComponent(theNodePtr)`.
 If successful, the Domain invokes `setDomain(this)` on the node,
 `domainChange()` on itself, and checks the coordinates of the domain to
 see if they effect the box encompassing the Domain. The call returns
-*true* if the node was added, otherwise the `warning()` method of the
-global ErrorHandler is invoked and *false* is returned.
+`true` if the node was added, otherwise the `warning()` method of the
+global ErrorHandler is invoked and `false` is returned.
+
+### Public Methods to Populate the LoadPatterns
 
 ```{.cpp}
-virtual bool addSP(SP_Constraint \*theSPptr = false);
+virtual bool addSP(SP_Constraint *theSPptr = false);
 ```
 
 To add the single point constraint pointed to by theSPptr to the domain.
@@ -197,7 +133,7 @@ the constraint was added, otherwise the `warning()` method of the global
 ErrorHandler is invoked and *false* is returned.
 
 ```{.cpp}
-virtual bool addMP(MP_Constraint \*theMPptr = false);
+virtual bool addMP(MP_Constraint *theMPptr = false);
 ```
 
 To add the multiple point constraint pointed to by theMPptr, to the
@@ -214,7 +150,7 @@ was added, otherwise the `warning()` method of the global ErrorHandler
 is invoked and *false* is returned.
 
 ```{.cpp}
-virtual bool addLoadPattern(LoadPattern \*thePattern);
+virtual bool addLoadPattern(LoadPattern *thePattern);
 ```
 
 To add the LoadPattern *thePattern* to the domain. The load is added to
@@ -225,7 +161,7 @@ added, otherwise the `warning()` method of the global ErrorHandler is
 invoked and *false* is returned.
 
 ```{.cpp}
-virtual bool addNodalLoad(NodalLoad \*theLd, int loadPatternTag);
+virtual bool addNodalLoad(NodalLoad *theLd, int loadPatternTag);
 ```
 
 To add the nodal load *theld* to the LoadPattern in the domain whose tag
@@ -237,8 +173,10 @@ LoadPattern object. The domain is responsible for invoking
 `setDomain(this)` on the load. The call returns *true* if the load was
 added, otherwise the `warning()` method on the global ErrorHandler is
 invoked and *false* is returned.
-*virtual bool addElementalLoad(ElementalLoad \*theLd, int
-loadPatternTag);*\
+
+```{.cpp}
+virtual bool addElementalLoad(ElementalLoad *theLd, int loadPatternTag);
+```
 To add the elemental load *theld* to the LoadPattern in the domain whose
 tag is given by *loadPatternTag*. If *\_DEBUG* is defines, checks to see
 that corresponding element exists in the domain. A pointer to the
@@ -248,8 +186,11 @@ LoadPattern object. The domain is responsible for invoking
 `setDomain(this)` on the load. The call returns *true* if the load was
 added, otherwise the `warning()` method on the global ErrorHandler is
 invoked and *false* is returned.
-*virtual bool addSP_Constraint(SP_Constraint \*theConstraint, int
-loadPatternTag);*\
+
+```{.cpp}
+virtual bool addSP_Constraint(SP_Constraint *theConstraint, int loadPatternTag);
+```
+
 To add the elemental load *theConstraint* to the LoadPattern in the
 domain whose tag is given by *loadPatternTag*. If *\_DEBUG* is defines,
 checks to see that corresponding node exists in the domain. A pointer to
@@ -259,6 +200,14 @@ the LoadPattern object. The domain is responsible for invoking
 `setDomain(this)` on the constraint. The call returns *true* if the load
 was added, otherwise the `warning()` method on the global ErrorHandler
 is invoked and *false* is returned.
+
+
+
+### Public Methods to Depopulate the Domain
+
+
+
+
 
 \
 To remove all the components from the model and invoke the destructor on
@@ -278,7 +227,7 @@ Element objects are added to this container) and `domainChange()` on
 itself before a pointer to the element is returned.
 
 ```{.cpp}
-virtual Node \*removeNode(int tag);
+virtual Node *removeNode(int tag);
 ```
 
 To remove the node whose tag is given by *tag* from the domain. The
@@ -288,7 +237,7 @@ node is to be removed the domain invokes `setDomain(0)`{.cpp} on the node and
 `domainChange()` on itself before a pointer to the Node is returned.
 
 ```{.cpp}
-virtual SP_Constraint \*removeSP_Constraint(int tag);
+virtual SP_Constraint *removeSP_Constraint(int tag);
 ```
 
 To remove the SP_Constraint whose tag is given by *tag* from the domain.
@@ -301,7 +250,7 @@ SP_Constraints which have been added to the domain and not directly to
 LoadPatterns.
 
 ```{.cpp}
-virtual `MP_Constraint` \*removeMP_Constraint(int tag);
+virtual `MP_Constraint` *removeMP_Constraint(int tag);
 ```
 
 To remove the `MP_Constraint` whose tag is given by *tag* from the domain.
@@ -312,7 +261,7 @@ the constraint and `domainChange()` on itself before a pointer to the
 constraint is returned.
 
 ```{.cpp}
-virtual LoadPattern \*removeLoadPattern(int tag);
+virtual LoadPattern *removeLoadPattern(int tag);
 ```
 
 To remove the LoadPattern whose tag is given by *tag* from the domain.
@@ -322,6 +271,9 @@ then iterates through the loads and constraints of the LoadPattern
 invoking `setDomain(0)`{.cpp} on these objects. Returns $0$ if the load was
 not in the domain, otherwise returns a pointer to the load that was
 removed. Invokes `setDomain(0)`{.cpp} on the load case before it is returned.
+
+### Public Methods to Access the Components of the Domain
+
 
 \
 To return an iter for the Elements in the domain. It returns an
@@ -339,69 +291,72 @@ domain.
 virtual SP_ConstraintIter &getSPs(void);
 ```
 
-To return an *SP_ConstraintIter* for the single point constraints which
+To return an `SP_ConstraintIter` for the single point constraints which
 have been added to the domain.
 
 ```{.cpp}
 virtual MP_ConstraintIter &getMPs(void);
 ```
 
-To return an *MP_ConstraintIter* for the multiple point constraints
+To return an `MP_ConstraintIter` for the multiple point constraints
 which have been added to the domain.
 
 ```{.cpp}
 virtual LoadPatternIter &getLoadPatterns(void);
 ```
 
-To return an *LoadPatternIter* for the LoadPattern objects which have
+To return an `LoadPatternIter` for the LoadPattern objects which have
 been added to the domain.
 
 ```{.cpp}
-virtual Element \*getElement(int tag);
+virtual Element *getElement(int tag);
 ```
 
-To return a pointer to the element *tag*. If no such element exists $0$
+To return a pointer to the element `tag`. If no such element exists $0$
 is returned. It does this by invoking em getComponentPtr(tag) on the
 element container and performing a cast to an element if the object
 exists.
 
 ```{.cpp}
-virtual Node \*getNode(int tag);
+virtual Node `getNode(int tag);
 ```
 
-To return a pointer to the node whose tag is given by *tag*. If no such
+To return a pointer to the node whose tag is given by `tag`. If no such
 node exists $0$ is returned. It does this by invoking em
 getComponentPtr(tag) on the node container and performing a cast to a
 node if the object exists.
 
 ```{.cpp}
-virtual SP_Constraint \*getSP_ConstraintPtr(int tag);
+virtual SP_Constraint `getSP_ConstraintPtr(int tag);
 ```
 
-To return a pointer to the SP_Constraint whose tag is given by *tag*. If
+To return a pointer to the SP_Constraint whose tag is given by `tag`. If
 no such SP_Constraint exists $0$ is returned. It does this by invoking
 em getComponentPtr(tag) on the single-point constraint container and
 performing a cast to an SP_Constraint if the object exists.
 
 ```{.cpp}
-virtual `MP_Constraint` \*getMP_ConstraintPtr(int tag);
+virtual MP_Constraint `getMP_ConstraintPtr(int tag);
 ```
 
-To return a pointer to the `MP_Constraint` whose tag is given by *tag*. If
+To return a pointer to the `MP_Constraint` whose tag is given by `tag`. If
 no such `MP_Constraint` exists $0$ is returned. It does this by invoking
 em getComponentPtr(tag) on the multi-point constraint container and
 performing a cast to an `MP_Constraint` if the object exists.
 
 ```{.cpp}
-virtual ElementalLoad \*getLoadPattern(int tag);
+virtual ElementalLoad *getLoadPattern(int tag);
 ```
 
-To return a pointer to the LoadPattern whose tag is given by *tag*. If
+To return a pointer to the LoadPattern whose tag is given by `tag`. If
 no such LoadPattern exists $0$ is returned. It does this by invoking em
-getComponentPtr(tag) on the elemental load container and performing a
+`getComponentPtr(tag)` on the elemental load container and performing a
 cast to a LoadPattern if the object exists.
 
-\
+
+
+### Public Methods to Query the State of the Domain
+
 To return the number of elements in the domain. It does this by invoking
 `getNumComponents()` on the container for the elements.
 
@@ -440,8 +395,8 @@ virtual const Vector &getPhysicalBounds(void);
 ```
 
 To return the bounding rectangle for the Domain. The information is
-contained in a Vector of size 6 containing in the following order {xmin,
-ymin, zmin, xmax, ymax, zmax}. This information is built up as nodes are
+contained in a `Vector` of size 6 containing in the following order {`xmin`,
+`ymin`, `zmin`, `xmax`, `ymax`, `zmax`}. This information is built up as nodes are
 added to the domain, initially all are set to $0$ in the constructor.
 
 ```{.cpp}
@@ -463,6 +418,11 @@ domain). If the *nodeChangeFlag* has been set to *true* the will invoke
 `buildNodeGraph(theNodeGraph)` on itself before returning the graph. The
 vertices in the node graph are to be labeled $0$ through $numNode-1$.
 The Vertices references contain the nodal tags.
+
+
+
+### Public Methods to Update the Domain
+
 
 \
 To set the current commitTag to *newTag*.
@@ -530,7 +490,10 @@ invoked since the last invocation of the method. If the domain has
 changed it marks the element and node graph flags as not having been
 built.
 
-\
+
+### Public Methods for Output
+
+
 To add a recorder object *theRecorder* to the domain.
 `record(commitTag)` is invoked on each `commit()`. The pointers to the
 recorders are stored in an array which is resized on each invocation of
@@ -542,20 +505,40 @@ which have been added to the domain.
 To print the state of the domain. The domain invokes `Print(s,flag)`{.cpp} on
 all it's container objects.
 
+```{.cpp}
+friend OPS_Stream &operator<<(OPS_Stream &s, Domain &M)
+```
 This function allows domain objects to be printed to streams. The
-function invokes $M.Print(s)$ before returning $s$.
+function invokes `M.Print(s)` before returning `s`.
 
-\
+
+
+### Protected Member Functions
+
+```{.cpp}
+virtual void domainChange(void);
+```
 Sets a flag indicating that the integer returned in the next call to
 `hasDomainChanged()` must be incremented by $1$. This method is invoked
 whenever a Node, Element or Constraint object is added to the domain.
-*virtual int buildEleGraph(Graph &theEleGraph)*\
+
+
+```{.cpp}
+virtual int buildEleGraph(Graph &theEleGraph)
+```
+
 A method which will cause the domain to discard the current element
 graph and build a new one based on the element connectivity. Returns $0$
 if successful otherwise $-1$ is returned along with an error message to
-opserr.
-*virtual int buildNodeGraph(Graph &theNodeGraph)*\
+`opserr`.
+
+
+```
+virtual int buildNodeGraph(Graph &theNodeGraph)
+```
+
 A method which will cause the domain to discard the current node graph
 and build a new one based on the node connectivity. Returns $0$ if
 successful otherwise $-1$ is returned along with an error message to
-opserr.
+`opserr`.
+

@@ -1,0 +1,2681 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://brace2.github.io/OpenSeesRT/library/modeling/element/walls/611-SFI%20MVLEM%20-%20Cyclic%20Shear-Flexure%20Interaction%20Model%20for%20RC%20Walls/">
+      
+      <link rel="icon" href="../../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-, mkdocs-material-8.2.13">
+    
+    
+      
+        <title>SFI MVLEM - Cyclic Shear-Flexure Interaction Model for RC Walls - OpenSeesRT</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.e411adfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=serif:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"serif";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../math.css">
+    
+      <link rel="stylesheet" href="../../../../../particle.css">
+    
+      <link rel="stylesheet" href="../../../../../grid.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="OpenSeesRT" class="md-header__button md-logo" aria-label="OpenSeesRT" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenSeesRT
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SFI MVLEM - Cyclic Shear-Flexure Interaction Model for RC Walls
+
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../analysis/DirectIntegration/" class="md-tabs__link">
+        Library
+      </a>
+    </li>
+  
+
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="OpenSeesRT" class="md-nav__button md-logo" aria-label="OpenSeesRT" data-md-component="logo">
+      
+  <img src="../../../../../assets/logo.png" alt="logo">
+
+    </a>
+    OpenSeesRT
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1">
+          Library
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Library" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Library
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1" type="checkbox" id="__nav_1_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Analysis" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Analysis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_1" type="checkbox" id="__nav_1_1_1" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../analysis/DirectIntegration/">DirectIntegrationAnalysis</a>
+          
+            <label for="__nav_1_1_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="DirectIntegrationAnalysis" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          DirectIntegrationAnalysis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/231-Explicit%20Difference/" class="md-nav__link">
+        Explicit Difference
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/277-Generalized%20Alpha%20Method/" class="md-nav__link">
+        Generalized Alpha Method
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/326-Hilber-Hughes-Taylor%20Method/" class="md-nav__link">
+        Hilber-Hughes-Taylor
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/416-Newmark%20Method/" class="md-nav__link">
+        Newmark Method
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/675-TRBDF2/" class="md-nav__link">
+        TRBDF2
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/81-Central%20Difference/" class="md-nav__link">
+        Central Difference
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/DirectIntegration/_implementation/" class="md-nav__link">
+        
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_2" type="checkbox" id="__nav_1_1_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_1_2">
+          EigenAnalysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="EigenAnalysis" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          EigenAnalysis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/Eigen_Analysis/ArpackSolver/" class="md-nav__link">
+        ArpackSolver
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/Eigen_Analysis/EigenAlgorithm/" class="md-nav__link">
+        
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/Eigen_Analysis/FrequencyAlgo/" class="md-nav__link">
+        FrequencyAlgo
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/Eigen_Analysis/StandardEigenAlgo/" class="md-nav__link">
+        StandardEigenAlgo
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_1_3" type="checkbox" id="__nav_1_1_3" >
+      
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../../analysis/">StaticAnalysis</a>
+          
+            <label for="__nav_1_1_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="StaticAnalysis" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          StaticAnalysis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/154-Displacement%20Control/" class="md-nav__link">
+        Displacement Control
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/24-Arc-Length%20Control/" class="md-nav__link">
+        Arc-Length Control
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/372-Load%20Control/" class="md-nav__link">
+        Load Control
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/387-Minimum%20Unbalanced%20Displacement%20Norm/" class="md-nav__link">
+        Minimum Unbalanced Displacement Norm
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/EQPath/" class="md-nav__link">
+        EQPath
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/HSConstraint/" class="md-nav__link">
+        HSConstraint
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/" class="md-nav__link">
+        StaticAnalysis
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/LoadPath/" class="md-nav__link">
+        LoadPath
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/ParkLMS3/" class="md-nav__link">
+        ParkLMS3
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/StaticAnalysis/StagedLoadControl/" class="md-nav__link">
+        StagedLoadControl
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2" type="checkbox" id="__nav_1_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2">
+          Modeling
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Modeling" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Modeling
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1" type="checkbox" id="__nav_1_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1">
+          Uniaxial Material
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Uniaxial Material" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Uniaxial Material
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_1" type="checkbox" id="__nav_1_2_1_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_1">
+          Elastic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Elastic" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          Elastic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/elastic/181-ElasticMultiLinear/" class="md-nav__link">
+        ElasticMultiLinear
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/elastic/195-Elastic%20Uniaxial/" class="md-nav__link">
+        Elastic
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/elastic/180-ElasticBilin/" class="md-nav__link">
+        ElasticBilin
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_2" type="checkbox" id="__nav_1_2_1_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_2">
+          Generic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Generic" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          Generic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/bouc/64-BoucWen/" class="md-nav__link">
+        BoucWen
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/generic/322-Hardening/" class="md-nav__link">
+        Hardening
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/generic/179-Elastic-Perfectly%20Plastic/" class="md-nav__link">
+        Elastic-Perfectly Plastic
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/generic/404-MultiLinear/" class="md-nav__link">
+        MultiLinear
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_3" type="checkbox" id="__nav_1_2_1_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_3">
+          Metallic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Metallic" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Metallic
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/666-Steel02/" class="md-nav__link">
+        Steel02
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/668-SteelMPF/" class="md-nav__link">
+        SteelMPF
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/587-Reinforcing%20Steel/" class="md-nav__link">
+        ReinforcingSteel
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/667-Steel4/" class="md-nav__link">
+        Steel4
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/158-DoddRestrepo/" class="md-nav__link">
+        DoddRestrepo
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/730-UVCuniaxial/" class="md-nav__link">
+        UVCuniaxial
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/metallic/569-RambergOsgoodSteel/" class="md-nav__link">
+        RambergOsgoodSteel
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_4" type="checkbox" id="__nav_1_2_1_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_4">
+          Concrete
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Concrete" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Concrete
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/97-ConfinedConcrete01/" class="md-nav__link">
+        ConfinedConcrete01
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/94-ConcreteCM/" class="md-nav__link">
+        ConcreteCM
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/91-Concrete04/" class="md-nav__link">
+        Concrete04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/90-Concrete02/" class="md-nav__link">
+        Concrete02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/92-Concrete06/" class="md-nav__link">
+        Concrete06
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/concrete/Concrete02IS/" class="md-nav__link">
+        Concrete02IS
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_5" type="checkbox" id="__nav_1_2_1_5" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_5">
+          Geotechnical
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Geotechnical" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          Geotechnical
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/geotechnical/557-PySimple1/" class="md-nav__link">
+        PySimple1
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/geotechnical/565-QzSimple1/" class="md-nav__link">
+        QzSimple1
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_1_6" type="checkbox" id="__nav_1_2_1_6" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_1_6">
+          Wrappers
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Wrappers" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          Wrappers
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/wrapper/489-Parallel/" class="md-nav__link">
+        Parallel
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../uniaxial/wrapper/632-Series/" class="md-nav__link">
+        Series
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2" type="checkbox" id="__nav_1_2_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_2">
+          Element
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Element" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Element
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_2_1" type="checkbox" id="__nav_1_2_2_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_2_1">
+          Beam
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Beam" data-md-level="4">
+        <label class="md-nav__title" for="__nav_1_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Beam
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beam/2057-Force-Based%20Beam-Column%20Element/" class="md-nav__link">
+        Force-Based Beam-Column Element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../beam/2184-Elastic%20Beam%20Column%20Element/" class="md-nav__link">
+        ElasticBeamColumn
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_3" type="checkbox" id="__nav_1_2_3" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_2_3">
+          Constraint
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Constraint" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Constraint
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../constraints/602-RigidLink/" class="md-nav__link">
+        RigidLink
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_2_4" type="checkbox" id="__nav_1_2_4" >
+      
+      
+      
+        
+          
+        
+          
+            
+          
+        
+          
+        
+          
+            
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../pattern/plain/">Pattern</a>
+          
+            <label for="__nav_1_2_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Pattern" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pattern
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern/Multisupport_Excitation/" class="md-nav__link">
+        Multisupport Excitation
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern/740-Uniform%20Excitation%20Pattern/" class="md-nav__link">
+        Uniform Excitation Pattern
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../pattern/" class="md-nav__link">
+        Load Patterns
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3" type="checkbox" id="__nav_1_3" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_3">
+          Utilities
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Utilities" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          Utilities
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../utilities/units/" class="md-nav__link">
+        Units
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_3_2" type="checkbox" id="__nav_1_3_2" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_3_2">
+          Recorders
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Recorders" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Recorders
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../utilities/recorders/208-Element%20Recorder/" class="md-nav__link">
+        Element
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../utilities/recorders/431-Node%20Recorder/" class="md-nav__link">
+        Node
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_4">
+          Modules
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Modules" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          Modules
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_1" type="checkbox" id="__nav_1_4_1" >
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_1">
+          Algebraic Hysteresis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Algebraic Hysteresis" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Algebraic Hysteresis
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/AlgebraicHysteresis/backbone/RaynorBackbone/" class="md-nav__link">
+        Raynor
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/AlgebraicHysteresis/backbone/LinearCappedBackbone/" class="md-nav__link">
+        LinearCapped
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/AlgebraicHysteresis/backbone/MultilinearBackbone/" class="md-nav__link">
+        Multilinear
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/AlgebraicHysteresis/backbone/ArctangentBackbone/" class="md-nav__link">
+        Arctangent
+
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/AlgebraicHysteresis/backbone/ManderBackbone/" class="md-nav__link">
+        Mander
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4_2" type="checkbox" id="__nav_1_4_2" >
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_1_4_2">
+          Nonlinear Beam-Column
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Nonlinear Beam-Column" data-md-level="3">
+        <label class="md-nav__title" for="__nav_1_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Nonlinear Beam-Column
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../modules/NonlinearBeamColumn/geometry/370-Linear%20Transformation/" class="md-nav__link">
+        Linear
+
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="sfi-mvlem---cyclic-shear-flexure-interaction-model-for-rc-walls">SFI MVLEM - Cyclic Shear-Flexure Interaction Model for RC Walls</h1>
+<p>The <strong>SFI_MVLEM</strong> command is used to construct a Shear-Flexure Interaction Multiple-Vertical-Line-Element Model (SFI-MVLEM, Kolozvari et al., 2015a, b, c), which captures interaction between axial/flexural and shear behavior of RC structural walls and columns under cyclic loading. The <strong>SFI_MVLEM</strong> element (Figure 1) incorporates 2-D RC panel behavior described by the Fixed-Strut-Angle-Model (nDMaterial <a
+href="http://opensees.berkeley.edu/wiki/index.php/FSAM_-_2D_RC_Panel_Constitutive_Behavior"><strong>FSAM</strong></a>; Ulugtekin, 2010; Orakcal et al., 2012), into a 2-D macroscopic fiber-based model (MVLEM). The interaction between axial and shear behavior is captured at each RC panel (macro-fiber) level, which further incorporates interaction between shear and flexural behavior at the <strong>SFI_MVLEM</strong> element level.</p>
+<p>
+<strong>Source:</strong> /usr/local/cvs/OpenSees/SRC/element/SFI_MVLEM/
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_1.png"
+title="Figure 1. a) SFI_MVLEM Element, b) RC Panel Element (nDMaterial FSAM)"
+width="650"
+alt="Figure 1. a) SFI_MVLEM Element, b) RC Panel Element (nDMaterial FSAM)" />
+<figcaption aria-hidden="true">
+Figure 1. a) SFI_MVLEM Element, b) RC Panel Element (nDMaterial FSAM)
+</figcaption>
+</figure>
+<hr />
+<p>
+<strong>Input Format:</strong>
+</p>
+<div class="highlight"><pre><span></span><span class="nv">Element</span><span class="w"> </span>SFI_MVLEM<span class="w"> </span><span class="nv">$eleTag</span><span class="w"> </span><span class="nv">$iNode</span><span class="w"> </span><span class="nv">$jNode</span><span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="nv">$c</span><span class="w"> </span><span class="o">-</span>thick
+<span class="w">        </span><span class="k">{</span><span class="nv">Thicknesses</span><span class="k">}</span><span class="w"> </span><span class="nv">-width</span><span class="w"> </span><span class="k">{</span><span class="nv">Widths</span><span class="k">}</span><span class="w"> </span><span class="o">-</span>mat<span class="w"> </span><span class="k">{</span><span class="nv">Material_tags</span><span class="k">}</span>
+</pre></div>
+
+<table>
+<tbody>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">eleTag</code>
+</td>
+<td>
+<p>
+Unique element object tag
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<code class="parameter-table-variable">iNode jNode</code>
+</p>
+</td>
+<td>
+<p>
+End node tags
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<code class="parameter-table-variable">m</code>
+</td>
+<td>
+<p>
+Number of element macro-fibers
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<code class="parameter-table-variable">c</code>
+</td>
+<td>
+<p>
+Location of center of rotation with from the iNode, <em>c</em> = 0.4 (recommended)
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<strong>{Thicknesses}</strong>
+</p>
+</td>
+<td>
+<p>
+Array of <em>m</em> macro-fiber thicknesses
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>{Widths}</strong>
+</p>
+</td>
+<td>
+<p>
+Array of <em>m</em> macro-fiber widths
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<strong>{Material_tags}</strong>
+</p>
+</td>
+<td>
+<p>
+Array of <em>m</em> macro-fiber <em>nDMaterial</em>&lt;sup class=“superscript”&gt;1&lt;/sup&gt; tags
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+&lt;sup class=“superscript”&gt;1&lt;/sup&gt;<strong>SFI_MVLEM</strong> element shall be used with nDMaterial <a
+href="http://opensees.berkeley.edu/wiki/index.php/FSAM_-_2D_RC_Panel_Constitutive_Behavior"><strong>FSAM</strong></a>, which is a 2-D plane-stress constitutive relationship representing reinforced concrete panel behavior.
+</p>
+<hr />
+<p>
+<strong>Element Recorders:</strong>
+</p>
+<p>
+The following recorders are available with the <strong>SFI_MVLEM</strong> element:
+</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>
+<p>
+<strong>globalForce</strong>
+</p>
+</td>
+<td>
+<p>
+Element global forces
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>Curvature</strong>
+</p>
+</td>
+<td>
+<p>
+Element curvature
+</p>
+</td>
+</tr>
+<tr class="odd">
+<td>
+<p>
+<strong>ShearDef</strong>
+</p>
+</td>
+<td>
+<p>
+Element shear deformation
+</p>
+</td>
+</tr>
+<tr class="even">
+<td>
+<p>
+<strong>RCPanel $fibTag <span class="math inline">\(Response&lt;/strong&gt;&lt;/p&gt;&lt;/td&gt; &lt;td&gt;&lt;p&gt;Returns RC panel (macro-fiber) &lt;em&gt;\)</span>Response</em> for a <em><span class="math inline">\(fibTag&lt;/em&gt;-th panel (1 ≤ &lt;em&gt;fibTag&lt;/em&gt; ≤ m). For available &lt;em&gt;\)</span>Response</em>-s refer to nDMaterial <a
+href="http://opensees.berkeley.edu/wiki/index.php/FSAM_-_2D_RC_Panel_Constitutive_Behavior"><strong>FSAM</strong></a>.
+</p>
+</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>
+<strong>Examples:</strong>
+</p>
+<div class="highlight"><pre><span></span><span class="nv">element</span><span class="w"> </span>SFI_MVLEM<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="mf">0.4</span><span class="w"> </span><span class="o">-</span>thick<span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">-</span>width<span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">-</span>mat<span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="mi">7</span>
+<span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>SFI_MVLEM_Fgl.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span>globalForce
+<span class="nv">recorder</span><span class="w"> </span>Element<span class="w"> </span><span class="o">-</span>file<span class="w"> </span>SFI_MVLEM_panel_strain.out<span class="w"> </span><span class="o">-</span>time<span class="w"> </span><span class="o">-</span>ele<span class="w"> </span><span class="mi">1</span><span class="w"> </span>RCPanel<span class="w"> </span><span class="mi">1</span><span class="w"> </span>panel_strain
+</pre></div>
+
+<hr />
+<p>
+<strong>Example 1. Simulation of Shear-Flexural Behavior of a Medium-Rise RC Wall Specimen under Cyclic Loading using the SFI-MVLEM Model</strong>
+</p>
+<p>The behavior of RC wall specimen RW-A15-P10-S78 (Tran and Wallace, 2012) tested under constant axial load and cyclic lateral displacement history applied at the top of the wall is predicted using the <strong>SFI_MVLEM</strong> model. The input parameters and output results are presented in the following sections.</p>
+<p>
+<strong>E1.1. Model Calibration</strong>
+</p>
+<p>
+Basic properties of the specimen with model discretization are shown on Figure E1.1. Detailed information about the test specimen can be found in paper by Tran and Wallace (2012), whereas details of model calibration are provided by Kolozvari (2013) and Kolozvari et al. (2015b).
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/Example2_1.png"
+title="Figure E1.1. Model discretization: a) Plan view, b) Cross-section"
+width="650"
+alt="Figure E1.1. Model discretization: a) Plan view, b) Cross-section" />
+<figcaption aria-hidden="true">
+Figure E1.1. Model discretization: a) Plan view, b) Cross-section
+</figcaption>
+</figure>
+<p>
+<strong>E1.2. Input Files</strong>
+</p>
+<p>
+Input files (.<em>tcl</em>) used to build the wall model and perform displacement-controlled analysis can be found in <strong><a
+href="Media:Example_1-SFI_MVLEM.zip" title="wikilink">Example 1. SFI_MVLEM.zip</a></strong>:
+</p>
+<ul>
+<li>
+SFI_MVLEM_SP4.tcl - model generation and definition of analysis parameters
+</li>
+<li>
+gravity.tcl - application of gravity load
+</li>
+<li>
+dispControl.tcl - application of lateral displacement history (run this file)
+</li>
+<li>
+LibAnalysisStaticParameters.tcl - definition of static analysis parameters
+</li>
+<li>
+LibGeneratePeaks.tcl - generation of displacement history
+</li>
+</ul>
+<p>
+<strong>E1.3. Analysis Results</strong>
+</p>
+<p>
+The following sub-section presents analytical results obtained for the test specimen described above, using the input files provided. The results include global wall responses (compared against experimental results), model element responses, and individual RC panel (macro-fiber) responses.
+</p>
+<p>
+<em>E1.3.1. Global Wall Responses</em>
+</p>
+<p>
+Analytical and experimental lateral load versus top total displacement responses and wall cracking patterns are presented on Figure E1.2, whereas lateral load versus flexural and shear deformations are shown on Figure E1.3. Total top displacement is obtained from the top node, shear force is recorded using <em>globalForce</em> element recorder, total shear displacement is obtained using <em>shearDef</em> element recorder and crack orientations are obtained using <em>RCPanel</em> and <em>cracking_angles</em> element recorders.
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/Example2_2.png"
+title="Figure E1.2. Wall responses: a) Load versus Top Displacement Behavior, b) Cracking Patterns"
+width="650"
+alt="Figure E1.2. Wall responses: a) Load versus Top Displacement Behavior, b) Cracking Patterns" />
+<figcaption aria-hidden="true">
+Figure E1.2. Wall responses: a) Load versus Top Displacement Behavior, b) Cracking Patterns
+</figcaption>
+</figure>
+<figure>
+<img src="/OpenSeesRT/contrib/static/Example2_3.png"
+title="Figure E1.3. Load versus Deformation Behavior for: a) Flexure, b) Shear"
+width="650"
+alt="Figure E1.3. Load versus Deformation Behavior for: a) Flexure, b) Shear" />
+<figcaption aria-hidden="true">
+Figure E1.3. Load versus Deformation Behavior for: a) Flexure, b) Shear
+</figcaption>
+</figure>
+<p>
+<em>E1.3.2. Model Element Responses</em>
+</p>
+<p>
+Figure E1.4 plots lateral load versus total, flexural and shear displacement responses, as well as moment versus curvature relationship, obtained from the analysis for the bottom wall model element. Responses are recorded using <em>globalForce</em>, <em>ShearDef</em>, and <em>Curvature</em> element recorders.
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/Example2_31.png"
+title="Figure E1.4. Model Element Responses: a) Shear Force vs. Total Deformation, b) Shear force vs. Flexural Deformation, c) Shear Force vs. Shear Deformation, d) Moment vs. Curvature"
+width="650"
+alt="Figure E1.4. Model Element Responses: a) Shear Force vs. Total Deformation, b) Shear force vs. Flexural Deformation, c) Shear Force vs. Shear Deformation, d) Moment vs. Curvature" />
+<figcaption aria-hidden="true">
+Figure E1.4. Model Element Responses: a) Shear Force vs. Total Deformation, b) Shear force vs. Flexural Deformation, c) Shear Force vs. Shear Deformation, d) Moment vs. Curvature
+</figcaption>
+</figure>
+<p>
+<em>E1.3.3. Reinforced Concrete Panel Responses</em>
+</p>
+<p>
+Various stress-strain responses for an individual boundary panel element (outermost macro-fiber) within the bottommost wall element are presented, including total (resultant) stress vs. strain relationships in the <em>xy</em> plane (Figure E1.5; element <em>RCPanel</em> recorders: <em>panel_strain</em> and <em>panel_stress</em>), stress-strain relationships along the two concrete struts (Figure E1.6; element <em>RCPanel</em> recorders: <em>strain_stress_concrete1</em> and <em>strain_stress_concrete2</em>), and stress-strain relationship along horizontal and vertical steel reinforcement (Figure E1.7; element <em>RCPanel</em> recorders: <em>strain_stress_steelX</em> and <em>strain_stress_steelY</em>).
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/Example2_4.png"
+title="Figure E1.5. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear"
+width="650"
+alt="Figure E1.5. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear" />
+<figcaption aria-hidden="true">
+Figure E1.5. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear
+</figcaption>
+</figure>
+<figure>
+<img src="/OpenSeesRT/contrib/static/Example2_5.png"
+title="Figure E1.6. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) Strut 2"
+width="800"
+alt="Figure E1.6. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) Strut 2" />
+<figcaption aria-hidden="true">
+Figure E1.6. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) Strut 2
+</figcaption>
+</figure>
+<figure>
+<img src="/OpenSeesRT/contrib/static/Example2_6.png"
+title="Figure E1.7. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)"
+width="800"
+alt="Figure E1.7. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)" />
+<figcaption aria-hidden="true">
+Figure E1.7. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)
+</figcaption>
+</figure>
+<hr />
+<p>
+<strong>Example 2. Dynamic Analysis of a Coupled Wall-Frame System</strong>
+</p>
+<p>
+This example illustrates application of the <strong>SFI_MVLEM</strong> wall model for nonlinear dynamic analysis. Analytical model of a coupled wall-frame building system was generated and analyzed under a single ground motion time-history. Brief description of the building characteristics and the analytical model are provided in the following sections.
+</p>
+<p>
+<strong>E2.1. Building Description</strong>
+</p>
+<p>
+Plan and elevation/section views of the considered building are shown in Figure E2.1. The building footprint is 140 <em>ft</em> × 60 <em>ft</em>, with 20 <em>ft</em> long spans. Analysis is conducted for shaking in the transverse direction only, where the lateral-force-resisting elements include two identical one-bay frames located at the building perimeter (axis 1 and 8, Figure E2.1a) and two identical walls located near the center of the building (axis 4 and 5, Figure E2.1a). Structural design is performed for a residential building (I=1.0, risk category I, design category D; ASCE 7-10 S11.5 and S11.6) for uniformly distributed dead load of 150 <em>psf</em> and live load of 40 <em>psf</em> (ASCE 7-10, Table 4-1), as well as the earthquake lateral loading obtained using Equivalent Lateral Force Procedure of ASCE 7-10 (S12.8). The frame was designed to resist 25% of the earthquake lateral load (Dual System, ASCE 7-10). Concrete compressive strength of f’&lt;sub class=“subscript”&gt;c&lt;/sub&gt; = 5,000 <em>psi</em> and reinforcing steel (both longitudinal and transversal reinforcement) with yield strength f&lt;sub class=“subscript”&gt;y&lt;/sub&gt; = 60,000 <em>psi</em> were used. Based on the structural design, cross-section dimensions of 12 <em>in</em> × 240 <em>in</em> (walls), 18 <em>in</em> × 32 <em>in</em> (beams; width × depth), and 28 <em>in</em> × 28 <em>in</em> (columns) were adopted. Cross-sections of structural elements with the reinforcement detailing are provided in Figure E2.2.
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_1.png"
+title="Figure E2.1. Building Views: a) Plan View, b) Frame Elevation, c) Wall Elevation"
+width="500"
+alt="Figure E2.1. Building Views: a) Plan View, b) Frame Elevation, c) Wall Elevation" />
+<figcaption aria-hidden="true">
+Figure E2.1. Building Views: a) Plan View, b) Frame Elevation, c) Wall Elevation
+</figcaption>
+</figure>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_2.png"
+title="Figure E2.2. Member Cross-Sections: a) Walls, b) Columns, c) Beams"
+width="500"
+alt="Figure E2.2. Member Cross-Sections: a) Walls, b) Columns, c) Beams" />
+<figcaption aria-hidden="true">
+Figure E2.2. Member Cross-Sections: a) Walls, b) Columns, c) Beams
+</figcaption>
+</figure>
+<p>
+<strong>E2.2. Analytical Model Description</strong>
+</p>
+<p>
+Due to building symmetry and applied direction of the ground motion, a two-dimensional model consisting of one frame and one wall (Figure E2.3) is used to simulate the building behavior. The gravity system is not included in the model (ASCE 7-10) and the assumption of a rigid diaphragm is implemented within each story level. Tributary mass is assigned at the element nodes at each story level at locations of axes of the vertical elements (i.e., wall and columns), whereas gravity load (dead and live) was assigned according to corresponding tributary areas as either nodal load at wall-element nodes of each story or uniformly distributed load along the beams of the frame.
+</p>
+<p>
+As show on Figure E2.3, the RC wall is modeled using ten equal-length <strong>SFI_MVLEM</strong> elements along the wall height (i.e., two elements per story height). Wall discretization in horizontal direction was performed using six macro-fibers to represent the wall cross section, where two outer macro-fibers were used to represent the confined wall boundaries and the remaining four represent the unconfined wall web. Material models for steel and concrete are calibrated based on adopted material strengths to represent the behavior of confined and unconfined concrete and reinforcing steel.
+</p>
+<p>
+RC frame elements (i.e., beams and columns) are modeled using elastic beam-column elements by assuming the location of plastic hinges at the faces of beam-column joints (Figure E2.3a), the behavior of which was simulated using zero-length elements at locations of hinges and the elasto-plastic moment-rotation hysteretic model (Modified Ibarra Krawinkler Deterioration Model; Lignos and Krawinkler, 2011), with modeling parameters adopted according to beam and column flexural capacities and the ASCE 41 backbone relationships (Figure E2.3b). The reduction of flexural stiffness after cracking was considered using stiffness modifiers for elastic portions of beam and column elements according to ASCE 41 (Table 6.5).
+</p>
+<p>
+<strong>E2.3. Input Files</strong>
+</p>
+<p>
+Input files (.<em>tcl</em>) used to build the model of a 5-story wall-frame system and perform gravity and dynamic analysis can be found in <strong><a href="Media:Example_2-SFI_MVLEM.zip"
+title="wikilink">Example 2. SFI_MVLEM.zip</a></strong>:
+</p>
+<ul>
+<li>
+5storyWF_SFI.tcl - model generation, definition of analysis parameters, gravity analysis
+</li>
+<li>
+Modal.tcl - modal analysis
+</li>
+<li>
+Dynamic.tcl - application of earthquake acceleration time-history (run this file)
+</li>
+<li>
+MCEScaledEQ1X.acc - earthquake acceleration time history file
+</li>
+<li>
+DisplayModel2D.tcl - display 2D model
+</li>
+<li>
+DisplayPlane.tcl - display plane
+</li>
+</ul>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_3.png"
+title="Figure E2.3. Analytical Model of Building System: a) Modeling Approach, b) Plastic Hinge Model"
+width="650"
+alt="Figure E2.3. Analytical Model of Building System: a) Modeling Approach, b) Plastic Hinge Model" />
+<figcaption aria-hidden="true">
+Figure E2.3. Analytical Model of Building System: a) Modeling Approach, b) Plastic Hinge Model
+</figcaption>
+</figure>
+<p>
+<strong>E2.4. Dynamic Analysis Results</strong>
+</p>
+<p>
+Results obtained using analytical model of the building described in the previous section are presented, including modal properties of the structure, wall global (i.e., lateral deformations, drifts, shear force, moments) and local (i.e., vertical strains and rotations) responses. Responses of the structural elements comprising the RC frame are not considered.
+</p>
+<p>
+<em>E2.4.1. Dynamic Properties</em>
+</p>
+<p>
+First two building fundamental periods and mode shapes are presented in Figure E2.4.
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_4.png"
+title="Figure E2.4. Mode Shapes: a) 1st Mode, b) 2nd Mode" width="800"
+alt="Figure E2.4. Mode Shapes: a) 1st Mode, b) 2nd Mode" />
+<figcaption aria-hidden="true">
+Figure E2.4. Mode Shapes: a) 1st Mode, b) 2nd Mode
+</figcaption>
+</figure>
+<p>
+<em>E2.4.2. Time-history Responses</em>
+</p>
+<p>
+Time histories of ground motion acceleration, wall top nodal displacement, and wall base shear force (bottom wall node reaction) are presented in Figure 2.5; the responses are obtained using <em>globalForce</em> and <em>Reactions</em> node recorders.
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_5.png"
+title="Figure E2.5. Global Building Responses" width="500"
+alt="Figure E2.5. Global Building Responses" />
+<figcaption aria-hidden="true">
+Figure E2.5. Global Building Responses
+</figcaption>
+</figure>
+<p>
+<em>E2.4.3. Maximum Global Responses over the Wall Height</em>
+</p>
+<p>
+Maximum envelopes of wall lateral displacements and interstory drifts, and shear force and bending moment are presented in Figure E2.6 and Figure E2.7, respectively. Wall lateral displacements and drifts are obtained using corresponding node recorders, <em>disp</em> and <em>drift</em>, whereas shear force and bending moments over the wall height are recorded using element recorders <em>globalForce</em>.
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_6.png"
+title="Figure E2.6. Maximum Deformation Responses: a) Lateral Displacements, b) Interstory Drifts"
+width="625"
+alt="Figure E2.6. Maximum Deformation Responses: a) Lateral Displacements, b) Interstory Drifts" />
+<figcaption aria-hidden="true">
+Figure E2.6. Maximum Deformation Responses: a) Lateral Displacements, b) Interstory Drifts
+</figcaption>
+</figure>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_7.png"
+title="Figure E2.7. Maximum Shear Force and Bending Moment over Wall Height"
+width="625"
+alt="Figure E2.7. Maximum Shear Force and Bending Moment over Wall Height" />
+<figcaption aria-hidden="true">
+Figure E2.7. Maximum Shear Force and Bending Moment over Wall Height
+</figcaption>
+</figure>
+<p>
+<em>E2.4.4. Bottom Wall Element Responses</em>
+</p>
+<p>
+Figure E2.8 plots the responses of the bottom wall element, including lateral load versus total, flexural and shear displacement, and moment versus curvature relationship obtained from the dynamic analysis. Note that wall element shear displacement and curvature time-histories are obtained using <strong>SFI_MVLEM</strong> element recorders <em>ShearDef</em> and <em>Curvature</em>, respectively, whereas shear force and bending moment are recorded using element recorder <em>globalForce</em>.
+</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_8.png"
+title="Figure E2.8. Model Element Responses: a) Lateral Load vs. Displacement, b) Lateral Load vs. Flexural Deformation, c) Lateral Load vs. Shear Deformation, d) Moment vs. Curvature"
+width="650"
+alt="Figure E2.8. Model Element Responses: a) Lateral Load vs. Displacement, b) Lateral Load vs. Flexural Deformation, c) Lateral Load vs. Shear Deformation, d) Moment vs. Curvature" />
+<figcaption aria-hidden="true">
+Figure E2.8. Model Element Responses: a) Lateral Load vs. Displacement, b) Lateral Load vs. Flexural Deformation, c) Lateral Load vs. Shear Deformation, d) Moment vs. Curvature
+</figcaption>
+</figure>
+<p>
+<em>E2.4.5. Single RC Panel Responses</em>
+</p>
+<p>
+<p>Analytically-predicted strain-stress responses of a single RC panel (macro-fiber) located at the left wall boundary of the bottom wall element are presented. Global panel stress-strain relationships presented on Figure E2.9 are obtained using element recorder <em>RCPanel</em> with commands <em>panel_strain</em> and <em>panel_stress</em>; the uniaxial behavior of concrete along the two concrete struts presented on Figure E2.10 are recorded using <em>strain_stress_concrete1</em> and <em>strain_stress_concrete2</em> commands; uniaxial stress-strain behavior of horizontal and vertical reinforcing steel presented on Figure E2.11 are obtained using <em>strain_stress_steelX</em> and <em>strain_stress_steelY</em> commands. Other panel responses described in Section 3 could be plotted in a similar manner.</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_9.png"
+title="Figure E2.9. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear"
+width="650"
+alt="Figure E2.9. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear" />
+<figcaption aria-hidden="true">
+Figure E2.9. Panel Total Stress vs. Strain Responses: a) Axial-Horizontal, b) Axial-Vertical, c) Shear
+</figcaption>
+</figure>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_10.png"
+title="Figure E2.10. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) Strut 2"
+width="780"
+alt="Figure E2.10. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) Strut 2" />
+<figcaption aria-hidden="true">
+Figure E2.10. Predicted Stress-Strain Behavior for Concrete: a) Strut 1, b) Strut 2
+</figcaption>
+</figure>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_11.png"
+title="Figure E2.11. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)"
+width="780"
+alt="Figure E2.11. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)" />
+<figcaption aria-hidden="true">
+Figure E2.11. Predicted Stress-Strain Behavior for Steel: a) Horizontal (X), b) Vertical (Y)
+</figcaption>
+</figure>
+<p>Finally, vertical profiles of maximum vertical strains (Figure E2.12a) are obtained using element recorder with <em>RCPanel</em> and <em>panel_strain</em> recorder commands, whereas maximum wall rotations over the wall height (Figure E2.12b) are derived from element <em>Curvature</em> recorder. Similarly, the distribution of other wall responses could be plotted over the wall height (e.g., shear deformations, etc.).</p>
+<figure>
+<img src="/OpenSeesRT/contrib/static/SFI_MVLEM_E2_12.png"
+title="Figure E2.12. Local Responses - Vertical Profiles of Maximum: a) Vertical Strains, b) Rotations"
+width="625"
+alt="Figure E2.12. Local Responses - Vertical Profiles of Maximum: a) Vertical Strains, b) Rotations" />
+<figcaption aria-hidden="true">
+Figure E2.12. Local Responses - Vertical Profiles of Maximum: a) Vertical Strains, b) Rotations
+</figcaption>
+</figure>
+<hr />
+<h2 id="references">References</h2>
+<ol type="1">
+<li><p>Kolozvari K., Orakcal K., and Wallace J. W. (2015a). “Shear-Flexure Interaction Modeling of reinforced Concrete Structural Walls and Columns under Reversed Cyclic Loading”, Pacific Earthquake Engineering Research Center, University of California, Berkeley, <a
+  href="http://peer.berkeley.edu/publications/peer_reports/reports_2015/webPEER-2015-12-kolozvari.pdf">PEER Report No. 2015/12</a></p></li>
+<li><p>Kolozvari K., Orakcal K., and Wallace J. W. (2015b). ”Modeling of Cyclic Shear-Flexure Interaction in Reinforced Concrete Structural Walls. I: Theory”, ASCE Journal of Structural Engineering, 141(5), 04014135 <a
+  href="http://dx.doi.org/10.1061/(ASCE)ST.1943-541X.0001059">doi</a></p></li>
+<li><p>Kolozvari K., Tran T., Orakcal K., and Wallace, J.W. (2015c). “Modeling of Cyclic Shear-Flexure Interaction in Reinforced Concrete Structural Walls. II: Experimental Validation”, ASCE Journal of Structural Engineering, 141(5), 04014136 <a
+  href="http://dx.doi.org/10.1061/(ASCE)ST.1943-541X.0001083">doi</a></p></li>
+<li><p>Kolozvari K. (2013). “Analytical Modeling of Cyclic Shear-Flexure Interaction in Reinforced Concrete Structural Walls”, PhD Dissertation, University of California, Los Angeles.</p></li>
+</ol>
+<p>
+<strong>Code developed by:</strong>
+</p>
+<p>
+<a href="mailto:kkolozvari@fullerton.edu"><span style="color:blue"> Kristijan Kolozvari</span> <span style="color:black"></a>, California State University, Fullerton
+</p>
+<p>
+<span style="color:blue"> Kutay Orakcal&lt;span style=“color:black”&gt;, Bogazici University, Istanbul, Turkey
+</p>
+<p>
+<span style="color:blue"> John Wallace&lt;span style=“color:black”&gt;, Univeristy of California, Los Angeles
+</p>
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Berkeley, CA
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.indexes", "navigation.top", "navigation.sections"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../../assets/javascripts/workers/search.2a1c317c.min.js"}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.ed9748b7.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
