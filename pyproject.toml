@@ -1,6 +1,6 @@
 [project]
 name = "opensees"
-version = "0.0.20"
+version = "0.0.23"
 authors = [
   {name="Claudio M. Perez"}
   # <50180406+claudioperez@users.noreply.github.com>"
@@ -57,7 +57,7 @@ documentation = "https://brace2.github.io/OpenSeesRT"
 
 [build-system]
 requires = [
-    "scikit-build",
+    "amoeba-build",
     "pybind11",
     # "setuptools >= 35.0.2",
     "setuptools >= 52.0.2",
@@ -66,8 +66,9 @@ requires = [
 
 build-backend = "setuptools.build_meta"
 
-# [tool.setuptools.packages.find]
-# where = ["src"]
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["libg3"]
 # exclude = [
 #     "build*",
 #     "dist*",
