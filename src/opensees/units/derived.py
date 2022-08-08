@@ -1,10 +1,10 @@
-
 # Constants for unit conversion to standard units
 #
 # distance, area, volume
 #
 
 # Length
+m  = meter
 mm = 0.001 * m
 cm = 0.01 * m
 km = 1000. * m
@@ -35,16 +35,19 @@ mile3 = mile**3.
 # speed / velocity
 cmps = cm / sec
 mps = m / sec
-mph = mile / h
+mph = mile / hour
 
 inchps = inch / sec
 ftps = ft / sec
 
 # acceleration
+sec2 = sec*sec
 mps2 = m / sec2
 cmps2 = cm / sec2
 inchps2 = inch / sec2
 ftps2 = ft / sec2
+
+gravity = g = 9.80665 * mps2
 
 # ton = 1000. * kg
 
@@ -55,11 +58,11 @@ N = kg * m / sec2
 
 kN = 1e3 * N
 
-lbf = lb * g
+lbf = lbm * g
 kip = 1000. * lbf
 kips = kip
 
-# pressure / stress
+# Pressure / stress
 Pa = N / m2
 
 kPa = 1e3 * Pa
@@ -70,7 +73,6 @@ psi = lbf / inch2
 ksi = 1e3 * psi
 Mpsi = 1e6 * psi
 
-
-
-g = 9.80665 * mps2
+# Time
+sec2 = sec**2.
 

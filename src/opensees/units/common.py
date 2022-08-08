@@ -10,12 +10,15 @@ unit_types = {
     'pressure'     : ['Pa', 'kPa', 'MPa', 'GPa', 'psi', 'ksi', 'Mpsi']
 }
 
+from math import pi
+
 # time
 sec = 1.
-
 minute = 60. * sec
-h = 60. * minute
+hour = h = 60. * minute
 day = 24. * h
 
-sec2 = sec**2.
+# Angles
+rad = 1
+deg = pi/180
 
