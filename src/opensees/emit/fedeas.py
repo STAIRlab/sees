@@ -1,6 +1,6 @@
 from .writer import ModelWriter
 from opensees.ast import *
-from opensees.obj import Component, LibCmd, Ele, walk_refs
+from opensees.obj import Component, LibCmd, Ele#, #walk_refs
 
 Frm = LibCmd("ElemData",
     args = [
