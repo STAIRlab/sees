@@ -1,13 +1,13 @@
 package:
   name: opensees
-  version: 0.0.20
+  version: 0.0.23
 
 source:
   path: ../..
 
 build:
   script_env: [CONDA_PREFIX]
-  script: "{{PYTHON}} setup.py install -v -- -- -j8"
+  script: "{{PYTHON}} setup.py install -v -- -- -j10"
 
 requirements:
   build:
