@@ -15,7 +15,7 @@ requirements:
     - "{{ compiler('cxx') }}"
     - "{{ compiler('fortran') }}"
     - cmake
-    - build
+    #- build
     - scikit-build
     - setuptools
 
@@ -55,6 +55,10 @@ about:
   license_family: OTHER
   doc_url: https://brace2.github.io/OpenSeesRT
   dev_url: https://github.com/BRACE2/OpenSeesRT
+
+  description: |
+    Nonlinear structural analysis.
+    
 
 extra:
   recipe-maintainers:
