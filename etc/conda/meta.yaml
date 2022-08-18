@@ -1,13 +1,17 @@
+{# set data = load_setup_py_data() #}
+
 package:
   name: opensees
-  version: 0.0.23
+    #version: "{{ data.get('version') }}"
+  version: 0.0.24
 
 source:
   path: ../..
 
 build:
-  script_env: [CONDA_PREFIX]
-  script: "{{PYTHON}} setup.py install -v -- -- -j10"
+  #script_env: [CONDA_PREFIX]
+  script: "MAKEFLAGS=-j8 {{ PYTHON }} -m pip install . -vvv"
+    #script: "{{PYTHON}} setup.py install -v -- -- -j10"
 
 requirements:
   build:
@@ -15,8 +19,7 @@ requirements:
     - "{{ compiler('cxx') }}"
     - "{{ compiler('fortran') }}"
     - cmake
-    #- build
-    - scikit-build
+    - amoeba-build
     - setuptools
 
   host:
@@ -27,13 +30,14 @@ requirements:
     - liblapack
     - arpack
     - python
-    - scikit-build
     - pybind11
     - pip !=22.1.0
+    - amoeba-build
 
   run:
     - python
     - numpy
+    - scipy
     - matplotlib
 
 
