@@ -1,28 +1,45 @@
 #!/bin/bash
-yum install tcl-devel msql-devel lapack-devel ninja-build
+# set -e -u -x
+PLAT="$1"
 
-function fix_cmake {
-	if [ -n "$IS_OSX" ]; then
-		brew update
-		brew upgrade cmake || brew install cmake
-	else
-		# Fix cmake installation linking the appropriate binary
-		# pip install cmake
-		# rm `python -c 'import sys; print(sys.executable[:-6])'`cmake
-		CMAKE_BIN=`${PYBIN}/python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`/cmake/data/bin/cmake
-		ln -sf ${CMAKE_BIN} /usr/local/bin/cmake
-	fi
+repair_wheel() {
+    wheel="$1"
+    if ! auditwheel show "$wheel"; then
+        echo "Skipping non-platform wheel $wheel"
+    else
+        auditwheel repair "$wheel" --plat "$PLAT" -w /io/wheelhouse/
+    fi
 }
 
+# mkdir  /io/src/libg3/OTHER/dbin
+# cmake -S /io/src/libg3/OTHER/ -B /io/src/libg3/OTHER/dbin
+# cmake --build /io/src/libg3/OTHER/dbin
 
-# following, roughly, https://github.com/pypa/python-manylinux-demo/blob/master/travis/build-wheels.sh
-for PYBIN in /opt/python/cp3[789]*/bin; do
-  echo "${PYBIN}"
-  "${PYBIN}/pip" install -U pip 
-  "${PYBIN}/pip" install -U build 'cmake<3.23' ninja pybind11
-  CMAKE_BIN=`${PYBIN}/python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`/cmake/data/bin/cmake
-  ln -sf ${CMAKE_BIN} /usr/local/bin/cmake
-  "${PYBIN}/pip" wheel /io/ -w wheelhouse/
+for PYBIN in /opt/python/cp3[1987]*/bin; do
+  echo "Python: $(${PYBIN}/python --version)"
+  echo "CMake:  $(cmake --version)"
+
+  "${PYBIN}/python" -m pip install -U pip
+  "${PYBIN}/python" -m pip install -U pybind11 #amoeba-build pybind11
+  export pybind11_DIR=$("${PYBIN}/python" -m pybind11 --cmakedir)
+  export PATH="${PYBIN}:${PATH}"
+  MAKEFLAGS=-j9 "${PYBIN}/python" -m pip wheel /io/ -w wheelhouse/
+  if [[ $? != 0 ]] 
+  then 
+    exit -1
+  fi
 done
+
+# find -name libOpenSeesRT.so
+# Bundle external shared libraries into the wheels
+for whl in wheelhouse/*.whl; do
+  cpxx="$(sed 's/.*-cp\(3[0-9]*\).*/\1/g' <<< $whl)"
+  apath="/io/build/lib.linux-x86_64-cpython-${cpxx}/opensees/"
+  ls $apath
+  #LD_LIBRARY_PATH="$apath:${LD_LIBRARY_PATH}" repair_wheel "$whl"
+  LD_LIBRARY_PATH="$apath" repair_wheel "$whl"
+done
+
+
 cp wheelhouse/*.whl /io/wheelhouse/
 
