@@ -6,7 +6,7 @@ authors = [
   # <50180406+claudioperez@users.noreply.github.com>"
 ]
 
-license = {file = "LICENSE"}
+license = {file = "project/LICENSE"}
 
 readme = "README.md"
 
@@ -52,8 +52,8 @@ plots = [
 ]
 
 [project.urls]
-repository = "http://github.com/BRACE2/OpenSeesRT"
-documentation = "https://brace2.github.io/OpenSeesRT"
+Repository = "http://github.com/BRACE2/OpenSeesRT"
+Documentation = "https://brace2.github.io/OpenSeesRT"
 
 [build-system]
 requires = [
@@ -67,13 +67,4 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 where = ["src"]
 exclude = ["libg3*"]
-# exclude = [
-#     "build*",
-#     "dist*",
-#     "docs*",
-#     "tests*",
-#     "site*",
-#     "libg3*"
-# ]
-# 
 
