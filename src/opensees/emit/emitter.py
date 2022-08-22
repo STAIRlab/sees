@@ -1,5 +1,8 @@
 
-from io import StringIO 
+from io import StringIO
+import dataclasses
+
+import numpy as np
 from .registry import Registry
 
 class ObjectSerializationError(Exception): pass
@@ -19,10 +22,10 @@ class Emitter:
             self.newline=False
             print(self.idnt, end="", file=self.strm)
         for arg in args:
-            if isinstance(arg, (int,float,str)):
+            if isinstance(arg, (int,float,str, bool, np.number)):
                 print(f"{arg}", end=end, file=self.strm)
             else:
-                raise ValueError()
+                raise ValueError(f"{type(arg)}")
 
     def endln(self):
         self.newline = True
@@ -39,9 +42,21 @@ class ScriptBuilder:
     # RET = object()
 
     def __init__(self, emitter):
+        self.emitter = emitter
         self.sent = set()
-        self.streams = [emitter(StringIO(), self)]
         self.python_objects = {}
+
+        self.streams = [emitter(StringIO(), self)]
+        self.stream_names = {"root": self.streams[0]}
+
+    def new_stream(self):
+        self.streams.append(self.emitter(StringIO(), self))
+        return self.streams[-1]
+    
+    def get_stream(self, name):
+        if name not in self.stream_names:
+            self.stream_names[name] = self.new_stream()
+        return self.stream_names[name]
 
     def __repr__(self):
         return self.getScript()
@@ -54,7 +69,7 @@ class ScriptBuilder:
 
     def getScript(self, indexed=True)->str:
         index = self.getIndex() if indexed else ""
-        return "\n\n".join((index, self.streams[0].strm.getvalue()))
+        return "\n\n".join((index, *[s.strm.getvalue() for s in self.streams]))
     
     @property
     def registry(self):
@@ -66,16 +81,29 @@ class ScriptBuilder:
         if isinstance(obj, (list,tuple)):
             #import sys
             for i in obj:
-                #print(i, file=sys.stderr)
                 self.send(i)
             return self
 
-        elif not hasattr(obj,"_args"):
-            raise ObjectSerializationError(f"object {obj}")
-        
         if self.registry.registered(obj):
             return self
 
+        if dataclasses.is_dataclass(obj):
+            obj._args = dataclasses.fields(obj)
+            for field in obj._args:
+                value = getattr(obj, field.name)
+                self.registry.register(value)
+                if dataclasses.is_dataclass(value):
+                    self.send(value)
+                else:
+                    #typ = val.__class__.__name__
+                    #getattr(w, typ)(arg, value=value)
+                    w.Arg(value, value=value)
+            return self
+            
+
+        elif not hasattr(obj,"_args"):
+            raise ObjectSerializationError(f"object {obj} of type {type(obj)}")
+        
         for ref,tag_space in obj.get_refs():
             try: 
                 self.send(ref)

@@ -65,7 +65,10 @@ class Registry:
             ts = tag_space or obj.tag_space
         except AttributeError:
             # references where type is given as string
-            ts = obj
+            if isinstance(obj, str):
+                ts = str(obj)
+            else:
+                ts = str(type(obj))
 
         if force_tag is not None:
             id2 = str(force_tag)

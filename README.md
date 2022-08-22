@@ -17,22 +17,35 @@
 
 ## Installing / Compiling
 
-### Simple install
+### I. Simple user install
 
 1. Install `mambaforge`
 2. `mamba install -c opensees opensees`
 
-### Editable install
+### II. Editable (developer) install
 
 1. Install `mambaforge`
-2. `conda develop .` # pip install -e .
-3. To recompile : `python -m build`
+2. `pip install -e .`
+3. To recompile : `python setup.py build_ext`
 
-### Distributing
+### III. Distribution build
 
+Pre-requisites:
 1. Install `conda-build`
-2. `conda-build -c conda-forge etc/conda/`
-3. `anaconda upload <path>`
+
+Steps for `opensees`:
+1. `conda-build -c conda-forge etc/conda/ --python 3.7`
+2. `anaconda upload <path>`
+
+Steps for `opensees-intel`
+1. `conda-build -c intel etc/conda-intel/ --python 3.7`
+2. `anaconda upload <path>`
+
+### IV. Python-only build
+
+```
+python setup.py [install|develop] --skip-cmake
+```
 
 ## Build Environment
 

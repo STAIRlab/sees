@@ -21,7 +21,7 @@ class model:
 
         if ndm is None:
             if "nodes" in kwds:
-                ndm = len(next(kwds["nodes"].values()))
+                ndm = len(next(iter(kwds["nodes"].values())))
             else:
                 raise ValueError("Argument `ndm` is required if nodes are not supplied")
 

@@ -202,6 +202,36 @@ class LibCmd(Cmd):
         setattr(self, name, obj)
         return obj
 
+    def dataclass(self, cls):
+        import dataclasses
+        inherit = []
+        if self.typ is not None:
+            inherit.append(self.typ)
+
+        refs = []
+
+        cls = dataclasses.dataclass(cls)
+        
+        if hasattr(cls, "_refs"):
+            refs += cls._refs
+        args = cls._args
+        inherit.append(cls)
+        if hasattr(cls, "_name"):
+            cls = name = cls._name
+        else:
+            cls = name = cls.__name__
+
+            
+        args = self.args + args
+        fields = [arg.field for arg in args]
+        if "alts" in opts: fields += [a.field for a in opts["alts"]]
+        alts = {arg.kwds["alt"] for arg in args if "alt" in arg.kwds}
+        obj = struct(cls, fields, args, alts, refs=refs, cmd=[self.cmd, name], parents=inherit)
+        obj.kwds = opts
+        obj._class_name = self.class_name
+        setattr(self, name, obj)
+        return obj
+
 
 def struct(name, fields, args = None, alts=None, refs=None, cmd=None, parents=None):
     if cmd is None: cmd = []
