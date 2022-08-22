@@ -25,10 +25,11 @@ filters:
   - tools/apidoc.lua
   - pygmentize
   - include.lua
-#- pandoc-crossref
+  - pandoc-xnos
+  #- pandoc-crossref
 #- citeproc # commented for dev build time
 #- image_center.lua
-#- include-code-files.lua
+  - include-code-files.lua
 #
 #- elstir.lua
 
