@@ -21,15 +21,15 @@ metadata:
 
 
 filters:
-  - tools/pandoc_plantuml_filter.py
+# - tools/pandoc_plantuml_filter.py
   - tools/apidoc.lua
   - pygmentize
-  - include.lua
-  - pandoc-xnos
-  #- pandoc-crossref
-#- citeproc # commented for dev build time
-#- image_center.lua
-  - include-code-files.lua
+# - include.lua
+# - pandoc-xnos
+# - pandoc-crossref
+# - citeproc # commented for dev build time
+# - image_center.lua
+# - include-code-files.lua
 #
 #- elstir.lua
 
