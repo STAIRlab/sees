@@ -1,8 +1,20 @@
 # OpenSees
 
-*Idiomatic* and *idempotent* C++ bindings to the OpenSees framework.
+<img align="left" src="https://github.com/BRACE2/OpenSeesRT/blob/master/etc/images/peer-black.svg" width="288px">
+
+***Idiomatic* and *idempotent* C++ bindings to the OpenSees framework.**
+
+<!--
+raylib is highly inspired by Borland BGI graphics lib and by XNA framework and it's specially well suited for prototyping, tooling, graphical applications, embedded systems and education.
+
+*NOTE for ADVENTURERS: raylib is a programming library to enjoy videogames programming; no fancy interface, no visual helpers, no debug button... just coding in the most pure spartan-programmers way.*
+
+-->
+
 
 --------------------------------------------------------------------
+
+<br>
 
 <div style="align:center">
 
