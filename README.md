@@ -80,7 +80,7 @@ python setup.py [install|develop] --skip-cmake
 - For Windows, first activate WSL2 and install a Linux distribution.
 
 - Install `mambaforge`, a small Anaconda distribution.
-  - Go go [https://github.com/conda-forge/miniforge#mambaforge](https://github.com/conda-forge/miniforge#mambaforge)
+  - Go to [https://github.com/conda-forge/miniforge#mambaforge](https://github.com/conda-forge/miniforge#mambaforge)
   - Click the `Mambaforge-Linux-x86_64` link to download an install script.
   - Run the downloaded script.
 
