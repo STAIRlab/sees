@@ -1,4 +1,4 @@
-# OpenSees
+# OpenSeesRT
 
 <img align="left" src="https://github.com/BRACE2/OpenSeesRT/blob/master/etc/images/peer-black.svg" width="250px">
 
@@ -28,6 +28,8 @@ raylib is highly inspired by Borland BGI graphics lib and by XNA framework and i
 
 --------------------------------------------------------------------
 
+
+<!--
 
 ## Installing / Compiling
 
@@ -67,5 +69,50 @@ python setup.py [install|develop] --skip-cmake
   conda create -c conda-forge -n skbuild python==3.8 cmake'>=3.18'  \
     scikit-build pybind11 setuptools
 ```
+
+-->
+
+
+## Installing
+- For Windows, first activate WSL2 and install a Linux distribution.
+
+- Install `mambaforge`, a small Anaconda distribution.
+  - Go go [https://github.com/conda-forge/miniforge#mambaforge](https://github.com/conda-forge/miniforge#mambaforge)
+  - Click the `Mambaforge-Linux-x86_64` link to download an install script.
+  - Run the downloaded script.
+
+  This can all be done at once with the following commands:
+
+  ```bash
+  wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+  bash Mambaforge-$(uname)-$(uname -m).sh
+  ```
+
+- Create an environment to run `opensees` and `jupyter-lab` out of
+  
+  ```bash
+  conda create -n opensees -c conda-forge -c opensees python=3.9 jupyterlab opensees matplotlib
+  ```
+
+Once this is done, you can run the commands
+
+```bash
+conda activate opensees
+jupyter-lab
+```
+
+from the WSL terminal, and a url will be printed which you can open in a browser to work in
+Jupyter Lab.
+
+<!-- 
+  - Install Jupyterlab
+
+    ```bash
+    mamba create -n jupyter jupyterlab 
+    mamba activate opensees
+    python -m ipykernel install --user --name opensees --display-name "Python (opensees)"
+    ```
+-->
+
 
 

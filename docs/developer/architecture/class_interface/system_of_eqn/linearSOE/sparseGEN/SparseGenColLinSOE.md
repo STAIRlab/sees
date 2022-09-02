@@ -1,23 +1,21 @@
+# SparseGenColLinSOE
 
-\#include
-$<\tilde{ }$/system_of_eqn/linearSOE/sparseGen/SparseGenColLinSOE.h$>$\
+```c++
+#include <system_of_eqn/linearSOE/sparseGen/SparseGenColLinSOE.h>
 
-class SparseGenColLinSOE: public LinearSOE\
+class SparseGenColLinSOE: public LinearSOE
+```
 
-MovableObject\
-SystemOfEqn\
-LinearSOE\
 
-\
-SparseGenColLinSOE is class which is used to store the matrix equation
+`SparseGenColLinSOE` is class which is used to store the matrix equation
 $Ax=b$ of order $size$ using a sparse column-compacted storage scheme
 for $A$. The $A$ matrix is stored in a 1d double array with $nnz$
 elements, where $nnz$ is the number of non-zeroes in the matrix $A$. Two
-additional 1d integer arrays $rowA$ and $colStartA$ are used to store
+additional 1D integer arrays $rowA$ and $colStartA$ are used to store
 information about the location of the coefficients, with $colStartA(i)$
 storing the location in the 1d double array of the start of column $i$
 and $rowA(j)$ identifying the row in $A$ to which the $j'th$ component
-in the 1d double array. $colStartA$ is of dimension $size+1$ and $rowA$
+in the 1D double array. $colStartA$ is of dimension $size+1$ and $rowA$
 of dimension $nnz$. For example
 
 $$\left[
@@ -58,39 +56,21 @@ $$rowA =
 \right]$$ The $x$ and $b$ vectors are stored in 1d double arrays of
 length $n$.
 
-\
 
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-The *solver* and a unique class tag (defined in  `<classTags.h>`) are
+The `solver` and a unique class tag (defined in  `<classTags.h>`) are
 passed to the LinearSOE constructor. The system size is set to $0$ and
 the matrix $A$ is marked as not having been factored. Invokes
 *setLinearSOE(\*this)* on the *solver*. No memory is allocated for the 3
 1d arrays.
-*SparseGenColLinSOE(int N, int NNZ, int \*colStartA, int \*rowA,
-SparseGenColLinSolver &theSolver);* \
-The *solver* and a unique class tag (defined in  `<classTags.h>`) are
-passed to the LinearSOE constructor. The system size is set to $N$, the
+
+:::{admonition}
+```cpp
+SparseGenColLinSOE(int N, int NNZ, int *colStartA, int *rowA, SparseGenColLinSolver &theSolver);
+```
+:::
+
+The `solver` and a unique class tag (defined in  `<classTags.h>`) are
+passed to the `LinearSOE` constructor. The system size is set to $N$, the
 number of non-zeros is set to $NNZ$ and the matrix $A$ is marked as not
 having been factored. Obtains memory from the heap for the 1d arrays
 storing the data for $A$, $x$ and $b$ and stores the size of these
@@ -102,23 +82,24 @@ objects for $x$ and $b$ using the `(double \*,int)`{.cpp} Vector constructor.
 It is up to the user to ensure that *colStartA* and *rowA* are of the
 correct size and contain the correct data.
 
+
 \
 Calls delete on any arrays created.
 
 \
-Invokes `setLinearSOE(\*this)`{.cpp} on *newSolver*. If the system size is not
-equal to $0$, it also invokes `setSize()` on *newSolver*, printing a
+Invokes `setLinearSOE(*this)`{.cpp} on `newSolver`. If the system size is not
+equal to $0$, it also invokes `setSize()` on `newSolver`, printing a
 warning and returning $-1$ if this method returns a number less than
 $0$. Finally it returns the result of invoking the LinearSOE classes
 `setSolver()` method.
 
 A method which returns the current size of the system.
 
-The size of the system is determined from the Graph object *theGraph*,
-which must contain *size* vertices labelled $0$ through $size-1$, the
+The size of the system is determined from the Graph object `theGraph`,
+which must contain *size* vertices labeled $0$ through $size-1$, the
 adjacency list for each vertex containing the associated vertices in a
 column of the matrix $A$. The size is determined by invoking
-`getNumVertex()` on *theGraph* and the number of non-zeros is determined
+`getNumVertex()` on `theGraph` and the number of non-zeros is determined
 by looking at the size of the adjacenecy list of each vertex in the
 graph, allowing space for the diagonal term. If the old space allocated
 for the 1d arrays is not big enough, it the old space is returned to the
