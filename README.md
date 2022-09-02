@@ -91,7 +91,10 @@ python setup.py [install|develop] --skip-cmake
 - Create an environment to run `opensees` and `jupyter-lab` out of
   
   ```bash
-  conda create -n opensees -c conda-forge -c opensees python=3.9 jupyterlab opensees matplotlib
+  conda create -n opensees -c conda-forge python=3.9 jupyterlab matplotlib numpy scipy pyyaml
+
+  # the --skip-deps flag ensures the packages from conda-forge arent clobbered by PyPI ones.
+  pip install opensees --skip-deps
   ```
 
 Once this is done, you can run the commands
