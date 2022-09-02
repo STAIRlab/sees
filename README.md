@@ -1,6 +1,6 @@
 # OpenSeesRT
 
-<img align="left" src="https://github.com/BRACE2/OpenSeesRT/blob/master/etc/images/peer-black.svg" width="250px">
+<img align="left" src="https://github.com/BRACE2/OpenSeesRT/blob/master/docs/figures/peer-black.svg" width="250px">
 
 ***Idiomatic* and *idempotent* C++ bindings to the OpenSees framework for finite element analysis.**
 
