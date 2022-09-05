@@ -1414,14 +1414,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_3_2">
-          Material Formulation
+          Material
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Material Formulation" data-md-level="3">
+      <nav class="md-nav" aria-label="Material" data-md-level="3">
         <label class="md-nav__title" for="__nav_1_3_2">
           <span class="md-nav__icon md-icon"></span>
-          Material Formulation
+          Material
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2112,7 +2112,7 @@
   
     <li class="md-nav__item">
       <a href="../../wrapper/514-Plate%20Fiber%20Material/" class="md-nav__link">
-        Plate Fiber Material
+        Plate Fiber Wrapper
       </a>
     </li>
   
@@ -9638,18 +9638,17 @@ The theory for the non hardening case can be found <a
 href="http://en.wikipedia.org/wiki/Von_Mises_yield_criterion"
 title="wikilink">http://en.wikipedia.org/wiki/Von_Mises_yield_criterion</a>
 </p>
-<p>J2 isotropic hardening material class</p>
+<p><span class="math inline">\(J_2\)</span> isotropic hardening material</p>
 <ul>
-<li><p>Elastic Model <span class="math display">\[\sigma = K*\operatorname{trace}(\epsilon_e) + (2*G)*\operatorname{dev}(\epsilon_e)\]</span></p></li>
-<li><p>Yield Function <span class="math display">\[\phi(\sigma, q) = || \operatorname{dev}(\sigma) || - \sqrt(\tfrac{2}{3}*q(\xi)\]</span></p></li>
+<li><p>Elastic Model <span class="math display">\[\sigma = K \operatorname{tr}(\epsilon_e) + 2G \operatorname{dev}(\epsilon_e)\]</span></p></li>
+<li><p>Yield Function <span class="math display">\[\phi(\sigma, q) = \| \operatorname{dev}(\sigma) \| - \sqrt{\tfrac{2}{3}} q(\xi)\]</span></p></li>
 <li><p>Saturation Isotropic Hardening with linear term</p>
 </p>
-<p><span class="math display">\[q(\xi) = \sigma_0 + (\sigma_\inf - \sigma_0)*\exp(-delta*\xi) + H*\xi \]</span></p></li>
-<li><p>Flow Rules <span class="math display">\[\dot {\epsilon_p} = \gamma * \frac{\partial \phi}{\partial \sigma} \]</span></p>
-<p><span class="math display">\[\dot \xi = -\gamma * \frac{\partial \phi}{\partial q}\]</span></p></li>
-<li><p>Linear Viscosity</p>
-<p><span class="math display">\[\gamma = \frac{\phi}{\eta}\]</span></p>
-<p>( if <span class="math inline">\(\phi \gt 0\)</span> )</p></li>
+<p><span class="math display">\[q(\xi) = \sigma_0 + (\sigma_\inf - \sigma_0) \exp(-delta \xi) + H \xi \]</span></p></li>
+<li><p>Flow Rules <span class="math display">\[\dot {\epsilon_p} = \gamma \frac{\partial \phi}{\partial \sigma} \]</span></p>
+<p><span class="math display">\[\dot \xi = -\gamma \frac{\partial \phi}{\partial q}\]</span></p></li>
+<li><p>Linear Viscosity ( if <span class="math inline">\(\phi \gt 0\)</span> )</p>
+<p><span class="math display">\[\gamma = \frac{\phi}{\eta}\]</span></p></li>
 </ul>
 <p>Backward Euler Integration Routine Yield condition enforced at time <span class="math inline">\(n+1\)</span></p>
 <ul>

@@ -1414,14 +1414,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_3_2">
-          Material Formulation
+          Material
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Material Formulation" data-md-level="3">
+      <nav class="md-nav" aria-label="Material" data-md-level="3">
         <label class="md-nav__title" for="__nav_1_3_2">
           <span class="md-nav__icon md-icon"></span>
-          Material Formulation
+          Material
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2112,7 +2112,7 @@
   
     <li class="md-nav__item">
       <a href="../../wrapper/514-Plate%20Fiber%20Material/" class="md-nav__link">
-        Plate Fiber Material
+        Plate Fiber Wrapper
       </a>
     </li>
   
@@ -9551,9 +9551,7 @@
 
 
 <h1 id="manzari-dafalias-material">Manzari Dafalias Material</h1>
-<p>
-This command is used to construct a multi-dimensional Manzari-Dafalias(2004) material.
-</p>
+<p>This command is used to construct a multi-dimensional Manzari-Dafalias (2004) material.</p>
 <div class="highlight"><pre><span></span><span class="nv">nDmaterial</span><span class="w"> </span>ManzariDafalias<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$G0</span><span class="w"> </span><span class="nv">$nu</span><span class="w"> </span><span class="nv">$e_init</span><span class="w"> </span><span class="nv">$Mc</span><span class="w"> </span><span class="nv">$c</span>
 <span class="w">        </span><span class="nv">$lambda_c</span><span class="w"> </span><span class="nv">$e0</span><span class="w"> </span><span class="nv">$ksi</span><span class="w"> </span><span class="nv">$P_atm</span><span class="w"> </span><span class="nv">$m</span><span class="w"> </span><span class="nv">$h0</span><span class="w"> </span><span class="nv">$ch</span><span class="w"> </span><span class="nv">$nb</span><span class="w"> </span><span class="nv">$A0</span><span class="w"> </span><span class="nv">$nd</span><span class="w"> </span><span class="nv">$z_max</span><span class="w"> </span><span class="nv">$cz</span><span class="w"></span>
 <span class="w">        </span><span class="nv">$Den</span><span class="w"></span>
@@ -9637,7 +9635,7 @@ critical state line constant
 </td>
 <td>
 <p>
-critical void ratio at p = 0
+critical void ratio at <span class="math inline">\(p = 0\)</span>
 </p>
 </td>
 </tr>
@@ -9806,9 +9804,7 @@ Theory
 <h3 id="elasticity">
 Elasticity
 </h3>
-<p>
-Elastic moduli are considered to be functions of p and current void ratio:
-</p>
+<p>Elastic moduli are considered to be functions of <span class="math inline">\(p\)</span> and current void ratio:</p>
 <p><span class="math display">\[ G = G_0
 p_{atm}\frac{\left(2.97-e\right)^2}{1+e}\left(\frac{p}{p_{atm}}\right)^{1/2}\]</span></p>
 <p><span class="math display">\[K = \frac{2(1+\nu)}{3(1-2\nu)} G\]</span></p>
@@ -9818,11 +9814,8 @@ p_{atm}\frac{\left(2.97-e\right)^2}{1+e}\left(\frac{p}{p_{atm}}\right)^{1/2}\]</
 <h3 id="critical_state_line">
 Critical State Line
 </h3>
-<p>
-A power relationship is assumed for the critical state line:
-</p>
-<p><span class="math display">\[e_c = e_0 - \lambda_c\left(\frac{p_c}{p_{atm}}\right)^\xi
-\]</span></p>
+<p>A power relationship is assumed for the critical state line:</p>
+<p><span class="math display">\[e_c = e_0 - \lambda_c\left(\frac{p_c}{p_{atm}}\right)^\xi\]</span></p>
 <p>where <span class="math inline">\(e_0\)</span> is the void ratio at <span class="math inline">\(p_c = 0\)</span> and <span class="math inline">\(\lambda_c\)</span> and <span class="math inline">\(\xi\)</span> constants.</p>
 <h3 id="yield_surface">
 Yield Surface
@@ -9835,11 +9828,8 @@ Yield Surface
 Plastic Strain Increment
 </h3>
 <p>The increment of the plastic strain tensor is given by</p>
-<p><span class="math display">\[ d\mathbf{\varepsilon}^p = \langle L \rangle \mathbf{R}
-\]</span></p>
-<p>
-where
-</p>
+<p><span class="math display">\[ d\mathbf{\varepsilon}^p = \langle L \rangle \mathbf{R}\]</span></p>
+<p>where</p>
 <p><span class="math display">\[ \mathbf{R} = \mathbf{R&#39;} + \frac{1}{3} D \mathbf{1}\]</span></p>
 <p>therefore</p>
 <p><span class="math display">\[ d\mathbf{e}^p = \langle L \rangle \mathbf{R&#39;}\]</span></p>
@@ -9879,12 +9869,12 @@ Also the dilation parameters are defined as
 <summary>
 Tcl script
 </summary>
-<div class="highlight"><pre><span></span><span class="c"># HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH #</span>
+<div class="highlight"><pre><span></span><span class="c"># ===================================================================== #</span>
 <span class="c"># 3D Undrained Conventional Triaxial Compression Test Using One Element #</span>
 <span class="c"># University of Washington, Department of Civil and Environmental Eng   #</span>
 <span class="c"># Geotechnical Eng Group, A. Ghofrani, P. Arduino - Dec 2013            #</span>
-<span class="c"># Basic units are m, Ton(metric), s                                     #</span>
-<span class="c"># HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH #</span>
+<span class="c"># Basic units are m, Ton(metric), s                                                       #</span>
+<span class="c"># ===================================================================== #</span>
 
 <span class="nv">wipe</span>
 
@@ -9907,9 +9897,9 @@ Tcl script
 <span class="k">set</span><span class="w"> </span>a1<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="mf">2.0</span><span class="o">*</span><span class="nv">$damp</span><span class="o">/</span><span class="k">(</span><span class="nv">$omega1</span><span class="o">+</span><span class="nv">$omega2</span><span class="k">)]</span>
 <span class="k">set</span><span class="w"> </span>a0<span class="w"> </span><span class="k">[expr</span><span class="w"> </span><span class="nv">$a1</span><span class="o">*</span><span class="nv">$omega1</span><span class="o">*</span><span class="nv">$omega2</span><span class="k">]</span>
 
-<span class="c"># HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</span>
-<span class="c"># HHHHHHHHHHHHHHHHHHHHHHHHHHHCreate ModelHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</span>
-<span class="c"># HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH</span>
+<span class="c"># =====================================================================</span>
+<span class="c"># ---------------------------Create Model------------------------------</span>
+<span class="c"># =====================================================================</span>
 
 <span class="c"># Create a 3D model with 4 Degrees of Freedom</span>
 <span class="nv">model</span><span class="w"> </span>BasicBuilder<span class="w"> </span><span class="o">-</span>ndm<span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span>ndf<span class="w"> </span><span class="mi">4</span>

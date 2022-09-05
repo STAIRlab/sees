@@ -1414,14 +1414,14 @@
       
       
         <label class="md-nav__link" for="__nav_1_3_2">
-          Material Formulation
+          Material
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Material Formulation" data-md-level="3">
+      <nav class="md-nav" aria-label="Material" data-md-level="3">
         <label class="md-nav__title" for="__nav_1_3_2">
           <span class="md-nav__icon md-icon"></span>
-          Material Formulation
+          Material
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -2122,7 +2122,7 @@
   
     <li class="md-nav__item">
       <a href="../../wrapper/514-Plate%20Fiber%20Material/" class="md-nav__link">
-        Plate Fiber Material
+        Plate Fiber Wrapper
       </a>
     </li>
   
@@ -9551,11 +9551,8 @@
 
 
 <h1 id="elastic-isotropic-material">Elastic Isotropic Material</h1>
-<p>
-This command is used to construct an ElasticIsotropic material object.
-</p>
-<div class="highlight"><pre><span></span><span class="nv">nDMaterial</span><span class="w"> </span>ElasticIsotropic<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$E</span><span class="w"> </span><span class="nv">$v</span>
-<span class="w">        </span><span class="o">&amp;</span><span class="nv">lt</span><span class="k">;</span><span class="nv">$rho</span><span class="o">&amp;</span><span class="nv">gt</span><span class="k">;</span><span class="w"></span>
+<p>This command is used to construct an ElasticIsotropic material object.</p>
+<div class="highlight"><pre><span></span><span class="nv">nDMaterial</span><span class="w"> </span>ElasticIsotropic<span class="w"> </span><span class="nv">$matTag</span><span class="w"> </span><span class="nv">$E</span><span class="w"> </span><span class="nv">$v</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nv">$rho</span><span class="w"> </span><span class="o">&gt;</span>
 </pre></div>
 
 <hr />
@@ -9604,7 +9601,7 @@ mass density, optional default = 0.0.
 </tbody>
 </table>
 <p>
-The material formulations for the ElasticIsotropic object are “ThreeDimensional,” “PlaneStrain,” “Plane Stress,” “AxiSymmetric,” and “PlateFiber.”
+The material formulations for the ElasticIsotropic object are <code>"ThreeDimensional"</code>, <code>"PlaneStrain"</code>, “Plane Stress,” “AxiSymmetric,” and “PlateFiber.”
 </p>
 <hr />
 <p>
