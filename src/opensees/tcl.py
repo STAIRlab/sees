@@ -137,7 +137,7 @@ class TclRuntime:
         try:
             return self._interp.tk.eval(string)
         except tkinter._tkinter.TclError as e:
-            print(string, file=sys.stderr)
+            self._interp.tk.eval("puts $errorInfo;")
             raise e
         # return self._interp.tk.eval(string)
 
