@@ -3,7 +3,7 @@
 package:
   name: opensees
     #version: "{{ data.get('version') }}"
-  version: 0.0.24
+  version: 0.0.26
 
 source:
   path: ../..

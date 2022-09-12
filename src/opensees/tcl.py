@@ -1,7 +1,11 @@
 import os
 import sys
-import tkinter
 import pathlib
+try:
+    import tkinter
+except:
+    import tcinter as tkinter
+
 from opensees.obj import Component
 
 def TclInterpreter(verbose=False, tcl_lib=None):
