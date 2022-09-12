@@ -2,7 +2,10 @@
 
 import sys
 import cmd
-import _tkinter
+try:
+    import _tkinter
+except:
+    import tcinter._tcinter as _tkinter
 
 __version__="0.0.0"
 
@@ -23,6 +26,8 @@ usage: opensees <file> [args]...
        opensees -print
        opensees -json
        opensees -emit 
+Options
+  -v/--verbose
 """
 
 #PROMPT = "\033\\[01;32mopensees\033\\[0m > "
@@ -32,7 +37,7 @@ PROMPT = "\u001b[35mopensees\u001b[0m > "
 INIT_TCL = ""
 
 def parse_args(args):
-    opts = {"subproc": False}
+    opts = {"subproc": False, "verbose": False}
     files = []
     argi = iter(args[1:])
     for arg in argi:
@@ -55,6 +60,8 @@ def parse_args(args):
             elif arg == "--version":
                 print(__version__)
                 sys.exit()
+            elif arg == "-v":
+                opts["verbose"] = True
         else:
             files.append(arg)
             break
@@ -158,14 +165,17 @@ if __name__ == "__main__":
             TclShell().cmdloop()
     else:
         import time
-        tcl = opensees.tcl.TclRuntime()
+        tcl = opensees.tcl.TclRuntime(verbose=opts["verbose"])
         tcl.eval(f"set argc {len(sys.argv) - 2}")
         tcl.eval(f"set argv {{{' '.join(argi)}}}")
         for filename in files:
             if filename == "-":
                 tcl.eval(sys.stdin.read())
             else:
-                tcl.eval(open(filename).read())
-                time.sleep(3)
+                try:
+                    tcl.eval(open(filename).read())
+                except:
+                    pass
+                #time.sleep(3)
 
 
