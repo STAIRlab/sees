@@ -1,6 +1,13 @@
 APIDOC = python3 tools/doc.py
 APIDIR = docs/user/
 
+conda:
+	for i in 7 8 9 10; do conda mambabuild -c local -c conda-forge etc/conda --py 3.$i; done
+
+pypa:
+	sudo ./etc/pypa/docker-build
+	
+
 docs:
 	#make apidocs
 	#elstir build
