@@ -23,15 +23,15 @@ m.fix(1,1)
 
 strategy = dict(
     constraints = ("Transformation",),
-    numberer = ("ParallelPlain",),
+    numberer = ("Plain",),
     test = ("NormDispIncr", 1e-6, 6, 2),
     system = ('ProfileSPD',),
-    #integrator = ("Newmark", 0.5, 0.25),
+    integrator = ("Newmark", 0.5, 0.25),
     algorithm = ("Linear",),
     analysis = ("Variable",)
 )
-# ops.analysis('Transient')
-ana = opensees.analysis.DirectIntegrationAnalysis(m, strategy)
+
+ana = opensees.analysis.DirectIntegrationAnalysis(m, strategy=strategy)
 
 
 ana.analyze(5, 0.0001)#, 0.00001, 0.001, 10)
