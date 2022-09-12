@@ -30,7 +30,10 @@ dependencies = [
     # "scipy < 1.6.0 ; python_version=='3.6'",
     # "scipy < 1.8   ; python_version=='3.7'",
     # "scipy > 1.6.0 ; python_version>'3.7'",
-    "pyyaml"
+    "pyyaml",
+
+    "matplotlib",
+    "panel"
 ]
 
 [project.optional-dependencies]
@@ -44,11 +47,6 @@ testing = [
 docs = [
     "elstir",
     "mkdocs-material"
-]
-
-plots = [
-    "matplotlib",
-    "panel"
 ]
 
 [project.urls]

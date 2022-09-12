@@ -23,19 +23,6 @@ def load(system, overrides=(), abbrev=True):
     except FileNotFoundError:
         raise ValueError(f"Cannot find unit definition file {def_file}")
 
-    # if overrides:
-    #    with open(JSON_DIR/"units.json", "r") as f:
-    #        all_units = json.load(f)
-
-    # for override in overrides:
-    #    dimension = all_units["units"][override]["dimension"]
-    #    base = all_units["systems"][system]["base_units"][dimension]
-    #    scale = 1/all_units["units"][override]["si"]
-
-    #    for unit in defs:
-    #        if all_units["units"][unit]["dimension"] == dimension:
-    #            defs[unit] *= scale * all_units["units"][unit]["si"]
-
     return defs
 
 
@@ -96,6 +83,7 @@ class UnitHandler:
             dim = self.dim(dim)
         return SpacedDimensions(dim, justification)
 
-def spacing(dim, just): return SpacedDimensions(dim, just)
+def spacing(dim, just):
+    return SpacedDimensions(dim, just)
 
 

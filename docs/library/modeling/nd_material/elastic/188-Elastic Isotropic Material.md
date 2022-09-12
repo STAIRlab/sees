@@ -1,12 +1,12 @@
 # Elastic Isotropic Material
 
-<p>This command is used to construct an ElasticIsotropic material
-object.</p>
+This command is used to construct an ElasticIsotropic material
+object.
 
 ```tcl
-nDMaterial ElasticIsotropic $matTag $E $v
-        &lt;$rho&gt;
+nDMaterial ElasticIsotropic $matTag $E $v < $rho >
 ```
+
 <hr />
 <table>
 <tbody>
@@ -29,8 +29,9 @@ nDMaterial ElasticIsotropic $matTag $E $v
 </tbody>
 </table>
 <p>The material formulations for the ElasticIsotropic object are
-"ThreeDimensional," "PlaneStrain," "Plane Stress," "AxiSymmetric," and
+`"ThreeDimensional"`, `"PlaneStrain"`, "Plane Stress," "AxiSymmetric," and
 "PlateFiber."</p>
+
 <hr />
-<p>Code Developed by: <span style="color:blue"> Micheal Scott,
-Oregon State University </span></p>
+<p>Code Developed by: <span style="color:blue"> Micheal Scott, Oregon State University </span></p>
+

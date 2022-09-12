@@ -1,22 +1,13 @@
-
 # StaticIntegrator 
 
 ```cpp
 #include <analysis/integrator/StaticIntegrator.h>
+
+class StaticIntegrator: public IncrementalIntegrator
 ```
 
-class StaticIntegrator: public Integrator\
-
-MovableObject\
-Integrator\
-IncrementalIntegrator\
-
-LoadControl\
-ArcLength\
-DisplacementControl\
-
-StaticIntegrator is an abstract class. It is a subclass of
-IncrementalIntegrator provided to implement the common methods among
+`StaticIntegrator` is an abstract class. It is a subclass of
+`IncrementalIntegrator` provided to implement the common methods among
 integrator classes used in performing a static analysis on the FE_Model.
 The StaticIntegrator class provides an implementation of the methods to
 form the `FE_Element` and `DOF_Group` contributions to the tangent and
@@ -26,7 +17,7 @@ analysis, see the StaticAnalysis class.
 In static nonlinear finite element problems we seek a solution ($\U$,
 $\lambda$) to the nonlinear vector function
 
-$$\R(\U, \lambda) = \lambda {\bf P} - {\bf F}_R(\U) = \zero
+$${\bf R}({\bf U}, \lambda) = \lambda {\bf P} - {\bf F}_R({\bf U}) = \zero
 \label{staticGenForm}$$
 
 The most widely used technique for solving the non-linear finite element
@@ -37,7 +28,8 @@ incremental formulation, a solution to the equation is sought at
 successive incremental steps.
 
 $$\R({\bf U}_{n}, \lambda_n) = \lambda_n {\bf P} - {\bf F}_R({\bf U}_{n})
-\label{staticIncForm}$$
+$$
+{#staticIncForm}
 
 The solution of this equation is typically obtained using an iterative
 procedure, in which a sequence of approximations (${\bf U}_{n}^{(i)}$,
@@ -45,8 +37,7 @@ $\lambda_n^{(i)}$), $i=1,2, ..$ is obtained which converges to the
 solution (${\bf U}_n$, $\lambda_n)$. The most frequently used iterative
 schemes, such as Newton-Raphson, modified Newton, and quasi Newton
 schemes, are based on a Taylor expansion of
-equation [\[staticIncForm$$
-](#staticIncForm){reference-type="ref"
+equation [staticIncForm](#staticIncForm){reference-type="ref"
 reference="staticIncForm"} about (${\bf U}_{n}$, $\lambda_n$):
 
 $$\R({\bf U}_{n},\lambda_n) = \lambda_n^{(i)} {\bf P} 
@@ -67,34 +58,38 @@ constraint equation used depends on the static integration scheme, of
 which there are a number, for example load control, arc length, and
 displacement control.
 
-### Constructors
 
-\
-### Destructor
+### Public Methods
 
-\
-// Public Methods\
 
-\
+```{.cpp}
+int update(const Vector &deltaU);
+```
 
-\
+When invoked causes the integrator object to update the `DOF_Group`
+responses with the appropriate values based on the computed solution to
+the system of equation object. The subclasses must provide an
+implementation of this method.
 
-\
+```{.cpp}
+virtual int commit(void) =0;
+```
 
-The integer *classTag* is passed to the IncrementalIntegrator classes
-constructor.
+Invoked by the `SolutionAlgorithm` to inform the Integrator that current
+state of domain is on solution path. Returns the result of invoking
+`commitDomain()` on the `AnalysisModel` object associated with the
+Integrator.
 
-\
-Does nothing. Provided so that the subclasses destructors will be
-called.
+```cpp
+virtual int formEleTangent(FE_Element *theEle);
+```
 
-\
 To form the tangent matrix of the FE_Element, *theEle*, is instructed to
 zero this matrix and then add it's $K$ matrix to the tangent, i.e. it
 performs the following:
 
 ::: {.tabbing}
-while ̄ while w̄hile ̄ theEle-$>$zeroTang()\
+theEle-$>$zeroTang()
 theEle-$>$addKtoTang()
 :::
 
@@ -104,19 +99,19 @@ The method returns $0$.
 virtual int formEleResidual(FE_Element \*theEle);
 ```
 
-To form the residual vector of the FE_Element, *theEle*, is instructed
+To form the residual vector of the `FE_Element`, *theEle*, is instructed
 to zero the vector and then add it's $R$ vector to the residual, i.e. it
 performs the following:
 
 ::: {.tabbing}
-while ̄ while w̄hile ̄ theEle-$>$zeroResidual()\
+theEle-$>$zeroResidual()
 theEle-$>$addRtoResid()
 :::
 
 The method returns $0$.
 
 ```{.cpp}
-virtual int formNodTangent(DOF_Group \*theDof);
+virtual int formNodTangent(DOF_Group *theDof);
 ```
 
 This should never be called in a static analysis. An error message is

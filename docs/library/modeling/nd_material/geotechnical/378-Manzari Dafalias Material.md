@@ -1,7 +1,7 @@
 # Manzari Dafalias Material
 
-<p>This command is used to construct a multi-dimensional
-Manzari-Dafalias(2004) material.</p>
+This command is used to construct a multi-dimensional Manzari-Dafalias (2004)
+material.
 
 ```tcl
 nDmaterial ManzariDafalias $matTag $G0 $nu $e_init $Mc $c
@@ -42,7 +42,7 @@ compression</p></td>
 </tr>
 <tr class="even">
 <td><code class="parameter-table-variable">e0</code></td>
-<td><p>critical void ratio at p = 0</p></td>
+<td><p>critical void ratio at $p = 0$</p></td>
 </tr>
 <tr class="odd">
 <td><code class="parameter-table-variable">ksi</code></td>
@@ -134,8 +134,9 @@ $$\mathbf{s} = \mathrm{dev} (\mathbf{\sigma}) =
   \mathbf{\sigma} - \frac{1}{3} p \mathbf{1}$$
 
 <h3 id="elasticity">Elasticity</h3>
-<p>Elastic moduli are considered to be functions of p and current void
-ratio:</p>
+
+Elastic moduli are considered to be functions of $p$ and current void
+ratio:
 
 $$ G = G_0
 p_{atm}\frac{\left(2.97-e\right)^2}{1+e}\left(\frac{p}{p_{atm}}\right)^{1/2}$$
@@ -151,10 +152,10 @@ $$ d\mathbf{e}^\mathrm{e} = \frac{d\mathbf{s}}{2G}$$
 $$ d\varepsilon^\mathrm{e}_v = \frac{dp}{K}$$
 
 <h3 id="critical_state_line">Critical State Line</h3>
-<p>A power relationship is assumed for the critical state line:</p>
 
-$$e_c = e_0 - \lambda_c\left(\frac{p_c}{p_{atm}}\right)^\xi
-$$
+A power relationship is assumed for the critical state line:
+
+$$e_c = e_0 - \lambda_c\left(\frac{p_c}{p_{atm}}\right)^\xi$$
 
 where $e_0$ is the void ratio at $p_c = 0$ and $\lambda_c$ and $\xi$ constants.
 
@@ -165,17 +166,15 @@ is defined as
 $$ \left\| \mathbf{s} - p \mathbf{\alpha} \right\| -
 \sqrt\frac{2}{3}pm = 0 $$
 
-
 with $\mathbf{\alpha}$ being the deviatoric back stress-ratio.
 
 <h3 id="plastic_strain_increment">Plastic Strain Increment</h3>
 
 The increment of the plastic strain tensor is given by
 
-$$ d\mathbf{\varepsilon}^p = \langle L \rangle \mathbf{R}
-$$
+$$ d\mathbf{\varepsilon}^p = \langle L \rangle \mathbf{R}$$
 
-<p>where</p>
+where
 
 $$ \mathbf{R} = \mathbf{R'} + \frac{1}{3} D \mathbf{1}$$
 
@@ -239,12 +238,12 @@ model.
 <details><summary>Tcl script</summary>
 
 ```tcl
-# HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH #
+# ===================================================================== #
 # 3D Undrained Conventional Triaxial Compression Test Using One Element #
 # University of Washington, Department of Civil and Environmental Eng   #
 # Geotechnical Eng Group, A. Ghofrani, P. Arduino - Dec 2013            #
-# Basic units are m, Ton(metric), s										#
-# HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH #
+# Basic units are m, Ton(metric), s										                  #
+# ===================================================================== #
 
 wipe
 
@@ -267,9 +266,9 @@ set omega2 64.123
 set a1 [expr 2.0*$damp/($omega1+$omega2)]
 set a0 [expr $a1*$omega1*$omega2]
 
-# HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-# HHHHHHHHHHHHHHHHHHHHHHHHHHHCreate ModelHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
-# HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+# =====================================================================
+# ---------------------------Create Model------------------------------
+# =====================================================================
 
 # Create a 3D model with 4 Degrees of Freedom
 model BasicBuilder -ndm 3 -ndf 4
@@ -423,3 +422,4 @@ fabric change effects". Journal of Engineering Mechanics 2004</p>
 <p>Code Developed by: <span style="color:blue">Alborz Ghofrani, <a
 href="http://www.ce.washington.edu/people/faculty/bios/arduino_p.html">Pedro
 Arduino, U Washington</a></span></p>
+

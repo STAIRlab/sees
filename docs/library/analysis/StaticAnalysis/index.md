@@ -8,8 +8,55 @@ description: |
 # StaticAnalysis
 
 `StaticAnalysis` is a subclass of `Analysis`, it is used to perform a static
-analysis on the Domain. The following are the aggregates of such an
+analysis on the Domain. 
+In static nonlinear finite element problems we seek a solution ($\U$,
+$\lambda$) to the nonlinear vector function
+
+$${\bf R}({\bf U}, \lambda) = \lambda {\bf P} - {\bf F}_R({\bf U}) = \zero
+\label{staticGenForm}$$
+
+The most widely used technique for solving the non-linear finite element
+equation, equation [femGenForm](#femGenForm){reference-type="ref"
+reference="femGenForm"}, is to use an incremental scheme. In the
+incremental formulation, a solution to the equation is sought at
+successive incremental steps.
+
+$$\R({\bf U}_{n}, \lambda_n) = \lambda_n {\bf P} - {\bf F}_R({\bf U}_{n})
+$$
+{#staticIncForm}
+
+The solution of this equation is typically obtained using an iterative
+procedure, in which a sequence of approximations (${\bf U}_{n}^{(i)}$,
+$\lambda_n^{(i)}$), $i=1,2, ..$ is obtained which converges to the
+solution (${\bf U}_n$, $\lambda_n)$. The most frequently used iterative
+schemes, such as Newton-Raphson, modified Newton, and quasi Newton
+schemes, are based on a Taylor expansion of
+equation [staticIncForm](#staticIncForm){reference-type="ref"
+reference="staticIncForm"} about (${\bf U}_{n}$, $\lambda_n$):
+
+$$\R({\bf U}_{n},\lambda_n) = \lambda_n^{(i)} {\bf P} 
+ - {\bf F}_{R}\left({\bf U}_{n}^{(i)} \right) - \left[
+\begin{array}{cc}
+{\bf K}_n^{(i)} & -{\bf P} \\
+\end{array} \right] 
+\left\{
+\begin{array}{c}
+{\bf U}_{n} - {\bf U}_{n}^{(i)}  \\ 
+\lambda_n - \lambda_n^{(i)} 
+\end{array} \right\}
+\label{staticFormTaylor}$$
+
+which a system of of $N$ equations with ($N+1$) unknowns. Two solve
+this, an additional equation is required, the constraint equation. The
+constraint equation used depends on the static integration scheme, of
+which there are a number, for example load control, arc length, and
+displacement control.
+
+
+
+The following are the aggregates of such an
 analysis type:
+
 
 -  **AnalysisModel** - a container class holding the `FE_Element` and
    `DOF_Group` objects created by the `ConstraintHandler` object.
@@ -44,8 +91,11 @@ analysis type:
 
 -  **EquiSolnAlgo** - an algorithmic class specifying the sequence of
    operations to be performed in setting up and solving the finite
-   element equation which can be represented by the equation K(U) U =
-   P(U).
+   element equation which can be represented by the equation 
+   $$
+   K(U) U = P(U)
+   $$
+
 
 ## Class Interface
 ```cpp
@@ -166,16 +216,7 @@ the Domain has changed. The method invokes the following:
 
 :::{.admonition}
 ```cpp
-int setNumIncrements(int numIncrements);
-```
-:::
-
-To set the number of incremental steps in the analysis to be
-*numIncrements*. Returns $0$.
-
-:::{.admonition}
-```cpp
-int setAlgorithm(EquiSolnAlgo &theAlgorithm);
+int set_algorithm(EquiSolnAlgo &algorithm);
 ```
 :::
 
@@ -190,7 +231,7 @@ successful, a warning message and a negative number if not.
 
 :::{.admonition}
 ```cpp
-int setIntegrator(StaticIntegrator &theIntegrator);
+int set_integrator(StaticIntegrator &integrator);
 ```
 :::
 
@@ -207,7 +248,7 @@ warning message and a negative number if not.
 
 :::{.admonition}
 ```cpp
-int setLinearSOE(LinearSOE &theSOE);
+int set_soe(LinearSOE &soe);
 ```
 :::
 
@@ -220,4 +261,9 @@ SolutionAlgorithm objects. Checks then to see if the domain has changed,
 if true it invokes `domainChanged()`, otherwise it invokes `setSize()`
 on the new `LinearSOE`. Returns $0$ if successful, a warning message and a
 negative number if not.
+
+
+# References
+
+- https://onlinelibrary.wiley.com/doi/10.1002/nme.1620290702
 

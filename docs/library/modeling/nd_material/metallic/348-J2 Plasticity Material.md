@@ -53,27 +53,26 @@ The material formulations for the J2 object are `"ThreeDimensional"`,
 href="http://en.wikipedia.org/wiki/Von_Mises_yield_criterion"
 title="wikilink">http://en.wikipedia.org/wiki/Von_Mises_yield_criterion</a></p>
 
-J2 isotropic hardening material class
+$J_2$ isotropic hardening material
 
 - Elastic Model
-  $$\sigma = K*\operatorname{trace}(\epsilon_e) + (2*G)*\operatorname{dev}(\epsilon_e)$$
+  $$\sigma = K \operatorname{tr}(\epsilon_e) + 2G \operatorname{dev}(\epsilon_e)$$
 
 - Yield Function
-  $$\phi(\sigma, q) = || \operatorname{dev}(\sigma) || - \sqrt(\tfrac{2}{3}*q(\xi)$$
+  $$\phi(\sigma, q) = \| \operatorname{dev}(\sigma) \| - \sqrt{\tfrac{2}{3}} q(\xi)$$
 
 - Saturation Isotropic Hardening with linear term</p>
-  $$q(\xi) = \sigma_0 + (\sigma_\inf - \sigma_0)*\exp(-delta*\xi) + H*\xi $$
+  $$q(\xi) = \sigma_0 + (\sigma_\inf - \sigma_0) \exp(-delta \xi) + H \xi $$
 
 - Flow Rules
-  $$\dot {\epsilon_p} = \gamma * \frac{\partial \phi}{\partial \sigma} $$
+  $$\dot {\epsilon_p} = \gamma \frac{\partial \phi}{\partial \sigma} $$
   
-  $$\dot \xi = -\gamma * \frac{\partial \phi}{\partial q}$$
+  $$\dot \xi = -\gamma \frac{\partial \phi}{\partial q}$$
 
-- Linear Viscosity
+- Linear Viscosity ( if $\phi \gt  0$ )
 
   $$\gamma = \frac{\phi}{\eta}$$ 
 
-  ( if $\phi \gt  0$ )
 
 
 Backward Euler Integration Routine Yield condition enforced at time $n+1$

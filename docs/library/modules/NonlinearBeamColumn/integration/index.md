@@ -1,4 +1,4 @@
-# beamIntegration commands
+# BeamIntegration
 
 ::: function
 beamIntegration(type, tag, \*args)
@@ -45,3 +45,4 @@ plastic hinge integration methods is found in ([Scott and Fenves
 ::: {.toctree maxdepth="2" hidden=""}
 UserHinge HingeMidpoint HingeRadau HingeRadauTwo HingeEndpoint
 :::
+

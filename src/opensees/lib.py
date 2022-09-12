@@ -740,7 +740,7 @@ class element:
         ],
         refs=["transform"],
         alts=[
-            Ref("material", type=Mat),
+            Ref("material", type="Material"),
             Ref("section",  type=Sec)
         ],
         inherit=[_LineElement],

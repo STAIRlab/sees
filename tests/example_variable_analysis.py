@@ -13,8 +13,8 @@ m = opensees.model(ndm=1, ndf=1,
     elems = [
         (truss, [1,2])
     ]
-    #zeros = [[1], [1]]
 )
+
 m.fix(1,1)
 
 # pattern.Plain(1, "linear", [
@@ -31,7 +31,7 @@ strategy = dict(
     analysis = ("Variable",)
 )
 # ops.analysis('Transient')
-ana = opensees.analysis.DirectIntegrationAnalysis(m, strategy)
+ana = opensees.analysis.DirectIntegrationAnalysis(m, strategy=strategy)
 
 
 ana.analyze(5, 0.0001)#, 0.00001, 0.001, 10)
@@ -47,3 +47,4 @@ print(f'time: ', ops.getTime())
 approx_vtime = 0.0001 * 5  # variable transient is not active so time should be dt * 5
 # If variable transient is not active then time would be 0.0005
 assert 0.99 < time / approx_vtime < 1.01,  (time,  approx_vtime)
+

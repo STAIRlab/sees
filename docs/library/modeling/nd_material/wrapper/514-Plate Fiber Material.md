@@ -1,12 +1,11 @@
-# Plate Fiber Material
+# Plate Fiber Wrapper
 
-<p>This command is used to construct a plate-fiber material wrapper
+This command is used to construct a plate-fiber material wrapper
 which converts any three-dimensional material into a plate fiber
-material (by static condensation) appropriate for shell analysis.</p>
+material (by static condensation) appropriate for shell analysis.
 
 ```tcl
-nDMaterial PlateFiber $matTag
-        $threeDTag
+nDMaterial PlateFiber $matTag $threeDTag
 ```
 <hr />
 <table>
@@ -22,3 +21,4 @@ material</p></td>
 </tr>
 </tbody>
 </table>
+
