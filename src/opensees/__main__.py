@@ -1,4 +1,32 @@
 #!/usr/bin/env python3
+"""
+▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏
+▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏
+▐	░	▒	▓	▔	▕	▖	▗	▘	▙	▚	▛	▜	▝	▞	▟
+▐	░	▒	▓	▔	▕	▖	▗	▘	▙	▚	▛	▜	▝	▞	▟
+████████████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+████████████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+████████████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+████████████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+██████████████████████████████████
+ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+██████████████████████████████████
+━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━
+▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━╸━━━━━━━╸━━━━━━━╸━━━━━━━╸━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━╸━━━━━━━╸━━━━━━━╸━━━━━━━╸━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━╸━━━━━━━╸━━━━━━━╸━━━━━━━╸━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"""
 
 import sys
 import cmd
@@ -30,8 +58,10 @@ Options
   -v/--verbose
 """
 
-#PROMPT = "\033\\[01;32mopensees\033\\[0m > "
-PROMPT = "\u001b[35mopensees\u001b[0m > "
+# PROMPT = "\033[01;31mopensees\033[0m > "
+# PROMPT = "\u001b[35mopensees\u001b[0m > "
+# "\N{Lower Left Triangle} "
+PROMPT = "\033[33mopensees\033[0m \N{WHITE PARALLELOGRAM} "
 
 # Path to Tcl script which loads commands
 INIT_TCL = ""
@@ -127,7 +157,8 @@ class OpenSeesShell(Cmd):
 class TclShell(cmd.Cmd):
     intro = """         
     OpenSees -- Open System For Earthquake Engineering Simulation
-                 Pacific Earthquake Engineering Research Center
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+            Pacific Earthquake Engineering Research Center
 """
     prompt = PROMPT
     file = None
@@ -137,8 +168,11 @@ class TclShell(cmd.Cmd):
 
     def default(self, arg):
         try:
-            return self.tcl_interp.eval(arg) or None
-        except _tkinter.TclError as e:
+            value = self.tcl_interp.eval(arg)
+            if value:
+                print(value)
+            return None
+        except Exception as e:
             print(e)
 
     def precmd(self, line):

@@ -32,8 +32,14 @@ dependencies = [
     # "scipy > 1.6.0 ; python_version>'3.7'",
     "pyyaml",
 
+# Plotting
     "matplotlib",
-    "panel"
+    "panel",
+
+# Full-featured REPL
+    "pyparsing",
+    "prompt_toolkit",
+    "pygments"
 ]
 
 [project.optional-dependencies]
@@ -42,6 +48,11 @@ testing = [
     "pytest-checkdocs >= 2.4",
     "pytest-flake8",
     "nbmake"
+]
+
+repl = [
+    "prompt_toolkit",
+    "pygments"
 ]
 
 docs = [
