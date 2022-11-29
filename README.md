@@ -1,11 +1,5 @@
 # OpenSeesRT
 
-                        ┌─┐┌─┐┌─┐┌─┐  ┌──┌─┐┌─┐ ┌──
-                        └─┘├─┘└──┘ │ ─┘  └──└───┘
-        ───────────────────┘Berkeley, California ──────────────────────
-                                © UC Regents
-
-
 <img align="left" src="https://github.com/BRACE2/OpenSeesRT/blob/master/docs/figures/peer-black.svg" width="250px">
 
 ***Idiomatic* and *idempotent* C++ bindings to the OpenSees framework for finite element analysis.**
@@ -127,4 +121,9 @@ Jupyter Lab.
 -->
 
 
+
+                           ┌─┐┌─┐┌─┐┌─┐  ┌──┌─┐┌─┐ ┌──
+                           └─┘├─┘└──┘ │ ─┘  └──└───┘
+           ───────────────────┘Berkeley, California ──────────────────────
+                                   © UC Regents
 
