@@ -1,8 +1,9 @@
 # OpenSeesRT
 
-                   ╔═╗╔═╗╔═╗╔═╗  ╔══╔═╗╔═╗ ╔══
-                   ╚═╝╠═╝╚══╝ ║ ═╝  ╚══╚═══╝
-   ═══════════════════╝Berkeley, California ══════════════════════
+                        ┌─┐┌─┐┌─┐┌─┐  ┌──┌─┐┌─┐ ┌──
+                        └─┘├─┘└──┘ │ ─┘  └──└───┘
+        ───────────────────┘Berkeley, California ──────────────────────
+                                © UC Regents
 
 
 <img align="left" src="https://github.com/BRACE2/OpenSeesRT/blob/master/docs/figures/peer-black.svg" width="250px">
