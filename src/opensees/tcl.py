@@ -1,6 +1,7 @@
 import os
 import sys
 import pathlib
+import distutils
 try:
     import tkinter
 except:
@@ -9,11 +10,12 @@ except:
 from opensees.obj import Component
 
 def TclInterpreter(verbose=False, tcl_lib=None):
+    ext = distutils.ccompiler.new_compiler().shared_lib_extension
     if "OPENSEESRT_LIB" in os.environ:
         libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
     else:
         install_dir = pathlib.Path(__file__).parents[0]
-        libOpenSeesRT_path = install_dir/'libOpenSeesRT.so'
+        libOpenSeesRT_path = install_dir/f"libOpenSeesRT{ext}"
 
     if verbose:
         print(f"OpenSeesRT: {libOpenSeesRT_path}", file=sys.stderr)
@@ -53,15 +55,48 @@ def dumps(obj):
 
 
 class TclRuntime:
-    def __init__(self,  model=None, verbose=False):
+    def __init__(self,  model=None, verbose=False, safe=False):
         from functools import partial
         self._partial = partial
         self._c_domain = None
         self._c_rt = None
         self._interp = TclInterpreter(verbose=verbose)
+        if not safe:
+            self._interp.createcommand("=", self.pyexpr)
+            # self._interp.createcommand("import", self.pyimport)
         if model is not None:
             self.send(model)
-    
+
+    def pyimport(self, *args):
+        try:
+            lib = __import__(args[0])
+            print(lib)
+        except:
+            self.eval("opensees::import " + " ".join(args))
+            return
+
+    def pyexpr(self, *args):
+        # import math
+        import numpy as math
+        env = math.__dict__
+        env["locals"]   = None
+        env["globals"]  = None
+        env["__name__"] = None
+        env["__file__"] = None
+        env["__builtins__"] = {}
+        for k in self.eval("info globals").split():
+            try:
+                update = {k: float(self._interp.getvar(k))}
+            except:
+                continue
+            env.update(update)
+        try:
+            return __builtins__["eval"]((" ".join(args[:])).replace("$",""), env)
+
+        except Exception as e:
+            print(e)
+            # raise e
+
     def model(self, ndm, ndf, **kwds):
         # TODO: refactor this function
         """
@@ -157,7 +192,7 @@ class TclRuntime:
     def add_tagged(self, objs):
         for k,v in objs.items():
             if isinstance(k, int):
-                self.eval(v.cmd)            
+                self.eval(v.cmd)
 
 # class BasicBuilder(TclRuntime):
 #     def __init__(self, ndm=None, ndf=None):
@@ -177,7 +212,7 @@ def eigen(script: str, modes=1, verbose=False):
     interp.eval(f"""
 
     {script}
-    
+
     set options(-verbose)  {int(verbose)}
     set options(-numModes) {modes}
     set options(-file) /dev/stdout
