@@ -1,7 +1,7 @@
 import os
 import sys
 import pathlib
-import distutils
+
 try:
     import tkinter
 except:
@@ -10,10 +10,12 @@ except:
 from opensees.obj import Component
 
 def TclInterpreter(verbose=False, tcl_lib=None):
-    ext = distutils.ccompiler.new_compiler().shared_lib_extension
+
     if "OPENSEESRT_LIB" in os.environ:
         libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
     else:
+        import distutils.ccompiler
+        ext = distutils.ccompiler.new_compiler().shared_lib_extension
         install_dir = pathlib.Path(__file__).parents[0]
         libOpenSeesRT_path = install_dir/f"libOpenSeesRT{ext}"
 
