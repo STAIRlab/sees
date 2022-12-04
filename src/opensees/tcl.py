@@ -14,8 +14,13 @@ def TclInterpreter(verbose=False, tcl_lib=None):
     if "OPENSEESRT_LIB" in os.environ:
         libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
     else:
-        import distutils.ccompiler
-        ext = distutils.ccompiler.new_compiler().shared_lib_extension
+        import platform
+        ext = {
+            "Darwin": ".dylib",
+            "Linux": ".so",
+            "Windows": ".dll"
+        }[platform.system()]
+
         install_dir = pathlib.Path(__file__).parents[0]
         libOpenSeesRT_path = install_dir/f"libOpenSeesRT{ext}"
 
