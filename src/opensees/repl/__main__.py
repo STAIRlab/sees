@@ -1,3 +1,4 @@
+from . import strings
 from pathlib import Path
 from prompt_toolkit import prompt
 from prompt_toolkit.styles import Style
@@ -32,24 +33,7 @@ completions = {
         'exit': None,
 }
 
-intro = """
-    OpenSees -- Open System For Earthquake Engineering Simulation
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            Pacific Earthquake Engineering Research Center
-"""
 
-intro2= """
-                   ╔═╗╔═╗╔═╗╔═╗  ╔══╔═╗╔═╗ ╔══
-                   ╚═╝╠═╝╚══╝ ║ ═╝  ╚══╚═══╝
-   ═══════════════════╝Berkeley, California ══════════════════════
-"""
-
-intro = """
-                   ┌─┐┌─┐┌─┐┌─┐  ┌──┌─┐┌─┐ ┌──
-                   └─┘├─┘└──┘ │ ─┘  └──└───┘
-   ───────────────────┘Berkeley, California ──────────────────────
-                           © UC Regents
-"""
 
 PROMPT = "opensees \N{WHITE PARALLELOGRAM} "
 
@@ -77,7 +61,7 @@ if __name__ == "__main__":
     use_vi = True
     tcl = opensees.tcl.TclRuntime(verbose=False) #opts["verbose"])
     tcl.eval(file_util_commands)
-    completions.update({k: None for k in tcl.eval("info commands").split()})
+    completions.update({k: None for k in tcl.eval("info commands").split() if k not in completions})
     # tcl.eval(f"set argc {len(sys.argv) - 2}")
     # tcl.eval(f"set argv {{{' '.join(argi)}}}")
     completer = NestedCompleter.from_nested_dict(completions)
@@ -89,7 +73,8 @@ if __name__ == "__main__":
     except:
         session = PromptSession()
 
-    print(intro)
+    print(strings.banner)
+
     while True:
         inputs = nested_prompt(session, [('class:prompt',PROMPT)], vi_mode=use_vi,
         # inputs = session.prompt([('class:prompt',PROMPT)], vi_mode=use_vi, 
