@@ -1,3 +1,4 @@
+from pathlib import Path
 from prompt_toolkit import prompt
 from prompt_toolkit.styles import Style
 from prompt_toolkit.completion import NestedCompleter
@@ -43,7 +44,7 @@ intro2= """
    ═══════════════════╝Berkeley, California ══════════════════════
 """
 
-intro3= """
+intro = """
                    ┌─┐┌─┐┌─┐┌─┐  ┌──┌─┐┌─┐ ┌──
                    └─┘├─┘└──┘ │ ─┘  └──└───┘
    ───────────────────┘Berkeley, California ──────────────────────
@@ -54,17 +55,18 @@ PROMPT = "opensees \N{WHITE PARALLELOGRAM} "
 
 def nested_prompt(session=None, _prompt=None, inputs="", depth=1, ret=True, **kwds):
     if _prompt is None: _prompt = "  "*depth
+
     if session is None:
         inputs = "\n".join((inputs, prompt(_prompt, **kwds)))
     else:
         inputs = "\n".join((inputs, session.prompt(_prompt, **kwds)))
+
     if inputs[-1] == "{":
         while True:
             inputs = nested_prompt(session=None, inputs=inputs, depth=depth+1, ret=False, **kwds)
             if inputs[-2:] == "\n}":
                 inputs = inputs + "\n"
                 break
-
 
     return inputs
 
@@ -81,18 +83,18 @@ if __name__ == "__main__":
     completer = NestedCompleter.from_nested_dict(completions)
 
 
+    Path("/home/claudio/.opensees-history").touch()
+    session = PromptSession(history=FileHistory("/home/claudio/.opensees-history"))
 
-    session = PromptSession() #history=FileHistory('~/.myhistory'))
     print(intro)
     while True:
         inputs = nested_prompt(session, [('class:prompt',PROMPT)], vi_mode=use_vi,
-    # inputs = session.prompt([('class:prompt',PROMPT)], vi_mode=use_vi, 
+        # inputs = session.prompt([('class:prompt',PROMPT)], vi_mode=use_vi, 
                     style=style,
                     lexer=PygmentsLexer(TclLexer),
                     completer=completer,
                     complete_while_typing=False
         )
-
         try:
             value = tcl.eval(inputs)
             if value:
