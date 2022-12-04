@@ -83,8 +83,11 @@ if __name__ == "__main__":
     completer = NestedCompleter.from_nested_dict(completions)
 
 
-    Path("/home/claudio/.opensees-history").touch()
-    session = PromptSession(history=FileHistory("/home/claudio/.opensees-history"))
+    try:
+        Path("/home/claudio/.opensees-history").touch()
+        session = PromptSession(history=FileHistory("/home/claudio/.opensees-history"))
+    except:
+        session = PromptSession()
 
     print(intro)
     while True:
