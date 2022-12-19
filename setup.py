@@ -8,7 +8,7 @@ import setuptools
 
 if __name__ == "__main__":
     setuptools.setup(
-        cmdclass = {"build_ext": amoeba.BuildExtension},
+        cmdclass = {"build_ext": amoeba.BuildExtension, "cmake": amoeba.CMakeCommand},
         ext_modules = [
             amoeba.CMakeExtension(
                 name = "rt",
