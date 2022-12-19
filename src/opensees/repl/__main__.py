@@ -54,40 +54,45 @@ def nested_prompt(session=None, _prompt=None, inputs="", depth=1, ret=True, **kw
 
     return inputs
 
-if __name__ == "__main__":
-    import opensees
-    #files, opts, argi = parse_args(sys.argv)
-    import time, sys
-    use_vi = True
-    tcl = opensees.tcl.TclRuntime(verbose=False) #opts["verbose"])
-    tcl.eval(file_util_commands)
-    completions.update({k: None for k in tcl.eval("info commands").split() if k not in completions})
-    # tcl.eval(f"set argc {len(sys.argv) - 2}")
-    # tcl.eval(f"set argv {{{' '.join(argi)}}}")
-    completer = NestedCompleter.from_nested_dict(completions)
+class OpenSeesREPL:
+    def __init__(self):
+        import opensees
+        import time, sys
+        self.interp = opensees.tcl.TclRuntime(verbose=False)
+        self.interp.eval(file_util_commands)
 
-
-    try:
-        Path("/home/claudio/.opensees-history").touch()
-        session = PromptSession(history=FileHistory("/home/claudio/.opensees-history"))
-    except:
-        session = PromptSession()
-
-    print(strings.banner)
-
-    while True:
-        inputs = nested_prompt(session, [('class:prompt',PROMPT)], vi_mode=use_vi,
-        # inputs = session.prompt([('class:prompt',PROMPT)], vi_mode=use_vi, 
-                    style=style,
-                    lexer=PygmentsLexer(TclLexer),
-                    completer=completer,
-                    complete_while_typing=False
-        )
         try:
-            value = tcl.eval(inputs)
-            if value:
-                print(value)
-        except Exception as e:
-            #raise
-            print(e)
+            Path("/home/claudio/.opensees-history").touch()
+            self.session = PromptSession(history=FileHistory("/home/claudio/.opensees-history"))
+        except:
+            self.session = PromptSession()
+
+    def repl(self):
+        use_vi = True
+        completions.update({
+            k: None for k in self.interp.eval("info commands").split() if k not in completions
+        })
+        # tcl.eval(f"set argc {len(sys.argv) - 2}")
+        # tcl.eval(f"set argv {{{' '.join(argi)}}}")
+        completer = NestedCompleter.from_nested_dict(completions)
+
+        print(strings.banner)
+        while True:
+            inputs = nested_prompt(self.session, [('class:prompt',PROMPT)], vi_mode=use_vi,
+                        style=style,
+                        lexer=PygmentsLexer(TclLexer),
+                        completer=completer,
+                        complete_while_typing=False
+            )
+            try:
+                value = self.interp.eval(inputs)
+                if value is not None:
+                    print(value)
+            except Exception as e:
+                print(e)
+
+
+if __name__ == "__main__":
+
+    OpenSeesREPL().repl()
 

@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 """
+▄▄▄▄▄▄▄▄▄▌▌▌
+▄▄▄▄▄▄▄▄▌▌▌▌
+▄▄▄▄▄▄▄▌▌▌▌▌
+▄▄▄▄▄▄▌▌▌▌▌▌
+▄▄▄▄▄▌▌▌▌▌▌▌
+▌▌▌▌▌▌▌▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 ▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏
 ▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏
 ▐	░	▒	▓	▔	▕	▖	▗	▘	▙	▚	▛	▜	▝	▞	▟
@@ -53,9 +59,12 @@ usage: opensees <file> [args]...
 
        opensees -print
        opensees -json
-       opensees -emit 
+       opensees -emit
+
 Options
   -v/--verbose
+
+  -c <command>
 """
 
 # PROMPT = "\033[01;31mopensees\033[0m > "
@@ -67,7 +76,12 @@ PROMPT = "\033[33mopensees\033[0m \N{WHITE PARALLELOGRAM} "
 INIT_TCL = ""
 
 def parse_args(args):
-    opts = {"subproc": False, "verbose": False}
+    opts = {
+        "subproc": False,
+        "verbose": False,
+        "interact": False,
+        "commands": []
+    }
     files = []
     argi = iter(args[1:])
     for arg in argi:
@@ -81,20 +95,33 @@ def parse_args(args):
                 import opensees.eigen
                 opensees.eigen.modes(*argi)
                 sys.exit()
+
             elif arg == "-eigen":
                 import opensees.eigen
                 opensees.eigen.eigen(*argi)
                 sys.exit()
+
             elif arg == "--subproc":
                 opts["subproc"] = True
-            elif arg == "--version":
+
+            elif arg == "--version" or arg == "-version":
                 print(__version__)
                 sys.exit()
+
             elif arg == "-v":
                 opts["verbose"] = True
+
+            elif arg == "-c":
+                opts["commands"].append(next(argi))
+
+            elif arg == "-i":
+                opts["interact"] = True
+
+
         else:
             files.append(arg)
             break
+
     return files, opts, argi
 
 
@@ -118,7 +145,7 @@ class OpenSeesShell(Cmd):
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE)
-        
+
         self.out_queue = queue.Queue()
         self.err_queue = queue.Queue()
         self.out_thread = Thread(target=enqueue_output, args=(self.process.stdout, self.out_queue))
@@ -127,15 +154,15 @@ class OpenSeesShell(Cmd):
         self.err_thread.daemon = True
         self.out_thread.start()
         self.err_thread.start()
-        
+
     def default(self,line):
         self.write(line)
         time.sleep(random.uniform(0.1, 1.0))
         return self.read2()
-    
+
     def read(self):
         return self.process.stderr.read()#.decode("utf-8").strip()
-    
+
     def read2(self):
         outStr = ''
         try:
@@ -155,15 +182,25 @@ class OpenSeesShell(Cmd):
 
 
 class TclShell(cmd.Cmd):
-    intro = """         
+#   intro = """\
+
+#   OpenSees -- Open System For Earthquake Engineering Simulation
+#  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#                       Berkeley, California
+#   """
+
+    intro = """\
     OpenSees -- Open System For Earthquake Engineering Simulation
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
             Pacific Earthquake Engineering Research Center
-"""
+    """
+
     prompt = PROMPT
     file = None
-    def __init__(self, *args, **kwds):
-        self.tcl_interp = opensees.tcl.TclInterpreter()
+    def __init__(self, *args, interp=None, **kwds):
+        if interp is None:
+            interp = opensees.tcl.TclInterpreter()
+        self.tcl_interp = interp
         super().__init__(*args, **kwds)
 
     def default(self, arg):
@@ -197,19 +234,26 @@ if __name__ == "__main__":
             OpenSeesShell().cmdloop()
         else:
             TclShell().cmdloop()
+
     else:
-        import time
         tcl = opensees.tcl.TclRuntime(verbose=opts["verbose"])
         tcl.eval(f"set argc {len(sys.argv) - 2}")
         tcl.eval(f"set argv {{{' '.join(argi)}}}")
+
+        for cmd in opts["commands"]:
+            tcl.eval(cmd)
+
         for filename in files:
-            if filename == "-":
-                tcl.eval(sys.stdin.read())
-            else:
-                try:
+            try:
+                if filename == "-":
+                    tcl.eval(sys.stdin.read())
+                else:
                     tcl.eval(open(filename).read())
-                except:
-                    pass
-                #time.sleep(3)
+            except:
+                pass
+                #tcl.eval("puts $errorInfo")
+
+        if opts["interact"]:
+            TclShell(interp=tcl).cmdloop()
 
 
