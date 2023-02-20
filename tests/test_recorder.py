@@ -9,7 +9,7 @@ def test_node():
         elems = [[
                 opensees.element.ZeroLength(
                     materials = [opensees.uniaxial.Elastic(E=k)]
-                ), 
+                ),
                 [1, 2]
             ]
         ],
@@ -28,7 +28,7 @@ def test_node():
 # filename = "a.txt"
 
     recorders = [
-        opensees.recorder.Node(filename, format="txt", respType="disp", nodes=[2], dofs=range(1,2), time=True)
+        opensees.recorder.Node(filename, recorder="disp", format="txt", nodes=[2], dofs=range(1,2), time=True)
     ]
 
     print(opensees.tcl.dumps(recorders[0]))
@@ -38,7 +38,10 @@ def test_node():
     for i in range(10):
         analysis.analyze(1, time_step=0.02)
 
+
 # def test_fiber_beam():
 #     opensees.recorder.Element("out.txt", {"section": [2], "fiber": [3]})
 #     opensees.recorder.Element("out.txt", "")
+test_node()
+
 

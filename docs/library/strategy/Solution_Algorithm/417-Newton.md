@@ -1,10 +1,9 @@
 # Newton
 
-This command is used to construct a `NewtonRaphson` algorithm object
-which is uses the Newton-Raphson algorithm to solve the nonlinear
-residual equation. The Newton-Raphson method is the most widely used and
-most robust method for solving nonlinear algebraic equations. The
-command is of the following form:
+The `NewtonRaphson` algorithm uses the Newton-Raphson algorithm to solve the
+nonlinear residual equation. The Newton-Raphson method is the most widely used
+and most robust method for solving nonlinear algebraic equations. The command
+is of the following form:
 
 ```tcl
 algorithm Newton < -initial > < -initialThenCurrent >
@@ -32,42 +31,11 @@ page at Wikipedia</a></p>
 
 ## Theory
 
-<p>The Newton method used in finite element analysis is identical to
-that taught in basic calculus courses. It is just extended for the n
-unknown degrees-of-freedom. The method as taught in basic calculus, is a
-root-finding algorithm that uses the first few terms of the Taylor
-series of a function $f(x)\,\!$ in the vicinity
-of a suspected root $x_n\,\!$ to find the root
-$x_{n+1}\,\!$. Newton's method is sometimes also
-known as Newton's iteration, although in this work the latter term is
-reserved to the application of Newton's method for computing square
-roots.</p>
-<p>The Taylor series of $r(x)\,\!$ about the
-point $x=x_n+\Delta x\,\!$ is given by</p>
-
-$$f(x_n+\Delta x) = f(x_n)+r^{'}(x_n)\Delta x + 1/2r^{''}(x_n)
-\Delta x^2+....\,\!$$
-
-
-<p>Keeping terms only to first order,</p>
-
-$$f(x_n+\Delta x) \approx f(x_n)+r^'(x_n)\Delta x = f(x_n)+
-\frac{df(x_n)}{dx}\Delta x$$
-
-
-and since at the root we wish to find  $x_n + \Delta
-x$ , the function equates to 0, i.e. $f(x_n+\Delta
-x) = 0$, we can solve for an approximate $\Delta x$
-
-$$ \Delta x \approx -\frac{f(x_n)}{f^'(x_n)} = -
-\frac{df(x_n)}{dx}^{-1}f(x_n)$$
-
-
-<p>The Newmark method is thus an iterative method in which, starting at
+The Newton-Raphson method is an iterative method where, starting at
 a good initial guess $x_0\,\!$ we keep iterating
-until our convergence criteria is met with the following:</p>
+until our convergence criteria is met with the following:
 
-$$ \Delta x = - \frac{df(x_n)}{dx}^{-1}f(x_n)\,\!$$
+$$\Delta x = - \frac{df(x_n)}{dx}^{-1}f(x_n)\,\!$$
 
 
 

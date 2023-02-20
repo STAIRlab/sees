@@ -75,8 +75,8 @@ class MplPlotter:
         fix_axes=True,
         **kwds
     ):
-        """Plot a composite cross section."""    
-        
+        """Plot a composite cross section."""
+
         if plain:
             show_properties = show_dims = False
 
@@ -107,14 +107,14 @@ class MplPlotter:
                 ax.spines[i].set_visible(False)
 
         if set_limits:
-            x_max = 1.01 * max(v[0] 
-                    for p in section.patches for v in p.vertices 
+            x_max = 1.01 * max(v[0]
+                    for p in section.patches for v in p.vertices
                     if hasattr(p,"vertices"))
-            y_max = 1.05 * max(v[1] 
-                    for p in section.patches for v in p.vertices 
+            y_max = 1.05 * max(v[1]
+                    for p in section.patches for v in p.vertices
                         if hasattr(p,"vertices"))
-            y_min = 1.05 * min(v[1] 
-                    for p in section.patches for v in p.vertices 
+            y_min = 1.05 * min(v[1]
+                    for p in section.patches for v in p.vertices
                         if hasattr(p,"vertices"))
 
             ax.set_xlim(-x_max, x_max)
@@ -128,13 +128,13 @@ class MplPlotter:
             for l in self.get_section_layers(section, **kwds):
                 ax.add_line(l)
 
-        if "fiber" in show: 
+        if "fiber" in show:
             if true_fibers:
                 circles = [
-                    plt.Circle(f.coord, radius=sqrt(f.area/np.pi), linewidth=0) 
+                    plt.Circle(f.coord, radius=sqrt(f.area/np.pi), linewidth=0)
                         for layer in section.layers for f in layer.fibers
                 ] + [
-                    plt.Circle(f.coord, radius=sqrt(f.area/np.pi), linewidth=0) 
+                    plt.Circle(f.coord, radius=sqrt(f.area/np.pi), linewidth=0)
                         for patch in section.patches for f in patch.fibers
                 ]
                 c = matplotlib.collections.PatchCollection(circles)
@@ -145,10 +145,12 @@ class MplPlotter:
                     ax.scatter(*zip(*(f.coord for patch in section.patches for f in patch.fibers)), s=0.1)
                 except:
                     pass
+
                 try:
                     ax.scatter(*zip(*(f.coord for patch in section.patches for f in patch.fibers)), s=0.1)
                 except Exception as e:
                     print(e)
+
 
                 try:
                     coords, areas = zip(*((f.coord, 20*f.area) for layer in section.layers for f in layer.fibers))
@@ -162,7 +164,7 @@ class MplPlotter:
         # ax.scatter(0, 0)
         ax.axis("equal")
         #plt.show()
-        
+
         return ax
 
 

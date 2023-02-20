@@ -14,10 +14,10 @@ system BandGeneral
 
 <hr />
 
-<p>THEORY:</p>
-<p>An <em>n</em>&times;<em>n</em> matrix
-<em>A</em>=(<em>a</em><sub><em>i,j</em> </sub>) is a
-<strong>band matrix</strong> if all matrix elements are zero outside a
+## Theory
+
+An $n\times n$ matrix
+$A=(a_{ij})$ is a <strong>band matrix</strong> if all matrix elements are zero outside a
 diagonally bordered band whose range is determined by constants
 <em>k</em><sub>1</sub> and
 <em>k</em><sub>2</sub>:</p>
@@ -125,25 +125,16 @@ A `BandGenLinLapackSolver` object can be constructed to solve a
 LAPACK library. The class is defined to be a friend of the BandGenLinSOE
 class (see  `<BandGenLinSOE.h>`).
 
-### Constructor
 
-\
-### Destructor
+### Public Methods
 
-\
-// Public Methods\
 
-\
-
-\
-
-\
 A unique class tag (defined in  `<classTags.h>`) is passed to the
 BandGenLinSolver constructor. Sets the size of *iPiv* to $0$, *iPiv*
 being an integer array needed by the LAPACK routines.
 
-\
-Invokes delete on *iPiv* to free the memory allocated to store the
+
+Invokes delete on `iPiv` to free the memory allocated to store the
 array.
 
 

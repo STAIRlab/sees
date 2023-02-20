@@ -1,29 +1,51 @@
 import opensees as ops
-k = 60
-m = 2
+from numpy import sin, linspace, pi
+
+T = 5*pi
+t = linspace(0, T, 100)
+
+E = 1.
+I = 1.
+L = 1.
+A = 1.
+# k = 60
+m = 1.
 g = 386.4
 
-model = ops.model(ndm=1, ndf=1)
 
-model.node(1, 0)
-model.node(2, 0, mass=m)
-model.node(3, 0)
-# model.mass(2,m)
-model.fix(1,1)
-model.fix(3,1)
+beam = ops.element.ElasticBeam2D(None, E=E, I=I, A=A)
 
-material = ops.uniaxial.Elastic(None, k)
-elem = ops.element.ZeroLength(None, [1, 2], mat=[material], dir=[1])
+# 3   1   4   2   5
+# o---M---o---M---o
+# ^       ^       ^
+#
+data = {
+    "nodes": {
+        # lumped mass
+        1: (  L/2, 0.0),
+        2: (3*L/2, 0.0),
+        # supports
+        3: (  0.0, 0.0),
+        4: (    L, 0.0),
+        5: (  2*L, 0.0)
+    },
 
-# ops.element.ZeroLength(2, [2, 3], mat=[1], dir=[1])
+    "mass":  {1: m, 2: m},
+}
 
-model.elem(1, [1, 2], elem)
-model.elem(2, [2, 3], elem)
+model = ops.model(ndf=3, **data)
+
+model.elem(beam, (3, 1))
+model.elem(beam, (1, 4))
+model.elem(beam, (4, 2))
+model.elem(beam, (2, 5))
+
 
 pattern = ops.pattern.MultipleSupport(None, [
-    (1, 1, ops.pattern.TimeSeries(1, dt=0.02, file='tabasFN.txt', scale=g)),
-    (3, 2, ops.pattern.TimeSeries(2, dt=0.02, file='tabasFP.txt', scale=g))
-  ]
+    (1, 1, ops.pattern.GroundMotion(time=t, accel=(t > T*0.3)*sin(t))),
+    (3, 2, ops.pattern.GroundMotion(time=t, accel=(t > T*0.2)*sin(t)))
+  ],
 )
 
+print(ops.tcl.dumps(pattern))
 

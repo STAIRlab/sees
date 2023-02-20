@@ -90,10 +90,14 @@ if __name__ == "__main__":
     files, opts, argi = parse_args(sys.argv)
 
     if len(sys.argv) == 1:
-
         if opts["subproc"]:
             OpenSeesShell().cmdloop()
-        else:
+            sys.exit()
+
+        try:
+            from opensees.repl import OpenSeesREPL
+            OpenSeesREPL().repl()
+        except:
             from opensees.repl.cmdshell import TclShell
             TclShell().cmdloop()
 
@@ -116,6 +120,8 @@ if __name__ == "__main__":
                 #tcl.eval("puts $errorInfo")
 
         if opts["interact"]:
-            TclShell(interp=tcl).cmdloop()
+            from opensees.repl import OpenSeesREPL
+            OpenSeesREPL(interp=tcl).repl()
+            # TclShell(interp=tcl).cmdloop()
 
 
