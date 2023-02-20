@@ -15,9 +15,9 @@ class Component:
         # when a python c-binding attempts to call a Tcl
         # C function. Users should never import OpenSeesPyRT
         # themselves
-        from .tcl import TclRuntime
+        from opensees.tcl import TclRuntime
         rt = TclRuntime()
-        from . import OpenSeesPyRT as libOpenSeesRT
+        from opensees import OpenSeesPyRT as libOpenSeesRT
 
         if self.tag_space == "uniaxialMaterial":
             rt.send(self, ndm=1, ndf=1)
@@ -103,7 +103,7 @@ class Component:
             if ref in self._argdict:
                 arg = self._argdict[ref]
                 val = getattr(self, arg.field)
-                if isinstance(arg, Ref):
+                if isinstance(arg, Ref) and (val is not None or arg.reqd):
                     yield val, _get_tagspace(arg.type)
                 elif isinstance(arg, Grp):
                     for v in val: yield (v, _get_tagspace(arg.type))

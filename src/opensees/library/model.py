@@ -2,8 +2,8 @@
 import fnmatch
 from math import isclose
 
-from .obj import cmd
-from .ast import Tag, Grp, Num
+from opensees.library.obj import cmd, Component
+from opensees.library.ast import Tag, Grp, Num
 
 
 Node = cmd("Node", "node", [
@@ -18,6 +18,8 @@ Node = cmd("Node", "node", [
 class model:
     def __init__(self, *args, ndm=None, ndf=None,
             assm={}, prototypes=None, units="metric", **kwds):
+        if ndm is None and ndf is None and len(args) == 2:
+            ndm, ndf = args
 
         if ndm is None:
             if "nodes" in kwds:
@@ -40,7 +42,7 @@ class model:
         self.m_conns = {}
         self.m_elems = {}
         self.m_nodes = {}
-        
+
         #
         # Book keeping
         #
@@ -63,8 +65,17 @@ class model:
         self.add(**kwds)
 
     def add(self, nodes = {}, zeros=[], conns=[], elems=[], prototypes=None, **assm):
-        [self.node(k,*v) for k,v in nodes.items()]
-        [self.elem(*el)  for el in elems]
+
+        if isinstance(nodes, list):
+            for n in nodes: self.node(*n)
+        else:
+            for k,n in nodes.items(): self.node(k, *n)
+
+        if isinstance(elems, list):
+            for el in elems: self.elem(*el)
+        else:
+            for k,el in elems.items(): self.elem(k, *el)
+
         [self.conn(*cn)  for cn in conns]
         [self.fix(*args) for args in zeros]
 
@@ -117,7 +128,7 @@ class model:
         mod.dof_names = self.dof_names
         mod.prototypes = prototypes
         return mod
-    
+
     @property
     def units(self):
         import elle.units
@@ -126,12 +137,15 @@ class model:
     def get_node(self, tag):
         if isinstance(tag,(str,int)):
             return self.m_nodes[tag]
- 
+
     def node(self, tag, *coords, **kwds):
         if tag is None: tag = self._new_tag("node")
+        if len(coords) != self.ndm and isinstance(coords[0], (list,tuple)):
+            coords = coords[0]
+
         node = Node(**{
             "name": tag,
-            "crd": coords, 
+            "crd": coords,
             "boun": [0 for i in range(self.ndf)],
             **kwds,
         })
@@ -160,11 +174,17 @@ class model:
 
     def elem(self, *args, **kwds):
         """
-        elem(typ, [nodes])
-        elem(typ, [nodes], name)
-        elem(typ, name, [nodes])
+        elem(typ,  [nodes])
+        elem(typ,  [nodes], name)
+        elem(typ,  name, [nodes])
+        # elem(name, *nodes,  type)
         """
         typ = args[0]
+        for i,arg in enumerate(args):
+            if isinstance(arg, Component):
+                typ = arg
+                break
+
         if len(args) == 3:
             # elem(typ, [nodes], name) || elem(typ, name, [nodes])
             if isinstance(args[1], (list,tuple,set)):

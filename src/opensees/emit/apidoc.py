@@ -15,7 +15,7 @@ def write_grp(a):
 
 def write_obj(v, w, qual=None):
     name = v.__name__
-    if qual is not None: 
+    if qual is not None:
         qual = qual + "."
     else:
         qual = ""
@@ -104,8 +104,8 @@ class ApiEmitter(Emitter):
             this.write("</tr>")
         this.write("</td></table>")
         #this.lshift()
-    
-    def Ref(this, a, value=None): 
+
+    def Ref(this, a, value=None):
         name = a.name or ""
         default = " = "+str(a.default) if a.default else ""
         about = re.sub('[\s+]', ' ', a.about.replace('\n',' '))
@@ -146,7 +146,7 @@ class ApiDocWriter(ScriptBuilder):
         ScriptBuilder.__init__(self, ApiEmitter)
 
     def send(self, obj, idnt=None, qual=None):
-        w = self.streams[0]        
+        w = self.streams[0]
 
         write_obj(obj, w, qual=qual)
         w.endln();
@@ -154,7 +154,7 @@ class ApiDocWriter(ScriptBuilder):
         for arg in obj._args:
             w.write("<tr>")
             typ = arg.__class__.__name__
-            
+
             w.Arg(arg)
 
             w.write("</tr>")
@@ -171,7 +171,7 @@ class ApiDocWriter(ScriptBuilder):
         return self
 
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     import opensees
 
     _, module, obj = sys.argv[1].split(".")

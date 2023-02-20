@@ -7,7 +7,7 @@ try:
 except:
     import tcinter as tkinter
 
-from opensees.obj import Component
+from opensees.library.obj import Component
 
 def TclInterpreter(verbose=False, tcl_lib=None):
 

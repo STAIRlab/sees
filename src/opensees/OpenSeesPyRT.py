@@ -8,10 +8,8 @@ if "OPENSEESRT_LIB" in os.environ:
     libOpenSeesRT = importlib.util.module_from_spec(spec)
     sys.modules["libOpenSeesRT"] = libOpenSeesRT
     spec.loader.exec_module(libOpenSeesRT)
-    # libOpenSeesRT.MyClass()
 
 else:
-    # from .libOpenSeesRT import *
 
     from . import libOpenSeesRT
 

@@ -24,8 +24,8 @@ All patches have the following attributes:
 """
 import sys
 import itertools
-from .ast import *
-from .obj import LibCmd, cmd
+from opensees.library.ast import *
+from opensees.library.obj import LibCmd, cmd
 import numpy as np
 
 class Material: pass

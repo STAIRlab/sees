@@ -1,4 +1,4 @@
-from . import strings
+
 from pathlib import Path
 from prompt_toolkit import prompt
 from prompt_toolkit.styles import Style
@@ -35,7 +35,6 @@ completions = {
 
 
 
-PROMPT = "opensees \N{WHITE PARALLELOGRAM} "
 
 def nested_prompt(session=None, _prompt=None, inputs="", depth=1, ret=True, **kwds):
     if _prompt is None: _prompt = "  "*depth
@@ -55,6 +54,11 @@ def nested_prompt(session=None, _prompt=None, inputs="", depth=1, ret=True, **kw
     return inputs
 
 class OpenSeesREPL:
+    """
+    Create an OpenSees read-eval-print loop (REPL).
+    """
+    prompt = "opensees \N{WHITE PARALLELOGRAM} "
+
     def __init__(self):
         import opensees
         import time, sys
@@ -69,6 +73,7 @@ class OpenSeesREPL:
 
     def repl(self):
         use_vi = True
+        prompt = self.prompt
         completions.update({
             k: None for k in self.interp.eval("info commands").split() if k not in completions
         })
@@ -76,17 +81,20 @@ class OpenSeesREPL:
         # tcl.eval(f"set argv {{{' '.join(argi)}}}")
         completer = NestedCompleter.from_nested_dict(completions)
 
-        print(strings.banner)
+        interp = self.interp
+
+        interp.eval("puts $opensees::banner")
+
         while True:
-            inputs = nested_prompt(self.session, [('class:prompt',PROMPT)], vi_mode=use_vi,
+            inputs = nested_prompt(self.session, [('class:prompt',prompt)], vi_mode=use_vi,
                         style=style,
                         lexer=PygmentsLexer(TclLexer),
                         completer=completer,
                         complete_while_typing=False
             )
             try:
-                value = self.interp.eval(inputs)
-                if value is not None:
+                value = interp.eval(inputs)
+                if value is not None and value != "":
                     print(value)
             except Exception as e:
                 print(e)
@@ -95,4 +103,5 @@ class OpenSeesREPL:
 if __name__ == "__main__":
 
     OpenSeesREPL().repl()
+
 

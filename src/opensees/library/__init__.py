@@ -5,7 +5,7 @@ from .obj import _LineElement
 from .model import Node
 
 def Dof(about=""):
-    return Int("dof", about=about, enum={	
+    return Int("dof", about=about, enum={
         "1": "corresponds to translation along the global 1 axis",
         "2": "corresponds to translation along the global 2 axis",
         "3": "corresponds to translation along the global 3 axis",
@@ -43,19 +43,17 @@ class BeamInt(Arg):
         return args
         #return f"{self.kwds['rule']} {self.kwds['section']} {self.kwds['num']}"
 
-
-redirect = Cmd("redirect",[
-      Blk("commands"),
-      One(optional=True, enum=[
-         Str("filename", flag=">"),
-         Str("filename", flag=">>"),
-         Grp("shell_pipe", flag="|", args=[
-            Str("shell_name", optional=True),
-            Blk("shell_block", flag="|"),
-         ]),
-         Str("variable")
-      ])
+LinearTransform = Trf("LinearTransform", "Linear",
+  args = [
+    Tag("name", about="Tag used to identify the transform object."),
+    Grp("vecxz", type=Num, num=3, ndm=3),
+    Grp("joint_offsets", reqd=False, flag="-jntOffset", type=Grp, args=[
+        Grp(type=Num, num=3, default=[0.0]*3),
+        Grp(type=Num, num=3, default=[0.0]*3)
     ])
+  ],
+)
+
 
 class nd:
     pass
@@ -72,7 +70,6 @@ class uniaxial:
             self._wrapped = wrapped
             self._wrapping_several = isinstance(self._wrapped, (tuple, list))
 
-            
         def __repr__(self):
             return f"{self.__class__.__name__}<{self._wrapped.__class__.__name__}>"
 
@@ -95,6 +92,10 @@ class uniaxial:
                 self._wrapped.__exit__(*args, **kwds)
             del self.wrapped
 
+    @classmethod
+    def create(cls, name, tag, *args):
+        obj = Uni(name, name, args=[Tag()]+[Str(f"arg{i}") for i,arg in enumerate(args)])
+        return obj(tag, *map(str,args))
 
     Series = Uni("SeriesMaterial", "Series", args = [
             Tag(),
@@ -121,7 +122,7 @@ class uniaxial:
         ]
     )
 
-    ElasticBilin = Uni("ElasticBilin", "ElasticBilin", args=[ 
+    ElasticBilin = Uni("ElasticBilin", "ElasticBilin", args=[
         Tag(),
         Yng(about=r"tangent in tension for stains: 0 <= strains $\le$ `epsP2`"),
         Num("E2", about="tangent when material in tension with strains > `epsP2`"),
@@ -138,7 +139,6 @@ class uniaxial:
             ),
         ]
     )
-
 
     Hardening = Uni("HardeningMaterial", "Hardening", args=[
         Tag(),
@@ -198,8 +198,8 @@ class uniaxial:
     Steel02 = Uni("Steel02",
         "Steel02",
         about="""
-        This command is used to construct a uniaxial 
-        Giuffre-Menegotto-Pinto steel material object 
+        This command is used to construct a uniaxial
+        Giuffre-Menegotto-Pinto steel material object
         with isotropic strain hardening.""",
         args = [
           Tag(),
@@ -207,7 +207,7 @@ class uniaxial:
           Yng(),
           Num("b", default=0.0, about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"),
 
-          Num("R0", reqd=False, default=18), 
+          Num("R0", reqd=False, default=18),
           Num("cR1", reqd=False, default=0.925, about="Bauschinger evolution parameter"), 
           Num("cR2", reqd=False, default=0.150, about="Bauschinger evolution parameter"),
 
@@ -229,6 +229,7 @@ class uniaxial:
         # params (list (float)) parameters to control the transition from 
         # elastic to plastic branches. params=[R0,cR1,cR2].
     )
+
     SteelMPF = Uni("SteelMPF",
         "SteelMPF",
         about="""
@@ -315,7 +316,6 @@ class uniaxial:
     ])
 
     Steel04 = Uni("Steel04", "Steel4", args=[
-        
         Tag(),
         Yld("stress"),
         Yng(),
@@ -435,7 +435,7 @@ class uniaxial:
               about="length/diameter of square/circular core section measured respect to the hoop center line."),
           Num("L2",  reqd=False,  about="additional dimensions when multiple hoops are being used."),
           Num("L3",  reqd=False,  about="additional dimensions when multiple hoops are being used."),
-          Num("phis",    
+          Num("phis",
               about="hoop diameter. If section arrangement has multiple hoops it refers to the external hoop."),
           Num("S",         about="hoop spacing."),
           Num("fyh",       about="yielding strength of the hoop steel."),
@@ -483,10 +483,10 @@ class uniaxial:
             stiffness according to the work of Karsan-Jirsa and no tensile
             strength. (REF: Fedeas)."""
         )
-    
+
     Concrete04 =  Uni("Concrete04", "Concrete04", args=[
         Tag(),
-        Num("fc"  ,  
+        Num("fc"  ,
             about="floating point values defining concrete compressive strength "\
                   "at 28 days (compression is negative)*"),
         Num("ec"  ,  about="floating point values defining concrete strain at maximum strength*"),
@@ -554,6 +554,10 @@ class uniaxial:
         Grp("c",     args=[Num("deltaNu"), Num("deltaEta")], about="parameters that control material degradation"),
     ])
 
+
+    #
+    # Soil
+    #
     PySimple1 = Uni("PySimple1", "PySimple1", args=[
         Tag(),
         Int("soilType", enum={
@@ -714,6 +718,32 @@ class element:
         refs=["transform"],
     )
 
+    ElasticBeam2D = Ele("ElasticBeam2D",
+        "elasticBeamColumn",
+        args = [
+            Tag(),
+            Grp("nodes", args=[
+              Ref("iNode", type=Node,  attr="name", about=""),
+              Ref("jNode", type=Node,  attr="name", about=""),
+            ]),
+            Area(alt="section"),
+            Yng( alt="material"),
+            Iyc(),
+            Ixc(),
+            Ref("geom",  field="transform",    type=Trf, attr="name", default=LinearTransform()),
+            Num("mass",field="mass_density", flag="-mass", default=0.0, reqd=False,
+                about="element mass per unit length"),
+            Flg("-cMass", field="consistent_mass",
+                about="Flag indicating whether to use consistent mass matrix.")
+        ],
+        refs=["transform"],
+        alts=[
+            Ref("material", type="Material"),
+            Ref("section",  type=Sec)
+        ],
+        inherit=[_LineElement],
+    )
+
     ElasticBeamColumn3D = Ele("ElasticBeamColumn3D",
         "elasticBeamColumn",
         args = [
@@ -746,17 +776,6 @@ class element:
         inherit=[_LineElement],
     )
 
-LinearTransform = Trf("LinearTransform", "Linear",
-  args = [
-    Tag("name", about="Tag used to identify the transform object."),
-    Grp("vecxz", type=Num, num=3),
-    Grp("joint_offsets", reqd=False, flag="-jntOffset", type=Grp, args=[
-        Grp(type=Num, num=3, default=[0.0]*3),
-        Grp(type=Num, num=3, default=[0.0]*3)
-    ])
-  ],
-)
-
 
 
 class constraint:
@@ -786,7 +805,7 @@ class backbone:
         ]
     )
 
-    ReeseSand = Backbone("ReeseSand", 
+    ReeseSand = Backbone("ReeseSand",
         args=[
           Tag(), Num("kx"), Num("ym"), Num("pm"), Num("yu"), Num("pu")
         ]
@@ -798,13 +817,13 @@ class backbone:
         ]
     )
 
-    Raynor = Backbone("Raynor", 
+    Raynor = Backbone("Raynor",
         args=[
           Tag(), Yng(), Yld("stress"), Num("fsu"), Num("Epsilonsh"), Num("Epsilonsm"), Num("C1"), Num("Ey")
         ]
     )
 
-    Backbone("Capped", 
+    Backbone("Capped",
         args=[Tag(), Ref("backbone"), Num("capTag")]
     )
 
@@ -866,3 +885,16 @@ class backbone:
 #         about="Arguments to define Rayleigh damping matrix (optional, default: zero)"),
 #     ])
 
+
+redirect = Cmd("redirect",[
+      Blk("commands"),
+      One(optional=True, enum=[
+         Str("filename", flag=">"),
+         Str("filename", flag=">>"),
+         Grp("shell_pipe", flag="|", args=[
+            Str("shell_name", optional=True),
+            Blk("shell_block", flag="|"),
+         ]),
+         Str("variable")
+      ])
+    ])

@@ -31,8 +31,8 @@ class TagSpace:
         if force_tag is not None:
             tag = force_tag
             if force_tag in self.forced_tags:
-                raise ValueError("Duplicate forced tag:" + 
-                        f"{name} and {self.obj_by_tag[force_tag]}"
+                raise ValueError("Duplicate forced tag: '" +
+                        f"{name}' and '{self.obj_by_tag[force_tag]}'"
                 )
             elif tag in self.obj_by_tag:
                 new_tag = self.new_tag()
@@ -57,7 +57,7 @@ class Registry:
     def __getitem__(self, tag_space: str)->TagSpace:
         return self.tag_spaces[tag_space]
 
-    def registered(self, obj):
+    def registered(self, obj)->bool:
         return id(obj) in self.objects
 
     def register(self, obj, name=None, tag_space=None, force_tag=None) -> Identifier:

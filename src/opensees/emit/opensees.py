@@ -1,6 +1,6 @@
 from .writer import ModelWriter
 from .emitter import Emitter, ScriptBuilder
-from opensees.ast import Arg
+from opensees.library.ast import Arg
 
 
 class TclWriter(Emitter):
@@ -44,7 +44,7 @@ class TclWriter(Emitter):
 
         this.write("$"+ident.tclstr())
 
-    def Flg(this, self, value=None): 
+    def Flg(this, self, value=None):
         value = self.value if value is None else value
         if value: this.write(self.flag)
 
@@ -54,7 +54,7 @@ class TclWriter(Emitter):
             if self.reqd:
                 value = [None]*self.num
             else:
-                return []        
+                return []
         if "reverse" in self.kwds and self.kwds["reverse"]:
             value = reversed(value)
 
@@ -73,8 +73,8 @@ class TclWriter(Emitter):
         #     a for arg,v in zip(self.args,value) for a in arg.as_tcl_list(v)
         # ))))
         # [this.parent.send(v) for v in value]
-    
-    def Ref(this, self, value=None): 
+
+    def Ref(this, self, value=None):
         val = self._get_value(None, value=value)
         #value = value.name if val is None else val
         #if val is None:
@@ -87,7 +87,7 @@ class TclWriter(Emitter):
                     raise KeyError(f"Unable to resolve reference to {value} when writing {this.current_obj}")
                 else:
                     return
-        
+
         else:
             value = val or value # the one thats an int, not (presumably) None
         return this.write(self.flag,value)
@@ -155,13 +155,13 @@ class OpenSeesWriter(ModelWriter):
 
         return "".join(" ".join(t.get_cmd_str()) + "\n" for t in transforms) + cmds
 
-    @classmethod 
+    @classmethod
     def dump_sections(self, *sections, definitions={}):
         cmds = "\n".join(f"set {k} {v};" for k,v in definitions.items()) + "\n"
         for sect in sections:
             cmds += " ".join(sect.get_cmd_str()) + "\n"
         return cmds
-    
+
     def dump_materials(self, *materials, definitions={}):
         builder = TclScriptBuilder()
         writer = builder.streams[0]

@@ -1,48 +1,10 @@
 #!/usr/bin/env python3
 """
-▄▄▄▄▄▄▄▄▄▌▌▌
-▄▄▄▄▄▄▄▄▌▌▌▌
-▄▄▄▄▄▄▄▌▌▌▌▌
-▄▄▄▄▄▄▌▌▌▌▌▌
-▄▄▄▄▄▌▌▌▌▌▌▌
-▌▌▌▌▌▌▌▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏
-▀	▁	▂	▃	▄	▅	▆	▇	█	▉	▊	▋	▌	▍	▎	▏
-▐	░	▒	▓	▔	▕	▖	▗	▘	▙	▚	▛	▜	▝	▞	▟
-▐	░	▒	▓	▔	▕	▖	▗	▘	▙	▚	▛	▜	▝	▞	▟
-████████████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-████████████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-████████████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-████████████▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
-
-██████████████████████████████████
- ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-██████████████████████████████████
-━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━
-▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━╸━━━━━━━╸━━━━━━━╸━━━━━━━╸━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━╸━━━━━━━╸━━━━━━━╸━━━━━━━╸━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-━╸━━━━━━━╸━━━━━━━╸━━━━━━━╸━━━━━━━━
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 """
 
 import sys
-import cmd
-try:
-    import _tkinter
-except:
-    import tcinter._tcinter as _tkinter
 
-__version__="0.0.0"
-
+import opensees
 import opensees.tcl
 
 HELP = """\
@@ -72,8 +34,6 @@ Options
 # "\N{Lower Left Triangle} "
 PROMPT = "\033[33mopensees\033[0m \N{WHITE PARALLELOGRAM} "
 
-# Path to Tcl script which loads commands
-INIT_TCL = ""
 
 def parse_args(args):
     opts = {
@@ -105,7 +65,7 @@ def parse_args(args):
                 opts["subproc"] = True
 
             elif arg == "--version" or arg == "-version":
-                print(__version__)
+                print(opensees.__version__)
                 sys.exit()
 
             elif arg == "-v":
@@ -125,114 +85,16 @@ def parse_args(args):
     return files, opts, argi
 
 
-from cmd import Cmd
-import subprocess, queue, time, random
-from threading import Thread
-
-def enqueue_output(out, queue):
-    for line in iter(out.readline, b''):
-        queue.put(line)
-    out.close()
-
-class OpenSeesShell(Cmd):
-    def __init__(self):
-        super().__init__()
-        self.process = subprocess.Popen(
-            "OpenSees",
-            shell=True,
-            text=True,
-            universal_newlines=True,
-            stdin=subprocess.PIPE,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE)
-
-        self.out_queue = queue.Queue()
-        self.err_queue = queue.Queue()
-        self.out_thread = Thread(target=enqueue_output, args=(self.process.stdout, self.out_queue))
-        self.err_thread = Thread(target=enqueue_output, args=(self.process.stderr, self.err_queue))
-        self.out_thread.daemon = True
-        self.err_thread.daemon = True
-        self.out_thread.start()
-        self.err_thread.start()
-
-    def default(self,line):
-        self.write(line)
-        time.sleep(random.uniform(0.1, 1.0))
-        return self.read2()
-
-    def read(self):
-        return self.process.stderr.read()#.decode("utf-8").strip()
-
-    def read2(self):
-        outStr = ''
-        try:
-            while True: # Adds output from the Queue until it is empty
-                outStr += self.err_queue.get_nowait()
-        except queue.Empty:
-            return outStr
-
-    def write(self, message):
-        self.process.stdin.write(f"{message.strip()}\n")#.encode("utf-8"))
-        self.process.stdin.flush()
-
-    def terminate(self):
-        self.process.stdin.close()
-        self.process.terminate()
-        self.process.wait(timeout=0.2)
-
-
-class TclShell(cmd.Cmd):
-#   intro = """\
-
-#   OpenSees -- Open System For Earthquake Engineering Simulation
-#  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-#                       Berkeley, California
-#   """
-
-    intro = """\
-    OpenSees -- Open System For Earthquake Engineering Simulation
-   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-            Pacific Earthquake Engineering Research Center
-    """
-
-    prompt = PROMPT
-    file = None
-    def __init__(self, *args, interp=None, **kwds):
-        if interp is None:
-            interp = opensees.tcl.TclInterpreter()
-        self.tcl_interp = interp
-        super().__init__(*args, **kwds)
-
-    def default(self, arg):
-        try:
-            value = self.tcl_interp.eval(arg)
-            if value:
-                print(value)
-            return None
-        except Exception as e:
-            print(e)
-
-    def precmd(self, line):
-        if self.file and 'playback' not in line:
-            print(line, file=self.file)
-        return line
-
-    def completedefault(self, text, line, begidx, endidx):
-        print(text,line,begidx,endidx)
-        return ["hi"]
-
-    def close(self):
-        if self.file:
-            self.file.close()
-            self.file = None
-
 if __name__ == "__main__":
 
     files, opts, argi = parse_args(sys.argv)
+
     if len(sys.argv) == 1:
+
         if opts["subproc"]:
             OpenSeesShell().cmdloop()
         else:
+            from opensees.repl.cmdshell import TclShell
             TclShell().cmdloop()
 
     else:

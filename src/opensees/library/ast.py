@@ -7,7 +7,7 @@ class Parameter:
         return f"${self.name}"
 
 class Arg:
-    __slots__ = ["name", "flag", "value", "field", "default", "type", "reqd", "namespace"]#, "group"]
+    __slots__ = ["name", "flag", "value", "field", "default", "type", "reqd", "namespace", "kwds", "about"]#, "group"]
     def __init__(self,
         name = None,
         #help = None,
@@ -86,11 +86,11 @@ class Flg(Arg):
                 self.field = self.name[1:]
             self.flag = self.name
             self.name = self.name[1:]
-    
+
     def c_read_argv(self, struct, argidx):
         return f"{struct}->{self.field} = true;\n"
 
-    def as_tcl_list(self, value=None): 
+    def as_tcl_list(self, value=None):
         value = self.value if value is None else value
         return [self.flag] if value else []
 

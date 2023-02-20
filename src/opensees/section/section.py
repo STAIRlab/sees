@@ -1,14 +1,16 @@
 """
 This module provides constructors for `SectionForceDeformation` objects
-which represent force-deformation (or resultant stress-strain) 
+which represent force-deformation (or resultant stress-strain)
 relationships at beam-column and plate sample points.
 
 """
 from math import pi, sin, cos
-from opensees.obj import LibCmd, Cmd, Component
-from .lib import uniaxial
-from opensees.ast import *
-from . import patch, layer
+from opensees.library import LibCmd, Cmd, Component
+from opensees.library import uniaxial
+from opensees.library.ast import *
+from . import patch
+
+layer = patch.layer
 
 _section = LibCmd("section")
 
@@ -25,7 +27,7 @@ class FiberSection(_FiberCollection):
     """
     _args = [
         Tag(),
-        Num("GJ", flag="-GJ", field="torsional_stiffness", optional=True, 
+        Num("GJ", flag="-GJ", field="torsional_stiffness", optional=True,
             about="linear-elastic torsional stiffness assigned to the section (optional, default = no torsional stiffness)"),
         Blk("areas", from_prop="fibers", default=[], type=Cmd, defn=dict(
            fiber=LibCmd("fiber"),
@@ -37,7 +39,7 @@ class FiberSection(_FiberCollection):
 
     def __enter__(self):
         return Component.__enter__(self)
-   
+
     def init(self):
         self._fibers = None
         self._area   = None
@@ -73,7 +75,7 @@ class FiberSection(_FiberCollection):
     @property
     def fibers(self):
         if self._fibers is None:
-            self._fibers = [ 
+            self._fibers = [
              f for a in (a.fibers if hasattr(a,"fibers") else [a] for a in self.areas)
                 for f in a
             ]
@@ -84,12 +86,12 @@ class FiberSection(_FiberCollection):
         if self._area is None:
             self._area = sum(i.area for i in self.areas)
         return self._area
-    
+
     @property
     def centroid(self):
         # TODO: cache
         return sum(i.centroid * i.area for i in self.areas) / self.area
-     
+
     @property
     def ixc(self):
         # TODO: cache
@@ -97,7 +99,7 @@ class FiberSection(_FiberCollection):
         return sum(
             p.ixc + (p.centroid[1]-yc)**2*p.area for p in self.areas
         )
-    
+
     @property
     def iyc(self):
         # TODO: cache
@@ -168,7 +170,7 @@ def _oct_outline(Rcol):
     sect.extRad = Rcol
     sect.intRad = 0.0
     return sect
-    
+
 def ConfiningPolygon(n, extRad=None, intRad=None, divs=None, diameter=None, s=4, material=None):
     psi = 2*pi/n
     phi = psi/s
@@ -201,7 +203,7 @@ def ConfiningPolygon(n, extRad=None, intRad=None, divs=None, diameter=None, s=4,
 def ConfinedPolygon(
     n:      int,
     extRad: float,
-    intRad: float = None, 
+    intRad: float = None,
     sdivs : tuple = None, # sector divs
     s:      int   = 4,    # number of patches per edge
     DLbar         = 4,
@@ -222,6 +224,7 @@ def ConfinedPolygon(
     #
     if intRad == extRad:
         return _oct_outline(extRad)
+
     if intRad is None:
         intRad = extRad - 2.0
 
@@ -270,8 +273,8 @@ def ConfinedPolygon(
 class SectionAggregator:
     """
     This command is used to construct a `SectionAggregator`
-    object which aggregates groups previously-defined `UniaxialMaterial` 
-    objects into a single section force-deformation model. 
+    object which aggregates groups previously-defined `UniaxialMaterial`
+    objects into a single section force-deformation model.
 
     Each `UniaxialMaterial` object represents the section force-deformation response for a particular section degree-of-freedom (dof). There is no interaction between responses in different dof directions. The aggregation can include one previously defined section.
     """
@@ -296,10 +299,10 @@ class SectionAggregator:
                     }
             )
         ),
-        Ref("section", type=_section, flag="-section", 
+        Ref("section", type=_section, flag="-section",
             about="tag of previously-defined Section object to which the UniaxialMaterial objects are aggregated as additional force-deformation relationships")
     ]
-    example=""" 
+    example="""
     create new section with IDtag 2, taking the existing material tag 2 to
     represent the shear and adding it to the existing section tag 4, which
     may be a fiber section where the interaction betweeen axial force and
@@ -316,7 +319,7 @@ class SectionAggregator:
 
 def sect2shapely(section):
     """
-    Generate `shapely` geometry objects 
+    Generate `shapely` geometry objects
     from `opensees` patches or a FiberSection.
     """
     import numpy as np
@@ -424,7 +427,7 @@ class MomentAxialLocus:
 
         if sect.name is None:
             sect.name = 1
-        
+
         solve_eps = MomentCurvatureAnalysis.solve_eps
 
         # Curvature increment
@@ -439,13 +442,13 @@ class MomentAxialLocus:
                 ]
                 e = e0
                 kap = 2*dkap
-                for _ in range(nstep): 
+                for _ in range(nstep):
                     if abs(PM[-1][1]) < 0.995*abs(PM[-2][1]):
                         break
                     e = solve_eps(s, kap, P, e)
                     PM.append(s.getStressResultant([e, kap], True))
                     kap += dkap
- 
+
             p, m = zip(*PM)
 
             ax[0].plot(np.linspace(0.0, kap, len(m)), m)

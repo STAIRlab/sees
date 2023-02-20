@@ -16,8 +16,8 @@ if __name__ == "__main__":
                 cmake_configure_options = [
                     "-G", "Unix Makefiles", # 
                     "-DDependencies=Conda",
-                    "-DCMAKE_BUILD_TYPE=DEBUG",
-                    # "-DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use",
+                    "-DCMAKE_BUILD_TYPE=Release",
+                    #"-DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use",
                     # '-DCMAKE_C_FLAGS_DEBUG="-g -O0"',
                     # '-DCMAKE_CXX_FLAGS_DEBUG="-g -O0"',
                     # "-DDependencies=Unix",
