@@ -42,12 +42,12 @@ def parse_args(args):
         "interact": False,
         "commands": []
     }
-    files = []
+    file = None
     argi = iter(args[1:])
     for arg in argi:
         if arg[0] == "-":
             if arg == "-":
-                files.append("-")
+                file = "-"
             if arg == "-h" or arg == "--help":
                 print(HELP)
                 sys.exit()
@@ -79,25 +79,30 @@ def parse_args(args):
 
 
         else:
-            files.append(arg)
+            file = arg
             break
 
-    return files, opts, argi
+    if file is None:
+        file = "-"
+
+    return file, opts, argi
 
 
 if __name__ == "__main__":
 
-    files, opts, argi = parse_args(sys.argv)
+    file, opts, argi = parse_args(sys.argv)
 
-    if len(sys.argv) == 1:
+    if sys.stdin.isatty():
         if opts["subproc"]:
             OpenSeesShell().cmdloop()
             sys.exit()
 
         try:
-            from opensees.repl import OpenSeesREPL
+            # Try full-featured REPL
+            from opensees.repl.ptkshell import OpenSeesREPL
             OpenSeesREPL().repl()
-        except:
+
+        except ImportError:
             from opensees.repl.cmdshell import TclShell
             TclShell().cmdloop()
 
@@ -109,18 +114,16 @@ if __name__ == "__main__":
         for cmd in opts["commands"]:
             tcl.eval(cmd)
 
-        for filename in files:
-            try:
-                if filename == "-":
-                    tcl.eval(sys.stdin.read())
-                else:
-                    tcl.eval(open(filename).read())
-            except:
-                pass
-                #tcl.eval("puts $errorInfo")
+
+        if file == "-":
+            tcl.eval(sys.stdin.read())
+        else:
+            tcl.eval(open(file).read())
+
 
         if opts["interact"]:
-            from opensees.repl import OpenSeesREPL
+            from opensees.repl.ptkshell import OpenSeesREPL
+            sys.stdin = open("/dev/tty")
             OpenSeesREPL(interp=tcl).repl()
             # TclShell(interp=tcl).cmdloop()
 
