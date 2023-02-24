@@ -13,6 +13,7 @@ def TclInterpreter(verbose=False, tcl_lib=None):
 
     if "OPENSEESRT_LIB" in os.environ:
         libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
+
     else:
         import platform
         ext = {
@@ -109,7 +110,7 @@ class TclRuntime:
 
         except Exception as e:
             # raise e
-            print(e)
+            print(e, file=sys.stderr)
 
     def model(self, ndm, ndf, **kwds):
         # TODO: refactor this function
@@ -189,10 +190,11 @@ class TclRuntime:
     def eval(self, string):
         try:
             return self._interp.tk.eval(string)
+
         except tkinter._tkinter.TclError as e:
-            self._interp.tk.eval("puts $errorInfo;")
+            print(self._interp.getvar("errorInfo"), file=sys.stderr)
             raise e
-        # return self._interp.tk.eval(string)
+
 
     def __getattr__(self, attr):
         return self._partial(self._tcl_call, attr)
