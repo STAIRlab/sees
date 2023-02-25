@@ -2,6 +2,9 @@ from . import tcl
 
 class Analysis:
     def __init__(self, model, strategy, patterns, recorders=None):
+        #
+        # Runtime
+        #
         if not hasattr(model, "_rt") or model._rt is None:
             from . import tcl
             self.rt = tcl.TclRuntime()
@@ -9,19 +12,28 @@ class Analysis:
         else:
             self.rt = model
 
+        #
+        # Strategy
+        #
         # Currently, all analysis constructors take the `strategy`
         # argument as a C++ std::vector<std::string>, so
-        # parameters must be cast as strings.
+        # parameters must be cast to strings.
         self._strategy = {
             k: [str(i) for i in v]
             for k,v in strategy.items()
         }
 
+        #
+        # Patterns
+        #
         self.patterns = patterns
         if patterns is not None:
             for pattern in patterns.values():
                 self.rt.eval(tcl.dumps(pattern))
 
+        #
+        # Recorders
+        #
         if recorders is not None:
             self.recorders = {
                     self.rt.eval(tcl.dumps(recorder)): recorder

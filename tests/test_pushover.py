@@ -3,46 +3,46 @@ script = """
     # -----------------------------------------------------------------------------
     # Example 2. 2D cantilever column, static pushover
     # element
-    
+
     model basic -ndm 2 -ndf 3;   # Define the model builder, ndm=#dimension, ndf=#dofs
-    
-    
+
+
     # define GEOMETRY -------------------------------------------------------------
     set LCol 432;                 # column length
     set Weight 2000.;             # superstructure weight
     # define section geometry
     set HCol 60;                  # Column Depth
     set BCol 60;                  # Column Width
-    
+
     # calculated parameters
     set PCol $Weight;             # nodal dead-load weight per column
     set g 386.4;                  # g.
     set Mass [expr $PCol/$g];     # nodal mass
-    
+
     # calculated geometry parameters
     set ACol [expr $BCol*$HCol*1000];                                # cross-sectional area, make stiff
     set IzCol [expr 1./12.*$BCol*pow($HCol,3)];                         # Column moment of inertia
-    
+
     # nodal coordinates:
     node 1 0 0;                        # node#, X, Y
-    node 2 0 $LCol                 
-    
+    node 2 0 $LCol
+
     # Single point constraints -- Boundary Conditions
     fix 1 1 1 1;                         # node DX DY RZ
-    
+
     # nodal masses:
     mass 2 $Mass  1e-9 0.;               # node#, Mx My Mz, Mass=Weight/g, neglect rotational inertia at nodes
-    
+
     # Define ELEMENTS & SECTIONS  -------------------------------------------------------------
     set ColMatTagFlex 2;                        # assign a tag number to the column flexural behavior
-    set ColMatTagAxial 3;                       # assign a tag number to the column axial behavior        
+    set ColMatTagAxial 3;                       # assign a tag number to the column axial behavior
     set ColSecTag 1;                            # assign a tag number to the column section tag
     set BeamSecTag 2;                           # assign a tag number to the beam section tag
-    
+
     # MATERIAL parameters
     set fc -4.;                                 # CONCRETE Compressive Strength (+Tension, -Compression)
     set Ec [expr 57*sqrt(-$fc*1000)];           # Concrete Elastic Modulus (the term in sqr root needs to be in psi
-    
+
     # COLUMN section
     # calculated stiffness parameters
     set EICol [expr $Ec*$IzCol];                # EI, for moment-curvature relationship
@@ -55,15 +55,15 @@ script = """
     uniaxialMaterial Steel01 $ColMatTagFlex $MyCol $EIColCrack $b;                 # bilinear behavior for flexure
     uniaxialMaterial Elastic $ColMatTagAxial $EACol;                                # this is not used as a material, this is an axial-force-strain response
     section Aggregator $ColSecTag $ColMatTagAxial P $ColMatTagFlex Mz;        # combine axial and flexural behavior into one section (no P-M interaction here)
-    
+
     # define geometric transformation: performs a linear geometric transformation of beam stiffness and resisting force from the basic system to the global-coordinate system
     set ColTransfTag 1;                         # associate a tag to column transformation
-    geomTransf Linear $ColTransfTag  ;         
-    
+    geomTransf Linear $ColTransfTag  ;
+
     # element connectivity:
     set numIntgrPts 5;                                                                # number of integration points for force-based element
     element nonlinearBeamColumn 1 1 2 $numIntgrPts $ColSecTag $ColTransfTag;        # self-explanatory when using variables
-    
+
     # Define RECORDERS -------------------------------------------------------------
     recorder Node -file Data/DFree.out -time -node 2 -dof 1 2 3 disp;                # displacements of free nodes
     recorder Node -file Data/DBase.out -time -node 1 -dof 1 2 3 disp;                # displacements of support nodes
@@ -74,8 +74,8 @@ script = """
     recorder Element -file Data/DefoColSec1.out -time -ele 1 section 1 deformation;                                # section deformations, axial and curvature, node i
     recorder Element -file Data/ForceColSec$numIntgrPts.out -time -ele 1 section $numIntgrPts force;                # section forces, axial and moment, node j
     recorder Element -file Data/DefoColSec$numIntgrPts.out -time -ele 1 section $numIntgrPts deformation;                # section deformations, axial and curvature, node j
-    
-    
+
+
     # define GRAVITY -------------------------------------------------------------
     pattern Plain 1 Linear {
        load 2 0 -$PCol 0
@@ -115,7 +115,7 @@ pushover_script = """
     set IDctrlDOF 1;			# degree of freedom of displacement read for displacement contro
     set Dmax [expr 0.05*$LCol];		# maximum displacement of pushover. push to 10% drift.
     set Dincr [expr 0.001*$LCol];		# displacement increment for pushover. you want this to be very small, but not too small to slow down the analysis
-    
+
     # create load pattern for lateral pushover load
     set Hload $Weight;				# define the lateral load as a proportion of the weight so that the pseudo time equals the lateral-load coefficient when using linear load pattern
     pattern Plain 200 Linear { 			# define load pattern -- generalized

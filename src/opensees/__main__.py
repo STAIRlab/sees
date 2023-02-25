@@ -92,7 +92,8 @@ if __name__ == "__main__":
 
     file, opts, argi = parse_args(sys.argv)
 
-    if sys.stdin.isatty():
+    if file == "-" and sys.stdin.isatty():
+
         if opts["subproc"]:
             OpenSeesShell().cmdloop()
             sys.exit()

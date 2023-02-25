@@ -82,19 +82,27 @@ load = cmd("load", "load", args=[Ref("node"), Grp("load", min=1, type=Num)])
 class Plain:
     _args = [
         Tag(),
-        Ref("series", type=TimeSeries, about="Reference to the time series to be used in the load pattern"),
+        # Ref("series", type=TimeSeries, about="Reference to the time series to be used in the load pattern"),
+        Str("series"),
         Blk("loads"),
         Num("scale", reqd=False, about="constant scale factor"),
     ]
     _refs = ["series"]
 
     def init(self):
-        if not isinstance(self.series, (TimeSeries,int)):
+        if isinstance(self.series, str):
+            pass
+
+        elif not isinstance(self.series, (TimeSeries,int)):
             self.series = TimeSeries(values=self.series)
 
         loads = []
         for k,v in self.loads.items():
-            loads.append(load(k[0], [v]))
+            if isinstance(k, int):
+                loads.append(load(k, v))
+            else:
+                loads.append(load(k[0], [v]))
+
         self.loads = loads
 
 

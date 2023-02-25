@@ -161,7 +161,7 @@ class LibCmd(Cmd):
             cmd = cmd.__name__
         else:
             self.typ = None
-        
+
         if namespace is not None:
             cmd = namespace + "::" + cmd
 
@@ -178,7 +178,7 @@ class LibCmd(Cmd):
         if self.typ is not None: inherit.append(self.typ)
         if refs is None:
             refs = []
-        
+
         if not isinstance(cls, str):
             if hasattr(cls, "_refs"):
                 refs += cls._refs
@@ -191,7 +191,7 @@ class LibCmd(Cmd):
 
         if name is None:
             name = cls
-            
+
         args = self.args + args
         fields = [arg.field for arg in args]
         if "alts" in opts: fields += [a.field for a in opts["alts"]]
@@ -211,7 +211,7 @@ class LibCmd(Cmd):
         refs = []
 
         cls = dataclasses.dataclass(cls)
-        
+
         if hasattr(cls, "_refs"):
             refs += cls._refs
         args = cls._args
@@ -221,7 +221,7 @@ class LibCmd(Cmd):
         else:
             cls = name = cls.__name__
 
-            
+
         args = self.args + args
         fields = [arg.field for arg in args]
         if "alts" in opts: fields += [a.field for a in opts["alts"]]
@@ -271,6 +271,8 @@ def struct(name, fields, args = None, alts=None, refs=None, cmd=None, parents=No
     exec(template, namespace)
     namespace[name]._args = args
     return namespace[name]
+
+
 
 class _LineElement:
     @property

@@ -29,7 +29,7 @@ model = opensees.model(
 print(dumps(model))
 
 #
-# patterns
+# Patterns
 #
 loads = {2: [0.0]*3+[0.0, 1.0, 0.0]}
 patterns = {1: opensees.library.pattern.Plain(1, "Linear", loads)}
@@ -50,5 +50,8 @@ strategy = {
 analysis = opensees.analysis.StaticAnalysis(model, strategy, patterns)
 
 analysis.analyze(3)
+
+print(analysis.rt.getNodeResponse(2, "displ"))
+
 
 

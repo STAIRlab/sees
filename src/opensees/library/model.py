@@ -15,7 +15,10 @@ Node = cmd("Node", "node", [
 ])
 
 
-class model:
+def model(*args, **kwds):
+    return ModelBuilder(*args, **kwds)
+
+class ModelBuilder:
     def __init__(self, *args, ndm=None, ndf=None,
             assm={}, prototypes=None, units="metric", **kwds):
         if ndm is None and ndf is None and len(args) == 2:
@@ -29,6 +32,8 @@ class model:
 
         if ndf is None:
             if "zeros" in kwds:
+                ndf = len(kwds["zeros"][0][1])
+            elif "bound" in kwds:
                 ndf = len(kwds["zeros"][0][1])
             else:
                 raise ValueError("Argument `ndf` is required if zeros are not supplied")
@@ -64,7 +69,7 @@ class model:
 
         self.add(**kwds)
 
-    def add(self, nodes = {}, zeros=[], conns=[], elems=[], prototypes=None, **assm):
+    def add(self, nodes = {}, zeros=[], conns=[], elems=[], bound=None, prototypes=None, **assm):
 
         if isinstance(nodes, list):
             for n in nodes: self.node(*n)
@@ -74,7 +79,12 @@ class model:
         if isinstance(elems, list):
             for el in elems: self.elem(*el)
         else:
-            for k,el in elems.items(): self.elem(k, *el)
+            for k,el in elems.items():
+                self.elem(*el, tag=k)
+
+        if isinstance(bound, dict):
+            for k,v in bound.items():
+                self.fix(k, *v)
 
         [self.conn(*cn)  for cn in conns]
         [self.fix(*args) for args in zeros]
@@ -172,7 +182,7 @@ class model:
 
         return str(n)
 
-    def elem(self, *args, **kwds):
+    def elem(self, *args, tag=None, **kwds):
         """
         elem(typ,  [nodes])
         elem(typ,  [nodes], name)
@@ -189,17 +199,17 @@ class model:
             # elem(typ, [nodes], name) || elem(typ, name, [nodes])
             if isinstance(args[1], (list,tuple,set)):
                 nodes = args[1]
-                tag = args[2]
+                tag = args[2] if tag is not None else tag
             else:
                 assert isinstance(args[2], (list,tuple,set))
                 nodes = args[2]
-                tag = args[1]
+                tag = args[1] if tag is not None else tag
             # TODO
             assert tag not in self.m_auto_assigned_elems
 
         else:
             # elem(typ, [nodes])
-            tag = self._new_tag("elem")
+            tag = self._new_tag("elem") if tag is not None else tag
             nodes = args[1]
 
         self.m_elems.update({tag: {
@@ -208,11 +218,6 @@ class model:
             "nodes": [self.get_node(n) for n in nodes],
             **kwds
         }})
-
-#    def split(self, elem, number, **kwds):
-#
-#        def _hook(model):
-#            pass
 
     def conn(self, typ, node, dofs=(), name=None):
         if isinstance(node, (tuple,list)):
@@ -226,7 +231,7 @@ class model:
             self.m_nodes.update({name: self.m_nodes[node](name=name,boun=[1]*self.ndf)})
             self.m_conns.update({
                 name: {
-                    "type": typ, 
+                    "type": typ,
                     "nodes": [self.m_nodes[node], self.m_nodes[name]],
                     "name": name,
                     "boun": [1]*self.ndf
@@ -235,7 +240,7 @@ class model:
 
     def link(self, tag, typ, nodes, **kwds):
         self.m_links.update({tag: {
-            "type": typ, 
+            "type": typ,
             "nodes": [self.get_node(n) for n in nodes],
             **kwds
         }})
@@ -269,7 +274,7 @@ class model:
             return rxns[0]
 
     def fix(self, node, *dirns, x=None, y=None, z=None):
-        """Define a fixed boundary condition at specified 
+        """Define a fixed boundary condition at specified
         degrees of freedom of the supplied node
 
         > fix([nodes], dir..., x=None, y=None, z=None)
@@ -279,7 +284,7 @@ class model:
         node: anabel.Node | Sequence[anabe.Node]
 
         dirn: Union[Sequence[String], String]
-        
+
         ### Example
 
         ```py
@@ -303,7 +308,7 @@ class model:
             dirns = list(self.dof_names.keys())
         elif len(dirns) == 1 and isinstance(dirns[0], (list,tuple)):
             dirns = dirns[0]
-        
+
         if isinstance(dirns[0], int):
             _fix =  self._fix_int_flags
 
@@ -318,11 +323,11 @@ class model:
         elif isinstance(node, (list,tuple)):
             return [self.fix(n, *dirns, x=x, y=y, z=z) for n in node]
 
-        elif isinstance(node, int): 
+        elif isinstance(node, int):
             node = self.m_nodes[node]
             return _fix(node, dirns)
-        
-        else: 
+
+        else:
             return _fix(node, dirns)
 
     def boun(self, node=None, flags: list=None):

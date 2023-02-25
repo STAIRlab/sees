@@ -94,19 +94,19 @@ class Flg(Arg):
         value = self.value if value is None else value
         return [self.flag] if value else []
 
-class Num(Arg): 
+class Num(Arg):
     def init(self): self.type = float
-    
+
     def c_read_argv(self, struct, argidx):
         return f"{struct}->{self.field} = argv[++{argidx}];\n"
 
-class Int(Arg): 
+class Int(Arg):
     def init(self): self.type = int
 
-class Str(Arg): 
+class Str(Arg):
     def init(self): self.type = str
 
-class Chr(Arg): 
+class Chr(Arg):
     def init(self): self.type = chr
 
 class Ref(Arg):
@@ -132,7 +132,7 @@ class Ref(Arg):
             return getattr(value, self.kwds["attr"])
         else:
             return value
-    
+
     def as_tcl_list(self, value=None): 
         value = self._get_value(None, value)
         try:

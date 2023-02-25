@@ -140,11 +140,13 @@ class OpenSeesWriter(ModelWriter):
 
     def dump_elements(self, *elems, definitions={}):
         transforms = set()
+
         cmds = "\n".join(f"set {k} {v};" for k,v in definitions.items()) + "\n"
         for i, el in enumerate(elems):
             #el.init()
             if el.name is None:
                 el.name = i+1
+
             try:
                 cmds += "\nelement " + " ".join(str(p) for p in el.ops_elem.serialize(tag=i))
             except:

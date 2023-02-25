@@ -13,7 +13,7 @@ m = 1.
 g = 386.4
 
 
-beam = ops.element.ElasticBeam2D(None, E=E, I=I, A=A)
+beam = ops.element.ElasticBeam2D(E=E, I=I, A=A)
 
 # 3   1   4   2   5
 # o---M---o---M---o
