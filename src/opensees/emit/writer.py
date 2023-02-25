@@ -5,7 +5,7 @@ class ModelWriter:
             model.header = ""
 
         self.model = model
-    
+
     def dump(self, definitions={}, **kwds):
         model = self.model
         c = self.comment_char
@@ -20,7 +20,7 @@ class ModelWriter:
         body = self.dump_initialize(definitions=definitions, **kwds)
         if body and not body.isspace():
             cmds += "\n" + head + body
-         
+
         head  = self.heading(1, "Materials")
         body  = self.dump_materials(**kwds)
         if body and not body.isspace():

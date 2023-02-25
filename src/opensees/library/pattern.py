@@ -1,6 +1,6 @@
 from .ast import Num, Tag, Ref, Blk, Int, Lst, Grp, Str
 from .obj import LibCmd, cmd
-from .lib import Dof
+from opensees.library import Dof
 
 _pattern = LibCmd("pattern")
 _series  = LibCmd("timeSeries")
@@ -18,7 +18,7 @@ class TimeSeries:
     ]
 
     def init(self, series=None, step=None, time=None):
-        if hasattr(self.values, "data"):
+        if hasattr(self.values, "time"):
             self.time = self.values.time
             self.values = self.values.data
         if "step" in self.kwds:
@@ -32,9 +32,9 @@ class GroundMotion:
     _args = [
          Tag(),
          Str("motion_type", default="Plain"),
-         Ref("accel", flag="-accel", reqd=False, type=TimeSeries, alt="motion"),
-         Ref("veloc", flag="-vel",   reqd=False, type=TimeSeries, alt="motion"),
-         Ref("displ", flag="-disp",  reqd=False, type=TimeSeries, alt="motion")
+         Ref("accel", flag="-accel", reqd=False, type=TimeSeries),
+         Ref("veloc", flag="-vel",   reqd=False, type=TimeSeries),
+         Ref("displ", flag="-disp",  reqd=False, type=TimeSeries)
          # <-int (IntegratorType intArgs)> 
          # <-fact $cFactor>
     ]
@@ -45,18 +45,28 @@ class GroundMotion:
 
 
     def init(self):
-        if "motion" in self.kwds:
-            m = self.kwds["motion"]
-            if hasattr(m, "accel"):
-                self.accel = TimeSeries(values=m.accel)
-            if hasattr(m, "veloc"):
-                self.veloc = TimeSeries(values=m.veloc)
-            if hasattr(m, "displ"):
-                self.displ = TimeSeries(values=m.displ)
+        kwds = {}
+        if "time" in self.kwds:
+            kwds["time"] = self.kwds["time"]
+
+        m = self.kwds.get("motion", None)
+
+        accel = getattr(m, "accel", getattr(self, "accel", None))
+        if accel is not None and not isinstance(accel, TimeSeries):
+            self.accel = TimeSeries(values=accel, **kwds)
+
+        veloc = getattr(m, "veloc", getattr(self, "veloc", None))
+        if veloc is not None and not isinstance(veloc, TimeSeries):
+            self.veloc = TimeSeries(values=veloc, **kwds)
+
+        displ = getattr(m, "displ", getattr(self, "displ", None))
+        if displ is not None and not isinstance(displ, TimeSeries):
+            self.displ = TimeSeries(values=displ, **kwds)
+
 
 @cmd
 class ImposedMotion:
-    _args = [ 
+    _args = [
         Ref("node", type="node"),
         Dof(),
         Ref("motion", type=GroundMotion)
@@ -124,8 +134,12 @@ class MultipleSupport:
     def init(self):
         imposed_motions = []
         ground_motions = []
+
         for m in self.motions:
-            ground_motions.append(GroundMotion(motion=m[2]))
+            if isinstance(m[2], GroundMotion):
+                ground_motions.append(m[2])
+            else:
+                ground_motions.append(GroundMotion(motion=m[2]))
             imposed_motions.append(ImposedMotion(*m[:2], ground_motions[-1]))
         self.motions = ground_motions + imposed_motions
 

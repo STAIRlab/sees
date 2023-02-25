@@ -1,6 +1,5 @@
-
-from io import StringIO
 import dataclasses
+from io import StringIO
 
 import numpy as np
 from .registry import Registry
@@ -30,7 +29,7 @@ class Emitter:
     def endln(self):
         self.newline = True
         print("", file=self.strm)
-            
+
     def rshift(self):
         self.idnt += "\t"
 
@@ -52,7 +51,7 @@ class ScriptBuilder:
     def new_stream(self):
         self.streams.append(self.emitter(StringIO(), self))
         return self.streams[-1]
-    
+
     def get_stream(self, name):
         if name not in self.stream_names:
             self.stream_names[name] = self.new_stream()
@@ -63,14 +62,14 @@ class ScriptBuilder:
 
     def getIndex(self):
         return "\n".join(
-            (f"set {i.tclstr()} {tag}" 
+            (f"set {i.tclstr()} {tag}"
                 for i,tag in self.registry.index().items())
         )
 
     def getScript(self, indexed=True)->str:
         index = self.getIndex() if indexed else ""
         return "\n\n".join((index, *[s.strm.getvalue() for s in self.streams]))
-    
+
     @property
     def registry(self):
         return self.streams[0].registry
@@ -99,13 +98,13 @@ class ScriptBuilder:
                     #getattr(w, typ)(arg, value=value)
                     w.Arg(value, value=value)
             return self
-            
 
         elif not hasattr(obj,"_args"):
             raise ObjectSerializationError(f"object {obj} of type {type(obj)}")
-        
+
         for ref,tag_space in obj.get_refs():
-            try: 
+
+            try:
                 self.send(ref)
 
             except ObjectSerializationError:
@@ -118,6 +117,8 @@ class ScriptBuilder:
         for arg in obj._args:
             typ = arg.__class__.__name__
             value = getattr(obj, arg.field)
+            if value is None and not arg.reqd:
+                continue
 
             try:
                 getattr(w, typ)(arg, value=value)

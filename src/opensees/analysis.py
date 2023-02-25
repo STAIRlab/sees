@@ -97,7 +97,6 @@ class DirectIntegrationAnalysis(Analysis):
         from . import OpenSeesPyRT as libOpenSeesRT
         self._analysis = libOpenSeesRT._DirectIntegrationAnalysis(self.rt._rt, self._strategy)
 
-
         # self.steps, self.time_step = min((
         #     (len(pat.series.values), pat.series.time_step)
         #         for pat in self.patterns.values() 

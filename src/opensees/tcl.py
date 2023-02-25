@@ -7,7 +7,7 @@ try:
 except:
     import tcinter as tkinter
 
-from opensees.obj import Component
+from opensees.library.obj import Component
 
 def TclInterpreter(verbose=False, tcl_lib=None):
 
@@ -28,7 +28,6 @@ def TclInterpreter(verbose=False, tcl_lib=None):
         print(f"OpenSeesRT: {libOpenSeesRT_path}", file=sys.stderr)
 
     interp = tkinter.Tcl()
-    #from . import OpenSeesPyRT as libOpenSeesRT
     interp.eval(f"load {libOpenSeesRT_path}")
     return interp
 
@@ -56,9 +55,9 @@ def dumps(obj):
             else:
                 return writer
         except Exception as e:
-            print(writer.getScript(indexed=True), file=sys.stderr)
             raise e
-            #raise ValueError("Cannot dump model with binary objects")
+            # print(writer.getScript(indexed=True), file=sys.stderr)
+            # raise ValueError("Cannot dump model with binary objects")
 
 
 class TclRuntime:
@@ -74,6 +73,11 @@ class TclRuntime:
         if model is not None:
             self.send(model)
 
+    @property
+    def registry(self):
+        registry["UniaxialMaterial"][0].getStress()
+        return
+
     def pyimport(self, *args):
         try:
             lib = __import__(args[0])
@@ -83,8 +87,11 @@ class TclRuntime:
             return
 
     def pyexpr(self, *args):
-        # import math
-        import numpy as math
+        try:
+            import numpy as math
+        except:
+            import math
+
         env = math.__dict__
         env["locals"]   = None
         env["globals"]  = None
@@ -101,8 +108,8 @@ class TclRuntime:
             return __builtins__["eval"]((" ".join(args[:])).replace("$",""), env)
 
         except Exception as e:
-            print(e)
             # raise e
+            print(e)
 
     def model(self, ndm, ndf, **kwds):
         # TODO: refactor this function
@@ -201,15 +208,7 @@ class TclRuntime:
             if isinstance(k, int):
                 self.eval(v.cmd)
 
-# class BasicBuilder(TclRuntime):
-#     def __init__(self, ndm=None, ndf=None):
-#         super().__init__()
-#         self.model("basic", "-ndm", ndm, "-ndf", ndf)
-# 
-# class SafeBuilder(TclRuntime):
-#     def __init__(self, ndm=None, ndf=None):
-#         super().__init__()
-#         self.model("safe", "-ndm", ndm, "-ndf", ndf)
+Runtime = TclRuntime
 
 #
 # Analysis
@@ -231,7 +230,7 @@ def eigen(script: str, modes=1, verbose=False):
     """ + """
     # Initialize variables `omega`, `f` and `T` to
     # empty lists.
-    foreach {omega f T recorders} {{} {} {} {}} {} 
+    foreach {omega f T recorders} {{} {} {} {}} {}
 
     for {set k 1} {$k <= $options(-numModes)} {incr k} {
       lappend recorders [recorder Node -node {*}$nodeList -dof {*}$DOFs "eigen $k";]
