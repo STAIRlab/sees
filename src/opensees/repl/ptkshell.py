@@ -58,10 +58,15 @@ class OpenSeesREPL:
     """
     prompt = "opensees \N{WHITE PARALLELOGRAM} "
 
-    def __init__(self):
+    def __init__(self, interp=None):
         import opensees
         import time, sys
-        self.interp = opensees.tcl.TclRuntime(verbose=False)
+
+        if interp is None:
+            self.interp = opensees.tcl.TclRuntime(verbose=False)
+        else:
+            self.interp = interp
+
         self.interp.eval(file_util_commands)
 
         try:
@@ -96,5 +101,6 @@ class OpenSeesREPL:
                 if value is not None and value != "":
                     print(value)
             except Exception as e:
-                print(e)
+                # print(e)
+                pass
 

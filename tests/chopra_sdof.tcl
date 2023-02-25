@@ -1,6 +1,6 @@
 # Linear Elastic SINGLE DOF Model Transient Analysis
 
-#REFERENCES: 
+# REFERENCES: 
 # 1) Chopra, A.K. "Dynamics of Structures: Theory and Applications"
 # Prentice Hall, 1995.
 #   - Sections 3.1, Section 3.2 and Section 6.4
