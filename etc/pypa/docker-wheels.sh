@@ -23,7 +23,12 @@ for PYBIN in /opt/python/cp3[1987]*/bin; do
   "${PYBIN}/python" -m pip install -U pybind11 #amoeba-build pybind11
   export pybind11_DIR=$("${PYBIN}/python" -m pybind11 --cmakedir)
   export PATH="${PYBIN}:${PATH}"
+
+  # ${PYBIN}/python /io/setup.py cmake
+  # cmake --build /io/build/temp.linux-x86_64-cpython-310_rt --config Release
+
   MAKEFLAGS=-j9 "${PYBIN}/python" -m pip wheel /io/ -w wheelhouse/
+
   if [[ $? != 0 ]] 
   then 
     exit -1

@@ -30,6 +30,7 @@ def TclInterpreter(verbose=False, tcl_lib=None):
 
     interp = tkinter.Tcl()
     interp.eval(f"load {libOpenSeesRT_path}")
+    interp.bind("<Control-c>", lambda x: interp.quit())
     return interp
 
 def eval(script: str):
