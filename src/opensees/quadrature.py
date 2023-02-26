@@ -1,6 +1,6 @@
 # from typing import Final
 
-import numpy as np 
+import numpy as np
 jnp = np
 __all__ = [
     "quad_rule",
@@ -48,8 +48,8 @@ def iquad(n=None, deg=None, bounds=(-1.,1.), fam=None,
 
     Composite trapezoidal rule:
         xi, wi = quad_points(n=4, deg=1, rule='cotes')
-    
-    Composite Simpson's rule 
+
+    Composite Simpson's rule
         xi, wi = quad_points(n=6, deg=2, rule='cotes')
 
     Gauss-legendre
@@ -95,14 +95,14 @@ def iquad(n=None, deg=None, bounds=(-1.,1.), fam=None,
     elif 'cotes' in rule:
         if closed is None: closed = True
         if n is None: n = (deg + 1)
-        
+
         if closed: xi = jnp.linspace(*bounds,n)
         else: xi = jnp.linspace(-(1-1/n),(1-1/n),n)
-        
+
         dxi = np.zeros(n)
         wi = newton_cotes(rn=deg,equal=True)
         wi *= (bounds[1]-bounds[0])//deg  # scale to domain from (0,1)
-        
+
         try: return xi, dxi + wi
         except:
             assert n > deg 

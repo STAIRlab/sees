@@ -9,6 +9,7 @@ except:
 
 from opensees.library.obj import Component
 
+
 def TclInterpreter(verbose=False, tcl_lib=None):
 
     if "OPENSEESRT_LIB" in os.environ:
@@ -30,7 +31,12 @@ def TclInterpreter(verbose=False, tcl_lib=None):
 
     interp = tkinter.Tcl()
     interp.eval(f"load {libOpenSeesRT_path}")
-    interp.bind("<Control-c>", lambda x: interp.quit())
+
+    def check():
+        interp.after(50, check)
+
+    interp.after(50, check)
+
     return interp
 
 def eval(script: str):
