@@ -115,11 +115,13 @@ if __name__ == "__main__":
         for cmd in opts["commands"]:
             tcl.eval(cmd)
 
-
-        if file == "-":
-            tcl.eval(sys.stdin.read())
-        else:
-            tcl.eval(open(file).read())
+        try:
+            if file == "-":
+                tcl.eval(sys.stdin.read())
+            else:
+                tcl.eval(open(file).read())
+        except opensees.tcl.tkinter._tkinter.TclError:
+            pass
 
 
         if opts["interact"]:
