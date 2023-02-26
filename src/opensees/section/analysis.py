@@ -22,7 +22,7 @@ class SectionLoci:
         self.plast_prof = None
 
     @staticmethod
-    def plastic_profiles(nIP, fy=1.0):   
+    def plastic_profiles(nIP, fy=1.0):
         return [[fy*(-1)**(j>i) for i in range(1,nIP+1)] for j in range(1,1+nIP)] + \
                [[fy*(-1)**(j<i) for i in range(1,nIP+1)] for j in range(0,  nIP)]
 
@@ -61,13 +61,13 @@ class SectionLoci:
             pass
 
     @staticmethod
-    def plastic_limit(sect, y, da, fy=1., fp = None, yref=0., norm=False, scale=None, **kwds):        
+    def plastic_limit(sect, y, da, fy=1., fp = None, yref=0., norm=False, scale=None, **kwds):
         Qm = np.array([
             [*da], [-y*a for y,a in zip(y,da)]
         ])
         nIP = len(Qm[0,:])
         f_n = fp or SectionLoci.plastic_profiles(nIP, fy)
-        
+
         N,M = map(list,zip(*[Qm@f for f in f_n]))
         N.append(N[0])
         M.append(M[0])
@@ -105,13 +105,13 @@ class SectionLoci:
         ax[0] = fig.add_subplot(grid[0,0])
         ax[1] = fig.add_subplot(grid[0,1])#, sharey = ax[0])
         ax[2] = fig.add_subplot(grid[0,2])
-        
+
         # SECTION GEOMETRY
         ax[0].set_autoscale_on(True)
         render.section(sect, ax=ax[0], fix_axes=False)
         yc = sect.centroid[1]
         ax[0].scatter(mesh["x"], mesh["y"]+yc, marker=".", color="b", alpha=0.5, s=0.3)
-        
+
         ax[0].set_title("Geometry")
         ax[0].set_xlabel("$z$")
         ax[0].set_ylabel("$y$")
