@@ -1,6 +1,6 @@
 [project]
 name = "opensees"
-version = "0.0.28"
+version = "0.0.31"
 authors = [
   {name="Claudio M. Perez"}
   # <50180406+claudioperez@users.noreply.github.com>"
@@ -51,6 +51,7 @@ testing = [
 ]
 
 repl = [
+    "pyparsing",
     "prompt_toolkit",
     "pygments"
 ]
@@ -75,5 +76,5 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-exclude = ["libg3*"]
+exclude = ["libg3*", "site*"]
 
