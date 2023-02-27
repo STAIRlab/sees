@@ -1,7 +1,4 @@
 #!/usr/bin/env python3
-"""
-"""
-
 import sys
 
 import opensees
@@ -25,6 +22,8 @@ usage: opensees <file> [args]...
 
 Options
   -v/--verbose
+
+  -i                          interactive
 
   -c <command>
 """
