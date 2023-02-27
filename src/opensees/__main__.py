@@ -116,9 +116,9 @@ if __name__ == "__main__":
 
         try:
             if file == "-":
-                tcl.eval(sys.stdin.read())
+                print(tcl.eval(sys.stdin.read()))
             else:
-                tcl.eval(open(file).read())
+                print(tcl.eval(open(file).read()))
         except opensees.tcl.tkinter._tkinter.TclError:
             pass
 
