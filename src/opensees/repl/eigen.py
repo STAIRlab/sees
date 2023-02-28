@@ -95,10 +95,9 @@ proc write_modes {mode_file nmodes} {
 def modes(*argv):
     args = []
     argi = iter(argv)
-    #next(argi)
 
     script = sys.stdin.read() + eigenvalue_analysis + f"""
-    EigenvalueAnalysis create ea; 
+    EigenvalueAnalysis create ea;
     """
     op = None
     for arg in argi:

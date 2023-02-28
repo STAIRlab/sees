@@ -51,13 +51,13 @@ def parse_args(args):
                 print(HELP)
                 sys.exit()
             elif arg == "-modes":
-                import opensees.eigen
-                opensees.eigen.modes(*argi)
+                import opensees.repl.eigen
+                opensees.repl.eigen.modes(*argi)
                 sys.exit()
 
             elif arg == "-eigen":
-                import opensees.eigen
-                opensees.eigen.eigen(*argi)
+                import opensees.repl.eigen
+                opensees.repl.eigen.eigen(*argi)
                 sys.exit()
 
             elif arg == "--subproc":
@@ -78,7 +78,7 @@ def parse_args(args):
 
 
         else:
-            file = arg
+            file = arg if file is None else file
             break
 
     if file is None:

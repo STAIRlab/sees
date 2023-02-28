@@ -1,4 +1,5 @@
 from pathlib import Path
+import platformdirs
 from prompt_toolkit import prompt
 from prompt_toolkit.styles import Style
 from prompt_toolkit.completion import NestedCompleter
@@ -18,20 +19,40 @@ style = style_from_pygments_cls(get_style_by_name('nord'))
 
 
 completions = {
-        'model': {
-            'basic': {
-                '1': {1},
-                '2': {2, 3},
-                '3': {3, 6},
+        "model": {
+            "basic": {
+                "1": {1},
+                "2": {2, 3},
+                "3": {3, 6},
             },
         },
-        'node': None,
-        'element': {
+        "node": None,
+        "element": {
             "ForceBeamColumn"
         },
-        'exit': None,
+        "uniaxialMaterial": {
+            "Elastic": None,
+            "ElasticPP": None,
+            "Steel02": None
+        },
+        "exit": None,
 }
 
+from prompt_toolkit.completion import Completer, Completion
+
+class MyCustomCompleter(Completer):
+    def get_completions(self, document, complete_event):
+        # Display this completion, black on yellow.
+        yield Completion('completion1', start_position=0,
+                         style='bg:ansiyellow fg:ansiblack')
+
+        # Underline completion.
+        yield Completion('completion2', start_position=0,
+                         style='underline')
+
+        # Specify class name, which will be looked up in the style sheet.
+        yield Completion('completion3', start_position=0,
+                         style='class:special-completion')
 
 
 
@@ -58,9 +79,10 @@ class OpenSeesREPL:
     """
     prompt = "opensees \N{WHITE PARALLELOGRAM} "
 
-    def __init__(self, interp=None):
-        import opensees
-        import time, sys
+    def __init__(self, interp=None, banner=True):
+        import opensees.tcl
+
+        self.banner = banner
 
         if interp is None:
             self.interp = opensees.tcl.TclRuntime(verbose=False)
@@ -70,36 +92,47 @@ class OpenSeesREPL:
         self.interp.eval(file_util_commands)
 
         try:
-            Path("/home/claudio/.opensees-history").touch()
-            self.session = PromptSession(history=FileHistory("/home/claudio/.opensees-history"))
+            history_file = Path(platformdirs.PlatformDirs("OpenSeesRT", "OpenSees").user_data_dir)
+            history_file.touch()
+            self.session = PromptSession(history=FileHistory(str(history_file)))
         except:
             self.session = PromptSession()
+
 
     def repl(self):
         use_vi = True
         prompt = self.prompt
+        cwd_files = {}
+
+        completions.update({"source": cwd_files, "cd": cwd_files})
+
         completions.update({
             k: None for k in self.interp.eval("info commands").split() if k not in completions
         })
-        # tcl.eval(f"set argc {len(sys.argv) - 2}")
-        # tcl.eval(f"set argv {{{' '.join(argi)}}}")
-        completer = NestedCompleter.from_nested_dict(completions)
 
         interp = self.interp
+        lexer  = PygmentsLexer(TclLexer)
 
         interp.eval("puts $opensees::banner")
 
         while True:
-            inputs = nested_prompt(self.session, [('class:prompt',prompt)], vi_mode=use_vi,
+            cwd_files.clear()
+            for file in Path(interp.eval("pwd")).glob("*.tcl"):
+                cwd_files[str(file.name)] = None
+
+            inputs = nested_prompt(self.session, [('class:prompt',prompt)],
+                        vi_mode=use_vi,
                         style=style,
-                        lexer=PygmentsLexer(TclLexer),
-                        completer=completer,
+                        lexer=lexer,
+                        completer = NestedCompleter.from_nested_dict(completions),
                         complete_while_typing=False
             )
+
             try:
                 value = interp.eval(inputs)
                 if value is not None and value != "":
                     print(value)
+
             except Exception as e:
                 # print(e)
                 pass

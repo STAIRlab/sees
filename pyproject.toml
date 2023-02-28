@@ -44,7 +44,8 @@ dependencies = [
 # Full-featured REPL
     "pyparsing",
     "prompt_toolkit",
-    "pygments"
+    "pygments",
+    "platformdirs"
 ]
 
 [project.optional-dependencies]
