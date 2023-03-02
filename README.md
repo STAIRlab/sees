@@ -27,6 +27,14 @@
 
 --------------------------------------------------------------------
 
+<!--
+
+This library provides direct bindings to the [`libg3`](https://github.com/claudioperez/libg3)
+OpenSees *runtime*.  This is a new C++ framework for the core OpenSees classes that eliminates
+reliance on static global pointers.
+
+-->
+
 
 <!--
 
@@ -97,8 +105,7 @@ python setup.py [install|develop] --skip-cmake
   ```bash
   conda create -n opensees -c conda-forge python=3.9 jupyterlab matplotlib numpy scipy pyyaml
 
-  # the --skip-deps flag ensures the packages from conda-forge arent clobbered by PyPI ones.
-  pip install opensees --skip-deps
+  pip install -U opensees
   ```
 
 Once this is done, you can run the commands
