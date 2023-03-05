@@ -14,8 +14,10 @@ from pygments.styles import get_style_by_name
 
 from .unix import file_util_commands
 
-# style = style_from_pygments_cls(get_style_by_name('pastie'))
-style = style_from_pygments_cls(get_style_by_name('nord'))
+try:
+    style = style_from_pygments_cls(get_style_by_name('nord'))
+except:
+    style = style_from_pygments_cls(get_style_by_name('pastie'))
 
 
 completions = {
@@ -113,7 +115,11 @@ class OpenSeesREPL:
         interp = self.interp
         lexer  = PygmentsLexer(TclLexer)
 
-        interp.eval("puts $opensees::banner")
+        try:
+            # May not have banner if --no-load option used
+            interp.eval("puts $opensees::banner")
+        except:
+            pass
 
         while True:
             cwd_files.clear()

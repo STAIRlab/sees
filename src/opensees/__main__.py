@@ -37,6 +37,7 @@ PROMPT = "\033[33mopensees\033[0m \N{WHITE PARALLELOGRAM} "
 def parse_args(args):
     opts = {
         "subproc": False,
+        "preload": True,
         "verbose": False,
         "interact": False,
         "commands": []
@@ -62,6 +63,9 @@ def parse_args(args):
 
             elif arg == "--subproc":
                 opts["subproc"] = True
+
+            elif arg == "--no-load":
+                opts["preload"] = False
 
             elif arg == "--version" or arg == "-version":
                 print(opensees.__version__)
@@ -91,6 +95,8 @@ if __name__ == "__main__":
 
     file, opts, argi = parse_args(sys.argv)
 
+    tcl = opensees.tcl.TclRuntime(verbose=opts["verbose"], preload=opts["preload"])
+
     if file == "-" and sys.stdin.isatty():
 
         if opts["subproc"]:
@@ -100,14 +106,13 @@ if __name__ == "__main__":
         try:
             # Try full-featured REPL
             from opensees.repl.ptkshell import OpenSeesREPL
-            OpenSeesREPL().repl()
+            OpenSeesREPL(interp=tcl).repl()
 
         except ImportError:
             from opensees.repl.cmdshell import TclShell
             TclShell().cmdloop()
 
     else:
-        tcl = opensees.tcl.TclRuntime(verbose=opts["verbose"])
         tcl.eval(f"set argc {len(sys.argv) - 2}")
         tcl.eval(f"set argv {{{' '.join(argi)}}}")
 
