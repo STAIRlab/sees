@@ -109,7 +109,7 @@ if __name__ == "__main__":
     else:
         tcl = opensees.tcl.TclRuntime(verbose=opts["verbose"])
         tcl.eval(f"set argc {len(sys.argv) - 2}")
-        tcl.eval(f"set argv {{{' '.join(argi)}}}")
+        tcl.eval(f"set argv {{{file} {' '.join(argi)}}}")
 
         for cmd in opts["commands"]:
             tcl.eval(cmd)
