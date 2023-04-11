@@ -77,9 +77,13 @@ class TclRuntime:
         self._c_domain = None
         self._c_rt = None
         self._interp = TclInterpreter(verbose=verbose, preload=preload)
+
         if not safe:
             self._interp.createcommand("=", self.pyexpr)
             # self._interp.createcommand("import", self.pyimport)
+        self._interp.createcommand("export", self.export)
+
+
         if model is not None:
             self.send(model)
 
@@ -95,6 +99,46 @@ class TclRuntime:
         except:
             self.eval("opensees::import " + " ".join(args))
             return
+
+    def export(self, *args):
+        import io
+        import os
+        import sys
+        import json
+        import opensees.emit.mesh
+
+        self.eval("print -json .abcd.json")
+
+        with open(".abcd.json", "r") as f:
+            model = json.load(f)
+            model = model["StructuralAnalysisModel"]
+        os.remove(".abcd.json")
+
+
+        if args[0] == "stdout":
+            file = io.StringIO()
+        else:
+            file = args[0]
+
+        if len(args) > 1:
+            fmt = args[1]
+        else:
+            fmt = "vtk"
+
+        mesh = opensees.emit.mesh.dump(model, args[0], fmt)
+
+        try:
+            mesh.write(
+                file,          # str, os.PathLike, or buffer/open file
+                file_format=fmt,  # optional if first argument is a path; inferred from extension
+            )
+        except Exception as e:
+            print(e, file=sys.stderr)
+            # self.eval(f'error {{{e}}}')
+
+        return ""
+
+
 
     def pyexpr(self, *args):
         try:

@@ -1,4 +1,6 @@
 from pathlib import Path
+import opensees.tcl
+
 import platformdirs
 from prompt_toolkit import prompt
 from prompt_toolkit.styles import Style
@@ -15,9 +17,11 @@ from pygments.styles import get_style_by_name
 from .unix import file_util_commands
 
 try:
-    style = style_from_pygments_cls(get_style_by_name('nord'))
-except:
     style = style_from_pygments_cls(get_style_by_name('pastie'))
+    # style = style_from_pygments_cls(get_style_by_name('nord'))
+except:
+    style = None
+
 
 
 completions = {
@@ -82,7 +86,6 @@ class OpenSeesREPL:
     prompt = "opensees \N{WHITE PARALLELOGRAM} "
 
     def __init__(self, interp=None, banner=True):
-        import opensees.tcl
 
         self.banner = banner
 
@@ -97,6 +100,7 @@ class OpenSeesREPL:
             history_file = Path(platformdirs.PlatformDirs("OpenSeesRT", "OpenSees").user_data_dir)
             history_file.touch()
             self.session = PromptSession(history=FileHistory(str(history_file)))
+
         except:
             self.session = PromptSession()
 
@@ -105,6 +109,7 @@ class OpenSeesREPL:
         use_vi = True
         prompt = self.prompt
         cwd_files = {}
+        tcl_locals = {}
 
         completions.update({"source": cwd_files, "cd": cwd_files})
 
@@ -126,6 +131,8 @@ class OpenSeesREPL:
             for file in Path(interp.eval("pwd")).glob("*.tcl"):
                 cwd_files[str(file.name)] = None
 
+            #tcl_locals.clear()
+
             inputs = nested_prompt(self.session, [('class:prompt',prompt)],
                         vi_mode=use_vi,
                         style=style,
@@ -136,10 +143,14 @@ class OpenSeesREPL:
 
             try:
                 value = interp.eval(inputs)
-                if value is not None and value != "":
+                if value is not None and value != "" and value != 0:
                     print(value)
 
-            except Exception as e:
-                # print(e)
+            except opensees.tcl.tkinter._tkinter.TclError as e:
                 pass
+
+            except Exception as e:
+                # interp.eval(f'error {{{e}}}')
+                print(e)
+                # pass
 

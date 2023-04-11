@@ -4,7 +4,7 @@ import numpy as np
 
 
 def main(argc:int, argv:list)->int:
-    
+
     ## create the nodes using constructor: 
     ##        Node(tag, ndof, crd1, crd2)
     ## and then add them to the domain
@@ -13,15 +13,15 @@ def main(argc:int, argv:list)->int:
     node 1   0.0  0.0
     node 2 144.0  0.0
     """)
-    
+
     # create an elastic material using constriuctor:  
     #    ElasticMaterialModel(tag, E)
     #-- theMaterial = pyg3.ElasticMaterial(1, 3000)
-    
+
     ## create the truss elements using constructor:
     ##        Truss(tag, dim, nd1, nd2, Material &,A)
     ## and then add them to the domain
-    
+
     #-- Truss *truss1 = pyg3.Truss(1, 2, 1, 4, *theMaterial, 10.0)
 
     #-- theDomain.addElement(truss1)
@@ -38,7 +38,7 @@ def main(argc:int, argv:list)->int:
 
     # construct a linear time series object using constructor:
     #   LinearSeries()
-    
+
     ground_motion = quakeio.read("IELC180.AT2")
     accel = np.asarray(ground_motion) 
     # construct a load pattren using constructor:
@@ -53,7 +53,7 @@ def main(argc:int, argv:list)->int:
     print(theLoadPattern)
     theDomain.addLoadPattern(theLoadPattern)
     print(theDomain)
-    
+
 
     # create an Analysis object to perform a static analysis of the model
     #  - constructs:
