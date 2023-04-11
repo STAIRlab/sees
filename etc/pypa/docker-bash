@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# cmake --build /io/build/temp.linux-x86_64-cpython-310_rt --config Release
+
+docker run -it -v $(pwd):/io opensees-manylinux1 /bin/bash

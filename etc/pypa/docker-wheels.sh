@@ -1,13 +1,14 @@
 #!/bin/bash
 # set -e -u -x
-PLAT="$1"
+package="$1"
+platform="$2"
 
 repair_wheel() {
     wheel="$1"
     if ! auditwheel show "$wheel"; then
         echo "Skipping non-platform wheel $wheel"
     else
-        auditwheel repair "$wheel" --plat "$PLAT" -w /io/wheelhouse/
+        auditwheel repair "$wheel" --plat "$platform" -w /io/wheelhouse/
     fi
 }
 
@@ -37,9 +38,9 @@ done
 
 # find -name libOpenSeesRT.so
 # Bundle external shared libraries into the wheels
-for whl in wheelhouse/*.whl; do
+for whl in wheelhouse/$package*.whl; do
   cpxx="$(sed 's/.*-cp\(3[0-9]*\).*/\1/g' <<< $whl)"
-  apath="/io/build/lib.linux-x86_64-cpython-${cpxx}/opensees/"
+  apath="/io/build/lib.linux-x86_64-cpython-${cpxx}/$package/"
   ls $apath
   #LD_LIBRARY_PATH="$apath:${LD_LIBRARY_PATH}" repair_wheel "$whl"
   LD_LIBRARY_PATH="$apath" repair_wheel "$whl"
