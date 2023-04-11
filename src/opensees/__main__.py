@@ -81,8 +81,6 @@ def parse_args(args):
             file = arg if file is None else file
             break
 
-    if file is None:
-        file = "-"
 
     return file, opts, argi
 
@@ -91,7 +89,7 @@ if __name__ == "__main__":
 
     file, opts, argi = parse_args(sys.argv)
 
-    if file == "-" and sys.stdin.isatty():
+    if len(sys.argv) == 1 and sys.stdin.isatty():
 
         if opts["subproc"]:
             OpenSeesShell().cmdloop()
@@ -114,13 +112,21 @@ if __name__ == "__main__":
         for cmd in opts["commands"]:
             tcl.eval(cmd)
 
-        try:
-            if file == "-":
-                print(tcl.eval(sys.stdin.read()))
-            else:
-                print(tcl.eval(open(file).read()))
-        except opensees.tcl.tkinter._tkinter.TclError:
-            pass
+        script = None
+        if len(sys.argv) == 1 or file == "-" or (file is None and len(opts["commands"]) == 0):
+            script = sys.stdin.read()
+
+        elif file is not None:
+            script = open(file).read()
+
+        if script is not None:
+            try:
+                print(tcl.eval(script))
+
+            except opensees.tcl.tkinter._tkinter.TclError as e:
+                print(e, file=sys.stderr)
+                if not opts["interact"]:
+                    sys.exit(1)
 
 
         if opts["interact"]:
