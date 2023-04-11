@@ -23,6 +23,7 @@ except:
     style = None
 
 
+
 completions = {
         "model": {
             "basic": {
@@ -119,7 +120,11 @@ class OpenSeesREPL:
         interp = self.interp
         lexer  = PygmentsLexer(TclLexer)
 
-        interp.eval("puts $opensees::banner")
+        try:
+            # May not have banner if --no-load option used
+            interp.eval("puts $opensees::banner")
+        except:
+            pass
 
         while True:
             cwd_files.clear()

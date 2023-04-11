@@ -159,7 +159,7 @@ class uniaxial:
           Num("eps0",  reqd=False, about="initial strain (optional, default: zero)")
     ])
 
-    Hysteretic = Uni("Hysteretic", "Hysteretic", args = [ 
+    Hysteretic = Uni("Hysteretic", "Hysteretic", args = [
         Tag(),
         Grp("points", args = [
           Grp(args=[Num("s1p"), Num("e1p")], about="stress and strain (or force & deformation) at first point of the envelope in the positive direction"),
@@ -233,8 +233,8 @@ class uniaxial:
     SteelMPF = Uni("SteelMPF",
         "SteelMPF",
         about="""
-        This command is used to construct a uniaxial 
-        Giuffre-Menegotto-Pinto steel material object 
+        This command is used to construct a uniaxial
+        Giuffre-Menegotto-Pinto steel material object
         with isotropic strain hardening.""",
         args = [
           Tag(),
@@ -244,8 +244,8 @@ class uniaxial:
           Num("bp", default=0.0, about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"),
           Num("bn", default=0.0, about="strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent"),
 
-          Num("R0", reqd=False, default=18), 
-          Num("cR1", reqd=False, default=0.925, about="Bauschinger evolution parameter"), 
+          Num("R0", reqd=False, default=18),
+          Num("cR1", reqd=False, default=0.925, about="Bauschinger evolution parameter"),
           Num("cR2", reqd=False, default=0.150, about="Bauschinger evolution parameter"),
           # Grp("a", reqd = False, about="isotropic hardening parameters", args=[
           Num("a1", reqd=False, default=0.0, about="""
@@ -268,14 +268,14 @@ class uniaxial:
     )
 
     ReinforcingSteel = Uni("ReinforcingSteel", "ReinforcingSteel", args=[
-        Num("matTag", about="unique material object integer tag"),
+        Tag(),
         Yld("stress", about="Yield stress in tension (see Figure 1)"),
         Num("fu",     about="Ultimate stress in tension"),
         Yng(          about="Initial elastic tangent"),
         Num("Esh",    about="Tangent at initial strain hardening"),
         Num("esh",    about="Strain corresponding to initial strain hardening"),
         Num("eult",   about="Strain at peak stress"),
-        Grp("-GABuck", about="Buckling Model Based on Gomes and Appleton (1997)", args=[
+        Grp("-GABuck",reqd=False, about="Buckling Model Based on Gomes and Appleton (1997)", args=[
             Num("lsr", about="Slenderness Ratio (see Figure 2)"),
             Num("beta", about="Amplification factor for the buckled stress strain curve. (see Figure 3)"),
             Num("r", about="""Buckling reduction factor
@@ -283,27 +283,30 @@ class uniaxial:
                 r=1.0 full reduction (no buckling)
                 r=0.0 no reduction
                 0.0<r<1.0 linear interpolation between buckled and unbuckled curves
-                """)
+                """),
+            Num("gamma", about="Buckling constant (see Figures 3 and 4)")
             ]
           ),
-        Num("gamma", about="Buckling constant (see Figures 3 and 4)"),
 
-        Grp("-DMBuck", about="Buckling model based on Dhakal and Maekawa (2002)", args=[
+
+        Grp("-DMBuck", reqd=False, about="Buckling model based on Dhakal and Maekawa (2002)", args=[
             Num("lsr", about="Slenderness Ratio (see Figure 2)"),
             Num("alpha", about="Adjustment Constant usually between 0.75 and 1.0", default=1.0),
           ]
         ),
 
-        Grp("-CMFatigue", about="Coffin-Manson Fatigue and Strength Reduction", args=[
+        Grp("-CMFatigue", reqd=False, about="Coffin-Manson Fatigue and Strength Reduction", args=[
             Num("Cf", about="Coffin-Manson constant C (see Figure 5)"),
             Num("alpha", about="Coffin-Manson constant a (see Figure 5)"),
             Num("Cd", about="Cyclic strength reduction constant (see Figure 6 and Equation 3)"),
           ]
         ),
 
-        Grp("-IsoHard", about="Isotropic Hardening / Diminishing Yield Plateau", args=[
+        Grp("-IsoHard", reqd=False, about="Isotropic Hardening / Diminishing Yield Plateau", args=[
             Num("a1", about="Hardening constant", default=4.3),
-            Num("limit", about="Limit for the reduction of the yield plateau. % of original plateau length to remain (0.01 < limit < 1.0 ). If `limit` = 1.0, then no reduction takes place", default=0.01),
+            Num("limit", about="Limit for the reduction of the yield plateau. "\
+                               "% of original plateau length to remain (0.01 < limit < 1.0 )."\
+                               "If `limit` = 1.0, then no reduction takes place", default=0.01),
           ]
         ),
 
@@ -416,7 +419,7 @@ class uniaxial:
          Yng(),
          Alt("eps_ult", [
                Num("epscu", flag="-epscu", about="confined concrete ultimate strain"),
-               Num("gamma", flag="-gamma", 
+               Num("gamma", flag="-gamma",
                      about="the ratio of the strength corresponding to "\
                          "ultimate strain to the peak strength of the "\
                          "confined concrete stress-strain curve. "\
@@ -500,18 +503,18 @@ class uniaxial:
     ])
 
     Concrete02IS = Uni("Concrete02IS", "Concrete02IS", [
-         Tag(), 
-         Yng(), 
-         Num("fpc", about="peak compressive stress"), 
-         Num("epsc0"), 
-         Num("fpcu"), 
-         Num("epscu"), 
+         Tag(),
+         Yng(),
+         Num("fpc", about="peak compressive stress"),
+         Num("epsc0"),
+         Num("fpcu"),
+         Num("epscu"),
          Grp("tension", reqd=False, type=Num, args=[
             Num("rat"), Num("ft"), Num("Ets", about="Tensile initial modulus")
          ])
     ])
 
-    Concrete06 = Uni("Concrete06", "Concrete06", args=[ 
+    Concrete06 = Uni("Concrete06", "Concrete06", args=[
         Tag("matTag", about="integer tag identifying material"),
         Num("fc", about="concrete compressive strength (compression is negative)*"),
         Num("e0", about="strain at compressive strength*"),
@@ -525,7 +528,7 @@ class uniaxial:
     ])
 
 
-    ConcreteCM = Uni("ConcreteCM", "ConcreteCM", args=[ 
+    ConcreteCM = Uni("ConcreteCM", "ConcreteCM", args=[
         Tag(), #"mattag  Unique uniaxialMaterial tag"),
         Num("fpcc" , about=r"Compressive strength (f'c)"),
         Num("epcc" , about=r"Strain at compressive strength ($\epsilon^\prime_c$)"),

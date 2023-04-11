@@ -10,7 +10,7 @@ except:
 from opensees.library.obj import Component
 
 
-def TclInterpreter(verbose=False, tcl_lib=None):
+def TclInterpreter(verbose=False, tcl_lib=None, preload=True):
 
     if "OPENSEESRT_LIB" in os.environ:
         libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
@@ -30,7 +30,9 @@ def TclInterpreter(verbose=False, tcl_lib=None):
         print(f"OpenSeesRT: {libOpenSeesRT_path}", file=sys.stderr)
 
     interp = tkinter.Tcl()
-    interp.eval(f"load {libOpenSeesRT_path}")
+
+    if preload:
+        interp.eval(f"load {libOpenSeesRT_path}")
 
     def check():
         interp.after(50, check)
@@ -69,12 +71,12 @@ def dumps(obj):
 
 
 class TclRuntime:
-    def __init__(self,  model=None, verbose=False, safe=False):
+    def __init__(self,  model=None, verbose=False, safe=False, preload=True):
         from functools import partial
         self._partial = partial
         self._c_domain = None
         self._c_rt = None
-        self._interp = TclInterpreter(verbose=verbose)
+        self._interp = TclInterpreter(verbose=verbose, preload=preload)
 
         if not safe:
             self._interp.createcommand("=", self.pyexpr)
