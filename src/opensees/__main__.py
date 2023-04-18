@@ -95,8 +95,9 @@ if __name__ == "__main__":
 
     tcl = opensees.tcl.TclRuntime(verbose=opts["verbose"], preload=opts["preload"])
 
-    if len(sys.argv) == 1 and sys.stdin.isatty():
+    not_piped = sys.stdin.isatty()
 
+    if len(sys.argv) == 1 and not_piped:
 
         if opts["subproc"]:
             OpenSeesShell().cmdloop()
@@ -112,18 +113,30 @@ if __name__ == "__main__":
             TclShell().cmdloop()
 
     else:
-        tcl.eval(f"set argc {len(sys.argv) - 2}")
-        tcl.eval(f"set argv {{{file} {' '.join(argi)}}}")
-
-        for cmd in opts["commands"]:
-            tcl.eval(cmd)
+        argv = list(argi)
+        tcl.eval(f"set argc {len(argv)+1}")
+        tcl.eval(f"set argv {{{file} {' '.join(argv)}}}")
 
         script = None
-        if len(sys.argv) == 1 or file == "-" or (file is None and len(opts["commands"]) == 0):
+        run_cmds = "before"
+        if (not not_piped) and (len(sys.argv) == 1 or file == "-" or (file is None)): # and len(opts["commands"]) == 0):
             script = sys.stdin.read()
+            run_cmds = "after"
 
         elif file is not None:
-            script = open(file).read()
+
+            try:
+                script = open(file).read()
+            except FileNotFoundError as e:
+                print(e, file=sys.stderr)
+                sys.exit(1)
+
+            run_cmds = "before"
+
+
+        if run_cmds == "before":
+            for cmd in opts["commands"]:
+                tcl.eval(cmd)
 
         if script is not None:
             try:
@@ -134,9 +147,13 @@ if __name__ == "__main__":
                 if not opts["interact"]:
                     sys.exit(1)
 
+        if run_cmds == "after":
+            for cmd in opts["commands"]:
+                tcl.eval(cmd)
 
         if opts["interact"]:
             from opensees.repl.ptkshell import OpenSeesREPL
+            # TODO: do something for windows
             sys.stdin = open("/dev/tty")
             OpenSeesREPL(interp=tcl).repl()
             # TclShell(interp=tcl).cmdloop()
