@@ -136,7 +136,6 @@ python setup.py [install|develop] --skip-cmake
 -->
 
 
-## Installing
 
 <!-- 
   - Install Jupyterlab
@@ -147,6 +146,7 @@ python setup.py [install|develop] --skip-cmake
     python -m ipykernel install --user --name opensees --display-name "Python (opensees)"
     ```
 -->
+
 
 
 
