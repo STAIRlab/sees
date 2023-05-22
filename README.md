@@ -36,20 +36,66 @@ reliance on static global pointers.
 -->
 
 
-<!--
 
 ## Installing / Compiling
 
-### I. Simple user install
+For Windows, first activate WSL2 and install a Linux distribution.
+The simplest way to instal is with `pip`:
+
+```bash
+pip install opensees
+```
+
+Some alternative installation methods are listed below.
+
+### I. Install with Anaconda
 
 1. Install `mambaforge`
 2. `mamba install -c opensees opensees`
 
 ### II. Editable (developer) install
 
+Use this method to compile new C++ components (elements, materials, etc.).
+<!--
+
 1. Install `mambaforge`
 2. `pip install -e .`
 3. To recompile : `python setup.py build_ext`
+
+-->
+
+- Install `mambaforge`, a small Anaconda distribution.
+  - Go to [https://github.com/conda-forge/miniforge#mambaforge](https://github.com/conda-forge/miniforge#mambaforge)
+  - Click the `Mambaforge-Linux-x86_64` link to download an install script.
+  - Run the downloaded script.
+
+  This can all be done at once with the following commands:
+
+  ```bash
+  wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+  bash Mambaforge-$(uname)-$(uname -m).sh
+  ```
+
+- Create an environment to run `opensees` and `jupyter-lab` out of
+  
+  ```bash
+  conda create -n opensees -c conda-forge python=3.9 jupyterlab matplotlib numpy scipy pyyaml
+
+  pip install -U opensees
+  ```
+
+Once this is done, you can run the commands
+
+```bash
+conda activate opensees
+jupyter-lab
+```
+
+from the WSL terminal, and a url will be printed which you can open in a browser to work in
+Jupyter Lab.
+
+
+<!--
 
 ### III. Distribution build
 
@@ -86,37 +132,6 @@ python setup.py [install|develop] --skip-cmake
 
 
 ## Installing
-- For Windows, first activate WSL2 and install a Linux distribution.
-
-- Install `mambaforge`, a small Anaconda distribution.
-  - Go to [https://github.com/conda-forge/miniforge#mambaforge](https://github.com/conda-forge/miniforge#mambaforge)
-  - Click the `Mambaforge-Linux-x86_64` link to download an install script.
-  - Run the downloaded script.
-
-  This can all be done at once with the following commands:
-
-  ```bash
-  wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-  bash Mambaforge-$(uname)-$(uname -m).sh
-  ```
-
-- Create an environment to run `opensees` and `jupyter-lab` out of
-  
-  ```bash
-  conda create -n opensees -c conda-forge python=3.9 jupyterlab matplotlib numpy scipy pyyaml
-
-  pip install -U opensees
-  ```
-
-Once this is done, you can run the commands
-
-```bash
-conda activate opensees
-jupyter-lab
-```
-
-from the WSL terminal, and a url will be printed which you can open in a browser to work in
-Jupyter Lab.
 
 <!-- 
   - Install Jupyterlab
