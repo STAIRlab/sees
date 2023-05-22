@@ -50,13 +50,13 @@ Some alternative installation methods are listed below.
 
 ### I. Install with Anaconda
 
+<!--
 1. Install `mambaforge`
 2. `mamba install -c opensees opensees`
 
 ### II. Editable (developer) install
 
 Use this method to compile new C++ components (elements, materials, etc.).
-<!--
 
 1. Install `mambaforge`
 2. `pip install -e .`
@@ -64,7 +64,7 @@ Use this method to compile new C++ components (elements, materials, etc.).
 
 -->
 
-- Install `mambaforge`, a small Anaconda distribution.
+1. Install `mambaforge`, a small Anaconda distribution.
   - Go to [https://github.com/conda-forge/miniforge#mambaforge](https://github.com/conda-forge/miniforge#mambaforge)
   - Click the `Mambaforge-Linux-x86_64` link to download an install script.
   - Run the downloaded script.
@@ -76,11 +76,16 @@ Use this method to compile new C++ components (elements, materials, etc.).
   bash Mambaforge-$(uname)-$(uname -m).sh
   ```
 
-- Create an environment to run `opensees` and `jupyter-lab` out of
+2. Create an environment to run `opensees` and `jupyter-lab` out of
   
   ```bash
   conda create -n opensees -c conda-forge python=3.9 jupyterlab matplotlib numpy scipy pyyaml
 
+  ```
+
+3. Install the `opensees` package.
+
+  ```bash
   pip install -U opensees
   ```
 
@@ -91,7 +96,7 @@ conda activate opensees
 jupyter-lab
 ```
 
-from the WSL terminal, and a url will be printed which you can open in a browser to work in
+from the WSL terminal, and a URL will be printed which you can open in a browser to work in
 Jupyter Lab.
 
 
