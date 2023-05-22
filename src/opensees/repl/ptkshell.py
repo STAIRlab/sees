@@ -113,9 +113,6 @@ class OpenSeesREPL:
 
         completions.update({"source": cwd_files, "cd": cwd_files})
 
-        completions.update({
-            k: None for k in self.interp.eval("info commands").split() if k not in completions
-        })
 
         interp = self.interp
         lexer  = PygmentsLexer(TclLexer)
@@ -132,6 +129,9 @@ class OpenSeesREPL:
                 cwd_files[str(file.name)] = None
 
             #tcl_locals.clear()
+            completions.update({
+                k: None for k in self.interp.eval("info commands").split() if k not in completions
+            })
 
             inputs = nested_prompt(self.session, [('class:prompt',prompt)],
                         vi_mode=use_vi,
