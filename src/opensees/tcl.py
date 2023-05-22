@@ -10,7 +10,7 @@ except:
 from opensees.library.obj import Component
 
 
-def TclInterpreter(verbose=False, tcl_lib=None, preload=True):
+def TclInterpreter(verbose=False, tcl_lib=None, preload=True, enable_tk=False):
 
     if "OPENSEESRT_LIB" in os.environ:
         libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
@@ -29,7 +29,11 @@ def TclInterpreter(verbose=False, tcl_lib=None, preload=True):
     if verbose:
         print(f"OpenSeesRT: {libOpenSeesRT_path}", file=sys.stderr)
 
-    interp = tkinter.Tcl()
+    if enable_tk:
+        interp = tkinter.Tk()
+    else:
+        interp = tkinter.Tcl()
+
 
     if preload:
         interp.eval(f"load {libOpenSeesRT_path}")
@@ -71,18 +75,22 @@ def dumps(obj):
 
 
 class TclRuntime:
-    def __init__(self,  model=None, verbose=False, safe=False, preload=True):
+    def __init__(self,  model=None, verbose=False, safe=False, preload=True, enable_tk=False):
         from functools import partial
         self._partial = partial
         self._c_domain = None
         self._c_rt = None
-        self._interp = TclInterpreter(verbose=verbose, preload=preload)
+        self._interp = TclInterpreter(verbose=verbose,
+                                      preload=preload,
+                                      enable_tk=enable_tk)
 
         if not safe:
             self._interp.createcommand("=", self.pyexpr)
-            # self._interp.createcommand("import", self.pyimport)
+
         self._interp.createcommand("export", self.export)
 
+        self._interp.createcommand("tkloop", self._interp.mainloop)
+        # self._interp.createcommand("import", self.pyimport)
 
         if model is not None:
             self.send(model)
@@ -107,6 +115,7 @@ class TclRuntime:
         import json
         import opensees.emit.mesh
 
+        # TODO: use tempfile or pipe
         self.eval("print -json .abcd.json")
 
         with open(".abcd.json", "r") as f:

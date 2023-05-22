@@ -36,11 +36,12 @@ PROMPT = "\033[33mopensees\033[0m \N{WHITE PARALLELOGRAM} "
 
 def parse_args(args):
     opts = {
-        "subproc": False,
-        "preload": True,
-        "verbose": False,
-        "interact": False,
-        "commands": []
+        "subproc":   False,
+        "preload":   True,
+        "verbose":   False,
+        "interact":  False,
+        "enable_tk": False,
+        "commands":  []
     }
     file = None
     argi = iter(args[1:])
@@ -51,6 +52,7 @@ def parse_args(args):
             if arg == "-h" or arg == "--help":
                 print(HELP)
                 sys.exit()
+
             elif arg == "-modes":
                 import opensees.repl.eigen
                 opensees.repl.eigen.modes(*argi)
@@ -61,10 +63,14 @@ def parse_args(args):
                 opensees.repl.eigen.eigen(*argi)
                 sys.exit()
 
+            elif arg == "--enable-tk":
+                opts["enable_tk"] = True
+
             elif arg == "--subproc":
                 opts["subproc"] = True
 
             elif arg == "--no-load":
+                # dont load OpenSees Tcl package
                 opts["preload"] = False
 
             elif arg == "--version" or arg == "-version":
@@ -93,7 +99,9 @@ if __name__ == "__main__":
 
     file, opts, argi = parse_args(sys.argv)
 
-    tcl = opensees.tcl.TclRuntime(verbose=opts["verbose"], preload=opts["preload"])
+    tcl = opensees.tcl.TclRuntime(verbose=opts["verbose"],
+                                  preload=opts["preload"],
+                                  enable_tk=opts["enable_tk"])
 
     not_piped = sys.stdin.isatty()
 
@@ -140,7 +148,8 @@ if __name__ == "__main__":
 
         if script is not None:
             try:
-                print(tcl.eval(script))
+                tcl.eval(script)
+                tcl.eval("wipe")
 
             except opensees.tcl.tkinter._tkinter.TclError as e:
                 print(e, file=sys.stderr)
