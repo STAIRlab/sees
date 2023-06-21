@@ -1,6 +1,6 @@
 [project]
 name = "opensees"
-version = "0.0.32"
+version = "0.0.34"
 authors = [
   {name="Claudio M. Perez"}
   # <50180406+claudioperez@users.noreply.github.com>"
@@ -35,11 +35,11 @@ dependencies = [
     # "scipy < 1.6.0 ; python_version=='3.6'",
     # "scipy < 1.8   ; python_version=='3.7'",
     # "scipy > 1.6.0 ; python_version>'3.7'",
-    "pyyaml",
+#   "pyyaml",
 
 # Plotting
-    "matplotlib",
-    "panel",
+#   "matplotlib",
+#   "panel",
 
 # Full-featured REPL
     "pyparsing",

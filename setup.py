@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 import sys
 from glob import glob
 from os.path import basename, splitext
@@ -6,25 +7,38 @@ from os.path import basename, splitext
 import amoeba
 import setuptools
 
+options = {
+    "PyPI":  "Unix",
+    "Unix":  "Unix",
+    "Conda": "",
+    "Win32": ""
+}
+
 if __name__ == "__main__":
     setuptools.setup(
         cmdclass = {"build_ext": amoeba.BuildExtension, "cmake": amoeba.CMakeCommand},
         ext_modules = [
             amoeba.CMakeExtension(
-                name = "rt",
+#               name = "rt",        # PyPA
+                name = "local",
                 install_prefix="opensees",
                 cmake_configure_options = [
                     "-G", "Unix Makefiles",
-                    "-DDependencies=Conda",
-                    "-DCMAKE_BUILD_TYPE=DEBUG",
 
-                    "-DNoOpenSeesPyRT=True",
-                    # "-DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use",
-                    # "-DCMAKE_BUILD_TYPE=Release",
+                    f"-DCMAKE_PREFIX_PATH:FILEPATH={os.environ['CONDA_PREFIX']}",
+                    f"-DCMAKE_IGNORE_PATH:FILEPATH=/usr/lib/;lib",
+                    f"-DDependencies=Conda",
                     # "-DDependencies=Unix",
+
+                    # "-DCMAKE_BUILD_TYPE=DEBUG",
+                    "-DCMAKE_BUILD_TYPE=Release",
+                    "-DOPENSEESRT_VERSION=0.0.34",
+                    # "-DNoOpenSeesPyRT=True",
+                    # "-DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use",
 
                     f"-DPYTHON_EXECUTABLE:FILEPATH={sys.executable}"
                 ],
+                cmake_build_options=["--target", "OpenSeesRT"]
             )
         ]
     )

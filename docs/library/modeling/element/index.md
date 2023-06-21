@@ -1,5 +1,5 @@
 ---
-template: grid_index.html
+// template: grid_index.html
 ...
 
 # Element
