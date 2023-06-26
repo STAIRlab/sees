@@ -1,7 +1,7 @@
 
-`OS`/`Dependencies`:
+`OS`/`Deps`/`PyRT`:
 
-- [x] `Unix`/`Unix` - use for PyPI
+- [x] `Unix`/`Unix`/`True?` - use for PyPI
 
 - [ ] `Unix`/`Conda`
 
@@ -9,8 +9,8 @@
   finds conda compilers; you may need to install the conda-forge packages
   `fortran-compiler`, `cxx-compiler` and `c-compiler`
 
-- [x] `Win32`/`Intel`
+- [x] `Win32`/`Intel`/`False`
 
-- [ ] `Win32`/`Conda`
+- [ ] `Win32`/`Conda`/
 
 
