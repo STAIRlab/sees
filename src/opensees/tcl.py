@@ -87,9 +87,11 @@ class TclRuntime:
         if not safe:
             self._interp.createcommand("=", self.pyexpr)
 
+        if enable_tk:
+            self._interp.createcommand("tkloop", self._interp.mainloop)
+
         self._interp.createcommand("export", self.export)
 
-        self._interp.createcommand("tkloop", self._interp.mainloop)
         # self._interp.createcommand("import", self.pyimport)
 
         if model is not None:
