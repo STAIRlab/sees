@@ -1,6 +1,8 @@
 import os
 import sys
 import pathlib
+import platform
+from contextlib import contextmanager
 
 try:
     import tkinter
@@ -10,21 +12,70 @@ except:
 from opensees.library.obj import Component
 
 
-def TclInterpreter(verbose=False, tcl_lib=None, preload=True, enable_tk=False):
+@contextmanager
+def _build_extension_env():
+    """
+    Create a context in which build extensions can be imported.
 
+    It fixes a change of behaviour of Python >= 3.8 in Windows:
+    https://docs.python.org/3/whatsnew/3.8.html#bpo-36085-whatsnew
+
+    Other related resources:
+
+    - https://stackoverflow.com/a/23805306
+    - https://www.mail-archive.com/dev@subversion.apache.org/msg40414.html
+
+    Example:
+
+    .. code-block:: python
+
+        from cmake_build_extension import build_extension_env
+
+        with build_extension_env():
+            from . import bindings
+    """
+
+    cookies = []
+
+    # Windows and Python >= 3.8
+    if hasattr(os, "add_dll_directory"):
+
+        for path in os.environ.get("PATH", "").split(os.pathsep):
+
+            if path and pathlib.Path(path).is_absolute() and pathlib.Path(path).is_dir():
+                cookies.append(os.add_dll_directory(path))
+
+    try:
+        yield
+
+    finally:
+        for cookie in cookies:
+            cookie.close()
+
+
+def _find_openseesrt():
     if "OPENSEESRT_LIB" in os.environ:
         libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
+        return libOpenSeesRT_path.parents[0], libOpenSeesRT_path
 
+    op_sys = platform.system()
+    ext = {
+        "Darwin":  ".dylib",
+        "Linux":   ".so",
+        "Windows": ".dll"
+    }[op_sys]
+
+    install_dir = pathlib.Path(__file__).parents[0]
+    if op_sys == "Windows":
+        libOpenSeesRT_path = install_dir/f"OpenSeesRT{ext}"
     else:
-        import platform
-        ext = {
-            "Darwin": ".dylib",
-            "Linux": ".so",
-            "Windows": ".dll"
-        }[platform.system()]
-
-        install_dir = pathlib.Path(__file__).parents[0]
         libOpenSeesRT_path = install_dir/f"libOpenSeesRT{ext}"
+
+    return libOpenSeesRT_path.parents[0], libOpenSeesRT_path
+
+def TclInterpreter(verbose=False, tcl_lib=None, preload=True, enable_tk=False):
+
+    install_dir, libOpenSeesRT_path = _find_openseesrt()
 
     if verbose:
         print(f"OpenSeesRT: {libOpenSeesRT_path}", file=sys.stderr)
@@ -36,7 +87,8 @@ def TclInterpreter(verbose=False, tcl_lib=None, preload=True, enable_tk=False):
 
 
     if preload:
-        interp.eval(f"load {libOpenSeesRT_path}")
+        with _build_extension_env():
+            interp.eval(f"load {{{libOpenSeesRT_path}}}")
 
     def check():
         interp.after(50, check)
