@@ -26,7 +26,7 @@ def _is_collection(obj, mapping:int = SEQUENTIAL|ASSOCIATIVE|TERMINAL):
     return test
 
 class SerializationStream:
-    pass 
+    pass
 
 
 class Partial: pass
@@ -50,7 +50,7 @@ class _Builder(ScriptBuilder):
             w.lshift()
             w.endln()
             return self
-    
+
     def serialize(obj):
         if self.registry.registered(obj):
             return self
@@ -101,7 +101,6 @@ class _Builder(ScriptBuilder):
             w.rshift()
             for i in obj:
                 self.send(i)
-
                 #w.write(self.registry.ident(i).tclstr())
                 w.write(", ")
             w.lshift()
@@ -155,9 +154,7 @@ class _Builder(ScriptBuilder):
                 # if not hasattr(obj,"_args"):
                 #     raise ObjectSerializationError(f"object {obj} of type {type(obj)}")
 
-            
-        
-        
+
 class JSON_Emitter(Emitter):
 
     #def endln(self):

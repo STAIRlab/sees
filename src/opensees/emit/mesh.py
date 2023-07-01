@@ -49,3 +49,11 @@ def dump(model, file, format="vtk"):
     # Alternative with the same options
     # meshio.write_points_cells("foo.vtk", points, cells)
 
+if __name__ == "__main__":
+    import sys, json
+
+    with open(sys.argv[1]) as f:
+        data = json.load(f)
+
+    dump(data["StructuralAnalysisModel"], None).write(sys.argv[2])
+
