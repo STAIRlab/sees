@@ -26,7 +26,10 @@ classifiers = [
 
 keywords = [
     "seismic",
+    "structural-analysis",
+    "finite-element-analysis",
     "earthquake",
+    "engineering",
 ] 
 
 dependencies = [
@@ -69,7 +72,7 @@ docs = [
 
 [project.urls]
 Repository = "http://github.com/BRACE2/OpenSeesRT"
-Documentation = "https://brace2.github.io/OpenSeesRT"
+# Documentation = "https://brace2.github.io/OpenSeesRT"
 
 [build-system]
 requires = [
