@@ -87,3 +87,7 @@ build-backend = "setuptools.build_meta"
 where = ["src"]
 exclude = ["libg3*", "site*"]
 
+[tool.cibuildwheel]
+#before-all = "apt install liblapack-dev tcl-dev"
+before-all = "yum install -y tcl-devel mysql-devel lapack-devel"
+
