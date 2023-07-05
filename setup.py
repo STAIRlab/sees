@@ -34,21 +34,20 @@ if __name__ == "__main__":
                 cmake_configure_options = [
                     "-G", "Unix Makefiles",
 
-                    f"-DCMAKE_PREFIX_PATH:FILEPATH={os.environ['CONDA_PREFIX']}",
-                    f"-DCMAKE_IGNORE_PATH:FILEPATH=/usr/lib/;/lib",
-                    f"-DDependencies=Conda",
-                    # "-DDependencies=Unix",
+#                   f"-DCMAKE_PREFIX_PATH:FILEPATH={os.environ['CONDA_PREFIX']}",
+#                   f"-DCMAKE_IGNORE_PATH:FILEPATH=/usr/lib/;/lib",
+#                   f"-DDependencies=Conda",
+#                   "-DDependencies=Unix",
 
-                    "-DCMAKE_BUILD_TYPE=DEBUG",
-                    # "-DCMAKE_BUILD_TYPE=Release",
+#                   "-DCMAKE_BUILD_TYPE=DEBUG",
+                    "-DCMAKE_BUILD_TYPE=Release",
                     "-DOPENSEESRT_VERSION=0.0.34",
-                    # "-DNoOpenSeesPyRT=True",
-                    # "-DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use",
+#                   "-DNoOpenSeesPyRT=True",
                     *OpenSeesPyRT_Config,
 
                     f"-DPYTHON_EXECUTABLE:FILEPATH={sys.executable}"
                 ],
-                cmake_build_options=["--target", "OpenSeesRT"]
+                cmake_build_options=["--target", "OpenSeesRT", "-j12"]
             )
         ]
     )
