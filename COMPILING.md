@@ -1,4 +1,5 @@
 
+
 `OS`/`Deps`/`PyRT`:
 
 - [x] `Unix`/`Unix`/`True?` - use for PyPI
@@ -10,6 +11,7 @@
   `fortran-compiler`, `cxx-compiler` and `c-compiler`
 
 - [x] `Win32`/`Intel`/`False`
+  python3.9 -m cibuildwheel --platform windows --arch AMD64
 
 - [ ] `Win32`/`Conda`/
 

@@ -12,7 +12,7 @@ node_responses = Str("recorder", about="a string indicating response required. R
                 "vel":             "velocity*",
                 "accel":           "acceleration*",
                 "incrDisp":        "incremental displacement",
-                "eigen {i}":           "eigenvector for mode i",
+                "eigen {i}":       "eigenvector for mode i",
                 "reaction":        "nodal reaction",
                 "rayleighForces":  "damping forces",
             }
@@ -140,7 +140,6 @@ class Node(Recorder):
 
 #   -dof ($dof1 $dof2 ...) 
         Grp("dofs", type=Int, reqd=False, num="*", flag="-dof", about="the specified dof at the nodes whose response is requested."),
-
 
         node_responses
     ]

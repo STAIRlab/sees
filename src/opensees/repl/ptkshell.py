@@ -1,3 +1,9 @@
+_banner = """\
+                 ┌─┐┌─┐┌─┐┌─┐  ┌──┌─┐┌─┐ ┌──
+                 └─┘├─┘└──┘ │ ─┘  └──└───┘
+ ───────────────────┘Berkeley, California ──────────────────────
+                         © UC Regents
+"""
 from pathlib import Path
 import opensees.tcl
 
@@ -43,24 +49,6 @@ completions = {
         },
         "exit": None,
 }
-
-from prompt_toolkit.completion import Completer, Completion
-
-class MyCustomCompleter(Completer):
-    def get_completions(self, document, complete_event):
-        # Display this completion, black on yellow.
-        yield Completion('completion1', start_position=0,
-                         style='bg:ansiyellow fg:ansiblack')
-
-        # Underline completion.
-        yield Completion('completion2', start_position=0,
-                         style='underline')
-
-        # Specify class name, which will be looked up in the style sheet.
-        yield Completion('completion3', start_position=0,
-                         style='class:special-completion')
-
-
 
 def nested_prompt(session=None, _prompt=None, inputs="", depth=1, ret=True, **kwds):
     if _prompt is None: _prompt = "  "*depth
@@ -117,11 +105,7 @@ class OpenSeesREPL:
         interp = self.interp
         lexer  = PygmentsLexer(TclLexer)
 
-        try:
-            # May not have banner if --no-load option used
-            interp.eval("puts $opensees::banner")
-        except:
-            pass
+        print(_banner)
 
         while True:
             cwd_files.clear()

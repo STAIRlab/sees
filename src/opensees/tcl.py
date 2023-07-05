@@ -55,7 +55,7 @@ def _build_extension_env():
 
 def _find_openseesrt():
     if "OPENSEESRT_LIB" in os.environ:
-        libOpenSeesRT_path = os.environ["OPENSEESRT_LIB"]
+        libOpenSeesRT_path = pathlib.Path(os.environ["OPENSEESRT_LIB"])
         return libOpenSeesRT_path.parents[0], libOpenSeesRT_path
 
     op_sys = platform.system()
@@ -67,7 +67,7 @@ def _find_openseesrt():
 
     install_dir = pathlib.Path(__file__).parents[0]
     if op_sys == "Windows":
-        libOpenSeesRT_path = install_dir/f"OpenSeesRT{ext}"
+        libOpenSeesRT_path = install_dir/"bin"/f"OpenSeesRT{ext}"
     else:
         libOpenSeesRT_path = install_dir/f"libOpenSeesRT{ext}"
 
@@ -259,9 +259,9 @@ class TclRuntime:
 
     @property
     def _rt(self):
-        if self._c_rt is None:
-            from . import OpenSeesPyRT as libOpenSeesRT
-            self._c_rt = libOpenSeesRT.getRuntime(self._interp.tk.interpaddr())
+        # if self._c_rt is None:
+        #     from . import OpenSeesPyRT as libOpenSeesRT
+        #     self._c_rt = libOpenSeesRT.getRuntime(self._interp.tk.interpaddr())
         return self._c_rt
 
     @property
@@ -281,27 +281,27 @@ class TclRuntime:
     time = getTime
 
 
-    @classmethod
-    def _as_tcl_arg(cls, arg):
-        if isinstance(arg, list):
-            return f"{{{''.join(TclRuntime._as_tcl_arg(a) for a in arg)}}}"
-        elif isinstance(arg, dict):
-            return "{\n" + "\n".join([
-              f"{cmd} " + " ".join(TclRuntime._as_tcl_arg(a) for a in val)
-                  for cmd, val in kwds
-        ]) + "}"
-        else:
-            return str(arg)
+#   @classmethod
+#   def _as_tcl_arg(cls, arg):
+#       if isinstance(arg, list):
+#           return f"{{{''.join(TclRuntime._as_tcl_arg(a) for a in arg)}}}"
+#       elif isinstance(arg, dict):
+#           return "{\n" + "\n".join([
+#             f"{cmd} " + " ".join(TclRuntime._as_tcl_arg(a) for a in val)
+#                 for cmd, val in kwds
+#       ]) + "}"
+#       else:
+#           return str(arg)
 
-    def _tcl_call(self, arg, *args, **kwds):
-        tcl_args = [TclRuntime._as_tcl_arg(arg) for arg in args]
-        tcl_args += [
-          f"-{key} " + TclRuntime._as_tcl_arg(val)
-              for key, val in kwds.items()
-        ]
-        ret = self._interp.tk.eval(
-            f"{arg} " + " ".join(tcl_args))
-        return ret if ret != "" else None
+#   def _tcl_call(self, arg, *args, **kwds):
+#       tcl_args = [TclRuntime._as_tcl_arg(arg) for arg in args]
+#       tcl_args += [
+#         f"-{key} " + TclRuntime._as_tcl_arg(val)
+#             for key, val in kwds.items()
+#       ]
+#       ret = self._interp.tk.eval(
+#           f"{arg} " + " ".join(tcl_args))
+#       return ret if ret != "" else None
 
     def eval(self, string):
         try:
@@ -312,8 +312,8 @@ class TclRuntime:
             raise e
 
 
-    def __getattr__(self, attr):
-        return self._partial(self._tcl_call, attr)
+#   def __getattr__(self, attr):
+#       return self._partial(self._tcl_call, attr)
 
     def fix(self, nodes, *dofs):
         if not isinstance(nodes,list):

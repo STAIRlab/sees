@@ -103,9 +103,9 @@ if __name__ == "__main__":
                                   preload=opts["preload"],
                                   enable_tk=opts["enable_tk"])
 
-    not_piped = sys.stdin.isatty()
+    from_pipe = not sys.stdin.isatty()
 
-    if len(sys.argv) == 1 and not_piped:
+    if len(sys.argv) == 1 and not from_pipe:
 
         if opts["subproc"]:
             OpenSeesShell().cmdloop()
@@ -114,6 +114,7 @@ if __name__ == "__main__":
         try:
             # Try full-featured REPL
             from opensees.repl.ptkshell import OpenSeesREPL
+            tcl.eval("set tcl_interactive 1")
             OpenSeesREPL(interp=tcl).repl()
 
         except ImportError:
@@ -127,7 +128,7 @@ if __name__ == "__main__":
 
         script = None
         run_cmds = "before"
-        if (not not_piped) and (len(sys.argv) == 1 or file == "-" or (file is None)): # and len(opts["commands"]) == 0):
+        if from_pipe and (len(sys.argv) == 1 or file == "-" or (file is None)): # and len(opts["commands"]) == 0):
             script = sys.stdin.read()
             run_cmds = "after"
 
@@ -135,10 +136,14 @@ if __name__ == "__main__":
 
             try:
                 script = open(file).read()
+            except UnicodeDecodeError:
+                script = open(file, encoding="latin-1").read()
+
             except FileNotFoundError as e:
                 print(e, file=sys.stderr)
                 sys.exit(1)
 
+            tcl.eval(f"info script {file}")
             run_cmds = "before"
 
 
@@ -146,15 +151,18 @@ if __name__ == "__main__":
             for cmd in opts["commands"]:
                 tcl.eval(cmd)
 
+        code = 0
+
         if script is not None:
             try:
-                tcl.eval(script)
-                tcl.eval("wipe")
+                code = tcl.eval(script)
+                if not opts["interact"]:
+                    tcl.eval("wipe")
 
             except opensees.tcl.tkinter._tkinter.TclError as e:
                 print(e, file=sys.stderr)
                 if not opts["interact"]:
-                    sys.exit(1)
+                    sys.exit(-1)
 
         if run_cmds == "after":
             for cmd in opts["commands"]:
@@ -164,7 +172,14 @@ if __name__ == "__main__":
             from opensees.repl.ptkshell import OpenSeesREPL
             # TODO: do something for windows
             sys.stdin = open("/dev/tty")
+            tcl.eval("set tcl_interactive 1")
             OpenSeesREPL(interp=tcl).repl()
             # TclShell(interp=tcl).cmdloop()
+
+        try:
+            code = int(code)
+        except:
+            code = 0
+        sys.exit(code)
 
 
