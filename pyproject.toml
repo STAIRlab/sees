@@ -87,7 +87,24 @@ build-backend = "setuptools.build_meta"
 where = ["src"]
 exclude = ["libg3*", "site*"]
 
+#[tool.setuptools.package-data]
+#opensees = ["*.py", "*.so", "*.dll"]
+
+[tool.setuptools.exclude-package-data]
+opensees = ["site*", "docs*", "*.html"]
+
+#
+#
 [tool.cibuildwheel]
+# manylinux-x86_64-image="manylinux2014"
+manylinux-x86_64-image="manylinux_2_24"
+
+[tool.cibuildwheel.windows]
+before-build="pip install delvewheel"
+repair-wheel-command="delvewheel repair -w {dest_dir} {wheel}"
+
+[tool.cibuildwheel.linux]
 #before-all = "apt install liblapack-dev tcl-dev"
 before-all = "yum install -y tcl-devel mysql-devel lapack-devel"
+
 
