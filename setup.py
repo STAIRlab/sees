@@ -25,6 +25,8 @@ except ImportError:
 
 if __name__ == "__main__":
     setuptools.setup(
+        data_files=[('bin', [*map(str,Path("win32/").glob("*.*"))]),
+        ] if os.name == "nt" else [],
         cmdclass = {"build_ext": amoeba.BuildExtension, "cmake": amoeba.CMakeCommand},
         ext_modules = [
             amoeba.CMakeExtension(
