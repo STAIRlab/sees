@@ -31,7 +31,7 @@ if __name__ == "__main__":
         cmdclass = {"build_ext": amoeba.BuildExtension, "cmake": amoeba.CMakeCommand},
         ext_modules = [
             amoeba.CMakeExtension(
-#               name = "rt",        # PyPA
+#               name = "pypa",        # PyPA
                 name = "local",
                 install_prefix="opensees",
                 cmake_configure_options = [
@@ -40,16 +40,19 @@ if __name__ == "__main__":
 #                   f"-DCMAKE_PREFIX_PATH:FILEPATH={os.environ['CONDA_PREFIX']}",
 #                   f"-DCMAKE_IGNORE_PATH:FILEPATH=/usr/lib/;/lib",
 #                   f"-DDependencies=Conda",
-#                   "-DDependencies=Unix",
+                    "-DDependencies=Unix",
 
-#                   "-DCMAKE_BUILD_TYPE=DEBUG",
-                    "-DCMAKE_BUILD_TYPE=Release",
+                    "-DCMAKE_BUILD_TYPE=DEBUG",
+#                   "-DCMAKE_BUILD_TYPE=Release",
                     "-DOPENSEESRT_VERSION=0.0.34",
                     *OpenSeesPyRT_Config,
 
                     f"-DPYTHON_EXECUTABLE:FILEPATH={sys.executable}"
                 ],
-                cmake_build_options=["-j15", "--target", "OpenSeesRT", "--target", "OpenSeesPyRT"]
+                cmake_build_options=["-j15", 
+                    "--target", "OpenSeesRT", 
+                    "--target", "OpenSeesPyRT"
+                ]
             )
         ]
     )
