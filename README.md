@@ -1,10 +1,11 @@
 # OpenSeesRT
 
 <!--
-<img align="left" src="https://raw.githubusercontent.com/BRACE2/OpenSeesRT/master/docs/figures/peer-black-300.png" width="250px" alt="PEER Logo">
+<img align="left" src="https://raw.githubusercontent.com/BRACE2/OpenSeesRT/master/docs/figures/banner.png" width="150px" alt="OpenSees">
 -->
 
-<img align="left" src="https://raw.githubusercontent.com/BRACE2/OpenSeesRT/master/docs/figures/banner.png" width="150px" alt="OpenSees">
+<img align="left" src="https://raw.githubusercontent.com/BRACE2/OpenSeesRT/master/docs/figures/peer-black-100.png" width="250px" alt="PEER Logo">
+
 
 
 ***Idiomatic* and *idempotent* C++ bindings to the OpenSees framework for finite element analysis.**
@@ -41,7 +42,8 @@ of global state.
 </center>
 
 > **Note** This package is independent of the [`openseespy`](https://pypi.org/project/openseespy)
-> library, which is documented in the OpenSees [documentation](https://opensees.github.io/OpenSeesDocumentation).
+> library, which is documented in the OpenSees [documentation](https://opensees.github.io/OpenSeesDocumentation)
+> website.
 
 <!--
 This library provides direct bindings to the [`libg3`](https://github.com/claudioperez/libg3)
