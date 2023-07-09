@@ -2,6 +2,7 @@
 import os
 import sys
 from glob import glob
+from pathlib import Path
 from os.path import basename, splitext
 
 import amoeba
@@ -21,7 +22,7 @@ try:
     ]
 
 except ImportError:
-    OpenSeesPyRT_Config = []
+    OpenSeesPyRT_Config = ["-DNoOpenSeesPyRT=True"]
 
 if __name__ == "__main__":
     setuptools.setup(
@@ -44,12 +45,11 @@ if __name__ == "__main__":
 #                   "-DCMAKE_BUILD_TYPE=DEBUG",
                     "-DCMAKE_BUILD_TYPE=Release",
                     "-DOPENSEESRT_VERSION=0.0.34",
-#                   "-DNoOpenSeesPyRT=True",
                     *OpenSeesPyRT_Config,
 
                     f"-DPYTHON_EXECUTABLE:FILEPATH={sys.executable}"
                 ],
-                cmake_build_options=["--target", "OpenSeesRT", "-j12"]
+                cmake_build_options=["-j15", "--target", "OpenSeesRT", "--target", "OpenSeesPyRT"]
             )
         ]
     )
