@@ -1,13 +1,13 @@
 # ShellDKGQ
 
-<p>This command is used to construct a ShellDKGQ element object, which
+This command is used to construct a ShellDKGQ element, which
 is a quadrilateral shell element based on the theory of generalized
-conforming element.</p>
+conforming element.
 
 ```tcl
-element ShellDKGQ $eleTag $iNode $jNode $kNode $lNode
-        $secTag
+element ShellDKGQ $eleTag $iNode $jNode $kNode $lNode $secTag
 ```
+
 <hr />
 <table>
 <tbody>
@@ -28,8 +28,11 @@ ElasticMembranePlateSection and a LayeredShell section</p></td>
 </tr>
 </tbody>
 </table>
+
 <hr />
+
 <p>Code developed by: <span style="color:blue"> Lisha Wang,
 Tsinghua University, Prof. Xinzheng Lu, Tsinghua University, Linlin Xie,
 Tsinghua University, Prof. Song Cen, Tsinghua University and Prof. Quan
 Gu, Xiamen University </span></p>
+

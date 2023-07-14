@@ -1,6 +1,6 @@
 [project]
 name = "opensees"
-version = "0.0.34"
+version = "0.0.35"
 authors = [
   {name="Claudio M. Perez"}
   # <50180406+claudioperez@users.noreply.github.com>"
@@ -97,7 +97,9 @@ opensees = ["site*", "docs*", "*.html"]
 #
 [tool.cibuildwheel]
 # manylinux-x86_64-image="manylinux2014"
-manylinux-x86_64-image="manylinux_2_24"
+# manylinux-x86_64-image="manylinux_2_24"
+skip = ["pp*", "*musllinux*"]
+manylinux-x86_64-image = "manylinux_2_28"
 
 # [tool.cibuildwheel.windows]
 # before-build="pip install delvewheel"

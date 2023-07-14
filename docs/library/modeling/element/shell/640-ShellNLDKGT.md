@@ -1,14 +1,14 @@
 # ShellNLDKGT
 
-<p>This command is used to construct a ShellNLDKGT element object
-accounting for the geometric nonlinearity of large deformation using the
-updated Lagrangian formula, which is developed based on the ShellDKGT
-element.</p>
+This command is used to construct a ShellNLDKGT element. This element
+accounts for the geometric nonlinearity of large deformation using the
+updated Lagrangian formulation, which is developed based on the ShellDKGT
+element.
 
 ```tcl
-element ShellNLDKGT $eleTag $iNode $jNode $kNode
-        $secTag
+element ShellNLDKGT $eleTag $iNode $jNode $kNode $secTag
 ```
+
 <hr />
 <table>
 <tbody>
@@ -33,7 +33,10 @@ ElasticMembranePlateSection and a LayeredShell section</p></td>
 </tr>
 </tbody>
 </table>
+
 <hr />
+
 <p>Code developed by: <span style="color:blue"> Shuhao Zhang,
 Tsinghua University, and Prof. Xinzheng Lu, Tsinghua University
 </span></p>
+

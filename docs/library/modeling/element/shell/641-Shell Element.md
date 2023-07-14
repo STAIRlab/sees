@@ -1,8 +1,11 @@
 # ShellMITC4
 
-<p>This command is used to construct a ShellMITC4 element object, which
+This command is used to construct a ShellMITC4 element, which
 uses a bilinear isoparametric formulation in combination with a modified
-shear interpolation to improve thin-plate bending performance.</p>
+shear interpolation to improve thin-plate bending performance. The element
+is named for the *Mixed-Interpolated Tensorial Components* formulation 
+(see references below).
+
 
 ```tcl
 element ShellMITC4 $eleTag $iNode $jNode $kNode $lNode $secTag
@@ -35,7 +38,8 @@ ElasticMembranePlateSection</p></td>
 - The valid queries to a Quad element when creating an ElementRecorder
   object are 'forces', 'stresses,' and 
 
-      'material $matNum matArg1 matArg2 ...' 
+       material $matNum matArg1 matArg2 ...
+
   Where `$matNum` refers to the material object at the integration
   point corresponding to the node numbers in the isoparametric
   domain.

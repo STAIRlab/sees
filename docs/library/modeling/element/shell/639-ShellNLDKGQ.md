@@ -1,14 +1,14 @@
 # ShellNLDKGQ
 
-<p>This command is used to construct a ShellNLDKGQ element object
+This command is used to construct a ShellNLDKGQ element
 accounting for the geometric nonlinearity of large deformation using the
 updated Lagrangian formula, which is developed based on the ShellDKGQ
-element.</p>
+element.
 
 ```tcl
-element ShellNLDKGQ $eleTag $iNode $jNode $kNode $lNode
-        $secTag
+element ShellNLDKGQ $eleTag $iNode $jNode $kNode $lNode $secTag
 ```
+
 <hr />
 <table>
 <tbody>
@@ -52,7 +52,9 @@ Finite Elements in Analysis &amp; Design, 2015, 98: 14-25.</p></td>
 </tr>
 </tbody>
 </table>
+
 <p>Code developed by: <span style="color:blue"> Lisha Wang,
 Tsinghua University, Prof. Xinzheng Lu, Tsinghua University, Linlin Xie,
 Tsinghua University, Prof. Song Cen, Tsinghua University and Prof. Quan
 Gu, Xiamen University </span></p>
+

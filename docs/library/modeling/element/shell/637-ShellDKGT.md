@@ -5,8 +5,7 @@ is a triangular shell element based on the theory of generalized
 conforming element.</p>
 
 ```tcl
-element ShellDKGT $eleTag $iNode $jNode $kNode
-        $secTag
+element ShellDKGT $eleTag $iNode $jNode $kNode $secTag
 ```
 <hr />
 <table>
