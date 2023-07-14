@@ -280,29 +280,6 @@ class TclRuntime:
 
     time = getTime
 
-
-#   @classmethod
-#   def _as_tcl_arg(cls, arg):
-#       if isinstance(arg, list):
-#           return f"{{{''.join(TclRuntime._as_tcl_arg(a) for a in arg)}}}"
-#       elif isinstance(arg, dict):
-#           return "{\n" + "\n".join([
-#             f"{cmd} " + " ".join(TclRuntime._as_tcl_arg(a) for a in val)
-#                 for cmd, val in kwds
-#       ]) + "}"
-#       else:
-#           return str(arg)
-
-#   def _tcl_call(self, arg, *args, **kwds):
-#       tcl_args = [TclRuntime._as_tcl_arg(arg) for arg in args]
-#       tcl_args += [
-#         f"-{key} " + TclRuntime._as_tcl_arg(val)
-#             for key, val in kwds.items()
-#       ]
-#       ret = self._interp.tk.eval(
-#           f"{arg} " + " ".join(tcl_args))
-#       return ret if ret != "" else None
-
     def eval(self, string):
         try:
             return self._interp.tk.eval(string)
@@ -310,10 +287,6 @@ class TclRuntime:
         except tkinter._tkinter.TclError as e:
             print(self._interp.getvar("errorInfo"), file=sys.stderr)
             raise e
-
-
-#   def __getattr__(self, attr):
-#       return self._partial(self._tcl_call, attr)
 
     def fix(self, nodes, *dofs):
         if not isinstance(nodes,list):

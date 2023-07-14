@@ -1,6 +1,6 @@
 # ShellNL
 
-This command is used to construct a ShellNL element object, a
+This command is used to construct a ShellNL element, a
 lagrangian nine-noded shell element.
 
 ```tcl
@@ -35,9 +35,9 @@ ElasticMembranePlateSection</p></td>
 The valid queries to a Quad element when creating an `ElementRecorder`
 are 'forces', 'stresses,' and 
 
-  'material $matNum matArg1 matArg2 ...' 
+    material $matNum matArg1 matArg2 ...
 
-Where $matNum refers to the material object at the integration
+Where `$matNum` refers to the material object at the integration
 point corresponding to the node numbers in the isoparametric
 domain.
 
@@ -55,9 +55,11 @@ element ShellNL 1 1 27 29 3 14 28 16 2 15 3
 ```
 
 ## References
+
 <p>Zienkiewicz o.c., Taylor r.l. vol. 2. The finite element method.
 Solid mechanics. Elsevier 2000</p>
 
 <hr />
 <p>Code Developed by: <span style="color:blue"> Leopoldo Tesser,
 Diego A. Talledo</span></p>
+
