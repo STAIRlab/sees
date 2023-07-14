@@ -227,25 +227,32 @@ class OpenSeesPy(TclRuntime):
     @classmethod
     def _as_tcl_arg(cls, arg):
         if isinstance(arg, list):
-            return f"{{{''.join(TclRuntime._as_tcl_arg(a) for a in arg)}}}"
+            return f"{{{''.join(OpenSeesPy._as_tcl_arg(a) for a in arg)}}}"
         elif isinstance(arg, dict):
             return "{\n" + "\n".join([
-              f"{cmd} " + " ".join(TclRuntime._as_tcl_arg(a) for a in val)
+              f"{cmd} " + " ".join(OpenSeesPy._as_tcl_arg(a) for a in val)
                   for cmd, val in kwds
         ]) + "}"
         else:
             return str(arg)
 
     def _tcl_call(self, arg, *args, **kwds):
-        tcl_args = [TclRuntime._as_tcl_arg(arg) for arg in args]
+        tcl_args = [OpenSeesPy._as_tcl_arg(i) for i in args]
         tcl_args += [
-          f"-{key} " + TclRuntime._as_tcl_arg(val)
+          f"-{key} " + OpenSeesPy._as_tcl_arg(val)
               for key, val in kwds.items()
         ]
         ret = self._interp.tk.eval(
             f"{arg} " + " ".join(tcl_args))
         return ret if ret != "" else None
 
+    def pattern(self, *args, **kwds):
+        self._current_pattern = args[1]
+        return self._tcl_call("pattern", *args, **kwds)
+
+    def load(self, *args, **kwds):
+        pattern = self._current_pattern
+        return self._tcl_call("nodalLoad", *args, "-pattern", pattern, **kwds)
 
 #   def __getattr__(self, attr):
 #       return self._partial(self._tcl_call, attr)
@@ -256,19 +263,9 @@ _openseespy = OpenSeesPy()
 def __getattr__(name):
     # For reference:
     #   https://peps.python.org/pep-0562/#id4
-    return _openseespy._partial(_openseespy._tcl_call, name)
-
-#   if hasattr(_openseespy, name):
-#       try:
-#           return getattr(importlib.import_module(".library", __name__), name)
-
-#       except AttributeError:
-#           raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
-#   else:
-#       try:
-#           return importlib.import_module("." + name, __name__)
-#       except:
-#           raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
-#   raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+    if name in {"pattern", "load"}:
+        return getattr(_openseespy, name)
+    else:
+        return _openseespy._partial(_openseespy._tcl_call, name)
 
 
