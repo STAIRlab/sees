@@ -242,8 +242,8 @@ class OpenSeesPy(TclRuntime):
           f"-{key} " + OpenSeesPy._as_tcl_arg(val)
               for key, val in kwds.items()
         ]
-        ret = self._interp.tk.eval(
-            f"{arg} " + " ".join(tcl_args))
+        cmd = f"{arg} " + " ".join(tcl_args)
+        ret = self._interp.tk.eval(cmd)
         return ret if ret != "" else None
 
     def pattern(self, *args, **kwds):
