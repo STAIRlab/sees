@@ -1,4 +1,5 @@
 from .tcl import TclRuntime
+import json
 
 # A list of symbol names that are importable
 # from this module. All of these are dynamically
@@ -277,9 +278,18 @@ class OpenSeesPy(TclRuntime):
         try:
             ret = self._interp.tk.eval(cmd)
         except Exception as e:
-            print(cmd)
+            # print(cmd)
             raise e
-        return ret if ret != "" else None
+        if ret is None or ret == "":
+            return None
+
+        parts = ret.split()
+        if len(parts) > 1:
+            try: return json.loads("[" + ",".join(parts) + "]")
+            except: return ret
+        else:
+            try: return json.loads(ret)
+            except: return ret
 
     def pattern(self, *args, **kwds):
         self._current_pattern = args[1]
