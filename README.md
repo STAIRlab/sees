@@ -49,11 +49,7 @@ of global state.
 > library, which is documented in the OpenSees [documentation](https://opensees.github.io/OpenSeesDocumentation)
 > website.
 
-<!--
-This library provides direct bindings to the [`libg3`](https://github.com/claudioperez/libg3)
-OpenSees *runtime*.  This is a new C++ framework for the core OpenSees classes that eliminates
-reliance on static global pointers.
--->
+Python versions 3.7 - 3.11 are supported on both Windows and Linux.
 
 
 <!-- Badge links -->
