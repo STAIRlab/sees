@@ -41,9 +41,9 @@ This is an experimental package that provides a complete OpenSees Tcl interprete
 as well as a new set of Python bindings that is both idiomatic, and free
 of global state.
 
-<center>
+<p style="text-align: center;">
 <b>This package is not yet intended for public use.</b>
-</center>
+</p>
 
 > **Note** This package is independent of the [`openseespy`](https://pypi.org/project/openseespy)
 > library, which is documented in the OpenSees [documentation](https://opensees.github.io/OpenSeesDocumentation)
