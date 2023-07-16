@@ -15,10 +15,27 @@ options = {
     "Win32": ""
 }
 
+if os.name == "nt":
+    EnvArgs = []
+
+elif "CONDA_PREFIX" in os.environ:
+    EnvArgs = [
+        "-DDependencies=Conda",
+        f"-DCMAKE_PREFIX_PATH:FILEPATH={os.environ['CONDA_PREFIX']}",
+        f"-DCMAKE_IGNORE_PATH:FILEPATH=/usr/lib/;/lib",
+    ]
+
+else:
+    EnvArgs = [
+        "-DDependencies=Unix",
+    ]
+
+
 try:
     import pybind11
     OpenSeesPyRT_Config = [
         f"-Dpybind11_DIR:FILEPATH={pybind11.get_cmake_dir()}",
+        f"-DPYTHON_EXECUTABLE:FILEPATH={sys.executable}"
     ]
 
 except ImportError:
@@ -36,18 +53,13 @@ if __name__ == "__main__":
                 install_prefix="opensees",
                 cmake_configure_options = [
                     "-G", "Unix Makefiles",
+                    *EnvArgs,
 
-#                   f"-DCMAKE_PREFIX_PATH:FILEPATH={os.environ['CONDA_PREFIX']}",
-#                   f"-DCMAKE_IGNORE_PATH:FILEPATH=/usr/lib/;/lib",
-#                   f"-DDependencies=Conda",
-                    "-DDependencies=Unix",
-
-                    "-DCMAKE_BUILD_TYPE=DEBUG",
-#                   "-DCMAKE_BUILD_TYPE=Release",
+#                   "-DCMAKE_BUILD_TYPE=DEBUG",
+                    "-DCMAKE_BUILD_TYPE=Release",
                     "-DOPENSEESRT_VERSION=0.0.34",
                     *OpenSeesPyRT_Config,
 
-                    f"-DPYTHON_EXECUTABLE:FILEPATH={sys.executable}"
                 ],
                 cmake_build_options=["-j15", 
                     "--target", "OpenSeesRT", 
