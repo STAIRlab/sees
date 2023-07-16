@@ -5,10 +5,27 @@ import opensees
 import opensees.tcl
 
 HELP = """\
-usage: opensees <file> [args]...
-                [options] <file> [args]...
-                <command> ...
+usage: opensees <file> [args..]
+                [options..] <file> [args..]
 
+Execute an OpenSees Tcl script given in <file>
+with optional arguments [args].
+
+Options
+  -i                          After evaluating <file>, drop into
+                              an interactive Tcl shell.
+  -c <command>                Run <command> before executing <file>,
+                              but after executing stdin, if opened.
+                              This option can be given several times.
+  --enable-tk                 Enable the use of the Tk library for GUIs
+
+  -h/--help                   Print this message and exit.
+
+  -v/--verbose
+
+"""
+
+"""
                 -trans        Transient analysis
                 -eigen        Eigenvalue analysis returning frequencies
                 -modes        Eigenvalue analysis returning modes
@@ -19,13 +36,6 @@ usage: opensees <file> [args]...
        opensees -print
        opensees -json
        opensees -emit
-
-Options
-  -v/--verbose
-
-  -i                          interactive
-
-  -c <command>
 """
 
 # PROMPT = "\033[01;31mopensees\033[0m > "

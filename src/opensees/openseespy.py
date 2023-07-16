@@ -224,6 +224,8 @@ __all__ = [
     "runImportanceSamplingAnalysis",
     "IGA",
     "NDTest",
+
+    "tcl"
 ]
 
 def _as_str_arg(arg):
@@ -289,7 +291,7 @@ class OpenSeesPy(TclRuntime):
 
 
 # The global singleton
-_openseespy = OpenSeesPy()
+tcl = _openseespy = OpenSeesPy()
 
 def __getattr__(name):
     # For reference:
