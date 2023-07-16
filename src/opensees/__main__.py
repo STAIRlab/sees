@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import os
 import sys
 
 import opensees
@@ -115,7 +116,7 @@ if __name__ == "__main__":
 
     from_pipe = not sys.stdin.isatty()
 
-    if len(sys.argv) == 1 and not from_pipe:
+    if file is None and len(opts["commands"]) == 0 and not from_pipe:
 
         if opts["subproc"]:
             OpenSeesShell().cmdloop()
@@ -130,66 +131,70 @@ if __name__ == "__main__":
         except ImportError:
             from opensees.repl.cmdshell import TclShell
             TclShell().cmdloop()
+        sys.exit()
 
-    else:
-        argv = list(argi)
-        tcl.eval(f"set argc {len(argv)+1}")
-        tcl.eval(f"set argv {{{file} {' '.join(argv)}}}")
+    #
+    #
+    #
+    argv = list(argi)
+    tcl.eval(f"set argc {len(argv)+1}")
+    tcl.eval(f"set argv {{{file} {' '.join(argv)}}}")
 
-        script = None
-        run_cmds = "before"
-        if from_pipe and (len(sys.argv) == 1 or file == "-" or (file is None)): # and len(opts["commands"]) == 0):
-            script = sys.stdin.read()
-            run_cmds = "after"
+    script = None
+    run_cmds = "before"
+    if from_pipe and (file == "-" or (file is None)): # and len(opts["commands"]) == 0):
+        script = sys.stdin.read()
+        run_cmds = "after"
 
-        elif file is not None:
-
-            try:
-                script = open(file).read()
-            except UnicodeDecodeError:
-                script = open(file, encoding="latin-1").read()
-
-            except FileNotFoundError as e:
-                print(e, file=sys.stderr)
-                sys.exit(1)
-
-            tcl.eval(f"info script {file}")
-            run_cmds = "before"
-
-
-        if run_cmds == "before":
-            for cmd in opts["commands"]:
-                tcl.eval(cmd)
-
-        code = 0
-
-        if script is not None:
-            try:
-                code = tcl.eval(script)
-                if not opts["interact"]:
-                    tcl.eval("wipe")
-
-            except opensees.tcl.tkinter._tkinter.TclError as e:
-                print(e, file=sys.stderr)
-                if not opts["interact"]:
-                    sys.exit(-1)
-
-        if run_cmds == "after":
-            for cmd in opts["commands"]:
-                tcl.eval(cmd)
-
-        if opts["interact"]:
-            from opensees.repl.ptkshell import OpenSeesREPL
-            # TODO: do something for windows
-            sys.stdin = open("/dev/tty")
-            tcl.eval("set tcl_interactive 1")
-            OpenSeesREPL(interp=tcl).repl()
-            # TclShell(interp=tcl).cmdloop()
+    elif file is not None:
 
         try:
-            code = int(code)
-        except:
-            code = 0
-        sys.exit(code)
+            script = open(file).read()
+        except UnicodeDecodeError:
+            script = open(file, encoding="latin-1").read()
+
+        except FileNotFoundError as e:
+            print(e, file=sys.stderr)
+            sys.exit(1)
+
+        tcl.eval(f"info script {file}")
+        run_cmds = "before"
+
+
+    if run_cmds == "before":
+        for cmd in opts["commands"]:
+            tcl.eval(cmd)
+
+    code = 0
+
+    if script is not None:
+        try:
+            code = tcl.eval(script)
+
+        except opensees.tcl.tkinter._tkinter.TclError as e:
+            print(e, file=sys.stderr)
+            if not opts["interact"]:
+                sys.exit(-1)
+
+    if run_cmds == "after":
+        for cmd in opts["commands"]:
+            tcl.eval(cmd)
+
+    if not opts["interact"]:
+        tcl.eval("wipe")
+
+    else:
+        from opensees.repl.ptkshell import OpenSeesREPL
+        # TODO: do something for windows
+        if os.name != "nt":
+            sys.stdin = open("/dev/tty")
+        tcl.eval("set tcl_interactive 1")
+        OpenSeesREPL(interp=tcl).repl()
+
+    try:
+        code = int(code)
+    except:
+        code = 0
+    sys.exit(code)
 
 
