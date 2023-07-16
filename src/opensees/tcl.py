@@ -256,6 +256,7 @@ class TclRuntime:
                 _builder.addPythonObject(tag, obj)
 
             self.eval(m.getScript())
+        return self
 
     @property
     def _rt(self):

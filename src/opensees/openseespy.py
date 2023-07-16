@@ -1,4 +1,8 @@
 from .tcl import TclRuntime
+
+# A list of symbol names that are importable
+# from this module. All of these are dynamically
+# resolved by the function __getattr__ below.
 __all__ = [
     "uniaxialMaterial",
     "testUniaxialMaterial",
@@ -222,42 +226,69 @@ __all__ = [
     "NDTest",
 ]
 
+def _as_str_arg(arg):
+    """
+    Convert arg to a string that represents
+    Tcl semantics.
+    """
+    if isinstance(arg, list):
+        return f"{{{''.join(_as_str_arg(a) for a in arg)}}}"
+
+    elif isinstance(arg, bool):
+        return str(int(arg))
+
+    elif isinstance(arg, dict):
+        return "{\n" + "\n".join([
+          f"{cmd} " + " ".join(_as_str_arg(a) for a in val)
+              for cmd, val in kwds
+    ]) + "}"
+    else:
+        return str(arg)
+
 class OpenSeesPy(TclRuntime):
+    """
+    This class is meant to be instantiated as a global singleton
+    that is private to this Python module.
 
-    @classmethod
-    def _as_tcl_arg(cls, arg):
-        if isinstance(arg, list):
-            return f"{{{''.join(OpenSeesPy._as_tcl_arg(a) for a in arg)}}}"
-        elif isinstance(arg, dict):
-            return "{\n" + "\n".join([
-              f"{cmd} " + " ".join(OpenSeesPy._as_tcl_arg(a) for a in val)
-                  for cmd, val in kwds
-        ]) + "}"
-        else:
-            return str(arg)
+    It encapsulates an instance of TclRuntime which implements an
+    OpenSees state.
+    """
 
-    def _tcl_call(self, arg, *args, **kwds):
-        tcl_args = [OpenSeesPy._as_tcl_arg(i) for i in args]
+    def _str_call(self, proc_name: str, *args, **kwds)->str:
+        """
+        Invoke the TclRuntime's eval method, calling
+        a procedure named `proc_name` with arguments
+        from args and kwds, after converting Python semantics
+        to Tcl semantics (via _as_str_arg).
+
+        For example, key-word arguments contained in the `kwds`
+        dict are converted to a sequence of "-key" and "value"
+        strings.
+        """
+
+        tcl_args = [_as_str_arg(i) for i in args]
         tcl_args += [
-          f"-{key} " + OpenSeesPy._as_tcl_arg(val)
+          f"-{key} " + _as_str_arg(val)
               for key, val in kwds.items()
         ]
-        cmd = f"{arg} " + " ".join(tcl_args)
-        ret = self._interp.tk.eval(cmd)
+        cmd = f"{proc_name} " + " ".join(tcl_args)
+        try:
+            ret = self._interp.tk.eval(cmd)
+        except Exception as e:
+            print(cmd)
+            raise e
         return ret if ret != "" else None
 
     def pattern(self, *args, **kwds):
         self._current_pattern = args[1]
-        return self._tcl_call("pattern", *args, **kwds)
+        return self._str_call("pattern", *args, **kwds)
 
     def load(self, *args, **kwds):
         pattern = self._current_pattern
-        return self._tcl_call("nodalLoad", *args, "-pattern", pattern, **kwds)
-
-#   def __getattr__(self, attr):
-#       return self._partial(self._tcl_call, attr)
+        return self._str_call("nodalLoad", *args, "-pattern", pattern, **kwds)
 
 
+# The global singleton
 _openseespy = OpenSeesPy()
 
 def __getattr__(name):
@@ -266,6 +297,6 @@ def __getattr__(name):
     if name in {"pattern", "load"}:
         return getattr(_openseespy, name)
     else:
-        return _openseespy._partial(_openseespy._tcl_call, name)
+        return _openseespy._partial(_openseespy._str_call, name)
 
 
