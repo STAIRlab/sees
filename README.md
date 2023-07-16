@@ -8,7 +8,7 @@
 
 
 
-***Idiomatic* and *idempotent* C++ bindings to the OpenSees framework for finite element analysis.**
+***Direct* and *idiomatic* C++ bindings to the OpenSees framework for finite element analysis.**
 
 
 <br>

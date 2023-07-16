@@ -10,7 +10,7 @@ license = {file = "project/LICENSE"}
 
 readme = "README.md"
 
-description = "Idiomatic and idempotent bindings to the OpenSees framework."
+description = "Direct and idiomatic bindings to the OpenSees framework."
 
 classifiers = [
     "Development Status :: 5 - Production/Stable",
