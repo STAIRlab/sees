@@ -149,6 +149,14 @@ class TclRuntime:
         if model is not None:
             self.send(model)
 
+        try:
+            import sees.tcl
+            sees.tcl.add_commands(self)
+        except ImportError:
+            pass
+
+
+
     @property
     def registry(self):
         registry["UniaxialMaterial"][0].getStress()
@@ -162,21 +170,26 @@ class TclRuntime:
             self.eval("opensees::import " + " ".join(args))
             return
 
-    def export(self, *args):
-        import io
-        import os
-        import sys
+    def to_dict(self):
         import json
-        import opensees.emit.mesh
-
         # TODO: use tempfile or pipe
         self.eval("print -json .abcd.json")
 
         with open(".abcd.json", "r") as f:
             model = json.load(f)
-            model = model["StructuralAnalysisModel"]
-        os.remove(".abcd.json")
 
+            model = model["StructuralAnalysisModel"]
+#       print(model)
+        os.remove(".abcd.json")
+        return model
+
+    def export(self, *args):
+        import io
+        import os
+        import sys
+        import opensees.emit.mesh
+
+        model = self.to_dict()
 
         if args[0] == "stdout":
             file = io.StringIO()

@@ -26,13 +26,18 @@ model = opensees.model(
     bound={1: [1]*6}
 )
 
-print(dumps(model))
+# print(dumps(model))
 
 #
 # Patterns
 #
-loads = {2: [0.0]*3+[0.0, 1.0, 0.0]}
-patterns = {1: opensees.library.pattern.Plain(1, "Linear", loads)}
+loads = {
+        2: [0.0]*3+[0.0, 1.0, 0.0]
+}
+
+patterns = {
+        1: opensees.library.pattern.Plain(1, "Linear", loads)
+}
 
 
 #
@@ -49,9 +54,8 @@ strategy = {
 
 analysis = opensees.analysis.StaticAnalysis(model, strategy, patterns)
 
-analysis.analyze(3)
-
-print(analysis.rt.getNodeResponse(2, "displ"))
-
+for i in range(10):
+    analysis.analyze(1)
+    print(analysis.rt.getNodeResponse(2, "displ"))
 
 

@@ -33,7 +33,7 @@ mats = [
 ]
 
 def test(mat):
-    print(dumps(mat))
+#   print(dumps(mat))
     with mat as m:
         print("\t", [m.getStress(e, True) for e in strain])
 
