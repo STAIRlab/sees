@@ -5,6 +5,9 @@ import platform
 from contextlib import contextmanager
 
 try:
+    # On certain servers (heroku), tkinter is not
+    # provided. In this case we  can fall pack
+    # to the tcinter repackaging
     import tkinter
 except:
     import tcinter as tkinter
@@ -14,32 +17,10 @@ from opensees.library.obj import Component
 
 @contextmanager
 def _build_extension_env():
-    """
-    Create a context in which build extensions can be imported.
-
-    It fixes a change of behaviour of Python >= 3.8 in Windows:
-    https://docs.python.org/3/whatsnew/3.8.html#bpo-36085-whatsnew
-
-    Other related resources:
-
-    - https://stackoverflow.com/a/23805306
-    - https://www.mail-archive.com/dev@subversion.apache.org/msg40414.html
-
-    Example:
-
-    .. code-block:: python
-
-        from cmake_build_extension import build_extension_env
-
-        with build_extension_env():
-            from . import bindings
-    """
-
     cookies = []
 
     # Windows and Python >= 3.8
     if hasattr(os, "add_dll_directory"):
-
         for path in os.environ.get("PATH", "").split(os.pathsep):
 
             if path and pathlib.Path(path).is_absolute() and pathlib.Path(path).is_dir():
@@ -66,12 +47,14 @@ def _find_openseesrt():
     }[op_sys]
 
     install_dir = pathlib.Path(__file__).parents[0]
+
     if op_sys == "Windows":
         libOpenSeesRT_path = install_dir/"bin"/f"OpenSeesRT{ext}"
     else:
         libOpenSeesRT_path = install_dir/f"libOpenSeesRT{ext}"
 
     return libOpenSeesRT_path.parents[0], libOpenSeesRT_path
+
 
 def TclInterpreter(verbose=False, tcl_lib=None, preload=True, enable_tk=False):
 
@@ -204,13 +187,10 @@ class TclRuntime:
         mesh = opensees.emit.mesh.dump(model, args[0], fmt)
 
         try:
-            mesh.write(
-                file,          # str, os.PathLike, or buffer/open file
-                file_format=fmt,  # optional if first argument is a path; inferred from extension
-            )
+            mesh.write(file, file_format=fmt)
+
         except Exception as e:
             print(e, file=sys.stderr)
-            # self.eval(f'error {{{e}}}')
 
         return ""
 
@@ -238,11 +218,9 @@ class TclRuntime:
             return __builtins__["eval"]((" ".join(args[:])).replace("$",""), env)
 
         except Exception as e:
-            # raise e
             print(e, file=sys.stderr)
 
     def model(self, ndm, ndf, **kwds):
-        # TODO: refactor this function
         """
         model(model: opensees.model)
         model(ndm:int, ndf:int)
@@ -314,57 +292,4 @@ class TclRuntime:
                 self.eval(v.cmd)
 
 Runtime = TclRuntime
-
-#
-# Analysis
-#
-def eigen(script: str, modes=1, verbose=False):
-    interp = TclInterpreter()
-    interp.eval(f"""
-
-    {script}
-
-    set options(-verbose)  {int(verbose)}
-    set options(-numModes) {modes}
-    set options(-file) /dev/stdout
-
-    set PI       3.1415159
-    set DOFs     {{1 2 3 4 5 6}}
-    set nodeList [getNodeTags]
-
-    """ + """
-    # Initialize variables `omega`, `f` and `T` to
-    # empty lists.
-    foreach {omega f T recorders} {{} {} {} {}} {}
-
-    for {set k 1} {$k <= $options(-numModes)} {incr k} {
-      lappend recorders [recorder Node -node {*}$nodeList -dof {*}$DOFs "eigen $k";]
-    }
-
-    set eigenvals [eigen $options(-numModes)];
-
-    set T_scale 1.0
-    foreach eig $eigenvals {
-      lappend omega [expr sqrt($eig)];
-      lappend f     [expr sqrt($eig)/(2.0*$PI)];
-      lappend T     [expr $T_scale*(2.0*$PI)/sqrt($eig)];
-    }
-
-    # print info to `stdout`.
-    #if {$options(-verbose)} {
-    #  # puts "Angular frequency (rad/s): $omega\n";
-    #  # puts "Frequency (Hz):            $f\n";
-    #  # puts "Periods (sec):             $T\n";
-    #}
-
-    if {$options(-file) != 0} {
-      source /home/claudio/brace/Scripts/OpenSeesScripts/brace2.tcl
-      brace2::io::write_modes $options(-file) $options(-numModes)
-    }
-
-    foreach recorder $recorders {
-      remove recorder $recorder
-    }
-    """)
-    return interp
 
