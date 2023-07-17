@@ -62,3 +62,10 @@ Python versions 3.7 - 3.11 are supported on both Windows and Linux.
 [pypi-v-image]: https://img.shields.io/pypi/v/opensees.svg
 [pypi-v-link]: https://pypi.org/project/opensees
 
+
+See also:
+
+- [`sees`] Modern rendering library
+- [`ssid`] Optimized system identification library
+- [`sdof`] Optimized integration library
+
