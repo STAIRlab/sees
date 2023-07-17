@@ -43,6 +43,7 @@ dependencies = [
 # Plotting
 #   "matplotlib",
 #   "panel",
+    "sees",
 
 # Full-featured REPL
     "pyparsing",
