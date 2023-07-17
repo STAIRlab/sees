@@ -1,9 +1,10 @@
-<!--
 # OpenSeesRT
--->
 
 
+
+<!--
 <img align="center" src="https://raw.githubusercontent.com/BRACE2/OpenSeesRT/master/docs/figures/banner.png" width="150px" alt="OpenSees">
+-->
 
 <img align="left" src="https://raw.githubusercontent.com/BRACE2/OpenSeesRT/master/docs/figures/peer-black-300.png" width="150px" alt="PEER Logo">
 
