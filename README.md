@@ -65,7 +65,7 @@ Python versions 3.7 - 3.11 are supported on both Windows and Linux.
 
 See also:
 
-- [`sees`] Modern rendering library
-- [`ssid`] Optimized system identification library
-- [`sdof`] Optimized integration library
+- [`sees`](https://pypi.org/project/sees) Modern rendering library
+- [`ssid`](https://pypi.org/project/ssid) Optimized system identification library
+- [`sdof`](https://pypi.org/project/sdof) Optimized integration library
 
