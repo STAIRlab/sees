@@ -1,1 +1,8 @@
-from .section import *
+from .section import (
+      FiberSection,
+      ConfinedPolygon,
+      ConfiningPolygon,
+      PolygonRing
+)
+
+SectionGeometry = FiberSection

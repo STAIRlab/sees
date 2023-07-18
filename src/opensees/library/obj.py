@@ -20,8 +20,8 @@ class Component:
         from opensees import OpenSeesPyRT as libOpenSeesRT
 
         if self.tag_space == "uniaxialMaterial":
+            self.tag = tag = self.name if self.name is not None else "1"
             rt.send(self, ndm=1, ndf=1)
-            tag = self.name if self.name is not None else "1"
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
             handle = self._builder.getUniaxialMaterial(tag)
 
@@ -133,7 +133,7 @@ class Cmd:
 def cmd(cls, cmd=None, args=None, refs=(), namespace=None, **ops):
     if isinstance(cls, str):
         # Called as function (ie my_command = cmd('my_cmd'))
-        fields = [arg.field for arg in args] 
+        fields = [arg.field for arg in args]
         alts = {arg.kwds["alt"] for arg in args if "alt" in arg.kwds}
         obj = struct(cls, fields, args, alts, cmd=[cmd], refs=refs)
     else:
@@ -233,12 +233,18 @@ class LibCmd(Cmd):
         return obj
 
 
-def struct(name, fields, args = None, alts=None, refs=None, cmd=None, parents=None):
+def struct(name, fields, syntax = None, alts=None, refs=None, cmd=None, parents=None):
     if cmd is None: cmd = []
     if refs is None: refs = []
     if parents is None: parents = []
-    if isinstance(args[0], Tag):
-        args[0].kwds["tag_space"] = cmd[0]
+    if isinstance(syntax[0], Tag):
+        syntax[0].kwds["tag_space"] = cmd[0]
+        if len(fields) > 1:
+            call_signature = ','.join(f"{f}=None" for f in [*fields[1:], fields[0]])
+        else:
+            call_signature = ','.join(f"{f}=None" for f in fields)
+    else:
+        call_signature = ','.join(f"{f}=None" for f in fields)
 
     template = textwrap.dedent("""\
     class {name}({parents}):
@@ -262,14 +268,14 @@ def struct(name, fields, args = None, alts=None, refs=None, cmd=None, parents=No
         fields=fields,
         parents = ",".join([p.__name__ for p in parents]+["Component"]),
         args=','.join(fields),
-        fields_none=','.join(f"{f}=None" for f in fields),
+        fields_none=call_signature,
         self_fields=','.join('self.' + f for f in fields)
     )
 
     namespace = {'fields': fields, "Arg": Arg, "Component": Component}
     namespace.update({c.__name__: c for c in parents})
     exec(template, namespace)
-    namespace[name]._args = args
+    namespace[name]._args = syntax
     return namespace[name]
 
 

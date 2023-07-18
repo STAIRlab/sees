@@ -7,10 +7,10 @@ import opensees.tcl
 
 HELP = """\
 usage: opensees <file> [args..]
-                [options..] <file> [args..]
+   or  opensees [options..] <file> [args..]
 
-Execute an OpenSees Tcl script given in <file>
-with optional arguments [args].
+Execute an OpenSees Tcl script given in <file> with optional 
+script arguments [args].
 
 Options
   -i                          After evaluating <file>, drop into
@@ -38,11 +38,6 @@ Options
        opensees -json
        opensees -emit
 """
-
-# PROMPT = "\033[01;31mopensees\033[0m > "
-# PROMPT = "\u001b[35mopensees\u001b[0m > "
-# "\N{Lower Left Triangle} "
-PROMPT = "\033[33mopensees\033[0m \N{WHITE PARALLELOGRAM} "
 
 
 def parse_args(args):

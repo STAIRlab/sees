@@ -160,9 +160,8 @@ class TclRuntime:
 
         with open(".abcd.json", "r") as f:
             model = json.load(f)
-
             model = model["StructuralAnalysisModel"]
-#       print(model)
+
         os.remove(".abcd.json")
         return model
 
