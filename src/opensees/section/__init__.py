@@ -1,4 +1,6 @@
 from .section import (
+      patch,
+      layer,
       FiberSection,
       ConfinedPolygon,
       ConfiningPolygon,
