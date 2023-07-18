@@ -20,9 +20,10 @@ class Component:
         from opensees import OpenSeesPyRT as libOpenSeesRT
 
         if self.tag_space == "uniaxialMaterial":
-            self.tag = tag = self.name if self.name is not None else "1"
+            self.name = self.tag = tag = self.name if self.name is not None else "1"
             rt.send(self, ndm=1, ndf=1)
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
+#           rt.eval("print -json")
             handle = self._builder.getUniaxialMaterial(tag)
 
         elif self.tag_space == "section":
