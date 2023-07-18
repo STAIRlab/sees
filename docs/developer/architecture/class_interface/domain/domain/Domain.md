@@ -41,7 +41,6 @@ difficulties in porting code which uses templates).
 ### Constructors
 
 
-
 Constructs an empty domain. The storage for the DomainComponents uses
 ArrayOfTaggedObjects objects for each type of object to be stored. The
 initial sizes specified for these objects are 4096 for the Elements and
@@ -71,7 +70,7 @@ object. A check is made to ensure that memory is allocated for these
 objects, if not the `fatal()` method of the global ErrorHandler is
 invoked.
 
-\
+
 Invokes delete on all the storage objects. This means that, if the two
 latter constructors have been called, the container objects must have
 been created using *new* and that at no other point in the program is

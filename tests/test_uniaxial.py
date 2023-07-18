@@ -16,10 +16,10 @@ cR2 = 0.15
 strain = fy/E*sin(linspace(0, 20, 100))
 
 mats = [
-    uniaxial.Steel02(None, fy, E),
-    uniaxial.Steel02(None, fy, E, b),
-    uniaxial.Steel02(None, fy, E, b, R0),
-    uniaxial.Steel02(None, fy, E, b, R0, 0.925, 0.15)
+    uniaxial.Steel02( fy, E),
+    uniaxial.Steel02( fy, E, b),
+    uniaxial.Steel02( fy, E, b, R0),
+    uniaxial.Steel02( fy, E, b, R0, 0.925, 0.15)
 ]
 
 
@@ -27,9 +27,9 @@ mats = [
 kin = [b, R0, cR1, cR2]
 mats = [
     *mats,
-    uniaxial.Steel04(None, fy, E), #, iso, ult, sig_init), 
-    uniaxial.Steel04(None, fy, E, kin), #, iso, ult, sig_init), 
-    uniaxial.Steel04(None, fy, E, kin), #, iso, ult, sig_init), 
+#   uniaxial.Steel04(None, fy, E), #, iso, ult, sig_init), 
+#   uniaxial.Steel04(None, fy, E, kin), #, iso, ult, sig_init), 
+#   uniaxial.Steel04(None, fy, E, kin), #, iso, ult, sig_init), 
 ]
 
 def test(mat):

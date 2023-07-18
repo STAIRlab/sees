@@ -1,27 +1,21 @@
-
 # Load 
 
 ```cpp
 #include <domain/load/Load.h>
+
+class Load: public DomainComponent
 ```
 
-class Load: public DomainComponent\
 
-TaggedObject\
-MovableObject\
-DomainComponent\
-
-\
 Load is an abstract base class. A Load object is used to add load to the
 domain. The Load class defines one method in its interface
 `applyLoad()`, a method all subclasses must implement.
 
 ### Constructor
 
-\
-### Destructor
 
-\
+
+
 // Public Methods\
 
 \
