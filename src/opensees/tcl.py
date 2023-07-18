@@ -138,8 +138,6 @@ class TclRuntime:
         except ImportError:
             pass
 
-
-
     @property
     def registry(self):
         registry["UniaxialMaterial"][0].getStress()
@@ -227,6 +225,38 @@ class TclRuntime:
         self.eval(f"model basic -ndm {ndm} -ndf {ndf}")
 
 
+    def lift(self, type: str, tag: int=None):
+        type = type.lower()
+        # libOpenSeesRT must be imported by Python
+        # AFTER if has been loaded by Tcl (this was done
+        # when a TclRuntime() is created) so that Tcl stubs
+        # are initialized. Otherwise there will be a segfault
+        # when a python c-binding attempts to call a Tcl
+        # C function. Users should never import OpenSeesPyRT
+        # themselves
+        from opensees.tcl import TclRuntime
+        from opensees import OpenSeesPyRT as libOpenSeesRT
+
+        if type == "uniaxialmaterial":
+#           self.eval("model basic 1 1")
+#           self.send(self, ndm=1, ndf=1)
+            _builder = libOpenSeesRT.get_builder(self._interp.interpaddr())
+            return _builder.getUniaxialMaterial(tag)
+
+        elif type == "section":
+            rt.send(self, ndm=2, ndf=3)
+            self._builder = libOpenSeesRT.get_builder(self._interp.interpaddr())
+            handle = self._builder.getSection(str(self.name))
+
+        elif type == "backbone":
+            rt.send(self)
+            self._builder = libOpenSeesRT.get_builder(self._interp.interpaddr())
+            handle = self._builder.getHystereticBackbone(str(self.name))
+
+        else:
+            raise TypeError("Unimplemented type")
+
+
     def send(self, obj, ndm=2, ndf=3, **kwds):
         self.model(ndm=ndm, ndf=ndf)
 
@@ -290,5 +320,6 @@ class TclRuntime:
             if isinstance(k, int):
                 self.eval(v.cmd)
 
-Runtime = TclRuntime
+# Used in test_lift for NV
+ModelRuntime = TclRuntime
 
