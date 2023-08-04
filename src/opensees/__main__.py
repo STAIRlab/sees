@@ -80,7 +80,8 @@ def parse_args(args):
                 opts["preload"] = False
 
             elif arg == "--version" or arg == "-version":
-                print(opensees.__version__)
+                import opensees.tcl
+                print(opensees.tcl.eval("version"))
                 sys.exit()
 
             elif arg == "-v":
