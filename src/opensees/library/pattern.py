@@ -96,14 +96,15 @@ class Plain:
         elif not isinstance(self.series, (TimeSeries,int)):
             self.series = TimeSeries(values=self.series)
 
-        loads = []
-        for k,v in self.loads.items():
-            if isinstance(k, int):
-                loads.append(load(k, v))
-            else:
-                loads.append(load(k[0], [v]))
+        if isinstance(self.loads, dict):
+            loads = []
+            for k,v in self.loads.items():
+                if isinstance(k, int):
+                    loads.append(load(k, v))
+                else:
+                    loads.append(load(k[0], [v]))
 
-        self.loads = loads
+            self.loads = loads
 
 
 @_pattern
