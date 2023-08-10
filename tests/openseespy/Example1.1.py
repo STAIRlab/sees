@@ -20,6 +20,7 @@
 # This module contains a private global variable
 # that encapsulates an instance of TclRuntime
 import opensees.openseespy as ops
+# import openseespy.opensees as ops
 
 # ------------------------------
 # Start of model generation

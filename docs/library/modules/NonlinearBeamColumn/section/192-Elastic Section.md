@@ -5,12 +5,12 @@ inclusion of shear deformations is optional.</p>
 <table>
 <tbody>
 <tr class="odd">
-<td><p><strong>section Elastic $secTag $E $A $Iz &lt;$G
-$alphaY&gt;</strong></p></td>
+<td><p><code>section Elastic $secTag $E $A $Iz &lt;$G
+$alphaY&gt;</code></p></td>
 </tr>
 <tr class="even">
-<td><p><strong>section Elastic $secTag $E $A $Iz $Iy $G $J &lt;$alphaY
-$alphaZ&gt;</strong></p></td>
+<td><p><code>section Elastic $secTag $E $A $Iz $Iy $G $J &lt;$alphaY
+$alphaZ&gt;</code></p></td>
 </tr>
 </tbody>
 </table>
@@ -31,11 +31,11 @@ $alphaZ&gt;</strong></p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">Iz</code></p></td>
-<td><p>second moment of area about the local z-axis</p></td>
+<td><p>second moment of area about the local $z$-axis</p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">Iy</code></p></td>
-<td><p>second moment of area about the local y-axis (required for 3D
+<td><p>second moment of area about the local $y$-axis (required for 3D
 analysis)</p></td>
 </tr>
 <tr class="even">
@@ -50,11 +50,11 @@ analysis)</p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">alphaY</code></p></td>
-<td><p>shear shape factor along the local y-axis (optional)</p></td>
+<td><p>shear shape factor along the local $y$-axis (optional)</p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">alphaZ</code></p></td>
-<td><p>shear shape factor along the local z-axis (optional)</p></td>
+<td><p>shear shape factor along the local $z$-axis (optional)</p></td>
 </tr>
 </tbody>
 </table>
@@ -64,9 +64,7 @@ analysis)</p></td>
 elements, which is useful in the initial stages of developing a complex
 model.</li>
 </ul>
-<hr />
-<p>Code Developed by: <span style="color:blue"> fmk
-</span></p>
+
 # ElasticSection3D 
 
 ```cpp
@@ -75,48 +73,19 @@ model.</li>
 class ElasticSection3D : public SectionForceDeformation
 ```
 
-TaggedObject\
-MovableObject\
-Material\
-SectionForceDeformation\
 
-
-ElasticSection3D provides the implementation of a section which exhibits
-uncoupled elastic behavior in axial, moment, shear, and torsion
+`ElasticSection3D` provides the implementation of a section which exhibits
+uncoupled linear elastic behavior in axial, moment, shear, and torsion
 response.
 
-### Constructor
 
-\
+## Public Methods for Output
 
-### Destructor
 
-\
-// Public Methods\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-\
-
-// Public Methods for Output\
-
-\
-
-\
 
 To construct an ElasticSection3D with an integer identifier *tag*, an
-elastic modulus of $E$, a second moment of area about the local z-axis,
-$I_z$, a second moment of area about the local y-axis, $I_y$, a polar
+elastic modulus of $E$, a second moment of area about the local $z$-axis,
+$I_z$, a second moment of area about the local $y$-axis, $I_y$, a polar
 moment of intertia of $J$, a section area of $A$, an elastic shear
 modulus of $G$, and a shape factor of $\alpha$. The integers *tag* and
 MAT_TAG_ElasticSection3D, defined in  `<classTags.h>`, are passed to
@@ -128,10 +97,10 @@ Constructs a blank ElasticSection3D object.
 Does nothing.
 
 \
-Sets the value of the section deformation vector, $\esec$ to be *def*.
-The section deformation vector, $\esec$, is defined by
+Sets the value of the section deformation vector, $\mathsf{e}$ to be *def*.
+The section deformation vector, $\mathsf{e}$, is defined by
 
-$$\esec := \left[
+$$\mathsf{e} := \left[
    \begin{array}{c}
        \epsilon_a \\
        \kappa_z   \\
@@ -143,18 +112,18 @@ $$\esec := \left[
  \right]$$
 
 where $\epsilon_a$ is the axial strain, $\kappa_z$ is the curvature
-about the local z-axis, $\kappa_z$ is the curvature about the local
-z-axis, $\gamma_y$ is the shear strain along the local y-axis,
-$\gamma_z$ is the shear strain along the local z-axis, and $\phi$ is the
+about the local $z$-axis, $\kappa_z$ is the curvature about the local
+$z$-axis, $\gamma_y$ is the shear strain along the local $y$-axis,
+$\gamma_z$ is the shear strain along the local $z$-axis, and $\phi$ is the
 angle of twist. Returns $0$.
 
-Returns the current value of the section deformation vector, $\esec$.
+Returns the current value of the section deformation vector, $\mathsf{e}$.
 
-Returns the section stress resultants, $\ssec$, the product of the
-section stiffness matrix, $\ksec$, and the section deformation vector,
-$\esec$,
+Returns the section stress resultants, $\mathsf{s}$, the product of the
+section stiffness matrix, $\mathsf{k}_{\mathrm{s}}$, and the section deformation vector,
+$\mathsf{e}$,
 
-$$\ssec = \ksec \esec = \left[
+$$\mathsf{s} = \mathsf{k}_{\mathrm{s}} \mathsf{e} = \left[
    \begin{array}{c}
        P     \\
        M_z   \\
@@ -166,32 +135,31 @@ $$\ssec = \ksec \esec = \left[
  \right]$$
 
 where $P$ is the axial force, $M_z$ is the bending moment about the
-local z-axis, $M_y$ is the bending moment about the local y-axis, $V_y$
-is the shear force along the local y-axis, $V_z$ is the shear force
-along the local z-axis, and $T$ is the torque.
+local $z$-axis, $M_y$ is the bending moment about the local $y$-axis, $V_y$
+is the shear force along the local $y$-axis, $V_z$ is the shear force
+along the local $z$-axis, and $T$ is the torque.
 
-Returns the value of $\ssec$ calculated at the previous state
+Returns the value of $\mathsf{s}$ calculated at the previous state
 determination.
 
-Returns the section stiffness matrix, $\ksec$, where
+Returns the section stiffness matrix, $\mathsf{k}_{\mathrm{s}}$, where
 
-$$\ksec = \left[
-   \begin{array}{cccccc}
+$$\mathsf{k}_{\mathrm{s}} = \begin{bmatrix}
        EA &  0 &  0 & 0 & 0 & 0  \\
         0 & EI_z & 0 & 0 & 0 & 0 \\
         0 & 0 & EI_y & 0 & 0 & 0 \\
         0 & 0 & 0 & \alpha GA & 0 & 0 \\
         0 & 0 & 0 & 0 & \alpha GA & 0 \\
         0 & 0 & 0 & 0 & 0 & GJ
-   \end{array} 
- \right]$$\
+\end{bmatrix}
+$$
 
-Returns the section stiffness matrix, $\ksec$.
+Returns the section stiffness matrix, $\mathsf{k}_{\mathrm{s}}$.
 
 Overrides the base class implementation and returns the section
-flexibility matrix, $\fsec$, where
+flexibility matrix, $\mathsf{f}_{\mathrm{s}}$, where
 
-$$\fsec = \left[
+$$\mathsf{f}_{\mathrm{s}} = \left[
    \begin{array}{cccccc}
        \frac{1}{EA} & 0 & 0 & 0 & 0 & 0 \\
        0 & \frac{1}{EI_z} & 0 & 0 & 0 & 0 \\
@@ -203,7 +171,7 @@ $$\fsec = \left[
  \right]$$\
 
 Overrides the base class implementation and returns the section
-flexibility matrix, $\fsec$.
+flexibility matrix, $\mathsf{f}_{\mathrm{s}}$.
 
 Returns $0$.
 
@@ -218,11 +186,12 @@ invoked.
 
 Returns the section ID code that indicates the ordering of section
 response quantities. For this section, axial response is the first
-quantity, bending about the local z-axis is the second, bending about
-the local y-axis is the third, shear along the local y-axis is the
-fourth, shear along the local z-axis is the fifth, and torsion is the
+quantity, bending about the local $z$-axis is the second, bending about
+the local $y$-axis is the third, shear along the local $y$-axis is the
+fourth, shear along the local $z$-axis is the fifth, and torsion is the
 sixth.
-$$code := \left[
+
+$$\texttt{code} := \left[
    \begin{array}{c}
        2 \\
        1 \\
@@ -231,7 +200,7 @@ $$code := \left[
        5 \\
        6
    \end{array} 
- \right]$$\
+ \right]$$
 
 Returns 6.
 
@@ -251,3 +220,7 @@ returned if the Channel object fails to receive the Vector.
 
 Prints to the stream *s* the object's *tag*, $E$, $A$, $I_z$, $I_y$,
 $J$, $G$, and $\alpha$ values.
+
+<hr />
+<p>Code Developed by: <span style="color:blue"> fmk
+</span></p>

@@ -19,7 +19,7 @@ analysis type:
     current tangent and residual matrices. That is, this is the class
     that sets up the system of equations. 
 
-    $$\mathbf{M \ddot{U}}+\mathbf{C \dot{U}}+\mathbf{P}_{r}(\mathbf{U})=\mathbf{P}(t)$$
+    $$\mathsf{M}\ddot{\boldsymbol{u}}+\mathsf{C}\dot{\boldsymbol{u}}+\mathbf{P}_{r}(\boldsymbol{u})=\mathbf{P}(t)$$
 
     It also provides the `commit()` method which is invoked to set up the
     appropriate dof response values once the solution algorithm has formed and
@@ -39,7 +39,7 @@ analysis type:
 
 -   `algorithm` (**EquiSolnAlgo**) - an algorithmic class specifying the sequence of
     operations to be performed in setting up and solving the finite
-    element equation which can be represented by the equation $K(U) U = P(U)$.
+    element equation which can be represented by the equation $K(\boldsymbol{u}) \boldsymbol{u} = P(\boldsymbol{u})$.
 
 
 ### Transient Integrators
@@ -55,9 +55,9 @@ Determing the next time step for an analysis including inertial effects is done 
 ## Theory
 
 In nonlinear transient finite element problems we seek a solution 
-($\U$, $\dot \U$, $\ddot \U$) to the nonlinear vector equation
+($\boldsymbol{u}$, $\dot{\boldsymbol{u}}$, $\ddot{\boldsymbol{u}}$) to the nonlinear vector equation
 
-$${\bf R}({\bf U},\Ud, \Udd) = {\bf P}(t) - {\bf F}_I(\Udd) - {\bf F}_R({\bf U}, {\dot { \bf U}}) = \zero$$
+$${\bf R}({\boldsymbol{u}},\dot{\boldsymbol{u}}, \ddot{\boldsymbol{u}}) = {\bf P}(t) - {\bf F}_I(\ddot{\boldsymbol{u}}) - {\bf F}_R({\boldsymbol{u}}, \dot{\boldsymbol{u}}) = \boldsymbol{0}$$
 {#femGenForm}
 
 The most widely used technique for solving the transient non-linear finite element equation,
@@ -66,8 +66,8 @@ reference="femGenForm"}, is to use an incremental direct integration
 scheme. In the incremental formulation, a solution to the equation is
 sought at successive time steps $\Delta t$ apart.
 
-$$\R({\bf U}_{n \Delta t},\dot{\bf U}_{n \Delta t}, \ddot{\bf U}_{n \Delta t}) = {\bf P}(n \Delta t) -
-{\bf F}_I(\ddot{\bf U}_{n \Delta t}) - {\bf F}_R({\bf U}_{n \Delta t}, \dot{\bf U}_{n \Delta t})
+$$\boldsymbol{R}({\boldsymbol{u}}_{n \Delta t},\dot{\boldsymbol{u}}_{n \Delta t}, \ddot{\boldsymbol{u}}_{n \Delta t}) = {\bf P}(n \Delta t) -
+{\bf F}_I(\ddot{\boldsymbol{u}}_{n \Delta t}) - {\bf F}_R({\boldsymbol{u}}_{n \Delta t}, \dot{\boldsymbol{u}}_{n \Delta t})
 $$
 {#fullTimeForm}
 
@@ -76,12 +76,12 @@ $\operatorname{I}_1$ and $\operatorname{I}_2$, to relate the velocity and accele
 step as a function of the displacement at the time step and the response
 at previous time steps:
 
-$$\dot {\bf U}_{t} = {\I}_1 ({\bf U}_t, {\bf U}_{t-\Delta t}, \dot {\bf U}_{t-\Delta t},
-\ddot {\bf U}_{t - \Delta t}, {\bf U}_{t - 2\Delta t}, \dot {\bf U}_{t - 2 \Delta t}. ..., )
+$$\dot {\boldsymbol{u}}_{t} = {\I}_1 ({\boldsymbol{u}}_t, {\boldsymbol{u}}_{t-\Delta t}, \dot {\boldsymbol{u}}_{t-\Delta t},
+\ddot {\boldsymbol{u}}_{t - \Delta t}, {\boldsymbol{u}}_{t - 2\Delta t}, \dot {\boldsymbol{u}}_{t - 2 \Delta t}. ..., )
 \label{I1}$$
 
-$$\ddot {\bf U}_{t} = {\I}_2 ({\bf U}_t, {\bf U}_{t-\Delta t}, \dot {\bf U}_{t-\Delta t},
-\ddot {\bf U}_{t - \Delta t}, {\bf U}_{t - 2\Delta t}, \dot {\bf U}_{t - 2 \Delta t}. ..., )
+$$\ddot {\boldsymbol{u}}_{t} = {\I}_2 ({\boldsymbol{u}}_t, {\boldsymbol{u}}_{t-\Delta t}, \dot {\boldsymbol{u}}_{t-\Delta t},
+\ddot {\boldsymbol{u}}_{t - \Delta t}, {\boldsymbol{u}}_{t - 2\Delta t}, \dot {\boldsymbol{u}}_{t - 2 \Delta t}. ..., )
 \label{I2}$$
 
 These allow us to rewrite
@@ -89,35 +89,35 @@ equation [\[fullTimeForm](#fullTimeForm){reference-type="ref"
 reference="fullTimeForm"}, in terms of a single response quantity,
 typically the displacement:
 
-$$\R({\bf U}_t) = {\bf P}(t) - {\bf F}_I(\ddot{\bf U}_t) - {\bf F}_R({\bf U}_t, \dot{\bf U}_t)
+$$\R({\boldsymbol{u}}_t) = {\bf P}(t) - {\bf F}_I(\ddot{\boldsymbol{u}}_t) - {\bf F}_R({\boldsymbol{u}}_t, \dot{\boldsymbol{u}}_t)
 \label{genForm}$$
 
 The solution of this equation is typically obtained using an iterative
-procedure, i.e. making an initial prediction for ${\bf U}_{t}$, denoted
-${\bf U}_{t}^{(0)}$ a sequence of approximations ${\bf U}_{t}^{(i)}$, $i=1,2, ..$
-is obtained which converges (we hope) to the solution ${\bf U}_{t}$. The most
+procedure, i.e. making an initial prediction for ${\boldsymbol{u}}_{t}$, denoted
+${\boldsymbol{u}}_{t}^{(0)}$ a sequence of approximations ${\boldsymbol{u}}_{t}^{(i)}$, $i=1,2, ..$
+is obtained which converges (we hope) to the solution ${\boldsymbol{u}}_{t}$. The most
 frequently used iterative schemes, such as Newton-Raphson, modified
 Newton, and quasi Newton schemes, are based on a Taylor expansion of
 equation [\[genForm](#genForm){reference-type="ref"
-reference="genForm"} about ${\bf U}_{t}$:
+reference="genForm"} about ${\boldsymbol{u}}_{t}$:
 
-$$\R({\bf U}_{t}) = 
-\R({\bf U}_{t}^{(i)}) +
-\left[ {\frac{\partial \R}{\partial {\bf U}_t} \vert}_{{\bf U}_{t}^{(i)}}\right]
-\left( {\bf U}_{t} - {\bf U}_{t}^{(i)} \right)$$
+$$\R({\boldsymbol{u}}_{t}) = 
+\R({\boldsymbol{u}}_{t}^{(i)}) +
+\left[ {\frac{\partial \R}{\partial {\boldsymbol{u}}_t} \vert}_{{\boldsymbol{u}}_{t}^{(i)}}\right]
+\left( {\boldsymbol{u}}_{t} - {\boldsymbol{u}}_{t}^{(i)} \right)$$
 
 $$
-\R({\bf U}_{t}) = {\bf P} (t) - {\bf F}_{I} \left( \ddot {\bf U}_{t}^{(i)} \right) - {\bf F}_{R} \left( \dot {\bf U}_{t}^{(i)}, {\bf U}_{t}^{(i)} \right)- \left[
-   {\bf M}^{(i)} {\I}_2'
-+  {\bf C}^{(i)} {\I}_1'
-+ {\bf K}^{(i)}  \right]
- \left( {\bf U}_{t} - {\bf U}_{t}^{(i)} \right)
+\boldsymbol{R}({\boldsymbol{u}}_{t}) = {\bf P} (t) - {\bf F}_{I} \left( \ddot {\boldsymbol{u}}_{t}^{(i)} \right) - {\bf F}_{R} \left( \dot {\boldsymbol{u}}_{t}^{(i)}, {\boldsymbol{u}}_{t}^{(i)} \right)- \left[
+  \mathsf{M}^{(i)} {\I}_2'
++ \mathsf{C}^{(i)} {\I}_1'
++ \mathsf{K}^{(i)}  \right]
+ \left( {\boldsymbol{u}}_{t} - {\boldsymbol{u}}_{t}^{(i)} \right)
 \label{femGenFormTaylor}$$
 
-To start the iteration scheme, trial values for ${\bf U}_{t}$, $\dot
-{\bf U}_{t}$ and $\ddot {\bf U}_{t}$ are required. These are obtained by assuming
-${\bf U}_{t}^{(0)} = {\bf U}_{t-\Delta t}$. The $\dot {\bf U}_{t}^{(0)}$ and
-$\ddot {\bf U}_{t}^{(0)}$ can then be obtained from the operators for the
+To start the iteration scheme, trial values for ${\boldsymbol{u}}_{t}$, $\dot
+{\boldsymbol{u}}_{t}$ and $\ddot {\boldsymbol{u}}_{t}$ are required. These are obtained by assuming
+${\boldsymbol{u}}_{t}^{(0)} = {\boldsymbol{u}}_{t-\Delta t}$. The $\dot {\boldsymbol{u}}_{t}^{(0)}$ and
+$\ddot {\boldsymbol{u}}_{t}^{(0)}$ can then be obtained from the operators for the
 integration scheme.
 Subclasses of `TransientIntegrator` provide methods informing the
 `FE_Element` and `DOF_Group` objects how to build the tangent and residual

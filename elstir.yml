@@ -64,14 +64,13 @@ nav:
         - 'library/analysis/DirectIntegration/81-Central Difference.md'
         - library/analysis/DirectIntegration/_implementation.md
 
-    - Modal Time Integration:
-        - 'library/analysis/DirectIntegration/277-Generalized Alpha Method.md'
 
     - Eigen Decomposition:
-        - library/analysis/Eigen_Analysis/ArpackSolver.md
-        - library/analysis/Eigen_Analysis/EigenAlgorithm.md
-        - library/analysis/Eigen_Analysis/FrequencyAlgo.md
-        - library/analysis/Eigen_Analysis/StandardEigenAlgo.md
+        - library/analysis/Eigen_Analysis/index.md
+#       - library/analysis/Eigen_Analysis/ArpackSolver.md
+#       - library/analysis/Eigen_Analysis/EigenAlgorithm.md
+#       - library/analysis/Eigen_Analysis/FrequencyAlgo.md
+#       - library/analysis/Eigen_Analysis/StandardEigenAlgo.md
 
     - Nonlinear Static Analysis:
       - library/analysis/StaticAnalysis/index.md
@@ -86,77 +85,108 @@ nav:
       - library/analysis/StaticAnalysis/StagedLoadControl.md
 
   - Modeling:
-    - Uniaxial Material:
-      - library/modeling/uniaxial/index.md
-      - Elastic:
-        - library/modeling/uniaxial/elastic/195-Elastic Uniaxial.md
-        - library/modeling/uniaxial/elastic/180-ElasticBilin.md
-        - library/modeling/uniaxial/elastic/181-ElasticMultiLinear.md
-      - Generic:
-        - library/modeling/uniaxial/bouc/64-BoucWen.md
-        - library/modeling/uniaxial/generic/322-Hardening.md
-        - library/modeling/uniaxial/generic/179-Elastic-Perfectly Plastic.md
-        - library/modeling/uniaxial/generic/404-MultiLinear.md
-      - Metallic:
-        - library/modeling/uniaxial/metallic/666-Steel02.md
-        # - library/modeling/uniaxial/metallic/668-SteelMPF.md
-        # - library/modeling/uniaxial/metallic/587-Reinforcing Steel.md
-        - library/modeling/uniaxial/metallic/667-Steel4.md
-        - library/modeling/uniaxial/metallic/158-DoddRestrepo.md
-        - library/modeling/uniaxial/metallic/730-UVCuniaxial.md
-        - library/modeling/uniaxial/metallic/569-RambergOsgoodSteel.md
-      - Concrete:
-        - library/modeling/uniaxial/concrete/90-Concrete02.md
-        - library/modeling/uniaxial/concrete/91-Concrete04.md
-        - library/modeling/uniaxial/concrete/92-Concrete06.md
-        - library/modeling/uniaxial/concrete/94-ConcreteCM.md
-        - library/modeling/uniaxial/concrete/Concrete02IS.md
-        - library/modeling/uniaxial/concrete/97-ConfinedConcrete01.md
-      - Geotechnical:
-        - library/modeling/uniaxial/geotechnical/557-PySimple1.md
-        - library/modeling/uniaxial/geotechnical/565-QzSimple1.md
-      - Wrappers:
-          - library/modeling/uniaxial/wrapper/489-Parallel.md
-          - library/modeling/uniaxial/wrapper/632-Series.md
+    - Material:
+      - Uniaxial Material:
+        - library/modeling/uniaxial/index.md
+        - Elastic:
+          - library/modeling/uniaxial/elastic/195-Elastic Uniaxial.md
+          - library/modeling/uniaxial/elastic/180-ElasticBilin.md
+          - library/modeling/uniaxial/elastic/181-ElasticMultiLinear.md
+        - Generic:
+          - library/modeling/uniaxial/bouc/64-BoucWen.md
+          - library/modeling/uniaxial/generic/322-Hardening.md
+          - library/modeling/uniaxial/generic/179-Elastic-Perfectly Plastic.md
+          - library/modeling/uniaxial/generic/404-MultiLinear.md
+        - Metallic:
+          - library/modeling/uniaxial/metallic/666-Steel02.md
+          # - library/modeling/uniaxial/metallic/668-SteelMPF.md
+          # - library/modeling/uniaxial/metallic/587-Reinforcing Steel.md
+          - library/modeling/uniaxial/metallic/667-Steel4.md
+          - library/modeling/uniaxial/metallic/158-DoddRestrepo.md
+          - library/modeling/uniaxial/metallic/730-UVCuniaxial.md
+          - library/modeling/uniaxial/metallic/569-RambergOsgoodSteel.md
+        - Concrete:
+          - library/modeling/uniaxial/concrete/90-Concrete02.md
+          - library/modeling/uniaxial/concrete/91-Concrete04.md
+          - library/modeling/uniaxial/concrete/92-Concrete06.md
+          - library/modeling/uniaxial/concrete/94-ConcreteCM.md
+          - library/modeling/uniaxial/concrete/Concrete02IS.md
+          - library/modeling/uniaxial/concrete/97-ConfinedConcrete01.md
+        - Geotechnical:
+          - library/modeling/uniaxial/geotechnical/557-PySimple1.md
+          - library/modeling/uniaxial/geotechnical/565-QzSimple1.md
+        - Wrappers:
+            - library/modeling/uniaxial/wrapper/489-Parallel.md
+            - library/modeling/uniaxial/wrapper/632-Series.md
+      - Plane Strain:
+          - library/modeling/nd_material/elastic/1881-ElasticIsotropicPlaneStrain.md
+          - library/modeling/nd_material/elastic/191-Elastic Orthotropic Material.md
+          - library/modeling/nd_material/metallic/348-J2 Plasticity Material.md
+          - library/modeling/nd_material/metallic/727-UVCmultiaxial (Updated Voce-Chaboche).md
+          - library/modeling/nd_material/wrapper/511-Plane Strain Material.md
+      - Plane Stress:
+          - library/modeling/nd_material/elastic/188-Elastic Isotropic Material.md
+          - library/modeling/nd_material/elastic/191-Elastic Orthotropic Material.md
+          - library/modeling/nd_material/metallic/348-J2 Plasticity Material.md
+          - library/modeling/nd_material/metallic/728-UVCplanestress (Updated Voce-Chaboche).md
+          - library/modeling/nd_material/wrapper/513-Plane Stress Material.md
 
-    - Multiaxial Material:
-          - Elastic:
-            - library/modeling/nd_material/elastic/188-Elastic Isotropic Material.md
-            - library/modeling/nd_material/elastic/191-Elastic Orthotropic Material.md
-              # - library/modeling/nd_material/generic/160-Drucker Prager.md
-              # - library/modeling/nd_material/concrete/120-Damage2p.md
-              # - library/modeling/nd_material/concrete/235-FSAM - 2D RC Panel Constitutive Behavior.md
-              # - library/modeling/nd_material/contact/102-ContactMaterial2D.md
-              # - library/modeling/nd_material/contact/103-ContactMaterial3D.md
-              # - library/modeling/nd_material/geotechnical/111-CycLiqCPSP Material.md
-              # - library/modeling/nd_material/geotechnical/113-CycLiqCP Material (Cyclic ElasticPlasticity).md
-              # - library/modeling/nd_material/geotechnical/117-Cyclic ElastocPlasticity.md
-              # - library/modeling/nd_material/geotechnical/378-Manzari Dafalias Material.md
-              # - library/modeling/nd_material/geotechnical/405-MultiYieldSurfaceClay.md
-              # - library/modeling/nd_material/geotechnical/487-PM4Sand Material.md
-              # - library/modeling/nd_material/geotechnical/488-PM4Silt Material (Beta).md
-              # - library/modeling/nd_material/geotechnical/65-Bounding Cam Clay.md
-              # - library/modeling/nd_material/geotechnical/671-Stress Density Material.md
+      - Plate Fiber:
+          - library/modeling/nd_material/wrapper/514-Plate Fiber Material.md
+          - library/modeling/nd_material/metallic/348-J2 Plasticity Material.md
 
-          - Metallic:
-            - library/modeling/nd_material/metallic/348-J2 Plasticity Material.md
-            - library/modeling/nd_material/metallic/727-UVCmultiaxial (Updated Voce-Chaboche).md
-            - library/modeling/nd_material/metallic/728-UVCplanestress (Updated Voce-Chaboche).md
-          - Wrapper:
-            - library/modeling/nd_material/wrapper/338-InitialStateAnalysisWrapper.md
-            - library/modeling/nd_material/wrapper/511-Plane Strain Material.md
-            - library/modeling/nd_material/wrapper/513-Plane Stress Material.md
-            - library/modeling/nd_material/wrapper/514-Plate Fiber Material.md
+      - Multiaxial Material:
+      # - Elastic:
+          - library/modeling/nd_material/elastic/188-Elastic Isotropic Material.md
+          - library/modeling/nd_material/elastic/191-Elastic Orthotropic Material.md
+      # - Metallic:
+          - library/modeling/nd_material/metallic/348-J2 Plasticity Material.md
+          - library/modeling/nd_material/metallic/727-UVCmultiaxial (Updated Voce-Chaboche).md
 
-    - Element:
-      - Beam:
-          - library/modeling/element/beam/2057-Force-Based Beam-Column Element.md
-          - library/modeling/element/beam/2184-Elastic Beam Column Element.md
-      - Truss:
-          - library/modeling/element/truss/1074-CatenaryCable.md
-          - library/modeling/element/truss/1107-Corotational Truss Element.md
-          - library/modeling/element/truss/1716-Truss2.md
-          - library/modeling/element/truss/1717-Truss.md
+    - Wrapper:
+      - library/modeling/nd_material/wrapper/338-InitialStateAnalysisWrapper.md
+        # - library/modeling/nd_material/generic/160-Drucker Prager.md
+        # - library/modeling/nd_material/concrete/120-Damage2p.md
+        # - library/modeling/nd_material/concrete/235-FSAM - 2D RC Panel Constitutive Behavior.md
+        # - library/modeling/nd_material/contact/102-ContactMaterial2D.md
+        # - library/modeling/nd_material/contact/103-ContactMaterial3D.md
+        # - library/modeling/nd_material/geotechnical/111-CycLiqCPSP Material.md
+        # - library/modeling/nd_material/geotechnical/113-CycLiqCP Material (Cyclic ElasticPlasticity).md
+        # - library/modeling/nd_material/geotechnical/117-Cyclic ElastocPlasticity.md
+        # - library/modeling/nd_material/geotechnical/378-Manzari Dafalias Material.md
+        # - library/modeling/nd_material/geotechnical/405-MultiYieldSurfaceClay.md
+        # - library/modeling/nd_material/geotechnical/487-PM4Sand Material.md
+        # - library/modeling/nd_material/geotechnical/488-PM4Silt Material (Beta).md
+        # - library/modeling/nd_material/geotechnical/65-Bounding Cam Clay.md
+        # - library/modeling/nd_material/geotechnical/671-Stress Density Material.md
+
+    - Element: # ndm  ndf
+      - Point:
+        - library/modeling/element/zero_length/6769-ZeroLength Element.md
+      - Truss: # 2/3, 2/3
+        - library/modeling/element/truss/1074-CatenaryCable.md
+        - library/modeling/element/truss/1107-Corotational Truss Element.md
+        - library/modeling/element/truss/1716-Truss2.md
+        - library/modeling/element/truss/1717-Truss.md
+      - Frame: # 2/3, 3/6
+        - library/modeling/element/beam/2057-Force-Based Beam-Column Element.md
+        - library/modeling/element/beam/2184-Elastic Beam Column Element.md
+        - library/modeling/element/beam/ForceBeamColumnWarping2d.md
+        - library/modeling/element/beam/252-Flexure-Shear Interaction Displacement-Based Beam-Column Element.md
+        - library/modeling/element/beam/2210-DispBeamColumnW3D.md
+      - Plane: # 2, 2
+        - library/modeling/element/quadrilateral/562-Quad.md
+        - library/modeling/element/triangle/8710-Tri31 Element.md
+        - library/modeling/element/quadrilateral/4211-Enhanced Strain Quadrilateral.md
+      - Shell: # 2/3, 
+#       - library/modeling/element/shell/636-ShellDKGQ.md
+        - library/modeling/element/shell/637-ShellDKGT.md
+        - library/modeling/element/shell/638-ShellNL.md
+        - library/modeling/element/shell/639-ShellNLDKGQ.md
+        - library/modeling/element/shell/640-ShellNLDKGT.md
+        - library/modeling/element/shell/641-Shell Element.md
+      - Solid:
+        - library/modeling/element/tetrahedron/4265-FourNodeTetrahedron.md
 
     - Constraint:
       - library/modeling/constraints/index.md
@@ -205,14 +235,14 @@ nav:
       - library/strategy/Numberer/PlainNumberer.md
     - Algorithm:
       - library/strategy/Solution_Algorithm/index.md
-      - library/strategy/Solution_Algorithm/30-BFGS.md
-      - library/strategy/Solution_Algorithm/356-Krylov-Newton.md
-      - library/strategy/Solution_Algorithm/368-Linear.md
-      - library/strategy/Solution_Algorithm/398-Modified Newton.md
       - library/strategy/Solution_Algorithm/417-Newton.md
       - library/strategy/Solution_Algorithm/418-Newton with Line Search.md
+      - library/strategy/Solution_Algorithm/368-Linear.md
       - library/strategy/Solution_Algorithm/618-Secant Newton.md
       - library/strategy/Solution_Algorithm/67-Broyden.md
+      - library/strategy/Solution_Algorithm/30-BFGS.md
+      - library/strategy/Solution_Algorithm/356-Krylov-Newton.md
+      - library/strategy/Solution_Algorithm/398-Modified Newton.md
 
   - Utilities:
     - Units: library/utilities/units.md
@@ -563,4 +593,18 @@ nav:
       - developer/extending/uniaxial/index.md
       - developer/extending/uniaxial/1014-Add a New UniaxialMaterial C++.md
       - developer/extending/uniaxial/fortran.md
+- Gallery:
+  - gallery/index.md
+# - gallery/Components
+# - gallery/Continua
+  - Continuua:
+    - gallery/continuua/example_6.md
+    - gallery/continuua/example_7.md
+    - gallery/continuua/example_8.md
+  - gallery/geotech
+# - gallery/OpenSeesExamples.tex
+  - gallery/sections
+# - gallery/seismic
+# - gallery/Structures
+# - gallery/teaching
 

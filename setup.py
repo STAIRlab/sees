@@ -58,11 +58,12 @@ if __name__ == "__main__":
 #                   "-DCMAKE_BUILD_TYPE=DEBUG",
                     "-DCMAKE_BUILD_TYPE=Release",
                     "-DOPENSEESRT_VERSION=0.0.45",
+                    "-DProfileBuild:BOOL=TRUE",
                     *OpenSeesPyRT_Config,
 
                 ],
-                cmake_build_options=["-j15", 
-                    "--target", "OpenSeesRT", 
+                cmake_build_options=["-j15",
+                    "--target", "OpenSeesRT",
                     "--target", "OpenSeesPyRT"
                 ]
             )

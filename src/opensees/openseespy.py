@@ -248,6 +248,8 @@ def _as_str_arg(arg):
     else:
         return str(arg)
 
+
+
 class OpenSeesPy(TclRuntime):
     """
     This class is meant to be instantiated as a global singleton
@@ -291,6 +293,7 @@ class OpenSeesPy(TclRuntime):
             try: return json.loads(ret)
             except: return ret
 
+
     def pattern(self, *args, **kwds):
         self._current_pattern = args[1]
         return self._str_call("pattern", *args, **kwds)
@@ -303,7 +306,7 @@ class OpenSeesPy(TclRuntime):
 # The global singleton
 tcl = _openseespy = OpenSeesPy()
 
-def __getattr__(name):
+def __getattr__(name: str):
     # For reference:
     #   https://peps.python.org/pep-0562/#id4
     if name in {"pattern", "load"}:
