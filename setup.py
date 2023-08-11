@@ -49,14 +49,15 @@ if __name__ == "__main__":
                     "cmake": amoeba.CMakeCommand},
         ext_modules = [
             amoeba.CMakeExtension(
-#               name = "pypa",        # PyPA
-                name = "local",
+                name = "pypa",        # PyPA
+#               name = "local",
+#               name = "debug",
                 install_prefix="opensees",
                 cmake_configure_options = [
                     "-G", "Unix Makefiles",
                     *EnvArgs,
-#                   "-DCMAKE_BUILD_TYPE=DEBUG",
-                    "-DCMAKE_BUILD_TYPE=RELEASE",
+                    "-DCMAKE_BUILD_TYPE=DEBUG",
+#                   "-DCMAKE_BUILD_TYPE=RELEASE",
                     "-DOPENSEESRT_VERSION=0.0.45",
                     *OpenSeesPyRT_Config,
 
