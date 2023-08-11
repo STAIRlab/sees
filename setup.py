@@ -32,14 +32,17 @@ else:
 
 
 try:
+    assert os.name != "nt"
     import pybind11
+    OpenSeesPyRT_Target = ["--target", "OpenSeesPyRT"]
     OpenSeesPyRT_Config = [
         f"-Dpybind11_DIR:FILEPATH={pybind11.get_cmake_dir()}",
         f"-DPYTHON_EXECUTABLE:FILEPATH={sys.executable}"
     ]
 
-except ImportError:
+except (AssertionError,ImportError):
     OpenSeesPyRT_Config = ["-DNoOpenSeesPyRT=True"]
+    OpenSeesPyRT_Target = []
 
 if __name__ == "__main__":
     setuptools.setup(
@@ -57,13 +60,13 @@ if __name__ == "__main__":
 
 #                   "-DCMAKE_BUILD_TYPE=DEBUG",
                     "-DCMAKE_BUILD_TYPE=Release",
-                    "-DOPENSEESRT_VERSION=0.0.34",
+                    "-DOPENSEESRT_VERSION=0.0.44",
                     *OpenSeesPyRT_Config,
 
                 ],
                 cmake_build_options=["-j15", 
                     "--target", "OpenSeesRT", 
-                    "--target", "OpenSeesPyRT"
+                    *OpenSeesPyRT_Target
                 ]
             )
         ]
