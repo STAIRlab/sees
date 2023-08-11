@@ -59,8 +59,8 @@ if __name__ == "__main__":
                     "-G", "Unix Makefiles",
                     *EnvArgs,
 #                   "-DCMAKE_BUILD_TYPE=DEBUG",
-                    "-DCMAKE_BUILD_TYPE=Release",
-                    "-DOPENSEESRT_VERSION=0.0.44",
+                    "-DCMAKE_BUILD_TYPE=RELEASE",
+                    "-DOPENSEESRT_VERSION=0.0.45",
                     *OpenSeesPyRT_Config,
 
                 ],
