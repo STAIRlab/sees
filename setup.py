@@ -48,7 +48,8 @@ if __name__ == "__main__":
     setuptools.setup(
         data_files=[('bin', [*map(str,Path("win32/").glob("*.*"))]),
         ] if os.name == "nt" else [],
-        cmdclass = {"build_ext": amoeba.BuildExtension, "cmake": amoeba.CMakeCommand},
+        cmdclass = {"build_ext": amoeba.BuildExtension, 
+                    "cmake": amoeba.CMakeCommand},
         ext_modules = [
             amoeba.CMakeExtension(
 #               name = "pypa",        # PyPA
@@ -57,7 +58,6 @@ if __name__ == "__main__":
                 cmake_configure_options = [
                     "-G", "Unix Makefiles",
                     *EnvArgs,
-
 #                   "-DCMAKE_BUILD_TYPE=DEBUG",
                     "-DCMAKE_BUILD_TYPE=Release",
                     "-DOPENSEESRT_VERSION=0.0.44",

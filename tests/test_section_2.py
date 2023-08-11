@@ -27,6 +27,7 @@ Bs = 0.005         # strain-hardening ratio
 R0 = 18            # control transition from elastic to plastic branches
 cR1 = 0.925        # control transition from elastic to plastic branches
 cR2 = 0.15         # control transition from elastic to plastic branches
+
 reinf = uniaxial.Steel02(None, Fy, Es, Bs, R0, cR1, cR2)
 
 Ec = 33*(weight/pcf)**1.5*sqrt(fc / psi) * psi
@@ -40,11 +41,14 @@ cover_concrete = core_concrete = uniaxial.Concrete02(
 col_cover = (3 + 1/8) * inch
 core_radius = (5/2*ft - col_cover)
 
-column_reinf_section = section.FiberSection(1, 1e6, [
-    *section.ConfiningPolygon(8, 5/2*ft, core_radius, s=4, divs=(4,3), material=cover_concrete).patches,
+
+patches = [
     patch.circ(extRad=core_radius, material=core_concrete, divs=(5,4,12), rule="uniform-3"),
     layer.circ(radius=core_radius-11/8/2*inch, divs=36, bar="11", material=reinf, units=opensees.units.english)
-])
+    *section.ConfiningPolygon(8, 5/2*ft, core_radius, s=4, divs=(4,3), material=cover_concrete).patches,
+]
+
+column_reinf_section = section.FiberSection(1, 1e6, patches)
 
 section.MomentAxialLocus(column_reinf_section, axial=np.linspace(1000000, -12000000, 15)).analyze()
 

@@ -41,7 +41,7 @@ model.elem(beam, (4, 2))
 model.elem(beam, (2, 5))
 
 
-pattern = ops.pattern.MultipleSupport(None, [
+pattern = ops.pattern.MultipleSupport([
     (1, 1, ops.pattern.GroundMotion(time=t, accel=(t > T*0.3)*sin(t))),
     (3, 2, ops.pattern.GroundMotion(time=t, accel=(t > T*0.2)*sin(t)))
   ],

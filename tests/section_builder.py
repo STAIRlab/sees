@@ -61,7 +61,7 @@ ftU = -0.14*fc1U           # tensile strength +tension
 Ets =  ftU/0.002           # tension softening stiffness
 
 # build 'cover, concrete (unconfined)
-concU = uniaxial.Concrete02(None, fc1U, eps1U, fc2U, eps2U, _lambda, ftU, Ets)
+concU = uniaxial.Concrete02(fc1U, eps1U, fc2U, eps2U, _lambda, ftU, Ets)
 
 concr =  [
     patch.rect(concU, [nfZ, nfY], [[-coverZ, -coverY], [coverZ, coverY]])
@@ -77,7 +77,7 @@ cR1 = 0.925        # control transition from elastic to plastic branches
 cR2 = 0.15         # control transition from elastic to plastic branches
 
 # Create material for reinforcement
-steel = uniaxial.Steel02(None, Fy, Es, Bs, R0, cR1, cR2)
+steel = uniaxial.Steel02(Fy, Es, Bs, R0, cR1, cR2)
 
 # Create geometry for reinforcement
 reinf = [

@@ -1,9 +1,9 @@
-_banner = """\
+_banner = """\033[1m\
                  ┌─┐┌─┐┌─┐┌─┐  ┌──┌─┐┌─┐ ┌──
                  └─┘├─┘└──┘ │ ─┘  └──└───┘
  ───────────────────┘Berkeley, California ──────────────────────
                          © UC Regents
-"""
+\033[0m"""
 from pathlib import Path
 import opensees.tcl
 

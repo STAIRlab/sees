@@ -2,8 +2,8 @@ import opensees
 import opensees.analysis
 
 
-material = opensees.uniaxial.Elastic(1, 3000.0)
-truss = opensees.element.Truss(1, [1, 2], 10.0, material)
+material = opensees.uniaxial.Elastic(3000.0)
+truss = opensees.element.Truss([1, 2], 10.0, material)
 
 m = opensees.model(ndm=1, ndf=1,
     nodes = {
@@ -17,9 +17,9 @@ m = opensees.model(ndm=1, ndf=1,
 
 m.fix(1,1)
 
-# pattern.Plain(1, "linear", [
-#     pattern.load(2, 100.0)
-# ])
+opensees.library.pattern.Plain(1, "linear", [
+    opensees.library.pattern.load(2, 100.0)
+])
 
 strategy = dict(
     constraints = ("Transformation",),
