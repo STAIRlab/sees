@@ -177,7 +177,7 @@ class rect(_Polygon):
         if self._fibers is None:
             if self.divs is None:
                 return []
-            from opensees.quadrature import iquad
+            from shps.gauss import iquad
             interp = self._interp or lq4
             rule = self._rule
 
@@ -230,7 +230,7 @@ class quad(_Polygon):
     @property
     def fibers(self):
         if self._fibers is None:
-            from opensees.quadrature import iquad
+            from shps.gauss import iquad
             interp = self._interp or lq4
             rule = self._rule
 

@@ -9,9 +9,13 @@
 
 
 
-# APIs Design
+# APIs
 
-## Legacy API (`opensees.openseespy`)
+## II.  Python Builder
+
+The Python API
+
+## III. Legacy API (`opensees.openseespy`)
 
 - `OpenSeesPy` class loosly wraps `TclRuntime`. Forwards member access
   to `TclRuntime::eval`

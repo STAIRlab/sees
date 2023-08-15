@@ -1,6 +1,5 @@
 
-# verbosity: INFO
-
+verbosity: INFO
 #from: markdown+raw_html-markdown_in_html_blocks+raw_attribute+inline_code_attributes+link_attributes
 #from: markdown+implicit_figures+raw_html-markdown_in_html_blocks+raw_attribute+inline_code_attributes+shortcut_reference_links+link_attributes
 from: markdown+implicit_figures+raw_html+markdown_in_html_blocks+raw_attribute+inline_code_attributes+shortcut_reference_links+link_attributes
@@ -21,17 +20,15 @@ metadata:
 
 
 filters:
-# - tools/pandoc_plantuml_filter.py
+  - tools/pandoc_plantuml_filter.py
   - tools/apidoc.lua
-  - pygmentize
-# - include.lua
-# - pandoc-xnos
-# - pandoc-crossref
-# - citeproc # commented for dev build time
+# - pygmentize; # slow!
+  - etc/doc-config/elstir.lua
+  - citeproc
 # - image_center.lua
-# - include-code-files.lua
-#
-#- elstir.lua
+  - include.lua
+  - include-code-files.lua
+##- pandoc-crossref
 
 # method is plain, webtex, gladtex, mathml, mathjax, katex
 # you may specify a url with webtex, mathjax, katex

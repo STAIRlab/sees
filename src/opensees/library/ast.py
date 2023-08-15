@@ -224,6 +224,7 @@ class Tag(Int):
         super().init()
         self.name = "name"
         self.field = "name"
+#       self.default = int(id(self))
 
 class Alt(Arg):
     def __init__(self, name, alts, **kwds):

@@ -33,6 +33,10 @@ keywords = [
 ] 
 
 dependencies = [
+    "sees",
+    "ssid", # System identification
+    "shps", # Shape functions and quadrature
+
     "numpy < 1.20.0; python_version<'3.8'",
     "numpy ; python_version>='3.8'",
     # "scipy < 1.6.0 ; python_version=='3.6'",
@@ -43,8 +47,6 @@ dependencies = [
 # Plotting
 #   "matplotlib",
 #   "panel",
-    "sees",
-    "ssid",
 
 # Full-featured REPL
     "pyparsing",
