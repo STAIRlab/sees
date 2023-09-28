@@ -21,7 +21,7 @@ git clone --recurse-submodules https://github.com/BRACE2/OpenSeesRT
   finds conda compilers. It is best to install the following packages
 
   ```shell
-  conda install -c conda-forge fortran-compiler cxx-compiler c-compiler
+  conda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas
   ```
 
 
