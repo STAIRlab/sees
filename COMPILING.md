@@ -1,18 +1,48 @@
 
 
+To clone with submodules:
+
+```shell
+git clone --recurse-submodules https://github.com/BRACE2/OpenSeesRT
+```
+
+
+
+----------------------------------------------------------
+
+
+
 `OS`/`Deps`/`PyRT`:
 
-- [x] `Unix`/`Unix`/`True?` - use for PyPI
 
-- [ ] `Unix`/`Conda`
+- [ ] `Unix`: Conda
 
-  NOTE: with this option, you need to ensure that CMake only
-  finds conda compilers; you may need to install the conda-forge packages
-  `fortran-compiler`, `cxx-compiler` and `c-compiler`
+  When using conda, you need to ensure that CMake only
+  finds conda compilers. It is best to install the following packages
 
-- [x] `Win32`/`Intel`/`False`
+  ```shell
+  conda install -c conda-forge fortran-compiler cxx-compiler c-compiler
+  ```
+
+
+- [ ] **Windows**: Intel and Conan
+
+  ```shell
+  python -m pip install -e .
+  ```
+
+
+
+## Other
+
+- [x] **Windows** CI build
+
+  ```shell
   python3.9 -m cibuildwheel --platform windows --arch AMD64
+  
+  python scripts\win_repair.py win32 wheelhouse\opensees-0.0.47*
+  ```
 
-- [ ] `Win32`/`Conda`/
 
+- [x] `Unix`/`Unix` CI build
 
