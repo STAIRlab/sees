@@ -1,6 +1,6 @@
 [project]
 name = "opensees"
-version = "0.0.45"
+version = "0.0.47"
 authors = [
   {name="Claudio M. Perez"}
   # <50180406+claudioperez@users.noreply.github.com>"
@@ -35,7 +35,7 @@ keywords = [
 dependencies = [
     "sees",
     "ssid", # System identification
-    "shps", # Shape functions and quadrature
+#   "shps", # Shape functions and quadrature
 
     "numpy < 1.20.0; python_version<'3.8'",
     "numpy ; python_version>='3.8'",
