@@ -1,6 +1,3 @@
-#[submodule "src/opensees/units"]
-#	path = src/opensees/units
-#	url = https://github.com/BRACE2/libunits
 [submodule "src/libg3"]
 	path = src/libg3
-	url = git@github.com:claudioperez/libg3
+	url = ../../claudioperez/libg3.git
