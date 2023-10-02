@@ -1,36 +1,37 @@
+# Compiling
+
 To clone with submodules:
 
 ``` shell
 git clone --recurse-submodules https://github.com/BRACE2/OpenSeesRT
 ```
 
-------------------------------------------------------------------------
 
-`OS`/`Deps`/`PyRT`:
+To compile the first time, run
 
-- [ ] `Unix`: Conda
+``` shell
+python -m pip install -e .
+```
+
+## Dependencies
+
+
 
 - [ ] **Windows**: Intel and Conan
 
-  ``` shell
-  python -m pip install -e .
-  ```
 
-<details><summary><a>APT (Ubuntu, Debian Linux)</a></summary>
+<details><summary><b>APT (Ubuntu, Debian Linux)</b></summary>
 
 | Dependency  | Package              |
 |:------------|:---------------------|
 | LAPACK      | `liblapack-dev`      |
 | BLAS        | `libblas-dev`        |
-| SuiteSparse | `suitesparse-dev`    |
-| SuperLU     | `superlu-dev`        |
-| MySQL\*     | `libmysqlclient-dev` |
 | Tcl\*       | `tcl-dev`            |
 
 </details>
 <details>
 <summary>
-<a>Pacman (Arch, Manjaro Linux)</a>
+<b>Pacman (Arch, Manjaro Linux)</b>
 </summary>
 
 The Pacman package manager
@@ -39,15 +40,12 @@ The Pacman package manager
 |:------------|:--------------|
 | LAPACK      | `lapack`      |
 | BLAS        | `blas`        |
-| SuiteSparse | `suitesparse` |
-| SuperLU     | `superlu`     |
-| MySQL\*     | `mariadb`     |
 | Tcl\*       | `tcl`         |
 
 </details>
 <details>
 <summary>
-<a>Anaconda (Mac, Windows, Linux)</a>
+<b>Anaconda (Mac, Windows, Linux)</b>
 </summary>
 
 When using conda, you need to ensure that CMake only finds conda
@@ -61,21 +59,17 @@ conda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas
 |:------------|:--------------|:--------------|
 | LAPACK      | `lapack`      |               |
 | BLAS        | `blas`        |               |
-| SuperLU     | `superlu`     |               |
-| SuiteSparse | `suitesparse` |               |
-| MySQL\*     | `mysql`       | `conda-forge` |
 
 </details>
 </details>
 <details>
 <summary>
-<a>Yum (CentOS, Redhat Linux)</a>
+<b>Yum (CentOS, Redhat Linux)</b>
 </summary>
 
 | Dependency | Package        |
 |------------|----------------|
 | LAPACK     | `lapack-devel` |
-| MySQL\*    | `mysql-devel`  |
 | Tcl\*      | `tcl-devel`    |
 
 </details>
@@ -85,7 +79,5 @@ conda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas
 - [x] **Windows** CI build
 
   ``` shell
-  python scripts\win_repair.py win32 wheelhouse\opensees-0.0.47*
+  python scripts\win_repair.py win32 wheelhouse\opensees-*
   ```
-
-- [x] `Unix`/`Unix` CI build
