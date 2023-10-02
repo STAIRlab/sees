@@ -65,6 +65,7 @@ Python versions 3.7 - 3.11 are supported on both Windows and Linux.
 
 See also:
 
+- [`osmg`](https://pypi.org/project/osmg) OpenSees Model Generator
 - [`sees`](https://pypi.org/project/sees) Modern rendering library
 - [`ssid`](https://pypi.org/project/ssid) Optimized system identification library
 - [`sdof`](https://pypi.org/project/sdof) Optimized integration library
