@@ -88,11 +88,11 @@ The Pacman package manager
 <details><summary><a>Yum (CentOS, Redhat Linux)</a></summary>
 
 
-  Dependency    Package
-  ------------- ---------------
-  LAPACK        `lapack-devel`
-  MySQL\*       `mysql-devel`
-  Tcl\*         `tcl-devel`
+| Dependency  | Package        |
+|-------------|----------------|
+| LAPACK      | `lapack-devel` |
+| MySQL\*     | `mysql-devel`  |
+| Tcl\*       | `tcl-devel`    |
 
 
 </details>
