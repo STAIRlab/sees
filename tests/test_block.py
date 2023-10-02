@@ -22,15 +22,13 @@ block_2  = {
     8: (1.1, 0.5)
 }
 
-print("0")
 model = opensees.model(ndm=2, ndf=2)
-print("00")
 
 model.block((2,2), "ShellMITC4", ["1", "PlaneStress", "1"], block_1)
-print("1")
 
 model.block((2,2), "ShellMITC4", ["2", "PlaneStress", "1"], block_2)
-print("2")
+
+
 #print(opensees.tcl.dumps(model))
 
 

@@ -8,21 +8,8 @@ import fnmatch
 # from . import pattern
 from .library.obj import *
 from .library import pattern
+
 from .library.model import model
-
-
-def instance(model):
-    try:
-        return model.__enter__()
-
-    except AttributeError:
-        return model.getCopy()
-
-
-
-# TODO: add test for python < 3.7, which doesnt support
-# module level __getattr__
-# from .lib import  uniaxial, element, backbone
 
 import importlib
 
@@ -43,5 +30,15 @@ def __getattr__(name):
         except:
             raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
     raise AttributeError(f"module {__name__!r} has no attribute {name!r}")
+
+
+
+def instance(model):
+    try:
+        return model.__enter__()
+
+    except AttributeError:
+        return model.getCopy()
+
 
 
