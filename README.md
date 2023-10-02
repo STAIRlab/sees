@@ -65,6 +65,7 @@ Python versions 3.7 - 3.11 are supported on Linux.
 
 See also:
 
+- [`osmg`](https://pypi.org/project/osmg) OpenSees Model Generator
 - [`sees`](https://pypi.org/project/sees) Modern rendering library
 - [`mdof`](https://pypi.org/project/mdof) Optimized system identification library
 - [`sdof`](https://pypi.org/project/sdof) Optimized integration for single degree of freedom systems
