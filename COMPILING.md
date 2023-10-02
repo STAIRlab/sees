@@ -19,7 +19,7 @@
 
 
 
-- [ ] **Windows**: Intel and Conan
+**Windows**: Install Intel compilers and Conan
 
 
 <details><summary><b>APT (Ubuntu, Debian Linux)</b></summary>
