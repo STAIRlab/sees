@@ -1,17 +1,19 @@
 # Compiling
 
-To clone with submodules:
+1. Clone with submodules:
 
-``` shell
-git clone --recurse-submodules https://github.com/BRACE2/OpenSeesRT
-```
+   ``` shell
+   git clone --recurse-submodules https://github.com/BRACE2/OpenSeesRT
+   ```
+
+2. Install dependencies (see below)
 
 
-To compile the first time, run
+3. To compile the first time, run
 
-``` shell
-python -m pip install -e .
-```
+    ``` shell
+    python -m pip install -e .
+    ```
 
 ## Dependencies
 
