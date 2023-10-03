@@ -1,5 +1,7 @@
-from .tcl import TclRuntime
 import json
+from functools import partial
+
+from .tcl import Interpreter
 
 # A list of symbol names that are importable
 # from this module. All of these are dynamically
@@ -250,18 +252,29 @@ def _as_str_arg(arg):
 
 
 
-class OpenSeesPy(TclRuntime):
+class OpenSeesPy:
     """
     This class is meant to be instantiated as a global singleton
     that is private to this Python module.
 
-    It encapsulates an instance of TclRuntime which implements an
+    It encapsulates an instance of Interpreter which implements an
     OpenSees state.
     """
+    def __init__(self, *args, echo=False, **kwds):
+        self._interp = Interpreter(*args,  **kwds)
+        self._interp.eval("pragma openseespy")
+        self._partial = partial
+        self._echo = echo
+
+    def eval(self, cmd: str) -> str:
+        "Evaluate a Tcl script"
+        if self._echo:
+            print(cmd)
+        return self._interp.eval(cmd)
 
     def _str_call(self, proc_name: str, *args, **kwds)->str:
         """
-        Invoke the TclRuntime's eval method, calling
+        Invoke the Interpreter's eval method, calling
         a procedure named `proc_name` with arguments
         from args and kwds, after converting Python semantics
         to Tcl semantics (via _as_str_arg).
@@ -277,22 +290,24 @@ class OpenSeesPy(TclRuntime):
               for key, val in kwds.items()
         ]
         cmd = f"{proc_name} " + " ".join(tcl_args)
+
+        # TODO: make sure errors print nicely
         try:
-            ret = self._interp.tk.eval(cmd)
+            ret = self.eval(cmd)
         except Exception as e:
-            # print(cmd)
             raise e
+
         if ret is None or ret == "":
             return None
 
         parts = ret.split()
+        # Use json parse to cast types from string. This is faster than AST.
         if len(parts) > 1:
-            try: return json.loads("[" + ",".join(parts) + "]")
+            try:    return json.loads("[" + ",".join(parts) + "]")
             except: return ret
         else:
-            try: return json.loads(ret)
+            try:    return json.loads(ret)
             except: return ret
-
 
     def pattern(self, *args, **kwds):
         self._current_pattern = args[1]
@@ -304,14 +319,13 @@ class OpenSeesPy(TclRuntime):
 
 
 # The global singleton
-tcl = _openseespy = OpenSeesPy()
+_openseespy = OpenSeesPy()
 
 def __getattr__(name: str):
     # For reference:
     #   https://peps.python.org/pep-0562/#id4
-    if name in {"pattern", "load"}:
+    if name in {"pattern", "load", "eval"}:
         return getattr(_openseespy, name)
     else:
         return _openseespy._partial(_openseespy._str_call, name)
-
 

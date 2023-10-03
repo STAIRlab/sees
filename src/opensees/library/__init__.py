@@ -616,7 +616,6 @@ class uniaxial:
     # ])
 
 
-
 class element:
     Iyc = lambda: Num("iyc", field="iyc",  about="Centroidal moment of inertia", alt="section")
     Ixc = lambda: Num("ixc", field="ixc",  about="", alt="section")
@@ -644,7 +643,7 @@ class element:
 
     @Ele
     class Truss:
-        _args = [ 
+        _args = [
             Tag(),
             Grp("nodes", type=Node, 
                 args=[Ref("iNode", attr="name"), Ref("jNode", attr="name")], about="end nodes"),

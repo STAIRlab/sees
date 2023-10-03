@@ -16,9 +16,9 @@ except:
 from opensees.library.obj import Component
 
 
-def eval(script: str, silent=False, analysis=True)->dict:
+def exec(script: str, silent=False, analysis=True)->dict:
     """
-    Execute a script and return data
+    Execute a Tcl script and return interpreter
     """
     if silent:
         puts = "proc puts {args} {}"
@@ -53,14 +53,12 @@ def eval(script: str, silent=False, analysis=True)->dict:
 
     return interp
 
-def exec(script: str):
-    """Execute a Tcl script"""
+def eval(script: str):
     import textwrap
     interp = _create_interp()
-    interp.eval(textwrap.dedent(f"""
+    return interp.eval(textwrap.dedent(f"""
     {script}
     """))
-    return interp
 
 def dumps(obj):
 
