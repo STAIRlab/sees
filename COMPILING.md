@@ -21,7 +21,7 @@ The primary system dependencies required for compiling are BLAS and Tcl.
 Packages providing these libraries are listed below for various package
 management ecosystems.
 > **NOTE** If you build in an Anaconda environment, you should install 
-> everything with `conda` or `mamba`, and preferable from `conda-forge`. 
+> everything with `conda` or `mamba`, and preferably from `conda-forge`. 
 > See Anaconda below.
 
 **Windows**: Install Intel compilers and Conan
