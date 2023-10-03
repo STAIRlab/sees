@@ -24,7 +24,7 @@
 
 ## Dependencies
 
-The primary system dependencies required for compiling are BLAS and Tcl.
+The primary system dependencies required for compiling are LAPACK/BLAS and Tcl.
 Packages providing these libraries are listed below for various package
 management ecosystems.
 > **NOTE** If you build in an Anaconda environment, you should install 
