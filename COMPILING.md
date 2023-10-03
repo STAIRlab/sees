@@ -14,6 +14,13 @@
     ``` shell
     python -m pip install -e .
     ```
+    This will create a `build` directory with a `Makefile` that you can
+    use for subsequent builds by running the following:
+    ```shell
+    make OpenSeesRT -j5
+    ```
+    where the option `-j5` makes the build faster and can be adjusted
+    for your needs and resources (see `make` documentation).
 
 ## Dependencies
 
@@ -56,16 +63,13 @@ The Pacman package manager
 </summary>
 
 When using conda, you need to ensure that CMake only finds conda
-compilers. It is best to install the following packages
+compilers.
+The following command should install everything you need:
 
 ``` shell
 conda install -c conda-forge fortran-compiler cxx-compiler c-compiler openblas
 ```
 
-| Dependency  | Package       | Channel       |
-|:------------|:--------------|:--------------|
-| LAPACK      | `lapack`      |               |
-| BLAS        | `blas`        |               |
 
 </details>
 </details>
