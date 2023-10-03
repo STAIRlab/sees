@@ -45,7 +45,7 @@ class Fiber:
             about="$x$ and $y$ coordinate of the fiber in the section "\
                   "(local coordinate system)"),
         Num("area", about="area of the fiber."),
-        Ref("material", type=Material, 
+        Ref("material", type=Material,
             about="material tag associated with this fiber (UniaxialMaterial tag"\
                   "for a FiberSection and NDMaterial tag for use in an NDFiberSection)."),
     ]
@@ -99,6 +99,7 @@ class _Polygon:
         # planar moment of inertia wrt horizontal axis
         ixx = np.sum((y**2 + y * np.roll(y, -1) +
                       np.roll(y, -1)**2)*alpha)/12.0
+
         # planar moment of inertia wrt vertical axis
         iyy = np.sum((x**2 + x * np.roll(x, -1) +
                       np.roll(x, -1)**2)*alpha)/12.0
@@ -110,12 +111,6 @@ class _Polygon:
                       + np.roll(x, -1) * y)*alpha)/24.
 
         return np.array([[ixx, ixy],[ixy,iyy]])
-        # # polar moment of inertia
-        # ir = ixx + iyy
-        # # mass moment of inertia wrt in-plane rotation
-        # ir_mass = (ixx + iyy) / area
-        # return {'ixx': ixx, 'iyy': iyy,
-        #         'ixy': ixy, 'ir': ir, 'ir_mass': ir_mass}
 
     @property
     def moic(self):
@@ -145,7 +140,7 @@ def RegularPolygon(n, Rcol=None, diameter=None):
 @_patch
 class rect(_Polygon):
     _args = [
-       Ref("material", type=Material, field="material", 
+       Ref("material", type=Material, field="material",
            about="tag of previously defined material (`UniaxialMaterial`"\
                  "tag for a `FiberSection` or `NDMaterial` tag for use "\
                  "in an `NDFiberSection`)"),
@@ -178,6 +173,7 @@ class rect(_Polygon):
             if self.divs is None:
                 return []
             from shps.gauss import iquad
+            # TODO: Use shps for lq4
             interp = self._interp or lq4
             rule = self._rule
 
@@ -204,7 +200,7 @@ class quad(_Polygon):
     """
     _img  = "quadPatch.svg"
     _args = [
-       Ref("material", type=Material, field="material", 
+       Ref("material", type=Material, field="material",
            about="tag of previously defined material (`UniaxialMaterial` "\
                  "tag for a `FiberSection` or `NDMaterial` tag for use in an `NDFiberSection`)"),
        Grp("divs", reverse=True, args=[
@@ -336,19 +332,19 @@ class circ:
                             for theta in np.arange(self.startAng, self.endAng, dt)
                 ]
 
-            elif self.kwds.get("rule",None) == "uniform": 
+            elif self.kwds.get("rule",None) == "uniform":
                 self._fibers = [
                     Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
                     for r,theta,area in rtuniform(n=self.divs[1], rmax=self.extRad, m=self.divs[0], rmin=self.intRad)
                 ]
 
-            elif self.kwds.get("rule",None) == "uniform-2": 
+            elif self.kwds.get("rule",None) == "uniform-2":
                 self._fibers = [
                     Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
                     for r, theta, area in rtuniform(n=self.divs[1], rmax=self.extRad, m=self.divs[0])
                     if (r*np.cos(theta), r*np.sin(theta)) in self
                 ]
-            elif self.kwds.get("rule",None) == "uniform-3": 
+            elif self.kwds.get("rule",None) == "uniform-3":
                 self._fibers = [
                     Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
                     for r, theta, area in rtpairs(
@@ -361,7 +357,7 @@ class circ:
                 self._fibers = [
                     Fiber([r*np.cos(theta), r*np.sin(theta)], area, self.material)
                     for r, theta, area in rtpairs(
-                        np.linspace(0.0, self.extRad, self.divs[2]), 
+                        np.linspace(0.0, self.extRad, self.divs[2]),
                         np.arange(self.divs[1], self.divs[2]+self.divs[1]+1)*self.divs[0]
                     )
                     if (r*np.cos(theta), r*np.sin(theta)) in self
@@ -417,7 +413,7 @@ class circ:
     def J(self):
         return 0.5 * self.area * self.extRad ** 2
 
-layer = LibCmd("layer", 
+layer = LibCmd("layer",
         {
           "circ": [
             Ref("material",  type=Material,
@@ -554,7 +550,7 @@ class line(ReinforcingLayer):
 _eps = 0.00001
 _huge = sys.float_info.max
 _tiny = sys.float_info.min
- 
+
 def _rayIntersectSeg(p, edge)->bool:
     """
     takes a point p and an edge of two endpoints a,b of a line segment 
@@ -567,14 +563,15 @@ def _rayIntersectSeg(p, edge)->bool:
         a,b = b,a
     if p[1] == a[1] or p[1] == b[1]:
         p = np.array((p[0], p[1] + _eps))
- 
+
     intersect = False
- 
+
     if (p[1] > b[1] or p[1] < a[1]) or (p[0] > max(a[0], b[0])):
         return False
- 
+
     if p[0] < min(a[0], b[0]):
         return True
+
     else:
         if abs(a[0] - b[0]) > _tiny:
             m_red = (b[1] - a[1]) / float(b[0] - a[0])
@@ -613,7 +610,7 @@ lq4 = _Interpolant("",
 lt6 = _Interpolant(
     """
     Quadratic Lagrange polynomial interpolation over a triangle.
-    """, 
+    """,
     lambda r,s: np.array([
              (1 - r - s) - 2*r*(1 - r - s) - 2*s*(1 - r - s),
              r - 2*r*(1 - r - s) - 2*r*s,
@@ -632,7 +629,7 @@ def rtpairs(R,N):
     """
     R - list of radii
     N - list of points per radius
-    
+
     Takes two list arguments containing the desired radii
     and the number of equally spread points per radii respectively.
     The generator, when iterated, will return radius-angle polar
@@ -643,17 +640,17 @@ def rtpairs(R,N):
         theta = 0.
         dTheta = 2*np.pi/N[i]
         for j in range(N[i]):
-            theta = j*dTheta   
+            theta = j*dTheta
             area = 0.5*dTheta*(R[i+1]**2 - R[i]**2)
             yield (R[i+1]+R[i])/2, theta, area
-            
+
 
 def rtuniform(n,rmax,m,rmin=0.0):
     """
     n - number of radii
     rmax - maximum radius
     m - scaling of points with radius
-    
+
     This generator will return a disc of radius rmax, 
     with equally spread out points within it. The number 
     of points within the disc depends on the n and m parameters.
@@ -664,14 +661,13 @@ def rtuniform(n,rmax,m,rmin=0.0):
         n0 = 1
     R = [rmin]
     N = [n0]
-    rmax_f = float(rmax)    
+    rmax_f = float(rmax)
     for i in range(int(n)):
         ri = rmin + (i+1)*((rmax_f-rmin)/int(n))
         ni = int(m)*(i+1)
         R.append(ri)
         N.append(ni)
     return rtpairs(R,N)
-
 
 
 def sunflower(n, rad, alpha=0, geodesic=False):

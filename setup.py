@@ -48,21 +48,21 @@ if __name__ == "__main__":
     setuptools.setup(
         data_files=[('bin', [*map(str,Path("win32/").glob("*.*"))]),
         ] if os.name == "nt" else [],
-        cmdclass = {"build_ext": amoeba.BuildExtension, 
+        cmdclass = {"build_ext": amoeba.BuildExtension,
                     "cmake": amoeba.CMakeCommand},
         ext_modules = [
             amoeba.CMakeExtension(
-                name = "pypa",        # PyPA
-#               name = "local",
+                name = "local",
+#               name = "pypa",        # PyPA
 #               name = "debug",
                 install_prefix="opensees",
                 cmake_configure_options = [
                     "-G", "Unix Makefiles",
                     *EnvArgs,
-                    "-DCMAKE_BUILD_TYPE=DEBUG",
-#                   "-DCMAKE_BUILD_TYPE=RELEASE",
-                    "-DOPENSEESRT_VERSION=0.0.45",
-                    "-DProfileBuild:BOOL=TRUE",
+#                   "-DCMAKE_BUILD_TYPE=DEBUG",
+                    "-DCMAKE_BUILD_TYPE=RELEASE",
+                    "-DOPENSEESRT_VERSION=0.0.49",
+#                   "-DProfileBuild:BOOL=TRUE",
                     *OpenSeesPyRT_Config,
 
                 ],

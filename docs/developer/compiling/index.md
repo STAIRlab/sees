@@ -1,4 +1,4 @@
-# Compiling the Application
+# Compiling
 
 OpenSees uses [CMake](https://cmake.org/download/) to provide a
 consistent cross-platform building experience. A basic walkthrough of
@@ -16,4 +16,5 @@ see `extend`{.interpreted-text role="ref"}.
 - [basic](basic)
 - [tooling](tooling)
 - [advanced](advanced)
+
 

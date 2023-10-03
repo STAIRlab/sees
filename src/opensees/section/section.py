@@ -22,9 +22,7 @@ class _FiberCollection:
 
 @_section
 class FiberSection(_FiberCollection):
-    """Create a `FiberSection`.
 
-    """
     _args = [
         Tag(),
         Num("GJ", flag="-GJ", field="torsional_stiffness", optional=True,
@@ -244,7 +242,7 @@ def ConfinedPolygon(
     # Density of transverse spiral reinforcement
     # rho       =  4.0* Asp/(Dtran*sTbar)
     # Diameter of ring of longitudinal reinforcement
-    Dlong     =   Dcore - 2*DTbar - DLbar
+    Dlong   =   Dcore - 2*DTbar - DLbar
     # Rlong     =   Dlong/2.        # Radius of ring of longitudinal reinforcement
 
     # Build Octagonal RC Column Section
@@ -272,8 +270,7 @@ def ConfinedPolygon(
 @_section
 class SectionAggregator:
     """
-    This command is used to construct a `SectionAggregator`
-    object which aggregates groups previously-defined `UniaxialMaterial`
+    This class groups previously-defined `UniaxialMaterial`
     objects into a single section force-deformation model.
 
     Each `UniaxialMaterial` object represents the section force-deformation response for a particular section degree-of-freedom (dof). There is no interaction between responses in different dof directions. The aggregation can include one previously defined section.
