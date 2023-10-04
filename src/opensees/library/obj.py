@@ -6,6 +6,11 @@ class Component:
     def tag_space(self):
         return self._cmd[0].split("::")[-1]
 
+    def __repr__(self):
+        return f"<{self.__class__.__name__} " + ", ".join(
+                f"{k}={getattr(self, k)}" for k in self.__slots__ if k[0] != "_"
+               ) + ">"
+
     def __enter__(self):
         assert self._rt is None
         # libOpenSeesRT must be imported by Python
@@ -23,7 +28,6 @@ class Component:
             self.name = self.tag = tag = self.name if self.name is not None else "1"
             rt.send(self, ndm=1, ndf=1)
             self._builder = libOpenSeesRT.get_builder(rt._interp.interpaddr())
-#           rt.eval("print -json")
             handle = self._builder.getUniaxialMaterial(tag)
 
         elif self.tag_space == "section":
@@ -47,9 +51,7 @@ class Component:
         self._rt = None
 
 
-    def get_ast(self):
-        pass
-
+    def get_ast(self): ...
     def get_cmd(self):
         args = [
             a for arg in self._args
@@ -174,9 +176,13 @@ class LibCmd(Cmd):
         for sub in subs:
             setattr(self, sub, self(sub.title(), sub, args=subs[sub]))
 
-    def __call__(self, cls, name=None, args=None, refs=None, inherit=None, **opts):
+    def __call__(self, *args, **kwds):
+        return self.subclass(*args, **kwds)
+
+    def subclass(self, cls, name=None, args=None, refs=None, inherit=None, **opts):
         if inherit is None: inherit = []
-        if self.typ is not None: inherit.append(self.typ)
+        if self.typ is not None:
+            inherit.append(self.typ)
         if refs is None:
             refs = []
 
@@ -200,6 +206,7 @@ class LibCmd(Cmd):
         obj = struct(cls, fields, args, alts, refs=refs, cmd=[self.cmd, name], parents=inherit)
         obj.kwds = opts
         obj._class_name = self.class_name
+
         setattr(self, name, obj)
         return obj
 
@@ -221,7 +228,6 @@ class LibCmd(Cmd):
             cls = name = cls._name
         else:
             cls = name = cls.__name__
-
 
         args = self.args + args
         fields = [arg.field for arg in args]
