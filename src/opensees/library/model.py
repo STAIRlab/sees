@@ -2,8 +2,8 @@
 import fnmatch
 from math import isclose
 
-from opensees.library.obj import cmd, Component
-from opensees.library.ast import Tag, Grp, Num
+from opensees.library.obj import cmd, Component, Ele
+from opensees.library.ast import Tag, Grp, Num, Str, Ref
 
 
 Node = cmd("Node", "node", [
@@ -48,6 +48,8 @@ class ModelBuilder:
         self.m_elems = {}
         self.m_nodes = {}
 
+        self._model  = None
+
         #
         # Book keeping
         #
@@ -87,17 +89,53 @@ class ModelBuilder:
                 self.fix(k, *v)
 
         [self.conn(*cn)  for cn in conns]
+
         [self.fix(*args) for args in zeros]
 
-    def apply(self,prototypes=None,**kwds):
+    def block(self, divs, type: str, args, points, **kwds):
+        import shps.plane, shps.block
+
+        block_type = {
+                "ShellMITC4": shps.plane.Q4,
+        }[type]
+
+        nodes = Grp("nodes", args=[
+                Ref(f"Node{1+i}", type=Node,  attr="name", about="")
+                for i in range(4)
+        ])
+        arg_spec = [Tag(), nodes]+[Str(f"a{i+1}") for i in range(len(args))]
+        elem_class = Ele(type, type, args=arg_spec)
+
+        if len(self.m_nodes) > 0:
+            join = dict(nodes={int(v.name): v.crd for k,v in self.m_nodes.items()}, cells=self.m_elems.keys())
+#                       cells={int(e["name"]) for e in self.m_elems.values()})
+        else:
+            join = None
+
+
+        nodes, elems = shps.block.block(divs, block_type, points=points,
+                                        append=False, join=join, **kwds)
+
+
+        for tag, coord in nodes.items():
+            self.node(tag, *coord)
+
+        for tag, nodes in elems.items():
+            elem = elem_class([], *args, name=tag)
+#           for node in nodes:
+#               print(node, self.get_node(node))
+#           print("")
+            self.elem(elem, list(map(int,nodes)), tag=tag)
+
+    def apply(self, prototypes=None, **kwds):
         if prototypes is None:
             prototypes = self.prototypes
 
         elems = {}
         for el in self.m_elems.values():
-            typ = el["type"]
-            tag = el["name"]
-            args = {k:v for k,v in el.items() if k not in ["type", "name", "nodes"]}
+            typ  = el["type"]
+            tag  = el["name"]
+            args = {k:v for k,v in el.items() if k not in {"type", "name", "nodes"}}
             if typ in prototypes:
                 typ = prototypes[typ]
             elif callable(typ):
@@ -105,8 +143,8 @@ class ModelBuilder:
             else:
                 continue
 
-            nodei, nodej = el["nodes"]
             if hasattr(typ, "mesh_interval") and typ.mesh_interval:
+                nodei, nodej = el["nodes"]
                 # mesh_interval should generate values in (-1, 1)
                 Xi = nodei["crd"]
                 dX = [j - i for j, i in zip(nodej["crd"], Xi)]
@@ -119,7 +157,7 @@ class ModelBuilder:
                     elems.update({self._new_tag("elem", elems): elem})
                     nodei = new_node
 
-            elem = typ(nodes=(nodei, nodej), **args)
+            elem = typ(nodes=el["nodes"], **args)
             elem.prototype = typ
             elems.update({self._new_tag("elem", elems): elem})
 
@@ -137,6 +175,7 @@ class ModelBuilder:
         mod = Model(self.ndm, self.ndf, self.m_nodes, elems)
         mod.dof_names = self.dof_names
         mod.prototypes = prototypes
+        self._model = mod
         return mod
 
     @property
@@ -145,8 +184,10 @@ class ModelBuilder:
         return elle.units.UnitHandler(self._units)
 
     def get_node(self, tag):
-        if isinstance(tag,(str,int)):
-            return self.m_nodes[tag]
+        assert isinstance(tag,(str,int)), type(tag)
+        return self.m_nodes[tag]
+#       if isinstance(tag,(str,int)):
+#           return self.m_nodes[tag]
 
     def node(self, tag, *coords, **kwds):
         if tag is None: tag = self._new_tag("node")
@@ -165,7 +206,7 @@ class ModelBuilder:
     def mass(self, node, m):
         self.m_nodes[node].mass = m
 
-    def rayleigh(self, *args):
+    def damp(self, *args):
         pass
 
     def _new_tag(self, typ, container=None):
@@ -207,17 +248,19 @@ class ModelBuilder:
             # TODO
             assert tag not in self.m_auto_assigned_elems
 
-        else:
+        elif len(args) == 2:
             # elem(typ, [nodes])
-            tag = self._new_tag("elem") if tag is not None else tag
+            tag = self._new_tag("elem") if tag is None else tag
             nodes = args[1]
 
         self.m_elems.update({tag: {
             "type": typ,
             "name": tag,
             "nodes": [self.get_node(n) for n in nodes],
+            "ntags": nodes,
             **kwds
         }})
+#       print(self.m_elems[tag])
 
     def conn(self, typ, node, dofs=(), name=None):
         if isinstance(node, (tuple,list)):
@@ -367,8 +410,8 @@ class Model:
         self.ndf:     int  = ndf
 
     def get_node(self, tag):
-        if isinstance(tag,(str,int)):
-            return self.m_nodes[tag]
+        assert isinstance(tag,(str,int))
+        return self.m_nodes[tag]
 
     def get_refs(self):
         for node in self.m_nodes.values():
