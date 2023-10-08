@@ -74,7 +74,7 @@ Edit `src/libg3/CMakeLists.txt` and append the following optimization options:
 ```shell
 python3 setup.py cmake
 cd build/temp.linux-x86_64-cpython-39_pypa
-make OpenSeesRT -j52
+make OpenSeesRT -j56
 
 export OPENSEESRT_LIB=$SCRATCH/OpenSeesRT/build/temp.linux-x86_64-cpython-39_pypa/src/libg3/SRC/runtime/libOpenSeesRT.so
 
