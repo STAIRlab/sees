@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -302,8 +302,6 @@
       
         
           
-            
-          
         
           
         
@@ -313,16 +311,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -331,6 +323,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6224,8 +6228,6 @@
       
         
           
-            
-          
         
           
         
@@ -6235,16 +6237,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6253,6 +6249,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9609,85 +9617,6 @@
 
 <h1 id="qzsimple1">QzSimple1</h1>
 <p>This command is used to construct a <code>QzSimple1</code> uniaxial material.</p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">QzSimple1</span>(name, qzType, qult, Z50, **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-qzType
-</td>
-<td>
-<code style="white-space: nowrap;">str</code>
-</td>
-<td>
-<table>
-<tr>
-<td>
-1
-</td>
-<td>
-Backbone of <span class="math inline">\(q-z\)</span> curve approximates Reese and O’Neill’s (1987) relation for drilled shafts in clay.
-</td>
-</tr>
-<tr>
-<td>
-2
-</td>
-<td>
-Backbone of <span class="math inline">\(q-z\)</span> curve approximates Vijayvergiya’s (1977) relation for piles in sand.
-</td>
-</tr>
-</table>
-</tr>
-<tr>
-<td>
-qult
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Ultimate capacity of the <span class="math inline">\(q-z\)</span> material. SEE NOTE 1.
-</tr>
-<tr>
-<td>
-Z50
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Displacement at which 50% of qult is mobilized in monotonic loading. SEE NOTE 2.
-</tr>
-<tr>
-<td>
-suction
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Uplift resistance is equal to suction<em>qult. Default = 0.0. The value of suction must be 0.0 to 0.1.</em>
-</tr>
-<tr>
-<td>
-c
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). Default = 0.0. Nonzero c values are used to represent radiation damping effects.*
-</tr>
-</tbody>
-</table>
-</div>
 <p>
 NOTES:
 </p>

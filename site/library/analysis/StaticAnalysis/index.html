@@ -19,7 +19,7 @@ to perform a static analysis on the Domain.
     
     
       
-        <title>StaticAnalysis - OpenSeesRT</title>
+        <title>Static Analysis - OpenSeesRT</title>
       
     
     
@@ -102,7 +102,7 @@ to perform a static analysis on the Domain.
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              StaticAnalysis
+              Static Analysis
             
           </span>
         </div>
@@ -175,7 +175,7 @@ to perform a static analysis on the Domain.
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -193,7 +193,7 @@ to perform a static analysis on the Domain.
   
   
     <li class="md-tabs__item">
-      <a href="../../../developer/" class="md-tabs__link">
+      <a href="../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -308,8 +308,6 @@ to perform a static analysis on the Domain.
       
         
           
-            
-          
         
           
         
@@ -319,16 +317,10 @@ to perform a static analysis on the Domain.
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -337,6 +329,18 @@ to perform a static analysis on the Domain.
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6216,8 +6220,6 @@ to perform a static analysis on the Domain.
       
         
           
-            
-          
         
           
         
@@ -6227,16 +6229,10 @@ to perform a static analysis on the Domain.
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6245,6 +6241,18 @@ to perform a static analysis on the Domain.
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9599,18 +9607,21 @@ to perform a static analysis on the Domain.
                 
 
 
-<h1 id="staticanalysis">StaticAnalysis</h1>
-<p><code>StaticAnalysis</code> is a subclass of <code>Analysis</code>, it is used to perform a static analysis on the Domain. In static nonlinear finite element problems we seek a solution (<span class="math inline">\(\U\)</span>, <span class="math inline">\(\lambda\)</span>) to the nonlinear vector function</p>
-<p><span class="math display">\[{\bf R}({\bf U}, \lambda) = \lambda {\bf P} - {\bf F}_R({\bf U}) = \zero
-\label{staticGenForm}\]</span></p>
+<h1 id="static-analysis">Static Analysis</h1>
+<p>In static nonlinear finite element problems we seek a solution (<span class="math inline">\(\U\)</span>, <span class="math inline">\(\lambda\)</span>) to the nonlinear vector function</p>
+<p><span class="math display">\[
+\boldsymbol{R}({\bf U}, \lambda) = \lambda \boldsymbol{P} - \boldsymbol{F}_R({\bf U}) = \boldsymbol{0}
+\label{staticGenForm}
+\]</span></p>
 <p>The most widely used technique for solving the non-linear finite element equation, equation <a href="#femGenForm" data-reference-type="ref" data-reference="femGenForm">femGenForm</a>, is to use an incremental scheme. In the incremental formulation, a solution to the equation is sought at successive incremental steps.</p>
-<p><span class="math display">\[\R({\bf U}_{n}, \lambda_n) = \lambda_n {\bf P} - {\bf F}_R({\bf U}_{n})
+<p><span class="math display">\[
+\R({\bf U}_{n}, \lambda_n) = \lambda_n \boldsymbol{P} - \boldsymbol{F}_R({\bf U}_{n})
 \]</span> {#staticIncForm}</p>
 <p>The solution of this equation is typically obtained using an iterative procedure, in which a sequence of approximations (<span class="math inline">\({\bf U}_{n}^{(i)}\)</span>, <span class="math inline">\(\lambda_n^{(i)}\)</span>), <span class="math inline">\(i=1,2, ..\)</span> is obtained which converges to the solution (<span class="math inline">\({\bf U}_n\)</span>, <span class="math inline">\(\lambda_n)\)</span>. The most frequently used iterative schemes, such as Newton-Raphson, modified Newton, and quasi Newton schemes, are based on a Taylor expansion of equation <a href="#staticIncForm" data-reference-type="ref" data-reference="staticIncForm">staticIncForm</a> about (<span class="math inline">\({\bf U}_{n}\)</span>, <span class="math inline">\(\lambda_n\)</span>):</p>
-<p><span class="math display">\[\R({\bf U}_{n},\lambda_n) = \lambda_n^{(i)} {\bf P} 
- - {\bf F}_{R}\left({\bf U}_{n}^{(i)} \right) - \left[
+<p><span class="math display">\[\R({\bf U}_{n},\lambda_n) = \lambda_n^{(i)} \boldsymbol{P} 
+ - \boldsymbol{F}_{R}\left({\bf U}_{n}^{(i)} \right) - \left[
 \begin{array}{cc}
-{\bf K}_n^{(i)} &amp; -{\bf P} \\
+{\bf K}_n^{(i)} &amp; -\boldsymbol{P} \\
 \end{array} \right] 
 \left\{
 \begin{array}{c}

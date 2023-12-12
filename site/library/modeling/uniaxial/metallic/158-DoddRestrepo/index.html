@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -302,8 +302,6 @@
       
         
           
-            
-          
         
           
         
@@ -313,16 +311,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -331,6 +323,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6224,8 +6228,6 @@
       
         
           
-            
-          
         
           
         
@@ -6235,16 +6237,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6253,6 +6249,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9611,98 +9619,6 @@
 <p>
 This command is used to construct a Dodd-Restrepo steel material
 </p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">Dodd_Restrepo</span>(name,<br>   fy,<br>   fu,<br>   esh,<br>   esu,<br>   E,<br>   eshi,<br>   fshi,<br>   **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-fy
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Yield stress.
-</tr>
-<tr>
-<td>
-fu
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Ultimate tensile strength (UTS)
-</tr>
-<tr>
-<td>
-esh
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Tensile strain at initiation of strain hardening
-</tr>
-<tr>
-<td>
-esu
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Tensile strain at the UTS
-</tr>
-<tr>
-<td>
-E
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Young’s modulus of elasticity
-</tr>
-<tr>
-<td>
-eshi
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Tensile strain for a point on strain hardening curve, recommended range of values for eshI: <span class="math inline">\(\left[ \frac{\texttt{esu} 5 \texttt{esh}}{6}, \frac{\texttt{esu} 3 \texttt{esh}}{4}\right]\)</span>
-</tr>
-<tr>
-<td>
-fshi
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Tensile stress at point on strain hardening curve corresponding to eshI
-</tr>
-<tr>
-<td>
-OmegaFac = 1.0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Roundedness factor for Bauschinger curve in cycle reversals from the strain hardening curve. Range: <span class="math inline">\(\left[0.75, 1.15\right]\)</span>. Largest value tends to near a bilinear Bauschinger curve. Default = 1.0.
-</tr>
-</tbody>
-</table>
-</div>
 <p>
 Note: Stresses and strains are defined in engineering terms, as they are reported in a tensile test.
 </p>

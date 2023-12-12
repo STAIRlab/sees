@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../" class="md-tabs__link md-tabs__link--active">
+      <a href="../../index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../developer/" class="md-tabs__link">
+      <a href="../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -304,8 +304,6 @@
       
         
           
-            
-          
         
           
         
@@ -315,16 +313,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -333,6 +325,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6220,8 +6224,6 @@
       
         
           
-            
-          
         
           
         
@@ -6231,16 +6233,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6249,6 +6245,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9616,8 +9624,8 @@ StaticIntegrator<br />
 LoadPath is a subclass of StaticIntegrator, it is used to when performing a static analysis on the FE_Model using a user specified load path. The load path is specified in a Vector, <em>path</em>, to the objects constructor and at each step in the analysis:</p>
 <p><span class="math display">\[\lambda_n^{(i)} - \lambda_{n-1} = path(n) - path(n-1)\]</span></p>
 <p>Knowing <span class="math inline">\(\lambda_n^{(i)} = path(n)\)</span> prior to each iteration, the <span class="math inline">\(N+1\)</span> unknowns in equation <a href="#staticFormTaylor" data-reference-type="ref" data-reference="staticFormTaylor">[staticFormTaylor$$</a>, is reduced to <span class="math inline">\(N\)</span> unknowns and results in the following equation:</p>
-<p><span class="math display">\[\R({\bf U}_{n}) = \lambda_n^{(i)} {\bf P} 
- - {\bf F}_{R}\left({\bf U}_{n}^{(i)} \right) - 
+<p><span class="math display">\[\R({\bf U}_{n}) = \lambda_n^{(i)} \boldsymbol{P} 
+ - \boldsymbol{F}_{R}\left({\bf U}_{n}^{(i)} \right) - 
 {\bf K}_n^{(i)} 
 ({\bf U}_{n} - {\bf U}_{n}^{(i)})  
 \label{staticFormLoadPath}\]</span></p>

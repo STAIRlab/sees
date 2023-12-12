@@ -18,10 +18,10 @@ For guides on adding new OpenSees components to the CMake build system, see
 
 .. toctree::
 
-   compile/basic
-   compile/tooling
-   compile/advanced
-
+   basic.md
+   dependencies.md
+   tooling.md
+   advanced.md
 
 
 

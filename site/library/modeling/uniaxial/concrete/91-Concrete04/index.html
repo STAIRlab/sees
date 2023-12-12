@@ -173,7 +173,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -191,7 +191,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -304,8 +304,6 @@
       
         
           
-            
-          
         
           
         
@@ -315,16 +313,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -333,6 +325,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6226,8 +6230,6 @@
       
         
           
-            
-          
         
           
         
@@ -6237,16 +6239,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6255,6 +6251,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9611,99 +9619,6 @@
 
 <h1 id="concrete04">Concrete04</h1>
 <p>This command is used to construct a uniaxial Popovics concrete material object with degraded linear unloading/reloading stiffness according to the work of Karsan-Jirsa and tensile strength with exponential decay.</p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">Concrete04</span>(name, fc, ec, ecu, Ec, **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-fc
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-floating point values defining concrete compressive strength at 28 days (compression is negative)*
-</tr>
-<tr>
-<td>
-ec
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-floating point values defining concrete strain at maximum strength*
-</tr>
-<tr>
-<td>
-ecu
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-floating point values defining concrete strain at crushing strength*
-</tr>
-<tr>
-<td>
-Ec
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-floating point values defining initial stiffness**
-</tr>
-<tr>
-<td colspan="2">
-tension
-</td>
-<td>
-<code>[fct,et]</code>,<br />
-
-<table>
-<tr>
-<td>
-fct
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-floating point value defining the maximum tensile strength of concrete
-</tr>
-<tr>
-<td>
-et
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-floating point value defining ultimate tensile strain of concrete
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td>
-beta
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-floating point value defining the exponential curve parameter to define the residual stress (as a factor of $ft) at $etu
-</tr>
-</tbody>
-</table>
-</div>
 <p>
 NOTE:
 </p>

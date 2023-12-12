@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
+      <a href="../index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../developer/" class="md-tabs__link">
+      <a href="../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -304,8 +304,6 @@
       
         
           
-            
-          
         
           
         
@@ -315,16 +313,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -333,6 +325,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6212,8 +6216,6 @@
       
         
           
-            
-          
         
           
         
@@ -6223,16 +6225,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6241,6 +6237,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9621,10 +9629,10 @@
 </ul>
 <h2 id="theory">Theory</h2>
 <p>In nonlinear transient finite element problems we seek a solution (<span class="math inline">\(\boldsymbol{u}\)</span>, <span class="math inline">\(\dot{\boldsymbol{u}}\)</span>, <span class="math inline">\(\ddot{\boldsymbol{u}}\)</span>) to the nonlinear vector equation</p>
-<p><span class="math display">\[{\bf R}({\boldsymbol{u}},\dot{\boldsymbol{u}}, \ddot{\boldsymbol{u}}) = {\bf P}(t) - {\bf F}_I(\ddot{\boldsymbol{u}}) - {\bf F}_R({\boldsymbol{u}}, \dot{\boldsymbol{u}}) = \boldsymbol{0}\]</span> {#femGenForm}</p>
+<p><span class="math display">\[\boldsymbol{R}({\boldsymbol{u}},\dot{\boldsymbol{u}}, \ddot{\boldsymbol{u}}) = \boldsymbol{P}(t) - \boldsymbol{F}_I(\ddot{\boldsymbol{u}}) - \boldsymbol{F}_R({\boldsymbol{u}}, \dot{\boldsymbol{u}}) = \boldsymbol{0}\]</span> {#femGenForm}</p>
 <p>The most widely used technique for solving the transient non-linear finite element equation, equation <a href="#femGenForm" data-reference-type="ref" data-reference="femGenForm">[femGenForm</a>, is to use an incremental direct integration scheme. In the incremental formulation, a solution to the equation is sought at successive time steps <span class="math inline">\(\Delta t\)</span> apart.</p>
-<p><span class="math display">\[\boldsymbol{R}({\boldsymbol{u}}_{n \Delta t},\dot{\boldsymbol{u}}_{n \Delta t}, \ddot{\boldsymbol{u}}_{n \Delta t}) = {\bf P}(n \Delta t) -
-{\bf F}_I(\ddot{\boldsymbol{u}}_{n \Delta t}) - {\bf F}_R({\boldsymbol{u}}_{n \Delta t}, \dot{\boldsymbol{u}}_{n \Delta t})
+<p><span class="math display">\[\boldsymbol{R}({\boldsymbol{u}}_{n \Delta t},\dot{\boldsymbol{u}}_{n \Delta t}, \ddot{\boldsymbol{u}}_{n \Delta t}) = \boldsymbol{P}(n \Delta t) -
+\boldsymbol{F}_I(\ddot{\boldsymbol{u}}_{n \Delta t}) - \boldsymbol{F}_R({\boldsymbol{u}}_{n \Delta t}, \dot{\boldsymbol{u}}_{n \Delta t})
 \]</span> {#fullTimeForm}</p>
 <p>For each time step, <span class="math inline">\(t\)</span>, the integration schemes provide two operators, <span class="math inline">\(\operatorname{I}_1\)</span> and <span class="math inline">\(\operatorname{I}_2\)</span>, to relate the velocity and accelerations at the time step as a function of the displacement at the time step and the response at previous time steps:</p>
 <p><span class="math display">\[\dot {\boldsymbol{u}}_{t} = {\I}_1 ({\boldsymbol{u}}_t, {\boldsymbol{u}}_{t-\Delta t}, \dot {\boldsymbol{u}}_{t-\Delta t},
@@ -9634,7 +9642,7 @@
 \ddot {\boldsymbol{u}}_{t - \Delta t}, {\boldsymbol{u}}_{t - 2\Delta t}, \dot {\boldsymbol{u}}_{t - 2 \Delta t}. ..., )
 \label{I2}\]</span></p>
 <p>These allow us to rewrite equation <a href="#fullTimeForm" data-reference-type="ref" data-reference="fullTimeForm">[fullTimeForm</a>, in terms of a single response quantity, typically the displacement:</p>
-<p><span class="math display">\[\R({\boldsymbol{u}}_t) = {\bf P}(t) - {\bf F}_I(\ddot{\boldsymbol{u}}_t) - {\bf F}_R({\boldsymbol{u}}_t, \dot{\boldsymbol{u}}_t)
+<p><span class="math display">\[\R({\boldsymbol{u}}_t) = \boldsymbol{P}(t) - \boldsymbol{F}_I(\ddot{\boldsymbol{u}}_t) - \boldsymbol{F}_R({\boldsymbol{u}}_t, \dot{\boldsymbol{u}}_t)
 \label{genForm}\]</span></p>
 <p>The solution of this equation is typically obtained using an iterative procedure, i.e. making an initial prediction for <span class="math inline">\({\boldsymbol{u}}_{t}\)</span>, denoted <span class="math inline">\({\boldsymbol{u}}_{t}^{(0)}\)</span> a sequence of approximations <span class="math inline">\({\boldsymbol{u}}_{t}^{(i)}\)</span>, <span class="math inline">\(i=1,2, ..\)</span> is obtained which converges (we hope) to the solution <span class="math inline">\({\boldsymbol{u}}_{t}\)</span>. The most frequently used iterative schemes, such as Newton-Raphson, modified Newton, and quasi Newton schemes, are based on a Taylor expansion of equation <a href="#genForm" data-reference-type="ref" data-reference="genForm">[genForm</a> about <span class="math inline">\({\boldsymbol{u}}_{t}\)</span>:</p>
 <p><span class="math display">\[\R({\boldsymbol{u}}_{t}) = 
@@ -9642,7 +9650,7 @@
 \left[ {\frac{\partial \R}{\partial {\boldsymbol{u}}_t} \vert}_{{\boldsymbol{u}}_{t}^{(i)}}\right]
 \left( {\boldsymbol{u}}_{t} - {\boldsymbol{u}}_{t}^{(i)} \right)\]</span></p>
 <p><span class="math display">\[
-\boldsymbol{R}({\boldsymbol{u}}_{t}) = {\bf P} (t) - {\bf F}_{I} \left( \ddot {\boldsymbol{u}}_{t}^{(i)} \right) - {\bf F}_{R} \left( \dot {\boldsymbol{u}}_{t}^{(i)}, {\boldsymbol{u}}_{t}^{(i)} \right)- \left[
+\boldsymbol{R}({\boldsymbol{u}}_{t}) = \boldsymbol{P} (t) - \boldsymbol{F}_{I} \left( \ddot {\boldsymbol{u}}_{t}^{(i)} \right) - \boldsymbol{F}_{R} \left( \dot {\boldsymbol{u}}_{t}^{(i)}, {\boldsymbol{u}}_{t}^{(i)} \right)- \left[
   \mathsf{M}^{(i)} {\I}_2&#39;
 + \mathsf{C}^{(i)} {\I}_1&#39;
 + \mathsf{K}^{(i)}  \right]
