@@ -1,3 +1,20 @@
+"""
+This module implements the OpenSeesPy interface.
+Imports can be performed exactly as one would
+from openseespy, for example:
+
+>>> import opensees.openseespy as ops
+
+>>> from opensees.openseespy import node, model
+
+>>> from opensees.openseespy import *
+
+
+The fiber section API is one of the only unsupported
+features. This may be implemented in the
+near future, but even then, using it would be strongly
+discouraged.
+"""
 import json
 from functools import partial
 
@@ -260,16 +277,20 @@ class OpenSeesPy:
     It encapsulates an instance of Interpreter which implements an
     OpenSees state.
     """
-    def __init__(self, *args, echo=False, **kwds):
+    def __init__(self, *args, save=False, echo=None, **kwds):
         self._interp = Interpreter(*args,  **kwds)
-        self._interp.eval("pragma openseespy")
         self._partial = partial
-        self._echo = echo
+        self._save = save
+        import sys
+        self._echo = echo # sys.stdout
+
+        # Enable OpenSeesPy command behaviors
+        self._interp.eval("pragma openseespy")
 
     def eval(self, cmd: str) -> str:
         "Evaluate a Tcl script"
-        if self._echo:
-            print(cmd)
+        if self._echo is not None:
+            print(cmd, file=self._echo)
         return self._interp.eval(cmd)
 
     def _str_call(self, proc_name: str, *args, **kwds)->str:
@@ -319,6 +340,7 @@ class OpenSeesPy:
 
 
 # The global singleton
+import sys
 _openseespy = OpenSeesPy()
 
 def __getattr__(name: str):
