@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link">
+      <a href="../../../../analysis/index.md" class="md-tabs__link">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -300,8 +300,6 @@
       
         
           
-            
-          
         
           
         
@@ -311,16 +309,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -329,6 +321,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6206,8 +6210,6 @@
       
         
           
-            
-          
         
           
         
@@ -6217,16 +6219,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6235,6 +6231,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9591,147 +9599,6 @@
 
 <h1 id="steelmpf">SteelMPF</h1>
 <p>This command is used to construct a uniaxialMaterial <strong>SteelMPF</strong> (Kolozvari et al., 2015), which represents the well-known uniaxial constitutive nonlinear hysteretic material model for steel proposed by Menegotto and Pinto (1973), and extended by Filippou et al. (1983) to include isotropic strain hardening effects.</p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">SteelMPF</span>(name, fyp, fyn, E, bp, bn, **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-fyp
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-yield strength
-</tr>
-<tr>
-<td>
-fyn
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-yield strength
-</tr>
-<tr>
-<td>
-E
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Young’s modulus of elasticity
-</tr>
-<tr>
-<td>
-bp = 0.0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent
-</tr>
-<tr>
-<td>
-bn = 0.0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-strain-hardening ratio (ratio between post-yield tangent and initial elastic tangent
-</tr>
-<tr>
-<td>
-R0 = 18
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-cR1 = 0.925
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Bauschinger evolution parameter
-</tr>
-<tr>
-<td>
-cR2 = 0.15
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Bauschinger evolution parameter
-</tr>
-<tr>
-<td>
-a1 = 0.0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-increase of compression yield envelope as proportion of yield strength after a plastic strain of <code>a2∗(Fy/E0)</code>
-</tr>
-<tr>
-<td>
-a2 = 1.0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-see explanation under <code>a1</code>.
-</tr>
-<tr>
-<td>
-a3 = 0.0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-increase of tension yield envelope as proportion of yield strength after a plastic strain of <code>a4∗(Fy/E0)</code>
-</tr>
-<tr>
-<td>
-a4 = 1.0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-see explanation under <code>a3</code>.
-</tr>
-<tr>
-<td>
-sigInit = 0.0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-initial stress
-</tr>
-</tbody>
-</table>
-</div>
 The relationship is in the form of curved transitions (Figure 1), each from a straight-line asymptote with slope E<sub
 class="subscript">0</sub> (modulus of elasticity) to another straight-line asymptote with slope E<sub
 class="subscript">1</sub> = bE<sub

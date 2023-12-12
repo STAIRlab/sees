@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../developer/" class="md-tabs__link">
+      <a href="../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -302,8 +302,6 @@
       
         
           
-            
-          
         
           
         
@@ -313,16 +311,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -331,6 +323,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6220,8 +6224,6 @@
       
         
           
-            
-          
         
           
         
@@ -6231,16 +6233,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6249,6 +6245,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9606,65 +9614,6 @@
 <h1 id="element">Element</h1>
 <p>The Element recorder type records the response of a number of elements at every converged step. The response recorded is element-dependent and also depends on the arguments which are passed to the <code>setResponse()</code> element method.</p>
 <p>The command to create an element recorder is:</p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.recorder.<span style="color:#900">Element</span>(destination, **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-<td>
-destination
-</td>
-<td>
-<code style="white-space: nowrap;">str</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-precision
-</td>
-<td>
-<code style="white-space: nowrap;">int</code>
-</td>
-<td>
-number of significant digits (default is 6)(optional, default: records at every time step)
-</tr>
-<tr>
-<td>
-time = False
-</td>
-<td>
-<code>bool</code>
-</td>
-<td>
-using this option places domain time in first entry of each data line, default is to have time omitted
-</tr>
-<tr>
-<td>
-closeOnWrite = False
-</td>
-<td>
-<code>bool</code>
-</td>
-<td>
-using this option will instruct the recorder to invoke a close on the data handler after every timestep. If this is a file it will close the file on every step and then re-open it for the next step. Note, this greatly slows the execution time, but is useful if you need to monitor the data during the analysis.
-</tr>
-<tr>
-<td>
-time_step
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-time interval for recording. will record when next step is <code>deltaT</code> greater than last recorder step.
-</tr>
-</tbody>
-</table>
-</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>recorder Element </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="ot"> -file</span> <span class="dt">$fileName</span> &gt; &lt;<span class="ot"> -xml</span> <span class="dt">$fileName</span> &gt; &lt;<span class="ot"> -binary</span> <span class="dt">$fileName</span> &gt; </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="ot"> -precision</span> <span class="dt">$nSD</span> &gt; &lt;<span class="ot"> -time</span> &gt; &lt;<span class="ot"> -closeOnWrite</span> &gt; &lt;<span class="ot"> -dT</span> <span class="dt">$deltaT</span> &gt; </span>

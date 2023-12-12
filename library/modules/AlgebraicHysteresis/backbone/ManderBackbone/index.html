@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -302,8 +302,6 @@
       
         
           
-            
-          
         
           
         
@@ -313,16 +311,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -331,6 +323,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6222,8 +6226,6 @@
       
         
           
-            
-          
         
           
         
@@ -6233,16 +6235,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6251,6 +6247,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9607,46 +9615,6 @@
 
 <h1 id="mander">Mander</h1>
 <p><code>ManderBackbone</code>, implements the concrete backbone function utilized by Mander, Priestly, and Park (1988) and presented by Popovic.</p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.backbone.<span style="color:#900">Mander</span>(name, fc, epsc, E, **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-fc
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-epsc
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-E
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Young’s modulus of elasticity
-</tr>
-</tbody>
-</table>
-</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ManderBackbone <span class="op">:</span> <span class="kw">public</span> HystereticBackbone</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">{</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">public</span><span class="op">:</span></span>

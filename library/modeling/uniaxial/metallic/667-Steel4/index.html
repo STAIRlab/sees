@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -302,8 +302,6 @@
       
         
           
-            
-          
         
           
         
@@ -313,16 +311,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -331,6 +323,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6224,8 +6228,6 @@
       
         
           
-            
-          
         
           
         
@@ -6235,16 +6237,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6253,6 +6249,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9621,330 +9629,6 @@ img:hover {
 <p>
 This command is used to construct a general uniaxial material with combined kinematic and isotropic hardening and optional non-symmetric behavior.
 </p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">Steel04</span>(name, fy, E, **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-fy
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Yield stress.
-</tr>
-<tr>
-<td>
-E
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Young’s modulus of elasticity
-</tr>
-<tr>
-<td colspan="2">
-kin
-</td>
-<td>
-<code>[b_k,R_0,r_1,r_2]</code>, apply kinematic hardening Kinematic hardening is based on the Menegotto-Pinto model. The parameters and their use is identical to those of the Steel02 material. Steel4 param kin.png recommended values: <code>R_0 = 20</code>, <code>r_1 = 0.90</code>, <code>r_2 = 0.15</code>
-<table>
-<tr>
-<td>
-b_k
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-hardening ratio (E_k/E_0)
-</tr>
-<tr>
-<td>
-R_0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-control the exponential transition from linear elastic to hardening asymptote
-</tr>
-<tr>
-<td>
-r_1
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-r_2
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td colspan="2">
-iso
-</td>
-<td>
-<code>[b_i,b_l,rho_i,R_i,l_yp]</code>, apply isotropic hardening Isotropic hardening increases the yield strength of the material. The applied increase is calculated as a function of the accumulated plastic strain. The following parameters control that function. Steel4 param iso.png
-<table>
-<tr>
-<td>
-b_i
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-initial hardening ratio (E_i/E_0)
-</tr>
-<tr>
-<td>
-b_l
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-saturated hardening ratio (E_is/E_0)
-</tr>
-<tr>
-<td>
-rho_i
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-specifies the position of the intersection point between initial and saturated hardening asymptotes
-</tr>
-<tr>
-<td>
-R_i
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-control the exponential transition from initial to saturated asymptote
-</tr>
-<tr>
-<td>
-l_yp
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-length of the yield plateau in <span class="math inline">\(\varepsilon_{y0} = f_y / E_0\)</span> units
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td colspan="2">
-ult
-</td>
-<td>
-<code>[f_u,R_u]</code>, apply an ultimate strength limit The ultimate strength limit serves as an upper limit of material resistance. After the limit is reached the material behaves in a perfectly plastic manner. Exponential transition is provided from the kinematic hardening to the perfectly plastic asymptote. Note that isotropic hardening is also limited by the ultimate strength, but the transition from the isotropic hardening to the perfectly plastic asymptote is instantaneous. Steel4 param ult.png<br />
-
-<table>
-<tr>
-<td>
-f_u
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-ultimate strength
-</tr>
-<tr>
-<td>
-R_u
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-control the exponential transition from kinematic hardening to perfectly plastic asymptote
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td colspan="2">
-asym
-</td>
-<td>
-<code>[kin,iso,ult]</code>, assume non-symmetric behavior If non-symmetric behavior is assumed, material response under tension and compression will be controlled by two different parameter sets. The normal parameters control behavior under tension. Additional parameters shall be specified to describe behavior under compression. The following parameters are expected after the normal parameters when the options below are used. Steel4 param asymi.png Steel4 param asymk.png
-<table>
-<tr>
-<td colspan="2">
-kin
-</td>
-<td>
-<code>[kin1,kin2,kin3,kin4]</code>,<br />
-
-<table>
-<tr>
-<td>
-kin1
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-kin2
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-kin3
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-kin4
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td colspan="2">
-iso
-</td>
-<td>
-<code>[iso1,iso2,iso3,iso4]</code>,<br />
-
-<table>
-<tr>
-<td>
-iso1
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-iso2
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-iso3
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-iso4
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td colspan="2">
-ult
-</td>
-<td>
-<code>[ult1,ult2]</code>,<br />
-
-<table>
-<tr>
-<td>
-ult1
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-ult2
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-</td>
-</table>
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td>
-sig_init
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-apply initial stress Initial stress is assumed at 0 strain at the beginning of the loading process. The absolute value of the initial stress is assumed to be less than the yield strength of the material. Steel4 param init.png
-</tr>
-<tr>
-<td>
-cycNum
-</td>
-<td>
-<code style="white-space: nowrap;">int</code>
-</td>
-<td>
-expected number of half-cycles during the loading process Efficiency of the material can be slightly increased by correctly setting this value. The default value is <code>cycNum = 50</code> Load history memory can be turned off by setting <code>cycNum = 0</code>.
-</tr>
-</tbody>
-</table>
-</div>
 <h2 id="examples">
 Examples
 </h2>

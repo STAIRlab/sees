@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -302,8 +302,6 @@
       
         
           
-            
-          
         
           
         
@@ -313,16 +311,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -331,6 +323,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6222,8 +6226,6 @@
       
         
           
-            
-          
         
           
         
@@ -6233,16 +6235,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6251,6 +6247,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9609,133 +9617,6 @@
 <p>
 This command is used to construct an elasticBeamColumn element object. The arguments for the construction of an elastic beam-column element depend on the dimension of the problem, ndm:
 </p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.element.<span style="color:#900">ElasticBeamColumn3D</span>(name,<br>   nodes,<br>   A,<br>   E,<br>   G,<br>   J,<br>   iyc,<br>   ixc,<br>   geom,<br>   cMass,<br>   **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td colspan="2">
-nodes
-</td>
-<td>
-<code>[iNode,jNode]</code>,<br />
-
-<table>
-<tr>
-<td>
-iNode
-</td>
-<td>
-<code>Ref(Node)</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-jNode
-</td>
-<td>
-<code>Ref(Node)</code>
-</td>
-<td>
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td>
-A
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-cross-sectional area
-</tr>
-<tr>
-<td>
-E
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Young’s modulus of elasticity
-</tr>
-<tr>
-<td>
-G
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-J
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-iyc
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Centroidal moment of inertia
-</tr>
-<tr>
-<td>
-ixc
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-geom
-</td>
-<td>
-<code>Ref(geomTransf)</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-mass = 0.0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-element mass per unit length
-</tr>
-<tr>
-<td>
-cMass = False
-</td>
-<td>
-<code>bool</code>
-</td>
-<td>
-Flag indicating whether to use consistent mass matrix.
-</tr>
-</tbody>
-</table>
-</div>
 <p>
 For a two-dimensional problem:
 </p>

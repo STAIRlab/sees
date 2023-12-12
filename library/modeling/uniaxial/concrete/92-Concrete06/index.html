@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -302,8 +302,6 @@
       
         
           
-            
-          
         
           
         
@@ -313,16 +311,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -331,6 +323,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6224,8 +6228,6 @@
       
         
           
-            
-          
         
           
         
@@ -6235,16 +6237,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6253,6 +6249,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9609,108 +9617,6 @@
 
 <h1 id="concrete06">Concrete06</h1>
 <p>This command is used to construct a uniaxial concrete material object with tensile strength, nonlinear tension stiffening and compressive behavior based on Thorenfeldt curve.</p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">Concrete06</span>(name,<br>   fc,<br>   e0,<br>   n,<br>   k,<br>   alpha1,<br>   fcr,<br>   ecr,<br>   b,<br>   alpha2,<br>   **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-fc
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-concrete compressive strength (compression is negative)*
-</tr>
-<tr>
-<td>
-e0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-strain at compressive strength*
-</tr>
-<tr>
-<td>
-n
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-compressive shape factor
-</tr>
-<tr>
-<td>
-k
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-post-peak compressive shape factor
-</tr>
-<tr>
-<td>
-alpha1
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-<span class="math inline">\(\alpha_1\)</span> parameter for compressive plastic strain definition
-</tr>
-<tr>
-<td>
-fcr
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-tensile strength
-</tr>
-<tr>
-<td>
-ecr
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-tensile strain at peak stress (<code>fcr</code>)
-</tr>
-<tr>
-<td>
-b
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-exponent of the tension stiffening curve
-</tr>
-<tr>
-<td>
-alpha2
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-<span class="math inline">\(\alpha_2\)</span> parameter for tensile plastic strain definition
-</tr>
-</tbody>
-</table>
-</div>
 <figure>
 <img src="/OpenSeesRT/contrib/static/Concrete06C.png" title="Concrete06C.png"
 alt="Concrete06C.png" />

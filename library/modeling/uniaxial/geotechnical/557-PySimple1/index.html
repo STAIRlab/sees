@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -302,8 +302,6 @@
       
         
           
-            
-          
         
           
         
@@ -313,16 +311,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -331,6 +323,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6224,8 +6228,6 @@
       
         
           
-            
-          
         
           
         
@@ -6235,16 +6237,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6253,6 +6249,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9609,85 +9617,6 @@
 
 <h1 id="pysimple1">PySimple1</h1>
 <p>This command is used to construct a PySimple1 uniaxial material object:</p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">PySimple1</span>(name, soilType, pult, y50, Cd, **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-soilType
-</td>
-<td>
-<code style="white-space: nowrap;">int</code>
-</td>
-<td>
-<table>
-<tr>
-<td>
-1
-</td>
-<td>
-Backbone of <span class="math inline">\(p-y\)</span> curve approximates Matlock (1970) soft clay relation.
-</td>
-</tr>
-<tr>
-<td>
-2
-</td>
-<td>
-Backbone of <span class="math inline">\(p-y\)</span> curve approximates API (1993) sand relation.
-</td>
-</tr>
-</table>
-</tr>
-<tr>
-<td>
-pult
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Ultimate capacity of the p-y material. Note that <span class="math inline">\(p\)</span> or <span class="math inline">\(p_{ult}\)</span> are distributed loads [force per length of pile] in common design equations, but are both loads for this uniaxialMaterial [i.e., distributed load times the tributary length of the pile].
-</tr>
-<tr>
-<td>
-y50
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Displacement at which 50% of pult is mobilized in monotonic loading.
-</tr>
-<tr>
-<td>
-Cd
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Variable that sets the drag resistance within a fully-mobilized gap as <span class="math inline">\(C_d p_{ult}\)</span>.
-</tr>
-<tr>
-<td>
-c
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-The viscous damping term (dashpot) on the far-field (elastic) component of the displacement rate (velocity). (optional Default = 0.0). Nonzero c values are used to represent radiation damping effects
-</tr>
-</tbody>
-</table>
-</div>
 <p>
 NOTES:
 </p>

@@ -173,7 +173,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -191,7 +191,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -304,8 +304,6 @@
       
         
           
-            
-          
         
           
         
@@ -315,16 +313,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -333,6 +325,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6226,8 +6230,6 @@
       
         
           
-            
-          
         
           
         
@@ -6237,16 +6239,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6255,6 +6251,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9611,118 +9619,6 @@
 
 <h1 id="concretecm">ConcreteCM</h1>
 <p>This command is used to construct a <code>UniaxialMaterial</code> <code>ConcreteCM</code> (Kolozvari et al., 2015), which is a uniaxial hysteretic constitutive model for concrete developed by Chang and Mander (1994). This model is a refined, rule-based, generalized, and non-dimensional constitutive model that allows calibration of the monotonic and hysteretic material modeling parameters, and can simulate the hysteretic behavior of confined and unconfined, ordinary and high-strength concrete, in both cyclic compression and tension (Figure 1). The model addresses important behavioral features, such as continuous hysteretic behavior under cyclic compression and tension, progressive stiffness degradation associated with smooth unloading and reloading curves at increasing strain values, and gradual crack closure effects. Details of the model are available in the report by Chang and Mander (1994).</p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">ConcreteCM</span>(name,<br>   fpcc,<br>   epcc,<br>   Ec,<br>   rc,<br>   xcrn,<br>   ft,<br>   et,<br>   rt,<br>   xcrp,<br>   **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-fpcc
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Compressive strength (f’c)
-</tr>
-<tr>
-<td>
-epcc
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Strain at compressive strength (<span class="math inline">\(\epsilon^\prime_c\)</span>)
-</tr>
-<tr>
-<td>
-Ec
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Initial tangent modulus (<span class="math inline">\(E_c\)</span>)
-</tr>
-<tr>
-<td>
-rc
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Shape parameter in Tsai’s equation defined for compression (<span class="math inline">\(r_c\)</span>)
-</tr>
-<tr>
-<td>
-xcrn
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Non-dimensional critical strain on compression envelope (<span class="math inline">\(\epsilon^-_{cr}\)</span>, where the envelope curve starts following a straight line)
-</tr>
-<tr>
-<td>
-ft
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Tensile strength (<span class="math inline">\(f_t\)</span>)
-</tr>
-<tr>
-<td>
-et
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Strain at tensile strength (<span class="math inline">\(\epsilon\)</span>t)
-</tr>
-<tr>
-<td>
-rt
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Shape parameter in Tsai’s equation defined for tension (<span class="math inline">\(r_t\)</span>)
-</tr>
-<tr>
-<td>
-xcrp
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Non-dimensional critical strain on tension envelope (<span class="math inline">\(\epsilon^ _{cr}\)</span>, where the envelope curve starts following a straight line – large value [e.g., 10000] recommended when tension stiffening is considered)
-</tr>
-<tr>
-<td>
-gap
-</td>
-<td>
-<code style="white-space: nowrap;">int</code>
-</td>
-<td>
-gap = 0, less gradual gap closure (default); gap = 1, more gradual gap closure
-</tr>
-</tbody>
-</table>
-</div>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ConcreteCM_0.png"
 title="Figure 1. Hysteretic Constitutive Model for Concrete by Chang and Mander (1994)"

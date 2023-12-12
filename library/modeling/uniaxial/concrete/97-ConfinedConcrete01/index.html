@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -302,8 +302,6 @@
       
         
           
-            
-          
         
           
         
@@ -313,16 +311,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -331,6 +323,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6224,8 +6228,6 @@
       
         
           
-            
-          
         
           
         
@@ -6235,16 +6237,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6253,6 +6249,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9611,410 +9619,6 @@
 <p>
 This command is used to construct an uniaxial material object of confined concrete in according to the work of Braga, Gigliotti and Laterza (2006). The confined concrete model (BGLmodel) has not tensile strength and degraded linear unloading/reloading stiffness as proposed by Karsan and Jirsa (1969). The BGL model accounts for confinement effects due to different arrangements of transverse reinforcement and/or external strengthening such as steel jackets or FRP wraps. The confinement effect along the column is described as well. In order to obtain th ecompressive envelope curve a non linear approach is performed at each increment of column axial strain.The sougth curve is obtained crossing different stress‐strain relationships, each of which corresponding to a different level of confinement. Currently, the Attard and Setunge’s model is implemented in calculating each active curve of the confined concrete. IMPORTANT: the units to be used are MPa, mm.
 </p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">ConfinedConcrete01</span>(name,<br>   secType,<br>   fpc,<br>   E,<br>   eps_ult,<br>   poisson,<br>   L1,<br>   phis,<br>   S,<br>   fyh,<br>   Es0,<br>   haRatio,<br>   mu,<br>   phiLon,<br>   **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-secType
-</td>
-<td>
-<code style="white-space: nowrap;">str</code>
-</td>
-<td>
-label for the transverse reinforcement configuration.
-<table>
-<tr>
-<td>
-S1
-</td>
-<td>
-square section with S1 type of transverse reinforcement with or without external FRP wrapping
-</td>
-</tr>
-<tr>
-<td>
-S2
-</td>
-<td>
-square section with S2 type of transverse reinforcement with or without external FRP wrapping
-</td>
-</tr>
-<tr>
-<td>
-S3
-</td>
-<td>
-square section with S3 type of transverse reinforcement with or without external FRP wrapping
-</td>
-</tr>
-<tr>
-<td>
-S4a
-</td>
-<td>
-square section with S4a type of transverse reinforcement with or without external FRP wrapping
-</td>
-</tr>
-<tr>
-<td>
-S4b
-</td>
-<td>
-square section with S4b type of transverse reinforcement with or without external FRP wrapping
-</td>
-</tr>
-<tr>
-<td>
-S5
-</td>
-<td>
-square section with S5 type of transverse reinforcement with or without external FRP wrapping
-</td>
-</tr>
-<tr>
-<td>
-C
-</td>
-<td>
-circular section with or without external FRP wrapping
-</td>
-</tr>
-<tr>
-<td>
-R
-</td>
-<td>
-rectangular section with or without external FRP wrapping.
-</td>
-</tr>
-</table>
-</tr>
-<tr>
-<td>
-fpc
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-E
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-Young’s modulus of elasticity
-</tr>
-<tr>
-<td>
-eps_ult
-</td>
-<td>
-<code>Alt</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-poisson
-</td>
-<td>
-<code>Alt</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-L1
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-length/diameter of square/circular core section measured respect to the hoop center line.
-</tr>
-<tr>
-<td>
-L2
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-additional dimensions when multiple hoops are being used.
-</tr>
-<tr>
-<td>
-L3
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-additional dimensions when multiple hoops are being used.
-</tr>
-<tr>
-<td>
-phis
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-hoop diameter. If section arrangement has multiple hoops it refers to the external hoop.
-</tr>
-<tr>
-<td>
-S
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-hoop spacing.
-</tr>
-<tr>
-<td>
-fyh
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-yielding strength of the hoop steel.
-</tr>
-<tr>
-<td>
-Es0
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-elastic modulus of the hoop steel.
-</tr>
-<tr>
-<td>
-haRatio
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-hardening ratio of the hoop steel.
-</tr>
-<tr>
-<td>
-mu
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-ductility factor of the hoop steel.
-</tr>
-<tr>
-<td>
-phiLon
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-diameter of longitudinal bars.
-</tr>
-<tr>
-<td colspan="2">
-internals
-</td>
-<td>
-<code>[phisi,Si,fyhi,Es0i,haRatioi,mui]</code>, optional parameters for defining the internal transverse reinforcement.If they are not specified they will be assumed equal to the external ones (for S2, S3, S4a, S4b and S5 typed).
-<table>
-<tr>
-<td>
-phisi
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-Si
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-fyhi
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-Es0i
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-haRatioi
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-mui
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td colspan="2">
-wrap
-</td>
-<td>
-<code>[cover,Am,Sw,ful,Es0w]</code>,<br />
-
-<table>
-<tr>
-<td>
-cover
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-cover thickness measured from the outer line of hoop.
-</tr>
-<tr>
-<td>
-Am
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-total area of FRP wraps (number of layers x wrap thickness x wrap width).
-</tr>
-<tr>
-<td>
-Sw
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-spacing of FRP wraps (if continuous wraps are used the spacing is equal to the wrap width).
-</tr>
-<tr>
-<td>
-ful
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-ultimate strength of FRP wraps.
-</tr>
-<tr>
-<td>
-Es0w
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-elastic modulus of FRP wraps.
-</tr>
-</td>
-</table>
-</tr>
-<tr>
-<td>
-gravel = False
-</td>
-<td>
-<code>bool</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-silica = False
-</td>
-<td>
-<code>bool</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-tol
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-maxNumIter
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-epscuLimit
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-<tr>
-<td>
-stRatio
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode tcl"><code class="sourceCode tcl"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uniaxialMaterial ConfinedConcrete01 <span class="dt">$tag</span> <span class="dt">$secType</span> <span class="dt">$fpc</span> <span class="dt">$Ec</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  ( &lt;<span class="ot"> -epscu</span> <span class="dt">$epscu</span> &gt;  OR  &lt;<span class="ot"> -gamma</span> <span class="dt">$gamma</span> &gt; ) </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  ( &lt;<span class="ot"> -nu</span> <span class="dt">$nu</span> &gt;  OR &lt;<span class="ot"> -varub</span> &gt;  OR  &lt;<span class="ot"> -varnoub</span> &gt; ) <span class="dt">$L1</span> (<span class="dt">$L2</span>) (<span class="dt">$L3</span>) <span class="dt">$phis</span> <span class="dt">$S</span> <span class="dt">$fyh</span> <span class="dt">$Es0</span></span>

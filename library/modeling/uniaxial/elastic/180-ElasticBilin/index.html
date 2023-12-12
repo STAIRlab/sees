@@ -171,7 +171,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../analysis/" class="md-tabs__link md-tabs__link--active">
+      <a href="../../../../analysis/index.md" class="md-tabs__link md-tabs__link--active">
         Library
       </a>
     </li>
@@ -189,7 +189,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../../../../developer/" class="md-tabs__link">
+      <a href="../../../../../developer/index.md" class="md-tabs__link">
         Developer
       </a>
     </li>
@@ -302,8 +302,6 @@
       
         
           
-            
-          
         
           
         
@@ -313,16 +311,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../analysis/">Analysis</a>
-          
-            <label for="__nav_1_1">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_1_1">
+          Analysis
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Analysis" data-md-level="2">
         <label class="md-nav__title" for="__nav_1_1">
@@ -331,6 +323,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../analysis/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -6224,8 +6228,6 @@
       
         
           
-            
-          
         
           
         
@@ -6235,16 +6237,10 @@
         
       
       
-        
-        
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="../../../../../developer/">Developer</a>
-          
-            <label for="__nav_2">
-              <span class="md-nav__icon md-icon"></span>
-            </label>
-          
-        </div>
+        <label class="md-nav__link" for="__nav_2">
+          Developer
+          <span class="md-nav__icon md-icon"></span>
+        </label>
       
       <nav class="md-nav" aria-label="Developer" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
@@ -6253,6 +6249,18 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../developer/index.md" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
             
           
             
@@ -9611,78 +9619,6 @@
 <p>
 This command is used to construct an elastic bilinear uniaxial material object. Unlike all other bilinear materials, the unloading curve follows the loading curve exactly.
 </p>
-<p><span style="font-feature-settings: kern; color: var(--md-code-fg-color) !important; font-family: var(--md-code-font-family);"> opensees.uniaxial.<span style="color:#900">ElasticBilin</span>(name, E, E2, eps2, **kwds) </span></p>
-<div>
-<table>
-<!-- <colgroup>
-  <col style="width: 10%" ><col style="width: 30%" ><col style="width: 60%" >
-</colgroup> -->
-<tbody>
-<tr>
-</tr>
-<tr>
-<td>
-E
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-tangent in tension for stains: 0 &lt;= strains <span class="math inline">\(\le\)</span> <code>epsP2</code>
-</tr>
-<tr>
-<td>
-E2
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-tangent when material in tension with strains &gt; <code>epsP2</code>
-</tr>
-<tr>
-<td>
-eps2
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-strain at which material changes tangent in tension.
-</tr>
-<tr>
-<td>
-EN1
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-optional, default = <code>EP1</code>. tangent in compression for stains: 0 &lt; strains <span class="math inline">\(\le\)</span> <code>epsN2</code>
-</tr>
-<tr>
-<td>
-EN2
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-optional, default = <code>EP2</code>. tangent in compression with strains &lt; <code>epsN2</code>
-</tr>
-<tr>
-<td>
-epsN2
-</td>
-<td>
-<code style="white-space: nowrap;">float</code>
-</td>
-<td>
-optional, default = -epsP2. strain at which material changes tangent in compression.
-</tr>
-</tbody>
-</table>
-</div>
 <figure>
 <img src="/OpenSeesRT/contrib/static/ElasticPP.gif" title="ElasticPP.gif" alt="ElasticPP.gif" />
 <figcaption aria-hidden="true">
