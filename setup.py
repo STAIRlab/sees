@@ -52,8 +52,9 @@ if __name__ == "__main__":
                     "cmake": amoeba.CMakeCommand},
         ext_modules = [
             amoeba.CMakeExtension(
-                name = "local",
-#               name = "pypa",        # PyPA
+                name = "pypa",        # PyPA
+#               name = "local",
+#               name = "stack",
 #               name = "debug",
                 install_prefix="opensees",
                 cmake_configure_options = [

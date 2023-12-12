@@ -4,6 +4,6 @@ project(OpenSeesRT)
 add_subdirectory(src/libg3)
 
 install(TARGETS 
-         OpenSeesRT LIBRARY DESTINATION .)
+    OpenSeesRT OpenSeesPyRT LIBRARY DESTINATION .)
 
 
