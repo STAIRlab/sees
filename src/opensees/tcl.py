@@ -102,7 +102,7 @@ class Interpreter:
         try:
             import sees.tcl
             sees.tcl.add_commands(self)
-        except ImportError:
+        except:
             pass
 
         if model is not None:
