@@ -174,8 +174,8 @@ def solve_torsion(section, mesh):
         Czeta2s =   y2**2 +   z2**2
         Czeta3s =   y3**2 +   z3**2
         J += ((Czeta1+Czeta2+Czeta3)/3. + (Czeta12+Czeta13+Czeta23)/12. + (Czeta1s+Czeta2s+Czeta3s)/6.)*dA
-    
-    print(J)
+
+#   print(J)
     return np.array(finalWarp)
 
 #
@@ -322,7 +322,7 @@ def plot(mesh, values=None, scale=1.0, show_edges=None, savefig:str=None,**kwds)
         plotter.add_mesh(mesh,
            show_edges=show_edges,
            cmap=cm.get_cmap("RdYlBu_r"),
-           lighting=False, 
+           lighting=False,
            **kwds
         )
         # if len(values) < 1000:
