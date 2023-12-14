@@ -1,11 +1,9 @@
 # Minimum Unbalanced Displacement Norm
 
-This command is used to construct a `StaticIntegrator` object of type
-`MinUnbalDispNorm`.
-
 ```tcl
 integrator MinUnbalDispNorm $dlambda1 < $Jd $minLambda $maxLambda >
 ```
+
 <hr />
 <table>
 <tbody>
@@ -39,7 +37,6 @@ integrator MinUnbalDispNorm 0.1;
 {"integrator": ["MinUnbalDispNorm", 0.1]};
 ```
 
-
 <hr />
 
 ## Theory
@@ -47,14 +44,12 @@ integrator MinUnbalDispNorm 0.1;
 The load increment at iteration $i$, $d\lambda_{1,i}$ , is related to the load
 increment at $(i-1)$, $d\lambda_{1,i-1}$, and the number of iterations at
 $(i-1)$, $J_{i-1}$, by the following:
-<dl>
-<dt></dt>
-<dd>
 
-$$d\lambda_{1,i} = d\lambda_{1,i-1}\frac{J_d}{J_{i-1}}$$
 
-</dd>
-</dl>
+$$
+d\lambda_{1,i} = d\lambda_{1,i-1}\frac{J_d}{J_{i-1}}
+$$
+
 <hr />
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>

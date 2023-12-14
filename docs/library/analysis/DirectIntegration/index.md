@@ -19,7 +19,7 @@ analysis type:
     current tangent and residual matrices. That is, this is the class
     that sets up the system of equations. 
 
-    $$\mathsf{M}\ddot{\boldsymbol{u}}+\mathsf{C}\dot{\boldsymbol{u}}+\mathbf{P}_{r}(\boldsymbol{u})=\mathbf{P}(t)$$
+    $$\mathbf{M}\ddot{\boldsymbol{u}}+\mathbf{C}\dot{\boldsymbol{u}}+\boldsymbol{p}_{\sigma}(\boldsymbol{u})=\boldsymbol{p}_f(t)$$
 
     It also provides the `commit()` method which is invoked to set up the
     appropriate dof response values once the solution algorithm has formed and
@@ -57,7 +57,7 @@ Determing the next time step for an analysis including inertial effects is done 
 In nonlinear transient finite element problems we seek a solution 
 ($\boldsymbol{u}$, $\dot{\boldsymbol{u}}$, $\ddot{\boldsymbol{u}}$) to the nonlinear vector equation
 
-$${\bf R}({\boldsymbol{u}},\dot{\boldsymbol{u}}, \ddot{\boldsymbol{u}}) = {\bf P}(t) - {\bf F}_I(\ddot{\boldsymbol{u}}) - {\bf F}_R({\boldsymbol{u}}, \dot{\boldsymbol{u}}) = \boldsymbol{0}$$
+$$\boldsymbol{R}({\boldsymbol{u}},\dot{\boldsymbol{u}}, \ddot{\boldsymbol{u}}) = \boldsymbol{p}_f(t) - \boldsymbol{p}_{\mathrm{i}}(\ddot{\boldsymbol{u}}) - \boldsymbol{p}_{\sigma}({\boldsymbol{u}}, \dot{\boldsymbol{u}}) = \boldsymbol{0}$$
 {#femGenForm}
 
 The most widely used technique for solving the transient non-linear finite element equation,
@@ -66,8 +66,8 @@ reference="femGenForm"}, is to use an incremental direct integration
 scheme. In the incremental formulation, a solution to the equation is
 sought at successive time steps $\Delta t$ apart.
 
-$$\boldsymbol{R}({\boldsymbol{u}}_{n \Delta t},\dot{\boldsymbol{u}}_{n \Delta t}, \ddot{\boldsymbol{u}}_{n \Delta t}) = {\bf P}(n \Delta t) -
-{\bf F}_I(\ddot{\boldsymbol{u}}_{n \Delta t}) - {\bf F}_R({\boldsymbol{u}}_{n \Delta t}, \dot{\boldsymbol{u}}_{n \Delta t})
+$$\boldsymbol{R}({\boldsymbol{u}}_{n \Delta t},\dot{\boldsymbol{u}}_{n \Delta t}, \ddot{\boldsymbol{u}}_{n \Delta t}) = \boldsymbol{p}_f(n \Delta t) -
+\boldsymbol{p}_{\mathrm{i}}(\ddot{\boldsymbol{u}}_{n \Delta t}) - \boldsymbol{p}_{\sigma}({\boldsymbol{u}}_{n \Delta t}, \dot{\boldsymbol{u}}_{n \Delta t})
 $$
 {#fullTimeForm}
 
@@ -89,7 +89,7 @@ equation [\[fullTimeForm](#fullTimeForm){reference-type="ref"
 reference="fullTimeForm"}, in terms of a single response quantity,
 typically the displacement:
 
-$$\R({\boldsymbol{u}}_t) = {\bf P}(t) - {\bf F}_I(\ddot{\boldsymbol{u}}_t) - {\bf F}_R({\boldsymbol{u}}_t, \dot{\boldsymbol{u}}_t)
+$$\boldsymbol{r}({\boldsymbol{u}}_t) = \boldsymbol{p}_f(t) - \boldsymbol{p}_{\mathrm{i}}(\ddot{\boldsymbol{u}}_t) - \boldsymbol{p}_{\sigma}({\boldsymbol{u}}_t, \dot{\boldsymbol{u}}_t)
 \label{genForm}$$
 
 The solution of this equation is typically obtained using an iterative
@@ -101,16 +101,16 @@ Newton, and quasi Newton schemes, are based on a Taylor expansion of
 equation [\[genForm](#genForm){reference-type="ref"
 reference="genForm"} about ${\boldsymbol{u}}_{t}$:
 
-$$\R({\boldsymbol{u}}_{t}) = 
-\R({\boldsymbol{u}}_{t}^{(i)}) +
-\left[ {\frac{\partial \R}{\partial {\boldsymbol{u}}_t} \vert}_{{\boldsymbol{u}}_{t}^{(i)}}\right]
+$$\boldsymbol{r}({\boldsymbol{u}}_{t}) = 
+\boldsymbol{r}({\boldsymbol{u}}_{t}^{(i)}) +
+\left[ {\frac{\partial \boldsymbol{r}}{\partial {\boldsymbol{u}}_t} \vert}_{{\boldsymbol{u}}_{t}^{(i)}}\right]
 \left( {\boldsymbol{u}}_{t} - {\boldsymbol{u}}_{t}^{(i)} \right)$$
 
 $$
-\boldsymbol{R}({\boldsymbol{u}}_{t}) = {\bf P} (t) - {\bf F}_{I} \left( \ddot {\boldsymbol{u}}_{t}^{(i)} \right) - {\bf F}_{R} \left( \dot {\boldsymbol{u}}_{t}^{(i)}, {\boldsymbol{u}}_{t}^{(i)} \right)- \left[
-  \mathsf{M}^{(i)} {\I}_2'
-+ \mathsf{C}^{(i)} {\I}_1'
-+ \mathsf{K}^{(i)}  \right]
+\boldsymbol{r}({\boldsymbol{u}}_{t}) = \boldsymbol{p}_f (t) - \boldsymbol{p}_{\mathrm{i}} \left( \ddot {\boldsymbol{u}}_{t}^{(i)} \right) - \boldsymbol{p}_{\sigma} \left( \dot {\boldsymbol{u}}_{t}^{(i)}, {\boldsymbol{u}}_{t}^{(i)} \right)- \left[
+  \boldsymbol{M}^{(i)} {\I}_2'
++ \boldsymbol{C}^{(i)} {\I}_1'
++ \boldsymbol{K}^{(i)}  \right]
  \left( {\boldsymbol{u}}_{t} - {\boldsymbol{u}}_{t}^{(i)} \right)
 \label{femGenFormTaylor}$$
 

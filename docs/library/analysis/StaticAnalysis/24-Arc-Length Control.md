@@ -35,43 +35,37 @@ integrator ArcLength 1.0 0.1;
 ```{.py .example}
 {"integrator": ["ArcLength", 1.0, 0.1]}
 ```
+
 <hr />
 
 ## Theory
 
-<p>If we write the governing finite element equation at $t + \Delta t\!$as:</p>
+If we write the governing finite element equation at $t + \Delta t$ as:
 
-$$ R(U_{t+\Delta t}, \lambda_{t+\Delta t}) = \lambda_{t+\Delta
-t} F^{ext} - F(U_{t+\Delta t}) \!$$
+$$ 
+\boldsymbol{r}(\boldsymbol{u}_{n}, \lambda_{n}) 
+  = \lambda_{n} \boldsymbol{p}_f - \boldsymbol{p}_{\sigma}(\boldsymbol{u}_{n})
+$$
 
-
-where $F(U_{t+\Delta t})\!$ are the internal
-forces which are a function of the displacements $U_{t+\Delta t}\!$, 
-$F^{ext}\!$ is the set of reference loads and $\lambda\!$ is the load
+where $\boldsymbol{p}_{\sigma}(\boldsymbol{u}_{n})$ are the internal
+forces which are a function of the displacements $\boldsymbol{u}_{n}$,
+$\boldsymbol{p}_f$ is the set of reference applied loads and $\lambda$ is the load
 multiplier. Linearizing the equation results in:
 
-<dl>
-<dt></dt>
-<dd>
-
-$$K_{t+\Delta t}^{*i} \Delta U_{t+\Delta t}^{i+1} = \left (
-\lambda^i_{t+\Delta t} + \Delta \lambda^i \right ) F^{ext} -
-F(U_{t+\Delta t})$$
-
-</dd>
-</dl>
+$$
+\boldsymbol{K}_{n}^{*i} \Delta \boldsymbol{u}_{n}^{i+1} = \left(
+\lambda^i_{n} + \Delta \lambda^i \right) \boldsymbol{p}_f -
+\boldsymbol{p}_{\sigma}(\boldsymbol{u}_{n})
+$$
 
 This equation represents $n$ equations in $n+1$
 unknowns, and so an additional equation is needed to solve the equation.
 For displacement control, we introduce a new constraint equation in
 which in each analysis step we set to ensure that the displacement
-increment for the degree-of-freedom $\text{dof}$
+increment for the degree-of-freedom `dof`
 at the specified node is:
 
-$$ \!$$
-
-
-<p>MORE TO COME:</p>
 <hr />
+
 <p>Code Developed by: <span style="color:blue"> fmk</span></p>
 

@@ -5,14 +5,10 @@ object. In an analysis step with Displacement Control we seek to
 determine the time step that will result in a displacement increment for
 a particular degree-of-freedom at a node to be a prescribed value.
 
-<table>
-<tbody>
-<tr class="odd">
-<td><p><strong>integrator DisplacementControl \$node \$dof \$incr
-&lt; \$numIter \$$\Delta U \text{min}$ \$$\Delta U \text{max}$</p></td>
-</tr>
-</tbody>
-</table>
+```tcl
+integrator DisplacementControl $node $dof $incr
+ < $numIter $DeltaUmin$ $DeltaUmax$ >
+```
 
 <hr />
 <table>
@@ -23,13 +19,11 @@ a particular degree-of-freedom at a node to be a prescribed value.
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">dof</code></p></td>
-<td><p>degree of freedom at the node, valid options: 1 through ndf at
-node.</p></td>
+<td><p>degree of freedom at the node, valid options: 1 through <code>ndf</code> at node.</p></td>
 </tr>
 <tr class="odd">
 <td><p><code class="parameter-table-variable">incr</code></p></td>
-<td><p>first displacement increment <math>\Delta
-U_{\text{dof}}</math></p></td>
+<td><p>first displacement increment $\Delta U_{\text{dof}}$ </p></td>
 </tr>
 <tr class="even">
 <td><p><code class="parameter-table-variable">numIter</code></p></td>
@@ -65,23 +59,25 @@ integrator DisplacementControl 1 2 0.1;
 
 ## Theory
 
-<p>If we write the governing finite element equation at <math>t +
-\Delta t\!</math>as:</p>
+If we write the governing finite element equation at $t + \Delta t$as:
 
-$$ R(U_{t+\Delta t}, \lambda_{t+\Delta t}) = \lambda_{t+\Delta
-t} F^{ext} - F(U_{t+\Delta t}) \!$$
-
-
-<p>where <math>F(U_{t+\Delta t})\!</math> are the internal
-forces which are a function of the displacements <math>U_{t+\Delta
-t}\!</math>, <math>F^{ext}\!</math> is the set of
-reference loads and <math>\lambda\!</math> is the load
-multiplier. Linearizing the equation results in:</p>
+$$ 
+R(\boldsymbol{u}_{n}, \lambda_{n}) = \lambda_{t+\Delta
+t} \boldsymbol{p}_f - \boldsymbol{p}_{\sigma}(\boldsymbol{u}_{n})
+$$
 
 
-$$K_{t+\Delta t}^{*i} \Delta U_{t+\Delta t}^{i+1} = \left(
-\lambda^i_{t+\Delta t} + \Delta \lambda^i \right) F^{ext} -
-F(U_{t+\Delta t})$$
+where \(\boldsymbol{p}_{\sigma}(\boldsymbol{u}_{n})\) are the internal
+forces which are a function of the displacements \(\boldsymbol{u}_{n}\), \(\boldsymbol{p}_f\) is the set of
+reference loads and \(\lambda\) is the load
+multiplier. Linearizing the equation results in:
+
+
+$$
+\boldsymbol{K}_{n}^{*i} \Delta U_{n}^{i+1} = \left(
+\lambda^i_{n} + \Delta \lambda^i \right) \boldsymbol{p}_f -
+\boldsymbol{p}_{\sigma}(\boldsymbol{u}_{n})
+$$
 
 
 This equation represents $n$ equations in $n+1$
@@ -91,19 +87,21 @@ which in each analysis step we set to ensure that the displacement
 increment for the degree-of-freedom $\text{dof}$
 at the specified node is:
 
-$$ \Delta U_\text{dof} = \text{incr}\!$$
+$$
+\Delta U_\text{dof} = \text{incr}
+$$
 
 
-<p>MORE TO COME:</p>
-<p>In Displacement Control the
-$\Delta_U\text{dof}$ set to $t + \lambda_{t+1}$ where,</p>
+In Displacement Control the $\Delta_U\text{dof}$ set to $t + \lambda_{t+1}$ where,
 
-
-$$\Delta U_\text{dof}^{t+1} = \max \left( \Delta U_{min},
-\min \left( \Delta U_\text{max},
-\frac{\text{numIter}}{\text{lastNumIter}} \Delta U_\text{dof}^{t} \right) \right) $$
+$$
+\Delta U_\text{dof}^{t+1} = \max \left( \Delta U_{\text{min}},
+\min \left( \Delta U_{\text{max}},
+\frac{\text{numIter}}{\text{lastNumIter}} \Delta U_\text{dof}^{t} \right) \right)
+$$
 
 
 <hr />
+
 <p>Code Developed by: <span style="color:blue"> fmk
 </span></p>
