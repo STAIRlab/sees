@@ -50,8 +50,8 @@ keywords = [
 
 dependencies = [
     "sees",
-    "sdof",
-    "mdof", # System identification
+#   "sdof",
+#   "mdof", # System identification
 #   "shps", # Shape functions and quadrature
 
     "numpy < 1.20.0; python_version<'3.8'",
