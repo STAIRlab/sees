@@ -127,6 +127,8 @@ if __name__ == "__main__":
         except ImportError:
             from opensees.repl.cmdshell import TclShell
             TclShell().cmdloop()
+        except EOFError:
+            pass
         sys.exit()
 
     #
@@ -185,7 +187,10 @@ if __name__ == "__main__":
         if os.name != "nt":
             sys.stdin = open("/dev/tty")
         tcl.eval("set tcl_interactive 1")
-        OpenSeesREPL(interp=tcl).repl()
+        try:
+            OpenSeesREPL(interp=tcl).repl()
+        except EOFError:
+            pass
 
     try:
         code = int(code)

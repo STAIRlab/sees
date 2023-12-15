@@ -39,9 +39,13 @@
 -------------------------------------------------------------------- 
 -->
 
-This is an experimental package that provides a complete OpenSees Tcl interpreter,
+This is an experimental package that provides an *optimized* OpenSees Tcl interpreter,
 as well as a new set of Python bindings that is both idiomatic, and free
 of global state.
+
+The package may be used as a drop-in replacement for both OpenSees and
+OpenSeesPy, and generally provides a considerable performance boost.
+
 
 <p style="text-align: center;">
 <b>This package is not yet intended for public use.</b>
