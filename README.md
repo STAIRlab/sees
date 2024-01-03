@@ -10,7 +10,7 @@
 
 
 
-***Direct* and *idiomatic* C++ bindings to the OpenSees framework for finite element analysis.**
+**A *fast* and *clean* interface to the OpenSees framework for finite element analysis.**
 
 
 <br>
@@ -46,16 +46,16 @@ of global state.
 The package may be used as a drop-in replacement for both OpenSees and
 OpenSeesPy, and generally provides a considerable performance boost.
 
-
-<p style="text-align: center;">
-<b>This package is not yet intended for public use.</b>
-</p>
+Python versions 3.7 - 3.11 are supported on Linux.
 
 > **Note** This package is independent of the [`openseespy`](https://pypi.org/project/openseespy)
 > library, which is documented in the OpenSees [documentation](https://opensees.github.io/OpenSeesDocumentation)
 > website.
 
-Python versions 3.7 - 3.11 are supported on Linux.
+
+<p style="text-align: center;">
+<b>This package is experimental and not yet intended for public use.</b>
+</p>
 
 
 <!-- Badge links -->
