@@ -54,7 +54,7 @@ Python versions 3.7 - 3.11 are supported on Linux.
 
 
 <p style="text-align: center;">
-<b>This package is experimental and not yet intended for public use.</b>
+<b>This package is <i>experimental</i> and not yet intended for public use.</b>
 </p>
 
 
