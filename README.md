@@ -1,4 +1,4 @@
-# OpenSeesRT
+# `opensees`
 
 
 
