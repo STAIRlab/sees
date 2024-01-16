@@ -10,7 +10,7 @@ license = {file = "project/LICENSE"}
 
 readme = "README.md"
 
-description = "Direct and idiomatic bindings to the OpenSees framework."
+description = "A fast and clean interface to the OpenSees framework for finite element analysis."
 
 classifiers = [
     'Development Status :: 4 - Beta',
