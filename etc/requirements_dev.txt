@@ -1,3 +1,0 @@
-amoeba-build >= 0.0.12
-pybind11
-setuptools >= 52.0.2

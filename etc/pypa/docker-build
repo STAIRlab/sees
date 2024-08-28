@@ -1,6 +1,0 @@
-#!/bin/bash
-#docker run -it -v $(pwd):/io quay.io/pypa/manylinux1_x86_64 /bin/bash /io/scripts/docker-wheels.sh
-# docker run -it -v $(pwd):/io dockcross/manylinux_2_28-x64  /bin/bash /io/scripts/docker-wheels.sh
-# docker run -it -v $(pwd):/io opensees-manylinux  /bin/bash /io/scripts/docker-wheels.sh manylinux_2_28_x86_64
-docker run -it -v $(pwd):/io opensees-manylinux1 /bin/bash /io/etc/pypa/docker-wheels.sh opensees manylinux_2_28_x86_64
-
