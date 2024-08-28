@@ -314,7 +314,7 @@ def _build_extension_env():
             cookie.close()
 
 def _find_openseesrt():
-    if "OPENSEESRT_LIB" in os.environ:
+    if "OPENSEESRT_LIB" in os.environ and len(os.environ["OPENSEESRT_LIB"]):
         libOpenSeesRT_path = pathlib.Path(os.environ["OPENSEESRT_LIB"])
         return libOpenSeesRT_path.parents[0], libOpenSeesRT_path
 
