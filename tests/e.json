@@ -1,0 +1,17 @@
+{
+    "StructuralAnalysisModel": {
+        "assembly": {
+            "nodes": [
+                {"name": 0, "ndf": 6, "crd": [   0.00, 324.453,    0.000]},
+                {"name": 1, "ndf": 6, "crd": [3180.00, 324.453,    0.000]},
+                {"name": 2, "ndf": 6, "crd": [1752.00, 324.453,    0.000]},
+                {"name": 4, "ndf": 6, "crd": [1608.82,   0.000, -177.439]},
+                {"name": 6, "ndf": 6, "crd": [1895.18,   0.000,  177.439]}
+            ],
+            "elements": [
+                {"name": 3, "type": "ElasticBeam3d", "nodes": [2, 1]}, 
+                {"name": 6, "type": "ElasticBeam3d", "nodes": [0, 2]}
+            ]
+        }
+    }
+}

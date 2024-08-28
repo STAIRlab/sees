@@ -1,0 +1,10 @@
+show_objects:
+# - axis
+  - frames
+  - legend
+  - outline
+  - extrude
+# - triads
+
+default_section: hayward.txt
+

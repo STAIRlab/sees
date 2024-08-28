@@ -1,0 +1,13 @@
+{
+  "StructuralAnalysisModel": {
+      "geometry": {
+          "nodes": [
+                  {"name": 1, "crd": [3180.00, 324.453,    0.000]},
+                  {"name": 2, "crd": [1752.00, 324.453,    0.000]}
+          ],
+          "elements": [
+                  {"name": 3, "type": "ElasticBeam3d", "nodes": [2, 1], "yvec": [0, 1, 0]}
+          ]
+      }
+  }
+}

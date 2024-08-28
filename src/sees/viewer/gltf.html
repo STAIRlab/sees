@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>sees - Three.js</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link type="text/css" rel="stylesheet" href="main.css">
+    </head>
+
+    <body>
+        <div id="info">
+            <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> - GLTFLoader<br />
+            Battle Damaged Sci-fi Helmet by
+            <a href="https://sketchfab.com/theblueturtle_" target="_blank" rel="noopener">theblueturtle_</a><br />
+            <a href="https://hdrihaven.com/hdri/?h=royal_esplanade" target="_blank" rel="noopener">Royal Esplanade</a> from <a href="https://hdrihaven.com/" target="_blank" rel="noopener">HDRI Haven</a>
+        </div>
+
+        <script type="importmap">
+          {
+            "imports": {
+              "three": "https://unpkg.com/three@0.164.0/build/three.module.js",
+              "three/addons/": "https://unpkg.com/three@0.164.0/examples/jsm/"
+            }
+          }
+        </script>
+
+        <script type="module">
+
+            import * as THREE from 'three';
+
+            import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+            import { GLTFLoader }    from 'three/addons/loaders/GLTFLoader.js';
+            import { VertexNormalsHelper } from 'three/addons/helpers/VertexNormalsHelper.js';
+
+            let camera, scene, renderer;
+
+            const size = new THREE.Vector3();
+            const center = new THREE.Vector3();
+            const box = new THREE.Box3();
+
+
+            init();
+
+            function init() {
+
+                const container = document.createElement( 'div' );
+                document.body.appendChild( container );
+
+
+//              camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.25, 20 );
+//              camera.position.set( - 1.8, 0.6, 2.7 );
+                camera = new THREE.PerspectiveCamera(40, window.innerWidth/window.innerHeight, 1, 5000);
+                camera.rotation.y = 45/180*Math.PI;
+                camera.position.x = 10; // 800;
+                camera.position.y = 10; // 100;
+                camera.position.z = 10; // 1000;
+
+                scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xdfdfdf);
+
+                const hlight = new THREE.AmbientLight(0x404040, 100);
+                scene.add(hlight);
+
+                // Adding directional lights
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 100);
+                directionalLight.position.set(0,1,0);
+                directionalLight.castShadow = true;
+                scene.add(directionalLight);
+
+                // Adding Shadow
+                const light = new THREE.PointLight(0xc4c4c4,10);
+                light.position.set(0,300,500);
+                scene.add(light);
+
+             // const light2 = new THREE.PointLight(0xc4c4c4,10);
+             // light2.position.set(500,100,0);
+             // scene.add(light2);
+
+             // const light3 = new THREE.PointLight(0xc4c4c4,10);
+             // light3.position.set(0,100,-500);
+             // scene.add(light3);
+
+             // const light4 = new THREE.PointLight(0xc4c4c4,10);
+             // light4.position.set(-500,300,0);
+             // scene.add(light4);
+
+                // model
+
+                // const loader = new GLTFLoader().setPath( 'models/gltf/DamagedHelmet/glTF/' );
+
+                renderer = new THREE.WebGLRenderer( { antialias: true } );
+                renderer.setPixelRatio( window.devicePixelRatio );
+                renderer.setSize( window.innerWidth, window.innerHeight );
+//              renderer.toneMapping = THREE.ACESFilmicToneMapping;
+//              renderer.toneMappingExposure = 1;
+                container.appendChild( renderer.domElement );
+
+                const controls = new OrbitControls( camera, renderer.domElement );
+                controls.addEventListener( 'change', render ); // use if there is no animation loop
+//              controls.minDistance = 2;
+//              controls.maxDistance = 10;
+//              controls.target.set( 0, 0, - 0.2 );
+//              controls.update();
+
+                window.addEventListener( 'resize', onWindowResize );
+
+                const loader = new GLTFLoader();
+                loader.load('model.glb', /* async */ function ( gltf ) {
+
+                    const model = gltf.scene;
+
+                    // wait until the model can be added to the scene without blocking due to shader compilation
+
+                    /* await */ renderer.compileAsync( model, camera, scene );
+
+                    gltf.scene.traverse(child => {
+                      // if (child.isMesh)
+                        child.scale.set(0.5, 0.5, 0.5)
+                    });
+
+                    scene.add( model );
+
+                    render();
+
+                    fitCameraToSelection(camera, controls, [model]);
+    
+                } );
+
+            }
+
+            function onWindowResize() {
+
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+
+                renderer.setSize( window.innerWidth, window.innerHeight );
+
+                render();
+
+            }
+
+            //
+            function render() {
+
+                renderer.render( scene, camera );
+
+            }
+
+            function fitCameraToSelection(camera, controls, selection, fitOffset = 1.2) {
+              box.makeEmpty();
+              for(const object of selection) {
+                box.expandByObject(object);
+              }
+              
+              box.getSize(size);
+              box.getCenter(center );
+              
+              const maxSize = Math.max(size.x, size.y, size.z);
+              const fitHeightDistance = maxSize / (2 * Math.atan(Math.PI * camera.fov / 360));
+              const fitWidthDistance = fitHeightDistance / camera.aspect;
+              const distance = fitOffset * Math.max(fitHeightDistance, fitWidthDistance);
+              
+              const direction = controls.target.clone()
+                .sub(camera.position)
+                .normalize()
+                .multiplyScalar(distance);
+
+              controls.maxDistance = distance * 10;
+              controls.target.copy(center);
+              
+              camera.near = distance / 100;
+              camera.far = distance * 100;
+              camera.updateProjectionMatrix();
+
+              camera.position.copy(controls.target).sub(direction);
+              
+              controls.update();
+            }
+
+        </script>
+
+    </body>
+</html>

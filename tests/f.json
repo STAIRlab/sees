@@ -1,0 +1,13 @@
+{
+"StructuralAnalysisModel": {
+	"geometry": {
+		"nodes": [
+			{"name": 1, "ndf": 6, "crd": [0.0,  0.0,  0.0]},
+			{"name": 2, "ndf": 6, "crd": [600,  0.0,  800]}
+		],
+		"elements": [
+			{"name": 3, "type": "ElasticBeam3d", "nodes": [1, 2]}
+		]
+	}
+}
+}

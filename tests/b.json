@@ -1,0 +1,26 @@
+{
+"StructuralAnalysisModel": {
+	"geometry": {
+		"nodes": [
+			{"name": 0, "ndf": 6, "crd": [   0.00,    0.000 , 324.453 ]},
+			{"name": 1, "ndf": 6, "crd": [3180.00,    0.000 , 324.453 ]},
+			{"name": 2, "ndf": 6, "crd": [1752.00,    0.000 , 324.453 ]},
+			{"name": 3, "ndf": 6, "crd": [1608.82,  177.439 , 324.453 ]},
+			{"name": 4, "ndf": 6, "crd": [1608.82,  177.439 ,   0.000 ]},
+			{"name": 5, "ndf": 6, "crd": [1895.18, -177.439 , 324.453 ]},
+			{"name": 6, "ndf": 6, "crd": [1895.18, -177.439 ,   0.000 ]},
+			{"name": 7, "ndf": 6, "crd": [   0.00,    0.000 , 324.453 ]},
+			{"name": 8, "ndf": 6, "crd": [3180.00,    0.000 , 324.453 ]}
+		],
+		"elements": [
+			{"name": 0, "type": "ElasticBeam3d", "nodes": [0, 2]},
+			{"name": 1, "type": "ElasticBeam3d", "nodes": [4, 3]},
+			{"name": 2, "type": "ElasticBeam3d", "nodes": [6, 5]},
+			{"name": 3, "type": "ElasticBeam3d", "nodes": [2, 1]},
+
+			{"name": 6, "type": "ElasticBeam3d", "nodes": [3, 2]},
+			{"name": 7, "type": "ElasticBeam3d", "nodes": [5, 2]}
+		]
+	}
+}
+}

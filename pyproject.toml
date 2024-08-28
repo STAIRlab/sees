@@ -1,26 +1,44 @@
 [project]
-name = "opensees"
-version = "0.0.51"
+name = "sees"
+version = "0.0.16"
 authors = [
-  {name="Claudio M. Perez"}
-  # <50180406+claudioperez@users.noreply.github.com>"
+  {name="Claudio M. Perez", email="50180406+claudioperez@users.noreply.github.com"},
+  {name="Chrystal Chern",   email="52893467+chrystalchern@users.noreply.github.com"}
 ]
-
-license = {file = "project/LICENSE"}
+description="Finite element visualization with GPU support"
 
 readme = "README.md"
 
-description = "A fast and clean interface to the OpenSees framework for finite element analysis."
+keywords = [
+  "visualization",
+  "rendering",
+  "seismic",
+  "post-processing",
+  "finite-element-analysis",
+  "glTF"
+] 
+
+dependencies = [
+  "opensees",
+  "quakeio",
+  "bottle",
+
+  "pyyaml",
+  "scipy",
+  "numpy",
+  "plotly",
+# "trimesh",
+  "pygltflib",
+  "matplotlib",
+  "shps"
+]
 
 classifiers = [
     'Development Status :: 4 - Beta',
     'Intended Audience :: Science/Research',
     'Intended Audience :: Developers',
-#   'License :: OSI Approved :: BSD License',
-
+    'License :: OSI Approved :: BSD License',
     'Programming Language :: C',
-    'Programming Language :: C++',
-    'Programming Language :: Fortran',
     'Programming Language :: Python',
     'Programming Language :: Python :: 3',
     'Programming Language :: Python :: 3.7',
@@ -30,105 +48,30 @@ classifiers = [
     'Programming Language :: Python :: 3.11',
     'Programming Language :: Python :: 3.12',
     'Programming Language :: Python :: 3 :: Only',
-
     'Topic :: Software Development',
     'Topic :: Scientific/Engineering',
-
     'Operating System :: Microsoft :: Windows',
     'Operating System :: POSIX',
     'Operating System :: Unix',
     'Operating System :: MacOS',
 ]
 
-keywords = [
-    "seismic",
-    "structural-analysis",
-    "finite-element-analysis",
-    "earthquake",
-    "engineering",
-] 
-
-dependencies = [
-    "sees",
-#   "sdof",
-#   "mdof", # System identification
-#   "shps", # Shape functions and quadrature
-
-    "numpy < 1.20.0; python_version<'3.8'",
-    "numpy ; python_version>='3.8'",
-    # "scipy < 1.6.0 ; python_version=='3.6'",
-    # "scipy < 1.8   ; python_version=='3.7'",
-    # "scipy > 1.6.0 ; python_version>'3.7'",
-#   "pyyaml",
-
-# Plotting
-#   "matplotlib",
-#   "panel",
-
-# Full-featured REPL
-    "pyparsing",
-    "prompt_toolkit",
-    "pygments",
-    "platformdirs"
-]
-
-[project.optional-dependencies]
-testing = [
-    "pytest >= 4.6",
-    "pytest-checkdocs >= 2.4",
-    "pytest-flake8",
-    "nbmake"
-]
-
-repl = [
-    "pyparsing",
-    "prompt_toolkit",
-    "pygments"
-]
-
-docs = [
-    "elstir",
-    "mkdocs-material"
-]
 
 [project.urls]
-Repository = "http://github.com/BRACE2/OpenSeesRT"
-# Documentation = "https://brace2.github.io/OpenSeesRT"
+Repository = "http://github.com/STAIRLab/sees"
+Documentation = "https://stairlab.github.io/opensees-gallery"
+
+[project.scripts]
+sees = "sees.__main__:main"
 
 [build-system]
 requires = [
-    "amoeba-build >= 0.0.12",
-    "pybind11",
     "setuptools >= 52.0.2",
 ]
 
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools.packages.find]
-where = ["src"]
-# exclude = ["libg3*", "site*"]
-
 [tool.setuptools.package-data]
-opensees = ["*.py", "*.so", "*.dll"]
+sees = ["assets/*"]
 
-[tool.setuptools.exclude-package-data]
-opensees = ["site*", "docs*", "*.html", "*.cmake"]
-
-
-[tool.cibuildwheel]
-skip = ["pp*", "*musllinux*", "cp36*", "*i686*", "UNKNOWN*"] #, "cp38*", "cp37*"] # , "cp39*", "cp311*"]
-manylinux-x86_64-image = "manylinux_2_28"
-# manylinux-x86_64-image="manylinux2014"
-# manylinux-x86_64-image="manylinux_2_24"
-
-# [tool.cibuildwheel.windows]
-# before-build="pip install delvewheel"
-# repair-wheel-command="delvewheel repair -w {dest_dir} {wheel}"
-
-[tool.cibuildwheel.linux]
-# before-all = "yum install -y tcl-devel mysql-devel lapack-devel"
-before-all = "yum install -y tcl-devel mysql-devel openblas-devel"
-#before-all = "yum-config-manager --add-repo https://yum.repos.intel.com/setup/intelproducts.repo && yum install intel-mkl-2020.0-088"
-# before-all = "rpm --import https://yum.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS-2019.PUB && yum install intel-mkl"
-repair-wheel-command = "auditwheel repair --exclude libOpenSeesRT.so  -w {dest_dir} {wheel}"
 

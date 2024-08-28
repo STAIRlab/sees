@@ -1,0 +1,31 @@
+{
+"StructuralAnalysisModel": {
+    "properties": {
+        "sections": [
+
+        ],
+        "nDMaterials": [
+
+        ],
+        "uniaxialMaterials": [
+
+        ],
+        "crdTransformations": [
+			{"name": "1", "type": "LinearCrdTransf3d", "vecInLocXZPlane": [0, 0, 1]}
+        ]
+    },
+    "geometry": {
+        "nodes": [
+      {"name": 1, "ndf": 6, "crd": [0, 0, 0]},
+      {"name": 2, "ndf": 6, "crd": [4, 6, 0]},
+      {"name": 3, "ndf": 6, "crd": [8, 6, 0]},
+      {"name": 4, "ndf": 6, "crd": [8, 0, 0]}
+        ],
+        "elements": [
+			{"name": 1, "type": "ElasticBeam3d", "nodes": [2, 1], "E": 1, "G": 1, "A": 1, "Jx": 1, "Iy": 1, "Iz": 1, "massperlength": 0, "releasez": 0, "releasey": 0, "crdTransformation": "1"},
+			{"name": 2, "type": "ElasticBeam3d", "nodes": [2, 3], "E": 1, "G": 1, "A": 1, "Jx": 1, "Iy": 1, "Iz": 1, "massperlength": 0, "releasez": 0, "releasey": 0, "crdTransformation": "1"},
+			{"name": 3, "type": "ElasticBeam3d", "nodes": [3, 4], "E": 1, "G": 1, "A": 1, "Jx": 1, "Iy": 1, "Iz": 1, "massperlength": 0, "releasez": 0, "releasey": 0, "crdTransformation": "1"}
+        ]
+    }
+}
+}
