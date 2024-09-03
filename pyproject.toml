@@ -1,18 +1,20 @@
 [project]
 name = "sees"
-version = "0.0.17"
+version = "0.0.19"
 authors = [
   {name="Claudio M. Perez", email="50180406+claudioperez@users.noreply.github.com"},
   {name="Chrystal Chern",   email="52893467+chrystalchern@users.noreply.github.com"}
 ]
 description="Finite element visualization with GPU support"
 
+license = {file = ".github/LICENSE.txt"}
 readme = "README.md"
 
 keywords = [
   "visualization",
   "rendering",
   "seismic",
+  "opensees",
   "post-processing",
   "finite-element-analysis",
   "glTF"
@@ -22,6 +24,7 @@ dependencies = [
   "opensees",
   "quakeio",
   "bottle",
+  "openbim",
 
   "pyyaml",
   "scipy",
@@ -58,7 +61,7 @@ classifiers = [
 
 
 [project.urls]
-Repository = "http://github.com/STAIRLab/sees"
+Repository = "https://github.com/STAIRLab/sees"
 Documentation = "https://stairlab.github.io/opensees-gallery"
 
 [project.scripts]
