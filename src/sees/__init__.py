@@ -40,7 +40,7 @@ def serve(artist, viewer="mv", port=None):
 
 def _create_canvas(name=None, config=None):
     if name is None:
-        name = "matplotlib"
+        name = "gltf"
 
     if not isinstance(name, str):
         return name
@@ -167,4 +167,19 @@ def render(sam_file, res_file=None, noshow=False, ndf=6,
     artist.draw()
 
     return artist
+
+
+def render_mode(model, mode_number, scale=1, file_name=None, canvas="plotly", **kwds):
+
+    # Define a function that tells the renderer the displacement
+    # at a given node. We will pass this function as an argument
+    # when constructing the "artist" object, which in turn will 
+    # invoke this function for each node tag in the model.
+    def displ_func(tag: int)->list:
+        return [float(scale)*ui for ui in model.nodeEigenvector(tag, mode_number)]
+
+    # Create the rendering
+    return render(model, displ_func, canvas=canvas, **kwds)
+
+
 
