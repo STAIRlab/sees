@@ -155,7 +155,7 @@ class GltfLibCanvas(Canvas):
         #
         #
         #
-        index_t = "uint8"
+        index_t = self.index_t # "uint8"
         points = style.scale*np.array(
             [
                 [-1.0, -1.0,  1.0],
@@ -315,7 +315,6 @@ class GltfLibCanvas(Canvas):
     def plot_lines(self, vertices, indices=None, style: LineStyle=None, **kwds):
         material = self._get_material(style or LineStyle())
 
-
         # vertices is given with nans separating line groups, but
         # GLTF does not accept nans so we have to filter these
         # out, and add distinct meshes for each line group
@@ -324,6 +323,7 @@ class GltfLibCanvas(Canvas):
 
         if points.size == 0:
             return
+
 
         points_buffer = self._push_data(points.tobytes(), pygltflib.ARRAY_BUFFER)
 
@@ -348,7 +348,9 @@ class GltfLibCanvas(Canvas):
         for indices in indices_:
             # Here, n adjusts indices by the number of nan rows that were removed so far
             n  = sum(np.isnan(vertices[:indices[0],0]))
-            indices_array = indices - n
+            indices_array = indices - np.dtype(self.index_t).type(n)
+
+#           indices_binary_blob = indices_array.astype(self.index_t).tobytes()
             indices_binary_blob = indices_array.tobytes()
 
             if len(indices_array) <= 1:
