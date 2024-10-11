@@ -132,8 +132,9 @@ def render(sam_file, res_file=None, noshow=False, ndf=6,
 
     if hide is not None:
         preserve = set()
+        sketch = "reference"; # "displaced"
         for arg in hide:
-            sketch_show(config["artist_config"], f"displaced:{arg}", "hide", exclusive=True, preserve=preserve)
+            sketch_show(config["artist_config"], f"{sketch}:{arg}", "hide", exclusive=True, preserve=preserve)
 
     if verbose:
         import pprint

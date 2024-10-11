@@ -22,7 +22,7 @@ from sees.config import Config, apply_config, LineStyle, NodeStyle
 
 def _is_truss(el):
     name = el["type"].lower()
-    return "truss" in name
+    return "truss" in name or "twonodelink" in name
 
 
 def _is_frame(el):
