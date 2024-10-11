@@ -312,7 +312,7 @@ class GltfLibCanvas(Canvas):
         return len(self.gltf.bufferViews)-1
 
 
-    def plot_lines(self, vertices, indices=None, style: LineStyle=None, **kwds):
+    def plot_lines(self, vertices, indices=None, style: LineStyle=None, vcache:str=None, **kwds):
         material = self._get_material(style or LineStyle())
 
 
