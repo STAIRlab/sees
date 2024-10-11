@@ -19,6 +19,13 @@ assets = Path(__file__).parents[0]/"assets/"
 def Canvas(subplots=None, backend=None):
     pass
 
+def __getattr__(name: str):
+    import opensees.openseespy
+    if name == "Model":
+        return opensees.openseespy.Model
+    elif name == "openseespy":
+        return opensees.openseespy
+
 
 def serve(artist, viewer="mv", port=None):
     import sees.server
