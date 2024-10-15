@@ -12,7 +12,7 @@ from .errors import RenderError
 from .config import Config, apply_config
 from .parser import sketch_show
 from .frame import FrameArtist
-
+from . import utility
 
 assets = Path(__file__).parents[0]/"assets/"
 
