@@ -311,10 +311,10 @@ class FrameArtist:
                 elif len(idx) == 3:
                     trians.append([*idx, idx[0]])
 
-#           elif _is_solid(el) and config["solid"]["show"]:
-#               # TODO: get cell faces
-#               idx = model.cell_exterior(tag)
-#               solids.append(idx)
+            elif _is_solid(el) and config["solid"]["show"]:
+                # TODO: get cell faces
+                idx = model.cell_exterior(tag)
+                solids.append(idx)
 
         if do_frames and config["frame"]["show"]:
             self.canvas.plot_lines(frames[:,:self.ndm], style=config["frame"]["style"])
