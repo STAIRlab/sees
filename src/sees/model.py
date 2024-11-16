@@ -284,7 +284,9 @@ class FrameModel:
 
     def cell_exterior(self, tag):
         """
-        return an array of node indices
+        return an array of node indices that outline the cell's boundary.
+        This is related to finding an Eulerian path through the element's
+        connectivity graph.
         """
         type = self["assembly"][tag]["type"].lower()
 
@@ -303,9 +305,11 @@ class FrameModel:
             indices = self.cell_indices(tag)
 
         elif "brick" in type or "hex" in type:
-            indices = self.cell_indices(tag)
-            if len(indices) == 8:
-                return indices
+            i = self.cell_indices(tag)
+            if len(i) == 8:
+                return [
+                        i[j] for j in (0, 1, 2, 3, 0, 4, 5, 6, 7, 4, 5, 1, 3, 6, 7, 3)
+                ]
             else:
                 # TODO: Currently not handling higher-order bricks
                 return []
@@ -316,6 +320,8 @@ class FrameModel:
         pass
 
     def cell_triangles(self, tag):
+        """
+        """
         type = self["assembly"][tag]["type"].lower()
 
         if "frm" in type or "beamcol" in type:
@@ -336,7 +342,7 @@ class FrameModel:
                         [nodes[2], nodes[3], nodes[0]]]
 
         elif "brick" in type:
-            nodes = self.cell_exterior(tag)
+            nodes = self.cell_indices(tag)
 
             if len(nodes) == 8:
                 triangles = []
