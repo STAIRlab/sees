@@ -32,7 +32,10 @@ class Viewer:
                           src="{self._glbsrc}"
                           ar
                           style="width: 100%; height: 1000px;"
-                          shadow-intensity="1" camera-controls touch-action="pan-y">
+                          shadow-intensity="2"
+                          toneMapping="AgX"
+                          environment-image="legacy"
+                          camera-controls touch-action="pan-y">
             </model-viewer>
           </body>
           </html>
