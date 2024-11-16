@@ -8,7 +8,6 @@ from sees.errors import RenderError
 def _render(*args, rt=None):
     try:
         config = parse_args(["render", *args])
-#       print(config)
         if config is None:
             return ""
         if "verbose" in config and config["verbose"]:
