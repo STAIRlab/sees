@@ -1,11 +1,12 @@
 [project]
 name = "sees"
-version = "0.0.19"
+version = "0.0.24"
 authors = [
   {name="Claudio M. Perez", email="50180406+claudioperez@users.noreply.github.com"},
   {name="Chrystal Chern",   email="52893467+chrystalchern@users.noreply.github.com"}
 ]
-description="Finite element visualization with GPU support"
+# description="Finite element visualization with GPU support"
+description="Nonlinear finite element analysis"
 
 license = {file = ".github/LICENSE.txt"}
 readme = "README.md"
@@ -15,6 +16,7 @@ keywords = [
   "rendering",
   "seismic",
   "opensees",
+  "nonlinear",
   "post-processing",
   "finite-element-analysis",
   "glTF"
