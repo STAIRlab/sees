@@ -16,6 +16,8 @@ try:
 except ImportError:
     import json
 
+
+# Constants
 _EYE3 = np.eye(3)
 
 _OUTLINES = {
@@ -42,19 +44,26 @@ def _is_frame(el):
             or "dfrm"  in name \
             or "frame" in name
 
-def read_model(filename:str, shift=None)->dict:
+def read_model(filename:str, shift=None, verbose=False)->dict:
     if isinstance(filename, str) and filename.endswith(".tcl"):
         import opensees.tcl
-        with open(filename, "r") as f:
-            interp = opensees.tcl.exec(f.read(), silent=True, analysis=False)
+        try:
+            with open(filename, "r") as f:
+                interp = opensees.tcl.exec(f.read(), silent=True, analysis=False)
+        except UnicodeDecodeError:
+            with open(filename, "r", encoding="latin1") as f:
+                interp = opensees.tcl.exec(f.read(), silent=True, analysis=False)
         return interp.serialize()
 
     elif isinstance(filename, str) and (
         filename.endswith(".s2k") or filename.endswith(".$2k") or filename.endswith(".$br")):
-        import sees.reader.csi as csi
+        from openbim import csi
+        # import sees.reader.csi as csi
         with open(filename, "r") as f:
-            model = csi.create_model(csi.load(f))
+            model = csi.create_model(csi.load(f), verbose=verbose)
         return model.asdict()
+    elif isinstance(filename, str) and filename.endswith(".inp"):
+        pass
 
     try:
         with open(filename,"r") as f:
@@ -295,7 +304,7 @@ class FrameModel:
         elif "tetra" in type:
             indices = self.cell_indices(tag)
 
-        elif "brick" in type:
+        elif "brick" in type or "hex" in type:
             i = self.cell_indices(tag)
             if len(i) == 8:
                 return [
