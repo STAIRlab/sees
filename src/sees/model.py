@@ -104,9 +104,9 @@ class Model:
 
 
 class FrameModel:
-    def __init__(self, sam:dict, shift = None, rot=None, **kwds):
+    def __init__(self, sam:dict, shift = None, rot=None, frame_outlines=None, **kwds):
 
-        self._frame_outlines = None
+        self._frame_outlines = frame_outlines
         self._extrude_default = _OUTLINES[kwds.get("extrude_default", "square")]
         self._extrude_outline = _OUTLINES[kwds.get("extrude_outline", None)]
         self._extrude_scale   = kwds.get("extrude_scale",   1.0)
