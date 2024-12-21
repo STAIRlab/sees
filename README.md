@@ -1,4 +1,4 @@
-# `sees`
+# `veux`
 
 <img align="left" src="https://stairlab.github.io/opensees-gallery/examples/shellframe/ShellFrame.png" width="350px" alt="SEES Logo">
 
@@ -11,11 +11,11 @@
 <div style="align:center">
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13367077.svg)](https://doi.org/10.5281/zenodo.13367077)
-[![Latest PyPI version](https://img.shields.io/pypi/v/sees?logo=pypi&style=for-the-badge)](https://pypi.python.org/pypi/sees)
+[![Latest PyPI version](https://img.shields.io/pypi/v/veux?logo=pypi&style=for-the-badge)](https://pypi.python.org/pypi/sees)
 
 </div>
 
-`sees` is a finite element rendering library that leverages modern 
+`veux` is a finite element rendering library that leverages modern 
 web technologies to produce sharable, efficient, and detailed renderings.
 
 
@@ -23,9 +23,9 @@ web technologies to produce sharable, efficient, and detailed renderings.
 
 <br>
 
-`sees` is a finite element rendering library that leverages modern 
+`veux` is a finite element rendering library that leverages modern 
 web technologies to produce sharable, efficient, and detailed renderings.
-Unlike most tools that only provide temporary visualization, `sees` generates
+Unlike most tools that only provide temporary visualization, `veux` generates
 persistent 3D models that can be stored in files, shared with colleagues, and
 viewed with any standard 3D model viewer. This means anyone can interact with
 the renderings without needing to install specialized software or even Python.
@@ -65,15 +65,15 @@ Documentation is currently under development.
 [glry-0003]: <https://stairlab.github.io/opensees-gallery/examples/shellframe/ShellFrame_hu5013315635971397841.png>
 [view-0003]: <https://stairlab.github.io/opensees-gallery/examples/shellframe/ShellFrame_hu5013315635971397841.png>
 
-[glry-0005]: <https://raw.githubusercontent.com/STAIRlab/sees/master/docs/figures/shellframe01.png>
-[view-0005]: <https://raw.githubusercontent.com/STAIRlab/sees/master/docs/figures/shellframe01.png>
+[glry-0005]: <https://raw.githubusercontent.com/STAIRlab/veux/master/docs/figures/shellframe01.png>
+[view-0005]: <https://raw.githubusercontent.com/STAIRlab/veux/master/docs/figures/shellframe01.png>
 
 ## Getting Started
 
-To install `sees` run:
+To install `veux` run:
 
 ```shell
-pip install sees
+pip install veux
 ```
 
 ### Command Line Interface
@@ -81,7 +81,7 @@ pip install sees
 To create a rendering, execute the following command from the anaconda prompt (after activating the appropriate environment):
 
 ```shell
-python -m sees model.json -o model.html
+python -m veux model.json -o model.html
 ```
 
 where `model.json` is a JSON file generated from executing the following OpenSees command:
@@ -108,13 +108,13 @@ you can directly render a Tcl script without first printing to JSON,
 by just passing a Tcl script instead of the JSON file:
 
 ```shell
-python -m sees model.tcl -o model.html
+python -m veux model.tcl -o model.html
 ```
 
 To plot an elevation (`elev`) plan (`plan`) or section (`sect`) view, run:
 
 ```shell
-python -m sees model.json --view elev
+python -m veux model.json --view elev
 ```
 
 and add `-o <file.extension>` as appropriate.
@@ -122,7 +122,7 @@ and add `-o <file.extension>` as appropriate.
 To see the help page run
 
 ```shell
-python -m sees --help
+python -m veux --help
 ```
 
 
@@ -140,7 +140,7 @@ See also
 - [`sdof`](https://pypi.org/project/sdof)
 
 
-The `sees` packages was used to generate figures for the following publications:
+The `veux` packages was used to generate figures for the following publications:
 
 - *On nonlinear geometric transformations of finite elements* [doi: 10.1002/nme.7506](https://doi.org/10.1002/nme.7506)
 
@@ -163,21 +163,21 @@ Other
   <td>
     <a href="https://peer.berkeley.edu">
     <img src="https://raw.githubusercontent.com/claudioperez/sdof/master/docs/assets/peer-black-300.png"
-         alt="PEER Logo" width="200"/>
+         alt="PEER Logo" width="100"/>
     </a>
   </td>
 
   <td>
     <a href="https://dot.ca.gov/">
     <img src="https://raw.githubusercontent.com/claudioperez/sdof/master/docs/assets/Caltrans.svg.png"
-         alt="Caltrans Logo" width="200"/>
+         alt="Caltrans Logo" width="100"/>
     </a>
   </td>
 
   <td>
-    <a href="https://brace2.herokuapp.com">
+    <a href="https://stairlab.berkeley.edu/software/">
     <img src="https://raw.githubusercontent.com/claudioperez/sdof/master/docs/assets/stairlab.svg"
-         alt="STAIRlab Logo" width="200"/>
+         alt="STAIRlab Logo" width="100"/>
     </a>
   </td>
  
