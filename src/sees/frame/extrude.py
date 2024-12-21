@@ -35,6 +35,9 @@ def draw_extrusions(model, canvas, state=None, config=None):
         }
 
     I = 0
+    # Track outlines with excessive edges (eg, circles) to later avoid showing
+    # their edges
+    no_outline = set()
     for i,el in enumerate(model["assembly"].values()):
 
         outline = model.cell_section(el["name"])
@@ -51,7 +54,7 @@ def draw_extrusions(model, canvas, state=None, config=None):
             X = shps.curve.displace(el["crd"], glob_displ, nen).T
             R = state.cell_array(el["name"], state.rotation)
         else:
-            outline = outline*0.98
+            outline = outline*0.99
             X = np.array(el["crd"])
             R = [model.frame_orientation(el["name"]).T]*nen
 
@@ -59,10 +62,11 @@ def draw_extrusions(model, canvas, state=None, config=None):
         # Loop over sample points along element length to assemble
         # `coord` and `triang` arrays
         for j in range(nen):
+            outline = model.cell_section(el["name"], j) # TODO: Pass float between 0 and 1
             # Loop over section edges
             for k,edge in enumerate(outline):
                 # Append rotated section coordinates to list of coordinates
-                coords.append(X[j, :] + R[j]@[0, *edge])
+                coords.append(X[j, :] + R[j]@edge)
                 locoor.append(
                              [ (j+0)/nen+0.1,  0.1+(k+0)/(noe+0) ]
                 )
@@ -84,6 +88,10 @@ def draw_extrusions(model, canvas, state=None, config=None):
                         [      I + noe*j, I + noe*(j-1), I+noe*(j-1) + k]
                     ])
 
+                if len(outline) > 20:
+                    no_outline.add(len(triang)-1)
+                    no_outline.add(len(triang)-2)
+
         I += nen*noe
 
     triang = [list(reversed(i)) for i in triang]
@@ -103,6 +111,7 @@ def draw_extrusions(model, canvas, state=None, config=None):
 
     triang = [list(reversed(i)) for i in triang]
 
+
     nan = np.zeros(ndm)*np.nan
     coords = np.array(coords)
     if "tran" in config["outline"]:
@@ -113,7 +122,7 @@ def draw_extrusions(model, canvas, state=None, config=None):
     elif "long" in config["outline"]:
         tri_points = np.array([
             coords[i]  if j%2 else nan
-            for j,idx in enumerate(np.array(triang)) for i in idx[IDX[j%2]]
+            for j,idx in enumerate(np.array(triang)) for i in idx[IDX[j%2]] if j not in no_outline
         ])
     else:
         return

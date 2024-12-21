@@ -113,9 +113,10 @@ class Model:
 
 
 class FrameModel:
-    def __init__(self, sam:dict, shift = None, rot=None, **kwds):
+    def __init__(self, sam:dict, shift = None, rot=None,
+                 frame_outlines=None, **kwds):
 
-        self._frame_outlines = None
+        self._frame_outlines  = frame_outlines
         self._extrude_default = _OUTLINES[kwds.get("extrude_default", "square")]
         self._extrude_outline = _OUTLINES[kwds.get("extrude_outline", None)]
         self._extrude_scale   = kwds.get("extrude_scale",   1.0)
@@ -359,19 +360,45 @@ class FrameModel:
     def add_hook():
         pass
 
-    def cell_section(self, tag):
+    def cell_section(self, tag, coord=None):
         if not _is_frame(self["assembly"][tag]):
             return None
 
         if self._frame_outlines is None:
             self._frame_outlines = _get_frame_outlines(self)
 
+
         if self._extrude_outline is not None:
-            return self._extrude_outline*self._extrude_scale
+            outline = self._extrude_outline*self._extrude_scale
+
         elif tag in self._frame_outlines:
-            return self._frame_outlines[tag]
+            outline = self._frame_outlines[tag]
+
         else:
-            return self._extrude_default
+            outline = self._extrude_default
+
+
+        # Interpolate coord
+        if len(outline.shape) > 2:
+            def interpolate(values, x):
+                n = len(values) - 1
+                idx = np.clip(int(x * n), 0, n - 1)  # Find the lower bound index
+                t = x * n - idx  # Fractional part for interpolation
+                return (1 - t) * values[idx] + t * values[idx + 1]
+
+            if coord is None:
+                coord = 0.5
+
+            outline = interpolate(outline, coord)
+
+
+        # 3D
+        if outline.shape[1] == 2:
+            outline_3d = np.zeros((outline.shape[0], 3))
+            outline_3d[:,1:] = outline
+            return outline_3d
+
+        return outline
 
 
 def _from_opensees(sam: dict, shift, R):
